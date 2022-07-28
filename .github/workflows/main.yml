@@ -12,9 +12,7 @@ on:
         - uses: actions/checkout@v2
 
         - name: Compile Assets
-            run: |
-            npm install
-            npm run prod
+            run: npm install && npm run prod
 
         - name: Configure PHP
             uses: shivammathur/setup-php@master
@@ -22,9 +20,7 @@ on:
             php-version: 8.0
 
         - name: Configure Composer
-            run: |
-            composer update
-            composer install --optimize-autoloader --no-dev --no-interaction --prefer-dist
+            run: composer update && composer install --optimize-autoloader --no-dev --no-interaction --prefer-dist
 
         - name: Create Deployment archive
             env:
