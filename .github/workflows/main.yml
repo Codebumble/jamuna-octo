@@ -3,124 +3,125 @@ name: Deploy Application
 on:
   push:
     branch: [main]
-        jobs:
-        create-deployment-environment:
-            name: Create Deployment Environment
-            runs-on: ubuntu-latest
-            steps:
-            - uses: actions/checkout@v2
 
-            - name: Compile Assets
-                run: |
-                npm install
-                npm run prod
+    jobs:
+    create-deployment-environment:
+        name: Create Deployment Environment
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
 
-            - name: Configure PHP
-                uses: shivammathur/setup-php@master
-                with:
-                php-version: 8.0
+        - name: Compile Assets
+            run: |
+            npm install
+            npm run prod
 
-            - name: Configure Composer
-                run: |
-                composer update
-                composer install --optimize-autoloader --no-dev --no-interaction --prefer-dist
+        - name: Configure PHP
+            uses: shivammathur/setup-php@master
+            with:
+            php-version: 8.0
 
-            - name: Create Deployment archive
-                env:
-                GITHUB_SHA: ${{ github.sha }}
-                run: tar -czf "${GITHUB_SHA}".tar.gz --exclude=*.git --exclude=node_modules *
+        - name: Configure Composer
+            run: |
+            composer update
+            composer install --optimize-autoloader --no-dev --no-interaction --prefer-dist
 
-            - name: Store archive for distribution
-                uses: actions/upload-artifact@v2
-                with:
-                name: app-build
-                path: ${{github.sha}}.tar.gz
+        - name: Create Deployment archive
+            env:
+            GITHUB_SHA: ${{ github.sha }}
+            run: tar -czf "${GITHUB_SHA}".tar.gz --exclude=*.git --exclude=node_modules *
 
-        prepare-release-on-server:
-            name: Prepare release on server
-            runs-on: ubuntu-latest
-            needs: create-deployment-environment
-            steps:
-            - uses: actions/download-artifact@v2
-                with:
-                name: app-build
+        - name: Store archive for distribution
+            uses: actions/upload-artifact@v2
+            with:
+            name: app-build
+            path: ${{github.sha}}.tar.gz
 
-            - name: Upload
-                uses: appleboy/scp-action@master
-                with:
-                host: ${{ SECRETS.CP_HOST }}
-                username: ${{ SECRETS.CP_USERNAME }}
-                password: ${{ SECRETS.CP_PASSWORD }}
-                source: ${{github.sha}}.tar.gz
-                target: jamuna.codebumble.net
+    prepare-release-on-server:
+        name: Prepare release on server
+        runs-on: ubuntu-latest
+        needs: create-deployment-environment
+        steps:
+        - uses: actions/download-artifact@v2
+            with:
+            name: app-build
 
-            - name: Extract archive and create directory
-                uses: appleboy/ssh-action@master
-                env:
-                GITHUB_SHA: ${{ github.sha }}
-                with:
-                host: ${{ SECRETS.CP_HOST }}
-                username: ${{ SECRETS.CP_USERNAME }}
-                password: ${{ SECRETS.CP_PASSWORD }}
-                envs: GITHUB_SHA
-                script: |
-                    tar xzf jamuna.codebumble.net/${GITHUB_SHA}.tar.gz -C "jamuna.codebumble.net"
+        - name: Upload
+            uses: appleboy/scp-action@master
+            with:
+            host: ${{ SECRETS.CP_HOST }}
+            username: ${{ SECRETS.CP_USERNAME }}
+            password: ${{ SECRETS.CP_PASSWORD }}
+            source: ${{github.sha}}.tar.gz
+            target: jamuna.codebumble.net
 
-        active-release:
-            name: Codebumble Server 1 - Active Release
-            runs-on: ubuntu-latest
-            needs: [create-deployment-environment, prepare-release-on-server]
-            steps:
-            - name: Active Release
-                uses: appleboy/ssh-action@master
-                env:
-                GITHUB_SHA: ${{github.sha}}
-                BASE_PATH: jamuna.codebumble.net
-                ENV: ${{ SECRETS.ENV }}
-                with:
-                host: ${{ SECRETS.CP_HOST }}
-                username: ${{ SECRETS.CP_USERNAME }}
-                password: ${{ SECRETS.CP_PASSWORD }}
-                envs: GITHUB_SHA,BASE_PATH,ENV
-                script: |
-                    echo ${GITHUB_SHA}
-                    printf "%s" "$ENV" > "${BASE_PATH}/.env"
-                    printf "%s" "${GITHUB_SHA}" > "${BASE_PATH}/${GITHUB_SHA}.txt"
+        - name: Extract archive and create directory
+            uses: appleboy/ssh-action@master
+            env:
+            GITHUB_SHA: ${{ github.sha }}
+            with:
+            host: ${{ SECRETS.CP_HOST }}
+            username: ${{ SECRETS.CP_USERNAME }}
+            password: ${{ SECRETS.CP_PASSWORD }}
+            envs: GITHUB_SHA
+            script: |
+                tar xzf jamuna.codebumble.net/${GITHUB_SHA}.tar.gz -C "jamuna.codebumble.net"
 
-        migrating-db:
-            name: Migrating Database
-            runs-on: ubuntu-latest
-            needs:
-            [create-deployment-environment, prepare-release-on-server, active-release]
-            steps:
-            - name: Migration Init
-                uses: appleboy/ssh-action@master
-                env:
-                BASE_PATH: jamuna.codebumble.net
-                ARTISAN_MIGRATE: ${{ SECRETS.ARTISAN_MIGRATE }}
-                with:
-                envs: BASE_PATH,ARTISAN_MIGRATE
-                host: ${{ SECRETS.CP_HOST }}
-                username: ${{ SECRETS.CP_USERNAME }}
-                password: ${{ SECRETS.CP_PASSWORD }}
-                script: |
-                    cd ${BASE_PATH} && ${ARTISAN_MIGRATE}
+    active-release:
+        name: Codebumble Server 1 - Active Release
+        runs-on: ubuntu-latest
+        needs: [create-deployment-environment, prepare-release-on-server]
+        steps:
+        - name: Active Release
+            uses: appleboy/ssh-action@master
+            env:
+            GITHUB_SHA: ${{github.sha}}
+            BASE_PATH: jamuna.codebumble.net
+            ENV: ${{ SECRETS.ENV }}
+            with:
+            host: ${{ SECRETS.CP_HOST }}
+            username: ${{ SECRETS.CP_USERNAME }}
+            password: ${{ SECRETS.CP_PASSWORD }}
+            envs: GITHUB_SHA,BASE_PATH,ENV
+            script: |
+                echo ${GITHUB_SHA}
+                printf "%s" "$ENV" > "${BASE_PATH}/.env"
+                printf "%s" "${GITHUB_SHA}" > "${BASE_PATH}/${GITHUB_SHA}.txt"
 
-        clean-up:
-            name: Cleaning Up Artifacts
-            runs-on: ubuntu-latest
-            needs: [
-                create-deployment-environment,
-                prepare-release-on-server,
-                active-release,
-                migrating-db,
-            ]
-            steps:
-            - name: Clean up server junk
-                uses: appleboy/ssh-action@master
-                with:
-                host: ${{ SECRETS.CP_HOST }}
-                username: ${{ SECRETS.CP_USERNAME }}
-                password: ${{ SECRETS.CP_PASSWORD }}
-                script: |
-                    rm -rf jamuna.codebumble.net/${{github.sha}}.tar.gz
+    migrating-db:
+        name: Migrating Database
+        runs-on: ubuntu-latest
+        needs:
+        [create-deployment-environment, prepare-release-on-server, active-release]
+        steps:
+        - name: Migration Init
+            uses: appleboy/ssh-action@master
+            env:
+            BASE_PATH: jamuna.codebumble.net
+            ARTISAN_MIGRATE: ${{ SECRETS.ARTISAN_MIGRATE }}
+            with:
+            envs: BASE_PATH,ARTISAN_MIGRATE
+            host: ${{ SECRETS.CP_HOST }}
+            username: ${{ SECRETS.CP_USERNAME }}
+            password: ${{ SECRETS.CP_PASSWORD }}
+            script: |
+                cd ${BASE_PATH} && ${ARTISAN_MIGRATE}
+
+    clean-up:
+        name: Cleaning Up Artifacts
+        runs-on: ubuntu-latest
+        needs: [
+            create-deployment-environment,
+            prepare-release-on-server,
+            active-release,
+            migrating-db,
+        ]
+        steps:
+        - name: Clean up server junk
+            uses: appleboy/ssh-action@master
+            with:
+            host: ${{ SECRETS.CP_HOST }}
+            username: ${{ SECRETS.CP_USERNAME }}
+            password: ${{ SECRETS.CP_PASSWORD }}
+            script: |
+                rm -rf jamuna.codebumble.net/${{github.sha}}.tar.gz
