@@ -40,6 +40,15 @@ Route::group(['prefix' => 'dashboard'], function () {
 });
 /* Route Dashboards */
 
+Route::group(['prefix' => 'admin', ], function () {
+    Route::get('profile-account', [AppsController::class, 'user_view_account'])->name('profile-account');
+    Route::get('profile-security', [AppsController::class, 'user_view_security'])->name('profile-security');
+    Route::get('profile-billing', [AppsController::class, 'user_view_billing'])->name('profile-billing');
+    Route::get('profile-notification', [AppsController::class, 'user_view_notifications'])->name('profile-notification');
+    Route::get('profile-connections', [AppsController::class, 'user_view_connections'])->name('app-user-view-connections');
+
+});
+
 /* Route Apps */
 Route::group(['prefix' => 'app'], function () {
     Route::get('email', [AppsController::class, 'emailApp'])->name('app-email');
@@ -208,10 +217,15 @@ Route::get('/modal-examples', [PagesController::class, 'modal_examples'])->name(
 /* Route Pages */
 Route::get('/error', [MiscellaneousController::class, 'error'])->name('error');
 
+Route::group(['prefix' => 'codebumble'], function () {
+    Route::post('/login', [AuthController::class, 'login'])->name('auth-login-api');
+
+});
+
 /* Route Authentication Pages */
 Route::group(['prefix' => 'auth'], function () {
     Route::get('login', [AuthenticationController::class, 'login'])->name('auth-login');
-    Route::post('/login', [AuthController::class, 'login'])->name('auth-login');
+    
     Route::get('register', [AuthenticationController::class, 'register'])->name('auth-register');
     Route::get('forgot-password', [AuthenticationController::class, 'forgot_password'])->name('auth-forgot-password');
     Route::get('reset-password', [AuthenticationController::class, 'reset_password'])->name('auth-reset-password');
