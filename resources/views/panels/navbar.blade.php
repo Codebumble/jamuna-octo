@@ -338,11 +338,18 @@
             @if (Auth::check())
               {{ Auth::user()->name }}
             @else
-              John Doe
+              @php
+                header("Location: " . route('auth-login'), true, 302);
+                exit();
+              @endphp
             @endif
           </span>
           <span class="user-status">
-            Admin
+            @if (Auth::check())
+              {{ Auth::user()->designation }}
+            @else
+              Guest
+            @endif
           </span>
         </div>
         <span class="avatar">

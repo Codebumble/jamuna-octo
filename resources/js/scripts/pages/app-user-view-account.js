@@ -376,7 +376,7 @@ $(function () {
         $(document).find('[data-bs-toggle="tooltip"]').tooltip();
       }
     });
-    $('div.head-label').html('<h4 class="card-title">Invoices</h4>');
+    $('div.head-label').html('<h4 class="card-title">User List</h4>');
   }
 
   // Filter form control to default size
