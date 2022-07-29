@@ -31,7 +31,7 @@ $configData = Helper::applClasses();
               </g>
             </svg>
           </span>
-          <h2 class="brand-text">Vuexy</h2>
+          <h3 class="brand-text">{{ env("APP_NAME")}}</h3>
         </a>
       </li>
       <li class="nav-item nav-toggle">

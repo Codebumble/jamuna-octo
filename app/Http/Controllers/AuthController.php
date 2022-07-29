@@ -47,12 +47,20 @@ class AuthController extends Controller
 
     public function login(Request $request){
         $request->validate([
-            'email' => 'required|string|email',
+            'login' => 'required|string',
             'password' => 'required|string',
             'remember_me' => 'boolean'
         ]);
 
-        if(Auth::attempt($request->only('email', 'password'))){
+        $login_type = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL ) 
+        ? 'email' 
+        : 'username';
+
+    $request->merge([
+        $login_type => $request->input('login')
+    ]);
+
+        if(Auth::attempt($request->only($login_type, 'password'))){
             $user = Auth::user();
             // return response()->json([
             //     'message' => 'Successfully logged in! Redirecting',

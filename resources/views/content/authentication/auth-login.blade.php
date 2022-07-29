@@ -40,12 +40,12 @@
         @csrf
         <div val="{{session()->get('success')}}"></div>
           <div class="mb-1">
-            <label for="login-email" class="form-label">Email</label>
+            <label for="login-email" class="form-label">Username or Email</label>
             <input
               type="text"
               class="form-control"
               id="login-email"
-              name="email"
+              name="login"
               placeholder="john@example.com"
               aria-describedby="login-email"
               tabindex="1"

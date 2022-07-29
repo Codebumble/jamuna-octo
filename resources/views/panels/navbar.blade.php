@@ -38,7 +38,7 @@
                   </g>
                 </g>
               </svg></span>
-            <h2 class="brand-text mb-0">Vuexy</h2>
+            <h3 class="brand-text mb-0">{{ env("APP_NAME")}}</h3>
           </a>
         </li>
       </ul>
