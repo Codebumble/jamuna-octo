@@ -40,6 +40,15 @@ Route::group(['prefix' => 'dashboard'], function () {
 });
 /* Route Dashboards */
 
+Route::group(['prefix' => 'admin', ], function () {
+    Route::get('profile-account', [AppsController::class, 'user_view_account'])->name('profile-account');
+    Route::get('profile-security', [AppsController::class, 'user_view_security'])->name('profile-security');
+    Route::get('profile-billing', [AppsController::class, 'user_view_billing'])->name('profile-billing');
+    Route::get('profile-notification', [AppsController::class, 'user_view_notifications'])->name('profile-notification');
+    Route::get('profile-connections', [AppsController::class, 'user_view_connections'])->name('app-user-view-connections');
+
+});
+
 /* Route Apps */
 Route::group(['prefix' => 'app'], function () {
     Route::get('email', [AppsController::class, 'emailApp'])->name('app-email');

@@ -356,7 +356,7 @@
         <h6 class="dropdown-header">Manage Profile</h6>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item"
-          href="{{ Route::has('profile.show') ? route('profile.show') : 'javascript:void(0)' }}">
+          href="{{ Route::has('profile-account') ? route('profile-account') : 'javascript:void(0)' }}">
           <i class="me-50" data-feather="user"></i> Profile
         </a>
         @if (Auth::check() && Laravel\Jetstream\Jetstream::hasApiFeatures())
