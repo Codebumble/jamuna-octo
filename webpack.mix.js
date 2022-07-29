@@ -84,6 +84,15 @@ mix
     extractStyles: true,
   })
   .sass('resources/frontend/scss/app.scss', 'public/frontend/css')
+  .options({
+    processCssUrls: true,
+    postCss: ['autoprefixer'],
+    autoprefixer: {
+        options: {
+            browsers: ['last 2 versions'],
+        }
+    }
+})
 
 mix.then(() => {
   if (process.env.MIX_CONTENT_DIRECTION === 'rtl') {

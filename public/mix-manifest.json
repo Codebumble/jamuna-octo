@@ -2,8 +2,8 @@
     "/js/core/app-menu.js": "/js/core/app-menu.js",
     "/js/core/app.js": "/js/core/app.js",
     "/js/core/scripts.js": "/js/core/scripts.js",
-    "/frontend/app.css": "/frontend/app.css",
     "/frontend/app.js": "/frontend/app.js",
+    "/frontend/css/app.css": "/frontend/css/app.css",
     "/css/base/plugins/extensions/ext-component-media-player.css": "/css/base/plugins/extensions/ext-component-media-player.css",
     "/css/base/plugins/extensions/ext-component-drag-drop.css": "/css/base/plugins/extensions/ext-component-drag-drop.css",
     "/css/base/plugins/extensions/ext-component-context-menu.css": "/css/base/plugins/extensions/ext-component-context-menu.css",
@@ -1441,6 +1441,5 @@
     "/data/projects-list.json": "/data/projects-list.json",
     "/data/search.json": "/data/search.json",
     "/data/table-datatable.json": "/data/table-datatable.json",
-    "/data/user-list.json": "/data/user-list.json",
-    "/frontend/css/app.css": "/frontend/css/app.css"
+    "/data/user-list.json": "/data/user-list.json"
 }
