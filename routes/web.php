@@ -16,6 +16,7 @@ use App\Http\Controllers\MiscellaneousController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ use App\Http\Controllers\AuthController;
 */
 
 // Main Page Route
-Route::get('/', [DashboardController::class, 'dashboardEcommerce'])->name('dashboard-ecommerce');
+Route::get('/', [FrontendController::class, 'home'])->name('home');
 
 
 /* Route Dashboards */
@@ -225,7 +226,7 @@ Route::group(['prefix' => 'codebumble'], function () {
 /* Route Authentication Pages */
 Route::group(['prefix' => 'auth'], function () {
     Route::get('login', [AuthenticationController::class, 'login'])->name('auth-login');
-    
+
     Route::get('register', [AuthenticationController::class, 'register'])->name('auth-register');
     Route::get('forgot-password', [AuthenticationController::class, 'forgot_password'])->name('auth-forgot-password');
     Route::get('reset-password', [AuthenticationController::class, 'reset_password'])->name('auth-reset-password');
