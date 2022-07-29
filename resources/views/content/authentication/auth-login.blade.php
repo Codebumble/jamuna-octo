@@ -1,6 +1,6 @@
 @extends('layouts/fullLayoutMaster')
 
-@section('title', 'Jamuna Admin Page')
+@section('title', 'Login Page')
 
 @section('page-style')
   {{-- Page Css files --}}
@@ -15,10 +15,10 @@
     <div class="card mb-0">
       <div class="card-body">
         <a href="#" class="brand-logo">
-          <h2 class="brand-text text-primary ms-1">Jamuna Group</h2>
+          <h2 class="brand-text text-primary ms-1">{{env("APP_NAME")}}</h2>
         </a>
 
-        <h4 class="card-title mb-1 text-center">Welcome to Jamuna Group! 👋</h4>
+        <h4 class="card-title mb-1 text-center">Welcome to {{env("APP_NAME")}}! 👋</h4>
 
         @if (session()->get('success') == "false")
             <div class="demo-spacing-0">
@@ -36,8 +36,9 @@
             </div>
         @endif
 
-        <form class="auth-login-form mt-2" action="{{url('auth/login')}}" method="POST">
+        <form class="auth-login-form mt-2" action="{{route('auth-login-api')}}" method="POST">
         @csrf
+        <div val="{{session()->get('success')}}"></div>
           <div class="mb-1">
             <label for="login-email" class="form-label">Email</label>
             <input

@@ -208,10 +208,15 @@ Route::get('/modal-examples', [PagesController::class, 'modal_examples'])->name(
 /* Route Pages */
 Route::get('/error', [MiscellaneousController::class, 'error'])->name('error');
 
+Route::group(['prefix' => 'codebumble'], function () {
+    Route::post('/login', [AuthController::class, 'login'])->name('auth-login-api');
+
+});
+
 /* Route Authentication Pages */
 Route::group(['prefix' => 'auth'], function () {
     Route::get('login', [AuthenticationController::class, 'login'])->name('auth-login');
-    Route::post('/login', [AuthController::class, 'login'])->name('auth-login');
+    
     Route::get('register', [AuthenticationController::class, 'register'])->name('auth-register');
     Route::get('forgot-password', [AuthenticationController::class, 'forgot_password'])->name('auth-forgot-password');
     Route::get('reset-password', [AuthenticationController::class, 'reset_password'])->name('auth-reset-password');
