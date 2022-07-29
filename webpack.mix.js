@@ -79,6 +79,20 @@ mix
   .sass('resources/scss/base/custom-rtl.scss', 'public/css-rtl', { sassOptions })
   .sass('resources/assets/scss/style-rtl.scss', 'public/css-rtl', { sassOptions })
   .sass('resources/assets/scss/style.scss', 'public/css', { sassOptions })
+  .js('resources/frontend/app.js', 'public/frontend')
+  .vue({
+    extractStyles: true,
+  })
+  .sass('resources/frontend/scss/app.scss', 'public/frontend/css')
+  .options({
+    processCssUrls: true,
+    postCss: ['autoprefixer'],
+    autoprefixer: {
+        options: {
+            browsers: ['last 2 versions'],
+        }
+    }
+})
 
 mix.then(() => {
   if (process.env.MIX_CONTENT_DIRECTION === 'rtl') {
