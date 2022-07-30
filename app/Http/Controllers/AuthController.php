@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Validator;
+use DB;
 
 class AuthController extends Controller
 {
@@ -95,5 +96,28 @@ class AuthController extends Controller
         return response()->json([
         'message' => 'Successfully logged out'
         ]);
+    }
+
+    public function under_ref(Request $request){
+        $auth = Auth::user();
+        $users = DB::select('select id,name,avatar,email,username,role,json_data from users where under_ref=?', [$auth->username]);
+
+        foreach($users as $user){
+            $user_decode= json_decode($user->json_data);
+            $status = $user_decode->status;
+            if ($status == "Pending"){
+                $status = 0; 
+            } else if($status == "Active"){
+                $status = 1;
+            } else if ($status == "Inactive"){
+                $status = 2;
+            }
+            $user->json_data = $status;
+           
+        }
+        
+        return json_encode(["data"=>$users]);
+
+
     }
 }

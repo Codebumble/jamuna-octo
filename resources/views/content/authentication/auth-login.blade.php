@@ -10,6 +10,12 @@
 
 @section('content')
 <div class="auth-wrapper auth-basic px-2">
+            @if (Auth::check())
+              @php
+                header("Location: " . route('profile-account'), true, 302);
+                exit();
+              @endphp
+            @endif
   <div class="auth-inner my-2">
     <!-- Login basic -->
     <div class="card mb-0">

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class AppsController extends Controller
 {
@@ -57,7 +60,10 @@ class AppsController extends Controller
     public function user_view_account()
     {
         $pageConfigs = ['pageHeader' => false];
-        return view('/content/apps/user/app-user-view-account', ['pageConfigs' => $pageConfigs]);
+        $auth = Auth::user();
+        $users = DB::select('select count(*) as sub_user from users where under_ref=?', [$auth->username]);
+        $user_active = DB::select('select count(*) as sub_active from users where json_data LIKE \'%\"status\":\"Active\"%\' and under_ref=?', [$auth->username]);
+        return view('/content/apps/user/app-user-view-account', ['pageConfigs' => $pageConfigs, 'sub_users' => $users, 'active' => $user_active]);
     }
 
     // User Security Page

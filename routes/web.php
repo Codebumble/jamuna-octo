@@ -43,6 +43,12 @@ Route::group(['prefix' => 'dashboard'], function () {
 
 Route::group(['prefix' => 'admin', ], function () {
     Route::get('profile-account', [AppsController::class, 'user_view_account'])->name('profile-account');
+    
+    Route::group(['middleware' => 'auth:sanctum'], function(){
+        Route::get('logout', [AuthController::class, 'logout']);
+        Route::get('user', [AuthController::class, 'user']);
+        Route::get('profile-account-under-user', [AuthController::class, 'under_ref'])->name('profile-account-under-user');
+    });
     Route::get('profile-security', [AppsController::class, 'user_view_security'])->name('profile-security');
     Route::get('profile-billing', [AppsController::class, 'user_view_billing'])->name('profile-billing');
     Route::get('profile-notification', [AppsController::class, 'user_view_notifications'])->name('profile-notification');
