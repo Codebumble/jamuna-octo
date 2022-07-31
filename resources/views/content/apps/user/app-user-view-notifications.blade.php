@@ -170,22 +170,7 @@
             <span class="fw-bold">Security</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{asset('app/user/view/billing')}}">
-            <i data-feather="bookmark" class="font-medium-3 me-50"></i>
-            <span class="fw-bold">Billing & Plans</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="{{asset('app/user/view/notifications')}}">
-            <i data-feather="bell" class="font-medium-3 me-50"></i><span class="fw-bold">Notifications</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{asset('app/user/view/connections')}}">
-            <i data-feather="link" class="font-medium-3 me-50"></i><span class="fw-bold">Connections</span>
-          </a>
-        </li>
+        
       </ul>
       <!--/ User Pills -->
 

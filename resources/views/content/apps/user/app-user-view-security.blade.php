@@ -132,22 +132,6 @@
             <span class="fw-bold">Security</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{asset('app/user/view/billing')}}">
-            <i data-feather="bookmark" class="font-medium-3 me-50"></i>
-            <span class="fw-bold">Billing & Plans</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{asset('app/user/view/notifications')}}">
-            <i data-feather="bell" class="font-medium-3 me-50"></i><span class="fw-bold">Notifications</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{asset('app/user/view/connections')}}">
-            <i data-feather="link" class="font-medium-3 me-50"></i><span class="fw-bold">Connections</span>
-          </a>
-        </li>
       </ul>
       <!--/ User Pills -->
 
@@ -230,32 +214,8 @@
       <!--/ Change Password -->
 
       <!-- Two-steps verification -->
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title mb-50">Two-steps verification</h4>
-          <span>Keep your account secure with authentication step.</span>
-          <h6 class="fw-bolder mt-2">SMS</h6>
-          <div class="d-flex justify-content-between border-bottom mb-1 pb-1">
-            <span>+1(968) 945-8832</span>
-            <div class="action-icons">
-              <a
-                href="javascript:void(0)"
-                class="text-body me-50"
-                data-bs-target="#twoFactorAuthModal"
-                data-bs-toggle="modal"
-              >
-                <i data-feather="edit" class="font-medium-3"></i>
-              </a>
-              <a href="javascript:void(0)" class="text-body"><i data-feather="trash" class="font-medium-3"></i></a>
-            </div>
-          </div>
-          <p class="mb-0">
-            Two-factor authentication adds an additional layer of security to your account by requiring more than just a
-            password to log in.
-            <a href="javascript:void(0);" class="text-body">Learn more.</a>
-          </p>
-        </div>
-      </div>
+      
+
       <!--/ Two-steps verification -->
 
       <!-- recent device -->

@@ -153,34 +153,16 @@
           "icon": "circle",
           "slug": "app-user-list"
         },{
-          "url": "app/user/view/account",
+          "url": "admin/profile-account",
           "name": "Account",
           "icon": "circle",
-          "slug": "app-user-view-account"
+          "slug": "profile-account"
         },
         {
-          "url": "app/user/view/security",
+          "url": "admin/profile-security",
           "name": "Security",
           "icon": "circle",
-          "slug": "app-user-view-security"
-        },
-        {
-          "url": "app/user/view/billing",
-          "name": "Billings & Plans",
-          "icon": "circle",
-          "slug": "app-user-view-billing"
-        },
-        {
-          "url": "app/user/view/notifications",
-          "name": "Notifications",
-          "icon": "circle",
-          "slug": "app-user-view-notifications"
-        },
-        {
-          "url": "app/user/view/connections",
-          "name": "Connections",
-          "icon": "circle",
-          "slug": "app-user-view-connections"
+          "slug": "profile-security"
         }
       ]
     },

@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Validator;
 use DB;
+use Sinergi\BrowserDetector\Browser;
+use Sinergi\BrowserDetector\Os;
 
 class AuthController extends Controller
 {
@@ -100,6 +102,10 @@ class AuthController extends Controller
             //     'message' => 'Successfully logged in! Redirecting',
             // ],200);
 
+            $os= new Os();
+            $browser = new Browser();
+            
+            $updated = DB::table('codebumble_login_table')->insert(['username' => $user->username, 'ip' => $request->ip(), 'browser' => $browser->getBrowser(), 'browser_full' => $browser->getBrowser().' '.$browser->getVersion(), 'os' => $browser->platform, 'date' => date('d-M, Y'), 'time' => date('h:i a')]);
             return redirect()->route('dashboard-ecommerce')->with('success', 'Successfully logged in!');
 
         }else{
@@ -136,7 +142,7 @@ class AuthController extends Controller
             'password' => 'required|string',
             'confirm_password' => 'required|string',
         ]);
-        
+
         if(Auth::check()){
         $user = User::where('username', Auth::user()->username)->first();
 
