@@ -37,6 +37,38 @@ class AuthController extends Controller
         }
     }
 
+    public function user_edit(Request $request){
+        $field=$request->validate([
+            'name' => 'required|string',
+            'gender' => 'required|string',
+            'designation' => 'required|string',
+            'phone_number' => 'required|string',
+            'address' => 'required|string',
+            'country' => 'required|string',
+            'date_of_birth' => 'required|string',
+            'city' => 'required|string',
+        ]);
+        $json_data = json_decode(Auth::user()->json_data);
+
+        $json_data->gender = $field['gender'];
+        $json_data->date_of_birth = $field['date_of_birth'];
+        $json_data->phone_number = $field['phone_number'];
+        $json_data->address = $field['address'];
+        $json_data->address = $field['city'];
+        $json_data->country = $field['country'];
+        
+        
+
+        if(Auth::check()){
+            $username = DB::table('users')->where('username', Auth::user()->username)->update(['name' => $field['name'], 'designation' => $field['designation'], 'json_data' => json_encode($json_data)]);
+
+            return redirect()->route('profile-account', ['status' => 'Updated']);
+            
+        } else {
+            return redirect()->route('auth-login', ['status' => 'Please Login. Session Dropped for Long Use.']);
+        }
+
+    }
 
     /**
     * Login user and create token

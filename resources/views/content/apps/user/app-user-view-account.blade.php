@@ -59,12 +59,12 @@
               </div>
             </div>
             <div class="d-flex align-items-start">
-              <span class="badge bg-light-primary p-75 rounded">
-                <i data-feather="briefcase" class="font-medium-2"></i>
+              <span class="badge bg-light-success p-75 rounded">
+                <i data-feather="zap" class="font-medium-2"></i>
               </span>
               <div class="ms-75">
-                <h4 class="mb-0">568</h4>
-                <small>Projects Done</small>
+                <h4 class="mb-0">{{json_decode($auther['json_data'])->gender}}</h4>
+                <small>Gender</small>
               </div>
             </div>
           </div>
@@ -110,7 +110,10 @@
               <a href="javascript:;" class="btn btn-primary me-1" data-bs-target="#editUser" data-bs-toggle="modal">
                 Edit
               </a>
-              <a href="javascript:;" class="btn btn-outline-danger suspend-user">Suspended</a>
+              <a href="{{ route('logout')}}" class="btn btn-outline-danger" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log Out</a>
+              <form method="POST" id="logout-form" action="{{ route('logout') }}">
+            @csrf
+          </form>
             </div>
           </div>
         </div>

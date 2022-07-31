@@ -11,7 +11,8 @@
           <p>Updating user details will receive a privacy audit.</p>
         </div>
         
-        <form id="editUserForm" class="row gy-1 pt-75" onsubmit="return false">
+        <form id="editUserForm" class="row gy-1 pt-75" action="{{route('profile-account-edit')}}" method="POST">
+        @csrf
           <div class="col-12">
             <label class="form-label" for="modalEditUserName">Username</label>
             <input
@@ -25,11 +26,11 @@
             />
           </div>
           <div class="col-12">
-            <label class="form-label" for="modalEditUserName">Full Name</label>
+            <label class="form-label" for="modalEditFullName">Full Name</label>
             <input
               type="text"
               id="modalEditFullName"
-              name="modalEditFullName"
+              name="name"
               class="form-control"
               value="{{$auther->name}}"
               placeholder="John Doe"
@@ -49,10 +50,10 @@
             />
           </div>
           <div class="col-12 col-md-6">
-            <label class="form-label" for="modalEditUserEmail">Gender:</label>
+            <label class="form-label" for="modalEditUserGender">Gender:</label>
             <select
               id="modalEditUserGender"
-              name="modalEditUserGender"
+              name="gender"
               class="form-select"
               aria-label="Default select example"
             >
@@ -66,15 +67,15 @@
           $b = json_decode($auther['json_data'])->date_of_birth;
           ?>
           <div class="col-12 col-md-6">
-            <label class="form-label" for="modalEditUserEmail">Date of Birth:</label>
+            <label class="form-label" for="modalEditUserDateOfBirth">Date of Birth:</label>
             <input
               type="date"
-              id="modalEditUserEmail"
-              name="modalEditUserEmail"
+              id="modalEditUserDateOfBirth"
+              name="date_of_birth"
               class="form-control"
               
-              value="{{substr($b, 0, 4)}}-{{substr($b, 4, 2)}}-{{substr($b, 6, 8)}}"
-              placeholder="{{substr($b, 0, 4)}}-{{substr($b, 4, 2)}}-{{substr($b, 6, 8)}}"
+              value="{{$b}}"
+              placeholder="{{$b}}"
             />
           </div>
 
@@ -102,11 +103,11 @@
             />
           </div>
           <div class="col-12 col-md-6">
-            <label class="form-label" for="modalEditTaxID">Designation</label>
+            <label class="form-label" for="modalEditDesignation">Designation</label>
             <input
               type="text"
-              id="modalEditTaxID"
-              name="modalEditTaxID"
+              id="modalEditDesignation"
+              name="designation"
               class="form-control"
               placeholder="CEO"
               value="{{$auther->designation}}"
@@ -117,7 +118,7 @@
             <input
               type="text"
               id="modalEditUserPhone"
-              name="modalEditUserPhone"
+              name="phone_number"
               class="form-control phone-number-mask"
               placeholder="+1 (609) 933-44-22"
               value="{{json_decode($auther['json_data'])->phone_number}}"
@@ -128,15 +129,26 @@
             <input
               type="text"
               id="modalEditUserAddress"
-              name="modalEditUserAddress"
+              name="address"
               class="form-control"
               placeholder="XX, Road. X, Dhaka-XXXX, Bangladesh"
               value="{{json_decode($auther['json_data'])->address}}"
             />
           </div>
           <div class="col-12 col-md-6">
+            <label class="form-label" for="modalEditUserLanguage">City</label>
+            <input
+              type="text"
+              id="modalEditUserAddress"
+              name="city"
+              class="form-control"
+              placeholder="XX, Road. X, Dhaka-XXXX, Bangladesh"
+              value="{{json_decode($auther['json_data'])->city}}"
+            />
+          </div>
+          <div class="col-12 col-md-6">
             <label class="form-label" for="modalEditUserCountry">Country</label>
-            <select id="modalEditUserCountry" name="modalEditUserCountry" class="select2 form-select">
+            <select id="modalEditUserCountry" name="country" class="select2 form-select">
               <option value="{{json_decode($auther['json_data'])->country}}" selected>{{json_decode($auther['json_data'])->country}}</option>
               <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
