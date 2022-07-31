@@ -51,10 +51,9 @@ Route::group(['prefix' => 'admin', ], function () {
         // API SET
         Route::get('profile-account-under-user', [AuthController::class, 'under_ref'])->name('profile-account-under-user');
         Route::post('profile-account-edit', [AuthController::class, 'user_edit'])->name('profile-account-edit');
-
-
+        Route::get('profile-security', [AppsController::class, 'user_view_security'])->name('profile-security');
+        Route::post('auth_reset_password', [AuthController::class, 'auth_reset_password'])->name('auth_reset_password');
     });
-    Route::get('profile-security', [AppsController::class, 'user_view_security'])->name('profile-security');
     Route::get('profile-billing', [AppsController::class, 'user_view_billing'])->name('profile-billing');
     Route::get('profile-notification', [AppsController::class, 'user_view_notifications'])->name('profile-notification');
     Route::get('profile-connections', [AppsController::class, 'user_view_connections'])->name('app-user-view-connections');

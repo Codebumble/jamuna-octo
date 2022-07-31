@@ -112,45 +112,7 @@
         </div>
       </div>
       <!-- /User Card -->
-      <!-- Plan Card -->
-      <div class="card border-primary">
-        <div class="card-body">
-          <div class="d-flex justify-content-between align-items-start">
-            <span class="badge bg-light-primary">Standard</span>
-            <div class="d-flex justify-content-center">
-              <sup class="h5 pricing-currency text-primary mt-1 mb-0">$</sup>
-              <span class="fw-bolder display-5 mb-0 text-primary">99</span>
-              <sub class="pricing-duration font-small-4 ms-25 mt-auto mb-2">/month</sub>
-            </div>
-          </div>
-          <ul class="ps-1 mb-2">
-            <li class="mb-50">10 Users</li>
-            <li class="mb-50">Up to 10 GB storage</li>
-            <li>Basic Support</li>
-          </ul>
-          <div class="d-flex justify-content-between align-items-center fw-bolder mb-50">
-            <span>Days</span>
-            <span>4 of 30 Days</span>
-          </div>
-          <div class="progress mb-50" style="height: 8px">
-            <div
-              class="progress-bar"
-              role="progressbar"
-              style="width: 80%"
-              aria-valuenow="65"
-              aria-valuemax="100"
-              aria-valuemin="80"
-            ></div>
-          </div>
-          <span>4 days remaining</span>
-          <div class="d-grid w-100 mt-2">
-            <button class="btn btn-primary" data-bs-target="#upgradePlanModal" data-bs-toggle="modal">
-              Upgrade Plan
-            </button>
-          </div>
-        </div>
-      </div>
-      <!-- /Plan Card -->
+      
     </div>
     <!--/ User Sidebar -->
 
@@ -159,13 +121,13 @@
       <!-- User Pills -->
       <ul class="nav nav-pills mb-2">
         <li class="nav-item">
-          <a class="nav-link" href="{{asset('app/user/view/account')}}">
+          <a class="nav-link" href="{{route('profile-account')}}">
             <i data-feather="user" class="font-medium-3 me-50"></i>
             <span class="fw-bold">Account</span></a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{{asset('app/user/view/security')}}">
+          <a class="nav-link active" href="{{route('profile-security')}}">
             <i data-feather="lock" class="font-medium-3 me-50"></i>
             <span class="fw-bold">Security</span>
           </a>
@@ -193,13 +155,42 @@
       <div class="card">
         <h4 class="card-header">Change Password</h4>
         <div class="card-body">
-          <form id="formChangePassword" method="POST" onsubmit="return false">
+          <form id="formChangePassword" method="POST" action="{{route('auth_reset_password')}}">
+          @csrf
+          <?php if(isset($_GET['error']) && $_GET['error']== 1){ ?>
             <div class="alert alert-warning mb-2" role="alert">
               <h6 class="alert-heading">Ensure that these requirements are met</h6>
-              <div class="alert-body fw-normal">Minimum 8 characters long, uppercase & symbol</div>
+              <div class="alert-body fw-normal">Your Current Password is Wrong. You can use "Forget Password" to recovery it.</div>
+            </div>
+          <?php } else if(isset($_GET['error']) && $_GET['error']== 2){ ?>
+            <div class="alert alert-warning mb-2" role="alert">
+              <h6 class="alert-heading">Ensure that these requirements are met</h6>
+              <div class="alert-body fw-normal">New Password and Confirm Password didn't Match.</div>
+            </div>
+          <?php } else if(isset($_GET['success']) && $_GET['success']== 1){ ?>
+            <div class="alert alert-success mb-2" role="alert">
+              <h6 class="alert-heading">Success!!</h6>
+              <div class="alert-body fw-normal">Password Changed Successful!</div>
             </div>
 
+          <?php } ?>
             <div class="row">
+            <div class="mb-2 col-md-6 form-password-toggle">
+                <label class="form-label" for="newPassword">Current Password</label>
+                <div class="input-group input-group-merge form-password-toggle">
+                  <input
+                    class="form-control"
+                    type="password"
+                    id="newPassword"
+                    name="current"
+                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                  />
+                  <span class="input-group-text cursor-pointer">
+                    <i data-feather="eye"></i>
+                  </span>
+                </div>
+              </div>
+
               <div class="mb-2 col-md-6 form-password-toggle">
                 <label class="form-label" for="newPassword">New Password</label>
                 <div class="input-group input-group-merge form-password-toggle">
@@ -207,7 +198,7 @@
                     class="form-control"
                     type="password"
                     id="newPassword"
-                    name="newPassword"
+                    name="password"
                     placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                   />
                   <span class="input-group-text cursor-pointer">
@@ -222,7 +213,7 @@
                   <input
                     class="form-control"
                     type="password"
-                    name="confirmPassword"
+                    name="confirm_password"
                     id="confirmPassword"
                     placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                   />

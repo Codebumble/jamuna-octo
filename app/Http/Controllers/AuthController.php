@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Validator;
 use DB;
 
@@ -129,7 +130,31 @@ class AuthController extends Controller
         'message' => 'Successfully logged out'
         ]);
     }
+    public function auth_reset_password(Request $request){
+        $field=$request->validate([
+            'current' => 'required|string',
+            'password' => 'required|string',
+            'confirm_password' => 'required|string',
+        ]);
+        
+        if(Auth::check()){
+        $user = User::where('username', Auth::user()->username)->first();
 
+        if($field['password'] != $field['confirm_password']){
+            return redirect()->route('profile-security', ['error' => 2]);
+        }
+
+        if(Hash::check($field['current'], $user->password)){
+            $update = DB::table('users')->where('username', Auth::user()->username)->update(['password' =>bcrypt($field['password'])]);
+            return redirect()->route('profile-security', ['success' => 1]);
+        } else {
+            return redirect()->route('profile-security', ['error' => 1]);
+        }
+    } else {
+        return redirect()->route('auth-login');
+    }
+
+    }
     public function under_ref(Request $request){
         $auth = Auth::user();
         $users = DB::select('select id,name,avatar,email,username,role,json_data from users where under_ref=?', [$auth->username]);
