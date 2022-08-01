@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Validator;
 use DB;
@@ -68,7 +69,7 @@ class AuthController extends Controller
             return redirect()->route('profile-account', ['status' => 'Updated']);
             
         } else {
-            return redirect()->route('auth-login', ['status' => 'Please Login. Session Dropped for Long Use.']);
+            return redirect()->route('auth-login', [ 'hasher' => Str::random(40), 'time' => time(), 'error'=> 2, 'hasher_ip' => Str::random(10)]);
         }
 
     }
@@ -104,12 +105,13 @@ class AuthController extends Controller
 
             $os= new Os();
             $browser = new Browser();
+            date_default_timezone_set(env('TIMEZONE'));
             
-            $updated = DB::table('codebumble_login_table')->insert(['username' => $user->username, 'ip' => $request->ip(), 'browser' => $browser->getBrowser(), 'browser_full' => $browser->getBrowser().' '.$browser->getVersion(), 'os' => $browser->platform, 'date' => date('d-M, Y'), 'time' => date('h:i a')]);
-            return redirect()->route('dashboard-ecommerce')->with('success', 'Successfully logged in!');
+            $updated = DB::table('codebumble_login_table')->insert(['username' => $user->username, 'ip' => $request->ip(), 'browser' => $browser->getName(), 'browser_full' => $browser->getName().' '.$browser->getVersion(), 'os' => $os->getName().' '.$os->getVersion(), 'date' => date('d-M, Y'), 'time' => date('h:i a'), 'updated_at' => time(), 'created_at' => time()]);
+            return redirect()->route('dashboard-ecommerce');
 
         }else{
-            return back()->with('error', 'Provide proper details');
+            return redirect()->route('auth-login',['error'=> 'IiiZ2hs1g1vzhEMBdkjMUCPh9YzpRVC8CMojxRar', 'hasher' => Str::random(40).'-'.Str::random(70), 'time' => time(), 'hasher_ip' => Str::random(10)]);
         }
     }
 

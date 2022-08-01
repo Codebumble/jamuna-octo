@@ -1318,11 +1318,11 @@ select {
 .col-span-6 {
   grid-column: span 6 / span 6;
 }
-.m-0 {
-  margin: 0px;
-}
 .m-auto {
   margin: auto;
+}
+.m-0 {
+  margin: 0px;
 }
 .m-2 {
   margin: 0.5rem;
@@ -1343,13 +1343,13 @@ select {
   margin-left: 0px;
   margin-right: 0px;
 }
-.my-1 {
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-}
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
+}
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 .my-0 {
   margin-top: 0px;
@@ -1980,6 +1980,9 @@ select {
 .pb-1 {
   padding-bottom: 0.25rem;
 }
+.pb-0 {
+  padding-bottom: 0px;
+}
 .pb-5 {
   padding-bottom: 1.25rem;
 }
@@ -1994,9 +1997,6 @@ select {
 }
 .pt-3 {
   padding-top: 0.75rem;
-}
-.pb-0 {
-  padding-bottom: 0px;
 }
 .pr-1 {
   padding-right: 0.25rem;

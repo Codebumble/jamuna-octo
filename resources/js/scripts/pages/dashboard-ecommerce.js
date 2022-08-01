@@ -7,9 +7,9 @@
     Author URL: http://www.codebumble.net
 ==========================================================================================*/
 
+
 $(window).on('load', function () {
   'use strict';
-
   var $barColor = '#f3f3f3';
   var $trackBgColor = '#EBEBEB';
   var $textMutedColor = '#b9b9c3';
@@ -61,7 +61,7 @@ $(window).on('load', function () {
   setTimeout(function () {
     toastr['success'](
       'You have successfully logged in to Vuexy. Now you can start to explore!',
-      '👋 Welcome John Doe!',
+      '👋 Welcome to the Portal!',
       {
         closeButton: true,
         tapToDismiss: false,

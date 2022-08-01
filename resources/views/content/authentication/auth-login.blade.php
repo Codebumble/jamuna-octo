@@ -26,18 +26,18 @@
 
         <h4 class="card-title mb-1 text-center">Welcome to {{env("APP_NAME")}}! 👋</h4>
 
-        @if (session()->get('success') == "false")
+        @if (isset($_GET['error']) && $_GET['error'] == 'IiiZ2hs1g1vzhEMBdkjMUCPh9YzpRVC8CMojxRar')
             <div class="demo-spacing-0">
                 <div class="alert alert-danger" role="alert">
-                <div class="alert-body"><strong>{{session('message')}}</strong></div>
+                <div class="alert-body"><strong>User Credentials prompt cancelled. Please Check Your Login Details and Try Again.</strong></div>
                 </div>
             </div>
         @endif
 
-        @if (session()->get('success') == "true")
+        @if (isset($_GET['error']) && $_GET['error'] == 2)
             <div class="demo-spacing-0">
                 <div class="alert alert-success" role="alert">
-                <div class="alert-body"><strong>Login Successful!!</strong></div>
+                <div class="alert-body"><strong>Session Dropped for Security. Please login again.</strong></div>
                 </div>
             </div>
         @endif

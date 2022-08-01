@@ -228,56 +228,36 @@
             <thead>
               <tr>
                 <th class="text-start">BROWSER</th>
-                <th>DEVICE</th>
-                <th>LOCATION</th>
-                <th>RECENT ACTIVITY</th>
+                <th>IP</th>
+                <th>OS</th>
+                <th>Date and Time</th>
               </tr>
             </thead>
             <tbody>
+            @foreach($login_details as $detail) 
               <tr>
                 <td class="text-start">
                   <div class="avatar me-25">
-                    <img src="{{asset('images/icons/google-chrome.png')}}" alt="avatar" width="20" height="20" />
+                  @if ($detail->browser == 'Opera')
+                    <img src="{{asset('images/icons/opera.png')}}" alt="avatar" width="20" height="20" />
+                  @elseif($detail->browser == 'Edge')
+                  <img src="{{asset('images/icons/internet-explorer.png')}}" alt="avatar" width="20" height="20" />
+                  @elseif ($detail->browser == 'Firefox')
+                  <img src="{{asset('images/icons/mozila-firefox.png')}}" alt="avatar" width="20" height="20" />
+                  @elseif ($detail->browser == 'Safari')
+                  <img src="{{asset('images/icons/apple-safari.png')}}" alt="avatar" width="20" height="20" />
+                  @else
+                  <img src="{{asset('images/icons/google-chrome.png')}}" alt="avatar" width="20" height="20" />
+                  @endif
                   </div>
-                  <span class="fw-bolder">Chrome on Windows</span>
+                  <span class="fw-bolder">{{$detail->browser_full}}</span>
                 </td>
-                <td>Dell XPS 15</td>
-                <td>United States</td>
-                <td>10, Jan 2021 20:07</td>
+                <td>{{$detail->ip}}</td>
+                <td>{{$detail->os}}</td>
+                <td>{{$detail->date}} ({{$detail->time}})</td>
               </tr>
-              <tr>
-                <td class="text-start">
-                  <div class="avatar me-25">
-                    <img src="{{asset('images/icons/google-chrome.png')}}" alt="avatar" width="20" height="20" />
-                  </div>
-                  <span class="fw-bolder">Chrome on Android</span>
-                </td>
-                <td>Google Pixel 3a</td>
-                <td>Ghana</td>
-                <td>11, Jan 2021 10:16</td>
-              </tr>
-              <tr>
-                <td class="text-start">
-                  <div class="avatar me-25">
-                    <img src="{{asset('images/icons/google-chrome.png')}}" alt="avatar" width="20" height="20" />
-                  </div>
-                  <span class="fw-bolder">Chrome on MacOS</span>
-                </td>
-                <td>Apple iMac</td>
-                <td>Mayotte</td>
-                <td>11, Jan 2021 12:10</td>
-              </tr>
-              <tr>
-                <td class="text-start">
-                  <div class="avatar me-25">
-                    <img src="{{asset('images/icons/google-chrome.png')}}" alt="avatar" width="20" height="20" />
-                  </div>
-                  <span class="fw-bolder">Chrome on iPhone</span>
-                </td>
-                <td>Apple iPhone XR</td>
-                <td>Mauritania</td>
-                <td>12, Jan 2021 8:29</td>
-              </tr>
+              @endforeach
+              
             </tbody>
           </table>
         </div>

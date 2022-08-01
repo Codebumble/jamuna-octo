@@ -33,15 +33,20 @@
         <div class="card-body">
           <div class="user-avatar-section">
             <div class="d-flex align-items-center flex-column">
-              <img
-                class="img-fluid rounded mt-3 mb-2"
-                
-                src="{{asset('images/portrait/small/avatar-s-2.jpg')}}"
-                
-                height="110"
-                width="110"
-                alt="User avatar"
-              />
+            <form method="post" enctype="multipart/form-data" action="{{ route('dashboard-ecommerce')}}">
+              <input type="file" name="profile-image" id="profile-image" style="display:none;" accept="image/png, image/jpeg, .jpg" onchange="this.form.submit()"/>
+                <label for="profile-image">
+                  <img
+                    class="img-fluid rounded mt-3 mb-2"
+                    
+                    src="{{asset('images/portrait/small/avatar-s-2.jpg')}}"
+                    
+                    height="110"
+                    width="110"
+                    alt="User avatar"
+                  />
+                </label>
+              </form>
               <div class="user-info text-center">
                 <h4>{{$auther->name}}</h4>
                 <span class="badge bg-light-secondary">{{$auther->designation}}</span>
@@ -379,4 +384,5 @@
   <script src="{{ asset(mix('js/scripts/pages/app-user-view-account.js')) }}"></script>
   <script src="{{ asset(mix('js/scripts/pages/app-user-view.js')) }}"></script>
   <script src="{{ asset(mix('js/scripts/pages/app-user-list.js')) }}"></script>
+  
 @endsection

@@ -70,7 +70,9 @@ class AppsController extends Controller
     public function user_view_security()
     {
         $pageConfigs = ['pageHeader' => false];
-        return view('/content/apps/user/app-user-view-security', ['pageConfigs' => $pageConfigs]);
+        $auth = Auth::user();
+        $login_details= DB::table('codebumble_login_table')->limit(7)->orderBy('id', 'desc')->where('username', $auth->username)->get();
+        return view('/content/apps/user/app-user-view-security', ['pageConfigs' => $pageConfigs, 'login_details' => $login_details]);
     }
 
     // User Billing and Plans Page
