@@ -33,14 +33,18 @@
         <div class="card-body">
           <div class="user-avatar-section">
             <div class="d-flex align-items-center flex-column">
-            <form method="post" enctype="multipart/form-data" action="{{ route('dashboard-ecommerce')}}">
-              <input type="file" name="profile-image" id="profile-image" style="display:none;" accept="image/png, image/jpeg, .jpg" onchange="this.form.submit()"/>
-                <label for="profile-image">
+            <form method="post" enctype="multipart/form-data" action="{{ route('profile_image')}}">
+            @csrf
+              <input type="file" name="profile_image" id="profile_image" style="display:none;" accept="image/png, image/jpeg, .jpg" onchange="this.form.submit()"/>
+                <label for="profile_image">
                   <img
-                    class="img-fluid rounded mt-3 mb-2"
-                    
+                    class="rounded mt-3 mb-2"
+                    <?php
+                    if(!isset($auther->avatar)){ ?>
                     src="{{asset('images/portrait/small/avatar-s-2.jpg')}}"
-                    
+                    <?php } else { ?>
+                    src="/profile-images/{{$auther->avatar}}"
+                    <?php } ?>
                     height="110"
                     width="110"
                     alt="User avatar"

@@ -136,13 +136,13 @@
             />
           </div>
           <div class="col-12 col-md-6">
-            <label class="form-label" for="modalEditUserLanguage">City</label>
+            <label class="form-label" for="modalEditCity">City</label>
             <input
               type="text"
-              id="modalEditUserAddress"
+              id="modalEditCity"
               name="city"
               class="form-control"
-              placeholder="XX, Road. X, Dhaka-XXXX, Bangladesh"
+              placeholder="Dhaka"
               value="{{json_decode($auther['json_data'])->city}}"
             />
           </div>

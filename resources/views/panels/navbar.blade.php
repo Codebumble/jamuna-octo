@@ -353,9 +353,19 @@
           </span>
         </div>
         <span class="avatar">
-          <img class="round"
-            src="{{ Auth::user() ? Auth::user()->profile_photo_url : asset('images/portrait/small/avatar-s-11.jpg') }}"
-            alt="avatar" height="40" width="40">
+          
+            <img
+                    class="round"
+                    <?php
+                    if(!isset($auther->avatar)){ ?>
+                    src="{{ Auth::user()->profile_photo_url }}"
+                    <?php } else { ?>
+                    src="/profile-images/{{$auther->avatar}}"
+                    <?php } ?>
+                    height="40"
+                    width="40"
+                    alt="avatar"
+                  >
           <span class="avatar-status-online"></span>
         </span>
       </a>

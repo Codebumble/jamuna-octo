@@ -37,7 +37,7 @@ Route::get('/', [FrontendController::class, 'home'])->name('home');
 Route::group(['prefix' => 'dashboard'], function () {
     Route::get('analytics', [DashboardController::class, 'dashboardAnalytics'])->name('dashboard-analytics');
     Route::get('ecommerce', [DashboardController::class, 'dashboardEcommerce'])->name('dashboard-ecommerce');
-    Route::post('ecommerce', [DashboardController::class, 'dashboardEcommerce'])->name('dashboard-ecommerce');
+    
 });
 /* Route Dashboards */
 
@@ -53,6 +53,7 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::post('profile-account-edit', [AuthController::class, 'user_edit'])->name('profile-account-edit');
         Route::get('profile-security', [AppsController::class, 'user_view_security'])->name('profile-security');
         Route::post('auth_reset_password', [AuthController::class, 'auth_reset_password'])->name('auth_reset_password');
+        Route::post('profile_image', [AuthController::class, 'profile_image_upload'])->name('profile_image');
     });
     Route::get('profile-billing', [AppsController::class, 'user_view_billing'])->name('profile-billing');
     Route::get('profile-notification', [AppsController::class, 'user_view_notifications'])->name('profile-notification');

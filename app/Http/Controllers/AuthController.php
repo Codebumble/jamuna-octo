@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Validator;
+use File;
 use DB;
 use Sinergi\BrowserDetector\Browser;
 use Sinergi\BrowserDetector\Os;
@@ -121,6 +122,26 @@ class AuthController extends Controller
     *
     * @return [json] user object
     */
+
+    public function profile_image_upload(Request $request){
+
+        $request->validate([
+            'profile_image.*' => 'mimes:jpeg,png,jpg,svg|max:3080',
+        ]);
+        if(Auth::check()){
+            if($file = $request->hasFile('profile_image')) {
+                $user = Auth::user()->username;
+                $file = $request->file('profile_image') ;
+                $fileName = time().'-'.$user.'.'.$file->getClientOriginalExtension() ;
+                $destinationPath = public_path().'/profile-images' ;
+                $file->move($destinationPath,$fileName);
+                DB::table('users')->where('username', $user)->update(['avatar'=>$fileName]);
+                return redirect()->route('profile-security',['success' => 1]);
+            }
+        } else {
+            return redirect()->route('auth-login'); 
+        }
+    }
     public function user(Request $request){
         return response()->json($request->user());
     }

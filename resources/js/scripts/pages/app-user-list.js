@@ -76,7 +76,7 @@ $(function () {
             if ($image) {
               // For Avatar image
               var $output =
-                '<img src="' + assetPath + 'images/avatars/' + $image + '" alt="Avatar" height="32" width="32">';
+                '<img src="' + assetPath + 'profile-images/' + $image + '" alt="Avatar" height="32" width="32">';
             } else {
               // For Avatar badge
               var stateNum = Math.floor(Math.random() * 6) + 1;

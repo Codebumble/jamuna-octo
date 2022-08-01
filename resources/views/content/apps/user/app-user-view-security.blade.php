@@ -1,6 +1,6 @@
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'User View - Security')
+@section('title', 'Profile - Security')
 
 @section('vendor-style')
   {{-- Page Css files --}}
@@ -29,15 +29,24 @@
         <div class="card-body">
           <div class="user-avatar-section">
             <div class="d-flex align-items-center flex-column">
-              <img
-                class="img-fluid rounded mt-3 mb-2"
-                
-                src="{{asset('images/portrait/small/avatar-s-2.jpg')}}"
-                
-                height="110"
-                width="110"
-                alt="User avatar"
-              />
+            <form method="post" enctype="multipart/form-data" action="{{ route('profile_image')}}">
+            @csrf
+              <input type="file" name="profile_image" id="profile_image" style="display:none;" accept="image/png, image/jpeg, .jpg" onchange="this.form.submit()"/>
+                <label for="profile_image">
+                  <img
+                    class="rounded mt-3 mb-2"
+                    <?php
+                    if(!isset($auther->avatar)){ ?>
+                    src="{{asset('images/portrait/small/avatar-s-2.jpg')}}"
+                    <?php } else { ?>
+                    src="/profile-images/{{$auther->avatar}}"
+                    <?php } ?>
+                    height="110"
+                    width="110"
+                    alt="User avatar"
+                  />
+                </label>
+              </form>
               <div class="user-info text-center">
                 <h4>{{$auther->name}}</h4>
                 <span class="badge bg-light-secondary">{{$auther->designation}}</span>
@@ -55,12 +64,12 @@
               </div>
             </div>
             <div class="d-flex align-items-start">
-              <span class="badge bg-light-primary p-75 rounded">
-                <i data-feather="briefcase" class="font-medium-2"></i>
+              <span class="badge bg-light-success p-75 rounded">
+                <i data-feather="zap" class="font-medium-2"></i>
               </span>
               <div class="ms-75">
-                <h4 class="mb-0">568</h4>
-                <small>Projects Done</small>
+                <h4 class="mb-0">{{json_decode($auther['json_data'])->gender}}</h4>
+                <small>Gender</small>
               </div>
             </div>
           </div>
@@ -106,7 +115,10 @@
               <a href="javascript:;" class="btn btn-primary me-1" data-bs-target="#editUser" data-bs-toggle="modal">
                 Edit
               </a>
-              <a href="javascript:;" class="btn btn-outline-danger suspend-user">Suspended</a>
+              <a href="{{ route('logout')}}" class="btn btn-outline-danger" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log Out</a>
+              <form method="POST" id="logout-form" action="{{ route('logout') }}">
+            @csrf
+          </form>
             </div>
           </div>
         </div>
@@ -154,7 +166,7 @@
           <?php } else if(isset($_GET['success']) && $_GET['success']== 1){ ?>
             <div class="alert alert-success mb-2" role="alert">
               <h6 class="alert-heading">Success!!</h6>
-              <div class="alert-body fw-normal">Password Changed Successful!</div>
+              <div class="alert-body fw-normal">Profile Updated Successfully!</div>
             </div>
 
           <?php } ?>
@@ -165,7 +177,7 @@
                   <input
                     class="form-control"
                     type="password"
-                    id="newPassword"
+                    id="newPasswordCurrent"
                     name="current"
                     placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                   />
@@ -181,7 +193,7 @@
                   <input
                     class="form-control"
                     type="password"
-                    id="newPassword"
+                    id="newPasswordNew"
                     name="password"
                     placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                   />
