@@ -137,5 +137,5 @@
 	"[html]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"terminal.integrated.fontFamily": "Cascadia Code PL",
+	"terminal.integrated.fontFamily": "monospace",
 }
