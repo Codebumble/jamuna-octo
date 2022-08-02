@@ -78,7 +78,7 @@ jobs:
               env:
                   GITHUB_SHA: ${{github.sha}}
                   BASE_PATH: jamuna.codebumble.net
-                  ENV: ${{ SECRETS.ENV }}
+                  ENV: ${{ SECRETS.ENV_BACK }}
               with:
                   host: ${{ SECRETS.CP_HOST }}
                   username: ${{ SECRETS.CP_USERNAME }}
