@@ -37,16 +37,16 @@ Route::get('/', [FrontendController::class, 'home'])->name('home');
 Route::group(['prefix' => 'dashboard'], function () {
     Route::get('analytics', [DashboardController::class, 'dashboardAnalytics'])->name('dashboard-analytics');
     Route::get('ecommerce', [DashboardController::class, 'dashboardEcommerce'])->name('dashboard-ecommerce');
-    
+
 });
 /* Route Dashboards */
-
+Route::get('admin/visitor/{username}', [AppsController::class, 'profile_visitor'])->name('profile_visitor');
 Route::group(['prefix' => 'admin', ], function () {
-    
+
     Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::get('logout', [AuthController::class, 'logout']);
         Route::get('user', [AuthController::class, 'user']);
-        
+
         Route::get('profile-account', [AppsController::class, 'user_view_account'])->name('profile-account');
         // API SET
         Route::get('profile-account-under-user', [AuthController::class, 'under_ref'])->name('profile-account-under-user');
@@ -55,7 +55,7 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::post('auth_reset_password', [AuthController::class, 'auth_reset_password'])->name('auth_reset_password');
         Route::post('profile_image', [AuthController::class, 'profile_image_upload'])->name('profile_image');
 
-        Route::get('visitor/{username}', [AppsController::class, 'profile_visitor'])->name('profile_visitor');
+
         Route::get('profile-visitor-under-user/{username}', [AuthController::class, 'profile_visitor_under_ref'])->name('profile_visitor_under_ref');
     });
     Route::get('profile-billing', [AppsController::class, 'user_view_billing'])->name('profile-billing');

@@ -26,7 +26,7 @@
 @section('content')
 <section class="app-user-view-account">
   <div class="row">
-  
+
     <!-- User Sidebar -->
     <div class="col-xl-4 col-lg-5 col-md-5 order-1 order-md-0">
       <!-- User Card -->
@@ -65,7 +65,7 @@
               </span>
               <div class="ms-75">
               <a href="/admin/visitor/{{ $auther->under_ref }}" style="text-decoration: none;">
-                <h4 class="mb-0">@ {{ $auther->under_ref }}</h4>
+                <h5 class="mb-0">{{ '@'.$auther->under_ref }}</h5>
                 <small>Invited</small>
                 </a>
               </div>
@@ -75,7 +75,7 @@
                 <i data-feather="zap" class="font-medium-2"></i>
               </span>
               <div class="ms-75">
-                <h4 class="mb-0">{{ $json_data->gender }}</h4>
+                <h5 class="mb-0">{{ $json_data->gender }}</h5>
                 <small>Gender</small>
               </div>
             </div>
@@ -93,7 +93,13 @@
               </li>
               <li class="mb-75">
                 <span class="fw-bolder me-25">Account Status:</span>
+                @if ($json_data->status == "Active")
                 <span class="badge bg-light-success">{{ $json_data->status}}</span>
+                @elseif ($json_data->status == "Inctive")
+                <span class="badge bg-light-warning">{{ $json_data->status}}</span>
+                @elseif ($json_data->status == "Suspended" || $json_data->status == "Pending")
+                <span class="badge bg-light-danger">{{ $json_data->status}}</span>
+                @endif
               </li>
               <li class="mb-75">
                 <span class="fw-bolder me-25">Role:</span>
@@ -118,19 +124,19 @@
                 <span>{{ $json_data->country}}</span>
               </li>
             </ul>
-            
+
           </div>
         </div>
       </div>
       <!-- /User Card -->
-      
-      
+
+
     </div>
     <!--/ User Sidebar -->
 
     <!-- User Content -->
     <div class="col-xl-8 col-lg-7 col-md-7 order-0 order-md-1">
-      
+
 
 
       <!-- Invoice table -->
@@ -166,13 +172,13 @@
               </div>
             </div>
           </div>
-          
+
           <div class="col-lg-4 col-sm-6">
             <div class="card">
               <div class="card-body d-flex align-items-center justify-content-between">
                 <div>
                   <h3 class="fw-bolder mb-75">{{json_decode($sub_users[0]->sub_user) - json_decode($active[0]->sub_active) }}</h3>
-                  <span>Suspended Users</span>
+                  <span>Suspended/Inactive</span>
                 </div>
                 <div class="avatar bg-light-warning p-50">
                   <span class="avatar-content">
@@ -183,7 +189,7 @@
             </div>
           </div>
         </div>
-      
+
       </div>
       <div class="card">
     <div class="card-body border-bottom">
@@ -208,7 +214,7 @@
         </thead>
       </table>
     </div>
-    
+
   </div>
       <!-- /Invoice table -->
     </div>
@@ -218,7 +224,7 @@
 
 <section class="app-user-list">
   <!-- list and filter start -->
-  
+
   <!-- list and filter end -->
 </section>
 
@@ -254,5 +260,5 @@
   <script src="{{ asset(mix('js/scripts/pages/app-user-view-account.js')) }}"></script>
   <script src="{{ asset(mix('js/scripts/pages/app-user-view.js')) }}"></script>
   <script src="{{ asset(mix('js/scripts/pages/app-profile-visitor-list.js')) }}"></script>
-  
+
 @endsection

@@ -9,28 +9,28 @@
 ==========================================================================================*/
 $(function () {
 	('use strict');
-  
+
 	var dtUserTable = $('.user-list-table'),
 	  newUserSidebar = $('.new-user-modal'),
 	  newUserForm = $('.add-new-user'),
 	  select = $('.select2'),
 	  dtContact = $('.dt-contact'),
 	  statusObj = {
-		0: { title: 'Pending', class: 'badge-light-warning' },
+		0: { title: 'Suspended', class: 'badge-light-warning' },
 		1:{ title: 'Active', class: 'badge-light-success' },
 		2: { title: 'Inactive', class: 'badge-light-secondary' }
 	  };
-  
+
 	var assetPath = '../../../app-assets/',
 	  userView = 'profile-visitor.html';
-  
+
 	if ($('body').attr('data-framework') === 'laravel') {
 	  assetPath = $('body').attr('data-asset-path');
 	  userView = assetPath + 'admin/visitor/';
 	  baseView = window.location.origin;
 	  userName = window.location.pathname.split(/[/]+/).pop();
 	}
-  
+
 	select.each(function () {
 	  var $this = $(this);
 	  $this.wrap('<div class="position-relative"></div>');
@@ -42,7 +42,7 @@ $(function () {
 		dropdownParent: $this.parent()
 	  });
 	});
-  
+
 	// Users List datatable
 	if (dtUserTable.length) {
 	  dtUserTable.DataTable({
@@ -133,7 +133,7 @@ $(function () {
 		  //   targets: 4,
 		  //   render: function (data, type, full, meta) {
 		  //     var $billing = full['billing'];
-  
+
 		  //     return '<span class="text-nowrap">' + $billing + '</span>';
 		  //   }
 		  // },
@@ -142,7 +142,7 @@ $(function () {
 			targets: 3,
 			render: function (data, type, full, meta) {
 			  var $status = full['json_data'];
-  
+
 			  return (
 				'<span class="badge rounded-pill ' +
 				statusObj[$status].class +
@@ -294,7 +294,7 @@ $(function () {
 				  var val = $.fn.dataTable.util.escapeRegex($(this).val());
 				  column.search(val ? '^' + val + '$' : '', true, false).draw();
 				});
-  
+
 			  column
 				.data()
 				.unique()
@@ -317,7 +317,7 @@ $(function () {
 				  var val = $.fn.dataTable.util.escapeRegex($(this).val());
 				  column.search(val ? '^' + val + '$' : '', true, false).draw();
 				});
-  
+
 			  column
 				.data()
 				.unique()
@@ -335,7 +335,7 @@ $(function () {
 		}
 	  });
 	}
-  
+
 	// Form Validation
 	if (newUserForm.length) {
 	  newUserForm.validate({
@@ -352,7 +352,7 @@ $(function () {
 		  }
 		}
 	  });
-  
+
 	  newUserForm.on('submit', function (e) {
 		var isValid = newUserForm.valid();
 		e.preventDefault();
@@ -361,7 +361,7 @@ $(function () {
 		}
 	  });
 	}
-  
+
 	// Phone Number
 	if (dtContact.length) {
 	  dtContact.each(function () {
@@ -372,4 +372,3 @@ $(function () {
 	  });
 	}
   });
-  

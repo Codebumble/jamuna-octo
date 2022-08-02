@@ -16,7 +16,7 @@ $(function () {
     select = $('.select2'),
     dtContact = $('.dt-contact'),
     statusObj = {
-      0: { title: 'Pending', class: 'badge-light-warning' },
+      0: { title: 'Suspended', class: 'badge-light-danger' },
       1:{ title: 'Active', class: 'badge-light-success' },
       2: { title: 'Inactive', class: 'badge-light-secondary' }
     };

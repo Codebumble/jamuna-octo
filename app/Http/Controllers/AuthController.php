@@ -61,14 +61,14 @@ class AuthController extends Controller
         $json_data->address = $field['address'];
         $json_data->address = $field['city'];
         $json_data->country = $field['country'];
-        
-        
+
+
 
         if(Auth::check()){
             $username = DB::table('users')->where('username', Auth::user()->username)->update(['name' => $field['name'], 'designation' => $field['designation'], 'json_data' => json_encode($json_data)]);
 
             return redirect()->route('profile-account', ['status' => 'Updated']);
-            
+
         } else {
             return redirect()->route('auth-login', [ 'hasher' => Str::random(40), 'time' => time(), 'error'=> 2, 'hasher_ip' => Str::random(10)]);
         }
@@ -90,8 +90,8 @@ class AuthController extends Controller
             'remember_me' => 'boolean'
         ]);
 
-        $login_type = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL ) 
-        ? 'email' 
+        $login_type = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL )
+        ? 'email'
         : 'username';
 
     $request->merge([
@@ -107,7 +107,7 @@ class AuthController extends Controller
             $os= new Os();
             $browser = new Browser();
             date_default_timezone_set(env('TIMEZONE'));
-            
+
             $updated = DB::table('codebumble_login_table')->insert(['username' => $user->username, 'ip' => $request->ip(), 'browser' => $browser->getName(), 'browser_full' => $browser->getName().' '.$browser->getVersion(), 'os' => $os->getName().' '.$os->getVersion(), 'date' => date('d-M, Y'), 'time' => date('h:i a'), 'updated_at' => time(), 'created_at' => time()]);
             return redirect()->route('dashboard-ecommerce');
 
@@ -139,7 +139,7 @@ class AuthController extends Controller
                 return redirect()->route('profile-security',['success' => 1]);
             }
         } else {
-            return redirect()->route('auth-login'); 
+            return redirect()->route('auth-login');
         }
     }
     public function user(Request $request){
@@ -147,23 +147,23 @@ class AuthController extends Controller
     }
 
     public function profile_visitor_under_ref($username){
-        
+
         $users = DB::select('select id,name,avatar,email,username,role,json_data from users where under_ref=?', [$username]);
 
         foreach($users as $user){
             $user_decode= json_decode($user->json_data);
             $status = $user_decode->status;
-            if ($status == "Pending"){
-                $status = 0; 
+            if ($status == "Suspended" || $status == "Pending"){
+                $status = 0;
             } else if($status == "Active"){
                 $status = 1;
             } else if ($status == "Inactive"){
                 $status = 2;
             }
             $user->json_data = $status;
-           
+
         }
-        
+
         return json_encode(["data"=>$users]);
 
     }
@@ -213,17 +213,17 @@ class AuthController extends Controller
         foreach($users as $user){
             $user_decode= json_decode($user->json_data);
             $status = $user_decode->status;
-            if ($status == "Pending"){
-                $status = 0; 
+            if ($status == "Suspended" || $status == "Pending"){
+                $status = 0;
             } else if($status == "Active"){
                 $status = 1;
             } else if ($status == "Inactive"){
                 $status = 2;
             }
             $user->json_data = $status;
-           
+
         }
-        
+
         return json_encode(["data"=>$users]);
 
 
