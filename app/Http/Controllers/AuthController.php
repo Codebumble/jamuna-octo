@@ -146,6 +146,28 @@ class AuthController extends Controller
         return response()->json($request->user());
     }
 
+    public function profile_visitor_under_ref($username){
+        
+        $users = DB::select('select id,name,avatar,email,username,role,json_data from users where under_ref=?', [$username]);
+
+        foreach($users as $user){
+            $user_decode= json_decode($user->json_data);
+            $status = $user_decode->status;
+            if ($status == "Pending"){
+                $status = 0; 
+            } else if($status == "Active"){
+                $status = 1;
+            } else if ($status == "Inactive"){
+                $status = 2;
+            }
+            $user->json_data = $status;
+           
+        }
+        
+        return json_encode(["data"=>$users]);
+
+    }
+
 
     /**
     * Logout user (Revoke the token)

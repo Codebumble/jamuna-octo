@@ -56,6 +56,7 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::post('profile_image', [AuthController::class, 'profile_image_upload'])->name('profile_image');
 
         Route::get('visitor/{username}', [AppsController::class, 'profile_visitor'])->name('profile_visitor');
+        Route::get('profile-visitor-under-user/{username}', [AuthController::class, 'profile_visitor_under_ref'])->name('profile_visitor_under_ref');
     });
     Route::get('profile-billing', [AppsController::class, 'user_view_billing'])->name('profile-billing');
     Route::get('profile-notification', [AppsController::class, 'user_view_notifications'])->name('profile-notification');

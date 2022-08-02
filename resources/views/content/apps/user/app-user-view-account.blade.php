@@ -63,7 +63,7 @@
                 <i data-feather="check" class="font-medium-2"></i>
               </span>
               <div class="ms-75">
-                <h4 class="mb-0">{{ $auther->under_ref }}</h4>
+                <h4 class="mb-0">@ {{ $auther->under_ref }}</h4>
                 <small>Invited</small>
               </div>
             </div>

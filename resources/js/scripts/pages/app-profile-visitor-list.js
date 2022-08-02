@@ -238,17 +238,6 @@ $(function () {
 				$(node).closest('.dt-buttons').removeClass('btn-group').addClass('d-inline-flex mt-50');
 			  }, 50);
 			}
-		  },
-		  {
-			text: 'Add New',
-			className: 'add-new btn-sm btn-primary',
-			attr: {
-			  'data-bs-toggle': 'modal',
-			  'data-bs-target': '#modals-slide-in'
-			},
-			init: function (api, node, config) {
-			  $(node).removeClass('btn-secondary');
-			}
 		  }
 		],
 		// For responsive popup
