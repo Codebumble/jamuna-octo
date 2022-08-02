@@ -26,7 +26,7 @@ $(function () {
 
   if ($('body').attr('data-framework') === 'laravel') {
     assetPath = $('body').attr('data-asset-path');
-    userView = assetPath + 'app/user/view/account';
+    userView = assetPath + 'admin/visitor/';
     baseView = window.location.origin;
   }
 
@@ -72,6 +72,7 @@ $(function () {
           render: function (data, type, full, meta) {
             var $name = full['name'],
               $email = full['email'],
+              $username = full['username'],
               $image = full['avatar'];
             if ($image) {
               // For Avatar image
@@ -101,7 +102,7 @@ $(function () {
               '<div class="d-flex flex-column">' +
               '<a href="' +
               userView +
-              '" class="user_name text-truncate text-body"><span class="fw-bolder">' +
+              ''+$username+'" class="user_name text-truncate text-body"><span class="fw-bolder">' +
               $name +
               '</span></a>' +
               '<small class="emp_post text-muted"> (' +
@@ -164,7 +165,7 @@ $(function () {
               '<div class="dropdown-menu dropdown-menu-end">' +
               '<a href="' +
               userView +
-              '" class="dropdown-item">' +
+              ''+full['username']+'" class="dropdown-item">' +
               feather.icons['file-text'].toSvg({ class: 'font-small-4 me-50' }) +
               'Details</a>' +
               '<a href="javascript:;" class="dropdown-item delete-record">' +

@@ -54,6 +54,8 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::get('profile-security', [AppsController::class, 'user_view_security'])->name('profile-security');
         Route::post('auth_reset_password', [AuthController::class, 'auth_reset_password'])->name('auth_reset_password');
         Route::post('profile_image', [AuthController::class, 'profile_image_upload'])->name('profile_image');
+
+        Route::get('visitor/{username}', [AppsController::class, 'profile_visitor'])->name('profile_visitor');
     });
     Route::get('profile-billing', [AppsController::class, 'user_view_billing'])->name('profile-billing');
     Route::get('profile-notification', [AppsController::class, 'user_view_notifications'])->name('profile-notification');
