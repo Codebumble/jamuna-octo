@@ -66,6 +66,23 @@ class AppsController extends Controller
         return view('/content/apps/user/app-user-view-account', ['pageConfigs' => $pageConfigs, 'sub_users' => $users, 'active' => $user_active]);
     }
 
+    public function profile_visitor($username)
+    {
+        
+        $auth = DB::select('select * from users where username=?', [$username]);
+        $users = DB::select('select count(*) as sub_user from users where under_ref=?', [$username]);
+        $user_active = DB::select('select count(*) as sub_active from users where json_data LIKE \'%\"status\":\"Active\"%\' and under_ref=?', [$username]);
+        
+        if(isset($auth[0])){
+            $pageConfigs = ['pageHeader' => false];
+            return view('/content/apps/user/profile-visitor', ['pageConfigs' => $pageConfigs, 'sub_users' => $users, 'active' => $user_active, 'user_details' => $auth[0]]);
+        } else {
+            $pageConfigs = ['blankPage' => true];
+
+            return view('/content/miscellaneous/error', ['pageConfigs' => $pageConfigs]);
+        }
+    }
+
     // User Security Page
     public function user_view_security()
     {
