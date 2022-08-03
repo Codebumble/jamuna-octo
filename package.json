@@ -10,9 +10,11 @@
     },
     "dependencies": {
         "@vue/compat": "^3.1.0-0",
+        "@vueuse/head": "^0.7.9",
         "bootstrap": "~5.1.0",
         "dotenv": "^16.0.1",
-        "vue": "^3.1.0-0"
+        "vue": "^3.1.0-0",
+        "vue-router": "4"
     },
     "devDependencies": {
         "@splidejs/vue-splide": "^0.6.7",

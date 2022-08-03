@@ -30,7 +30,7 @@ use App\Http\Controllers\FrontendController;
 */
 
 // Main Page Route
-Route::get('/', [FrontendController::class, 'home'])->name('home');
+Route::get('{any}', [FrontendController::class, 'home'])->where('any', '/|about|');
 
 
 /* Route Dashboards */

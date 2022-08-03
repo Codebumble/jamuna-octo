@@ -2,6 +2,11 @@ require('./bootstrap');
 
 import './scss/app.scss';
 import './js/script.js';
+import router from './router/router';
+import { createHead } from "@vueuse/head"
+// import { createMetaManager } from 'vue-meta'
+
+const head = createHead()
 
 import {
     createApp
@@ -9,4 +14,7 @@ import {
 
 import FrontEnd from "./App.vue";
 
-createApp(FrontEnd).mount("#app");
+createApp(FrontEnd)
+    .use(router)
+    .use(head)
+    .mount("#app");
