@@ -228,4 +228,24 @@ class AuthController extends Controller
 
 
     }
+
+    public function forgot_password_api(Request $request){
+        $field = $request->validate([
+            'email' => 'required|string'
+        ]);
+
+        $user = DB::select('select * from users where email=?', [$field['email']]);
+        if(isset($user[0])){
+            $token = Str::random(20).'-'.Str::random(40).'-'.Str::random(20);
+            $delete_token = DB::table('password_resets')->where('email', $user[0]->email)->delete();
+            $insert_tken = DB::table('password_resets')->insert(['email' => $user[0]->email, 'token' => $token, 'created_at' => date('Y-m-d H:i:s')]);
+
+            return redirect()->route('auth-verify-email',['success' => 1, 'email' => base64_encode($field['email'])]);
+
+
+        } else {
+            return redirect()->route('auth-verify-email',['success' => 11, 'email' => $field['email']]);
+        }
+
+    }
 }

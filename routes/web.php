@@ -234,6 +234,7 @@ Route::get('/error', [MiscellaneousController::class, 'error'])->name('error');
 
 Route::group(['prefix' => 'codebumble'], function () {
     Route::post('/login', [AuthController::class, 'login'])->name('auth-login-api');
+    Route::post('/forgot-password', [AuthController::class, 'forgot_password_api'])->name('auth-forget-password-api');
 
 });
 
@@ -243,8 +244,8 @@ Route::group(['prefix' => 'auth'], function () {
 
     Route::get('register', [AuthenticationController::class, 'register'])->name('auth-register');
     Route::get('forgot-password', [AuthenticationController::class, 'forgot_password'])->name('auth-forgot-password');
-    Route::get('reset-password', [AuthenticationController::class, 'reset_password'])->name('auth-reset-password');
-    Route::get('verify-email', [AuthenticationController::class, 'verify_email'])->name('auth-verify-email');
+    Route::get('reset-password', [AuthenticationController::class, 'reset_password'])->name('reset-password');
+    Route::get('verify-email/{email}', [AuthenticationController::class, 'verify_email'])->name('auth-verify-email');
     Route::get('two-steps', [AuthenticationController::class, 'two_steps'])->name('auth-two-steps');
     Route::get('lock-screen', [AuthenticationController::class, 'lock_screen'])->name('auth-lock_screen');
 });

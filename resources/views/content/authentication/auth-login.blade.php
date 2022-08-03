@@ -62,7 +62,7 @@
           <div class="mb-1">
             <div class="d-flex justify-content-between">
               <label class="form-label" for="login-password">Password</label>
-              <a href="{{url('auth/forgot-password-basic')}}">
+              <a href="{{route('auth-forgot-password')}}">
                 <small>Forgot Password?</small>
               </a>
             </div>

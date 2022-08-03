@@ -43,11 +43,11 @@ class AuthenticationController extends Controller
 
 
     // email verify basic
-    public function verify_email()
+    public function verify_email($email)
     {
         $pageConfigs = ['blankPage' => true];
 
-        return view('/content/authentication/auth-verify-email', ['pageConfigs' => $pageConfigs]);
+        return view('/content/authentication/auth-verify-email', ['pageConfigs' => $pageConfigs,  'email' => base64_decode($email)]);
     }
 
 

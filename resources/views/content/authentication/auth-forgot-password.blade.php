@@ -1,6 +1,6 @@
 @extends('layouts/fullLayoutMaster')
 
-@section('title', 'Reset Password')
+@section('title', 'Forgot Password')
 
 @section('page-style')
   {{-- Page Css files --}}
@@ -10,8 +10,14 @@
 
 @section('content')
 <div class="auth-wrapper auth-basic px-2">
+            @if (Auth::check())
+              @php
+                header("Location: " . route('profile-account'), true, 302);
+                exit();
+              @endphp
+            @endif
   <div class="auth-inner my-2">
-    <!-- Reset Password basic -->
+    <!-- Forgot Password basic -->
     <div class="card mb-0">
       <div class="card-body">
         <a href="#" class="brand-logo">
@@ -69,57 +75,36 @@
               </g>
             </g>
           </svg>
-          <h2 class="brand-text text-primary ms-1">Vuexy</h2>
+          <h2 class="brand-text text-primary ms-1">{{env("APP_NAME")}}</h2>
         </a>
 
-        <h4 class="card-title mb-1">Reset Password 🔒</h4>
-        <p class="card-text mb-2">Your new password must be different from previously used passwords</p>
+        <h4 class="card-title mb-1">Forgot Password? 🔒</h4>
+        <p class="card-text mb-2">Enter your email and we'll send you instructions to reset your password</p>
 
-        <form class="auth-reset-password-form mt-2" action="/auth/login-basic" method="GET">
+        <form class="auth-forgot-password-form mt-2" action="{{ route('auth-forget-password-api')}}" method="POST">
+        @csrf
           <div class="mb-1">
-            <div class="d-flex justify-content-between">
-              <label class="form-label" for="reset-password-new">New Password</label>
-            </div>
-            <div class="input-group input-group-merge form-password-toggle">
-              <input
-                type="password"
-                class="form-control form-control-merge"
-                id="reset-password-new"
-                name="reset-password-new"
-                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                aria-describedby="reset-password-new"
-                tabindex="1"
-                autofocus
-              />
-              <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
-            </div>
+            <label for="forgot-password-email" class="form-label">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              id="forgot-password-email"
+              name="email"
+              placeholder="john@example.com"
+              aria-describedby="forgot-password-email"
+              tabindex="1"
+              autofocus
+            />
           </div>
-          <div class="mb-1">
-            <div class="d-flex justify-content-between">
-              <label class="form-label" for="reset-password-confirm">Confirm Password</label>
-            </div>
-            <div class="input-group input-group-merge form-password-toggle">
-              <input
-                type="password"
-                class="form-control form-control-merge"
-                id="reset-password-confirm"
-                name="reset-password-confirm"
-                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                aria-describedby="reset-password-confirm"
-                tabindex="2"
-              />
-              <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
-            </div>
-          </div>
-          <button class="btn btn-primary w-100" tabindex="3">Set New Password</button>
+          <button class="btn btn-primary w-100" tabindex="2">Send reset link</button>
         </form>
 
         <p class="text-center mt-2">
-          <a href="{{url('auth/login-basic')}}"> <i data-feather="chevron-left"></i> Back to login </a>
+          <a href="{{route('auth-login')}}"> <i data-feather="chevron-left"></i> Back to login </a>
         </p>
       </div>
     </div>
-    <!-- /Reset Password basic -->
+    <!-- /Forgot Password basic -->
   </div>
 </div>
 @endsection
@@ -129,5 +114,5 @@
 @endsection
 
 @section('page-script')
-<script src="{{asset(mix('js/scripts/pages/auth-reset-password.js'))}}"></script>
+<script src="{{asset(mix('js/scripts/pages/auth-forgot-password.js'))}}"></script>
 @endsection
