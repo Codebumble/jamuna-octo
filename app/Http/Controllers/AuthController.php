@@ -255,4 +255,31 @@ class AuthController extends Controller
         }
 
     }
+
+    public function reset_password_api(Request $request, $token){
+        $field = $request->validate([
+            'new' => 'required|string',
+            'confirm' => 'required|string'
+        ]);
+        $token_details = DB::select('select * from password_resets where token=?', [$token]);
+
+        if(isset($token_details[0])){
+
+            if($field['new'] == $field['confirm']){
+
+
+                $a = DB::table('users')->where('email', $token_details[0]->email)->update(['password' => bcrypt($field['new'])]);
+                $b = DB::table('password_resets')->where('email', $token_details[0]->email)->delete();
+            return redirect()->route('auth-login',[ 'hasher' => Str::random(40), 'time' => time(), 'error'=> 'Password Changed. Now You Can Login with Your New Password', 'hasher_ip' => Str::random(10)]);
+            } else {
+                return redirect()->route('reset-password',['token'=> $token, 'hasher' => Str::random(40), 'time' => time(), 'error'=> 'Password Didnt Matched. Please Try Again.', 'hasher_ip' => Str::random(10)]);
+            }
+
+
+
+        } else {
+            return redirect()->route('auth-login',[ 'hasher' => Str::random(40), 'time' => time(), 'success'=> 'Bad Token !! No User Found. Please Try Again.', 'hasher_ip' => Str::random(10)]);
+        }
+
+    }
 }

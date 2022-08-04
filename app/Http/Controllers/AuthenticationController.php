@@ -34,13 +34,13 @@ class AuthenticationController extends Controller
 
 
     // Reset Password basic
-    public function reset_password($email)
+    public function reset_password($token)
     {
         $pageConfigs = ['blankPage' => true];
-        $user = DB::select('select * from password_resets where token= ?', [$email]);
+        $user = DB::select('select * from password_resets where token= ?', [$token]);
 
         if(isset($user[0])){
-            return view('/content/authentication/auth-reset-password', ['pageConfigs' => $pageConfigs]);
+            return view('/content/authentication/auth-reset-password', ['pageConfigs' => $pageConfigs, 'token' => $token]);
         } else {
             return view('/content/miscellaneous/error', ['pageConfigs' => $pageConfigs]);
         }
