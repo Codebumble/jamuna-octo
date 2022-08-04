@@ -9,7 +9,7 @@
   <!--[if mso]>
     <xml><o:officedocumentsettings><o:pixelsperinch>96</o:pixelsperinch></o:officedocumentsettings></xml>
   <![endif]-->
-    <title>Reset your Password</title>
+    <title>Reset your Password - {{ env('APP_NAME') }}</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700" rel="stylesheet" media="screen">
     <style>
 .hover-underline:hover {
@@ -31,7 +31,7 @@
 </style>
 </head>
 <body style="margin: 0; width: 100%; padding: 0; word-break: break-word; -webkit-font-smoothing: antialiased; background-color: #eceff1;">
-    <div style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; display: none;">A request to reset password was received from your PixInvent Account</div>
+    <div style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; display: none;">A request to reset password was received from your Account</div>
   <div role="article" aria-roledescription="email" aria-label="Reset your Password" lang="en" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly;">
     <table style="width: 100%; font-family: Montserrat, -apple-system, 'Segoe UI', sans-serif;" cellpadding="0" cellspacing="0" role="presentation">
       <tr>
@@ -39,8 +39,8 @@
           <table class="sm-w-full" style="width: 600px;" cellpadding="0" cellspacing="0" role="presentation">
             <tr>
   <td class="sm-py-32 sm-px-24" style="mso-line-height-rule: exactly; padding: 48px; text-align: center; font-family: Montserrat, -apple-system, 'Segoe UI', sans-serif;">
-    <a href="https://1.envato.market/vuexy_admin" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly;">
-      <img src="images/logo.png" width="155" alt="Vuexy Admin" style="max-width: 100%; vertical-align: middle; line-height: 100%; border: 0;">
+    <a href="{{ env('APP_URL')}}" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly;">
+      <img src="{{env('APP_URL').'/images/mail-images'}}/logo.png" width="155" alt="{{env('APP_NAME')}}" style="max-width: 100%; vertical-align: middle; line-height: 100%; border: 0;">
     </a>
   </td>
 </tr>
@@ -50,19 +50,19 @@
                     <tr>
                       <td class="sm-px-24" style="mso-line-height-rule: exactly; border-radius: 4px; background-color: #ffffff; padding: 48px; text-align: left; font-family: Montserrat, -apple-system, 'Segoe UI', sans-serif; font-size: 16px; line-height: 24px; color: #626262;">
                         <p style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; margin-bottom: 0; font-size: 20px; font-weight: 600;">Hey</p>
-                        <p style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; margin-top: 0; font-size: 24px; font-weight: 700; color: #ff5850;">John Doe!</p>
+                        <p style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; margin-top: 0; font-size: 24px; font-weight: 700; color: #ff5850;">{{ $name }}</p>
                         <p style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; margin: 0; margin-bottom: 24px;">
                           A request to reset password was received from your
-                          <span style="font-weight: 600;">PixInvent</span> Account -
-                          <a href="mailto:john@example.com" class="hover-underline" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #7367f0; text-decoration: none;">john@example.com</a>
-                          (ID: 8632698) from the IP - <span style="font-weight: 600;">49.34.185.199</span> .
+                          <span style="font-weight: 600;">{{ env('APP_NAME') }}</span> Account -
+                          <a href="{{ $email }}" class="hover-underline" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #7367f0; text-decoration: none;">{{$email}}</a>
+                           from the IP - <span style="font-weight: 600;">{{ $ip }}</span> .
                         </p>
                         <p style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; margin: 0; margin-bottom: 24px;">Use this link to reset your password and login.</p>
-                        <a href="https://pixinvent.com?reset_password_url" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; margin-bottom: 24px; display: block; font-size: 16px; line-height: 100%; color: #7367f0; text-decoration: none;">https://pixinvent.com?reset_password_url</a>
+                        <a href="{{ $reset_url }}" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; margin-bottom: 24px; display: block; font-size: 16px; line-height: 100%; color: #7367f0; text-decoration: none;">{{ $reset_url }}</a>
                         <table cellpadding="0" cellspacing="0" role="presentation">
                           <tr>
                             <td style="mso-line-height-rule: exactly; mso-padding-alt: 16px 24px; border-radius: 4px; background-color: #7367f0; font-family: Montserrat, -apple-system, 'Segoe UI', sans-serif;">
-                              <a href="https://pixinvent.com?reset_password_url" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; display: block; padding-left: 24px; padding-right: 24px; padding-top: 16px; padding-bottom: 16px; font-size: 16px; font-weight: 600; line-height: 100%; color: #ffffff; text-decoration: none;">Reset Password &rarr;</a>
+                              <a href="{{ $reset_url }}" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; display: block; padding-left: 24px; padding-right: 24px; padding-top: 16px; padding-bottom: 16px; font-size: 16px; font-weight: 600; line-height: 100%; color: #ffffff; text-decoration: none;">Reset Password &rarr;</a>
                             </td>
                           </tr>
                         </table>
@@ -73,7 +73,7 @@
                         <p style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; margin: 0;">
                           If you did not intend to deactivate your account or need our help keeping the account, please
                           contact us at
-                          <a href="mailto:support@example.com" class="hover-underline" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #7367f0; text-decoration: none;">support@example.com</a>
+                          <a href="mailto:{{ env('SUPPORT_HOST') }}" class="hover-underline" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #7367f0; text-decoration: none;">{{ env('SUPPORT_HOST') }}</a>
                         </p>
                         <table style="width: 100%;" cellpadding="0" cellspacing="0" role="presentation">
   <tr>
@@ -84,9 +84,9 @@
 </table>
 <p style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; margin: 0; margin-bottom: 16px;">
   Not sure why you received this email? Please
-  <a href="mailto:support@example.com" class="hover-underline" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #7367f0; text-decoration: none;">let us know</a>.
+  <a href="mailto:{{env('SUPPORT_HOST')}}" class="hover-underline" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #7367f0; text-decoration: none;">let us know</a>.
 </p>
-<p style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; margin: 0; margin-bottom: 16px;">Thanks, <br>The PixInvent Team</p>
+<p style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; margin: 0; margin-bottom: 16px;">Thanks, <br>{{ env('APP_NAME')}}</p>
                       </td>
                     </tr>
                     <tr>
@@ -95,16 +95,16 @@
 <tr>
   <td style="mso-line-height-rule: exactly; padding-left: 48px; padding-right: 48px; font-family: Montserrat, -apple-system, 'Segoe UI', sans-serif; font-size: 14px; color: #eceff1;">
     <p align="center" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; margin-bottom: 16px; cursor: default;">
-      <a href="https://www.facebook.com/pixinvents" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #263238; text-decoration: none;"><img src="images/facebook.png" width="17" alt="Facebook" style="max-width: 100%; vertical-align: middle; line-height: 100%; border: 0; margin-right: 12px;"></a>
+      <a href="https://www.facebook.com/{{ $facebook_page }}" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #263238; text-decoration: none;"><img src="{{env('APP_URL').'/images/mail-images'}}/facebook.png" width="17" alt="Facebook" style="max-width: 100%; vertical-align: middle; line-height: 100%; border: 0; margin-right: 12px;"></a>
       &bull;
-      <a href="https://twitter.com/pixinvents" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #263238; text-decoration: none;"><img src="images/twitter.png" width="17" alt="Twitter" style="max-width: 100%; vertical-align: middle; line-height: 100%; border: 0; margin-right: 12px;"></a>
+      <a href="https://twitter.com/{{ $twitter_account }}" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #263238; text-decoration: none;"><img src="{{env('APP_URL').'/images/mail-images'}}/twitter.png" width="17" alt="Twitter" style="max-width: 100%; vertical-align: middle; line-height: 100%; border: 0; margin-right: 12px;"></a>
       &bull;
-      <a href="https://www.instagram.com/pixinvents" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #263238; text-decoration: none;"><img src="images/instagram.png" width="17" alt="Instagram" style="max-width: 100%; vertical-align: middle; line-height: 100%; border: 0; margin-right: 12px;"></a>
+      <a href="https://www.instagram.com/{{ $insta_account }}" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #263238; text-decoration: none;"><img src="{{env('APP_URL').'/images/mail-images'}}/instagram.png" width="17" alt="Instagram" style="max-width: 100%; vertical-align: middle; line-height: 100%; border: 0; margin-right: 12px;"></a>
     </p>
     <p style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #263238;">
       Use of our service and website is subject to our
-      <a href="https://pixinvent.com/" class="hover-underline" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #7367f0; text-decoration: none;">Terms of Use</a> and
-      <a href="https://pixinvent.com/" class="hover-underline" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #7367f0; text-decoration: none;">Privacy Policy</a>.
+      <a href="{{env('APP_NAME')}}/terms-of-use" class="hover-underline" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #7367f0; text-decoration: none;">Terms of Use</a> and
+      <a href="{{env('APP_NAME')}}/privacy-policy" class="hover-underline" style="font-family: 'Montserrat', sans-serif; mso-line-height-rule: exactly; color: #7367f0; text-decoration: none;">Privacy Policy</a>.
     </p>
   </td>
 </tr>

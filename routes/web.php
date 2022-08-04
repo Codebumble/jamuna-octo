@@ -244,7 +244,7 @@ Route::group(['prefix' => 'auth'], function () {
 
     Route::get('register', [AuthenticationController::class, 'register'])->name('auth-register');
     Route::get('forgot-password', [AuthenticationController::class, 'forgot_password'])->name('auth-forgot-password');
-    Route::get('reset-password', [AuthenticationController::class, 'reset_password'])->name('reset-password');
+    Route::get('reset-password/{token}', [AuthenticationController::class, 'reset_password'])->name('reset-password');
     Route::get('verify-email/{email}', [AuthenticationController::class, 'verify_email'])->name('auth-verify-email');
     Route::get('two-steps', [AuthenticationController::class, 'two_steps'])->name('auth-two-steps');
     Route::get('lock-screen', [AuthenticationController::class, 'lock_screen'])->name('auth-lock_screen');

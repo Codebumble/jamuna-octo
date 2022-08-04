@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
 
 
@@ -34,11 +34,18 @@ class AuthenticationController extends Controller
 
 
     // Reset Password basic
-    public function reset_password()
+    public function reset_password($email)
     {
         $pageConfigs = ['blankPage' => true];
+        $user = DB::select('select * from password_resets where token= ?', [$email]);
 
-        return view('/content/authentication/auth-reset-password', ['pageConfigs' => $pageConfigs]);
+        if(isset($user[0])){
+            return view('/content/authentication/auth-reset-password', ['pageConfigs' => $pageConfigs]);
+        } else {
+            return view('/content/miscellaneous/error', ['pageConfigs' => $pageConfigs]);
+        }
+
+
     }
 
 

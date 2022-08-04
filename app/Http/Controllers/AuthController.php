@@ -245,7 +245,7 @@ class AuthController extends Controller
                 $user[0]->email
             ];
 
-            Mail::send('email.reset-password', [ 'name' => $user[0]->name, 'reset_url' => route('password.reset', ['token' => $token, 'email' => $user[0]->name]), ], function($message) use($data){ $message->subject('Reset Password Request - '.env('APP_NAME')); $message->to($data[0]); });
+            Mail::send('email.reset-password', [ 'name' => $user[0]->name, 'reset_url' => route('reset-password', ['token' => $token]),'email' => $user[0]->email, 'ip' => $request->ip(), 'facebook_page' => '', 'twitter_account'=>'', 'insta_account'=>''], function($message) use($data){ $message->subject('Reset Password Request - '.env('APP_NAME')); $message->to($data[0]); });
 
             return redirect()->route('auth-verify-email',['success' => 1, 'email' => base64_encode($field['email'])]);
 
