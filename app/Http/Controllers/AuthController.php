@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Validator;
 use File;
 use DB;
+use Illuminate\Support\Facades\Mail;
 use Sinergi\BrowserDetector\Browser;
 use Sinergi\BrowserDetector\Os;
 
@@ -239,6 +240,12 @@ class AuthController extends Controller
             $token = Str::random(20).'-'.Str::random(40).'-'.Str::random(20);
             $delete_token = DB::table('password_resets')->where('email', $user[0]->email)->delete();
             $insert_tken = DB::table('password_resets')->insert(['email' => $user[0]->email, 'token' => $token, 'created_at' => date('Y-m-d H:i:s')]);
+
+            $data = [
+                $user[0]->email
+            ];
+
+            Mail::send('email.reset-password', [ 'name' => $user[0]->name, 'reset_url' => route('password.reset', ['token' => $token, 'email' => $user[0]->name]), ], function($message) use($data){ $message->subject('Reset Password Request - '.env('APP_NAME')); $message->to($data[0]); });
 
             return redirect()->route('auth-verify-email',['success' => 1, 'email' => base64_encode($field['email'])]);
 
