@@ -1298,12 +1298,6 @@
     "/images/logo/favicon.ico": "/images/logo/favicon.ico",
     "/images/logo/logo.png": "/images/logo/logo.png",
     "/images/logo/logo.svg": "/images/logo/logo.svg",
-    "/images/mail-images/facebook.png": "/images/mail-images/facebook.png",
-    "/images/mail-images/instagram.png": "/images/mail-images/instagram.png",
-    "/images/mail-images/item-2.jpg": "/images/mail-images/item-2.jpg",
-    "/images/mail-images/item.jpg": "/images/mail-images/item.jpg",
-    "/images/mail-images/logo.png": "/images/mail-images/logo.png",
-    "/images/mail-images/twitter.png": "/images/mail-images/twitter.png",
     "/images/misc/leaf-green.png": "/images/misc/leaf-green.png",
     "/images/misc/leaf-orange.png": "/images/misc/leaf-orange.png",
     "/images/misc/leaf-red.png": "/images/misc/leaf-red.png",
@@ -1454,5 +1448,11 @@
     "/data/projects-list.json": "/data/projects-list.json",
     "/data/search.json": "/data/search.json",
     "/data/table-datatable.json": "/data/table-datatable.json",
-    "/data/user-list.json": "/data/user-list.json"
+    "/data/user-list.json": "/data/user-list.json",
+    "/images/mail-images/facebook.png": "/images/mail-images/facebook.png",
+    "/images/mail-images/instagram.png": "/images/mail-images/instagram.png",
+    "/images/mail-images/item-2.jpg": "/images/mail-images/item-2.jpg",
+    "/images/mail-images/item.jpg": "/images/mail-images/item.jpg",
+    "/images/mail-images/logo.png": "/images/mail-images/logo.png",
+    "/images/mail-images/twitter.png": "/images/mail-images/twitter.png"
 }
