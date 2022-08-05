@@ -1,21 +1,22 @@
 <template>
-  <div>
-    <h1 class="text-white">Jamuna Group is Coming soon!</h1>
-    <i class="fab fa-facebook"></i>
-  </div>
+  <home-slider />
 </template>
 
 <script>
 import { useHead } from "@vueuse/head";
+import homeSlider from "../components/sliders/home-slider";
 
 export default {
+  components: {
+    homeSlider,
+  },
   setup() {
     useHead({
-      title: "something",
+      title: "Jamuna Group",
       meta: [
         {
           name: `description`,
-          content: `blalala`,
+          content: `Jamuna Group is one of the largest Bangladeshi industrial conglomerates. The industries under this conglomerate include Textiles, Chemicals, Leather, motor cycles, Consumer products, Media, Advertisement etc.`,
         },
         {
           "http-equiv": `Content-Type`,

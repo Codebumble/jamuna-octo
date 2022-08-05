@@ -4,35 +4,32 @@
 
 	// List of extensions which should be recommended for users of this workspace.
 	"recommendations": [
-        "bmewburn.vscode-intelephense-client",
-        "bradlc.vscode-tailwindcss",
-        "christian-kohler.path-intellisense",
-        "Codebumble.codebumble-dark-pro",
-        "cssho.vscode-svgviewer",
-        "donjayamanne.jquerysnippets",
-        "eamodio.gitlens",
-        "EditorConfig.EditorConfig",
-        "esbenp.prettier-vscode",
-        "formulahendry.auto-rename-tag",
-        "GitHub.copilot",
-        "liximomo.sftp",
-        "mohamedbenhida.laravel-intellisense",
-        "naumovs.color-highlight",
-        "neilbrayfield.php-docblocker",
-        "wwm.better-align",
-        "xabikos.JavaScriptSnippets",
-        "Zignd.html-css-class-completion",
-        "zobo.php-intellisense",
-        "syler.sass-indented",
-        "onecentlin.laravel5-snippets",
-        "PKief.material-icon-theme",
-        "pranaygp.vscode-css-peek",
-        "rangav.vscode-thunder-client",
-        "hollowtree.vue-snippets",
-        "Wscats.vue"
+		"bmewburn.vscode-intelephense-client",
+		"bradlc.vscode-tailwindcss",
+		"christian-kohler.path-intellisense",
+		"Codebumble.codebumble-dark-pro",
+		"donjayamanne.jquerysnippets",
+		"eamodio.gitlens",
+		"EditorConfig.EditorConfig",
+		"esbenp.prettier-vscode",
+		"formulahendry.auto-rename-tag",
+		"GitHub.copilot",
+		"liximomo.sftp",
+		"mohamedbenhida.laravel-intellisense",
+		"naumovs.color-highlight",
+		"neilbrayfield.php-docblocker",
+		"wwm.better-align",
+		"xabikos.JavaScriptSnippets",
+		"Zignd.html-css-class-completion",
+		"zobo.php-intellisense",
+		"syler.sass-indented",
+		"onecentlin.laravel5-snippets",
+		"PKief.material-icon-theme",
+		"pranaygp.vscode-css-peek",
+		"rangav.vscode-thunder-client",
+		"hollowtree.vue-snippets",
+		"Wscats.vue"
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
-	"unwantedRecommendations": [
-
-	]
+	"unwantedRecommendations": []
 }

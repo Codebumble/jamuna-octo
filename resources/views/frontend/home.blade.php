@@ -8,7 +8,6 @@
         <meta name="description" content="{{ env("APP_NAME")}} is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
         <meta name="keywords" content="admin template, codebumble, {{ env("APP_NAME")}}, dashboard template, flat admin template, responsive admin template, web app">
         <meta name="author" content="Codebumble Inc.">
-        <title>@yield('title') - {{ env("APP_NAME")}}</title>
         <link rel="apple-touch-icon" href="{{asset('images/ico/apple-icon-120.png')}}">
         <link rel="shortcut icon" type="image/x-icon" href="{{asset('images/logo/favicon.ico')}}">
 
@@ -17,13 +16,8 @@
         <link rel="stylesheet" href="{{asset(mix('fonts/font-awesome/css/font-awesome.min.css'))}}">
         <link rel="stylesheet" href="{{asset('frontend/css/app.css')}}">
     </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-
-            <div id="app"></div>
-
-        </div>
-
-        <script src="{{ asset('frontend/app.js') }}"></script>
+    <body class="antialiased overflow-x-hidden">
+        <div id="app"></div>
+        <script src="{{ asset('frontend/js/app.js') }}"></script>
     </body>
 </html>

@@ -125,7 +125,7 @@
 	"editor.formatOnType": false,
 	"editor.formatOnSave": true,
 	"files.autoSave": "afterDelay",
-	"files.autoSaveDelay": 1000,
+	"files.autoSaveDelay": 3000,
 	"git.enableSmartCommit": true,
 	"workbench.editor.untitled.hint": "hidden",
 	"php-docblocker.alignParams": true,
@@ -137,4 +137,5 @@
 	"[html]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
+	"vue3snippets.enable-compile-vue-file-on-did-save-code": false
 }

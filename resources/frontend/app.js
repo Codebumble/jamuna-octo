@@ -1,7 +1,7 @@
 require('./bootstrap');
 
-import './scss/app.scss';
-import './js/script.js';
+import './assets/scss/app.scss';
+import './assets/js/script.js';
 import router from './router/router';
 import { createHead } from "@vueuse/head"
 // import { createMetaManager } from 'vue-meta'
