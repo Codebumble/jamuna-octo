@@ -1,6 +1,6 @@
 @extends('layouts/fullLayoutMaster')
 
-@section('title', 'Reset Password')
+@section('title', 'Reset Password - '.env('APP_NAME'))
 
 @section('page-style')
   {{-- Page Css files --}}
@@ -75,13 +75,22 @@
               </g>
             </g>
           </svg>
-          <h2 class="brand-text text-primary ms-1">Vuexy</h2>
+          <h2 class="brand-text text-primary ms-1">{{ env('APP_NAME') }}</h2>
         </a>
 
         <h4 class="card-title mb-1">Reset Password 🔒</h4>
         <p class="card-text mb-2">Your new password must be different from previously used passwords</p>
 
-        <form class="auth-reset-password-form mt-2" action="/auth/login-basic" method="GET">
+                @if (isset($_GET['error']))
+            <div class="demo-spacing-0">
+                <div class="alert alert-danger" role="alert">
+                <div class="alert-body"><strong>{{ $_GET['error'] }}</strong></div>
+                </div>
+            </div>
+        @endif
+
+        <form class="auth-reset-password-form mt-2" action="{{ route('reset-password-api', ['token' => $token]) }}" method="POST">
+        @csrf
           <div class="mb-1">
             <div class="d-flex justify-content-between">
               <label class="form-label" for="reset-password-new">New Password</label>
@@ -91,7 +100,7 @@
                 type="password"
                 class="form-control form-control-merge"
                 id="reset-password-new"
-                name="reset-password-new"
+                name="new"
                 placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                 aria-describedby="reset-password-new"
                 tabindex="1"
@@ -109,7 +118,7 @@
                 type="password"
                 class="form-control form-control-merge"
                 id="reset-password-confirm"
-                name="reset-password-confirm"
+                name="confirm"
                 placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                 aria-describedby="reset-password-confirm"
                 tabindex="2"
@@ -117,11 +126,11 @@
               <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
             </div>
           </div>
-          <button class="btn btn-primary w-100" tabindex="3">Set New Password</button>
+          <button type="submit" class="btn btn-primary w-100" tabindex="3">Set New Password</button>
         </form>
 
         <p class="text-center mt-2">
-          <a href="{{url('auth/login-basic')}}"> <i data-feather="chevron-left"></i> Back to login </a>
+          <a href="{{route('auth-login')}}"> <i data-feather="chevron-left"></i> Back to login </a>
         </p>
       </div>
     </div>

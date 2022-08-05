@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Validator;
 use File;
 use DB;
+use Illuminate\Support\Facades\Mail;
 use Sinergi\BrowserDetector\Browser;
 use Sinergi\BrowserDetector\Os;
 
@@ -240,11 +241,44 @@ class AuthController extends Controller
             $delete_token = DB::table('password_resets')->where('email', $user[0]->email)->delete();
             $insert_tken = DB::table('password_resets')->insert(['email' => $user[0]->email, 'token' => $token, 'created_at' => date('Y-m-d H:i:s')]);
 
+            $data = [
+                $user[0]->email
+            ];
+
+            Mail::send('email.reset-password', [ 'name' => $user[0]->name, 'reset_url' => route('reset-password', ['token' => $token]),'email' => $user[0]->email, 'ip' => $request->ip(), 'facebook_page' => '', 'twitter_account'=>'', 'insta_account'=>''], function($message) use($data){ $message->subject('Reset Password Request - '.env('APP_NAME')); $message->to($data[0]); });
+
             return redirect()->route('auth-verify-email',['success' => 1, 'email' => base64_encode($field['email'])]);
 
 
         } else {
             return redirect()->route('auth-verify-email',['success' => 11, 'email' => $field['email']]);
+        }
+
+    }
+
+    public function reset_password_api(Request $request, $token){
+        $field = $request->validate([
+            'new' => 'required|string',
+            'confirm' => 'required|string'
+        ]);
+        $token_details = DB::select('select * from password_resets where token=?', [$token]);
+
+        if(isset($token_details[0])){
+
+            if($field['new'] == $field['confirm']){
+
+
+                $a = DB::table('users')->where('email', $token_details[0]->email)->update(['password' => bcrypt($field['new'])]);
+                $b = DB::table('password_resets')->where('email', $token_details[0]->email)->delete();
+            return redirect()->route('auth-login',[ 'hasher' => Str::random(40), 'time' => time(), 'error'=> 'Password Changed. Now You Can Login with Your New Password', 'hasher_ip' => Str::random(10)]);
+            } else {
+                return redirect()->route('reset-password',['token'=> $token, 'hasher' => Str::random(40), 'time' => time(), 'error'=> 'Password Didnt Matched. Please Try Again.', 'hasher_ip' => Str::random(10)]);
+            }
+
+
+
+        } else {
+            return redirect()->route('auth-login',[ 'hasher' => Str::random(40), 'time' => time(), 'success'=> 'Bad Token !! No User Found. Please Try Again.', 'hasher_ip' => Str::random(10)]);
         }
 
     }

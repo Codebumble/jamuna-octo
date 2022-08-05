@@ -42,6 +42,14 @@
             </div>
         @endif
 
+        @if (isset($_GET['success']))
+            <div class="demo-spacing-0">
+                <div class="alert alert-success" role="alert">
+                <div class="alert-body"><strong>{{ $_GET['success'] }}</strong></div>
+                </div>
+            </div>
+        @endif
+
         <form class="auth-login-form mt-2" action="{{route('auth-login-api')}}" method="POST">
         @csrf
         <div val="{{session()->get('success')}}"></div>
