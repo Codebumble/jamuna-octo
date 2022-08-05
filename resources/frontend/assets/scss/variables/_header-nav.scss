@@ -31,11 +31,11 @@
 			@apply lg:mx-3 transition block lg:inline-block w-full lg:w-auto relative lg:static;
 
 			.cb-nav-link {
-				@apply p-4 lg:p-0 lg:py-4 block lg:inline-block hover:bg-rose-600 lg:hover:bg-transparent text-gray-600 lg:text-white hover:text-white hover:lg:text-rose-600 cursor-pointer;
+				@apply p-4 lg:p-0 lg:py-4 block lg:inline-block hover:bg-red-600 lg:hover:bg-transparent text-gray-600 lg:text-white hover:text-white hover:lg:text-red-600 cursor-pointer;
 
 				&::before {
 					content: '';
-					@apply block w-0 h-0.5 bg-rose-600 relative top-6 opacity-100;
+					@apply block w-0 h-0.5 bg-red-600 relative top-6 opacity-100;
 					transition: width .25s ease-in-out;
 				}
 			}

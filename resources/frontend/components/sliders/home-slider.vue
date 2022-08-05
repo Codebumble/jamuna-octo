@@ -7,12 +7,12 @@
           class="flex justify-start items-center"
           :class="{ overlay: slide.overlay }"
         >
-          <img :src="slide.src" :alt="slide.alt" class="w-full h-[500px] object-cover" />
-          <div class="absolute w-[55%] z-20">
-            <div class="container px-16 flex flex-col">
+          <img :src="slide.src" :alt="slide.alt" class="w-full object-cover h-77vh" />
+          <div class="absolute w-full z-20">
+            <div class="container flex flex-col">
               <div class="overflow-hidden">
                 <h1
-                  class="text-3xl lg:text-[40px] text-white font-bold capitalize leading-snug"
+                  class="text-3xl lg:text-[40px] text-white font-bold capitalize leading-snug w-[55%] lg:w-full"
                 >
                   {{ slide.heading }}
                 </h1>
@@ -130,6 +130,7 @@ export default {
       drag: true,
       pauseOnHover: true,
       cloneStatus: false,
+      autoHeight: true,
     };
 
     return { options };
