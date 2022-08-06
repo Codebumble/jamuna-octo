@@ -27,7 +27,7 @@ class Company_rest extends Controller
 
 
         if(!Auth::check()){
-            header("Location: " . route('profile-account'), true, 302);
+            header("Location: " . route('auth-login'), true, 302);
             exit();
 
         }
@@ -96,7 +96,7 @@ class Company_rest extends Controller
 
 
         if(!Auth::check()){
-            header("Location: " . route('profile-account'), true, 302);
+            header("Location: " . route('auth-login'), true, 302);
             exit();
 
         }
@@ -151,6 +151,18 @@ class Company_rest extends Controller
     }
 
     public function delete_company(Request $request){
+        $field = $request->validate([
+            'name' => 'required|string'
+        ]);
+
+        if(!Auth::check()){
+            header("Location: " . route('auth-login'), true, 302);
+            exit();
+
+        }
+
+        $b = DB::table('codebumble_company_list')->where('id', $field['id'])->delete();
+
 
     }
 
@@ -161,7 +173,7 @@ class Company_rest extends Controller
         ]);
 
         if(!Auth::check()){
-            header("Location: " . route('profile-account'), true, 302);
+            header("Location: " . route('auth-login'), true, 302);
             exit();
 
         }
@@ -201,6 +213,20 @@ class Company_rest extends Controller
     }
 
     public function view_single_company(Request $request){
+
+        $field = $request->validate([
+            'name' => 'required|string'
+        ]);
+
+        if(!Auth::check()){
+            header("Location: " . route('profile-account'), true, 302);
+            exit();
+
+        }
+
+        $database_details = DB::select('select * from codebumble_company_list where name=?',[$field['name']]);
+
+        return $database_details[0];
 
     }
 }
