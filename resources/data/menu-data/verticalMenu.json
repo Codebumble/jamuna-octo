@@ -22,6 +22,61 @@
       ]
     },
     {
+      "navheader": "Site Settings",
+      "slug": ""
+    },
+    {
+      "url": "app/email",
+      "name": "Settings",
+      "icon": "settings",
+      "slug": "",
+      "submenu": [
+        {
+          "url": "app/invoice/list",
+          "name": "General Settings",
+          "icon": "circle",
+          "slug": "site-general-settings"
+        },
+        {
+          "url": "app/invoice/list",
+          "name": "SEO Settings",
+          "icon": "circle",
+          "slug": "site-seo-settings"
+        },
+        {
+          "url": "app/invoice/list",
+          "name": "Home Page",
+          "icon": "circle",
+          "slug": "site-home-page-settings"
+        },
+        {
+          "url": "app/invoice/list",
+          "name": "Manual Entry",
+          "icon": "circle",
+          "slug": "site-manual-entry"
+        }
+      ]
+    },{
+      "url": "app/email",
+      "name": "Company",
+      "icon": "anchor",
+      "slug": "",
+      "submenu": [
+        {
+          "url": "app/invoice/list",
+          "name": "All Company",
+          "icon": "circle",
+          "slug": "site-all-compnay"
+        },
+        {
+          "url": "app/invoice/list",
+          "name": "Add Company",
+          "icon": "circle",
+          "slug": "site-add-company"
+        }
+      ]
+    },
+    {
       "navheader": "Apps & Pages",
       "slug": ""
     },
