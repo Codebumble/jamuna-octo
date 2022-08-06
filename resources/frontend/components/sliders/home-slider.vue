@@ -5,7 +5,7 @@
 		<div class="">
 			<Splide
 				:options="options"
-				aria-label="My Favorite Images"
+				aria-label="Hero Slider"
 				class="">
 				<SplideSlide
 					v-for="slide in sliderContents"
@@ -60,18 +60,21 @@
 		opacity: 1;
 		padding: 0;
 		position: relative;
-		transition: transform 0.2s linear;
+		// /transition: transform 0.2s linear;
 		width: 6px;
 	}
 
 	.splide__pagination__page.is-active {
-		background: #fff;
-		transform: scale(1.4);
+		//transform: scale(1.4);
 		z-index: 20;
 		width: 12px;
-		height: 5px;
+		height: 6px;
 		border-radius: 50px;
-		@apply bg-rose-600;
+		@apply bg-rose-600 #{!important};
+	}
+
+	.splide__pagination li {
+		@apply flex items-center #{!important};
 	}
 </style>
 

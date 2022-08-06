@@ -997,6 +997,11 @@
   resolved "https://registry.yarnpkg.com/@socket.io/component-emitter/-/component-emitter-3.1.0.tgz#96116f2a912e0c02817345b3c10751069920d553"
   integrity sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==
 
+"@splidejs/splide-extension-grid@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@splidejs/splide-extension-grid/-/splide-extension-grid-0.4.1.tgz#fad32e6a808a0e08979c6003653a3ea882ec4682"
+  integrity sha512-XM3pl5VKvmoybwZRrv4xE8Hff2mT6Chl9GnGd8nQogo4ZtTgxzqAZqBxLvhrl5UuUswIdmNoRmMeeEgx9twrvw==
+
 "@splidejs/splide@^4.0.7":
   version "4.0.7"
   resolved "https://registry.npmjs.org/@splidejs/splide/-/splide-4.0.7.tgz"
