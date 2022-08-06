@@ -1,24 +1,22 @@
 .cb-hero {
-	.button{
+	.button {
 		@apply rounded-3xl py-2 px-7 border-2 border-red-600 text-white bg-red-600 hover:bg-white hover:text-red-600 transition-all overflow-hidden w-fit;
 	}
 
-	.button-alt{
+	.button-alt {
 		@apply rounded-3xl py-2 px-7 border-2 border-red-600 text-red-600 bg-white hover:bg-red-600 hover:text-white transition-all overflow-hidden w-fit;
 	}
 
-	li.overlay::after{
-			--tw-bg-opacity: 0.5;
-			background-color: rgb(17 24 39/var(--tw-bg-opacity));
-			content: "";
-			height: 77vh;
-			left: 0;
-			opacity: 1;
-			position: absolute;
-			top: 0;
-			visibility: visible;
-			width: 100%;
-
+	li.overlay::after {
+		--tw-bg-opacity: 0.5;
+		background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+		content: "";
+		height: 77vh;
+		left: 0;
+		opacity: 1;
+		position: absolute;
+		top: 0;
+		visibility: visible;
+		width: 100%;
 	}
-
 }
