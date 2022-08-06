@@ -79,15 +79,17 @@ jobs:
                   GITHUB_SHA: ${{github.sha}}
                   BASE_PATH: jamuna.codebumble.net
                   ENV: ${{ SECRETS.ENV_BACK }}
+                  ARTISAN_KEYS: ${{SECRETS.ARTISAN_KEYS}}
               with:
                   host: ${{ SECRETS.CP_HOST }}
                   username: ${{ SECRETS.CP_USERNAME }}
                   password: ${{ SECRETS.CP_PASSWORD }}
-                  envs: GITHUB_SHA,BASE_PATH,ENV
+                  envs: GITHUB_SHA,BASE_PATH,ENV,ARTISAN_KEYS
                   script: |
                       echo ${GITHUB_SHA}
                       printf "%s" "$ENV" > "${BASE_PATH}/.env"
                       printf "%s" "${GITHUB_SHA}" > "${BASE_PATH}/${GITHUB_SHA}.txt"
+                      cd ${BASE_PATH} && ${ARTISAN_KEYS}
 
     migrating-db:
         name: Migrating Database
