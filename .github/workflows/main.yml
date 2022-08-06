@@ -89,7 +89,6 @@ jobs:
                       printf "%s" "$ENV" > "${BASE_PATH}/.env"
                       printf "%s" "${GITHUB_SHA}" > "${BASE_PATH}/${GITHUB_SHA}.txt"
 
-
     migrating-db:
         name: Migrating Database
         runs-on: ubuntu-latest
@@ -105,14 +104,13 @@ jobs:
               env:
                   BASE_PATH: jamuna.codebumble.net
                   ARTISAN_MIGRATE: ${{ SECRETS.ARTISAN_MIGRATE }}
-				  ARTISAN_KEYGEN: ${{ SECRETS.KEYGEN }}
               with:
-                  envs: BASE_PATH,ARTISAN_MIGRATE,ARTISAN_KEYGEN
+                  envs: BASE_PATH,ARTISAN_MIGRATE
                   host: ${{ SECRETS.CP_HOST }}
                   username: ${{ SECRETS.CP_USERNAME }}
                   password: ${{ SECRETS.CP_PASSWORD }}
                   script: |
-                      cd ${BASE_PATH} && ${ARTISAN_MIGRATE} && ${ARTISAN_KEYGEN}
+                      cd ${BASE_PATH} && ${ARTISAN_MIGRATE}
 
     clean-up:
         name: Cleaning Up Artifacts
