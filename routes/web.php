@@ -7,6 +7,7 @@ use App\Http\Controllers\AppsController;
 use App\Http\Controllers\UserInterfaceController;
 use App\Http\Controllers\CardsController;
 use App\Http\Controllers\ComponentsController;
+use App\Http\Controllers\Company_rest;
 use App\Http\Controllers\ExtensionController;
 use App\Http\Controllers\PageLayoutController;
 use App\Http\Controllers\FormsController;
@@ -40,14 +41,14 @@ Route::group(['prefix' => 'dashboard'], function () {
 
 });
 /* Route Dashboards */
-Route::get('admin/visitor/{username}', [AppsController::class, 'profile_visitor'])->name('profile_visitor');
 Route::group(['prefix' => 'admin', ], function () {
 
     Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::get('logout', [AuthController::class, 'logout']);
         Route::get('user', [AuthController::class, 'user']);
-
+        Route::get('add-company', [Company_rest::class, 'auth_view_add_company'])->name('add-company');
         Route::get('profile-account', [AppsController::class, 'user_view_account'])->name('profile-account');
+        Route::get('visitor/{username}', [AppsController::class, 'profile_visitor'])->name('profile_visitor');
         // API SET
         Route::get('profile-account-under-user', [AuthController::class, 'under_ref'])->name('profile-account-under-user');
         Route::post('profile-account-edit', [AuthController::class, 'user_edit'])->name('profile-account-edit');

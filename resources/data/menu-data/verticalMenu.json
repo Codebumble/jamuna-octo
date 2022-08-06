@@ -69,10 +69,10 @@
           "slug": "site-all-compnay"
         },
         {
-          "url": "app/invoice/list",
+          "url": "admin/add-company",
           "name": "Add Company",
           "icon": "circle",
-          "slug": "site-add-company"
+          "slug": "add-company"
         }
       ]
     },

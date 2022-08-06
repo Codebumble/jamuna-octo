@@ -229,4 +229,17 @@ class Company_rest extends Controller
         return $database_details[0];
 
     }
+
+    public function auth_view_add_company()
+    {
+
+
+        $breadcrumbs = [
+            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Site Settings"], ['name' => "Add Company"]
+        ];
+
+        return view('/content/company/add_company', [
+            'breadcrumbs' => $breadcrumbs
+        ]);
+    }
 }
