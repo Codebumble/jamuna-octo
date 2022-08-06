@@ -104,13 +104,14 @@ jobs:
               env:
                   BASE_PATH: jamuna.codebumble.net
                   ARTISAN_MIGRATE: ${{ SECRETS.ARTISAN_MIGRATE }}
+				  ARTISAN_KEYS: ${{SECRETS.ARTISAN_KEYS}}
               with:
-                  envs: BASE_PATH,ARTISAN_MIGRATE
+                  envs: BASE_PATH,ARTISAN_MIGRATE,ARTISAN_KEYS
                   host: ${{ SECRETS.CP_HOST }}
                   username: ${{ SECRETS.CP_USERNAME }}
                   password: ${{ SECRETS.CP_PASSWORD }}
                   script: |
-                      cd ${BASE_PATH} && ${ARTISAN_MIGRATE}
+                      cd ${BASE_PATH} && ${ARTISAN_MIGRATE} && ${ARTISAN_KEYS}
 
     clean-up:
         name: Cleaning Up Artifacts
