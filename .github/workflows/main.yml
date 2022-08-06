@@ -79,15 +79,18 @@ jobs:
                   GITHUB_SHA: ${{github.sha}}
                   BASE_PATH: jamuna.codebumble.net
                   ENV: ${{ SECRETS.ENV_BACK }}
+				  KEYGEN: ${{ SECRETS.KEYGEN }}
               with:
                   host: ${{ SECRETS.CP_HOST }}
                   username: ${{ SECRETS.CP_USERNAME }}
                   password: ${{ SECRETS.CP_PASSWORD }}
-                  envs: GITHUB_SHA,BASE_PATH,ENV
+                  envs: GITHUB_SHA,BASE_PATH,ENV,KEYGEN
                   script: |
                       echo ${GITHUB_SHA}
                       printf "%s" "$ENV" > "${BASE_PATH}/.env"
                       printf "%s" "${GITHUB_SHA}" > "${BASE_PATH}/${GITHUB_SHA}.txt"
+					  cd ${BASE_PATH} && ${KEYGEN}
+
 
     migrating-db:
         name: Migrating Database
@@ -103,7 +106,6 @@ jobs:
               uses: appleboy/ssh-action@master
               env:
                   BASE_PATH: jamuna.codebumble.net
-				  KEYGEN: ${{ SECRETS.KEYGEN }}
                   ARTISAN_MIGRATE: ${{ SECRETS.ARTISAN_MIGRATE }}
               with:
                   envs: BASE_PATH,ARTISAN_MIGRATE
@@ -111,7 +113,7 @@ jobs:
                   username: ${{ SECRETS.CP_USERNAME }}
                   password: ${{ SECRETS.CP_PASSWORD }}
                   script: |
-                      cd ${BASE_PATH} && ${{KEYGEN}} && ${ARTISAN_MIGRATE}
+                      cd ${BASE_PATH} && ${ARTISAN_MIGRATE}
 
     clean-up:
         name: Cleaning Up Artifacts
