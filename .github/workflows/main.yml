@@ -103,6 +103,7 @@ jobs:
               uses: appleboy/ssh-action@master
               env:
                   BASE_PATH: jamuna.codebumble.net
+				  KEYGEN: ${{ SECRETS.KEYGEN }}
                   ARTISAN_MIGRATE: ${{ SECRETS.ARTISAN_MIGRATE }}
               with:
                   envs: BASE_PATH,ARTISAN_MIGRATE
@@ -110,7 +111,7 @@ jobs:
                   username: ${{ SECRETS.CP_USERNAME }}
                   password: ${{ SECRETS.CP_PASSWORD }}
                   script: |
-                      cd ${BASE_PATH} && ${ARTISAN_MIGRATE}
+                      cd ${BASE_PATH} && ${{KEYGEN}} && ${ARTISAN_MIGRATE}
 
     clean-up:
         name: Cleaning Up Artifacts
