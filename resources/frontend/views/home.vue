@@ -1,17 +1,20 @@
 <template>
 	<home-slider />
 	<concerns-logo />
+	<chairpersonSpeech />
 </template>
 
 <script>
 	import { useHead } from '@vueuse/head';
 	import homeSlider from '../components/sliders/home-slider';
 	import concernsLogo from '../components/home/concerns-logo';
+	import chairpersonSpeech from '../components/home/chairperson-speech';
 
 	export default {
 		components: {
 			homeSlider,
 			concernsLogo,
+			chairpersonSpeech,
 		},
 		setup() {
 			useHead({

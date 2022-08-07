@@ -28,7 +28,6 @@
 </template>
 
 <style lang="scss">
-	@import '@splidejs/vue-splide/css';
 	@import '../../assets/scss/variables/concerns-logo.scss';
 </style>
 
