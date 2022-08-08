@@ -1,5 +1,28 @@
 {
-  "menu": [
+  "menu": [{
+    "name": "Profile",
+    "icon": "user",
+    "slug": "",
+    "submenu": [
+      {
+        "url": "app/user/list",
+        "name": "List",
+        "icon": "circle",
+        "slug": "app-user-list"
+      },{
+        "url": "admin/profile-account",
+        "name": "Account",
+        "icon": "circle",
+        "slug": "profile-account"
+      },
+      {
+        "url": "admin/profile-security",
+        "name": "Security",
+        "icon": "circle",
+        "slug": "profile-security"
+      }
+    ]
+  },
     {
       "name": "Dashboards",
       "badge": "2",
@@ -217,30 +240,7 @@
         }
       ]
     },
-    {
-      "name": "Profile",
-      "icon": "user",
-      "slug": "",
-      "submenu": [
-        {
-          "url": "app/user/list",
-          "name": "List",
-          "icon": "circle",
-          "slug": "app-user-list"
-        },{
-          "url": "admin/profile-account",
-          "name": "Account",
-          "icon": "circle",
-          "slug": "profile-account"
-        },
-        {
-          "url": "admin/profile-security",
-          "name": "Security",
-          "icon": "circle",
-          "slug": "profile-security"
-        }
-      ]
-    },
+
     {
       "name": "Pages",
       "icon": "file-text",

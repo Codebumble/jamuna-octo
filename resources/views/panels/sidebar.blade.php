@@ -45,6 +45,48 @@ $configData = Helper::applClasses();
   <div class="shadow-bottom"></div>
   <div class="main-menu-content">
     <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+    <li class="navigation-header">
+        <span>Login As</span>
+        <i data-feather="more-horizontal"></i>
+      </li>
+
+      <li class="nav-item mb-1">
+        <a href="javascript:void(0)" class="d-flex align-items-center border border-primary rounded">
+          <span class="avatar">
+
+              <img
+                      class="round"
+                      <?php
+                      if(!isset(Auth::user()->avatar)){ ?>
+                      src="{{ Auth::user()->profile_photo_url }}"
+                      <?php } else { ?>
+                      src="/profile-images/{{Auth::user()->avatar}}"
+                      <?php } ?>
+                      height="40"
+                      width="40"
+                      alt="avatar"
+                    >
+            <span class="avatar-status-online"></span>
+          </span>
+          <div class="d-flex flex-column">
+            <span class="fw-bolder">{{Auth::user()->name}}</span>
+            <span class="user-status">{{Auth::user()->designation}}</span>
+          </div>
+
+        </a>
+        <ul class="menu-content mb-2">
+          <li>
+          <a class="d-flex align-items-center" href="{{ route('logout') }}"
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <i class="me-50" data-feather="power"></i>
+            <span class="menu-item text-truncate">Logout</span>
+          </a>
+          <form method="POST" id="logout-form" action="{{ route('logout') }}">
+            @csrf
+          </form>
+          </li>
+        </ul>
+      </li>
       {{-- Foreach menu item starts --}}
       @if(isset($menuData[0]))
       @foreach($menuData[0]->menu as $menu)
