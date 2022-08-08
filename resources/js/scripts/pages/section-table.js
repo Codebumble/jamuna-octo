@@ -14,20 +14,14 @@ $(function () {
 	  newUserSidebar = $('.new-user-modal'),
 	  newUserForm = $('.add-new-user'),
 	  select = $('.select2'),
-	  dtContact = $('.dt-contact'),
-	  statusObj = {
-		1: { title: 'Pending', class: 'badge-light-warning' },
-		2: { title: 'Active', class: 'badge-light-success' },
-		3: { title: 'Inactive', class: 'badge-light-secondary' }
-	  };
+	  dtContact = $('.dt-contact');
+
 
 	var assetPath = '../../../app-assets/',
 	  userView = 'app-user-view-account.html';
 
 	if ($('body').attr('data-framework') === 'laravel') {
 	  assetPath = $('body').attr('data-asset-path');
-	  userView = assetPath + "admin/visitor/";
-	  baseView = window.location.origin;
 	}
 
 	select.each(function () {
@@ -45,14 +39,12 @@ $(function () {
 	// Users List datatable
 	if (dtUserTable.length) {
 	  dtUserTable.DataTable({
-		ajax: baseView + '/codebumble/all-company-api', // JSON file to add data
+		ajax: baseView + '/codebumble/all-sector-api', // JSON file to add data
 		columns: [
 		  // columns according to JSON
 		  { data: '' },
+		  { data: 'id' },
 		  { data: 'name' },
-		  { data: 'section' },
-		  { data: 'establish_date' },
-		  { data: 'json_data' },
 		  { data: '' }
 		],
 		columnDefs: [
@@ -71,73 +63,7 @@ $(function () {
 			targets: 1,
 			responsivePriority: 4,
 			render: function (data, type, full, meta) {
-			  var $name = full['name'],
-				$image = full['avatar'];
-				const obj = JSON.parse(full['json_data']);
-				if(obj.ceo_username){
-					var $email = obj.ceo_username,
-					$uname = true;
-				} else {
-					var $email = obj.ceo_of_the_company,
-					$uname = false;
-				}
-			  if ($image) {
-				// For Avatar image
-				var $output =
-				  '<img src="' + assetPath + 'images/avatars/' + $image + '" alt="Avatar" height="32" width="32">';
-			  } else {
-				// For Avatar badge
-				var stateNum = Math.floor(Math.random() * 6) + 1;
-				var states = ['success', 'danger', 'warning', 'info', 'dark', 'primary', 'secondary'];
-				var $state = states[stateNum],
-				  $name = full['name'],
-				  $initials = $name.match(/\b\w/g) || [];
-				$initials = (($initials.shift() || '') + ($initials.pop() || '')).toUpperCase();
-				$output = '<span class="avatar-content">' + $initials + '</span>';
-			  }
-			  var colorClass = $image === '' ? ' bg-light-' + $state + ' ' : '';
-			  // Creates full output for row
-			  if($uname){
-				var $row_output =
-				'<div class="d-flex justify-content-left align-items-center">' +
-				'<div class="avatar-wrapper">' +
-				'<div class="avatar ' +
-				colorClass +
-				' me-1">' +
-				$output +
-				'</div>' +
-				'</div>' +
-				'<div class="d-flex flex-column">' +
-				'<a href="' +
-				userView +""+$email +
-				'" class="user_name text-truncate text-body"><span class="fw-bolder">' +
-				$name +
-				'</span></a>' +
-				'<small class="emp_post text-muted">@' +
-				$email +
-				'</small>' +
-				'</div>' +
-				'</div>';
-			  } else {
-				var $row_output =
-				'<div class="d-flex justify-content-left align-items-center">' +
-				'<div class="avatar-wrapper">' +
-				'<div class="avatar ' +
-				colorClass +
-				' me-1">' +
-				$output +
-				'</div>' +
-				'</div>' +
-				'<div class="d-flex flex-column">' +
-				'<a href="javascript:;" class="user_name text-truncate text-body"><span class="fw-bolder">' +
-				$name +
-				'</span></a>' +
-				'<small class="emp_post text-muted">' +
-				$email +
-				'</small>' +
-				'</div>' +
-				'</div>';
-			  }
+			  var $row_output = full[''];
 
 			  return $row_output;
 			}

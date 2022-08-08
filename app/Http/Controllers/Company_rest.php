@@ -91,9 +91,8 @@ class Company_rest extends Controller
 
     }
 
-    public function edit_company(Request $request){
+    public function edit_company(Request $request, $id){
         $field = $request->validate([
-            'name' => 'required|string',
             'section' => 'required|string',
             'description' => 'required|string',
             'establish_date' => 'required|string',
@@ -111,11 +110,6 @@ class Company_rest extends Controller
             exit();
 
         }
-        //$name_list = DB::table('codebumble_company_list')->where(['name' => $field['name']])->first();
-
-            // loop for checking section name already exist or not
-
-
 
         if(!isset($request['longitute'])){
             $request['longitute'] = 'N/A';
@@ -137,6 +131,11 @@ class Company_rest extends Controller
             $request['instagram'] = 'N/A';
         }
 
+        if(!isset($request['ceo_username'])){
+            $request['ceo_username'] = 'N/A';
+        }
+
+
         $json_encode = json_encode([
             'address' => $field['address'],
             'added_by' => Auth::user()->username,
@@ -147,29 +146,36 @@ class Company_rest extends Controller
             'support_email' => $field['support_email'],
             'website' => $request['website'],
             'facebook' => $request['website'],
-            'instagram' => $request['instagram']
+            'instagram' => $request['instagram'],
+            'ceo_username' => $request['ceo_username']
         ]);
 
+        $a = DB::table('codebumble_company_list')->where('id', $id)->first();
+
         if($file = $request->hasFile('image')) {
+            $check = $request->validate([
+                'image.*' => 'mimes:jpeg,png,jpg,svg|max:3080'
+            ]);
+
+            $unlink_path= public_path().'/company-images/'.$a->image;
+            unlink($unlink_path);
+
             $user = Auth::user()->username;
             $file = $request->file('image') ;
             $fileName = time().'-'.$user.'.'.$file->getClientOriginalExtension() ;
             $destinationPath = public_path().'/company-images' ;
             $file->move($destinationPath,$fileName);
         } else {
-            return redirect()->route('',['error' => 1]);
+            $fileName = $a->image;
         }
 
-        $database_update = DB::table('codebumble_company_list')->where(['name' => $field['name']])->update(['name'=> $field['name'], 'section' => $field['section'], 'description' => $field['description'], 'establish_date' => $field['description'], 'json_data' => $field['json_data']]);
+        $database_update = DB::table('codebumble_company_list')->where('id', $id)->update(['section' => $field['section'], 'description' => $field['description'], 'establish_date' => $field['establish_date'], 'json_data' => $json_encode, 'image' => $fileName, 'updated_at' => time()]);
 
-        return redirect()->route('',['status' => 1]);
+        return redirect()->route('all-company',['status' => 1]);
 
     }
 
-    public function delete_company(Request $request){
-        $field = $request->validate([
-            'name' => 'required|string'
-        ]);
+    public function delete_company(Request $request,$id){
 
         if(!Auth::check()){
             header("Location: " . route('auth-login'), true, 302);
@@ -177,38 +183,18 @@ class Company_rest extends Controller
 
         }
 
-        $b = DB::table('codebumble_company_list')->where('id', $field['id'])->delete();
-
-
-    }
-
-    public function edit_company_image(Request $request){
-
-        $field = $request->validate([
-            'image.*' => 'mimes:jpeg,png,jpg,svg|max:3080'
-        ]);
-
-        if(!Auth::check()){
-            header("Location: " . route('auth-login'), true, 302);
-            exit();
-
-        }
-
-        if($file = $request->hasFile('image')) {
-            $user = Auth::user()->username;
-            $file = $request->file('image') ;
-            $fileName = time().'-'.$user.'.'.$file->getClientOriginalExtension() ;
-            $destinationPath = public_path().'/company-images' ;
-            $file->move($destinationPath,$fileName);
+        $a = DB::table('codebumble_company_list')->where('id', $id)->first();
+        if(isset($a)){
+            $b = DB::table('codebumble_company_list')->where('id', $id)->delete();
+            return redirect()->route('all-company',['status' => 1]);
         } else {
-            return redirect()->route('',['error' => 1]);
+            return redirect()->route('all-company',['error' => 1]);
         }
 
-        $database_update = DB::table('codebumble_company_list')->where(['name' => $field['name']])->update(['image' => $fileName]);
 
-        return redirect()->route('',['status' => 1]);
 
     }
+
 
     public function view_all_company_api(){
 
@@ -276,6 +262,34 @@ class Company_rest extends Controller
 
     }
 
+    public function auth_view_edit_company($id){
+
+        if(!Auth::check()){
+            header("Location: " . route('auth-login'), true, 302);
+            exit();
+
+        }
+
+        $a = DB::table('codebumble_company_list')->where('id', $id)->first();
+
+        if(!isset($a)){
+            return redirect()->route('all-company',['error' => 1]);
+        }
+
+        $breadcrumbs = [
+            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Site Settings"], ['link' => "javascript:void(0)", 'name' => "All Company"], [ 'name' => "Edit Company"]
+        ];
+
+        $data = DB::table('codebumble_general')->where('code_name', 'sections')->first();
+
+        return view('/content/company/edit_company', [
+            'breadcrumbs' => $breadcrumbs,
+            'company' => $a,
+            'sections' => json_decode($data->value)
+        ]);
+
+    }
+
 
     // Section API STARTED
     public function add_section(Request $request){
@@ -326,6 +340,38 @@ class Company_rest extends Controller
 
     }
 
+    public function delete_section($name){
+
+        if(!Auth::check()){
+            header("Location: " . route('auth-login'), true, 302);
+            exit();
+
+        }
+
+
+
+        $name = base64_decode($name);
+        $a= DB::table('codebumble_general')->where('code_name', 'sections')->first();
+        if(!isset($a)){
+            return redirect()->route('all-section',['error' => 1]);
+        }
+
+
+        $b = json_decode($a->value);
+
+        $c = [];
+
+        foreach($b as $bc){
+            if($bc->name != $name ){
+                array_push($c, $bc);
+            }
+        }
+
+        $d = $a= DB::table('codebumble_general')->where('code_name', 'sections')->update(['value' => json_encode($c)]);
+        return redirect()->route('all-section',['status' => 1]);
+
+    }
+
     public function auth_view_add_section()
     {
 
@@ -336,6 +382,20 @@ class Company_rest extends Controller
 
         return view('/content/company/add_section', [
             'breadcrumbs' => $breadcrumbs
+        ]);
+    }
+
+    public function auth_view_all_section()
+    {
+            $a = DB::table('codebumble_general')->where('code_name','sections')->first();
+
+        $breadcrumbs = [
+            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Site Settings"], ['name' => "All Section"]
+        ];
+
+        return view('/content/company/all_sector', [
+            'breadcrumbs' => $breadcrumbs,
+            'sections' => json_decode($a->value)
         ]);
     }
 }

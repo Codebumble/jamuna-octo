@@ -13,4 +13,7 @@ class TestOutput extends Controller
     public function test_post(Request $request){
         return $request->post();
     }
+
+    public function test_get(){
+    }
 }

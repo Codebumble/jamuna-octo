@@ -52,7 +52,9 @@ Route::group(['prefix' => 'codebumble'], function () {
         Route::post('add-section', [Company_rest::class, 'add_section'])->name('add-section-api');
         Route::post('add-company', [Company_rest::class, 'add_company'])->name('add-company-api');
         Route::get('all-company-api', [Company_rest::class, 'view_all_company_api'])->name('all-company-api');
+        Route::post('edit-company-api/{id}', [Company_rest::class, 'edit_company'])->name('edit-company-api');
         Route::post('test-output', [TestOutput::class, 'test_post'])->name('test-post');
+        Route::get('test-output-get', [TestOutput::class, 'test_get'])->name('test-get');
     });
 });
 /* Route Dashboards */
@@ -63,12 +65,17 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::get('user', [AuthController::class, 'user']);
         Route::get('add-company', [Company_rest::class, 'auth_view_add_company'])->name('add-company');
         Route::get('all-company', [Company_rest::class, 'auth_view_all_company'])->name('all-company');
+        Route::get('edit-company/{id}', [Company_rest::class, 'auth_view_edit_company'])->name('edit-company');
+
         Route::get('add-section', [Company_rest::class, 'auth_view_add_section'])->name('add-section');
+        Route::get('all-section', [Company_rest::class, 'auth_view_all_section'])->name('all-section');
+        Route::get('delete-section/{name}', [Company_rest::class, 'delete_section'])->name('delete-section');
         Route::get('profile-account', [AppsController::class, 'user_view_account'])->name('profile-account');
         Route::get('visitor/{username}', [AppsController::class, 'profile_visitor'])->name('profile_visitor');
         // API SET
         Route::get('profile-account-under-user', [AuthController::class, 'under_ref'])->name('profile-account-under-user');
         Route::post('profile-account-edit', [AuthController::class, 'user_edit'])->name('profile-account-edit');
+        Route::get('delete-company/{id}', [Company_rest::class, 'delete_company'])->name('delete-company');
         Route::get('profile-security', [AppsController::class, 'user_view_security'])->name('profile-security');
         Route::post('auth_reset_password', [AuthController::class, 'auth_reset_password'])->name('auth_reset_password');
 
