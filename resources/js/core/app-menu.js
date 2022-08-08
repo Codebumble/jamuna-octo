@@ -3,7 +3,7 @@
   Description: Menu navigation, custom scrollbar, hover scroll bar, multilevel menu
   initialization and manipulations
   ----------------------------------------------------------------------------------------
-  Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+  Item Name: Project-Octa - Codebumble - Vuejs, HTML & Laravel Admin Dashboard Template
   Author: Codebumble
   Author URL: hhttp://www.themeforest.net/user/Codebumble Inc.
 ==========================================================================================*/

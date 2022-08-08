@@ -2,7 +2,7 @@
     File Name: card-advance.js
     Description: Card Advance page content with Apexchart Examples
     ----------------------------------------------------------------------------------------
-    Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    Item Name: Project-Octa - Codebumble - Vuejs, HTML & Laravel Admin Dashboard Template
     Author: Codebumble
     Author URL: http://www.codebumble.net
 ==========================================================================================*/

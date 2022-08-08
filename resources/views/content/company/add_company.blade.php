@@ -25,7 +25,25 @@
           <h4 class="card-title">Insert Company Details</h4>
         </div>
         <div class="card-body">
-          <form class="needs-validation" novalidate action="" enctype="multipart/form-data">
+		@if (isset($_GET['status']))
+            <div class="demo-spacing-0 mb-2">
+                <div class="alert alert-success" role="alert">
+                <div class="alert-body"><strong>Congratulation ! Company Added to the Server.</strong></div>
+                </div>
+            </div>
+        @endif
+
+		@if (isset($_GET['exist']))
+            <div class="demo-spacing-0 mb-2">
+                <div class="alert alert-danger" role="alert">
+                <div class="alert-body"><strong>Company Name Already Exist. Please Try to Edit That or Delete to Create a New.</strong></div>
+                </div>
+            </div>
+        @endif
+
+
+          <form class="needs-validation" novalidate action="{{route('add-company-api')}}" enctype="multipart/form-data" method="POST">
+		  @csrf
 				<div class="row">
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="name">Company Name</label>
@@ -45,17 +63,12 @@
 						</div>
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="section">Section</label>
-						<input
-							type="text"
-							id="section"
-							class="form-control"
-							name="section"
-							placeholder="Media Section"
-							aria-label="Media Section"
-							required
-						/>
-						<div class="valid-feedback"></div>
-						<div class="invalid-feedback"></div>
+						<select class="select2 form-control" id="section" name="section">
+							@foreach($sections as $section)
+							<option value="{{$section->name}}">{{$section->name}}</option>
+							@endforeach
+                        </select>
+
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
@@ -74,12 +87,16 @@
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="ceo_of_the_company">Name of The CEO</label>
-						<input type="text" class="form-control picker" name="ceo_of_the_company" id="ceo_of_the_company" required />
+						<input type="text" class="form-control" name="ceo_of_the_company" id="ceo_of_the_company" required />
+						<div class="valid-feedback">Looks good!</div>
+						<div class="invalid-feedback">Please enter a valid CEO Name.</div>
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="address">Address</label>
-						<input type="text" class="form-control picker" name="address" id="address" required />
+						<input type="text" class="form-control" name="address" id="address" required />
+						<div class="valid-feedback">Looks good!</div>
+						<div class="invalid-feedback">Please enter a valid Address.</div>
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
@@ -89,12 +106,12 @@
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="support_phone_number">Support Phone Number</label>
-						<input type="date" class="form-control picker" name="support_phone_number" id="support_phone_number" required />
+						<input type="text" class="form-control" name="support_phone_number" id="support_phone_number" required />
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
 						<label for="image" class="form-label">Company Logo</label>
-						<input class="form-control" type="file" id="image" required />
+						<input class="form-control" type="file" id="image" name="image" required />
 						</div>
 
 
@@ -115,27 +132,27 @@
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="longitute">Location: longitute</label>
-						<input type="text" class="form-control picker" name="longitute" id="longitute"/>
+						<input type="text" class="form-control" name="longitute" id="longitute"/>
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="latitude">Location: latitude</label>
-						<input type="text" class="form-control picker" name="latitude" id="latitude"/>
+						<input type="text" class="form-control" name="latitude" id="latitude"/>
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="website">Website</label>
-						<input type="text" class="form-control picker" name="website" id="website"/>
+						<input type="text" class="form-control" name="website" id="website"/>
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="facebook">Facebook</label>
-						<input type="text" class="form-control picker" name="facebook" id="facebook"/>
+						<input type="text" class="form-control" name="facebook" id="facebook"/>
 						</div>
 
 						<div class="mb-1 col-12">
 						<label class="form-label" for="instagram">Instagram</label>
-						<input type="text" class="form-control picker" name="instagram" id="instagram"/>
+						<input type="text" class="form-control" name="instagram" id="instagram"/>
 						</div>
 
 				</div>
@@ -163,5 +180,5 @@
 @endsection
 @section('page-script')
   <!-- Page js files -->
-  <script src="{{ asset(mix('js/scripts/forms/form-validation.js')) }}"></script>
+  <script src="{{ asset(mix('js/scripts/forms/form-validation-company-page.js')) }}"></script>
 @endsection

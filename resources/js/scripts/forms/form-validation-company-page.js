@@ -1,5 +1,5 @@
 /*=========================================================================================
-  File Name: form-validation-section-page.js
+  File Name: form-validation.js
   Description: jquery bootstrap validation js
   ----------------------------------------------------------------------------------------
   Item Name: Project-Octa - Codebumble - Vuejs, HTML & Laravel Admin Dashboard Template
@@ -22,8 +22,6 @@ $(function () {
 	  $this
 		.select2({
 		  placeholder: 'Select value',
-		  dropdownAutoWidth: true,
-		  width: '100%',
 		  dropdownParent: $this.parent()
 		})
 		.change(function () {

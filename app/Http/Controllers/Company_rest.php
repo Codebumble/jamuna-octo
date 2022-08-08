@@ -23,7 +23,12 @@ class Company_rest extends Controller
             'image.*' => 'mimes:jpeg,png,jpg,svg|max:3080'
         ]);
         // add longitute,latitude, wesite, facebook, instagram
+        $check_name = Db::table('codebumble_company_list')->where('name', $field['name'])->first();
+        if(isset($check_name->name)){
 
+            return redirect()->route('add-company',['exist' => 1]);
+
+        }
 
 
         if(!Auth::check()){
@@ -73,9 +78,9 @@ class Company_rest extends Controller
             $file->move($destinationPath,$fileName);
         }
 
-        $database_update = DB::table('codebumble_company_list')->insert(['name'=> $field['name'], 'section' => $field['section'], 'description' => $field['description'], 'establish_date' => $field['description'], 'json_data' => $field['json_data'], 'image' => $fileName]);
+        $database_update = DB::table('codebumble_company_list')->insert(['name'=> $field['name'], 'section' => $field['section'], 'description' => $field['description'], 'establish_date' => $field['description'], 'json_data' => $json_encode, 'image' => $fileName, 'created_at' => time(), 'updated_at' => time()]);
 
-        return redirect()->route('',['status' => 1]);
+        return redirect()->route('add-company',['status' => 1]);
 
 
     }
@@ -100,6 +105,11 @@ class Company_rest extends Controller
             exit();
 
         }
+        //$name_list = DB::table('codebumble_company_list')->where(['name' => $field['name']])->first();
+
+            // loop for checking section name already exist or not
+
+
 
         if(!isset($request['longitute'])){
             $request['longitute'] = 'N/A';
@@ -238,8 +248,11 @@ class Company_rest extends Controller
             ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Site Settings"], ['name' => "Add Company"]
         ];
 
+        $data = DB::table('codebumble_general')->where('code_name', 'sections')->first();
+
+
         return view('/content/company/add_company', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs, 'sections' => json_decode($data->value)
         ]);
     }
 

@@ -100,6 +100,7 @@
     "/js/scripts/forms/form-repeater.js": "/js/scripts/forms/form-repeater.js",
     "/js/scripts/forms/form-select2.js": "/js/scripts/forms/form-select2.js",
     "/js/scripts/forms/form-tooltip-valid.js": "/js/scripts/forms/form-tooltip-valid.js",
+    "/js/scripts/forms/form-validation-company-page.js": "/js/scripts/forms/form-validation-company-page.js",
     "/js/scripts/forms/form-validation-section-page.js": "/js/scripts/forms/form-validation-section-page.js",
     "/js/scripts/forms/form-validation.js": "/js/scripts/forms/form-validation.js",
     "/js/scripts/forms/form-wizard.js": "/js/scripts/forms/form-wizard.js",
