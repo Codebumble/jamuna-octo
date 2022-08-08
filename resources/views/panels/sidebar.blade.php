@@ -62,15 +62,15 @@ $configData = Helper::applClasses();
                       <?php } else { ?>
                       src="/profile-images/{{Auth::user()->avatar}}"
                       <?php } ?>
-                      height="40"
-                      width="40"
+                      height="30"
+                      width="30"
                       alt="avatar"
                     >
             <span class="avatar-status-online"></span>
           </span>
-          <div class="d-flex flex-column">
+          <div class="d-flex flex-column ms-1">
             <span class="fw-bolder">{{Auth::user()->name}}</span>
-            <span class="user-status">{{Auth::user()->designation}}</span>
+            <span class="user-status fs-6">{{Auth::user()->designation}}</span>
           </div>
 
         </a>
