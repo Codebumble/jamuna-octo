@@ -1,6 +1,6 @@
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Company List')
+@section('title', 'Sector List')
 
 @section('vendor-style')
   {{-- Page Css files --}}
@@ -24,11 +24,11 @@
   <!-- list and filter start -->
   <div class="card">
     <div class="card-body border-bottom">
-      <h4 class="card-title">Company Section and View</h4>
+      <h4 class="card-title">Section Section and View</h4>
       @if (isset($_GET['status']))
             <div class="demo-spacing-0 mb-2">
                 <div class="alert alert-success" role="alert">
-                <div class="alert-body"><strong>Congratulation ! Company deleted from the Server.</strong></div>
+                <div class="alert-body"><strong>Congratulation ! Section deleted from the Server.</strong></div>
                 </div>
             </div>
         @endif
@@ -46,13 +46,36 @@
         <thead class="table-light">
           <tr>
             <th></th>
+			<th>ID</th>
             <th>Company Name</th>
-			<th>Section</th>
-            <th>Establish Date</th>
-            <th>Added By</th>
             <th>Actions</th>
           </tr>
         </thead>
+		<tbody>
+		<?php
+		$counter=1;
+		foreach ($sections as $section){
+			?>
+		<tr class="odd">
+			<td></td>
+			<td>{{$counter}}</td>
+            <td>{{$section->name}}</td>
+            <td>
+			<div class="btn-group">
+
+			<a href="{{ route('delete-section', ['name', base64_encode($section->name)])}}" style="text-decoration: none;"> <i data-feather='trash-2'></i> Delete</a>
+			<div>
+
+			</td>
+
+		</tr>
+			<?php
+		$counter+=1;
+		}
+		?>
+
+
+		</tbody>
       </table>
     </div>
     <!-- Modal to add new user starts-->
@@ -85,5 +108,4 @@
 
 @section('page-script')
   {{-- Page js files --}}
-  <script src="{{ asset(mix('js/scripts/pages/company-table.js')) }}"></script>
 @endsection
