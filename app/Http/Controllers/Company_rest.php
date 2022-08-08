@@ -57,6 +57,11 @@ class Company_rest extends Controller
             $request['instagram'] = 'N/A';
         }
 
+        if(!isset($request['ceo_username'])){
+            $request['ceo_username'] = 'N/A';
+        }
+
+
         $json_encode = json_encode([
             'address' => $field['address'],
             'added_by' => Auth::user()->username,
@@ -67,7 +72,8 @@ class Company_rest extends Controller
             'support_email' => $field['support_email'],
             'website' => $request['website'],
             'facebook' => $request['website'],
-            'instagram' => $request['instagram']
+            'instagram' => $request['instagram'],
+            'ceo_username' => $request['ceo_username']
         ]);
 
         if($file = $request->hasFile('image')) {
@@ -78,7 +84,7 @@ class Company_rest extends Controller
             $file->move($destinationPath,$fileName);
         }
 
-        $database_update = DB::table('codebumble_company_list')->insert(['name'=> $field['name'], 'section' => $field['section'], 'description' => $field['description'], 'establish_date' => $field['description'], 'json_data' => $json_encode, 'image' => $fileName, 'created_at' => time(), 'updated_at' => time()]);
+        $database_update = DB::table('codebumble_company_list')->insert(['name'=> $field['name'], 'section' => $field['section'], 'description' => $field['description'], 'establish_date' => $field['establish_date'], 'json_data' => $json_encode, 'image' => $fileName, 'created_at' => time(), 'updated_at' => time()]);
 
         return redirect()->route('add-company',['status' => 1]);
 
@@ -204,7 +210,7 @@ class Company_rest extends Controller
 
     }
 
-    public function view_all_company(){
+    public function view_all_company_api(){
 
         if(!Auth::check()){
             header("Location: " . route('profile-account'), true, 302);
@@ -214,13 +220,15 @@ class Company_rest extends Controller
 
         $database_details = DB::select('select * from codebumble_company_list');
 
-        return $database_details;
+        return json_encode(["data"=>$database_details]);;
 
 
 
 
 
     }
+
+
 
     public function view_single_company(Request $request){
 
@@ -254,6 +262,18 @@ class Company_rest extends Controller
         return view('/content/company/add_company', [
             'breadcrumbs' => $breadcrumbs, 'sections' => json_decode($data->value)
         ]);
+    }
+
+    public function auth_view_all_company(){
+
+        $breadcrumbs = [
+            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Site Settings"], ['name' => "All Company"]
+        ];
+
+        return view('/content/company/all_company', [
+            'breadcrumbs' => $breadcrumbs
+        ]);
+
     }
 
 

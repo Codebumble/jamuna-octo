@@ -85,10 +85,10 @@
       "slug": "",
       "submenu": [
         {
-          "url": "app/invoice/list",
+          "url": "admin/all-company",
           "name": "All Company",
           "icon": "circle",
-          "slug": "site-all-compnay"
+          "slug": "all-compnay"
         },
         {
           "url": "admin/add-company",

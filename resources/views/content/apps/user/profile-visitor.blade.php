@@ -34,10 +34,6 @@
         <div class="card-body">
           <div class="user-avatar-section">
             <div class="d-flex align-items-center flex-column">
-            <form method="post" enctype="multipart/form-data" action="{{ route('profile_image')}}">
-            @csrf
-              <input type="file" name="profile_image" id="profile_image" style="display:none;" accept="image/png, image/jpeg, .jpg" onchange="this.form.submit()"/>
-                <label for="profile_image">
                   <img
                     class="rounded mt-3 mb-2"
                     <?php
@@ -50,8 +46,6 @@
                     width="110"
                     alt="User avatar"
                   />
-                </label>
-              </form>
               <div class="user-info text-center">
                 <h4>{{$auther->name}}</h4>
                 <span class="badge bg-light-secondary">{{$auther->designation}}</span>
