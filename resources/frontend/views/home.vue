@@ -1,6 +1,7 @@
 <template>
 	<home-slider />
 	<concerns-logo />
+	<shortBrief />
 	<chairpersonSpeech />
 </template>
 
@@ -8,12 +9,14 @@
 	import { useHead } from '@vueuse/head';
 	import homeSlider from '../components/sliders/home-slider';
 	import concernsLogo from '../components/home/concerns-logo';
+	import shortBrief from '../components/home/short-brief';
 	import chairpersonSpeech from '../components/home/chairperson-speech';
 
 	export default {
 		components: {
 			homeSlider,
 			concernsLogo,
+			shortBrief,
 			chairpersonSpeech,
 		},
 		setup() {
