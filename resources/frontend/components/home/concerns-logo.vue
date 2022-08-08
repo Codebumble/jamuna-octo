@@ -1,5 +1,5 @@
 <template>
-	<section class="py-8 overflow-hidden">
+	<section class="py-8 overflow-hidden bg-slate-50">
 		<div class="container">
 			<div class="flex flex-col lg:flex-row items-center lg:flex-wrap">
 				<div class="content lg:basis-7/12">
@@ -28,7 +28,7 @@
 </template>
 
 <style lang="scss">
-	@import '../../assets/scss/variables/concerns-logo.scss';
+	@import '../../assets/scss/variables/_concerns-logo';
 </style>
 
 <script>
