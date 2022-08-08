@@ -49,9 +49,10 @@ Route::group(['prefix' => 'codebumble'], function () {
 
 
     Route::group(['middleware' => 'auth:sanctum'], function(){
-        Route::post('/add-section', [Company_rest::class, 'add_section'])->name('add-section-api');
-        Route::post('/add-company', [Company_rest::class, 'add_company'])->name('add-company-api');
-        Route::post('/test-output', [TestOutput::class, 'test_post'])->name('test-post');
+        Route::post('add-section', [Company_rest::class, 'add_section'])->name('add-section-api');
+        Route::post('add-company', [Company_rest::class, 'add_company'])->name('add-company-api');
+        Route::get('all-company-api', [Company_rest::class, 'view_all_company_api'])->name('all-company-api');
+        Route::post('test-output', [TestOutput::class, 'test_post'])->name('test-post');
     });
 });
 /* Route Dashboards */
@@ -61,6 +62,7 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::get('logout', [AuthController::class, 'logout']);
         Route::get('user', [AuthController::class, 'user']);
         Route::get('add-company', [Company_rest::class, 'auth_view_add_company'])->name('add-company');
+        Route::get('all-company', [Company_rest::class, 'auth_view_all_company'])->name('all-company');
         Route::get('add-section', [Company_rest::class, 'auth_view_add_section'])->name('add-section');
         Route::get('profile-account', [AppsController::class, 'user_view_account'])->name('profile-account');
         Route::get('visitor/{username}', [AppsController::class, 'profile_visitor'])->name('profile_visitor');

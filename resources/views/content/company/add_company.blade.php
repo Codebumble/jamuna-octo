@@ -150,9 +150,14 @@
 						<input type="text" class="form-control" name="facebook" id="facebook"/>
 						</div>
 
-						<div class="mb-1 col-12">
+						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="instagram">Instagram</label>
 						<input type="text" class="form-control" name="instagram" id="instagram"/>
+						</div>
+
+						 <div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="ceo_username">CEO's Username</label>
+						<input type="text" class="form-control" name="ceo_username" id="ceo_username"/>
 						</div>
 
 				</div>
