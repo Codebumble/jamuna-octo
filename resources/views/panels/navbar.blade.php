@@ -353,14 +353,14 @@
           </span>
         </div>
         <span class="avatar">
-          
+
             <img
                     class="round"
                     <?php
-                    if(!isset($auther->avatar)){ ?>
+                    if(!isset(Auth::user()->avatar)){ ?>
                     src="{{ Auth::user()->profile_photo_url }}"
                     <?php } else { ?>
-                    src="/profile-images/{{$auther->avatar}}"
+                    src="/profile-images/{{Auth::user()->avatar}}"
                     <?php } ?>
                     height="40"
                     width="40"

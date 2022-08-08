@@ -57,7 +57,6 @@
         }
       ]
     },{
-      "url": "app/email",
       "name": "Company",
       "icon": "anchor",
       "slug": "",
@@ -74,6 +73,27 @@
           "icon": "circle",
           "slug": "add-company"
         }
+      ]
+    },
+    {
+      "url": "admin/add-section",
+      "name": "Section",
+      "icon": "align-left",
+      "slug": "",
+      "submenu": [
+        {
+          "url": "admin/add-section",
+          "name": "Add Section",
+          "icon": "circle",
+          "slug": "add-section"
+        },
+        {
+          "url": "admin/all-section",
+          "name": "All Section",
+          "icon": "circle",
+          "slug": "all-section"
+        }
+
       ]
     },
     {

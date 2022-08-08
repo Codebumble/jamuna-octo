@@ -242,4 +242,67 @@ class Company_rest extends Controller
             'breadcrumbs' => $breadcrumbs
         ]);
     }
+
+
+    // Section API STARTED
+    public function add_section(Request $request){
+
+        $field = $request->validate([
+            'name' => 'required|string',
+            'description' => 'required|string'
+        ]);
+
+
+
+        if(!Auth::check()){
+            header("Location: " . route('auth-login'), true, 302);
+            exit();
+
+        }
+
+        $last_data = DB::table('codebumble_general')->where('code_name', 'sections')->first();
+
+        if(isset($last_data->value)){
+
+                $data = json_decode($last_data->value);
+                $checker = false;
+            // loop for checking section name already exist or not
+                foreach($data as $datam){
+                    if($datam->name == $field['name'] ){
+                        $checker = true;
+                    }
+                }
+
+                if($checker){
+                    return redirect()->route('add-section',['exist' => 1]);
+                }
+                array_push($data, ['name' => $field['name'], 'description' => $field['description']]);
+                $data = json_encode($data);
+                $database = DB::table('codebumble_general')->where('code_name', 'sections')->update(['value' => $data]);
+        } else {
+                $data = [];
+                array_push($data, ['name' => $field['name'], 'description' => $field['description']]);
+                $data = json_encode($data);
+                $database = DB::table('codebumble_general')->insert(['code_name'=> 'sections', 'value' => $data]);
+        }
+
+
+
+        return redirect()->route('add-section',['status' => 1]);
+
+
+    }
+
+    public function auth_view_add_section()
+    {
+
+
+        $breadcrumbs = [
+            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Site Settings"], ['name' => "Add Section"]
+        ];
+
+        return view('/content/company/add_section', [
+            'breadcrumbs' => $breadcrumbs
+        ]);
+    }
 }

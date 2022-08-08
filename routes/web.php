@@ -40,6 +40,17 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::get('ecommerce', [DashboardController::class, 'dashboardEcommerce'])->name('dashboard-ecommerce');
 
 });
+
+Route::group(['prefix' => 'codebumble'], function () {
+    Route::post('/login', [AuthController::class, 'login'])->name('auth-login-api');
+    Route::post('/forgot-password', [AuthController::class, 'forgot_password_api'])->name('auth-forget-password-api');
+
+
+
+    Route::group(['middleware' => 'auth:sanctum'], function(){
+        Route::post('/add-section', [Company_rest::class, 'add_section'])->name('add-section-api');
+    });
+});
 /* Route Dashboards */
 Route::group(['prefix' => 'admin', ], function () {
 
@@ -47,6 +58,7 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::get('logout', [AuthController::class, 'logout']);
         Route::get('user', [AuthController::class, 'user']);
         Route::get('add-company', [Company_rest::class, 'auth_view_add_company'])->name('add-company');
+        Route::get('add-section', [Company_rest::class, 'auth_view_add_section'])->name('add-section');
         Route::get('profile-account', [AppsController::class, 'user_view_account'])->name('profile-account');
         Route::get('visitor/{username}', [AppsController::class, 'profile_visitor'])->name('profile_visitor');
         // API SET
@@ -54,6 +66,7 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::post('profile-account-edit', [AuthController::class, 'user_edit'])->name('profile-account-edit');
         Route::get('profile-security', [AppsController::class, 'user_view_security'])->name('profile-security');
         Route::post('auth_reset_password', [AuthController::class, 'auth_reset_password'])->name('auth_reset_password');
+
         Route::post('profile_image', [AuthController::class, 'profile_image_upload'])->name('profile_image');
 
 
@@ -233,11 +246,7 @@ Route::get('/modal-examples', [PagesController::class, 'modal_examples'])->name(
 /* Route Pages */
 Route::get('/error', [MiscellaneousController::class, 'error'])->name('error');
 
-Route::group(['prefix' => 'codebumble'], function () {
-    Route::post('/login', [AuthController::class, 'login'])->name('auth-login-api');
-    Route::post('/forgot-password', [AuthController::class, 'forgot_password_api'])->name('auth-forget-password-api');
 
-});
 
 /* Route Authentication Pages */
 Route::group(['prefix' => 'auth'], function () {
