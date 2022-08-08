@@ -2,7 +2,7 @@
     File Name: ext-component-media-player.js
     Description: Media Plyr Extenstion
     --------------------------------------------------------------------------------------
-    Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    Item Name: Project-Octa - Codebumble - Vuejs, HTML & Laravel Admin Dashboard Template
     Author: Codebumble
     Author URL: http://www.codebumble.net
 ==========================================================================================*/

@@ -12,6 +12,7 @@ use App\Http\Controllers\ExtensionController;
 use App\Http\Controllers\PageLayoutController;
 use App\Http\Controllers\FormsController;
 use App\Http\Controllers\TableController;
+use App\Http\Controllers\TestOutput;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\MiscellaneousController;
 use App\Http\Controllers\AuthenticationController;
@@ -49,6 +50,8 @@ Route::group(['prefix' => 'codebumble'], function () {
 
     Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::post('/add-section', [Company_rest::class, 'add_section'])->name('add-section-api');
+        Route::post('/add-company', [Company_rest::class, 'add_company'])->name('add-company-api');
+        Route::post('/test-output', [TestOutput::class, 'test_post'])->name('test-post');
     });
 });
 /* Route Dashboards */

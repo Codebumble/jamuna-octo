@@ -2,7 +2,7 @@
 	File Name: ext-component-sliders.js
 	Description: noUiSlider is a lightweight JavaScript range slider library.
 	----------------------------------------------------------------------------------------
-	Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+	Item Name: Project-Octa - Codebumble - Vuejs, HTML & Laravel Admin Dashboard Template
 	Author: Codebumble
 	Author URL: http://www.codebumble.net
 ==========================================================================================*/
