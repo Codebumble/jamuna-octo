@@ -347,10 +347,14 @@ class Company_rest extends Controller
             exit();
 
         }
+        $z= DB::table('codebumble_company_list')->where('section', base64_decode($name))->first();
+
+        if(isset($z)){
+            return redirect()->route('all-section',['error' => 1]);
+        }
 
 
 
-        $name = base64_decode($name);
         $a= DB::table('codebumble_general')->where('code_name', 'sections')->first();
         if(!isset($a)){
             return redirect()->route('all-section',['error' => 1]);
@@ -362,10 +366,12 @@ class Company_rest extends Controller
         $c = [];
 
         foreach($b as $bc){
-            if($bc->name != $name ){
+            if(base64_encode($bc->name) != $name ){
                 array_push($c, $bc);
             }
         }
+
+
 
         $d = $a= DB::table('codebumble_general')->where('code_name', 'sections')->update(['value' => json_encode($c)]);
         return redirect()->route('all-section',['status' => 1]);

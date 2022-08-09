@@ -36,7 +36,7 @@
 		@if (isset($_GET['error']))
             <div class="demo-spacing-0 mb-2">
                 <div class="alert alert-danger" role="alert">
-                <div class="alert-body"><strong>Wrong @{id} . Try Again</strong></div>
+                <div class="alert-body"><strong>Wrong @{id} . Try Again. (Possible Reason: Company Exist with this section. Delete those to Delete This Section.)</strong></div>
                 </div>
             </div>
         @endif
@@ -63,7 +63,7 @@
             <td>
 			<div class="btn-group">
 
-			<a href="{{ route('delete-section', ['name', base64_encode($section->name)])}}" style="text-decoration: none;"> <i data-feather='trash-2'></i> Delete</a>
+			<a href="{{ route('delete-section', ['name' => base64_encode($section->name)])}}" style="text-decoration: none;"> <i data-feather='trash-2'></i> Delete</a>
 			<div>
 
 			</td>
