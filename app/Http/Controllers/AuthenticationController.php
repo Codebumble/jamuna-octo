@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 
 class AuthenticationController extends Controller
@@ -20,7 +22,17 @@ class AuthenticationController extends Controller
     {
         $pageConfigs = ['blankPage' => true];
 
-        return view('/content/authentication/auth-register', ['pageConfigs' => $pageConfigs]);
+        if(!Auth::check()){
+            header("Location: " . route('auth-login'), true, 302);
+            exit();
+
+        }
+
+        $companys = DB::table('codebumble_company_list')->select('name')->get();
+
+
+
+        return view('/content/apps/user/add-user', ['pageConfigs' => $pageConfigs, 'companys' => $companys]);
     }
 
 
@@ -31,6 +43,7 @@ class AuthenticationController extends Controller
 
         return view('/content/authentication/auth-forgot-password', ['pageConfigs' => $pageConfigs]);
     }
+
 
 
     // Reset Password basic

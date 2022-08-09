@@ -37,29 +37,7 @@ class Company_rest extends Controller
 
         }
 
-        if(!isset($request['longitute'])){
-            $request['longitute'] = 'N/A';
-        }
 
-        if(!isset($request['latitude'])){
-            $request['latitude'] = 'N/A';
-        }
-
-        if(!isset($request['website'])){
-            $request['website'] = 'N/A';
-        }
-
-        if(!isset($request['facebook'])){
-            $request['facebook'] = 'N/A';
-        }
-
-        if(!isset($request['instagram'])){
-            $request['instagram'] = 'N/A';
-        }
-
-        if(!isset($request['ceo_username'])){
-            $request['ceo_username'] = 'N/A';
-        }
 
 
         $json_encode = json_encode([
@@ -67,7 +45,7 @@ class Company_rest extends Controller
             'added_by' => Auth::user()->username,
             'ceo_of_the_company' => $field['ceo_of_the_company'],
             'latitude' => $request['latitude'],
-            'longitute' => $request['longitut'],
+            'longitute' => $request['longitute'],
             'support_phone_number' => $field['support_phone_number'],
             'support_email' => $field['support_email'],
             'website' => $request['website'],
@@ -111,29 +89,7 @@ class Company_rest extends Controller
 
         }
 
-        if(!isset($request['longitute'])){
-            $request['longitute'] = 'N/A';
-        }
-
-        if(!isset($request['latitude'])){
-            $request['latitude'] = 'N/A';
-        }
-
-        if(!isset($request['website'])){
-            $request['website'] = 'N/A';
-        }
-
-        if(!isset($request['facebook'])){
-            $request['facebook'] = 'N/A';
-        }
-
-        if(!isset($request['instagram'])){
-            $request['instagram'] = 'N/A';
-        }
-
-        if(!isset($request['ceo_username'])){
-            $request['ceo_username'] = 'N/A';
-        }
+        
 
 
         $json_encode = json_encode([

@@ -362,7 +362,7 @@
   <!-- list and filter end -->
 </section>
 
-@include('content/_partials/_modals/modal-edit-user')
+@include('content/apps/user/modal-edit-user')
 @endsection
 
 @section('vendor-script')

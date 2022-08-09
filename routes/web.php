@@ -63,6 +63,7 @@ Route::group(['prefix' => 'admin', ], function () {
     Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::get('logout', [AuthController::class, 'logout']);
         Route::get('user', [AuthController::class, 'user']);
+        Route::get('register', [AuthenticationController::class, 'register'])->name('auth-register');
         Route::get('add-company', [Company_rest::class, 'auth_view_add_company'])->name('add-company');
         Route::get('all-company', [Company_rest::class, 'auth_view_all_company'])->name('all-company');
         Route::get('edit-company/{id}', [Company_rest::class, 'auth_view_edit_company'])->name('edit-company');
@@ -265,7 +266,8 @@ Route::get('/error', [MiscellaneousController::class, 'error'])->name('error');
 Route::group(['prefix' => 'auth'], function () {
     Route::get('login', [AuthenticationController::class, 'login'])->name('auth-login');
 
-    Route::get('register', [AuthenticationController::class, 'register'])->name('auth-register');
+
+
     Route::get('forgot-password', [AuthenticationController::class, 'forgot_password'])->name('auth-forgot-password');
     Route::get('reset-password/{token}', [AuthenticationController::class, 'reset_password'])->name('reset-password');
     Route::post('reset-password-api/{token}', [AuthController::class, 'reset_password_api'])->name('reset-password-api');

@@ -124,7 +124,7 @@
         </div>
       </div>
       <!-- /User Card -->
-      
+
     </div>
     <!--/ User Sidebar -->
 
@@ -226,7 +226,7 @@
       <!--/ Change Password -->
 
       <!-- Two-steps verification -->
-      
+
 
       <!--/ Two-steps verification -->
 
@@ -246,7 +246,7 @@
               </tr>
             </thead>
             <tbody>
-            @foreach($login_details as $detail) 
+            @foreach($login_details as $detail)
               <tr>
                 <td class="text-start">
                   <div class="avatar me-25">
@@ -269,7 +269,7 @@
                 <td>{{$detail->date}} ({{$detail->time}})</td>
               </tr>
               @endforeach
-              
+
             </tbody>
           </table>
         </div>
@@ -281,9 +281,7 @@
 </section>
 
 
-@include('content/_partials/_modals/modal-edit-user')
-@include('content/_partials/_modals/modal-upgrade-plan')
-@include('content/_partials/_modals/modal-two-factor-auth')
+@include('content/apps/user/modal-edit-user')
 @endsection
 
 @section('vendor-script')

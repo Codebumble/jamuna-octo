@@ -131,13 +131,13 @@
           				</div>
 
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="longitute">Location: longitute</label>
-						<input type="text" class="form-control" name="longitute" id="longitute"/>
+						<label class="form-label" for="latitude">Location: latitude</label>
+						<input type="text" class="form-control" name="latitude" id="latitude"/>
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="latitude">Location: latitude</label>
-						<input type="text" class="form-control" name="latitude" id="latitude"/>
+						<label class="form-label" for="longitute">Location: longitute</label>
+						<input type="text" class="form-control" name="longitute" id="longitute"/>
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
