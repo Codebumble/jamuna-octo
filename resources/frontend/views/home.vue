@@ -3,6 +3,7 @@
 	<concerns-logo />
 	<shortBrief />
 	<chairpersonSpeech />
+	<groupCompany />
 </template>
 
 <script>
@@ -11,6 +12,7 @@
 	import concernsLogo from '../components/home/concerns-logo';
 	import shortBrief from '../components/home/short-brief';
 	import chairpersonSpeech from '../components/home/chairperson-speech';
+	import groupCompany from '../components/home/group-company';
 
 	export default {
 		components: {
@@ -18,6 +20,7 @@
 			concernsLogo,
 			shortBrief,
 			chairpersonSpeech,
+			groupCompany,
 		},
 		setup() {
 			useHead({
