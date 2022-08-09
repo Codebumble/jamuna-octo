@@ -5,11 +5,12 @@
     "slug": "",
     "submenu": [
       {
-        "url": "app/user/list",
+        "url": "admin/all-user-list",
         "name": "List",
         "icon": "circle",
-        "slug": "app-user-list"
-      },{
+        "slug": "all-user-list"
+      },
+      {
         "url": "admin/profile-account",
         "name": "Account",
         "icon": "circle",

@@ -282,4 +282,40 @@ class AuthController extends Controller
         }
 
     }
+
+    public function all_user_list_api(){
+        if(!Auth::check()){
+            header("Location: " . route('error'), true, 302);
+            exit();
+
+        }
+
+        $role = Auth::user()->role;
+        if($role != 'admin' ){
+            if( $role != 'super admin'){
+                header("Location: " . route('error'), true, 302);
+                exit();
+            }
+        }
+
+        $users = DB::select('select id,name,avatar,email,username,role,json_data from users ');
+
+        foreach($users as $user){
+            $user_decode= json_decode($user->json_data);
+            $status = $user_decode->status;
+            if ($status == "Suspended" || $status == "Pending"){
+                $status = 0;
+            } else if($status == "Active"){
+                $status = 1;
+            } else if ($status == "Inactive"){
+                $status = 2;
+            }
+            $user->json_data = $status;
+
+        }
+
+        return json_encode(["data"=>$users]);
+
+
+    }
 }

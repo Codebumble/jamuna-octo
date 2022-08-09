@@ -74,6 +74,8 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::get('visitor/{username}', [AppsController::class, 'profile_visitor'])->name('profile_visitor');
         // API SET
         Route::get('profile-account-under-user', [AuthController::class, 'under_ref'])->name('profile-account-under-user');
+        Route::get('all-user-list-api', [AuthController::class, 'all_user_list_api'])->name('all-user-list-api');
+        Route::get('all-user-list', [AppsController::class, 'user_list'])->name('all-user-list');
         Route::post('profile-account-edit', [AuthController::class, 'user_edit'])->name('profile-account-edit');
         Route::get('delete-company/{id}', [Company_rest::class, 'delete_company'])->name('delete-company');
         Route::get('profile-security', [AppsController::class, 'user_view_security'])->name('profile-security');
@@ -109,7 +111,6 @@ Route::group(['prefix' => 'app'], function () {
     Route::get('file-manager', [AppsController::class, 'file_manager'])->name('app-file-manager');
     Route::get('access-roles', [AppsController::class, 'access_roles'])->name('app-access-roles');
     Route::get('access-permission', [AppsController::class, 'access_permission'])->name('app-access-permission');
-    Route::get('user/list', [AppsController::class, 'user_list'])->name('app-user-list');
     Route::get('user/view/account', [AppsController::class, 'user_view_account'])->name('app-user-view-account');
     Route::get('user/view/security', [AppsController::class, 'user_view_security'])->name('app-user-view-security');
     Route::get('user/view/billing', [AppsController::class, 'user_view_billing'])->name('app-user-view-billing');
