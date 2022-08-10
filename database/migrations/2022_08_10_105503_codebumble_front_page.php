@@ -44,6 +44,15 @@ return new class extends Migration
             )
         );
 
+        DB::table('codebumble_front_page')->insert(
+            array(
+                'code_name' => 'company_slider_title',
+                'value' => '{"title":"Our Group Companies","description":"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit dolorem, nemo maiores debitis quod distinctio repellendus. Dolore ipsam veritatis voluptas.","descVisibility":true}',
+                'updated_at' => time(),
+                'created_at' => time()
+            )
+        );
+
     }
 
     /**

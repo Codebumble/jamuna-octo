@@ -62,6 +62,7 @@ Route::group(['prefix' => 'codebumble'], function () {
 Route::group(['prefix' => 'frontpage-api', ], function () {
     Route::get('slider', [FrontPage::class, 'slider_view']);
     Route::get('chairpersson-speech', [FrontPage::class, 'chairpersson_speech']);
+    Route::get('all-company-view', [FrontPage::class, 'all_company_view']);
 
 
 });
