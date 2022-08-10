@@ -43,110 +43,69 @@
 							<a class="cb-nav-link">About </a>
 							<ul class="cb-mega">
 								<li class="mega-items hover:bg-indigo-50">
-									<a
-										href="https://codebumble.net/web-app"
+									<router-link
+										to="/founder"
 										class="mega-link">
 										<div class="flex items-center">
-											<div class="mr-3">
-												<i
-													class="fas fa-terminal opacity-80 text-xl text-indigo-600"></i>
-											</div>
 											<div>
 												<h1
 													class="text-base text-gray-800">
-													Web Development
+													Founder
 												</h1>
 											</div>
 										</div>
-										<p class="my-3">
-											Create Your Own Website with low
-											cost. Choose Your Website Type and
-											Stand Your Own.
-										</p>
-									</a>
+									</router-link>
 								</li>
 
 								<li class="mega-items hover:bg-green-50">
-									<a
-										href="https://codebumble.net/video-production"
+									<router-link
+										to="/board-of-directors"
 										class="mega-link">
 										<div class="flex items-center">
-											<div class="mr-3">
-												<i
-													class="fas fa-video opacity-80 text-xl text-green-600"></i>
-											</div>
 											<div>
 												<h1
 													class="text-base text-gray-800">
-													Video Production
+													Board Of Director
 												</h1>
 											</div>
 										</div>
-										<p class="my-3">
-											Make Your Own Promotional Video
-											(Animation/2D/3D). Enhance the
-											aesthetics of your company.
-										</p>
-									</a>
-								</li>
-
-								<li class="mega-items hover:bg-violet-50">
-									<a
-										href="https://codebumble.net/uiux-service"
-										class="mega-link">
-										<div class="flex items-center">
-											<div class="mr-3">
-												<i
-													class="fas fa-pencil-paintbrush opacity-80 text-xl text-violet-600"></i>
-											</div>
-											<div>
-												<h1
-													class="text-base text-gray-800">
-													UI/UX Design
-												</h1>
-											</div>
-										</div>
-										<p class="my-3">
-											Design a product that is convenient
-											to use, attractive, and effective.
-										</p>
-									</a>
-								</li>
-
-								<li class="mega-items hover:bg-blue-50">
-									<a
-										href="https://codebumble.net/seo-service"
-										class="mega-link">
-										<div class="flex items-center">
-											<div class="mr-3">
-												<i
-													class="fas fa-chart-line opacity-80 text-xl text-blue-600"></i>
-											</div>
-											<div>
-												<h1
-													class="text-base text-gray-800">
-													Search Engine Optimization
-												</h1>
-											</div>
-										</div>
-										<p class="my-3">
-											Proper SEO means a website's content
-											relevancy, link popularity, using
-											appropriate keywords, etc.
-										</p>
-									</a>
+									</router-link>
 								</li>
 							</ul>
 						</li>
 						<li class="cb-nav-item has-child">
-							<router-link
-								to="/founder"
-								class="cb-nav-link"
-								>Founder</router-link
-							>
-						</li>
-						<li class="cb-nav-item has-child">
 							<a class="cb-nav-link">Management</a>
+							<ul class="cb-mega">
+								<li class="mega-items hover:bg-indigo-50">
+									<router-link
+										to="/founder"
+										class="mega-link">
+										<div class="flex items-center">
+											<div>
+												<h1
+													class="text-base text-gray-800">
+													Founder
+												</h1>
+											</div>
+										</div>
+									</router-link>
+								</li>
+
+								<li class="mega-items hover:bg-green-50">
+									<router-link
+										to="/board-of-directors"
+										class="mega-link">
+										<div class="flex items-center">
+											<div>
+												<h1
+													class="text-base text-gray-800">
+													Board Of Director
+												</h1>
+											</div>
+										</div>
+									</router-link>
+								</li>
+							</ul>
 						</li>
 						<li class="cb-nav-item">
 							<router-link

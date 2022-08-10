@@ -1470,5 +1470,8 @@
     "/data/projects-list.json": "/data/projects-list.json",
     "/data/search.json": "/data/search.json",
     "/data/table-datatable.json": "/data/table-datatable.json",
-    "/data/user-list.json": "/data/user-list.json"
+    "/data/user-list.json": "/data/user-list.json",
+    "/frontend/images/breadcrumb/directors.jpg": "/frontend/images/breadcrumb/directors.jpg",
+    "/frontend/images/directors/mem1-1.jpg": "/frontend/images/directors/mem1-1.jpg",
+    "/frontend/images/directors/mem6-1.jpg": "/frontend/images/directors/mem6-1.jpg"
 }
