@@ -9,12 +9,13 @@
 				class="">
 				<SplideSlide
 					v-for="slide in sliderContents"
-					class="flex justify-start items-center"
-					:class="{ overlay: slide.overlay }">
-					<img
-						:src="slide.src"
-						:alt="slide.alt"
-						class="w-full object-cover h-77vh" />
+					class="flex justify-start items-center">
+					<div :class="slide.overlay ? 'image' : 'w-full'">
+						<img
+							:src="slide.src"
+							:alt="slide.alt"
+							class="w-full object-cover h-77vh" />
+					</div>
 					<div class="absolute w-full z-20">
 						<div class="container flex flex-col">
 							<div class="overflow-hidden">
@@ -134,7 +135,7 @@
 			const options = {
 				rewind: false,
 				arrows: false,
-				autoplay: true,
+				autoplay: false,
 				perPage: 1,
 				type: 'loop',
 				perMove: 1,

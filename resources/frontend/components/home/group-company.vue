@@ -12,7 +12,7 @@
 		</div>
 		<div class="company-slide">
 			<Splide
-				:options="options"
+				:options="groupsoptions"
 				aria-label="group-companies">
 				<SplideSlide
 					class="slideItem"
@@ -116,7 +116,7 @@
 			SplideSlide,
 		},
 		setup() {
-			const options = {
+			const groupsoptions = {
 				rewind: false,
 				arrows: true,
 				autoplay: true,
@@ -125,13 +125,19 @@
 				perMove: 1,
 				drag: true,
 				pauseOnHover: true,
-				cloneStatus: false,
+				cloneStatus: true,
 				gap: '2rem',
-				fixedWidth: '459.5px',
+				fixedWidth: '359.5px',
 				focus: 'center',
+				breakpoints: {
+					1024: {
+						fixedWidth: '280.5px',
+						perPage: 1,
+					},
+				},
 			};
 
-			return { options };
+			return { groupsoptions };
 		},
 	};
 </script>

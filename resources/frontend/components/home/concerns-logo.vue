@@ -9,7 +9,7 @@
 				<div class="logo-slider lg:basis-5/12">
 					<Splide
 						:extensions="extensions"
-						:options="options"
+						:options="conoptions"
 						aria-label="concerns logo area">
 						<SplideSlide v-for="slide in concernlogo">
 							<div
@@ -85,7 +85,7 @@
 			SplideSlide,
 		},
 		setup() {
-			const options = {
+			const conoptions = {
 				rewind: false,
 				arrows: true,
 				autoplay: true,
@@ -109,7 +109,7 @@
 			};
 
 			return {
-				options,
+				conoptions,
 				extensions: {
 					Grid,
 				},
