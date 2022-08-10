@@ -51,4 +51,13 @@ class FrontPage extends Controller
         return json_encode(['images' => $all_data, 'galary_data' => json_decode($data_get_b[0]->value)]);
 
     }
+
+    public function footer_component(){
+        $data_get = DB::select('select value from codebumble_general where code_name=?',['social_media']);
+        $data_get_name = DB::select('select value from codebumble_general where code_name=?',['site_name']);
+        $data_get_moto = DB::select('select value from codebumble_general where code_name=?',['site_moto']);
+
+        return json_encode(['social_media' => json_decode($data_get[0]->value), 'footer_about' => ['heading' => $data_get_name[0]->value, 'description' => $data_get_moto[0]->value]]);
+
+    }
 }
