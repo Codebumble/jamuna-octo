@@ -21,7 +21,7 @@
 						<img
 							:src="slide.imgSrc"
 							:alt="slide.alt"
-							class="w-full rounded-xl" />
+							class="w-full rounded-xl max-h-[327.5px] object-contain" />
 
 						<span class="itemName">{{ slide.title }}</span>
 						<a
@@ -53,12 +53,12 @@
 			Splide,
 			SplideSlide,
 		},
-		mounted(){
+		mounted() {
 			axios
-      		.get(window.location.origin+'/frontpage-api/all-company-view')
-      		.then(response => {
-				this.slideContent = response.data.images;
-				this.groupTitle = response.data.galary_data;
+				.get(window.location.origin + '/frontpage-api/all-company-view')
+				.then((response) => {
+					this.slideContent = response.data.images;
+					this.groupTitle = response.data.galary_data;
 				});
 		},
 		setup() {
