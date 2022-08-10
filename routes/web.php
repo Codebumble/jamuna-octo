@@ -61,6 +61,7 @@ Route::group(['prefix' => 'codebumble'], function () {
 /* Route Dashboards */
 Route::group(['prefix' => 'frontpage-api', ], function () {
     Route::get('slider', [FrontPage::class, 'slider_view']);
+    Route::get('chairpersson-speech', [FrontPage::class, 'chairpersson_speech']);
 
 
 });

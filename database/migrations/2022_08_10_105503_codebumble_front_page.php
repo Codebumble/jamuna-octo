@@ -35,6 +35,15 @@ return new class extends Migration
             )
         );
 
+        DB::table('codebumble_front_page')->insert(
+            array(
+                'code_name' => 'chairpersson_speech',
+                'value' => '{"imgSrc":"/frontend/images/contents/banner.jpg","imgAlt":"meaw","title":"What our Chairperson Said","description":"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut in vitae quibusdam culpa. Non veniam perspiciatis numquam sunt itaque. Dolorem velit at voluptatibus optio praesentium. Velit, natus deleniti. Commodi neque impedit cupiditate odio excepturi consequuntur molestiae harum corporis, quas ullam, eius vel inventore modi velit ea quia? Perspiciatis distinctio laudantium, sed voluptas placeat excepturi obcaecati necessitatibus saepe deleniti, dolores ut?","linkText":"Read More","link":"#","linkVisibility":true}',
+                'updated_at' => time(),
+                'created_at' => time()
+            )
+        );
+
     }
 
     /**

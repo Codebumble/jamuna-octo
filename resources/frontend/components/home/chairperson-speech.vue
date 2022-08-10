@@ -37,17 +37,17 @@
 	export default {
 		data() {
 			return {
-				chairperson: {
-					imgSrc: '/frontend/images/contents/banner.jpg',
-					imgAlt: 'meaw',
-					title: 'What our Chairperson Said',
-					description:
-						'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut in vitae quibusdam culpa. Non veniam perspiciatis numquam sunt itaque. Dolorem velit at voluptatibus optio praesentium. Velit, natus deleniti. Commodi neque impedit cupiditate odio excepturi consequuntur molestiae harum corporis, quas ullam, eius vel inventore modi velit ea quia? Perspiciatis distinctio laudantium, sed voluptas placeat excepturi obcaecati necessitatibus saepe deleniti, dolores ut?',
-					linkText: 'Read More',
-					link: '#',
-					linkVisibility: true,
-				},
+				chairperson: {},
 			};
+		},
+		mounted(){
+
+			axios
+      		.get(window.location.origin+'/frontpage-api/chairpersson-speech')
+      		.then(response => {
+				this.chairperson = response.data;
+				});
+
 		},
 	};
 </script>

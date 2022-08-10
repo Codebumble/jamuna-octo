@@ -19,4 +19,11 @@ class FrontPage extends Controller
         return $data_get[0]->value;
 
     }
+
+    public function chairpersson_speech(){
+        $data_get = DB::select('select value from codebumble_front_page where code_name=?',['chairpersson_speech']);
+
+        return $data_get[0]->value;
+
+    }
 }
