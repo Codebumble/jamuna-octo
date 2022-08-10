@@ -824,24 +824,6 @@
               "name": "Security",
               "icon": "circle",
               "slug": "page-account-settings-security"
-            },
-            {
-              "url": "page/account-settings-billing",
-              "name": "Billings & Plans",
-              "icon": "circle",
-              "slug": "page-account-settings-billing"
-            },
-            {
-              "url": "page/account-settings-notifications",
-              "name": "Notifications",
-              "icon": "circle",
-              "slug": "page-account-settings-notifications"
-            },
-            {
-              "url": "page/account-settings-connections",
-              "name": "Connections",
-              "icon": "circle",
-              "slug": "page-account-settings-connections"
             }
           ]
         },

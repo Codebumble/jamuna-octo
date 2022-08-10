@@ -2,7 +2,7 @@
   File Name: form-validation.js
   Description: jquery bootstrap validation js
   ----------------------------------------------------------------------------------------
-  Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+  Item Name: Project-Octa - Codebumble - Vuejs, HTML & Laravel Admin Dashboard Template
   Author: Codebumble
   Author URL: http://www.codebumble.net
 ==========================================================================================*/
@@ -68,42 +68,5 @@ $(function () {
 
   // jQuery Validation
   // --------------------------------------------------------------------
-  if (jqForm.length) {
-    jqForm.validate({
-      rules: {
-        'basic-default-name': {
-          required: true
-        },
-        'basic-default-email': {
-          required: true,
-          email: true
-        },
-        'basic-default-password': {
-          required: true
-        },
-        'confirm-password': {
-          required: true,
-          equalTo: '#basic-default-password'
-        },
-        'select-country': {
-          required: true
-        },
-        dob: {
-          required: true
-        },
-        customFile: {
-          required: true
-        },
-        validationRadiojq: {
-          required: true
-        },
-        validationBiojq: {
-          required: true
-        },
-        validationCheck: {
-          required: true
-        }
-      }
-    });
-  }
+
 });

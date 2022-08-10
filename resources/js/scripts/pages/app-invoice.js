@@ -2,7 +2,7 @@
     File Name: app-invoice.js
     Description: app-invoice Javascripts
     ----------------------------------------------------------------------------------------
-    Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    Item Name: Project-Octa - Codebumble - Vuejs, HTML & Laravel Admin Dashboard Template
    Version: 1.0
     Author: Codebumble
     Author URL: http://www.codebumble.net

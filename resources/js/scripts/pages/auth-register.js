@@ -2,7 +2,7 @@
   File Name: auth-register.js
   Description: Auth register js file.
   ----------------------------------------------------------------------------------------
-  Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+  Item Name: Project-Octa - Codebumble - Vuejs, HTML & Laravel Admin Dashboard Template
   Author: Codebumble
   Author URL: http://www.codebumble.net
 ==========================================================================================*/

@@ -1,0 +1,47 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"workbench.editor.highlightModifiedTabs": true,
+		"sftp.debug": true,
+		"sftp.downloadWhenOpenInRemoteExplorer": true,
+		"sftp.printDebugLog": true,
+		"html-css-class-completion.enableEmmetSupport": true,
+		"cssPeek.trace.server": "messages",
+		"git.confirmSync": false,
+		"path-intellisense.showHiddenFiles": true,
+		"path-intellisense.absolutePathToWorkspace": true,
+		"terminal.integrated.fontSize": 13,
+		"workbench.iconTheme": "material-icon-theme",
+		"workbench.editor.enablePreview": false,
+		"files.associations": {
+			"*.json": "jsonc"
+		},
+		"terminal.integrated.cursorStyle": "line",
+		"explorer.confirmDelete": false,
+		"workbench.list.smoothScrolling": true,
+		"workbench.colorTheme": "Codebumble Dark Pro",
+		"github.copilot.enable": {
+			"*": true,
+			"yaml": false,
+			"plaintext": false,
+			"markdown": false,
+			"scss": false
+		},
+		"terminal.integrated.enableBell": true,
+		"terminal.integrated.profiles.windows": {
+			"PowerShell": {
+				"source": "PowerShell",
+				"args": ["-nolog"]
+			}
+		},
+		"terminal.integrated.defaultProfile.windows": "PowerShell",
+		"files.autoSave": "afterDelay",
+		"files.autoSaveDelay": 3000,
+		"workbench.editor.untitled.hint": "hidden",
+		"vue3snippets.enable-compile-vue-file-on-did-save-code": false
+	}
+}

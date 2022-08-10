@@ -2,7 +2,7 @@
     File Name: pickers.js
     Description: Pick a date/time Picker, Date Range Picker JS
     ----------------------------------------------------------------------------------------
-    Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    Item Name: Project-Octa - Codebumble - Vuejs, HTML & Laravel Admin Dashboard Template
     Author: Codebumble
     Author URL: hhttp://www.themeforest.net/user/Codebumble Inc.
 ==========================================================================================*/

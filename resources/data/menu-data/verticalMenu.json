@@ -1,5 +1,29 @@
 {
-  "menu": [
+  "menu": [{
+    "name": "Profile",
+    "icon": "user",
+    "slug": "",
+    "submenu": [
+      {
+        "url": "admin/all-user-list",
+        "name": "List",
+        "icon": "circle",
+        "slug": "all-user-list"
+      },
+      {
+        "url": "admin/profile-account",
+        "name": "Account",
+        "icon": "circle",
+        "slug": "profile-account"
+      },
+      {
+        "url": "admin/profile-security",
+        "name": "Security",
+        "icon": "circle",
+        "slug": "profile-security"
+      }
+    ]
+  },
     {
       "name": "Dashboards",
       "badge": "2",
@@ -19,6 +43,81 @@
           "icon": "circle",
           "slug": "dashboard-ecommerce"
         }
+      ]
+    },
+    {
+      "navheader": "Site Settings",
+      "slug": ""
+    },
+    {
+      "url": "app/email",
+      "name": "Settings",
+      "icon": "settings",
+      "slug": "",
+      "submenu": [
+        {
+          "url": "app/invoice/list",
+          "name": "General Settings",
+          "icon": "circle",
+          "slug": "site-general-settings"
+        },
+        {
+          "url": "app/invoice/list",
+          "name": "SEO Settings",
+          "icon": "circle",
+          "slug": "site-seo-settings"
+        },
+        {
+          "url": "app/invoice/list",
+          "name": "Home Page",
+          "icon": "circle",
+          "slug": "site-home-page-settings"
+        },
+        {
+          "url": "app/invoice/list",
+          "name": "Manual Entry",
+          "icon": "circle",
+          "slug": "site-manual-entry"
+        }
+      ]
+    },{
+      "name": "Company",
+      "icon": "anchor",
+      "slug": "",
+      "submenu": [
+        {
+          "url": "admin/all-company",
+          "name": "All Company",
+          "icon": "circle",
+          "slug": "all-compnay"
+        },
+        {
+          "url": "admin/add-company",
+          "name": "Add Company",
+          "icon": "circle",
+          "slug": "add-company"
+        }
+      ]
+    },
+    {
+      "url": "admin/add-section",
+      "name": "Section",
+      "icon": "align-left",
+      "slug": "",
+      "submenu": [
+        {
+          "url": "admin/add-section",
+          "name": "Add Section",
+          "icon": "circle",
+          "slug": "add-section"
+        },
+        {
+          "url": "admin/all-section",
+          "name": "All Section",
+          "icon": "circle",
+          "slug": "all-section"
+        }
+
       ]
     },
     {
@@ -142,51 +241,7 @@
         }
       ]
     },
-    {
-      "name": "User",
-      "icon": "user",
-      "slug": "",
-      "submenu": [
-        {
-          "url": "app/user/list",
-          "name": "List",
-          "icon": "circle",
-          "slug": "app-user-list"
-        },
-        {
-          "name": "View",
-          "icon": "circle",
-          "slug": "",
-          "submenu": [
-            {
-              "url": "app/user/view/account",
-              "name": "Account",
-              "slug": "app-user-view-account"
-            },
-            {
-              "url": "app/user/view/security",
-              "name": "Security",
-              "slug": "app-user-view-security"
-            },
-            {
-              "url": "app/user/view/billing",
-              "name": "Billings & Plans",
-              "slug": "app-user-view-billing"
-            },
-            {
-              "url": "app/user/view/notifications",
-              "name": "Notifications",
-              "slug": "app-user-view-notifications"
-            },
-            {
-              "url": "app/user/view/connections",
-              "name": "Connections",
-              "slug": "app-user-view-connections"
-            }
-          ]
-        }
-      ]
-    },
+
     {
       "name": "Pages",
       "icon": "file-text",

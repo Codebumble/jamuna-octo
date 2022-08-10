@@ -1,14 +1,18 @@
 <template>
-	<div>
-		<h1 class="text-white">Jamuna Group is Coming soon!</h1>
-
-	</div>
+	<appHeader />
+	<router-view></router-view>
+	<appFooter />
 </template>
 
-
 <script>
+	import appHeader from './components/header.vue';
+	import appFooter from './components/footer.vue';
 
-export default {
-	setup() {},
-};
+	export default {
+		components: {
+			appHeader,
+			appFooter,
+		},
+		setup() {},
+	};
 </script>

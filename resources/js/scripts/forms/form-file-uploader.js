@@ -2,7 +2,7 @@
     File Name: form-file-uploader.js
     Description: dropzone
     --------------------------------------------------------------------------------------
-    Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    Item Name: Project-Octa - Codebumble - Vuejs, HTML & Laravel Admin Dashboard Template
     Author: Codebumble
     Author URL: http://www.codebumble.net
 ==========================================================================================*/

@@ -1,0 +1,45 @@
+.content {
+	@apply lg:w-8/12 lg:pr-8;
+
+	.heading {
+		@apply font-bold text-4xl text-gray-800 leading-snug py-3 lg:w-5/6;
+	}
+
+	.description {
+		@apply text-gray-700 leading-snug lg:w-5/6 pb-3;
+	}
+}
+
+.logo-slider {
+	.concern {
+		@apply w-full h-16 border border-slate-100;
+
+		img {
+			@apply mix-blend-luminosity;
+		}
+
+		&:hover {
+			box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+				rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+		}
+
+		&:hover img {
+			@apply mix-blend-normal;
+		}
+	}
+
+	.splide__track {
+		@apply py-4 px-4 #{!important};
+	}
+
+	.splide__arrow {
+		@apply bg-transparent #{!important};
+	}
+
+	.splide__arrow--next {
+		@apply -right-2 xl:-right-8 #{!important};
+	}
+	.splide__arrow--prev {
+		@apply -left-2 xl:-left-8 #{!important};
+	}
+}

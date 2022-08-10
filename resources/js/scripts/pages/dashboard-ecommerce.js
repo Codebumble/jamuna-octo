@@ -2,14 +2,14 @@
     File Name: dashboard-ecommerce.js
     Description: dashboard ecommerce page content with Apexchart Examples
     ----------------------------------------------------------------------------------------
-    Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    Item Name: Project-Octa - Codebumble - Vuejs, HTML & Laravel Admin Dashboard Template
     Author: Codebumble
     Author URL: http://www.codebumble.net
 ==========================================================================================*/
 
+
 $(window).on('load', function () {
   'use strict';
-
   var $barColor = '#f3f3f3';
   var $trackBgColor = '#EBEBEB';
   var $textMutedColor = '#b9b9c3';
@@ -61,7 +61,7 @@ $(window).on('load', function () {
   setTimeout(function () {
     toastr['success'](
       'You have successfully logged in to Vuexy. Now you can start to explore!',
-      '👋 Welcome John Doe!',
+      '👋 Welcome to the Portal!',
       {
         closeButton: true,
         tapToDismiss: false,

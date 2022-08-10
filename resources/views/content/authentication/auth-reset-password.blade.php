@@ -1,15 +1,23 @@
 @extends('layouts/fullLayoutMaster')
 
-@section('title', 'Verify Email Basic')
+@section('title', 'Reset Password - '.env('APP_NAME'))
 
 @section('page-style')
+  {{-- Page Css files --}}
+  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/form-validation.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('css/base/pages/authentication.css')) }}">
 @endsection
 
 @section('content')
 <div class="auth-wrapper auth-basic px-2">
+            @if (Auth::check())
+              @php
+                header("Location: " . route('profile-account'), true, 302);
+                exit();
+              @endphp
+            @endif
   <div class="auth-inner my-2">
-    <!-- verify email basic -->
+    <!-- Reset Password basic -->
     <div class="card mb-0">
       <div class="card-body">
         <a href="#" class="brand-logo">
@@ -67,23 +75,74 @@
               </g>
             </g>
           </svg>
-          <h2 class="brand-text text-primary ms-1">Vuexy</h2>
+          <h2 class="brand-text text-primary ms-1">{{ env('APP_NAME') }}</h2>
         </a>
 
-        <h2 class="card-title fw-bolder mb-1">Verify your email ✉️</h2>
-        <p class="card-text mb-2">
-          We've sent a link to your email address: <span class="fw-bolder">hello@Codebumble Inc..com</span> Please follow the
-          link inside to continue.
-        </p>
+        <h4 class="card-title mb-1">Reset Password 🔒</h4>
+        <p class="card-text mb-2">Your new password must be different from previously used passwords</p>
 
-        <a href="{{asset('/')}}" class="btn btn-primary w-100">Skip for now</a>
+                @if (isset($_GET['error']))
+            <div class="demo-spacing-0">
+                <div class="alert alert-danger" role="alert">
+                <div class="alert-body"><strong>{{ $_GET['error'] }}</strong></div>
+                </div>
+            </div>
+        @endif
+
+        <form class="auth-reset-password-form mt-2" action="{{ route('reset-password-api', ['token' => $token]) }}" method="POST">
+        @csrf
+          <div class="mb-1">
+            <div class="d-flex justify-content-between">
+              <label class="form-label" for="reset-password-new">New Password</label>
+            </div>
+            <div class="input-group input-group-merge form-password-toggle">
+              <input
+                type="password"
+                class="form-control form-control-merge"
+                id="reset-password-new"
+                name="new"
+                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                aria-describedby="reset-password-new"
+                tabindex="1"
+                autofocus
+              />
+              <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
+            </div>
+          </div>
+          <div class="mb-1">
+            <div class="d-flex justify-content-between">
+              <label class="form-label" for="reset-password-confirm">Confirm Password</label>
+            </div>
+            <div class="input-group input-group-merge form-password-toggle">
+              <input
+                type="password"
+                class="form-control form-control-merge"
+                id="reset-password-confirm"
+                name="confirm"
+                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                aria-describedby="reset-password-confirm"
+                tabindex="2"
+              />
+              <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary w-100" tabindex="3">Set New Password</button>
+        </form>
 
         <p class="text-center mt-2">
-          <span>Didn't receive an email? </span><a href="Javascript:void(0)"><span>&nbsp;Resend</span></a>
+          <a href="{{route('auth-login')}}"> <i data-feather="chevron-left"></i> Back to login </a>
         </p>
       </div>
     </div>
-    <!-- / verify email basic -->
+    <!-- /Reset Password basic -->
   </div>
 </div>
+@endsection
+
+@section('vendor-script')
+<script src="{{asset(mix('vendors/js/forms/validation/jquery.validate.min.js'))}}"></script>
+@endsection
+
+@section('page-script')
+<script src="{{asset(mix('js/scripts/pages/auth-reset-password.js'))}}"></script>
 @endsection

@@ -1,0 +1,31 @@
+::-webkit-scrollbar-track {
+	border-radius: 10px;
+	// background-color: #f5f5f5;
+	// display: none;
+}
+
+::-webkit-scrollbar {
+	width: 4px;
+	// display: none;
+	// background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: #555;
+	display: block;
+}
+
+@media (max-width: 1280px) {
+	.container {
+		max-width: 1140px;
+	}
+}
+
+.button {
+	@apply rounded-3xl py-2 px-7 border-2 border-red-600 text-white bg-red-600 hover:bg-white hover:text-red-600 transition-all overflow-hidden w-fit;
+}
+
+.button-alt {
+	@apply rounded-3xl py-2 px-7 border-2 border-red-600 text-red-600 bg-white hover:bg-red-600 hover:text-white transition-all overflow-hidden w-fit;
+}

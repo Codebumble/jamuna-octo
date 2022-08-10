@@ -7,10 +7,12 @@ use App\Http\Controllers\AppsController;
 use App\Http\Controllers\UserInterfaceController;
 use App\Http\Controllers\CardsController;
 use App\Http\Controllers\ComponentsController;
+use App\Http\Controllers\Company_rest;
 use App\Http\Controllers\ExtensionController;
 use App\Http\Controllers\PageLayoutController;
 use App\Http\Controllers\FormsController;
 use App\Http\Controllers\TableController;
+use App\Http\Controllers\TestOutput;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\MiscellaneousController;
 use App\Http\Controllers\AuthenticationController;
@@ -30,20 +32,61 @@ use App\Http\Controllers\FrontendController;
 */
 
 // Main Page Route
-Route::get('/', [FrontendController::class, 'home'])->name('home');
+Route::get('{any}', [FrontendController::class, 'home'])->where('any', '/|founder|board-of-directors|company-profile|');
 
 
 /* Route Dashboards */
 Route::group(['prefix' => 'dashboard'], function () {
     Route::get('analytics', [DashboardController::class, 'dashboardAnalytics'])->name('dashboard-analytics');
     Route::get('ecommerce', [DashboardController::class, 'dashboardEcommerce'])->name('dashboard-ecommerce');
-    Route::post('ecommerce', [DashboardController::class, 'dashboardEcommerce'])->name('dashboard-ecommerce');
+
+});
+
+Route::group(['prefix' => 'codebumble'], function () {
+    Route::post('/login', [AuthController::class, 'login'])->name('auth-login-api');
+    Route::post('/forgot-password', [AuthController::class, 'forgot_password_api'])->name('auth-forget-password-api');
+
+
+
+    Route::group(['middleware' => 'auth:sanctum'], function(){
+        Route::post('add-section', [Company_rest::class, 'add_section'])->name('add-section-api');
+        Route::post('add-company', [Company_rest::class, 'add_company'])->name('add-company-api');
+        Route::get('all-company-api', [Company_rest::class, 'view_all_company_api'])->name('all-company-api');
+        Route::post('edit-company-api/{id}', [Company_rest::class, 'edit_company'])->name('edit-company-api');
+        Route::post('test-output', [TestOutput::class, 'test_post'])->name('test-post');
+        Route::get('test-output-get', [TestOutput::class, 'test_get'])->name('test-get');
+    });
 });
 /* Route Dashboards */
-
 Route::group(['prefix' => 'admin', ], function () {
-    Route::get('profile-account', [AppsController::class, 'user_view_account'])->name('profile-account');
-    Route::get('profile-security', [AppsController::class, 'user_view_security'])->name('profile-security');
+
+    Route::group(['middleware' => 'auth:sanctum'], function(){
+        Route::get('logout', [AuthController::class, 'logout']);
+        Route::get('user', [AuthController::class, 'user']);
+        Route::get('register', [AuthenticationController::class, 'register'])->name('auth-register');
+        Route::get('add-company', [Company_rest::class, 'auth_view_add_company'])->name('add-company');
+        Route::get('all-company', [Company_rest::class, 'auth_view_all_company'])->name('all-company');
+        Route::get('edit-company/{id}', [Company_rest::class, 'auth_view_edit_company'])->name('edit-company');
+
+        Route::get('add-section', [Company_rest::class, 'auth_view_add_section'])->name('add-section');
+        Route::get('all-section', [Company_rest::class, 'auth_view_all_section'])->name('all-section');
+        Route::get('delete-section/{name}', [Company_rest::class, 'delete_section'])->name('delete-section');
+        Route::get('profile-account', [AppsController::class, 'user_view_account'])->name('profile-account');
+        Route::get('visitor/{username}', [AppsController::class, 'profile_visitor'])->name('profile_visitor');
+        // API SET
+        Route::get('profile-account-under-user', [AuthController::class, 'under_ref'])->name('profile-account-under-user');
+        Route::get('all-user-list-api', [AuthController::class, 'all_user_list_api'])->name('all-user-list-api');
+        Route::get('all-user-list', [AppsController::class, 'user_list'])->name('all-user-list');
+        Route::post('profile-account-edit', [AuthController::class, 'user_edit'])->name('profile-account-edit');
+        Route::get('delete-company/{id}', [Company_rest::class, 'delete_company'])->name('delete-company');
+        Route::get('profile-security', [AppsController::class, 'user_view_security'])->name('profile-security');
+        Route::post('auth_reset_password', [AuthController::class, 'auth_reset_password'])->name('auth_reset_password');
+
+        Route::post('profile_image', [AuthController::class, 'profile_image_upload'])->name('profile_image');
+
+
+        Route::get('profile-visitor-under-user/{username}', [AuthController::class, 'profile_visitor_under_ref'])->name('profile_visitor_under_ref');
+    });
     Route::get('profile-billing', [AppsController::class, 'user_view_billing'])->name('profile-billing');
     Route::get('profile-notification', [AppsController::class, 'user_view_notifications'])->name('profile-notification');
     Route::get('profile-connections', [AppsController::class, 'user_view_connections'])->name('app-user-view-connections');
@@ -69,7 +112,6 @@ Route::group(['prefix' => 'app'], function () {
     Route::get('file-manager', [AppsController::class, 'file_manager'])->name('app-file-manager');
     Route::get('access-roles', [AppsController::class, 'access_roles'])->name('app-access-roles');
     Route::get('access-permission', [AppsController::class, 'access_permission'])->name('app-access-permission');
-    Route::get('user/list', [AppsController::class, 'user_list'])->name('app-user-list');
     Route::get('user/view/account', [AppsController::class, 'user_view_account'])->name('app-user-view-account');
     Route::get('user/view/security', [AppsController::class, 'user_view_security'])->name('app-user-view-security');
     Route::get('user/view/billing', [AppsController::class, 'user_view_billing'])->name('app-user-view-billing');
@@ -218,19 +260,18 @@ Route::get('/modal-examples', [PagesController::class, 'modal_examples'])->name(
 /* Route Pages */
 Route::get('/error', [MiscellaneousController::class, 'error'])->name('error');
 
-Route::group(['prefix' => 'codebumble'], function () {
-    Route::post('/login', [AuthController::class, 'login'])->name('auth-login-api');
 
-});
 
 /* Route Authentication Pages */
 Route::group(['prefix' => 'auth'], function () {
     Route::get('login', [AuthenticationController::class, 'login'])->name('auth-login');
 
-    Route::get('register', [AuthenticationController::class, 'register'])->name('auth-register');
+
+
     Route::get('forgot-password', [AuthenticationController::class, 'forgot_password'])->name('auth-forgot-password');
-    Route::get('reset-password', [AuthenticationController::class, 'reset_password'])->name('auth-reset-password');
-    Route::get('verify-email', [AuthenticationController::class, 'verify_email'])->name('auth-verify-email');
+    Route::get('reset-password/{token}', [AuthenticationController::class, 'reset_password'])->name('reset-password');
+    Route::post('reset-password-api/{token}', [AuthController::class, 'reset_password_api'])->name('reset-password-api');
+    Route::get('verify-email/{email}', [AuthenticationController::class, 'verify_email'])->name('auth-verify-email');
     Route::get('two-steps', [AuthenticationController::class, 'two_steps'])->name('auth-two-steps');
     Route::get('lock-screen', [AuthenticationController::class, 'lock_screen'])->name('auth-lock_screen');
 });

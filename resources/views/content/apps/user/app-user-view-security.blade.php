@@ -1,6 +1,6 @@
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'User View - Security')
+@section('title', 'Profile - Security')
 
 @section('vendor-style')
   {{-- Page Css files --}}
@@ -19,22 +19,37 @@
 <section class="app-user-view-security">
   <div class="row">
     <!-- User Sidebar -->
+    <?php
+              $auther = Auth::User();
+              $json_data = json_decode(Auth::User()->json_data);
+            ?>
     <div class="col-xl-4 col-lg-5 col-md-5 order-1 order-md-0">
       <!-- User Card -->
       <div class="card">
         <div class="card-body">
           <div class="user-avatar-section">
             <div class="d-flex align-items-center flex-column">
-              <img
-                class="img-fluid rounded mt-3 mb-2"
-                src="{{asset('images/portrait/small/avatar-s-2.jpg')}}"
-                height="110"
-                width="110"
-                alt="User avatar"
-              />
+            <form method="post" enctype="multipart/form-data" action="{{ route('profile_image')}}">
+            @csrf
+              <input type="file" name="profile_image" id="profile_image" style="display:none;" accept="image/png, image/jpeg, .jpg" onchange="this.form.submit()"/>
+                <label for="profile_image">
+                  <img
+                    class="rounded mt-3 mb-2"
+                    <?php
+                    if(!isset($auther->avatar)){ ?>
+                    src="{{asset('images/portrait/small/avatar-s-2.jpg')}}"
+                    <?php } else { ?>
+                    src="/profile-images/{{$auther->avatar}}"
+                    <?php } ?>
+                    height="110"
+                    width="110"
+                    alt="User avatar"
+                  />
+                </label>
+              </form>
               <div class="user-info text-center">
-                <h4>Gertrude Barton</h4>
-                <span class="badge bg-light-secondary">Author</span>
+                <h4>{{$auther->name}}</h4>
+                <span class="badge bg-light-secondary">{{$auther->designation}}</span>
               </div>
             </div>
           </div>
@@ -44,17 +59,17 @@
                 <i data-feather="check" class="font-medium-2"></i>
               </span>
               <div class="ms-75">
-                <h4 class="mb-0">1.23k</h4>
-                <small>Tasks Done</small>
+                <h4 class="mb-0">{{ $auther->under_ref }}</h4>
+                <small>Invited</small>
               </div>
             </div>
             <div class="d-flex align-items-start">
-              <span class="badge bg-light-primary p-75 rounded">
-                <i data-feather="briefcase" class="font-medium-2"></i>
+              <span class="badge bg-light-success p-75 rounded">
+                <i data-feather="zap" class="font-medium-2"></i>
               </span>
               <div class="ms-75">
-                <h4 class="mb-0">568</h4>
-                <small>Projects Done</small>
+                <h4 class="mb-0">{{json_decode($auther['json_data'])->gender}}</h4>
+                <small>Gender</small>
               </div>
             </div>
           </div>
@@ -63,90 +78,53 @@
             <ul class="list-unstyled">
               <li class="mb-75">
                 <span class="fw-bolder me-25">Username:</span>
-                <span>violet.dev</span>
+                <span>{{ $auther->username}}</span>
               </li>
               <li class="mb-75">
-                <span class="fw-bolder me-25">Billing Email:</span>
-                <span>vafgot@vultukir.org</span>
+                <span class="fw-bolder me-25">Email:</span>
+                <span>{{ $auther->email}}</span>
               </li>
               <li class="mb-75">
-                <span class="fw-bolder me-25">Status:</span>
-                <span class="badge bg-light-success">Active</span>
+                <span class="fw-bolder me-25">Account Status:</span>
+                <span class="badge bg-light-success">{{ $json_data->status}}</span>
               </li>
               <li class="mb-75">
                 <span class="fw-bolder me-25">Role:</span>
-                <span>Author</span>
+                <span class="text-capitalize">{{ $auther->role}}</span>
               </li>
+              @if (isset($auther->company))
               <li class="mb-75">
-                <span class="fw-bolder me-25">Tax ID:</span>
-                <span>Tax-8965</span>
+                <span class="fw-bolder me-25">Company:</span>
+                <span>{{ $auther->company }}</span>
               </li>
+              @endif
               <li class="mb-75">
                 <span class="fw-bolder me-25">Contact:</span>
-                <span>+1 (609) 933-44-22</span>
+                <span>{{ $json_data->phone_number}}</span>
               </li>
               <li class="mb-75">
-                <span class="fw-bolder me-25">Language:</span>
-                <span>English</span>
+                <span class="fw-bolder me-25">Address:</span>
+                <span>{{ $json_data->address}}</span>
               </li>
               <li class="mb-75">
                 <span class="fw-bolder me-25">Country:</span>
-                <span>Wake Island</span>
+                <span>{{ $json_data->country}}</span>
               </li>
             </ul>
             <div class="d-flex justify-content-center pt-2">
-              <a
-                href="javascript:void(0)"
-                class="btn btn-primary me-1"
-                data-bs-target="#editUser"
-                data-bs-toggle="modal"
-                >Edit</a
-              >
-              <a href="javascript:void(0)" class="btn btn-outline-danger suspend-user">Suspended</a>
+              <a href="javascript:;" class="btn btn-primary me-1" data-bs-target="#editUser" data-bs-toggle="modal">
+                Edit
+              </a>
+              <a href="{{ route('logout')}}" class="btn btn-outline-danger" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log Out</a>
+              <form method="POST" id="logout-form" action="{{ route('logout') }}">
+            @csrf
+          </form>
             </div>
           </div>
         </div>
       </div>
       <!-- /User Card -->
-      <!-- Plan Card -->
-      <div class="card border-primary">
-        <div class="card-body">
-          <div class="d-flex justify-content-between align-items-start">
-            <span class="badge bg-light-primary">Standard</span>
-            <div class="d-flex justify-content-center">
-              <sup class="h5 pricing-currency text-primary mt-1 mb-0">$</sup>
-              <span class="fw-bolder display-5 mb-0 text-primary">99</span>
-              <sub class="pricing-duration font-small-4 ms-25 mt-auto mb-2">/month</sub>
-            </div>
-          </div>
-          <ul class="ps-1 mb-2">
-            <li class="mb-50">10 Users</li>
-            <li class="mb-50">Up to 10 GB storage</li>
-            <li>Basic Support</li>
-          </ul>
-          <div class="d-flex justify-content-between align-items-center fw-bolder mb-50">
-            <span>Days</span>
-            <span>4 of 30 Days</span>
-          </div>
-          <div class="progress mb-50" style="height: 8px">
-            <div
-              class="progress-bar"
-              role="progressbar"
-              style="width: 80%"
-              aria-valuenow="65"
-              aria-valuemax="100"
-              aria-valuemin="80"
-            ></div>
-          </div>
-          <span>4 days remaining</span>
-          <div class="d-grid w-100 mt-2">
-            <button class="btn btn-primary" data-bs-target="#upgradePlanModal" data-bs-toggle="modal">
-              Upgrade Plan
-            </button>
-          </div>
-        </div>
-      </div>
-      <!-- /Plan Card -->
+
     </div>
     <!--/ User Sidebar -->
 
@@ -155,31 +133,15 @@
       <!-- User Pills -->
       <ul class="nav nav-pills mb-2">
         <li class="nav-item">
-          <a class="nav-link" href="{{asset('app/user/view/account')}}">
+          <a class="nav-link" href="{{route('profile-account')}}">
             <i data-feather="user" class="font-medium-3 me-50"></i>
             <span class="fw-bold">Account</span></a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{{asset('app/user/view/security')}}">
+          <a class="nav-link active" href="{{route('profile-security')}}">
             <i data-feather="lock" class="font-medium-3 me-50"></i>
             <span class="fw-bold">Security</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{asset('app/user/view/billing')}}">
-            <i data-feather="bookmark" class="font-medium-3 me-50"></i>
-            <span class="fw-bold">Billing & Plans</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{asset('app/user/view/notifications')}}">
-            <i data-feather="bell" class="font-medium-3 me-50"></i><span class="fw-bold">Notifications</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{asset('app/user/view/connections')}}">
-            <i data-feather="link" class="font-medium-3 me-50"></i><span class="fw-bold">Connections</span>
           </a>
         </li>
       </ul>
@@ -189,21 +151,50 @@
       <div class="card">
         <h4 class="card-header">Change Password</h4>
         <div class="card-body">
-          <form id="formChangePassword" method="POST" onsubmit="return false">
+          <form id="formChangePassword" method="POST" action="{{route('auth_reset_password')}}">
+          @csrf
+          <?php if(isset($_GET['error']) && $_GET['error']== 1){ ?>
             <div class="alert alert-warning mb-2" role="alert">
               <h6 class="alert-heading">Ensure that these requirements are met</h6>
-              <div class="alert-body fw-normal">Minimum 8 characters long, uppercase & symbol</div>
+              <div class="alert-body fw-normal">Your Current Password is Wrong. You can use "Forget Password" to recovery it.</div>
+            </div>
+          <?php } else if(isset($_GET['error']) && $_GET['error']== 2){ ?>
+            <div class="alert alert-warning mb-2" role="alert">
+              <h6 class="alert-heading">Ensure that these requirements are met</h6>
+              <div class="alert-body fw-normal">New Password and Confirm Password didn't Match.</div>
+            </div>
+          <?php } else if(isset($_GET['success']) && $_GET['success']== 1){ ?>
+            <div class="alert alert-success mb-2" role="alert">
+              <h6 class="alert-heading">Success!!</h6>
+              <div class="alert-body fw-normal">Profile Updated Successfully!</div>
             </div>
 
+          <?php } ?>
             <div class="row">
+            <div class="mb-2 col-md-6 form-password-toggle">
+                <label class="form-label" for="newPassword">Current Password</label>
+                <div class="input-group input-group-merge form-password-toggle">
+                  <input
+                    class="form-control"
+                    type="password"
+                    id="newPasswordCurrent"
+                    name="current"
+                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                  />
+                  <span class="input-group-text cursor-pointer">
+                    <i data-feather="eye"></i>
+                  </span>
+                </div>
+              </div>
+
               <div class="mb-2 col-md-6 form-password-toggle">
                 <label class="form-label" for="newPassword">New Password</label>
                 <div class="input-group input-group-merge form-password-toggle">
                   <input
                     class="form-control"
                     type="password"
-                    id="newPassword"
-                    name="newPassword"
+                    id="newPasswordNew"
+                    name="password"
                     placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                   />
                   <span class="input-group-text cursor-pointer">
@@ -218,7 +209,7 @@
                   <input
                     class="form-control"
                     type="password"
-                    name="confirmPassword"
+                    name="confirm_password"
                     id="confirmPassword"
                     placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                   />
@@ -235,32 +226,8 @@
       <!--/ Change Password -->
 
       <!-- Two-steps verification -->
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title mb-50">Two-steps verification</h4>
-          <span>Keep your account secure with authentication step.</span>
-          <h6 class="fw-bolder mt-2">SMS</h6>
-          <div class="d-flex justify-content-between border-bottom mb-1 pb-1">
-            <span>+1(968) 945-8832</span>
-            <div class="action-icons">
-              <a
-                href="javascript:void(0)"
-                class="text-body me-50"
-                data-bs-target="#twoFactorAuthModal"
-                data-bs-toggle="modal"
-              >
-                <i data-feather="edit" class="font-medium-3"></i>
-              </a>
-              <a href="javascript:void(0)" class="text-body"><i data-feather="trash" class="font-medium-3"></i></a>
-            </div>
-          </div>
-          <p class="mb-0">
-            Two-factor authentication adds an additional layer of security to your account by requiring more than just a
-            password to log in.
-            <a href="javascript:void(0);" class="text-body">Learn more.</a>
-          </p>
-        </div>
-      </div>
+
+
       <!--/ Two-steps verification -->
 
       <!-- recent device -->
@@ -273,56 +240,36 @@
             <thead>
               <tr>
                 <th class="text-start">BROWSER</th>
-                <th>DEVICE</th>
-                <th>LOCATION</th>
-                <th>RECENT ACTIVITY</th>
+                <th>IP</th>
+                <th>OS</th>
+                <th>Date and Time</th>
               </tr>
             </thead>
             <tbody>
+            @foreach($login_details as $detail)
               <tr>
                 <td class="text-start">
                   <div class="avatar me-25">
-                    <img src="{{asset('images/icons/google-chrome.png')}}" alt="avatar" width="20" height="20" />
+                  @if ($detail->browser == 'Opera')
+                    <img src="{{asset('images/icons/opera.png')}}" alt="avatar" width="20" height="20" />
+                  @elseif($detail->browser == 'Edge')
+                  <img src="{{asset('images/icons/internet-explorer.png')}}" alt="avatar" width="20" height="20" />
+                  @elseif ($detail->browser == 'Firefox')
+                  <img src="{{asset('images/icons/mozila-firefox.png')}}" alt="avatar" width="20" height="20" />
+                  @elseif ($detail->browser == 'Safari')
+                  <img src="{{asset('images/icons/apple-safari.png')}}" alt="avatar" width="20" height="20" />
+                  @else
+                  <img src="{{asset('images/icons/google-chrome.png')}}" alt="avatar" width="20" height="20" />
+                  @endif
                   </div>
-                  <span class="fw-bolder">Chrome on Windows</span>
+                  <span class="fw-bolder">{{$detail->browser_full}}</span>
                 </td>
-                <td>Dell XPS 15</td>
-                <td>United States</td>
-                <td>10, Jan 2021 20:07</td>
+                <td>{{$detail->ip}}</td>
+                <td>{{$detail->os}}</td>
+                <td>{{$detail->date}} ({{$detail->time}})</td>
               </tr>
-              <tr>
-                <td class="text-start">
-                  <div class="avatar me-25">
-                    <img src="{{asset('images/icons/google-chrome.png')}}" alt="avatar" width="20" height="20" />
-                  </div>
-                  <span class="fw-bolder">Chrome on Android</span>
-                </td>
-                <td>Google Pixel 3a</td>
-                <td>Ghana</td>
-                <td>11, Jan 2021 10:16</td>
-              </tr>
-              <tr>
-                <td class="text-start">
-                  <div class="avatar me-25">
-                    <img src="{{asset('images/icons/google-chrome.png')}}" alt="avatar" width="20" height="20" />
-                  </div>
-                  <span class="fw-bolder">Chrome on MacOS</span>
-                </td>
-                <td>Apple iMac</td>
-                <td>Mayotte</td>
-                <td>11, Jan 2021 12:10</td>
-              </tr>
-              <tr>
-                <td class="text-start">
-                  <div class="avatar me-25">
-                    <img src="{{asset('images/icons/google-chrome.png')}}" alt="avatar" width="20" height="20" />
-                  </div>
-                  <span class="fw-bolder">Chrome on iPhone</span>
-                </td>
-                <td>Apple iPhone XR</td>
-                <td>Mauritania</td>
-                <td>12, Jan 2021 8:29</td>
-              </tr>
+              @endforeach
+
             </tbody>
           </table>
         </div>
@@ -334,9 +281,7 @@
 </section>
 
 
-@include('content/_partials/_modals/modal-edit-user')
-@include('content/_partials/_modals/modal-upgrade-plan')
-@include('content/_partials/_modals/modal-two-factor-auth')
+@include('content/apps/user/modal-edit-user')
 @endsection
 
 @section('vendor-script')

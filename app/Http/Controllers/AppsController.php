@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class AppsController extends Controller
 {
@@ -49,22 +52,64 @@ class AppsController extends Controller
     // User List Page
     public function user_list()
     {
+        if(!Auth::check()){
+            header("Location: " . route('error'), true, 302);
+            exit();
+
+        }
+
+        $role = Auth::user()->role;
+
+        if($role != 'admin' ){
+            if( $role != 'super admin'){
+                header("Location: " . route('error'), true, 302);
+                exit();
+            }
+        }
+
+        $users = DB::select('select count(*) as sub_user from users');
+        $users_admin = DB::select('select count(*) as sub_user_admin from users where role=?', ['admin']);
+        $users_super_admin = DB::select('select count(*) as sub_user_super_admin from users where role=?', ['super admin']);
+        $user_active = DB::select('select count(*) as sub_active from users where json_data LIKE \'%\"status\":\"Active\"%\'');
+
         $pageConfigs = ['pageHeader' => false];
-        return view('/content/apps/user/app-user-list', ['pageConfigs' => $pageConfigs]);
+        return view('/content/apps/user/app-user-list', ['pageConfigs' => $pageConfigs, 'sub_users' => $users, 'active' => $user_active, 'sub_user_super_admin' => $users_super_admin, 'sub_user_admin' => $users_admin]);
     }
 
     // User Account Page
     public function user_view_account()
     {
         $pageConfigs = ['pageHeader' => false];
-        return view('/content/apps/user/app-user-view-account', ['pageConfigs' => $pageConfigs]);
+        $auth = Auth::user();
+        $users = DB::select('select count(*) as sub_user from users where under_ref=?', [$auth->username]);
+        $user_active = DB::select('select count(*) as sub_active from users where json_data LIKE \'%\"status\":\"Active\"%\' and under_ref=?', [$auth->username]);
+        return view('/content/apps/user/app-user-view-account', ['pageConfigs' => $pageConfigs, 'sub_users' => $users, 'active' => $user_active]);
+    }
+
+    public function profile_visitor($username)
+    {
+
+        $auth = DB::select('select * from users where username=?', [$username]);
+        $users = DB::select('select count(*) as sub_user from users where under_ref=?', [$username]);
+        $user_active = DB::select('select count(*) as sub_active from users where json_data LIKE \'%\"status\":\"Active\"%\' and under_ref=?', [$username]);
+
+        if(isset($auth[0])){
+            $pageConfigs = ['pageHeader' => false];
+            return view('/content/apps/user/profile-visitor', ['pageConfigs' => $pageConfigs, 'sub_users' => $users, 'active' => $user_active, 'user_details' => $auth[0]]);
+        } else {
+            $pageConfigs = ['blankPage' => true];
+
+            return view('/content/miscellaneous/error', ['pageConfigs' => $pageConfigs]);
+        }
     }
 
     // User Security Page
     public function user_view_security()
     {
         $pageConfigs = ['pageHeader' => false];
-        return view('/content/apps/user/app-user-view-security', ['pageConfigs' => $pageConfigs]);
+        $auth = Auth::user();
+        $login_details= DB::table('codebumble_login_table')->limit(7)->orderBy('id', 'desc')->where('username', $auth->username)->get();
+        return view('/content/apps/user/app-user-view-security', ['pageConfigs' => $pageConfigs, 'login_details' => $login_details]);
     }
 
     // User Billing and Plans Page

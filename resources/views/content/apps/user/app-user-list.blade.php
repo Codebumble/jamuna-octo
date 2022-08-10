@@ -14,6 +14,7 @@
 @section('page-style')
   {{-- Page Css files --}}
   <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/form-validation.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-sweet-alerts.css')) }}">
 @endsection
 
 @section('content')
@@ -24,7 +25,7 @@
       <div class="card">
         <div class="card-body d-flex align-items-center justify-content-between">
           <div>
-            <h3 class="fw-bolder mb-75">21,459</h3>
+            <h3 class="fw-bolder mb-75">{{json_decode($sub_users[0]->sub_user)}}</h3>
             <span>Total Users</span>
           </div>
           <div class="avatar bg-light-primary p-50">
@@ -39,8 +40,8 @@
       <div class="card">
         <div class="card-body d-flex align-items-center justify-content-between">
           <div>
-            <h3 class="fw-bolder mb-75">4,567</h3>
-            <span>Paid Users</span>
+            <h3 class="fw-bolder mb-75">{{json_decode($active[0]->sub_active)}}</h3>
+            <span>Active</span>
           </div>
           <div class="avatar bg-light-danger p-50">
             <span class="avatar-content">
@@ -54,8 +55,8 @@
       <div class="card">
         <div class="card-body d-flex align-items-center justify-content-between">
           <div>
-            <h3 class="fw-bolder mb-75">19,860</h3>
-            <span>Active Users</span>
+            <h3 class="fw-bolder mb-75">{{json_decode($sub_user_super_admin[0]->sub_user_super_admin) + json_decode($sub_user_admin[0]->sub_user_admin)}}</h3>
+            <span>Admin</span>
           </div>
           <div class="avatar bg-light-success p-50">
             <span class="avatar-content">
@@ -69,7 +70,7 @@
       <div class="card">
         <div class="card-body d-flex align-items-center justify-content-between">
           <div>
-            <h3 class="fw-bolder mb-75">237</h3>
+            <h3 class="fw-bolder mb-75">{{json_decode($sub_users[0]->sub_user) - json_decode($active[0]->sub_active)}}</h3>
             <span>Pending Users</span>
           </div>
           <div class="avatar bg-light-warning p-50">
@@ -98,10 +99,8 @@
             <th></th>
             <th>Name</th>
             <th>Role</th>
-            <th>Plan</th>
-            <th>Billing</th>
             <th>Status</th>
-            <th>Actions</th>
+            <th>Action</th>
           </tr>
         </thead>
       </table>
@@ -247,5 +246,5 @@
 
 @section('page-script')
   {{-- Page js files --}}
-  <script src="{{ asset(mix('js/scripts/pages/app-user-list.js')) }}"></script>
+  <script src="{{ asset(mix('js/scripts/pages/all-user-list.js')) }}"></script>
 @endsection

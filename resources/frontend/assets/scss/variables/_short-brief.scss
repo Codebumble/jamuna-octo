@@ -1,0 +1,19 @@
+.short-brief {
+	@apply overflow-hidden py-8;
+
+	.brief-title {
+		@apply pb-8;
+
+		h2 {
+			@apply mx-auto;
+		}
+	}
+
+	.brief-desc {
+		@apply xl:w-5/6 mx-auto pb-8;
+	}
+
+	.learn-btn {
+		@apply contents;
+	}
+}

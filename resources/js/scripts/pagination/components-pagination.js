@@ -2,7 +2,7 @@
     File Name: pagination.js
     Description: Provide pagination links for your site or app with the multi-page pagination component.
     ----------------------------------------------------------------------------------------
-    Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    Item Name: Project-Octa - Codebumble - Vuejs, HTML & Laravel Admin Dashboard Template
     Author: Codebumble
     Author URL: hhttp://www.themeforest.net/user/Codebumble Inc.
 ==========================================================================================*/

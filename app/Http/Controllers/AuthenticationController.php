@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 
 class AuthenticationController extends Controller
@@ -20,7 +22,17 @@ class AuthenticationController extends Controller
     {
         $pageConfigs = ['blankPage' => true];
 
-        return view('/content/authentication/auth-register', ['pageConfigs' => $pageConfigs]);
+        if(!Auth::check()){
+            header("Location: " . route('auth-login'), true, 302);
+            exit();
+
+        }
+
+        $companys = DB::table('codebumble_company_list')->select('name')->get();
+
+
+
+        return view('/content/apps/user/add-user', ['pageConfigs' => $pageConfigs, 'companys' => $companys]);
     }
 
 
@@ -33,21 +45,29 @@ class AuthenticationController extends Controller
     }
 
 
+
     // Reset Password basic
-    public function reset_password()
+    public function reset_password($token)
     {
         $pageConfigs = ['blankPage' => true];
+        $user = DB::select('select * from password_resets where token= ?', [$token]);
 
-        return view('/content/authentication/auth-reset-password', ['pageConfigs' => $pageConfigs]);
+        if(isset($user[0])){
+            return view('/content/authentication/auth-reset-password', ['pageConfigs' => $pageConfigs, 'token' => $token]);
+        } else {
+            return view('/content/miscellaneous/error', ['pageConfigs' => $pageConfigs]);
+        }
+
+
     }
 
 
     // email verify basic
-    public function verify_email()
+    public function verify_email($email)
     {
         $pageConfigs = ['blankPage' => true];
 
-        return view('/content/authentication/auth-verify-email', ['pageConfigs' => $pageConfigs]);
+        return view('/content/authentication/auth-verify-email', ['pageConfigs' => $pageConfigs,  'email' => base64_decode($email)]);
     }
 
 

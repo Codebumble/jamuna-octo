@@ -1,7 +1,7 @@
 //  File Name: app-ecommerce-details.js
 //  Description: App Ecommerce Details js.
 //  ----------------------------------------------------------------------------------------------
-//  Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+//  Item Name: Project-Octa - Codebumble - Vuejs, HTML & Laravel Admin Dashboard Template
 //  Author: Codebumble
 //  Author URL: http://www.codebumble.net
 // ================================================================================================

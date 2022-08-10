@@ -10,6 +10,12 @@
 
 @section('content')
 <div class="auth-wrapper auth-basic px-2">
+            @if (Auth::check())
+              @php
+                header("Location: " . route('profile-account'), true, 302);
+                exit();
+              @endphp
+            @endif
   <div class="auth-inner my-2">
     <!-- Login basic -->
     <div class="card mb-0">
@@ -20,18 +26,26 @@
 
         <h4 class="card-title mb-1 text-center">Welcome to {{env("APP_NAME")}}! 👋</h4>
 
-        @if (session()->get('success') == "false")
+        @if (isset($_GET['error']) && $_GET['error'] == 'IiiZ2hs1g1vzhEMBdkjMUCPh9YzpRVC8CMojxRar')
             <div class="demo-spacing-0">
                 <div class="alert alert-danger" role="alert">
-                <div class="alert-body"><strong>{{session('message')}}</strong></div>
+                <div class="alert-body"><strong>User Credentials prompt cancelled. Please Check Your Login Details and Try Again.</strong></div>
                 </div>
             </div>
         @endif
 
-        @if (session()->get('success') == "true")
+        @if (isset($_GET['error']) && $_GET['error'] == 2)
             <div class="demo-spacing-0">
                 <div class="alert alert-success" role="alert">
-                <div class="alert-body"><strong>Login Successful!!</strong></div>
+                <div class="alert-body"><strong>Session Dropped for Security. Please login again.</strong></div>
+                </div>
+            </div>
+        @endif
+
+        @if (isset($_GET['success']))
+            <div class="demo-spacing-0">
+                <div class="alert alert-success" role="alert">
+                <div class="alert-body"><strong>{{ $_GET['success'] }}</strong></div>
                 </div>
             </div>
         @endif
@@ -40,12 +54,12 @@
         @csrf
         <div val="{{session()->get('success')}}"></div>
           <div class="mb-1">
-            <label for="login-email" class="form-label">Email</label>
+            <label for="login-email" class="form-label">Username or Email</label>
             <input
               type="text"
               class="form-control"
               id="login-email"
-              name="email"
+              name="login"
               placeholder="john@example.com"
               aria-describedby="login-email"
               tabindex="1"
@@ -56,7 +70,7 @@
           <div class="mb-1">
             <div class="d-flex justify-content-between">
               <label class="form-label" for="login-password">Password</label>
-              <a href="{{url('auth/forgot-password-basic')}}">
+              <a href="{{route('auth-forgot-password')}}">
                 <small>Forgot Password?</small>
               </a>
             </div>

@@ -2,7 +2,7 @@
     File Name: app-user-view-account.js
     Description: User View Account page
     --------------------------------------------------------------------------------------
-    Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+    Item Name: Project-Octa - Codebumble - Vuejs, HTML & Laravel Admin Dashboard Template
     Author: Codebumble
     Author URL: http://www.codebumble.net
 ==========================================================================================*/
@@ -376,7 +376,7 @@ $(function () {
         $(document).find('[data-bs-toggle="tooltip"]').tooltip();
       }
     });
-    $('div.head-label').html('<h4 class="card-title">Invoices</h4>');
+    $('div.head-label').html('<h4 class="card-title">User List</h4>');
   }
 
   // Filter form control to default size

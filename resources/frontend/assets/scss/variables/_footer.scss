@@ -1,0 +1,27 @@
+.footer {
+	border-top-left-radius: 100px;
+	border-top-right-radius: 100px;
+	box-shadow: 0 -4px 17px rgb(78 75 102 / 15%);
+	background: linear-gradient(
+		118.64deg,
+		rgba(255, 243, 233, 0.7) -4.78%,
+		hsla(0, 0%, 100%, 0.7) 64.5%,
+		rgba(255, 243, 233, 0.7) 111.91%
+	);
+	backdrop-filter: blur(30px);
+
+	.links {
+		@apply lg:mt-5 mb-8;
+
+		ul {
+			li {
+				@apply pb-2.5 w-full;
+
+				a {
+					line-height: 22px;
+					@apply w-full hover:text-red-600 transition-all;
+				}
+			}
+		}
+	}
+}

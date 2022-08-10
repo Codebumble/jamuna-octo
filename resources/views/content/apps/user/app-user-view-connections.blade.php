@@ -19,6 +19,10 @@
 <section class="app-user-view-connections">
   <div class="row">
     <!-- User Sidebar -->
+    <?php
+              $auther = Auth::User();
+              $json_data = json_decode(Auth::User()->json_data);
+            ?>
     <div class="col-xl-4 col-lg-5 col-md-5 order-1 order-md-0">
       <!-- User Card -->
       <div class="card">
@@ -27,14 +31,16 @@
             <div class="d-flex align-items-center flex-column">
               <img
                 class="img-fluid rounded mt-3 mb-2"
+                
                 src="{{asset('images/portrait/small/avatar-s-2.jpg')}}"
+                
                 height="110"
                 width="110"
                 alt="User avatar"
               />
               <div class="user-info text-center">
-                <h4>Gertrude Barton</h4>
-                <span class="badge bg-light-secondary">Author</span>
+                <h4>{{$auther->name}}</h4>
+                <span class="badge bg-light-secondary">{{$auther->designation}}</span>
               </div>
             </div>
           </div>
@@ -44,8 +50,8 @@
                 <i data-feather="check" class="font-medium-2"></i>
               </span>
               <div class="ms-75">
-                <h4 class="mb-0">1.23k</h4>
-                <small>Tasks Done</small>
+                <h4 class="mb-0">{{ $auther->under_ref }}</h4>
+                <small>Invited</small>
               </div>
             </div>
             <div class="d-flex align-items-start">
@@ -63,41 +69,43 @@
             <ul class="list-unstyled">
               <li class="mb-75">
                 <span class="fw-bolder me-25">Username:</span>
-                <span>violet.dev</span>
+                <span>{{ $auther->username}}</span>
               </li>
               <li class="mb-75">
-                <span class="fw-bolder me-25">Billing Email:</span>
-                <span>vafgot@vultukir.org</span>
+                <span class="fw-bolder me-25">Email:</span>
+                <span>{{ $auther->email}}</span>
               </li>
               <li class="mb-75">
-                <span class="fw-bolder me-25">Status:</span>
-                <span class="badge bg-light-success">Active</span>
+                <span class="fw-bolder me-25">Account Status:</span>
+                <span class="badge bg-light-success">{{ $json_data->status}}</span>
               </li>
               <li class="mb-75">
                 <span class="fw-bolder me-25">Role:</span>
-                <span>Author</span>
+                <span class="text-capitalize">{{ $auther->role}}</span>
               </li>
+              @if (isset($auther->company))
               <li class="mb-75">
-                <span class="fw-bolder me-25">Tax ID:</span>
-                <span>Tax-8965</span>
+                <span class="fw-bolder me-25">Company:</span>
+                <span>{{ $auther->company }}</span>
               </li>
+              @endif
               <li class="mb-75">
                 <span class="fw-bolder me-25">Contact:</span>
-                <span>+1 (609) 933-44-22</span>
+                <span>{{ $json_data->phone_number}}</span>
               </li>
               <li class="mb-75">
-                <span class="fw-bolder me-25">Language:</span>
-                <span>English</span>
+                <span class="fw-bolder me-25">Address:</span>
+                <span>{{ $json_data->address}}</span>
               </li>
               <li class="mb-75">
                 <span class="fw-bolder me-25">Country:</span>
-                <span>Wake Island</span>
+                <span>{{ $json_data->country}}</span>
               </li>
             </ul>
             <div class="d-flex justify-content-center pt-2">
-              <a href="javascript:;" class="btn btn-primary me-1" data-bs-target="#editUser" data-bs-toggle="modal"
-                >Edit</a
-              >
+              <a href="javascript:;" class="btn btn-primary me-1" data-bs-target="#editUser" data-bs-toggle="modal">
+                Edit
+              </a>
               <a href="javascript:;" class="btn btn-outline-danger suspend-user">Suspended</a>
             </div>
           </div>
@@ -151,13 +159,13 @@
       <!-- User Pills -->
       <ul class="nav nav-pills mb-2">
         <li class="nav-item">
-          <a class="nav-link" href="{{asset('app/user/view/account')}}">
+          <a class="nav-link" href="{{route('profile-account')}}">
             <i data-feather="user" class="font-medium-3 me-50"></i>
             <span class="fw-bold">Account</span></a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{asset('app/user/view/security')}}">
+          <a class="nav-link" href="{{route('profile-security')}}">
             <i data-feather="lock" class="font-medium-3 me-50"></i>
             <span class="fw-bold">Security</span>
           </a>

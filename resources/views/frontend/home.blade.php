@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="apple-touch-icon" href="{{asset('images/ico/apple-icon-120.png')}}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{asset('images/logo/favicon.ico')}}">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{{asset('frontend/css/app.css')}}">
+        <link rel="stylesheet" href="{{asset(mix('fonts/font-awesome/css/font-awesome.min.css'))}}">
     </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-
-            <div id="app"></div>
-
-        </div>
-
-        <script src="{{ asset('frontend/app.js') }}"></script>
+    <body class="antialiased overflow-x-hidden">
+        <div id="app"></div>
+        <script src="{{ asset('frontend/js/app.js') }}"></script>
     </body>
 </html>

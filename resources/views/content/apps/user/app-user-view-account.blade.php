@@ -1,6 +1,6 @@
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'User View - Account')
+@section('title', 'Profile - Account')
 
 @section('vendor-style')
   {{-- Page Css files --}}
@@ -22,6 +22,10 @@
 @section('content')
 <section class="app-user-view-account">
   <div class="row">
+  <?php
+              $auther = Auth::User();
+              $json_data = json_decode(Auth::User()->json_data);
+            ?>
     <!-- User Sidebar -->
     <div class="col-xl-4 col-lg-5 col-md-5 order-1 order-md-0">
       <!-- User Card -->
@@ -29,16 +33,27 @@
         <div class="card-body">
           <div class="user-avatar-section">
             <div class="d-flex align-items-center flex-column">
-              <img
-                class="img-fluid rounded mt-3 mb-2"
-                src="{{asset('images/portrait/small/avatar-s-2.jpg')}}"
-                height="110"
-                width="110"
-                alt="User avatar"
-              />
+            <form method="post" enctype="multipart/form-data" action="{{ route('profile_image')}}">
+            @csrf
+              <input type="file" name="profile_image" id="profile_image" style="display:none;" accept="image/png, image/jpeg, .jpg" onchange="this.form.submit()"/>
+                <label for="profile_image">
+                  <img
+                    class="rounded mt-3 mb-2"
+                    <?php
+                    if(!isset($auther->avatar)){ ?>
+                    src="{{asset('images/portrait/small/avatar-s-2.jpg')}}"
+                    <?php } else { ?>
+                    src="/profile-images/{{$auther->avatar}}"
+                    <?php } ?>
+                    height="110"
+                    width="110"
+                    alt="User avatar"
+                  />
+                </label>
+              </form>
               <div class="user-info text-center">
-                <h4>Gertrude Barton</h4>
-                <span class="badge bg-light-secondary">Author</span>
+                <h4>{{$auther->name}}</h4>
+                <span class="badge bg-light-secondary">{{$auther->designation}}</span>
               </div>
             </div>
           </div>
@@ -48,17 +63,17 @@
                 <i data-feather="check" class="font-medium-2"></i>
               </span>
               <div class="ms-75">
-                <h4 class="mb-0">1.23k</h4>
-                <small>Tasks Done</small>
+                <h5 class="mb-0">{{ '@'.$auther->under_ref }}</h5>
+                <small>Invited</small>
               </div>
             </div>
             <div class="d-flex align-items-start">
-              <span class="badge bg-light-primary p-75 rounded">
-                <i data-feather="briefcase" class="font-medium-2"></i>
+              <span class="badge bg-light-success p-75 rounded">
+                <i data-feather="zap" class="font-medium-2"></i>
               </span>
               <div class="ms-75">
-                <h4 class="mb-0">568</h4>
-                <small>Projects Done</small>
+                <h5 class="mb-0">{{json_decode($auther['json_data'])->gender}}</h5>
+                <small>Gender</small>
               </div>
             </div>
           </div>
@@ -67,86 +82,60 @@
             <ul class="list-unstyled">
               <li class="mb-75">
                 <span class="fw-bolder me-25">Username:</span>
-                <span>violet.dev</span>
+                <span>{{ $auther->username}}</span>
               </li>
               <li class="mb-75">
-                <span class="fw-bolder me-25">Billing Email:</span>
-                <span>vafgot@vultukir.org</span>
+                <span class="fw-bolder me-25">Email:</span>
+                <span>{{ $auther->email}}</span>
               </li>
               <li class="mb-75">
-                <span class="fw-bolder me-25">Status:</span>
-                <span class="badge bg-light-success">Active</span>
+                <span class="fw-bolder me-25">Account Status:</span>
+                @if ($json_data->status == "Active")
+                <span class="badge bg-light-success">{{ $json_data->status}}</span>
+                @elseif ($json_data->status == "Inctive")
+                <span class="badge bg-light-warning">{{ $json_data->status}}</span>
+                @elseif ($json_data->status == "Suspended" ||  $json_data->status == "Pending")
+                <span class="badge bg-light-danger">Suspended</span>
+                @endif
               </li>
               <li class="mb-75">
                 <span class="fw-bolder me-25">Role:</span>
-                <span>Author</span>
+                <span class="text-capitalize">{{ $auther->role}}</span>
               </li>
+              @if (isset($auther->company))
               <li class="mb-75">
-                <span class="fw-bolder me-25">Tax ID:</span>
-                <span>Tax-8965</span>
+                <span class="fw-bolder me-25">Company:</span>
+                <span>{{ $auther->company }}</span>
               </li>
+              @endif
               <li class="mb-75">
                 <span class="fw-bolder me-25">Contact:</span>
-                <span>+1 (609) 933-44-22</span>
+                <span>{{ $json_data->phone_number}}</span>
               </li>
               <li class="mb-75">
-                <span class="fw-bolder me-25">Language:</span>
-                <span>English</span>
+                <span class="fw-bolder me-25">Address:</span>
+                <span>{{ $json_data->address}}</span>
               </li>
               <li class="mb-75">
                 <span class="fw-bolder me-25">Country:</span>
-                <span>Wake Island</span>
+                <span>{{ $json_data->country}}</span>
               </li>
             </ul>
             <div class="d-flex justify-content-center pt-2">
               <a href="javascript:;" class="btn btn-primary me-1" data-bs-target="#editUser" data-bs-toggle="modal">
                 Edit
               </a>
-              <a href="javascript:;" class="btn btn-outline-danger suspend-user">Suspended</a>
+              <a href="{{ route('logout')}}" class="btn btn-outline-danger" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log Out</a>
+              <form method="POST" id="logout-form" action="{{ route('logout') }}">
+            @csrf
+          </form>
             </div>
           </div>
         </div>
       </div>
       <!-- /User Card -->
-      <!-- Plan Card -->
-      <div class="card border-primary">
-        <div class="card-body">
-          <div class="d-flex justify-content-between align-items-start">
-            <span class="badge bg-light-primary">Standard</span>
-            <div class="d-flex justify-content-center">
-              <sup class="h5 pricing-currency text-primary mt-1 mb-0">$</sup>
-              <span class="fw-bolder display-5 mb-0 text-primary">99</span>
-              <sub class="pricing-duration font-small-4 ms-25 mt-auto mb-2">/month</sub>
-            </div>
-          </div>
-          <ul class="ps-1 mb-2">
-            <li class="mb-50">10 Users</li>
-            <li class="mb-50">Up to 10 GB storage</li>
-            <li>Basic Support</li>
-          </ul>
-          <div class="d-flex justify-content-between align-items-center fw-bolder mb-50">
-            <span>Days</span>
-            <span>4 of 30 Days</span>
-          </div>
-          <div class="progress mb-50" style="height: 8px">
-            <div
-              class="progress-bar"
-              role="progressbar"
-              style="width: 80%"
-              aria-valuenow="65"
-              aria-valuemax="100"
-              aria-valuemin="80"
-            ></div>
-          </div>
-          <span>4 days remaining</span>
-          <div class="d-grid w-100 mt-2">
-            <button class="btn btn-primary" data-bs-target="#upgradePlanModal" data-bs-toggle="modal">
-              Upgrade Plan
-            </button>
-          </div>
-        </div>
-      </div>
-      <!-- /Plan Card -->
+
+
     </div>
     <!--/ User Sidebar -->
 
@@ -155,146 +144,225 @@
       <!-- User Pills -->
       <ul class="nav nav-pills mb-2">
         <li class="nav-item">
-          <a class="nav-link active" href="{{asset('app/user/view/account')}}">
+          <a class="nav-link active" href="{{route('profile-account')}}">
             <i data-feather="user" class="font-medium-3 me-50"></i>
             <span class="fw-bold">Account</span></a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{asset('app/user/view/security')}}">
+          <a class="nav-link" href="{{route('profile-security')}}">
             <i data-feather="lock" class="font-medium-3 me-50"></i>
             <span class="fw-bold">Security</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{asset('app/user/view/billing')}}">
-            <i data-feather="bookmark" class="font-medium-3 me-50"></i>
-            <span class="fw-bold">Billing & Plans</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{asset('app/user/view/notifications')}}">
-            <i data-feather="bell" class="font-medium-3 me-50"></i><span class="fw-bold">Notifications</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{asset('app/user/view/connections')}}">
-            <i data-feather="link" class="font-medium-3 me-50"></i><span class="fw-bold">Connections</span>
-          </a>
-        </li>
+
       </ul>
       <!--/ User Pills -->
 
-      <!-- Project table -->
-      <div class="card">
-        <h4 class="card-header">User's Projects List</h4>
-        <div class="table-responsive">
-          <table class="table datatable-project">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Project</th>
-                <th class="text-nowrap">Total Task</th>
-                <th>Progress</th>
-                <th>Hours</th>
-              </tr>
-            </thead>
-          </table>
-        </div>
-      </div>
-      <!-- /Project table -->
-
-      <!-- Activity Timeline -->
-      <div class="card">
-        <h4 class="card-header">User Activity Timeline</h4>
-        <div class="card-body pt-1">
-          <ul class="timeline ms-50">
-            <li class="timeline-item">
-              <span class="timeline-point timeline-point-indicator"></span>
-              <div class="timeline-event">
-                <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
-                  <h6>User login</h6>
-                  <span class="timeline-event-time me-1">12 min ago</span>
-                </div>
-                <p>User login at 2:12pm</p>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <span class="timeline-point timeline-point-warning timeline-point-indicator"></span>
-              <div class="timeline-event">
-                <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
-                  <h6>Meeting with john</h6>
-                  <span class="timeline-event-time me-1">45 min ago</span>
-                </div>
-                <p>React Project meeting with john @10:15am</p>
-                <div class="d-flex flex-row align-items-center mb-50">
-                  <div class="avatar me-50">
-                    <img
-                      src="{{asset('images/portrait/small/avatar-s-7.jpg')}}"
-                      alt="Avatar"
-                      width="38"
-                      height="38"
-                    />
-                  </div>
-                  <div class="user-info">
-                    <h6 class="mb-0">Leona Watkins (Client)</h6>
-                    <p class="mb-0">CEO of Codebumble Inc.</p>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <span class="timeline-point timeline-point-info timeline-point-indicator"></span>
-              <div class="timeline-event">
-                <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
-                  <h6>Create a new react project for client</h6>
-                  <span class="timeline-event-time me-1">2 day ago</span>
-                </div>
-                <p>Add files to new design folder</p>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <span class="timeline-point timeline-point-danger timeline-point-indicator"></span>
-              <div class="timeline-event">
-                <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
-                  <h6>Create Invoices for client</h6>
-                  <span class="timeline-event-time me-1">12 min ago</span>
-                </div>
-                <p class="mb-0">Create new Invoices and send to Leona Watkins</p>
-                <div class="d-flex flex-row align-items-center mt-50">
-                  <img class="me-1" src="{{asset('images/icons/pdf.png')}}" alt="data.json" height="25" />
-                  <h6 class="mb-0">Invoices.pdf</h6>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- /Activity Timeline -->
 
       <!-- Invoice table -->
-      <div class="card">
-        <table class="invoice-table table text-nowrap">
-          <thead>
-            <tr>
-              <th></th>
-              <th>#ID</th>
-              <th><i data-feather="trending-up"></i></th>
-              <th>TOTAL Paid</th>
-              <th class="text-truncate">Issued Date</th>
-              <th class="cell-fit">Actions</th>
-            </tr>
-          </thead>
-        </table>
+      <div class="app-user-list">
+        <div class="row">
+          <div class="col-lg-4 col-sm-6">
+            <div class="card">
+              <div class="card-body d-flex align-items-center justify-content-between">
+                <div>
+                  <h3 class="fw-bolder mb-75">{{json_decode($sub_users[0]->sub_user)}} </h3>
+                  <span>Total Users</span>
+                </div>
+                <div class="avatar bg-light-primary p-50">
+                  <span class="avatar-content">
+                    <i data-feather="user" class="font-medium-4"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="card">
+              <div class="card-body d-flex align-items-center justify-content-between">
+                <div>
+                  <h3 class="fw-bolder mb-75">{{json_decode($active[0]->sub_active)}}</h3>
+                  <span>Active Users</span>
+                </div>
+                <div class="avatar bg-light-danger p-50">
+                  <span class="avatar-content">
+                    <i data-feather="user-plus" class="font-medium-4"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-sm-6">
+            <div class="card">
+              <div class="card-body d-flex align-items-center justify-content-between">
+                <div>
+                  <h3 class="fw-bolder mb-75">{{json_decode($sub_users[0]->sub_user) - json_decode($active[0]->sub_active) }}</h3>
+                  <span>Suspended/Inactive</span>
+                </div>
+                <div class="avatar bg-light-warning p-50">
+                  <span class="avatar-content">
+                    <i data-feather="user-x" class="font-medium-4"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
+      <div class="card">
+    <div class="card-body border-bottom">
+      <h4 class="card-title">Search & Filter</h4>
+      <div class="row">
+        <div class="col-md-4 user_role"></div>
+        <div class="col-md-4 user_status"></div>
+      </div>
+    </div>
+    <div class="card-datatable table-responsive pt-0">
+      <table class="user-list-table table">
+        <thead class="table-light">
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Role</th>
+            {{-- <th>Plan</th>
+            <th>Billing</th> --}}
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <!-- Modal to add new user starts-->
+    <div class="modal modal-slide-in new-user-modal fade" id="modals-slide-in">
+      <div class="modal-dialog">
+        <form class="add-new-user modal-content pt-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
+          <div class="modal-header mb-1">
+            <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
+          </div>
+          <div class="modal-body flex-grow-1">
+            <div class="mb-1">
+              <label class="form-label" for="basic-icon-default-fullname">Full Name</label>
+              <input
+                type="text"
+                class="form-control dt-full-name"
+                id="basic-icon-default-fullname"
+                placeholder="John Doe"
+                name="user-fullname"
+              />
+            </div>
+            <div class="mb-1">
+              <label class="form-label" for="basic-icon-default-uname">Username</label>
+              <input
+                type="text"
+                id="basic-icon-default-uname"
+                class="form-control dt-uname"
+                placeholder="Web Developer"
+                name="user-name"
+              />
+            </div>
+            <div class="mb-1">
+              <label class="form-label" for="basic-icon-default-email">Email</label>
+              <input
+                type="text"
+                id="basic-icon-default-email"
+                class="form-control dt-email"
+                placeholder="john.doe@example.com"
+                name="user-email"
+              />
+            </div>
+            <div class="mb-1">
+              <label class="form-label" for="basic-icon-default-contact">Contact</label>
+              <input
+                type="text"
+                id="basic-icon-default-contact"
+                class="form-control dt-contact"
+                placeholder="+1 (609) 933-44-22"
+                name="user-contact"
+              />
+            </div>
+            <div class="mb-1">
+              <label class="form-label" for="basic-icon-default-company">Company</label>
+              <input
+                type="text"
+                id="basic-icon-default-company"
+                class="form-control dt-contact"
+                placeholder="Codebumble Inc."
+                name="user-company"
+              />
+            </div>
+            <div class="mb-1">
+              <label class="form-label" for="country">Country</label>
+              <select id="country" class="select2 form-select">
+                <option value="Australia">USA</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Belarus">Belarus</option>
+                <option value="Brazil">Brazil</option>
+                <option value="Canada">Canada</option>
+                <option value="China">China</option>
+                <option value="France">France</option>
+                <option value="Germany">Germany</option>
+                <option value="India">India</option>
+                <option value="Indonesia">Indonesia</option>
+                <option value="Israel">Israel</option>
+                <option value="Italy">Italy</option>
+                <option value="Japan">Japan</option>
+                <option value="Korea">Korea, Republic of</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Philippines">Philippines</option>
+                <option value="Russia">Russian Federation</option>
+                <option value="South Africa">South Africa</option>
+                <option value="Thailand">Thailand</option>
+                <option value="Turkey">Turkey</option>
+                <option value="Ukraine">Ukraine</option>
+                <option value="United Arab Emirates">United Arab Emirates</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="United States">United States</option>
+              </select>
+            </div>
+            <div class="mb-1">
+              <label class="form-label" for="user-role">User Role</label>
+              <select id="user-role" class="select2 form-select">
+                <option value="subscriber">Subscriber</option>
+                <option value="editor">Editor</option>
+                <option value="maintainer">Maintainer</option>
+                <option value="author">Author</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+            <div class="mb-2">
+              <label class="form-label" for="user-plan">Select Plan</label>
+              <select id="user-plan" class="select2 form-select">
+                <option value="basic">Basic</option>
+                <option value="enterprise">Enterprise</option>
+                <option value="company">Company</option>
+                <option value="team">Team</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary me-1 data-submit">Submit</button>
+            <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Modal to add new user Ends-->
+  </div>
       <!-- /Invoice table -->
     </div>
     <!--/ User Content -->
   </div>
 </section>
 
-@include('content/_partials/_modals/modal-edit-user')
-@include('content/_partials/_modals/modal-upgrade-plan')
+<section class="app-user-list">
+  <!-- list and filter start -->
+
+  <!-- list and filter end -->
+</section>
+
+@include('content/apps/user/modal-edit-user')
 @endsection
 
 @section('vendor-script')
@@ -325,4 +393,6 @@
   <script src="{{ asset(mix('js/scripts/pages/modal-edit-user.js')) }}"></script>
   <script src="{{ asset(mix('js/scripts/pages/app-user-view-account.js')) }}"></script>
   <script src="{{ asset(mix('js/scripts/pages/app-user-view.js')) }}"></script>
+  <script src="{{ asset(mix('js/scripts/pages/app-user-list.js')) }}"></script>
+
 @endsection
