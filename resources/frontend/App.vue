@@ -11,7 +11,7 @@
 	export default {
 		components: {
 			appHeader,
-			appFooter,
+			appFooter
 		},
 		setup() {},
 	};

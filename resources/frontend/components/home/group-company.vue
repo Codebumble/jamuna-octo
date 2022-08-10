@@ -45,75 +45,21 @@
 	export default {
 		data() {
 			return {
-				groupTitle: {
-					title: 'Our Group Companies',
-					description:
-						'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit dolorem, nemo maiores debitis quod distinctio repellendus. Dolore ipsam veritatis voluptas.',
-					descVisibility: true,
-				},
-				slideContent: [
-					{
-						imgSrc: '/frontend/images/contents/banner.jpg',
-						alt: 'img alt',
-						title: 'Jamuna Future Park',
-						webLink: '#',
-						linkText: 'Visit Website',
-					},
-					{
-						imgSrc: '/frontend/images/contents/banner.jpg',
-						alt: 'img alt',
-						title: 'Jamuna Future Park',
-						webLink: '#',
-						linkText: 'Visit Website',
-					},
-					{
-						imgSrc: '/frontend/images/contents/banner.jpg',
-						alt: 'img alt',
-						title: 'Jamuna Future Park',
-						webLink: '#',
-						linkText: 'Visit Website',
-					},
-					{
-						imgSrc: '/frontend/images/contents/banner.jpg',
-						alt: 'img alt',
-						title: 'Jamuna Future Park',
-						webLink: '#',
-						linkText: 'Visit Website',
-					},
-					{
-						imgSrc: '/frontend/images/contents/banner.jpg',
-						alt: 'img alt',
-						title: 'Jamuna Future Park',
-						webLink: '#',
-						linkText: 'Visit Website',
-					},
-					{
-						imgSrc: '/frontend/images/contents/banner.jpg',
-						alt: 'img alt',
-						title: 'Jamuna Future Park',
-						webLink: '#',
-						linkText: 'Visit Website',
-					},
-					{
-						imgSrc: '/frontend/images/contents/banner.jpg',
-						alt: 'img alt',
-						title: 'Jamuna Future Park',
-						webLink: '#',
-						linkText: 'Visit Website',
-					},
-					{
-						imgSrc: '/frontend/images/contents/banner.jpg',
-						alt: 'img alt',
-						title: 'Jamuna Future Park',
-						webLink: '#',
-						linkText: 'Visit Website',
-					},
-				],
+				groupTitle: {},
+				slideContent: [],
 			};
 		},
 		components: {
 			Splide,
 			SplideSlide,
+		},
+		mounted(){
+			axios
+      		.get(window.location.origin+'/frontpage-api/all-company-view')
+      		.then(response => {
+				this.slideContent = response.data.images;
+				this.groupTitle = response.data.galary_data;
+				});
 		},
 		setup() {
 			const groupsoptions = {

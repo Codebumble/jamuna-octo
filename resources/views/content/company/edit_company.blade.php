@@ -138,7 +138,7 @@
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="website">Website</label>
-						<input type="text" class="form-control" value="{{ json_decode($company->json_data)->website }}" name="website" id="website"/>
+						<input type="text" class="form-control" value="{{ json_decode($company->json_data)->website }}" name="website" id="website" required/>
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
