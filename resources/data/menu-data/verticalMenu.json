@@ -89,7 +89,7 @@
           "url": "admin/all-company",
           "name": "All Company",
           "icon": "circle",
-          "slug": "all-compnay"
+          "slug": "all-company"
         },
         {
           "url": "admin/add-company",

@@ -116,7 +116,7 @@
 
 
 						<div class="mb-1">
-						<label class="d-block form-label" for="validationBioBootstrap">Company Discription</label>
+						<label class="d-block form-label" for="validationBioBootstrap">Company Description</label>
 						<textarea
 							class="form-control"
 							id="validationBioBootstrap"
@@ -142,7 +142,7 @@
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="website">Website</label>
-						<input type="text" class="form-control" name="website" id="website"/>
+						<input type="text" class="form-control" name="website" id="website" required/>
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">

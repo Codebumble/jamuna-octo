@@ -62,7 +62,7 @@
 
 
 						<div class="mb-1">
-						<label class="d-block form-label" for="validationBioBootstrap">Company Discription</label>
+						<label class="d-block form-label" for="validationBioBootstrap">Section Description</label>
 						<textarea
 							class="form-control"
 							id="validationBioBootstrap"
