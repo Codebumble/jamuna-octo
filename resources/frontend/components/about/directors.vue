@@ -1,32 +1,36 @@
 <template>
-	<breadcrumb :data="directors" />
+	<breadcrumb :data="breadcrumb" />
 	<section class="directors">
 		<div class="container">
 			<div class="heading">
-				<h2>Meet Our Board of Directors</h2>
+				<h2>{{ heading.title }}</h2>
 				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit.
-					Quod, consequuntur? Exercitationem praesentium inventore cum
-					enim neque molestias aspernatur adipisci culpa.
+					{{ heading.desc }}
 				</p>
 			</div>
-			<div class="grid grid-cols-3 gap-4">
-				<div class="member">
+			<div class="grid grid-cols-3 gap-8 py-8">
+				<div
+					class="member"
+					v-for="memeber in directors">
 					<div class="thumb">
 						<img
-							src="/frontend/images/directors/mem1-1.jpg"
-							alt="alt"
-							class="" />
+							:src="memeber.imgSrc"
+							:alt="memeber.alt"
+							class="image" />
 					</div>
 					<div class="info">
-						<h3>Mr. John Doe</h3>
-						<p>Chairman</p>
+						<h3>{{ memeber.name }}</h3>
+						<p>{{ memeber.position }}</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 </template>
+
+<style lang="scss">
+	@import '../../assets/scss/variables/_directors';
+</style>
 
 <script>
 	import breadcrumb from '../global/breadcrumb';
@@ -36,6 +40,10 @@
 		},
 		data() {
 			return {
+				heading: {
+					title: 'Meet Our Board of Directors',
+					desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, consequuntur? Exercitationem praesentium inventore cum enim neque molestias aspernatur adipisci culpa.',
+				},
 				directors: [
 					{
 						imgSrc: '/frontend/images/directors/mem1-1.jpg',
@@ -63,7 +71,7 @@
 						position: 'Group Director',
 					},
 				],
-				directors: {
+				breadcrumb: {
 					image: '/frontend/images/breadcrumb/directors.jpg',
 					alt: 'directors',
 					pageTitle: 'Board Of Directors',

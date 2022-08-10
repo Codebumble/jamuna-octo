@@ -1,0 +1,35 @@
+.directors {
+	@apply py-8 overflow-hidden;
+	.heading {
+		@apply py-4;
+		h2 {
+			@apply text-2xl xl:text-4xl text-center font-bold pb-4;
+		}
+		p {
+			@apply xl:w-10/12 w-full pb-4 mx-auto text-center;
+		}
+	}
+
+	.member {
+		@apply overflow-hidden;
+		.thumb {
+			@apply w-full overflow-hidden rounded-xl;
+
+			.image {
+				@apply rounded-xl transition-all duration-500;
+			}
+		}
+
+		.info {
+			@apply bg-slate-50 shadow-md px-6 py-6 text-center w-10/12 mx-auto rounded-xl relative -top-12;
+
+			h3 {
+				@apply font-bold text-xl;
+			}
+		}
+
+		&:hover .thumb .image {
+			@apply transform scale-105;
+		}
+	}
+}
