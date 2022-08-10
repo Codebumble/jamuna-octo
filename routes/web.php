@@ -9,6 +9,7 @@ use App\Http\Controllers\CardsController;
 use App\Http\Controllers\ComponentsController;
 use App\Http\Controllers\Company_rest;
 use App\Http\Controllers\ExtensionController;
+use App\Http\Controllers\FrontPage;
 use App\Http\Controllers\PageLayoutController;
 use App\Http\Controllers\FormsController;
 use App\Http\Controllers\TableController;
@@ -58,6 +59,12 @@ Route::group(['prefix' => 'codebumble'], function () {
     });
 });
 /* Route Dashboards */
+Route::group(['prefix' => 'frontpage-api', ], function () {
+    Route::get('slider', [FrontPage::class, 'slider_view']);
+
+
+});
+
 Route::group(['prefix' => 'admin', ], function () {
 
     Route::group(['middleware' => 'auth:sanctum'], function(){

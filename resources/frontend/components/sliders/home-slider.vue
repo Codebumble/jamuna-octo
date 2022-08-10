@@ -84,52 +84,19 @@
 	export default {
 		data() {
 			return {
-				sliderContents: [
-					{
-						src: '/frontend/images/slider/2.jpg',
-						alt: 'logo',
-						heading: 'demo text',
-						description: 'something',
-						buttonText: 'button',
-						button: true,
-						buttonAlt: false,
-						link: 'google.com',
-						showDescription: true,
-						showButton: true,
-						overlay: true,
-					},
-					{
-						src: '/frontend/images/slider/3.jpg',
-						alt: 'logo',
-						heading: 'overlay, button, description disabled here',
-						description: 'something',
-						buttonText: 'button',
-						button: false,
-						buttonAlt: true,
-						link: 'google.com',
-						showDescription: false,
-						showButton: false,
-						overlay: false,
-					},
-					{
-						src: '/frontend/images/slider/4.jpg',
-						alt: 'logo',
-						heading: 'demo text',
-						description: 'something',
-						buttonText: 'button',
-						button: false,
-						buttonAlt: true,
-						link: 'google.com',
-						showDescription: true,
-						showButton: true,
-						overlay: true,
-					},
-				],
+				sliderContents: [],
 			};
 		},
 		components: {
 			Splide,
 			SplideSlide,
+		},
+		mounted(){
+			axios
+      		.get(window.location.origin+'/frontpage-api/slider')
+      		.then(response => {
+				this.sliderContents = response.data;
+				});
 		},
 		setup() {
 			const options = {
@@ -144,6 +111,7 @@
 				cloneStatus: false,
 				autoHeight: true,
 			};
+
 
 			return { options };
 		},
