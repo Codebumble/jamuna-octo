@@ -38,7 +38,25 @@ return new class extends Migration
         DB::table('codebumble_general')->insert(
             array(
                 'code_name' => 'sections',
-                'value' => '[{"name":"Media & Advertisement","description":"Demo Section Add Media & Advertisement"},{"name":"Marketplace","description":"Demo MarketPlace"}]',
+                'value' => '[{"name":"Media & Advertisement","description":"Demo Section Add Media & Advertisement"},{"name":"Marketplace","description":"Demo MarketPlace"},{"name":"Demo","description":"Demo Discription"}]',
+                'updated_at' => time(),
+                'created_at' => time()
+            )
+        );
+
+        DB::table('codebumble_general')->insert(
+            array(
+                'code_name' => 'social_media',
+                'value' => '{"facebook":"https://facebook.com","instagram":"https://instagram.com","youtube":"https://youtube.com","linkedin":"https://linkedin.com"}',
+                'updated_at' => time(),
+                'created_at' => time()
+            )
+        );
+
+        DB::table('codebumble_general')->insert(
+            array(
+                'code_name' => 'site_moto',
+                'value' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae id dolor voluptas obcaecati.',
                 'updated_at' => time(),
                 'created_at' => time()
             )

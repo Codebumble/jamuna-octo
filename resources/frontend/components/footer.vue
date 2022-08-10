@@ -72,9 +72,9 @@
 					<router-link
 						to="/"
 						class="underline decoration-dotted decoration-gray-400">
-						Jamuna Group
+						{{ footerAbout.heading }}
 					</router-link>
-					all right reserved
+					all right reserved.
 				</p>
 			</div>
 		</div>
@@ -93,12 +93,7 @@
 					logo: '/frontend/images/logo/code-white.svg',
 					alt: 'logo',
 				},
-				footerSocial: {
-					facebook: 'https://facebook.com',
-					instagram: 'https://instagram.com',
-					youtube: 'https://youtube.com',
-					linkedin: 'https://linkedin.com',
-				},
+				footerSocial: {},
 				linksCol1: [
 					{
 						linkText: 'Compliance',
@@ -147,6 +142,14 @@
 						'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae id dolor voluptas obcaecati.',
 				},
 			};
+		},
+		mounted(){
+			axios
+      		.get(window.location.origin+'/frontpage-api/footer-component')
+      		.then(response => {
+				this.footerSocial = response.data.social_media;
+				this.footerAbout = response.data.footer_about;
+				});
 		},
 	};
 </script>
