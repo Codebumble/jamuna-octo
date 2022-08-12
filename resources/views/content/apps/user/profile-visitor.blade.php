@@ -165,7 +165,11 @@
             @endif
 
             @if($auther->username != Auth::user()->username)
-              <a href="" class="btn btn-outline-danger">Report</a>
+              <a href="{{route('user-report-api', ['username' => $auther->username])}}" onclick="event.preventDefault(); document.getElementById('report-user').submit();" class="btn btn-outline-danger">Report</a>
+
+              <form method="POST" action="{{route('user-report-api', ['username' => $auther->username])}}" id="report-user">
+            @csrf
+            </form>
             @endif
             </div>
 

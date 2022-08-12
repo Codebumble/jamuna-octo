@@ -419,8 +419,45 @@ class AuthController extends Controller
           } else {
 
             return redirect()->route('profile-account',[ 'hasher' => Str::random(40), 'time' => time(), 'errors'=> 'Username Entered for Suspended is Invalid or Modified by Third Party. Please try Again!', 'hasher_ip' => Str::random(10)]);
-            
+
           }
+
+    }
+
+    public function user_report_api(Request $request, $username){
+
+        if(!Auth::check()){
+            header("Location: " . route('error'), true, 302);
+            exit();
+
+        }
+
+        $data = DB::select('select * from users where username=?',[$username]);
+
+        if(isset($data[0])){
+            $check = DB::select('select * from codebumble_user_report_list where to_user=? and from_user=?',[$username, Auth::user()->username]);
+
+            if(!isset($check[0])){
+                
+                $report_issue = DB::table('codebumble_user_report_list')->insert([
+                    'from_user' => Auth::user()->username,
+                    'from_email' => Auth::user()->email,
+                    'to_user' => $username,
+                    'status' => 'active',
+                    'updated_at' => time(),
+                    'created_at' => time()
+
+            ]);
+
+            return redirect()->route('profile-account',[ 'hasher' => Str::random(40), 'time' => time(), 'errors'=> 'You have report about this user Succesfully. Admin will Take Action about this User soon.', 'hasher_ip' => Str::random(10)]);
+
+            } else {
+                return redirect()->route('profile-account',[ 'hasher' => Str::random(40), 'time' => time(), 'errors'=> 'You have already reported about this user which is did\'nt solved yet. Contact with the Admin for More!!', 'hasher_ip' => Str::random(10)]);
+            }
+
+        } else {
+            return redirect()->route('profile-account',[ 'hasher' => Str::random(40), 'time' => time(), 'errors'=> 'Username Entered for Report is Invalid or Modified by Third Party. Please try Again!', 'hasher_ip' => Str::random(10)]);
+        }
 
     }
 }
