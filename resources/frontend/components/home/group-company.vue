@@ -63,7 +63,7 @@
 		},
 		setup() {
 			const groupsoptions = {
-				rewind: false,
+				rewind: true,
 				arrows: true,
 				autoplay: true,
 				perPage: 2,

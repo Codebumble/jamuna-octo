@@ -34,15 +34,15 @@
 	export default {
 		data() {
 			return {
-				shortBrief: {
-					title: "About our Awesome Business and it's summary",
-					description:
-						'Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde perferendis aliquam odio facere omnis voluptate tempore doloremque dicta, corrupti rerum cupiditate a, fugiat, eos repellat rem ea quam quibusdam nihil dolorem! Tempora beatae facere rerum necessitatibus, tenetur commodi, soluta consequuntur recusandae harum delectus nostrum repellat ullam ipsam debitis dolorem exercitationem!',
-					link: '#',
-					linkText: 'Learn More',
-					linkVisibility: true,
-				},
+				shortBrief: {},
 			};
+		},
+		mounted() {
+			axios
+				.get(window.location.origin + '/frontpage-api/shortBrief')
+				.then((response) => {
+					this.shortBrief = response.data;
+				});
 		},
 	};
 </script>

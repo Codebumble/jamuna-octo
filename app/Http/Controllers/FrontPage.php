@@ -52,6 +52,13 @@ class FrontPage extends Controller
 
     }
 
+    public function shortBrief(){
+        $data_get = DB::select('select value from codebumble_front_page where code_name=?',['shortBrief']);
+
+        return $data_get[0]->value;
+
+    }
+
     public function footer_component(){
         $data_get = DB::select('select value from codebumble_general where code_name=?',['social_media']);
         $data_get_name = DB::select('select value from codebumble_general where code_name=?',['site_name']);
