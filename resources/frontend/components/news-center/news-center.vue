@@ -7,14 +7,12 @@
 				class="flex gap-4 justify-center items-center flex-col xl:flex-row">
 				<div class="yt basis-4/2">
 					<iframe
-						width="560"
-						height="315"
 						src="https://www.youtube.com/embed/Kaat7BzcEI0"
 						title="YouTube video player"
 						frameborder="0"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						allowfullscreen
-						class="rounded-md"></iframe>
+						class="rounded-md w-72 h-56 xs:w-98"></iframe>
 				</div>
 				<div
 					class="md:w-8/12 xl:border-l-2 border-gray-400 min-h-[250px] basis-4/2 py-4 px-8 xl:ml-4">
