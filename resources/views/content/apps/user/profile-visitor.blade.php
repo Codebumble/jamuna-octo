@@ -140,49 +140,36 @@
             </ul>
 
             <div class="d-flex justify-content-center pt-2">
-            @if($auther->role != 'super-admin')
-              @if($auther == 'admin' && Auth::user()->role == 'super-admin')
 
-                    <a href="javascript:;" class="btn btn-warning me-1" onclick="event.preventDefault(); document.getElementById('active-suspend-form').submit();">
-                  @if($json_data->status == 'Active')
-                    Suspend
-                  @else
-                    Active
-                  @endif
-                    </a>
-                  @if($json_data->status == 'Active')
-                    <form method="POST" id="active-suspend-form" action="{{ route('logout') }}">
-                      @csrf
-                    </form>
-                  @else
-                    <form method="POST" id="active-suspend-form" action="{{ route('logout') }}">
-                      @csrf
-                    </form>
-                  @endif
+            @if(($power_build[Auth::user()->role] == 0 && $power_build[$auther->role] > 0) || ($power_build[Auth::user()->role] == 1 && $power_build[$auther->role] > 1))
 
-            @elseif($auther->role != 'admin' && (Auth::user()->role == 'super-admin' || Auth::user()->role == 'admin' ))
+            <a href="#" class="btn btn-warning me-1" onclick="event.preventDefault(); document.getElementById('active-suspend-form').submit();">
+            @if ($json_data->status != 'Active')
+              Active
+            @else
+              Suspend
+            @endif
 
-                <a href="javascript:;" class="btn btn-warning me-1" onclick="event.preventDefault(); document.getElementById('active-suspend-form').submit();">
-                  @if($json_data->status == 'Active')
-                    Suspend
-                  @else
-                    Active
-                  @endif
-                    </a>
-                  @if($json_data->status == 'Active')
-                    <form method="POST" id="active-suspend-form" action="{{ route('logout') }}">
-                      @csrf
-                    </form>
-                  @else
-                    <form method="POST" id="active-suspend-form" action="{{ route('logout') }}">
-                      @csrf
-                    </form>
-                  @endif
+            </a>
+            @if ($json_data->status != 'Active')
+            <form method="POST" action="{{route('user_active_by_auth', ['username' => $auther->username])}}" id="active-suspend-form">
+            @csrf
+            </form>
+
+            @else
+            <form method="POST" action="{{route('user_suspend', ['username' => $auther->username])}}" id="active-suspend-form">
+            @csrf
+            </form>
+
             @endif
             @endif
 
             @if($auther->username != Auth::user()->username)
-              <a href="" class="btn btn-outline-danger">Report</a>
+              <a href="{{route('user-report-api', ['username' => $auther->username])}}" onclick="event.preventDefault(); document.getElementById('report-user').submit();" class="btn btn-outline-danger">Report</a>
+
+              <form method="POST" action="{{route('user-report-api', ['username' => $auther->username])}}" id="report-user">
+            @csrf
+            </form>
             @endif
             </div>
 

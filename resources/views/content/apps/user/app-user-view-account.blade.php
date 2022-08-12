@@ -55,9 +55,21 @@
                 <h4>{{$auther->name}}</h4>
                 <span class="badge bg-light-secondary">{{$auther->designation}}</span>
               </div>
+
             </div>
+
           </div>
+          
           <div class="d-flex justify-content-around my-2 pt-75">
+
+          @if(isset($_GET['errors']))
+      <div class="demo-spacing-0 mb-2">
+                <div class="alert alert-warning" role="alert">
+                <div class="alert-body"><strong>{{ $_GET['errors']}}</strong></div>
+                </div>
+            </div>
+
+      @else
             <div class="d-flex align-items-start me-2">
               <span class="badge bg-light-primary p-75 rounded">
                 <i data-feather="check" class="font-medium-2"></i>
@@ -76,6 +88,7 @@
                 <small>Gender</small>
               </div>
             </div>
+      @endif
           </div>
           <h4 class="fw-bolder border-bottom pb-50 mb-1">Details</h4>
           <div class="info-container">
@@ -215,6 +228,7 @@
       <div class="card">
     <div class="card-body border-bottom">
       <h4 class="card-title">Search & Filter</h4>
+
       <div class="row">
         <div class="col-md-4 user_role"></div>
         <div class="col-md-4 user_status"></div>
