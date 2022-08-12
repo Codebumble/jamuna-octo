@@ -417,7 +417,9 @@ class AuthController extends Controller
 
 
           } else {
+
             return redirect()->route('profile-account',[ 'hasher' => Str::random(40), 'time' => time(), 'errors'=> 'Username Entered for Suspended is Invalid or Modified by Third Party. Please try Again!', 'hasher_ip' => Str::random(10)]);
+            
           }
 
     }
