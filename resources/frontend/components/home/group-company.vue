@@ -69,6 +69,7 @@
 				trimSpace: true,
 				arrows: true,
 				autoplay: true,
+				interval: 3000,
 				perPage: 2,
 				type: 'loop',
 				perMove: 1,
