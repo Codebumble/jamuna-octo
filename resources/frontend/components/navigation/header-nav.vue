@@ -109,6 +109,13 @@
 						</li>
 						<li class="cb-nav-item">
 							<router-link
+								to="/news-center"
+								class="cb-nav-link">
+								News Center
+							</router-link>
+						</li>
+						<li class="cb-nav-item">
+							<router-link
 								to="/career"
 								class="cb-nav-link">
 								Career
