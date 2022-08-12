@@ -92,7 +92,7 @@
                 <span class="fw-bolder me-25">Account Status:</span>
                 @if ($json_data->status == "Active")
                 <span class="badge bg-light-success">{{ $json_data->status}}</span>
-                @elseif ($json_data->status == "Inctive")
+                @elseif ($json_data->status == "Inactive")
                 <span class="badge bg-light-warning">{{ $json_data->status}}</span>
                 @elseif ($json_data->status == "Suspended" ||  $json_data->status == "Pending")
                 <span class="badge bg-light-danger">Suspended</span>

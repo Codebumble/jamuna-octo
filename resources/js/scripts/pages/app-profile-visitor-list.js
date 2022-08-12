@@ -120,10 +120,10 @@ $(function () {
 			render: function (data, type, full, meta) {
 			  var $role = full['role'];
 			  var roleBadgeObj = {
-				subscriber: feather.icons['user'].toSvg({ class: 'font-medium-3 text-primary me-50 text-capitalize' }),
-				author: feather.icons['settings'].toSvg({ class: 'font-medium-3 text-warning me-50 text-capitalize' }),
-				maintainer: feather.icons['database'].toSvg({ class: 'font-medium-3 text-success me-50 text-capitalize' }),
-				editor: feather.icons['edit-2'].toSvg({ class: 'font-medium-3 text-info me-50 text-capitalize' }),
+				'sub-employee': feather.icons['user'].toSvg({ class: 'font-medium-3 text-primary me-50 text-capitalize' }),
+				employee: feather.icons['settings'].toSvg({ class: 'font-medium-3 text-warning me-50 text-capitalize' }),
+				manager: feather.icons['database'].toSvg({ class: 'font-medium-3 text-success me-50 text-capitalize' }),
+				'super-admin': feather.icons['edit-2'].toSvg({ class: 'font-medium-3 text-info me-50 text-capitalize' }),
 				admin: feather.icons['slack'].toSvg({ class: 'font-medium-3 text-danger me-50 text-capitalize' })
 			  };
 			  return "<span class='text-truncate align-middle'>" + roleBadgeObj[$role] +'<span class="text-capitalize">'+ $role + '</span></span>';

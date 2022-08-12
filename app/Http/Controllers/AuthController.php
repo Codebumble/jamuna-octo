@@ -23,24 +23,7 @@ class AuthController extends Controller
             'password'=>'required|string',
         ]);
 
-        $user = new User([
-            'name'  => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-        ]);
 
-        if($user->save()){
-            $tokenResult = $user->createToken('Personal Access Token');
-            $token = $tokenResult->plainTextToken;
-
-            return response()->json([
-            'message' => 'Successfully created user!',
-            'accessToken'=> $token,
-            ],201);
-        }
-        else{
-            return response()->json(['error'=>'Provide proper details']);
-        }
     }
 
     public function user_edit(Request $request){
@@ -101,6 +84,15 @@ class AuthController extends Controller
 
         if(Auth::attempt($request->only($login_type, 'password'))){
             $user = Auth::user();
+
+            if(json_decode($user->json_data)->status != "Active"){
+
+                Auth::logout();
+
+                return redirect()->route('auth-login',['success'=> 'User Need to Communicate with the Admin as Account not Active or Suspended.', 'hasher' => Str::random(40).'-'.Str::random(70), 'time' => time(), 'hasher_ip' => Str::random(10)]);
+            }
+
+
             // return response()->json([
             //     'message' => 'Successfully logged in! Redirecting',
             // ],200);
@@ -292,7 +284,7 @@ class AuthController extends Controller
 
         $role = Auth::user()->role;
         if($role != 'admin' ){
-            if( $role != 'super admin'){
+            if( $role != 'super-admin'){
                 header("Location: " . route('error'), true, 302);
                 exit();
             }

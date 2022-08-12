@@ -52,7 +52,7 @@
 
         <form class="auth-login-form mt-2" action="{{route('auth-login-api')}}" method="POST">
         @csrf
-        <div val="{{session()->get('success')}}"></div>
+       
           <div class="mb-1">
             <label for="login-email" class="form-label">Username or Email</label>
             <input

@@ -61,7 +61,7 @@ class AppsController extends Controller
         $role = Auth::user()->role;
 
         if($role != 'admin' ){
-            if( $role != 'super admin'){
+            if( $role != 'super-admin'){
                 header("Location: " . route('error'), true, 302);
                 exit();
             }

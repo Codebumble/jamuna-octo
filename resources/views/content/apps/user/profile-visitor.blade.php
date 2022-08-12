@@ -1,7 +1,53 @@
 @extends('layouts/contentLayoutMaster')
+
+
 <?php
               $auther = $user_details;
               $json_data = json_decode($auther->json_data);
+
+          // Author = Super But user not
+            if(Auth::user()->role != 'super-admin' && $auther == "super-admin"){
+              header("Location: " . route('misc-not-authorized'), true, 302);
+              exit();
+
+
+            }
+
+            // Author = Admin But user not super or admin
+            if((Auth::user()->role != 'admin' || Auth::user()->role != 'super-admin') && $auther == "admin"){
+              header("Location: " . route('misc-not-authorized'), true, 302);
+              exit();
+
+
+            }
+
+            // Author = manager But user not super or admin
+            if((Auth::user()->role != 'admin' || Auth::user()->role != 'super-admin' || Auth::user()->role != 'manager') && $auther == "manager"){
+              header("Location: " . route('misc-not-authorized'), true, 302);
+              exit();
+
+
+            }
+
+            // Author = manager But user not super or admin
+            if((Auth::user()->role != 'admin' || Auth::user()->role != 'super-admin' || Auth::user()->role != 'manager' ||
+            Auth::user()->role != 'employee') && $auther == "employee"){
+              header("Location: " . route('misc-not-authorized'), true, 302);
+              exit();
+
+
+            }
+
+            // Author = manager But user not super or admin
+            if((Auth::user()->role != 'admin' || Auth::user()->role != 'super-admin' || Auth::user()->role != 'manager' ||
+            Auth::user()->role != 'employee' ||
+            Auth::user()->role != 'sub-employee') && $auther == "sub-employee"){
+              header("Location: " . route('misc-not-authorized'), true, 302);
+              exit();
+
+
+            }
+
             ?>
 
 @section('title', '@'.$auther->username.' - Profile')
@@ -89,7 +135,7 @@
                 <span class="fw-bolder me-25">Account Status:</span>
                 @if ($json_data->status == "Active")
                 <span class="badge bg-light-success">{{ $json_data->status}}</span>
-                @elseif ($json_data->status == "Inctive")
+                @elseif ($json_data->status == "Inactive")
                 <span class="badge bg-light-warning">{{ $json_data->status}}</span>
                 @elseif ($json_data->status == "Suspended" || $json_data->status == "Pending")
                 <span class="badge bg-light-danger">{{ $json_data->status}}</span>

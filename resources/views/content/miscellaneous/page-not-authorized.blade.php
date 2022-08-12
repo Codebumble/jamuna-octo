@@ -36,13 +36,13 @@ $configData = Helper::applClasses();
         </g>
         </g>
     </svg>
-    <h2 class="brand-text text-primary ms-1">Vuexy</h2>
+    <h2 class="brand-text text-primary ms-1">{{ env('APP_NAME')}}</h2>
   </a>
   <div class="misc-inner p-2 p-sm-3">
     <div class="w-100 text-center">
       <h2 class="mb-1">You are not authorized! 🔐</h2>
-      <p class="mb-2">The Webtrends Marketing Lab website in IIS uses the default IUSR account credentials to access the web pages it serves.</p>
-      <a class="btn btn-primary mb-1 btn-sm-block" href="{{url('auth/login-cover')}}">Back to login</a>
+      <p class="mb-2">The Page, Profile, Action you going to do,didn't not approve by the Site Admin. Contact with Support Team If you think <b>'SOMETHING WENT WRONG'</b></p>
+      <a class="btn btn-primary mb-1 btn-sm-block" href="{{route('auth-login')}}">Back to login</a>
       @if($configData['theme'] === 'dark')
       <img class="img-fluid" src="{{asset('images/pages/not-authorized-dark.svg')}}" alt="Not authorized page" />
       @else
