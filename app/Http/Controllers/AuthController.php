@@ -313,15 +313,56 @@ class AuthController extends Controller
 
     public function user_active_by_auth(Request $request, $username){
         if(!Auth::check()){
-
             header("Location: " . route('error'), true, 302);
             exit();
 
         }
+        $data = DB::select('select * from users where username=?',[$username]);
 
-        if(Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin'){
-            
-        }
+
+
+        $power_build = [
+            'super-admin' => '0',
+            'admin' => '1',
+            'manager' => '2',
+            'employee' => '3',
+            'sub-employee' => '4',
+
+          ];
+
+
+
+
+
+          if(isset($data[0])){
+
+            $auther = $data[0];
+
+            if(($power_build[Auth::user()->role] == 0 && $power_build[$auther->role] > 0) || ($power_build[Auth::user()->role] == 1 && $power_build[$auther->role] > 1)){
+
+                $b = json_decode($data[0]->json_data);
+
+            if($b->status != "Active"){
+                $b->status = "Active";
+            }
+
+            $update_db = DB::table('users')->where('username', $username)->update(['json_data' => json_encode($b)]);
+
+            return redirect()->route('profile-account',[ 'hasher' => Str::random(40), 'time' => time(), 'errors'=> 'User Activated as Requested from You. You may inform the Authority with your Reasons or Can Suspend the Account', 'hasher_ip' => Str::random(10)]);
+
+
+
+              } else {
+
+                header("Location: " . route('misc-not-authorized'), true, 302);
+                exit();
+              }
+
+
+
+          } else {
+            return redirect()->route('profile-account',[ 'hasher' => Str::random(40), 'time' => time(), 'errors'=> 'Username Entered for Suspended is Invalid or Modified by Third Party. Please try Again!', 'hasher_ip' => Str::random(10)]);
+          }
 
 
     }
@@ -332,6 +373,52 @@ class AuthController extends Controller
             exit();
 
         }
+        $data = DB::select('select * from users where username=?',[$username]);
+
+
+
+        $power_build = [
+            'super-admin' => '0',
+            'admin' => '1',
+            'manager' => '2',
+            'employee' => '3',
+            'sub-employee' => '4',
+
+          ];
+
+
+
+
+
+          if(isset($data[0])){
+
+            $auther = $data[0];
+
+            if(($power_build[Auth::user()->role] == 0 && $power_build[$auther->role] > 0) || ($power_build[Auth::user()->role] == 1 && $power_build[$auther->role] > 1)){
+
+                $b = json_decode($data[0]->json_data);
+
+            if($b->status == "Active"){
+                $b->status = "Pending";
+            }
+
+            $update_db = DB::table('users')->where('username', $username)->update(['json_data' => json_encode($b)]);
+
+            return redirect()->route('profile-account',[ 'hasher' => Str::random(40), 'time' => time(), 'errors'=> 'User Suspended as Requested from You. You may inform the Authority with your Reasons or Can reactive the Account', 'hasher_ip' => Str::random(10)]);
+
+
+
+              } else {
+
+                header("Location: " . route('misc-not-authorized'), true, 302);
+                exit();
+              }
+
+
+
+          } else {
+            return redirect()->route('profile-account',[ 'hasher' => Str::random(40), 'time' => time(), 'errors'=> 'Username Entered for Suspended is Invalid or Modified by Third Party. Please try Again!', 'hasher_ip' => Str::random(10)]);
+          }
 
     }
 }

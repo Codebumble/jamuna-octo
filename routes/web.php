@@ -48,9 +48,7 @@ Route::group(['prefix' => 'codebumble'], function () {
     Route::post('/login', [AuthController::class, 'login'])->name('auth-login-api');
     Route::post('/forgot-password', [AuthController::class, 'forgot_password_api'])->name('auth-forget-password-api');
 
-    Route::post('/user-suspend/{username}', [AuthController::class, 'user_suspend'])->name('user_suspend');
 
-    Route::post('/user-active-by-auth/{username}', [AuthController::class, 'user_active_by_auth'])->name('user_active_by_auth');
 
 
 
@@ -61,6 +59,10 @@ Route::group(['prefix' => 'codebumble'], function () {
         Route::post('edit-company-api/{id}', [Company_rest::class, 'edit_company'])->name('edit-company-api');
         Route::post('test-output', [TestOutput::class, 'test_post'])->name('test-post');
         Route::get('test-output-get', [TestOutput::class, 'test_get'])->name('test-get');
+
+        Route::post('user-suspend/{username}', [AuthController::class, 'user_suspend'])->name('user_suspend');
+
+        Route::post('user-active-by-auth/{username}', [AuthController::class, 'user_active_by_auth'])->name('user_active_by_auth');
     });
 });
 /* Route Dashboards */
