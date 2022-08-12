@@ -21,7 +21,7 @@ return new class extends Migration
         Schema::create('codebumble_general', function (Blueprint $table) {
             $table->id();
             $table->string('code_name');
-            $table->text('value');
+            $table->longText('value');
             $table->string('updated_at')->nullable();
             $table->string('created_at')->nullable();
         });

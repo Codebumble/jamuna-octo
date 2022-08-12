@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('codebumble_company_list');
-        Schema::create('codebumble_company_list', function (Blueprint $table) {
+        Schema::dropIfExists('codebumble_founder_page');
+        Schema::create('codebumble_founder_page', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('section');
-            $table->longText('description');
-            $table->string('establish_date')->nullable();
-            $table->longText('json_data');
-            $table->string('image')->nullable();
+            $table->string('code_name');
+            $table->longText('value');
             $table->string('updated_at')->nullable();
             $table->string('created_at')->nullable();
         });
@@ -34,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('codebumble_founder_page');
     }
 };
