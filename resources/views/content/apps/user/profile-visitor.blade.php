@@ -1,7 +1,27 @@
 @extends('layouts/contentLayoutMaster')
+
+
 <?php
               $auther = $user_details;
               $json_data = json_decode($auther->json_data);
+
+          // Author = Super But user not
+
+
+            $power_build = [
+              'super-admin' => '0',
+              'admin' => '1',
+              'manager' => '2',
+              'employee' => '3',
+              'sub-employee' => '4',
+
+            ];
+
+            if($power_build[$auther->role] < $power_build[Auth::user()->role]){
+              header("Location: " . route('misc-not-authorized'), true, 302);
+              exit();
+            }
+
             ?>
 
 @section('title', '@'.$auther->username.' - Profile')
@@ -89,7 +109,7 @@
                 <span class="fw-bolder me-25">Account Status:</span>
                 @if ($json_data->status == "Active")
                 <span class="badge bg-light-success">{{ $json_data->status}}</span>
-                @elseif ($json_data->status == "Inctive")
+                @elseif ($json_data->status == "Inactive")
                 <span class="badge bg-light-warning">{{ $json_data->status}}</span>
                 @elseif ($json_data->status == "Suspended" || $json_data->status == "Pending")
                 <span class="badge bg-light-danger">{{ $json_data->status}}</span>
@@ -118,6 +138,53 @@
                 <span>{{ $json_data->country}}</span>
               </li>
             </ul>
+
+            <div class="d-flex justify-content-center pt-2">
+            @if($auther->role != 'super-admin')
+              @if($auther == 'admin' && Auth::user()->role == 'super-admin')
+
+                    <a href="javascript:;" class="btn btn-warning me-1" onclick="event.preventDefault(); document.getElementById('active-suspend-form').submit();">
+                  @if($json_data->status == 'Active')
+                    Suspend
+                  @else
+                    Active
+                  @endif
+                    </a>
+                  @if($json_data->status == 'Active')
+                    <form method="POST" id="active-suspend-form" action="{{ route('logout') }}">
+                      @csrf
+                    </form>
+                  @else
+                    <form method="POST" id="active-suspend-form" action="{{ route('logout') }}">
+                      @csrf
+                    </form>
+                  @endif
+
+            @elseif($auther->role != 'admin' && (Auth::user()->role == 'super-admin' || Auth::user()->role == 'admin' ))
+
+                <a href="javascript:;" class="btn btn-warning me-1" onclick="event.preventDefault(); document.getElementById('active-suspend-form').submit();">
+                  @if($json_data->status == 'Active')
+                    Suspend
+                  @else
+                    Active
+                  @endif
+                    </a>
+                  @if($json_data->status == 'Active')
+                    <form method="POST" id="active-suspend-form" action="{{ route('logout') }}">
+                      @csrf
+                    </form>
+                  @else
+                    <form method="POST" id="active-suspend-form" action="{{ route('logout') }}">
+                      @csrf
+                    </form>
+                  @endif
+            @endif
+            @endif
+
+            @if($auther->username != Auth::user()->username)
+              <a href="" class="btn btn-outline-danger">Report</a>
+            @endif
+            </div>
 
           </div>
         </div>
