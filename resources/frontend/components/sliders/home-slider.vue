@@ -3,11 +3,19 @@
 		id="cb-bg-video"
 		class="overflow-hidden cb-hero relative">
 		<div class="">
-			<Splide
-				:options="options"
-				aria-label="Hero Slider"
+			<swiper
+				:modules="modules"
+				@slideChange="onSlideChange"
+				@swiper="onSwiper"
+				:slides-per-view="1"
+				:loop="true"
+				:autoplay="true"
+				:grab-cursor="true"
+				effect="fade"
+				:hash-navigation="true"
+				:pagination="{ clickable: true }"
 				class="">
-				<SplideSlide
+				<swiper-slide
 					v-for="slide in sliderContents"
 					class="flex justify-start items-center">
 					<div :class="slide.overlay ? 'image' : 'w-full'">
@@ -41,17 +49,19 @@
 							</a>
 						</div>
 					</div>
-				</SplideSlide>
-			</Splide>
+				</swiper-slide>
+			</swiper>
 		</div>
 	</section>
 </template>
 
 <style lang="scss">
-	@import '@splidejs/vue-splide/css';
+	@import 'swiper/css/effect-fade';
+	@import 'swiper/css';
+	@import 'swiper/css/pagination';
 	@import '../../assets/scss/variables/_hero.scss';
 
-	.splide__pagination__page {
+	.swiper-pagination-bullet {
 		background: #fff;
 		border: 0;
 		border-radius: 50%;
@@ -65,7 +75,7 @@
 		width: 6px;
 	}
 
-	.splide__pagination__page.is-active {
+	.swiper-pagination-bullet.swiper-pagination-bullet-active {
 		//transform: scale(1.4);
 		z-index: 20;
 		width: 12px;
@@ -74,13 +84,15 @@
 		@apply bg-rose-600 #{!important};
 	}
 
-	.splide__pagination li {
-		@apply flex items-center #{!important};
-	}
+	// .splide__pagination li {
+	// 	@apply flex items-center #{!important};
+	// }
 </style>
 
 <script>
-	import { Splide, SplideSlide } from '@splidejs/vue-splide';
+	// import { Splide, SplideSlide } from '@splidejs/vue-splide';
+	import { Swiper, SwiperSlide } from 'swiper/vue';
+	import { Pagination, EffectFade } from 'swiper';
 	export default {
 		data() {
 			return {
@@ -88,32 +100,28 @@
 			};
 		},
 		components: {
-			Splide,
-			SplideSlide,
+			Swiper,
+			SwiperSlide,
 		},
-		mounted(){
+		mounted() {
 			axios
-      		.get(window.location.origin+'/frontpage-api/slider')
-      		.then(response => {
-				this.sliderContents = response.data;
+				.get(window.location.origin + '/frontpage-api/slider')
+				.then((response) => {
+					this.sliderContents = response.data;
 				});
 		},
 		setup() {
-			const options = {
-				rewind: false,
-				arrows: false,
-				autoplay: false,
-				perPage: 1,
-				type: 'loop',
-				perMove: 1,
-				drag: true,
-				pauseOnHover: true,
-				cloneStatus: false,
-				autoHeight: true,
+			const onSwiper = (swiper) => {
+				console.log(swiper);
 			};
-
-
-			return { options };
+			const onSlideChange = () => {
+				console.log('slide change');
+			};
+			return {
+				onSwiper,
+				onSlideChange,
+				modules: [Pagination, EffectFade],
+			};
 		},
 	};
 </script>
