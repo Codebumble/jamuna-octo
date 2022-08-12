@@ -21,7 +21,7 @@
 						<img
 							:src="slide.imgSrc"
 							:alt="slide.alt"
-							class="w-full rounded-xl max-h-[327.5px] object-contain" />
+							class="w-full rounded-xl max-h-[248.5px] lg:max-h-[327.5px] object-contain" />
 
 						<span class="itemName">{{ slide.title }}</span>
 						<a
@@ -37,31 +37,8 @@
 </template>
 
 <style lang="scss">
-	@import '../../assets/scss/variables/_group-company';
 	@import '@splidejs/vue-splide/css';
-
-	.splide__pagination__page {
-		background: #fff;
-		border: 0;
-		border-radius: 50%;
-		display: inline-block;
-		height: 6px;
-		margin: 5px;
-		opacity: 1;
-		padding: 0;
-		position: relative;
-		// /transition: transform 0.2s linear;
-		width: 6px;
-	}
-
-	.splide__pagination__page.is-active {
-		//transform: scale(1.4);
-		z-index: 20;
-		width: 12px;
-		height: 6px;
-		border-radius: 50px;
-		@apply bg-rose-600 #{!important};
-	}
+	@import '../../assets/scss/variables/_group-company';
 </style>
 
 <script>
@@ -87,11 +64,14 @@
 		},
 		setup() {
 			const groupsoptions = {
-				rewind: true,
-				rewindByDrag: true,
+				rewind: false,
+				rewindByDrag: false,
+				trimSpace: true,
 				arrows: true,
 				autoplay: true,
+				interval: 3000,
 				perPage: 2,
+				type: 'loop',
 				perMove: 1,
 				drag: true,
 				pauseOnHover: true,

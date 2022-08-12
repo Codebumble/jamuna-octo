@@ -1,34 +1,26 @@
 <template>
 	<section class="py-16 overflow-hidden bg-slate-50">
 		<div class="container">
-			<div class="grid grid-cols-7 lg:flex-row items-center">
-				<div class="content col-span-7 xl:col-span-4">
+			<div class="flex flex-col lg:flex-row items-center lg:flex-wrap">
+				<div class="content lg:basis-7/12">
 					<h2 class="heading">{{ aboutConcerns.heading }}</h2>
 					<p class="description">{{ aboutConcerns.description }}</p>
 				</div>
-				<div class="logo-slider col-span-7 xl:col-span-3">
-					<Swiper
-						:slidesPerView="2"
-						:spaceBetween="10"
-						:width="null"
-						:loop="true"
-						:autoplay="{
-							disableOnInteraction: false,
-							pauseOnMouseEnter: true,
-						}"
-						navigation
-						:modules="concernmodules"
-						:grid="{ rows: 2 }">
-						<SwiperSlide v-for="slide in concernlogo">
+				<div class="logo-slider lg:basis-5/12">
+					<Splide
+						:extensions="extensions"
+						:options="conoptions"
+						aria-label="concerns logo area">
+						<SplideSlide v-for="slide in concernlogo">
 							<div
 								class="flex justify-around items-center rounded-md transition-all bg-[#f9f9f9] concern">
 								<img
 									:src="slide.src"
 									:alt="slide.alt"
-									class="w-32 p-3" />
+									class="w-32" />
 							</div>
-						</SwiperSlide>
-					</Swiper>
+						</SplideSlide>
+					</Splide>
 				</div>
 			</div>
 		</div>
@@ -37,20 +29,11 @@
 
 <style lang="scss">
 	@import '../../assets/scss/variables/_concerns-logo';
-	@import 'swiper/scss';
-	@import 'swiper/scss/autoplay';
-	@import 'swiper/scss/navigation';
-
-	.swiper-grid > .swiper-wrapper {
-		display: grid;
-		grid-template-rows: repeat(2, minmax(0, 1fr));
-		grid-auto-flow: column;
-	}
 </style>
 
 <script>
-	import { Swiper, SwiperSlide } from 'swiper/vue';
-	import { Navigation, Autoplay, Grid } from 'swiper';
+	import { Splide, SplideSlide } from '@splidejs/vue-splide';
+	import { Grid } from '@splidejs/splide-extension-grid';
 	export default {
 		data() {
 			return {
@@ -98,12 +81,38 @@
 		},
 
 		components: {
-			Swiper,
-			SwiperSlide,
+			Splide,
+			SplideSlide,
 		},
 		setup() {
+			const conoptions = {
+				rewind: true,
+				rewindByDrag: true,
+				arrows: true,
+				autoplay: true,
+				perPage: 1,
+				perMove: 1,
+				drag: true,
+				pauseOnHover: true,
+				cloneStatus: false,
+				autoHeight: true,
+				pagination: false,
+				gap: '1rem',
+				grid: {
+					rows: 2,
+					cols: 2,
+					gap: {
+						row: '1rem',
+						col: '1rem',
+					},
+				},
+			};
+
 			return {
-				concernmodules: [Navigation, Autoplay, Grid],
+				conoptions,
+				extensions: {
+					Grid,
+				},
 			};
 		},
 	};

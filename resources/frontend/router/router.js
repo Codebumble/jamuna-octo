@@ -20,6 +20,11 @@ const routes = [
 		name: "company-profile",
 		component: () => import("../views/company-profile.vue"),
 	},
+	{
+		path: "/news-center",
+		name: "news-center",
+		component: () => import("../views/news-center.vue"),
+	},
 ];
 
 const router = createRouter({

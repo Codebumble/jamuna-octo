@@ -1,4 +1,6 @@
 .content {
+	@apply lg:w-8/12 lg:pr-8;
+
 	.heading {
 		@apply font-bold text-4xl text-gray-800 leading-snug py-3 lg:w-5/6;
 	}
@@ -9,12 +11,11 @@
 }
 
 .logo-slider {
-	@apply transition-all;
 	.concern {
 		@apply w-full h-16 border border-slate-100;
 
 		img {
-			@apply mix-blend-luminosity;
+			@apply mix-blend-luminosity p-4 md:p-0;
 		}
 
 		&:hover {
@@ -27,19 +28,18 @@
 		}
 	}
 
-	.swiper {
-		padding: 1rem 0.65rem !important;
+	.splide__track {
+		@apply py-4 px-4 #{!important};
 	}
 
-	.swiper-button-prev,
-	.swiper-button-next {
-		@apply opacity-0 text-gray-500 transition-all #{!important};
+	.splide__arrow {
+		@apply bg-transparent #{!important};
 	}
 
-	&:hover {
-		.swiper-button-prev,
-		.swiper-button-next {
-			@apply opacity-100 #{!important};
-		}
+	.splide__arrow--next {
+		@apply -right-2 xl:-right-8 #{!important};
+	}
+	.splide__arrow--prev {
+		@apply -left-2 xl:-left-8 #{!important};
 	}
 }
