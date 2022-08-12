@@ -17,11 +17,100 @@ use Sinergi\BrowserDetector\Os;
 class AuthController extends Controller
 {
     public function register(Request $request){
-        $request->validate([
-            'name' => 'required|string',
-            'email'=>'required|string|unique:users',
+
+        if(!Auth::check()){
+            header("Location: " . route('auth-login'), true, 302);
+            exit();
+
+        }
+
+        $field = $request->validate([
+            'username' => 'required|string',
+            'email'=>'required|string',
             'password'=>'required|string',
+            'image.*' => 'mimes:jpeg,png,jpg,svg|max:3080',
+            'company'=>'required|string',
+            'name' =>'required|string',
+            'mobile_number'=>'required|string',
+            'gender'=>'required|string',
+            'address'=>'required|string',
+            'city'=>'required|string',
+            'country'=>'required|string',
+            'role'=>'required|string',
+            'designation'=>'required|string',
+            'date_of_birth'=>'required|string',
+            'cv.*' => 'mimes:pdf,doc,docx|max:3080'
         ]);
+        $db_check= DB::select('select * from users where username=? or email=?',[$field['username'], $field['email']]);
+
+        if(isset($db_check[0])){
+            return route('profile-account',[ 'hasher' => Str::random(40), 'time' => time(), 'errors'=> 'Either username exist or Email used one time for inviting this person. Try Unique username and Email.', 'hasher_ip' => Str::random(10)]);
+        }
+
+        $power_build = [
+            'super-admin' => '0',
+            'admin' => '1',
+            'manager' => '2',
+            'employee' => '3',
+            'sub-employee' => '4',
+
+          ];
+
+          if($power_build[Auth::user()->role] > $power_build[$field['role']]){
+            return route('profile-account',[ 'hasher' => Str::random(40), 'time' => time(), 'errors'=> 'Tried to Assign a role which is not approved by the system. Maybe Request were Modified By Third Party. Check Your System ["CYBER_ATTACK_PREVENT_88"]', 'hasher_ip' => Str::random(10)]);
+          }
+        //keys: birth_certificate_number, nid_number, passport_number
+        $json_data= [];
+        $json_data['gender'] = $field['gender'];
+        $json_data['date_of_birth'] = $field['date_of_birth'];
+        $json_data['phone_number'] = $field['mobile_number'];
+        $json_data['address'] = $field['address'];
+        $json_data['city']= $field['city'];
+        $json_data['country'] = $field['country'];
+        $json_data['birth_certificate_number'] = $request['birth_certificate_number'];
+        $json_data['status'] = "Inactive";
+        $json_data['nid_number'] = $request['nid_number'];
+        $json_data['passport_number'] = $request['passport_number'];
+
+        if($file1 = $request->hasFile('image')) {
+            $user1 = $field['username'];
+            $file1 = $request->file('image') ;
+            $fileName1 = time().'-'.$field['username'].'.'.$file1->getClientOriginalExtension() ;
+            $destinationPath1 = public_path().'/profile-images' ;
+            $file1->move($destinationPath1,$fileName1);
+
+        }
+
+        if($file2 = $request->hasFile('cv')) {
+            $user2 = $field['username'];
+            $file2 = $request->file('cv') ;
+            $fileName2 = time().'-'.$field['username'].'.'.$file2->getClientOriginalExtension() ;
+            $destinationPath2 = public_path().'/user-cv' ;
+            $file2->move($destinationPath2,$fileName2);
+
+        }
+
+        $json_data['cv'] = $fileName2;
+
+        $insert_user = DB::table('users')->insert([
+            'name' => $field['name'],
+            'username' => $field['username'],
+            'email' => $field['email'],
+            'designation' => $field['designation'],
+            'password' => bcrypt($field['password']),
+            'role' => $field['role'],
+            'avatar' => $fileName1,
+            'json_data' => json_encode($json_data),
+            'under_ref' => Auth::user()->username,
+            'updated_at' => time(),
+            'created_at' => time()
+        ]);
+
+
+
+
+
+        return route('profile-account',[ 'hasher' => Str::random(40), 'time' => time(), 'errors'=> 'User Added Successfully. But Still Account is not Active for User Verification which will be done by An Admin. Contact With An Admin for Approve the Request.', 'hasher_ip' => Str::random(10)]);;
 
 
     }
@@ -438,7 +527,7 @@ class AuthController extends Controller
             $check = DB::select('select * from codebumble_user_report_list where to_user=? and from_user=?',[$username, Auth::user()->username]);
 
             if(!isset($check[0])){
-                
+
                 $report_issue = DB::table('codebumble_user_report_list')->insert([
                     'from_user' => Auth::user()->username,
                     'from_email' => Auth::user()->email,

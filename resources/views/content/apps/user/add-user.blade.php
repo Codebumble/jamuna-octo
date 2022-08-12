@@ -141,6 +141,7 @@
                 <span>Enter your username password details</span>
               </div>
               <form>
+              @csrf
                 <div class="row">
 
                   <div class="col-md-6 mb-1">
@@ -204,7 +205,7 @@
 
 				  <div class="col-md-6 mb-1">
                     <label class="form-label" for="company">Company Name</label>
-                    <select class="select2 w-100" name="company" id="comapny" required>
+                    <select class="select2 w-100" name="company" id="comapany" required>
                       <option value="" selected></option>
 					@foreach($companys as $company)
 							<option value="{{$company->name}}">{{$company->name}}</option>
@@ -249,7 +250,7 @@
                       name="mobile-number"
                       id="mobile-number"
                       class="form-control mobile-number-mask"
-                      placeholder="(472) 765-3654"
+                      placeholder="+8801700000000"
                     />
                   </div>
                   <div class="col-md-6 mb-1">
@@ -269,7 +270,7 @@
                       id="home-address"
                       class="form-control"
                       placeholder="Address"
-                    />
+                    required/>
                   </div>
 
                   <div class="col-12 mb-1">
@@ -280,13 +281,14 @@
                       id="area-address"
                       class="form-control"
                       placeholder="Area, Street, Sector, Village"
-                    />
+                    required/>
                   </div>
 
                   <div class="mb-1 col-md-6">
                     <label class="form-label" for="town-city">Town/City</label>
-                    <input type="text" name="town-city" id="town-city" class="form-control" placeholder="Town/City" />
+                    <input type="text" name="town-city" id="town-city" class="form-control" placeholder="Town/City" required/>
                   </div>
+
                   <div class="mb-1 col-md-6">
                     <label class="form-label" for="country">Country</label>
                     <select class="select2 w-100" name="country" id="country">
@@ -564,10 +566,10 @@
 
 
 
-				  @if(Auth::user()->role == 'super admin')
+				  @if(Auth::user()->role == 'super-admin')
 
 				  <div class="col-md-4">
-				  <input class="custom-option-item-check" type="radio" name="role" id="super-admin" value="" />
+				  <input class="custom-option-item-check" type="radio" name="role" id="super-admin" value="super-admin" />
 
                     <label class="custom-option-item text-center p-1" for="super-admin">
                       <span class="custom-option-item-title h3 fw-bolder">Super Admin</span>
@@ -589,10 +591,10 @@
                   </div>
 				  @endif
 
-				  @if(Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin' || Auth::user()->role == 'bussiness-manager')
+				  @if(Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin' || Auth::user()->role == 'manager')
 
                   <div class="col-md-4">
-                    <input class="custom-option-item-check" type="radio" name="role" id="bussiness-manager" value="bussiness-manager" />
+                    <input class="custom-option-item-check" type="radio" name="role" id="bussiness-manager" value="manager" />
                     <label class="custom-option-item text-center p-1" for="bussiness-manager">
                       <span class="custom-option-item-title h3 fw-bolder">Business Manager</span>
                       <span class="d-block m-75">Can terminate user and Add a company</span>
@@ -602,7 +604,7 @@
 
 				  @endif
 
-				  @if(Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin' || Auth::user()->role == 'bussiness-manager' || Auth::user()->role == 'employee')
+				  @if(Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin' || Auth::user()->role == 'manager' || Auth::user()->role == 'employee')
 
                   <div class="col-md-4">
                     <input class="custom-option-item-check" type="radio" name="role" id="employee" value="employee" />
@@ -615,7 +617,7 @@
 
 				  @endif
 
-				  @if(Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin' || Auth::user()->role == 'bussiness-manager' || Auth::user()->role == 'employee' || Auth::user()->role == 'sub-employee')
+				  @if(Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin' || Auth::user()->role == 'manager' || Auth::user()->role == 'employee' || Auth::user()->role == 'sub-employee')
 
                   <div class="col-md-4">
                     <input class="custom-option-item-check" type="radio" name="role" id="sub-employee" value="sub-employee" />
@@ -659,7 +661,7 @@
 
 				  <div class="col-md-6 mb-1">
                     <label class="form-label" for="passport_number">Passport Number</label>
-                    <input type="text" id="nid_number" name="passport_number" class="form-control" placeholder="1234562232421" />
+                    <input type="text" id="passport_number" name="passport_number" class="form-control" placeholder="1234562232421" />
                   </div>
 
 				  <div class="col-md-6 mb-1">
@@ -686,7 +688,7 @@
                   <i data-feather="chevron-left" class="align-middle me-sm-25 me-0"></i>
                   <span class="align-middle d-sm-inline-block d-none">Previous</span>
                 </button>
-                <button class="btn btn-success btn-submit">
+                <button class="btn btn-success btn-submit" type="submit">
                   <i data-feather="check" class="align-middle me-sm-25 me-0"></i>
                   <span class="align-middle d-sm-inline-block d-none">Submit</span>
                 </button>
@@ -710,4 +712,7 @@
 
 @section('page-script')
 <script src="{{asset(mix('js/scripts/pages/auth-register.js'))}}"></script>
+<script>
+
+</script>
 @endsection

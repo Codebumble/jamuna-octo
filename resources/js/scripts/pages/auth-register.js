@@ -127,7 +127,64 @@ $(function () {
       .on('click', function () {
         var isValid = $(this).parent().siblings('form').valid();
         if (isValid) {
-          alert('Submitted..!!');
+          var username = $("#username").val(),
+          email = $("#username").val(),
+          password = $("#password").val(),
+          image = $("#image")[0].files[0],
+          company = $('#comapany option:selected').val(),
+          name = $('#first-name').val()+' '+$('#last-name').val(),
+          mobile_number = $('#mobile-number').val(),
+          gender = $('#gender option:selected').val(),
+          address = $('#home-address').val()+' ,'+$('#area-address').val(),
+          city = $('#town-city').val(),
+          country = $('#country option:selected').val(),
+          role = $("input[name='role']:checked").val(),
+          designation = $('#designation').val(),
+          date_of_birth = $('#date_of_birth').val(),
+          birth_certificate_number = $('#birth_certificate_number').val(),
+          nid_number = $('#nid_number').val(),
+          passport_number = $('#passport_number').val(),
+          cv = $("#cv")[0].files[0],
+          token = $("input[name='_token']").val();
+
+          var formData = new FormData();
+          formData.append("username", username);
+          formData.append("email", email);
+          formData.append("password", password);
+          formData.append("image", image);
+          formData.append("company", company);
+          formData.append("name", name);
+          formData.append("mobile_number", mobile_number);
+          formData.append("gender", gender);
+          formData.append("address", address);
+          formData.append("city", city);
+          formData.append("country", country);
+          formData.append("role", role);
+          formData.append("designation", designation);
+          formData.append("date_of_birth", date_of_birth);
+          formData.append("birth_certificate_number", birth_certificate_number);
+          formData.append("nid_number", nid_number);
+          formData.append("passport_number", passport_number);
+          formData.append("cv", cv);
+          formData.append("_token", token);
+          console.log(birth_certificate_number);
+          var xhr = new XMLHttpRequest();
+          xhr.open('POST', '/codebumble/add_user', true);
+
+          xhr.upload.onprogress = function(e) {
+            if (e.lengthComputable) {
+              var percentComplete = (e.loaded / e.total) * 100;
+              console.log(percentComplete + '% uploaded');
+            }
+          };
+
+          xhr.onload = function() {
+            if (this.status == 200) {
+              location.href=this.response;
+            };
+          };
+          xhr.send(formData);
+
         }
       });
   }

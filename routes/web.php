@@ -57,6 +57,7 @@ Route::group(['prefix' => 'codebumble'], function () {
         Route::get('test-output-get', [TestOutput::class, 'test_get'])->name('test-get');
 
         Route::post('user-suspend/{username}', [AuthController::class, 'user_suspend'])->name('user_suspend');
+        Route::post('add_user', [AuthController::class, 'register'])->name('add-user-api');
 
         Route::post('user-active-by-auth/{username}', [AuthController::class, 'user_active_by_auth'])->name('user_active_by_auth');
 
