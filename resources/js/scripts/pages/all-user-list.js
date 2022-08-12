@@ -309,7 +309,7 @@ $(function () {
 					text: "Add New",
 					className: "btn add-new btn-sm btn-primary",
 					attr: {
-						"href": "/admin/register",
+						"onclick": "location.href='"+baseView+"/admin/register'",
 					},
 					init: function (api, node, config) {
 						$(node).removeClass("btn-secondary");

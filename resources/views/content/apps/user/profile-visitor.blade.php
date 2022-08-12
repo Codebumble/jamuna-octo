@@ -6,46 +6,20 @@
               $json_data = json_decode($auther->json_data);
 
           // Author = Super But user not
-            if(Auth::user()->role != 'super-admin' && $auther == "super-admin"){
+
+
+            $power_build = [
+              'super-admin' => '0',
+              'admin' => '1',
+              'manager' => '2',
+              'employee' => '3',
+              'sub-employee' => '4',
+
+            ];
+
+            if($power_build[$auther->role] < $power_build[Auth::user()->role]){
               header("Location: " . route('misc-not-authorized'), true, 302);
               exit();
-
-
-            }
-
-            // Author = Admin But user not super or admin
-            if((Auth::user()->role != 'admin' || Auth::user()->role != 'super-admin') && $auther == "admin"){
-              header("Location: " . route('misc-not-authorized'), true, 302);
-              exit();
-
-
-            }
-
-            // Author = manager But user not super or admin
-            if((Auth::user()->role != 'admin' || Auth::user()->role != 'super-admin' || Auth::user()->role != 'manager') && $auther == "manager"){
-              header("Location: " . route('misc-not-authorized'), true, 302);
-              exit();
-
-
-            }
-
-            // Author = manager But user not super or admin
-            if((Auth::user()->role != 'admin' || Auth::user()->role != 'super-admin' || Auth::user()->role != 'manager' ||
-            Auth::user()->role != 'employee') && $auther == "employee"){
-              header("Location: " . route('misc-not-authorized'), true, 302);
-              exit();
-
-
-            }
-
-            // Author = manager But user not super or admin
-            if((Auth::user()->role != 'admin' || Auth::user()->role != 'super-admin' || Auth::user()->role != 'manager' ||
-            Auth::user()->role != 'employee' ||
-            Auth::user()->role != 'sub-employee') && $auther == "sub-employee"){
-              header("Location: " . route('misc-not-authorized'), true, 302);
-              exit();
-
-
             }
 
             ?>
@@ -164,6 +138,53 @@
                 <span>{{ $json_data->country}}</span>
               </li>
             </ul>
+
+            <div class="d-flex justify-content-center pt-2">
+            @if($auther->role != 'super-admin')
+              @if($auther == 'admin' && Auth::user()->role == 'super-admin')
+
+                    <a href="javascript:;" class="btn btn-warning me-1" onclick="event.preventDefault(); document.getElementById('active-suspend-form').submit();">
+                  @if($json_data->status == 'Active')
+                    Suspend
+                  @else
+                    Active
+                  @endif
+                    </a>
+                  @if($json_data->status == 'Active')
+                    <form method="POST" id="active-suspend-form" action="{{ route('logout') }}">
+                      @csrf
+                    </form>
+                  @else
+                    <form method="POST" id="active-suspend-form" action="{{ route('logout') }}">
+                      @csrf
+                    </form>
+                  @endif
+
+            @elseif($auther->role != 'admin' && (Auth::user()->role == 'super-admin' || Auth::user()->role == 'admin' ))
+
+                <a href="javascript:;" class="btn btn-warning me-1" onclick="event.preventDefault(); document.getElementById('active-suspend-form').submit();">
+                  @if($json_data->status == 'Active')
+                    Suspend
+                  @else
+                    Active
+                  @endif
+                    </a>
+                  @if($json_data->status == 'Active')
+                    <form method="POST" id="active-suspend-form" action="{{ route('logout') }}">
+                      @csrf
+                    </form>
+                  @else
+                    <form method="POST" id="active-suspend-form" action="{{ route('logout') }}">
+                      @csrf
+                    </form>
+                  @endif
+            @endif
+            @endif
+
+            @if($auther->username != Auth::user()->username)
+              <a href="" class="btn btn-outline-danger">Report</a>
+            @endif
+            </div>
 
           </div>
         </div>

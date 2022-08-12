@@ -310,4 +310,28 @@ class AuthController extends Controller
 
 
     }
+
+    public function user_active_by_auth(Request $request, $username){
+        if(!Auth::check()){
+
+            header("Location: " . route('error'), true, 302);
+            exit();
+
+        }
+
+        if(Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin'){
+            
+        }
+
+
+    }
+
+    public function user_suspend(Request $request, $username){
+        if(!Auth::check()){
+            header("Location: " . route('error'), true, 302);
+            exit();
+
+        }
+
+    }
 }

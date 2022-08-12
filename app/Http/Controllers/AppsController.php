@@ -91,9 +91,10 @@ class AppsController extends Controller
 
         $auth = DB::select('select * from users where username=?', [$username]);
         $users = DB::select('select count(*) as sub_user from users where under_ref=?', [$username]);
-        $user_active = DB::select('select count(*) as sub_active from users where json_data LIKE \'%\"status\":\"Active\"%\' and under_ref=?', [$username]);
+
 
         if(isset($auth[0])){
+            $user_active = DB::select('select count(*) as sub_active from users where json_data LIKE \'%\"status\":\"Active\"%\' and under_ref=?', [$username]);
             $pageConfigs = ['pageHeader' => false];
             return view('/content/apps/user/profile-visitor', ['pageConfigs' => $pageConfigs, 'sub_users' => $users, 'active' => $user_active, 'user_details' => $auth[0]]);
         } else {

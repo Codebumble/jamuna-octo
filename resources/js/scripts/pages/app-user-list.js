@@ -309,8 +309,7 @@ $(function () {
 					text: "Add New",
 					className: "btn add-new btn-sm btn-primary",
 					attr: {
-						"data-bs-toggle": "modal",
-						"data-bs-target": "#modals-slide-in",
+						"onclick": "location.href='"+baseView+"/admin/register'",
 					},
 					init: function (api, node, config) {
 						$(node).removeClass("btn-secondary");
