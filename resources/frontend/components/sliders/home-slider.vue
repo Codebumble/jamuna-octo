@@ -5,13 +5,13 @@
 		<div class="">
 			<swiper
 				:modules="modules"
-				@slideChange="onSlideChange"
-				@swiper="onSwiper"
 				:slides-per-view="1"
-				:loop="true"
-				:autoplay="true"
 				:grab-cursor="true"
-				effect="fade"
+				:loop="true"
+				:autoplay="{
+					disableOnInteraction: false,
+					pauseOnMouseEnter: true,
+				}"
 				:hash-navigation="true"
 				:pagination="{ clickable: true }"
 				class="">
@@ -56,9 +56,9 @@
 </template>
 
 <style lang="scss">
-	@import 'swiper/css/effect-fade';
-	@import 'swiper/css';
-	@import 'swiper/css/pagination';
+	@import 'swiper/scss';
+	@import 'swiper/scss/pagination';
+	@import 'swiper/scss/autoplay';
 	@import '../../assets/scss/variables/_hero.scss';
 
 	.swiper-pagination-bullet {
@@ -92,7 +92,7 @@
 <script>
 	// import { Splide, SplideSlide } from '@splidejs/vue-splide';
 	import { Swiper, SwiperSlide } from 'swiper/vue';
-	import { Pagination, EffectFade } from 'swiper';
+	import { Pagination, Autoplay } from 'swiper';
 	export default {
 		data() {
 			return {
@@ -111,16 +111,8 @@
 				});
 		},
 		setup() {
-			const onSwiper = (swiper) => {
-				console.log(swiper);
-			};
-			const onSlideChange = () => {
-				console.log('slide change');
-			};
 			return {
-				onSwiper,
-				onSlideChange,
-				modules: [Pagination, EffectFade],
+				modules: [Pagination, Autoplay],
 			};
 		},
 	};
