@@ -38,6 +38,30 @@
 
 <style lang="scss">
 	@import '../../assets/scss/variables/_group-company';
+	@import '@splidejs/vue-splide/css';
+
+	.splide__pagination__page {
+		background: #fff;
+		border: 0;
+		border-radius: 50%;
+		display: inline-block;
+		height: 6px;
+		margin: 5px;
+		opacity: 1;
+		padding: 0;
+		position: relative;
+		// /transition: transform 0.2s linear;
+		width: 6px;
+	}
+
+	.splide__pagination__page.is-active {
+		//transform: scale(1.4);
+		z-index: 20;
+		width: 12px;
+		height: 6px;
+		border-radius: 50px;
+		@apply bg-rose-600 #{!important};
+	}
 </style>
 
 <script>
@@ -64,10 +88,10 @@
 		setup() {
 			const groupsoptions = {
 				rewind: true,
+				rewindByDrag: true,
 				arrows: true,
 				autoplay: true,
 				perPage: 2,
-				type: 'loop',
 				perMove: 1,
 				drag: true,
 				pauseOnHover: true,
