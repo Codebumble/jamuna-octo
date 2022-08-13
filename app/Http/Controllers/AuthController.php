@@ -60,6 +60,7 @@ class AuthController extends Controller
             return route('profile-account',[ 'hasher' => Str::random(40), 'time' => time(), 'errors'=> 'Tried to Assign a role which is not approved by the system. Maybe Request were Modified By Third Party. Check Your System ["CYBER_ATTACK_PREVENT_88"]', 'hasher_ip' => Str::random(10)]);
           }
         //keys: birth_certificate_number, nid_number, passport_number
+
         $json_data= [];
         $json_data['gender'] = $field['gender'];
         $json_data['date_of_birth'] = $field['date_of_birth'];
@@ -71,6 +72,16 @@ class AuthController extends Controller
         $json_data['status'] = "Inactive";
         $json_data['nid_number'] = $request['nid_number'];
         $json_data['passport_number'] = $request['passport_number'];
+
+        if(Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin'){
+
+            $json_data['isBoardofDirectors'] = $request['isBoardofDirectors'];
+            $json_data['isDistrict'] = $request['isDistrict'];
+            $json_data['isSubDistrict'] = $request['isSubDistrict'];
+
+        }
+
+        
 
         if($file1 = $request->hasFile('image')) {
             $user1 = $field['username'];

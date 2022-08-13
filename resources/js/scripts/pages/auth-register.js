@@ -145,7 +145,12 @@ $(function () {
           nid_number = $('#nid_number').val(),
           passport_number = $('#passport_number').val(),
           cv = $("#cv")[0].files[0],
-          token = $("input[name='_token']").val();
+          token = $("input[name='_token']").val(),
+          isBoardofDirectors = document.getElementById("isBoardofDirectors"),
+          isDistrict = document.getElementById("isDistrict"),
+          isSubDistrict = document.getElementById("isSubDistrict");
+
+
 
           var formData = new FormData();
           formData.append("username", username);
@@ -167,7 +172,28 @@ $(function () {
           formData.append("passport_number", passport_number);
           formData.append("cv", cv);
           formData.append("_token", token);
-          console.log(birth_certificate_number);
+
+          if(isBoardofDirectors.checked == true){
+            formData.append("isBoardofDirectors", "Yes");
+          } else {
+            formData.append("isBoardofDirectors", "No");
+          }
+
+
+          if(isDistrict.checked == true){
+            formData.append("isDistrict", "Yes");
+          } else {
+            formData.append("isDistrict", "No");
+          }
+
+          if(isSubDistrict.checked == true){
+            formData.append("isSubDistrict", "Yes");
+          } else {
+            formData.append("isSubDistrict", "No");
+          }
+
+
+
           var xhr = new XMLHttpRequest();
           xhr.open('POST', '/codebumble/add_user', true);
 
