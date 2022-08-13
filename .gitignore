@@ -21,4 +21,5 @@ yarn-error.log
 supervisord.log
 supervisord.pid
 *.lock
+yarn.lock
 mix-manifest.json
