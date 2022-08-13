@@ -18,7 +18,7 @@
 						class="image" />
 				</div>
 				<div class="info">
-					<h3>{{ member.author }}</h3>
+					<h3>{{ member.name }}</h3>
 					<p>{{ member.position }}</p>
 				</div>
 			</div>

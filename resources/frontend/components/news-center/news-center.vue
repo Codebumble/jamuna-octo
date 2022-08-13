@@ -12,7 +12,7 @@
 						frameborder="0"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						allowfullscreen
-						class="rounded-md w-72 h-56 xs:w-98"></iframe>
+						class="rounded-md xl:w-[37rem] h-56 xl:h-80 w-80"></iframe>
 				</div>
 				<div
 					class="md:w-8/12 xl:border-l-2 border-gray-400 min-h-[250px] basis-4/2 py-4 px-8 xl:ml-4">
