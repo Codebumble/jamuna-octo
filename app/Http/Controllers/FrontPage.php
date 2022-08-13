@@ -59,6 +59,35 @@ class FrontPage extends Controller
 
     }
 
+    public function directors_list(){
+        $data_get = DB::select('select value from codebumble_front_page where code_name=?',['board_of_director']);
+
+        $data = json_decode($data_get[0]->value);
+
+        $data_get_1 = DB::select('SELECT * FROM `users` WHERE `json_data` LIKE \'%\"isBoardofDirectors\":\"Yes\"%\'');
+
+        $c= [];
+
+        foreach($data_get_1 as $user){
+            $b = [
+                "imgSrc" => "/profile-images/".$user->avatar,
+                "name" =>   $user->name,
+                "position" => $user->designation
+            ];
+
+            array_push($c, $b);
+
+        }
+
+
+
+
+
+        return json_encode(['heading' => $data->heading, 'breadcrumb' => $data->breadcrumb, 'directors' => $c]);
+
+
+    }
+
     public function footer_component(){
         $data_get = DB::select('select value from codebumble_general where code_name=?',['social_media']);
         $data_get_name = DB::select('select value from codebumble_general where code_name=?',['site_name']);

@@ -70,6 +70,7 @@ Route::group(['prefix' => 'frontpage-api', ], function () {
     Route::get('chairpersson-speech', [FrontPage::class, 'chairpersson_speech']);
     Route::get('all-company-view', [FrontPage::class, 'all_company_view']);
     Route::get('footer-component', [FrontPage::class, 'footer_component']);
+    Route::get('directors-list', [FrontPage::class, 'directors_list']);
     Route::get('shortBrief', [FrontPage::class, 'shortBrief']);
 
 });

@@ -664,20 +664,35 @@
                     <input type="text" id="passport_number" name="passport_number" class="form-control" placeholder="1234562232421" />
                   </div>
 
+
 				  <div class="col-md-6 mb-1">
                     <label class="form-label" for="multiStepsURL">CV and Other Education Details (*.pdf/*.docx)</label>
-                    {{-- <input
-                      type="text"
-                      name="multiStepsURL"
-                      id="multiStepsURL"
-                      class="form-control"
-                      placeholder="johndoe/profile"
-                      aria-label="johndoe"
-                    /> --}}
-					<input class="form-control" type="file" id="cv" name="cv" accept="application/pdf, application/msword" required />
+
+					    <input class="form-control" type="file" id="cv" name="cv" accept="application/pdf, application/msword" required />
+                  </div>
+                @if(Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin')
+                  <div class="col-12 mb-1 mt-1">
+                    <div class="form-check form-check-secondary">
+                      <input type="checkbox" class="form-check-input" id="isBoardofDirectors"/>
+                      <label class="form-check-label" for="isBoardofDirectors">Show in Board of Directors.</label>
+                    </div>
                   </div>
 
+                  <div class="col-12 mb-1 mt-1">
+                    <div class="form-check form-check-secondary">
+                      <input type="checkbox" class="form-check-input" id="isDistrict"/>
+                      <label class="form-check-label" for="isDistrict">Show in "Correspondence by Disctrict"</label>
+                    </div>
+                  </div>
 
+                  <div class="col-12 mb-1 mt-1">
+                    <div class="form-check form-check-secondary">
+                      <input type="checkbox" class="form-check-input" id="isSubDistrict"/>
+                      <label class="form-check-label" for="isSubDistrict">Show in "Correspondence by Sub-Disctrict"</label>
+                    </div>
+                  </div>
+
+                @endif
 
 
                 </div>
@@ -695,6 +710,7 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>

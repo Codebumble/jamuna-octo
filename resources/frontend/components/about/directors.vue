@@ -40,45 +40,21 @@
 		},
 		data() {
 			return {
-				heading: {
-					title: 'Meet Our Board of Directors',
-					desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, consequuntur? Exercitationem praesentium inventore cum enim neque molestias aspernatur adipisci culpa.',
-				},
-				directors: [
-					{
-						imgSrc: '/frontend/images/directors/mem1-1.jpg',
-						name: 'Mrs. Salma Islam',
-						position: 'Chairman',
-					},
-					{
-						imgSrc: '/frontend/images/directors/mem6-1.jpg',
-						name: 'Md. Shamim Islam',
-						position: 'Managing Director',
-					},
-					{
-						imgSrc: '/frontend/images/directors/mem1-1.jpg',
-						name: 'Mrs. Shariat Tasreen Soniya',
-						position: 'Group Director',
-					},
-					{
-						imgSrc: '/frontend/images/directors/mem1-1.jpg',
-						name: 'Mrs. Monika Nazneen Islam',
-						position: 'Group Director',
-					},
-					{
-						imgSrc: '/frontend/images/directors/mem1-1.jpg',
-						name: 'Mrs. Sumaiya Rozalin Islam',
-						position: 'Group Director',
-					},
-				],
-				breadcrumb: {
-					image: '/frontend/images/breadcrumb/directors.jpg',
-					alt: 'directors',
-					pageTitle: 'Board Of Directors',
-					pageDesc:
-						'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum animi aliquam voluptates harum aspernatur eveniet velit doloribus aliquid adipisci suscipit?',
-				},
+				heading: {},
+				directors: [],
+				breadcrumb: {},
 			};
+		},
+		mounted(){
+
+			axios
+      		.get(window.location.origin+'/frontpage-api/directors-list')
+      		.then(response => {
+				this.heading = response.data.heading;
+				this.breadcrumb = response.data.breadcrumb;
+				this.directors = response.data.directors;
+				});
+
 		},
 	};
 </script>
