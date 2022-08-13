@@ -1,8 +1,8 @@
 <template>
 	<section
 		id="cb-hero-bg"
-		class="overflow-hidden cb-hero relative">
-		<div class="gradient-overlay image"></div>
+		class="overflow-hidden cb-hero relative py-8">
+		<!-- <div class="gradient-overlay image"></div>
 		<img
 			:src="data.image"
 			class="overlay image"
@@ -14,6 +14,18 @@
 					{{ data.pageTitle }}
 				</h2>
 				<p class="md:text-base xs:text-sm xl:w-3/5">
+					{{ data.pageDesc }}
+				</p>
+			</div>
+		</div> -->
+		<div class="container">
+			<div
+				class="flex flex-col justify-center items-center text-gray-800">
+				<h2
+					class="lg:text-5xl text-2xl font-bold lg:leading-tight leading-snug lg:mb-3">
+					{{ data.pageTitle }}
+				</h2>
+				<p class="md:text-base xs:text-sm xl:w-3/5 text-center">
 					{{ data.pageDesc }}
 				</p>
 			</div>
@@ -29,9 +41,9 @@
 			background-image: linear-gradient(
 				90deg,
 				rgba(16, 7, 39, 1) 0%,
-				rgba(16, 7, 39, 0.80) 25%,
-				rgba(16, 7, 39, 0.60) 50%,
-				rgba(16, 7, 39, 0.40) 100%
+				rgba(16, 7, 39, 0.8) 25%,
+				rgba(16, 7, 39, 0.6) 50%,
+				rgba(16, 7, 39, 0.4) 100%
 			);
 		}
 

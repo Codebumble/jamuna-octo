@@ -74,17 +74,17 @@
 							</ul>
 						</li>
 						<li class="cb-nav-item has-child">
-							<a class="cb-nav-link">Management</a>
+							<a class="cb-nav-link">Jamuna Sector</a>
 							<ul class="cb-mega">
 								<li class="mega-items hover:bg-indigo-50">
 									<router-link
-										to="/founder"
+										to="/hoorain-htf"
 										class="mega-link">
 										<div class="flex items-center">
 											<div>
 												<h1
 													class="text-base text-gray-800">
-													Founder
+													Hoorain HTF
 												</h1>
 											</div>
 										</div>
@@ -93,13 +93,14 @@
 
 								<li class="mega-items hover:bg-green-50">
 									<router-link
-										to="/board-of-directors"
+										to=""
 										class="mega-link">
 										<div class="flex items-center">
 											<div>
 												<h1
 													class="text-base text-gray-800">
-													Board Of Director
+													JAMUNA DENIMS LTD (GARMENTS
+													UNIT)
 												</h1>
 											</div>
 										</div>

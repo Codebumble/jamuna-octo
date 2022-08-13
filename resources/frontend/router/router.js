@@ -25,6 +25,11 @@ const routes = [
 		name: "news-center",
 		component: () => import("../views/news-center.vue"),
 	},
+	{
+		path: "/hoorain-htf",
+		name: "hoorain",
+		component: () => import("../views/hoorain.vue"),
+	},
 ];
 
 const router = createRouter({

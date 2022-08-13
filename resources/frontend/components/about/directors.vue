@@ -2,13 +2,7 @@
 	<breadcrumb :data="breadcrumb" />
 	<section class="directors">
 		<div class="container">
-			<div class="heading">
-				<h2>{{ heading.title }}</h2>
-				<p>
-					{{ heading.desc }}
-				</p>
-			</div>
-			<div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 py-8">
+			<div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 pb-8">
 				<div
 					class="member"
 					v-for="memeber in directors">
@@ -45,16 +39,14 @@
 				breadcrumb: {},
 			};
 		},
-		mounted(){
-
+		mounted() {
 			axios
-      		.get(window.location.origin+'/frontpage-api/directors-list')
-      		.then(response => {
-				this.heading = response.data.heading;
-				this.breadcrumb = response.data.breadcrumb;
-				this.directors = response.data.directors;
+				.get(window.location.origin + '/frontpage-api/directors-list')
+				.then((response) => {
+					// this.heading = response.data.heading;
+					this.breadcrumb = response.data.breadcrumb;
+					this.directors = response.data.directors;
 				});
-
 		},
 	};
 </script>
