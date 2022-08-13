@@ -17,11 +17,12 @@
 				<SplideSlide
 					class="slideItem"
 					v-for="slide in slideContent">
-					<div class="p-4 pb-6 rounded-xl backdrop-blur-md">
+					<div
+						class="p-4 pb-6 rounded-xl backdrop-blur-md min-h-[413px] max-h-[413px]">
 						<img
 							:src="slide.imgSrc"
 							:alt="slide.alt"
-							class="w-full rounded-xl max-h-[248.5px] lg:max-h-[327.5px] object-contain" />
+							class="w-full rounded-xl min-h-[295px] max-h-[295px] object-contain p-6" />
 
 						<span class="itemName">{{ slide.title }}</span>
 						<a
@@ -68,7 +69,7 @@
 				rewindByDrag: false,
 				trimSpace: true,
 				arrows: true,
-				autoplay: true,
+				autoplay: false,
 				interval: 3000,
 				perPage: 2,
 				type: 'loop',
@@ -77,11 +78,11 @@
 				pauseOnHover: true,
 				cloneStatus: true,
 				gap: '2rem',
-				fixedWidth: '359.5px',
+				fixedWidth: '300px',
 				focus: 'center',
 				breakpoints: {
 					1024: {
-						fixedWidth: '280.5px',
+						fixedWidth: '270.5px',
 						perPage: 1,
 					},
 				},

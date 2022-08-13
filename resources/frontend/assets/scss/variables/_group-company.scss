@@ -26,7 +26,6 @@
 	}
 }
 
-
 .slideItem {
 	div {
 		background: linear-gradient(
@@ -38,19 +37,20 @@
 		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
 		.itemName {
-			position: relative;
-			display: inline-block;
-			bottom: 3rem;
+			@apply relative inline-block bottom-12 py-1.5 px-4 text-center font-bold transition-all;
 			background: linear-gradient(
 				118.64deg,
 				rgba(255, 243, 233, 0.7) -4.78%,
 				hsla(0deg, 0%, 100%, 0.7) 64.5%,
 				rgba(255, 243, 233, 0.7) 111.91%
 			);
-			padding: 5px 15px;
 			backdrop-filter: blur(0.2rem);
-			text-align: center;
-			font-weight: 700;
+		}
+	}
+
+	&:hover {
+		.itemName {
+			@apply bg-slate-100;
 		}
 	}
 }

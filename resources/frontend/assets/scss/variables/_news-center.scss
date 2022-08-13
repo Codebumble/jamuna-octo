@@ -11,7 +11,7 @@
 	}
 
 	.member {
-		@apply overflow-hidden;
+		@apply overflow-hidden py-3;
 		.thumb {
 			@apply w-full overflow-hidden rounded-xl;
 
