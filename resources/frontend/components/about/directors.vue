@@ -10,7 +10,7 @@
 						<img
 							:src="memeber.imgSrc"
 							:alt="memeber.alt"
-							class="image" />
+							class="image max-h-[394px] min-h-[394px]" />
 					</div>
 					<div class="info">
 						<h3>{{ memeber.name }}</h3>

@@ -16,7 +16,7 @@
 			@apply w-full overflow-hidden rounded-xl;
 
 			.image {
-				@apply rounded-xl transition-all duration-500;
+				@apply rounded-xl transition-all duration-500 object-cover w-full object-top;
 			}
 		}
 

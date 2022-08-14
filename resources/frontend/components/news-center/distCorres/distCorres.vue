@@ -15,7 +15,7 @@
 					<img
 						:src="member.imgSrc"
 						:alt="member.alt"
-						class="image" />
+						class="image max-h-[288px] min-h-[288px]" />
 				</div>
 				<div class="info">
 					<h3>{{ member.name }}</h3>
