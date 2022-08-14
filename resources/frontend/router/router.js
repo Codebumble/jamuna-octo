@@ -40,6 +40,11 @@ const routes = [
 		name: "hooram",
 		component: () => import("../views/hooram.vue"),
 	},
+	{
+		path: "/jeansco",
+		name: "jeansco",
+		component: () => import("../views/jeansco.vue"),
+	},
 ];
 
 const router = createRouter({
