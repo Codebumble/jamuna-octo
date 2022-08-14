@@ -1,13 +1,27 @@
 <template>
-	<businessDetails />
+	<breadcrumb :data="breadcrumb" />
+	<hoorain />
 </template>
 
 <script>
 	import { useHead } from '@vueuse/head';
-	import businessDetails from '../components/global/business-details';
+	import breadcrumb from '../components/global/breadcrumb';
+	import hoorain from '../components/jamuna-sector/hoorain';
 	export default {
 		components: {
-			businessDetails,
+			hoorain,
+			breadcrumb,
+		},
+		data() {
+			return {
+				breadcrumb: {
+					image: '/frontend/images/breadcrumb/directors.jpg',
+					alt: 'directors',
+					pageTitle: 'Hoorain HTF',
+					pageDesc:
+						'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum animi aliquam voluptates harum aspernatur eveniet velit doloribus aliquid adipisci suscipit?',
+				},
+			};
 		},
 		setup() {
 			useHead({

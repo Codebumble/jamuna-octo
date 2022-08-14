@@ -55,7 +55,7 @@ $configData = Helper::applClasses();
           <span class="avatar">
 
               <img
-                      class="round"
+                      class="round" style="object-fit: cover;"
                       <?php
                       if(!isset(Auth::user()->avatar)){ ?>
                       src="{{ Auth::user()->profile_photo_url }}"

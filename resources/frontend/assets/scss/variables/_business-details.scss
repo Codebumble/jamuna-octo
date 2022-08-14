@@ -1,0 +1,53 @@
+.businessInfo {
+	table {
+		@apply w-full lg:w-auto;
+		tr {
+			@apply flex justify-between py-[0.4rem];
+			th {
+				@apply text-left w-2/4 lg:w-5/12 text-gray-800;
+			}
+			td {
+				@apply w-2/4 lg:w-7/12 pl-3;
+
+				ul {
+					li {
+						@apply px-2;
+						a {
+							@apply text-[1.3rem] text-gray-800;
+						}
+						&:first-child {
+							@apply pl-0;
+						}
+						&:last-child {
+							@apply pr-0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.businessDetails {
+	p {
+		@apply py-4;
+	}
+}
+
+@media (max-width: 400px) {
+	.businessInfo {
+		table {
+			tr {
+				@apply flex-col;
+
+				th,
+				td {
+					@apply w-full;
+				}
+				td {
+					@apply pl-0;
+				}
+			}
+		}
+	}
+}

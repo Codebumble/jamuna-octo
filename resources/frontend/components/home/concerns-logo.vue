@@ -13,7 +13,7 @@
 						aria-label="concerns logo area">
 						<SplideSlide v-for="slide in concernlogo">
 							<div
-								class="flex justify-around items-center rounded-md transition-all bg-[#f9f9f9] concern">
+								class="flex justify-around items-center rounded-md transition-all concern">
 								<img
 									:src="slide.src"
 									:alt="slide.alt"
