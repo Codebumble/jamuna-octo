@@ -90,6 +90,20 @@
 										</div>
 									</router-link>
 								</li>
+								<li class="mega-items hover:bg-indigo-50">
+									<router-link
+										to="/hoor"
+										class="mega-link">
+										<div class="flex items-center">
+											<div>
+												<h1
+													class="text-base text-gray-800">
+													Hoor
+												</h1>
+											</div>
+										</div>
+									</router-link>
+								</li>
 
 								<li class="mega-items hover:bg-green-50">
 									<router-link
