@@ -40,6 +40,11 @@ const routes = [
 		name: "hooram",
 		component: () => import("../views/hooram.vue"),
 	},
+	{
+		path: "/growth-history",
+		name: "growth",
+		component: () => import("../views/growth.vue"),
+	},
 ];
 
 const router = createRouter({
