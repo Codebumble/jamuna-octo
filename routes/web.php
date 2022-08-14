@@ -13,6 +13,7 @@ use App\Http\Controllers\FrontPage;
 use App\Http\Controllers\FounderApi;
 use App\Http\Controllers\PageLayoutController;
 use App\Http\Controllers\FormsController;
+use App\Http\Controllers\siteGeneral;
 use App\Http\Controllers\TableController;
 use App\Http\Controllers\TestOutput;
 use App\Http\Controllers\PagesController;
@@ -90,6 +91,7 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::get('add-company', [Company_rest::class, 'auth_view_add_company'])->name('add-company');
         Route::get('all-company', [Company_rest::class, 'auth_view_all_company'])->name('all-company');
         Route::get('edit-company/{id}', [Company_rest::class, 'auth_view_edit_company'])->name('edit-company');
+        Route::get('site-settings/general', [siteGeneral::class, 'general_page_view'])->name('site-settings-general');
 
         Route::get('add-section', [Company_rest::class, 'auth_view_add_section'])->name('add-section');
         Route::get('all-section', [Company_rest::class, 'auth_view_all_section'])->name('all-section');

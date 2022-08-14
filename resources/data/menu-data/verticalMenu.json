@@ -2,25 +2,29 @@
   "menu": [{
     "name": "Profile",
     "icon": "user",
-    "slug": "",
+    "permission": 4,
+      "slug": "",
     "submenu": [
       {
         "url": "admin/all-user-list",
         "name": "List",
         "icon": "circle",
+        "permission": 1,
         "slug": "all-user-list"
       },
       {
         "url": "admin/profile-account",
         "name": "Account",
         "icon": "circle",
-        "slug": "profile-account"
+        "permission": 4,
+      "slug": "profile-account"
       },
       {
         "url": "admin/profile-security",
         "name": "Security",
         "icon": "circle",
-        "slug": "profile-security"
+        "permission": 4,
+      "slug": "profile-security"
       }
     ]
   },
@@ -29,73 +33,85 @@
       "badge": "2",
       "badgeClass": "badge badge-light-warning rounded-pill ms-auto me-1",
       "icon": "home",
+      "permission": 4,
       "slug": "",
       "submenu": [
         {
           "url": "dashboard/analytics",
           "name": "Analytics",
           "icon": "circle",
-          "slug": "dashboard-analytics"
+          "permission": 4,
+      "slug": "dashboard-analytics"
         },
         {
           "url": "/",
           "name": "eCommerce",
           "icon": "circle",
-          "slug": "dashboard-ecommerce"
+          "permission": 0,
+      "slug": "dashboard-ecommerce"
         }
       ]
     },
     {
       "navheader": "Site Settings",
+      "permission": 1,
       "slug": ""
     },
     {
       "url": "app/email",
       "name": "Settings",
       "icon": "settings",
+      "permission": 1,
       "slug": "",
       "submenu": [
         {
-          "url": "app/invoice/list",
+          "url": "admin/site-settings/general",
           "name": "General Settings",
           "icon": "circle",
-          "slug": "site-general-settings"
+          "permission": 1,
+          "slug": "site-settings-general"
         },
         {
           "url": "app/invoice/list",
           "name": "SEO Settings",
           "icon": "circle",
+          "permission": 1,
           "slug": "site-seo-settings"
         },
         {
           "url": "app/invoice/list",
           "name": "Home Page",
           "icon": "circle",
-          "slug": "site-home-page-settings"
+          "permission": 1,
+      "slug": "site-home-page-settings"
         },
         {
           "url": "app/invoice/list",
           "name": "Manual Entry",
           "icon": "circle",
-          "slug": "site-manual-entry"
+          "permission": 1,
+      "slug": "site-manual-entry"
         }
       ]
     },{
       "name": "Company",
       "icon": "anchor",
+      "permission": 1,
       "slug": "",
       "submenu": [
         {
           "url": "admin/all-company",
           "name": "All Company",
           "icon": "circle",
-          "slug": "all-company"
+          "permission": 1,
+      "slug": "all-company"
         },
         {
           "url": "admin/add-company",
           "name": "Add Company",
           "icon": "circle",
-          "slug": "add-company"
+          "permission": 1,
+      "slug": "add-company"
         }
       ]
     },
@@ -103,85 +119,99 @@
       "url": "admin/add-section",
       "name": "Section",
       "icon": "align-left",
+      "permission": 1,
       "slug": "",
       "submenu": [
         {
           "url": "admin/add-section",
           "name": "Add Section",
           "icon": "circle",
-          "slug": "add-section"
+          "permission": 1,
+      "slug": "add-section"
         },
         {
           "url": "admin/all-section",
           "name": "All Section",
           "icon": "circle",
-          "slug": "all-section"
+          "permission": 1,
+      "slug": "all-section"
         }
 
       ]
     },
     {
       "navheader": "Apps & Pages",
+      "permission": 0,
       "slug": ""
     },
     {
       "url": "app/email",
       "name": "Email",
       "icon": "mail",
+      "permission": 0,
       "slug": "app-email"
     },
     {
       "url": "app/chat",
       "name": "Chat",
       "icon": "message-square",
+      "permission": 0,
       "slug": "app-chat"
     },
     {
       "url": "app/todo",
       "name": "Todo",
       "icon": "check-square",
+      "permission": 0,
       "slug": "app-todo"
     },
     {
       "url": "app/calendar",
       "name": "Calendar",
       "icon": "calendar",
+      "permission": 0,
       "slug": "app-calendar"
     },
     {
       "url": "app/kanban",
       "name": "Kanban",
       "icon": "grid",
+      "permission": 0,
       "slug": "app-kanban"
     },
     {
       "name": "Invoice",
       "icon": "file-text",
+      "permission": 0,
       "slug": "",
       "submenu": [
         {
           "url": "app/invoice/list",
           "name": "List",
           "icon": "circle",
-          "slug": "app-invoice-list"
+          "permission": 0,
+      "slug": "app-invoice-list"
         },
         {
           "url": "app/invoice/preview",
           "name": "Preview",
           "icon": "circle",
-          "slug": "app-invoice-preview"
+          "permission": 0,
+      "slug": "app-invoice-preview"
         },
         {
           "url": "app/invoice/edit",
           "name": "Edit",
           "icon": "circle",
-          "slug": "app-invoice-edit"
+          "permission": 0,
+      "slug": "app-invoice-edit"
         },
         {
           "url": "app/invoice/add",
           "name": "Add",
           "icon": "circle",
-          "slug": "app-invoice-add"
+          "permission": 0,
+      "slug": "app-invoice-add"
         }
       ]
     },
@@ -189,55 +219,64 @@
       "url": "app/file-manager",
       "name": "File Manager",
       "icon": "save",
+      "permission": 0,
       "slug": "app-file-manager"
     },
     {
       "name": "Roles & Permission",
       "icon": "shield",
+      "permission": 0,
       "slug": "",
       "submenu": [
         {
           "url": "app/access-roles",
           "name": "Roles",
           "icon": "circle",
-          "slug": "app-access-roles"
+          "permission": 0,
+      "slug": "app-access-roles"
         },
         {
           "url": "app/access-permission",
           "name": "Permission",
           "icon": "circle",
-          "slug": "app-access-permission"
+          "permission": 0,
+      "slug": "app-access-permission"
         }
       ]
     },
     {
       "name": "eCommerce",
       "icon": "shopping-cart",
+      "permission": 0,
       "slug": "",
       "submenu": [
         {
           "url": "app/ecommerce/shop",
           "name": "Shop",
           "icon": "circle",
-          "slug": "app-ecommerce-shop"
+          "permission": 0,
+      "slug": "app-ecommerce-shop"
         },
         {
           "url": "app/ecommerce/details",
           "name": "Details",
           "icon": "circle",
-          "slug": "app-ecommerce-details"
+          "permission": 0,
+      "slug": "app-ecommerce-details"
         },
         {
           "url": "app/ecommerce/wishlist",
           "name": "Wishlist",
           "icon": "circle",
-          "slug": "app-ecommerce-wishlist"
+          "permission": 0,
+      "slug": "app-ecommerce-wishlist"
         },
         {
           "url": "app/ecommerce/checkout",
           "name": "Checkout",
           "icon": "circle",
-          "slug": "app-ecommerce-checkout"
+          "permission": 0,
+      "slug": "app-ecommerce-checkout"
         }
       ]
     },
@@ -245,37 +284,44 @@
     {
       "name": "Pages",
       "icon": "file-text",
+      "permission": 0,
       "slug": "",
       "submenu": [
         {
           "name": "Account Settings",
           "icon": "circle",
-          "slug": "",
+          "permission": 0,
+      "slug": "",
           "submenu": [
             {
               "url": "page/account-settings-account",
               "name": "Account",
-              "slug": "page-account-settings-account"
+              "permission": 0,
+      "slug": "page-account-settings-account"
             },
             {
               "url": "page/account-settings-security",
               "name": "Security",
-              "slug": "page-account-settings-security"
+              "permission": 0,
+      "slug": "page-account-settings-security"
             },
             {
               "url": "page/account-settings-billing",
               "name": "Billings & Plans",
-              "slug": "page-account-settings-billing"
+              "permission": 0,
+      "slug": "page-account-settings-billing"
             },
             {
               "url": "page/account-settings-notifications",
               "name": "Notifications",
-              "slug": "page-account-settings-notifications"
+              "permission": 0,
+      "slug": "page-account-settings-notifications"
             },
             {
               "url": "page/account-settings-connections",
               "name": "Connections",
-              "slug": "page-account-settings-connections"
+              "permission": 0,
+      "slug": "page-account-settings-connections"
             }
           ]
         },
@@ -283,98 +329,115 @@
           "url": "page/profile",
           "name": "Profile",
           "icon": "circle",
-          "slug": "page-profile"
+          "permission": 0,
+      "slug": "page-profile"
         },
         {
           "url": "page/faq",
           "name": "FAQ",
           "icon": "circle",
-          "slug": "page-faq"
+          "permission": 0,
+      "slug": "page-faq"
         },
         {
           "url": "page/knowledge-base",
           "name": "Knowledge Base",
           "icon": "circle",
-          "slug": "page-knowledge-base"
+          "permission": 0,
+      "slug": "page-knowledge-base"
         },
         {
           "url": "page/pricing",
           "name": "Pricing",
           "icon": "circle",
-          "slug": "page-pricing"
+          "permission": 0,
+      "slug": "page-pricing"
         },
         {
           "url": "page/license",
           "name": "License",
           "icon": "circle",
-          "slug": "page-license"
+          "permission": 0,
+      "slug": "page-license"
         },
         {
           "url": "page/api-key",
           "name": "API Key",
           "icon": "circle",
-          "slug": "page-api-key"
+          "permission": 0,
+      "slug": "page-api-key"
         },
         {
           "name": "Blog",
           "icon": "circle",
-          "slug": "",
+          "permission": 0,
+      "slug": "",
           "submenu": [
             {
               "url": "page/blog/list",
               "name": "List",
-              "slug": "page-blog-list"
+              "permission": 0,
+      "slug": "page-blog-list"
             },
             {
               "url": "page/blog/detail",
               "name": "Detail",
-              "slug": "page-blog-detail"
+              "permission": 0,
+      "slug": "page-blog-detail"
             },
             {
               "url": "page/blog/edit",
               "name": "Edit",
-              "slug": "page-blog-edit"
+              "permission": 0,
+      "slug": "page-blog-edit"
             }
           ]
         },
         {
           "name": "Mail Template",
           "icon": "circle",
-          "slug": "",
+          "permission": 0,
+      "slug": "",
           "submenu": [
             {
               "name": "Welcome",
-              "slug": "mail-welcome",
+              "permission": 0,
+      "slug": "mail-welcome",
               "url": "https://Codebumble Inc..com/demo/vuexy-mail-template/mail-welcome.html",
               "newTab": true
             },
             {
               "name": "Reset Password",
-              "slug": "mail-forgot",
+              "permission": 0,
+      "slug": "mail-forgot",
               "url": "https://Codebumble Inc..com/demo/vuexy-mail-template/mail-reset-password.html",
               "newTab": true
             },
             {
               "name": "Verify Email",
-              "slug": "mail-verify",
+              "permission": 0,
+      "slug": "mail-verify",
               "url": "https://Codebumble Inc..com/demo/vuexy-mail-template/mail-verify-email.html",
               "newTab": true
             },
             {
               "name": "Deactivate Account",
-              "slug": "mail-deactivate",
+              "permission": 0,
+      "slug": "mail-deactivate",
               "url": "https://Codebumble Inc..com/demo/vuexy-mail-template/mail-deactivate-account.html",
               "newTab": true
             },
             {
               "name": "Invoice",
-              "slug": "mail-invoice",
+              "permission": 0,
+      "slug": "mail-invoice",
               "url": "https://Codebumble Inc..com/demo/vuexy-mail-template/mail-invoice.html",
               "newTab": true
             },
             {
               "name": "Promotional",
-              "slug": "mail-promotional",
+              "permission": 0,
+      "slug": "mail-promotional",
               "url": "https://Codebumble Inc..com/demo/vuexy-mail-template/mail-promotional.html",
               "newTab": true
             }
@@ -383,30 +446,35 @@
         {
           "name": "Miscellaneous",
           "icon": "circle",
-          "slug": "",
+          "permission": 0,
+      "slug": "",
           "submenu": [
             {
               "url": "page/coming-soon",
               "name": "Coming Soon",
-              "slug": "misc-analytics",
+              "permission": 0,
+      "slug": "misc-analytics",
               "newTab": true
             },
             {
               "url": "page/not-authorized",
               "name": "Not Authorized",
-              "slug": "misc-analytics",
+              "permission": 0,
+      "slug": "misc-analytics",
               "newTab": true
             },
             {
               "url": "page/maintenance",
               "name": "Maintenance",
-              "slug": "misc-analytics",
+              "permission": 0,
+      "slug": "misc-analytics",
               "newTab": true
             },
             {
               "url": "error",
               "name": "Error",
-              "slug": "error",
+              "permission": 0,
+      "slug": "error",
               "newTab": true
             }
           ]
@@ -416,23 +484,27 @@
     {
       "name": "Authentication",
       "icon": "user-check",
+      "permission": 0,
       "slug": "",
       "submenu": [
         {
           "name": "Login",
           "icon": "circle",
-          "slug": "",
+          "permission": 0,
+      "slug": "",
           "submenu": [
             {
               "url": "auth/login-basic",
               "name": "Basic",
-              "slug": "auth-login-basic",
+              "permission": 0,
+      "slug": "auth-login-basic",
               "newTab": true
             },
             {
               "url": "auth/login-cover",
               "name": "Cover",
-              "slug": "auth-login-cover",
+              "permission": 0,
+      "slug": "auth-login-cover",
               "newTab": true
             }
           ]
@@ -440,24 +512,28 @@
         {
           "name": "Register",
           "icon": "circle",
-          "slug": "",
+          "permission": 0,
+      "slug": "",
           "submenu": [
             {
               "url": "auth/register-basic",
               "name": "Basic",
-              "slug": "auth-register-basic",
+              "permission": 0,
+      "slug": "auth-register-basic",
               "newTab": true
             },
             {
               "url": "auth/register-cover",
               "name": "Cover",
-              "slug": "auth-register-cover",
+              "permission": 0,
+      "slug": "auth-register-cover",
               "newTab": true
             },
             {
               "url": "auth/register-multisteps",
               "name": "Multi-Steps",
-              "slug": "auth-register-multisteps",
+              "permission": 0,
+      "slug": "auth-register-multisteps",
               "newTab": true
             }
           ]
@@ -465,18 +541,21 @@
         {
           "name": "Forgot Password",
           "icon": "circle",
-          "slug": "",
+          "permission": 0,
+      "slug": "",
           "submenu": [
             {
               "url": "auth/forgot-password-basic",
               "name": "Basic",
-              "slug": "auth-forgot-password-basic",
+              "permission": 0,
+      "slug": "auth-forgot-password-basic",
               "newTab": true
             },
             {
               "url": "auth/forgot-password-cover",
               "name": "Cover",
-              "slug": "auth-forgot-password-cover",
+              "permission": 0,
+      "slug": "auth-forgot-password-cover",
               "newTab": true
             }
           ]
@@ -484,18 +563,21 @@
         {
           "name": "Reset Password",
           "icon": "circle",
-          "slug": "",
+          "permission": 0,
+      "slug": "",
           "submenu": [
             {
               "url": "auth/reset-password-basic",
               "name": "Basic",
-              "slug": "auth-reset-password-basic",
+              "permission": 0,
+      "slug": "auth-reset-password-basic",
               "newTab": true
             },
             {
               "url": "auth/reset-password-cover",
               "name": "Cover",
-              "slug": "auth-reset-password-cover",
+              "permission": 0,
+      "slug": "auth-reset-password-cover",
               "newTab": true
             }
           ]
@@ -503,18 +585,21 @@
         {
           "name": "Verify Email",
           "icon": "circle",
-          "slug": "",
+          "permission": 0,
+      "slug": "",
           "submenu": [
             {
               "url": "auth/verify-email-basic",
               "name": "Basic",
-              "slug": "auth-verify-email-basic",
+              "permission": 0,
+      "slug": "auth-verify-email-basic",
               "newTab": true
             },
             {
               "url": "auth/verify-email-cover",
               "name": "Cover",
-              "slug": "auth-verify-email-cover",
+              "permission": 0,
+      "slug": "auth-verify-email-cover",
               "newTab": true
             }
           ]
@@ -522,18 +607,21 @@
         {
           "name": "Two Steps",
           "icon": "circle",
-          "slug": "",
+          "permission": 0,
+      "slug": "",
           "submenu": [
             {
               "url": "auth/two-steps-basic",
               "name": "Basic",
-              "slug": "auth-two-steps-basic",
+              "permission": 0,
+      "slug": "auth-two-steps-basic",
               "newTab": true
             },
             {
               "url": "auth/two-steps-cover",
               "name": "Cover",
-              "slug": "auth-two-steps-cover",
+              "permission": 0,
+      "slug": "auth-two-steps-cover",
               "newTab": true
             }
           ]
@@ -544,28 +632,33 @@
       "url": "/modal-examples",
       "name": "Modal Examples",
       "icon": "square",
+      "permission": 0,
       "slug": "modal-examples"
     },
     {
       "navheader": "User Interface",
+      "permission": 0,
       "slug": ""
     },
     {
       "url": "ui/typography",
       "name": "Typography",
       "icon": "type",
+      "permission": 0,
       "slug": "ui-typography"
     },
     {
       "url": "icons/feather",
       "name": "Feather",
       "icon": "eye",
+      "permission": 0,
       "slug": "icons-feather"
     },
     {
       "name": "Card",
       "icon": "credit-card",
       "badge": "New",
+      "permission": 0,
       "slug": "",
       "badgeClass": "badge badge-light-success rounded-pill ms-auto me-1",
       "submenu": [
@@ -573,393 +666,458 @@
           "url": "card/basic",
           "name": "Basic",
           "icon": "circle",
-          "slug": "card-basic"
+          "permission": 0,
+      "slug": "card-basic"
         },
         {
           "url": "card/advance",
           "name": "Advance",
           "icon": "circle",
-          "slug": "card-advance"
+          "permission": 0,
+      "slug": "card-advance"
         },
         {
           "url": "card/statistics",
           "name": "Statistics",
           "icon": "circle",
-          "slug": "card-statistics"
+          "permission": 0,
+      "slug": "card-statistics"
         },
         {
           "url": "card/analytics",
           "name": "Analytics",
           "icon": "circle",
-          "slug": "card-analytics"
+          "permission": 0,
+      "slug": "card-analytics"
         },
         {
           "url": "card/actions",
           "name": "Card Actions",
           "icon": "circle",
-          "slug": "card-actions"
+          "permission": 0,
+      "slug": "card-actions"
         }
       ]
     },
     {
       "name": "Components",
       "icon": "briefcase",
+      "permission": 0,
       "slug": "",
       "submenu": [
         {
           "url": "component/accordion",
           "name": "Accordion",
           "icon": "circle",
-          "slug": "component-accordion"
+          "permission": 0,
+      "slug": "component-accordion"
         },
         {
           "url": "component/alert",
           "name": "Alerts",
           "icon": "circle",
-          "slug": "component-alert"
+          "permission": 0,
+      "slug": "component-alert"
         },
         {
           "url": "component/avatar",
           "name": "Avatar",
           "icon": "circle",
-          "slug": "component-avatar"
+          "permission": 0,
+      "slug": "component-avatar"
         },
         {
           "url": "component/badges",
           "name": "Badges",
           "icon": "circle",
-          "slug": "component-badges"
+          "permission": 0,
+      "slug": "component-badges"
         },
         {
           "url": "component/breadcrumbs",
           "name": "Breadcrumbs",
           "icon": "circle",
-          "slug": "component-breadcrumbs"
+          "permission": 0,
+      "slug": "component-breadcrumbs"
         },
         {
           "url": "component/buttons",
           "name": "Buttons",
           "icon": "circle",
-          "slug": "component-buttons"
+          "permission": 0,
+      "slug": "component-buttons"
         },
         {
           "url": "component/carousel",
           "name": "Carousel",
           "icon": "circle",
-          "slug": "component-carousel"
+          "permission": 0,
+      "slug": "component-carousel"
         },
         {
           "url": "component/collapse",
           "name": "Collapse",
           "icon": "circle",
-          "slug": "component-collapse"
+          "permission": 0,
+      "slug": "component-collapse"
         },
         {
           "url": "component/divider",
           "name": "Divider",
           "icon": "circle",
-          "slug": "component-divider"
+          "permission": 0,
+      "slug": "component-divider"
         },
         {
           "url": "component/dropdowns",
           "name": "Dropdowns",
           "icon": "circle",
-          "slug": "component-dropdowns"
+          "permission": 0,
+      "slug": "component-dropdowns"
         },
         {
           "url": "component/list-group",
           "name": "List Group",
           "icon": "circle",
-          "slug": "component-list-group"
+          "permission": 0,
+      "slug": "component-list-group"
         },
         {
           "url": "component/modals",
           "name": "Modals",
           "icon": "circle",
-          "slug": "component-modals"
+          "permission": 0,
+      "slug": "component-modals"
         },
         {
           "url": "component/navs",
           "name": "Navs Component",
           "icon": "circle",
-          "slug": "component-navs"
+          "permission": 0,
+      "slug": "component-navs"
         },
         {
           "url": "component/offcanvas",
           "name": "Offcanvas",
           "icon": "circle",
-          "slug": "component-offcanvas"
+          "permission": 0,
+      "slug": "component-offcanvas"
         },
         {
           "url": "component/pagination",
           "name": "Pagination",
           "icon": "circle",
-          "slug": "component-pagination"
+          "permission": 0,
+      "slug": "component-pagination"
         },
         {
           "url": "component/pill-badges",
           "name": "Pill Badges",
           "icon": "circle",
-          "slug": "component-pill-badges"
+          "permission": 0,
+      "slug": "component-pill-badges"
         },
         {
           "url": "component/pills",
           "name": "Pills Component",
           "icon": "circle",
-          "slug": "component-pills"
+          "permission": 0,
+      "slug": "component-pills"
         },
         {
           "url": "component/popovers",
           "name": "Popovers",
           "icon": "circle",
-          "slug": "component-popovers"
+          "permission": 0,
+      "slug": "component-popovers"
         },
         {
           "url": "component/progress",
           "name": "Progress",
           "icon": "circle",
-          "slug": "component-progress"
+          "permission": 0,
+      "slug": "component-progress"
         },
         {
           "url": "component/spinner",
           "name": "Spinner",
           "icon": "circle",
-          "slug": "component-spinner"
+          "permission": 0,
+      "slug": "component-spinner"
         },
         {
           "url": "component/tabs",
           "name": "Tabs Component",
           "icon": "circle",
-          "slug": "component-tabs"
+          "permission": 0,
+      "slug": "component-tabs"
         },
         {
           "url": "component/timeline",
           "name": "Timeline",
           "icon": "circle",
-          "slug": "component-timeline"
+          "permission": 0,
+      "slug": "component-timeline"
         },
         {
           "url": "component/toast",
           "name": "Toasts",
           "icon": "circle",
-          "slug": "component-bs-toast"
+          "permission": 0,
+      "slug": "component-bs-toast"
         },
         {
           "url": "component/tooltips",
           "name": "Tooltips",
           "icon": "circle",
-          "slug": "component-tooltips"
+          "permission": 0,
+      "slug": "component-tooltips"
         }
       ]
     },
     {
       "name": "Extensions",
       "icon": "box",
+      "permission": 0,
       "slug": "",
       "submenu": [
         {
           "url": "ext-component/sweet-alerts",
           "name": "Sweet Alert",
           "icon": "circle",
-          "slug": "ext-component-sweet-alerts"
+          "permission": 0,
+      "slug": "ext-component-sweet-alerts"
         },
         {
           "url": "ext-component/block-ui",
           "name": "BlockUI",
           "icon": "circle",
-          "slug": "ext-component-block-ui"
+          "permission": 0,
+      "slug": "ext-component-block-ui"
         },
         {
           "url": "ext-component/toastr",
           "name": "Toastr",
           "icon": "circle",
-          "slug": "ext-component-toastr"
+          "permission": 0,
+      "slug": "ext-component-toastr"
         },
         {
           "url": "ext-component/sliders",
           "name": "Sliders",
           "icon": "circle",
-          "slug": "ext-component-sliders"
+          "permission": 0,
+      "slug": "ext-component-sliders"
         },
         {
           "url": "ext-component/drag-drop",
           "name": "Drag & Drop",
           "icon": "circle",
-          "slug": "ext-component-drag-drop"
+          "permission": 0,
+      "slug": "ext-component-drag-drop"
         },
         {
           "url": "ext-component/tour",
           "name": "Tour",
           "icon": "circle",
-          "slug": "ext-component-tour"
+          "permission": 0,
+      "slug": "ext-component-tour"
         },
         {
           "url": "ext-component/clipboard",
           "name": "Clipboard",
           "icon": "circle",
-          "slug": "ext-component-clipboard"
+          "permission": 0,
+      "slug": "ext-component-clipboard"
         },
         {
           "url": "ext-component/plyr",
           "name": "Media Player",
           "icon": "circle",
-          "slug": "ext-component-plyr"
+          "permission": 0,
+      "slug": "ext-component-plyr"
         },
         {
           "url": "ext-component/context-menu",
           "name": "Context Menu",
           "icon": "circle",
-          "slug": "ext-component-context-menu"
+          "permission": 0,
+      "slug": "ext-component-context-menu"
         },
         {
           "url": "ext-component/swiper",
           "name": "Swiper",
           "icon": "circle",
-          "slug": "ext-component-swiper"
+          "permission": 0,
+      "slug": "ext-component-swiper"
         },
         {
           "url": "ext-component/tree",
           "name": "Tree",
           "icon": "circle",
-          "slug": "ext-component-tree"
+          "permission": 0,
+      "slug": "ext-component-tree"
         },
         {
           "url": "ext-component/ratings",
           "name": "Ratings",
           "icon": "circle",
-          "slug": "ext-component-ratings"
+          "permission": 0,
+      "slug": "ext-component-ratings"
         },
         {
           "url": "ext-component/locale",
           "name": "Locale",
           "icon": "circle",
-          "slug": "ext-component-locale"
+          "permission": 0,
+      "slug": "ext-component-locale"
         }
       ]
     },
     {
       "name": "Page Layouts",
       "icon": "layout",
+      "permission": 0,
       "slug": "",
       "submenu": [
         {
           "url": "page-layouts/collapsed-menu",
           "name": "Collapsed Menu",
           "icon": "circle",
-          "slug": "layout-collapsed-menu"
+          "permission": 0,
+      "slug": "layout-collapsed-menu"
         },
         {
           "url": "page-layouts/full",
           "name": "Layout Full",
           "icon": "circle",
-          "slug": "layout-full"
+          "permission": 0,
+      "slug": "layout-full"
         },
         {
           "url": "page-layouts/without-menu",
           "name": "Without Menu",
           "icon": "circle",
-          "slug": "layout-without-menu"
+          "permission": 0,
+      "slug": "layout-without-menu"
         },
         {
           "url": "page-layouts/empty",
           "name": "Layout Empty",
           "icon": "circle",
-          "slug": "layout-empty"
+          "permission": 0,
+      "slug": "layout-empty"
         },
         {
           "url": "page-layouts/blank",
           "name": "Layout Blank",
           "icon": "circle",
-          "slug": "layout-blank"
+          "permission": 0,
+      "slug": "layout-blank"
         }
       ]
     },
     {
       "navheader": "Forms & Tables",
+      "permission": 0,
       "slug": ""
     },
     {
       "name": "Form Elements",
       "icon": "copy",
+      "permission": 0,
       "slug": "",
       "submenu": [
         {
           "url": "form/input",
           "name": "Input",
           "icon": "circle",
-          "slug": "form-input"
+          "permission": 0,
+      "slug": "form-input"
         },
         {
           "url": "form/input-groups",
           "name": "Input Groups",
           "icon": "circle",
-          "slug": "form-input-groups"
+          "permission": 0,
+      "slug": "form-input-groups"
         },
         {
           "url": "form/input-mask",
           "name": "Input Mask",
           "icon": "circle",
-          "slug": "form-input-mask"
+          "permission": 0,
+      "slug": "form-input-mask"
         },
         {
           "url": "form/textarea",
           "name": "Textarea",
           "icon": "circle",
-          "slug": "form-textarea"
+          "permission": 0,
+      "slug": "form-textarea"
         },
         {
           "url": "form/checkbox",
           "name": "Checkbox",
           "icon": "circle",
-          "slug": "form-checkbox"
+          "permission": 0,
+      "slug": "form-checkbox"
         },
         {
           "url": "form/radio",
           "name": "Radio",
           "icon": "circle",
-          "slug": "form-radio"
+          "permission": 0,
+      "slug": "form-radio"
         },
         {
           "url": "form/custom-options",
           "name": "Custom Options",
           "icon": "circle",
-          "slug": "form-custom-options"
+          "permission": 0,
+      "slug": "form-custom-options"
         },
         {
           "url": "form/switch",
           "name": "Switch",
           "icon": "circle",
-          "slug": "form-switch"
+          "permission": 0,
+      "slug": "form-switch"
         },
         {
           "url": "form/select",
           "name": "Select",
           "icon": "circle",
-          "slug": "form-select"
+          "permission": 0,
+      "slug": "form-select"
         },
         {
           "url": "form/number-input",
           "name": "Number Input",
           "icon": "circle",
-          "slug": "form-number-input"
+          "permission": 0,
+      "slug": "form-number-input"
         },
         {
           "url": "form/file-uploader",
           "name": "File Uploader",
           "icon": "circle",
-          "slug": "form-file-uploader"
+          "permission": 0,
+      "slug": "form-file-uploader"
         },
         {
           "url": "form/quill-editor",
           "name": "Quill Editor",
           "icon": "circle",
-          "slug": "form-quill-editor"
+          "permission": 0,
+      "slug": "form-quill-editor"
         },
         {
           "url": "form/date-time-picker",
           "name": "Date & Time Picker",
           "icon": "circle",
-          "slug": "form-date-time-picker"
+          "permission": 0,
+      "slug": "form-date-time-picker"
         }
       ]
     },
@@ -967,59 +1125,69 @@
       "url": "form/layout",
       "name": "Form Layout",
       "icon": "box",
+      "permission": 0,
       "slug": "form-layout"
     },
     {
       "url": "form/wizard",
       "name": "Form Wizard",
       "icon": "package",
+      "permission": 0,
       "slug": "form-wizard"
     },
     {
       "url": "form/validation",
       "name": "Form Validation",
       "icon": "check-circle",
+      "permission": 0,
       "slug": "form-validation"
     },
     {
       "url": "form/repeater",
       "name": "Form Repeater",
       "icon": "rotate-cw",
+      "permission": 0,
       "slug": "form-repeater"
     },
     {
       "url": "table",
       "name": "Table",
       "icon": "server",
+      "permission": 0,
       "slug": "table"
     },
     {
       "name": "Datatable",
       "icon": "grid",
+      "permission": 0,
       "slug": "",
       "submenu": [
         {
           "url": "table/datatable/basic",
           "name": "Basic",
           "icon": "circle",
-          "slug": "datatable-basic"
+          "permission": 0,
+      "slug": "datatable-basic"
         },
         {
           "url": "table/datatable/advance",
           "name": "Advanced",
           "icon": "circle",
-          "slug": "datatable-advance"
+          "permission": 0,
+      "slug": "datatable-advance"
         }
       ]
     },
     {
       "navheader": "Charts & Maps",
+      "permission": 0,
       "slug": ""
     },
     {
       "name": "Charts",
       "icon": "pie-chart",
       "badge": "2",
+      "permission": 0,
       "slug": "",
       "badgeClass": "badge rounded-pill badge-light-danger ms-auto me-1",
       "submenu": [
@@ -1027,13 +1195,15 @@
           "url": "chart/apex",
           "name": "Apex",
           "icon": "circle",
-          "slug": "chart-apex"
+          "permission": 0,
+      "slug": "chart-apex"
         },
         {
           "url": "chart/chartjs",
           "name": "Chartjs",
           "icon": "circle",
-          "slug": "chart-chartjs"
+          "permission": 0,
+      "slug": "chart-chartjs"
         }
       ]
     },
@@ -1041,34 +1211,41 @@
       "url": "maps/leaflet",
       "name": "Leaflet Maps",
       "icon": "map",
+      "permission": 0,
       "slug": "map-leaflet"
     },
     {
       "navheader": "Misc",
+      "permission": 0,
       "slug": ""
     },
     {
       "name": "Menu Levels",
       "icon": "menu",
+      "permission": 0,
       "slug": "",
       "submenu": [
         {
           "name": "Second Level 2.1",
           "icon": "circle",
-          "slug": "menu-level"
+          "permission": 0,
+      "slug": "menu-level"
         },
         {
           "name": "Second Level 2.2",
           "icon": "circle",
-          "slug": "",
+          "permission": 0,
+      "slug": "",
           "submenu": [
             {
               "name": "Third Level 3.1",
-              "slug": "menu-level"
+              "permission": 0,
+      "slug": "menu-level"
             },
             {
               "name": "Third Level 3.2",
-              "slug": "menu-level"
+              "permission": 0,
+      "slug": "menu-level"
             }
           ]
         }
@@ -1078,12 +1255,14 @@
       "name": "Disabled Menu",
       "icon": "eye-off",
       "classlist": "disabled",
+      "permission": 0,
       "slug": "menu-disabled"
     },
     {
       "url": "https://Codebumble Inc..com/demo/vuexy-html-bootstrap-admin-template/documentation/documentation-laravel-folder-structure.html",
       "name": "Documentation",
       "icon": "folder",
+      "permission": 0,
       "slug": "documentation",
       "newTab": true
     },
@@ -1091,6 +1270,7 @@
       "url": "https://Codebumble Inc..ticksy.com/",
       "name": "Raise Support",
       "icon": "life-buoy",
+      "permission": 0,
       "slug": "raise-support",
       "newTab": true
     }
