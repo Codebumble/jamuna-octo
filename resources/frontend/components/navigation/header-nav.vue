@@ -1,5 +1,5 @@
 <template>
-	<header class="py-4 fixed text-white w-full z-10 transparent-shadow">
+	<header class="py-4 fixed text-white w-full z-10">
 		<div class="container">
 			<div class="block lg:flex items-center justify-between max-h-12">
 				<div
@@ -40,113 +40,290 @@
 							>
 						</li>
 						<li class="cb-nav-item has-child">
-							<a class="cb-nav-link">About </a>
+							<a
+								class="cb-nav-link"
+								href="#"
+								>About
+							</a>
 							<ul class="cb-mega">
-								<li class="mega-items hover:bg-indigo-50">
-									<a
-										href="https://codebumble.net/web-app"
-										class="mega-link">
-										<div class="flex items-center">
-											<div class="mr-3">
-												<i
-													class="fas fa-terminal opacity-80 text-xl text-indigo-600"></i>
-											</div>
-											<div>
-												<h1
-													class="text-base text-gray-800">
-													Web Development
-												</h1>
-											</div>
-										</div>
-										<p class="my-3">
-											Create Your Own Website with low
-											cost. Choose Your Website Type and
-											Stand Your Own.
-										</p>
-									</a>
+								<li class="mega-items has-inner">
+									something big that is
+									<ul class="items-inner">
+										<li>
+											<a href="">inner 1</a>
+										</li>
+										<li>
+											<a href="">inner 2</a>
+										</li>
+										<li>
+											<a href="">inner 3</a>
+										</li>
+										<li>
+											<a href="">inner 4</a>
+										</li>
+									</ul>
 								</li>
-
-								<li class="mega-items hover:bg-green-50">
-									<a
-										href="https://codebumble.net/video-production"
-										class="mega-link">
-										<div class="flex items-center">
-											<div class="mr-3">
-												<i
-													class="fas fa-video opacity-80 text-xl text-green-600"></i>
-											</div>
-											<div>
-												<h1
-													class="text-base text-gray-800">
-													Video Production
-												</h1>
-											</div>
-										</div>
-										<p class="my-3">
-											Make Your Own Promotional Video
-											(Animation/2D/3D). Enhance the
-											aesthetics of your company.
-										</p>
-									</a>
+								<li class="mega-items">
+									<a href="">item 2</a>
 								</li>
-
-								<li class="mega-items hover:bg-violet-50">
-									<a
-										href="https://codebumble.net/uiux-service"
-										class="mega-link">
-										<div class="flex items-center">
-											<div class="mr-3">
-												<i
-													class="fas fa-pencil-paintbrush opacity-80 text-xl text-violet-600"></i>
-											</div>
-											<div>
-												<h1
-													class="text-base text-gray-800">
-													UI/UX Design
-												</h1>
-											</div>
-										</div>
-										<p class="my-3">
-											Design a product that is convenient
-											to use, attractive, and effective.
-										</p>
-									</a>
+								<li class="mega-items has-inner">
+									<a href="">item 3</a>
+									<ul class="items-inner">
+										<li>
+											<a href="">inner 5</a>
+										</li>
+										<li>
+											<a href="">inner 6</a>
+										</li>
+										<li>
+											<a href="">inner 7</a>
+										</li>
+										<li>
+											<a href="">inner 8</a>
+										</li>
+									</ul>
 								</li>
-
-								<li class="mega-items hover:bg-blue-50">
-									<a
-										href="https://codebumble.net/seo-service"
-										class="mega-link">
-										<div class="flex items-center">
-											<div class="mr-3">
-												<i
-													class="fas fa-chart-line opacity-80 text-xl text-blue-600"></i>
-											</div>
-											<div>
-												<h1
-													class="text-base text-gray-800">
-													Search Engine Optimization
-												</h1>
-											</div>
-										</div>
-										<p class="my-3">
-											Proper SEO means a website's content
-											relevancy, link popularity, using
-											appropriate keywords, etc.
-										</p>
-									</a>
+								<li class="mega-items">
+									<a href="">item 4</a>
+								</li>
+								<li class="mega-items has-inner">
+									<span>item 5</span>
+									<ul class="items-inner">
+										<li>
+											<a href="">inner 9</a>
+										</li>
+										<li>
+											<a href="">inner 10</a>
+										</li>
+										<li>
+											<a href="">inner 11</a>
+										</li>
+										<li>
+											<a href="">inner 12</a>
+										</li>
+									</ul>
 								</li>
 							</ul>
 						</li>
 						<li class="cb-nav-item has-child">
 							<router-link
-								to="/founder"
+								to="/#"
 								class="cb-nav-link"
-								>Founder</router-link
+								>Jamuna Sector</router-link
 							>
+							<ul class="cb-mega">
+								<li class="mega-items has-inner">
+									Textile Division
+									<ul class="items-inner">
+										<li>
+											<router-link to="/hoorain-htf"
+												>Hoorain HTF</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/"
+												>Jamuna Denims Ltd(Garments
+												Unit)</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/hoor"
+												>Hoor</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/jeansco"
+												>Jeans&Co.</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/hooram"
+												>Hooram</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/"
+												>Jamuna Denims Ltd
+												(Weaving)</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/"
+												>Jamuna Denims Ltd (Open
+												End)</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/"
+												>Jamuna Spinning Mills
+												Ltd</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/"
+												>Shameem Spinning Mills
+												Ltd</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/"
+												>Shameem Rotor Spinning Mills
+												Ltd</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/"
+												>Shameem Composite Mills
+												Ltd</router-link
+											>
+										</li>
+									</ul>
+								</li>
+								<li class="mega-items has-inner">
+									Media & Advertisement
+									<ul class="items-inner">
+										<li>
+											<router-link to="/"
+												>The Daily Jugantor</router-link
+											>
+											<router-link to=""
+												>Jamuna Television</router-link
+											>
+										</li>
+									</ul>
+								</li>
+								<li class="mega-items has-inner">
+									Jamuna Builders Ltd
+									<ul class="items-inner">
+										<li>
+											<router-link to="/"
+												>JW Marriot</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/"
+												>Jamuna Residence</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/"
+												>Jamuna Future Park</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/"
+												>Jamuna City</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/"
+												>New Ultra Model
+												Town</router-link
+											>
+										</li>
+									</ul>
+								</li>
+								<li class="mega-items has-inner">
+									Marketplace
+									<ul class="items-inner">
+										<li>
+											<router-link to=""
+												>Wholesale Club Ltd</router-link
+											>
+										</li>
+									</ul>
+								</li>
+								<li class="mega-items has-inner">
+									Leathers
+									<ul class="items-inner">
+										<li>
+											<router-link to="/"
+												>Pegasus Leathers
+												Ltd</router-link
+											>
+											<router-link to="/"
+												>Pegasus Processing
+												Unit</router-link
+											>
+										</li>
+									</ul>
+								</li>
+								<li class="mega-items has-inner">
+									Chemicals
+									<ul class="items-inner">
+										<li>
+											<router-link to="/"
+												>Jamuna Hand
+												Sanitizer</router-link
+											>
+											<router-link to="/"
+												>Jamuna Distilery
+												Ltd</router-link
+											>
+										</li>
+									</ul>
+								</li>
+								<li class="mega-items has-inner">
+									Electronics
+									<ul class="items-inner">
+										<li>
+											<router-link to="/"
+												>Jamuna Electronics</router-link
+											>
+										</li>
+									</ul>
+								</li>
+								<li class="mega-items has-inner">
+									Engineering
+									<ul class="items-inner">
+										<li>
+											<router-link to="/"
+												>Jamuna Welding
+												Electrode</router-link
+											>
+										</li>
+									</ul>
+								</li>
+								<li class="mega-items has-inner">
+									Beverage
+									<ul class="items-inner">
+										<li>
+											<router-link to="/"
+												>Crown Beverage</router-link
+											>
+										</li>
+									</ul>
+								</li>
+							</ul>
 						</li>
 						<li class="cb-nav-item has-child">
-							<a class="cb-nav-link">Management</a>
+							<router-link
+								class="cb-nav-link"
+								to="#"
+								>Management</router-link
+							>
+							<ul class="cb-mega">
+								<li class="mega-items has-inner">
+									<router-link to="/"
+										>Growth Story</router-link
+									>
+								</li>
+								<li class="mega-items has-inner">
+									<router-link to="/"
+										>Mission & Vision</router-link
+									>
+								</li>
+								<li class="mega-items has-inner">
+									<router-link to="/"
+										>Quality Process</router-link
+									>
+								</li>
+								<li class="mega-items has-inner">
+									<router-link to="/"
+										>Future Expansion</router-link
+									>
+								</li>
+							</ul>
 						</li>
 						<li class="cb-nav-item">
 							<router-link
@@ -180,6 +357,44 @@
 						</li>
 					</ul>
 					<!-- navigation items -->
+					<div class="nav-footer">
+						<div class="social">
+							<ul>
+								<li>
+									<a
+										href="https://instagram.com"
+										target="_blank"
+										><i class="fab fa-instagram-square"></i
+									></a>
+								</li>
+								<li>
+									<a
+										href="https://facebook.com"
+										target="_blank"
+										><i class="fab fa-facebook"></i
+									></a>
+								</li>
+								<li>
+									<a
+										href="https://twitter.com"
+										target="_blank"
+										><i class="fab fa-twitter"></i
+									></a>
+								</li>
+								<li>
+									<a href=""><i class="fab fa-google"></i></a>
+								</li>
+								<li>
+									<a href=""
+										><i class="fab fa-google-play"></i
+									></a>
+								</li>
+							</ul>
+						</div>
+						<div class="copyright-text">
+							<span>&copy; 2022 Codebumble Inc</span>
+						</div>
+					</div>
 				</nav>
 				<!-- .cb-nav closed -->
 			</div>
@@ -206,18 +421,46 @@
 			};
 		},
 		mounted() {
+			const header = document.querySelector('header');
+			const navLink = document.querySelector('#vl-nav > ul');
+
+			window.onscroll = function () {
+				// 'use strict';
+				if (
+					document.body.scrollTop >= 280 ||
+					document.documentElement.scrollTop >= 280
+				) {
+					header.classList.add('transparent-shadow');
+					navLink.classList.add('scroll');
+				} else {
+					header.classList.remove('transparent-shadow');
+					navLink.classList.remove('scroll');
+				}
+			};
 			// Mobile Menu
 			function $(selector) {
 				return document.querySelector(selector);
 			}
 			//  Elements
-			var getIcon = $('#menu-icon');
-			var getCbNav = $('#vl-nav');
+			const getIcon = $('#menu-icon');
+			const getCbNav = $('#vl-nav');
 
 			getIcon.addEventListener('click', () => {
 				getIcon.classList.toggle('is-active');
 				getCbNav.classList.toggle('active');
+				if (getCbNav.classList.contains('active'))
+					document.body.style.overflow = 'hidden';
+				else document.body.style.overflow = 'scroll';
 			});
+
+			const x = window.matchMedia('(max-width: 1023px)');
+			// Detect Screen
+			function detectScreen(x) {
+				return x.matches ? 'mobile' : 'desktop';
+			}
+
+			detectScreen(x); // Call listener function at run time
+			x.addListener(detectScreen); // Attach listener function on state changes
 
 			// Mega Menu
 			const Menus = function (menu) {
@@ -232,15 +475,22 @@
 					document.addEventListener('click', closeOpenMenu);
 				};
 				function toggleOnMenuClick(e) {
+					let x = e.target.parentNode.childNodes[1].childNodes;
+					Array.from(x)
+						.filter((_, index) => index % 2 !== 0)
+						.forEach((el) => {
+							el.classList.remove('active');
+						});
 					const a = e.currentTarget;
 					if (currentMenuItem && a !== currentMenuItem) {
-						toggleSubmenu(currentMenuItem);
+						toggleSubmenu(currentMenuItem, detectScreen(x));
 					}
 
-					toggleSubmenu(a);
+					toggleSubmenu(a, detectScreen(x));
 				}
 
 				function toggleSubmenu(a) {
+					if (detectScreen(x) === 'desktop') return;
 					const submenu = document.getElementById(
 						a.getAttribute('aria-controls')
 					);
@@ -278,11 +528,11 @@
 							null !== e.target.closest('ul[aria-hidden="false"]')
 						) {
 							currentMenuItem.focus();
-							toggleSubmenu(currentMenuItem);
+							toggleSubmenu(currentMenuItem, detectScreen(x));
 						} else if (
 							'true' === e.target.getAttribute('aria-expanded')
 						) {
-							toggleSubmenu(currentMenuItem);
+							toggleSubmenu(currentMenuItem, detectScreen(x));
 						}
 					}
 				}
@@ -292,7 +542,7 @@
 						currentMenuItem &&
 						!e.target.closest('#' + container.id)
 					) {
-						toggleSubmenu(currentMenuItem);
+						toggleSubmenu(currentMenuItem, detectScreen(x));
 					}
 				}
 				function menuSetup() {
@@ -354,18 +604,22 @@
 				}
 			};
 
-			let width = screen.width;
+			document.addEventListener('DOMContentLoaded', function () {
+				const menus = document.querySelectorAll('#menu');
 
-			if (width <= 1023) {
-				document.addEventListener('DOMContentLoaded', function () {
-					const menus = document.querySelectorAll('#menu');
-
-					menus.forEach((menu) => {
-						let clickyMenu = new Menus(menu);
-						clickyMenu.init();
-					});
+				menus.forEach((menu) => {
+					let clickyMenu = new Menus(menu);
+					clickyMenu.init();
 				});
-			}
+			});
+
+			document.querySelectorAll('.has-inner').forEach((child) => {
+				child.addEventListener('click', (e) => {
+					if (!e.target.classList.contains('mega-items')) return;
+					if (detectScreen(x) === 'desktop') return;
+					child.classList.toggle('active');
+				});
+			});
 		},
 	};
 </script>

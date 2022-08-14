@@ -27,4 +27,10 @@ const router = createRouter({
 	routes,
 });
 
+router.beforeEach((to, from, next) => {
+	document.querySelector("nav").classList.remove("active");
+	document.querySelector("button.hamburger").classList.remove("is-active");
+	next();
+});
+
 export default router;
