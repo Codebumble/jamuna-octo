@@ -35,7 +35,7 @@ use App\Http\Controllers\FrontendController;
 */
 
 // Main Page Route
-Route::get('{any}', [FrontendController::class, 'home'])->where('any', '/|founder|board-of-directors|company-profile|news-center|hoorain-htf|hoor|hooram|jeansco|');
+Route::get('{any}', [FrontendController::class, 'home'])->where('any', '/|founder|board-of-directors|company-profile|news-center|hoorain-htf|hoor|hooram|');
 
 
 /* Route Dashboards */
