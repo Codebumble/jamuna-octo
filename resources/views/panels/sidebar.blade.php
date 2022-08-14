@@ -90,11 +90,24 @@ $configData = Helper::applClasses();
       {{-- Foreach menu item starts --}}
       @if(isset($menuData[0]))
       @foreach($menuData[0]->menu as $menu)
+      @php
+      $power_build = [
+            'super-admin' => '0',
+            'admin' => '1',
+            'manager' => '2',
+            'employee' => '3',
+            'sub-employee' => '4',
+
+          ];
+      @endphp
       @if(isset($menu->navheader))
+
+          @if($power_build[Auth::user()->role] <= $menu->permission)
       <li class="navigation-header">
         <span>{{ __(''.$menu->navheader) }}</span>
         <i data-feather="more-horizontal"></i>
       </li>
+      @endif
       @else
       {{-- Add Custom Class with nav-item --}}
       @php
@@ -103,6 +116,7 @@ $configData = Helper::applClasses();
       $custom_classes = $menu->classlist;
       }
       @endphp
+      @if($power_build[Auth::user()->role] <= $menu->permission)
       <li class="nav-item {{ $custom_classes }} {{Route::currentRouteName() === $menu->slug ? 'active' : ''}}">
         <a href="{{isset($menu->url)? url($menu->url):'javascript:void(0)'}}" class="d-flex align-items-center" target="{{isset($menu->newTab) ? '_blank':'_self'}}">
           <i data-feather="{{ $menu->icon }}"></i>
@@ -116,6 +130,7 @@ $configData = Helper::applClasses();
         @include('panels/submenu', ['menu' => $menu->submenu])
         @endif
       </li>
+      @endif
       @endif
       @endforeach
       @endif
