@@ -35,6 +35,11 @@ const routes = [
 		name: "hoor",
 		component: () => import("../views/hoor.vue"),
 	},
+	{
+		path: "/hooram",
+		name: "hooram",
+		component: () => import("../views/hooram.vue"),
+	},
 ];
 
 const router = createRouter({
