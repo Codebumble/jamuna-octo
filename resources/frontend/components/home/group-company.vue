@@ -21,7 +21,7 @@
 						<img
 							:src="slide.imgSrc"
 							:alt="slide.alt"
-							class="w-full rounded-xl" />
+							class="w-full rounded-xl max-h-[327.5px] object-contain" />
 
 						<span class="itemName">{{ slide.title }}</span>
 						<a
@@ -38,6 +38,30 @@
 
 <style lang="scss">
 	@import '../../assets/scss/variables/_group-company';
+	@import '@splidejs/vue-splide/css';
+
+	.splide__pagination__page {
+		background: #fff;
+		border: 0;
+		border-radius: 50%;
+		display: inline-block;
+		height: 6px;
+		margin: 5px;
+		opacity: 1;
+		padding: 0;
+		position: relative;
+		// /transition: transform 0.2s linear;
+		width: 6px;
+	}
+
+	.splide__pagination__page.is-active {
+		//transform: scale(1.4);
+		z-index: 20;
+		width: 12px;
+		height: 6px;
+		border-radius: 50px;
+		@apply bg-rose-600 #{!important};
+	}
 </style>
 
 <script>
@@ -45,83 +69,29 @@
 	export default {
 		data() {
 			return {
-				groupTitle: {
-					title: 'Our Group Companies',
-					description:
-						'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit dolorem, nemo maiores debitis quod distinctio repellendus. Dolore ipsam veritatis voluptas.',
-					descVisibility: true,
-				},
-				slideContent: [
-					{
-						imgSrc: '/frontend/images/contents/banner.jpg',
-						alt: 'img alt',
-						title: 'Jamuna Future Park',
-						webLink: '#',
-						linkText: 'Visit Website',
-					},
-					{
-						imgSrc: '/frontend/images/contents/banner.jpg',
-						alt: 'img alt',
-						title: 'Jamuna Future Park',
-						webLink: '#',
-						linkText: 'Visit Website',
-					},
-					{
-						imgSrc: '/frontend/images/contents/banner.jpg',
-						alt: 'img alt',
-						title: 'Jamuna Future Park',
-						webLink: '#',
-						linkText: 'Visit Website',
-					},
-					{
-						imgSrc: '/frontend/images/contents/banner.jpg',
-						alt: 'img alt',
-						title: 'Jamuna Future Park',
-						webLink: '#',
-						linkText: 'Visit Website',
-					},
-					{
-						imgSrc: '/frontend/images/contents/banner.jpg',
-						alt: 'img alt',
-						title: 'Jamuna Future Park',
-						webLink: '#',
-						linkText: 'Visit Website',
-					},
-					{
-						imgSrc: '/frontend/images/contents/banner.jpg',
-						alt: 'img alt',
-						title: 'Jamuna Future Park',
-						webLink: '#',
-						linkText: 'Visit Website',
-					},
-					{
-						imgSrc: '/frontend/images/contents/banner.jpg',
-						alt: 'img alt',
-						title: 'Jamuna Future Park',
-						webLink: '#',
-						linkText: 'Visit Website',
-					},
-					{
-						imgSrc: '/frontend/images/contents/banner.jpg',
-						alt: 'img alt',
-						title: 'Jamuna Future Park',
-						webLink: '#',
-						linkText: 'Visit Website',
-					},
-				],
+				groupTitle: {},
+				slideContent: [],
 			};
 		},
 		components: {
 			Splide,
 			SplideSlide,
 		},
+		mounted() {
+			axios
+				.get(window.location.origin + '/frontpage-api/all-company-view')
+				.then((response) => {
+					this.slideContent = response.data.images;
+					this.groupTitle = response.data.galary_data;
+				});
+		},
 		setup() {
 			const groupsoptions = {
-				rewind: false,
+				rewind: true,
+				rewindByDrag: true,
 				arrows: true,
 				autoplay: true,
 				perPage: 2,
-				type: 'loop',
 				perMove: 1,
 				drag: true,
 				pauseOnHover: true,

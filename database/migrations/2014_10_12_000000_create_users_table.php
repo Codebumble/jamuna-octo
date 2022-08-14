@@ -34,7 +34,7 @@ return new class extends Migration
 
         DB::table('users')->insert(
             array(
-                'Name' => 'Shakil Ahmed',
+                'name' => 'Shakil Ahmed',
                 'username' => 'codebumble',
                 'email' => 'codebumble@gmail.com',
                 'email_verified_at' => time(),

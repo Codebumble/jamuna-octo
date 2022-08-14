@@ -1,17 +1,6 @@
 <template>
 	<breadcrumb :data="breadcrumb" />
 	<section class="founder">
-		<div class="bg-slate-50 py-8">
-			<div class="container">
-				<div class="about-founder">
-					<h2>{{ FounderDetails.title }}</h2>
-					<p>
-						{{ FounderDetails.description }}
-					</p>
-				</div>
-			</div>
-		</div>
-
 		<div class="quote container">
 			<div
 				class="flex flex-col xl:flex-row justify-center items-center py-4">
@@ -33,6 +22,19 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="bg-slate-50 py-8">
+			<div class="container">
+				<div class="about-founder">
+					<h2>{{ FounderDetails.title }}</h2>
+					<p>
+						{{ FounderDetails.description }}
+					</p>
+				</div>
+			</div>
+		</div>
+
+
 	</section>
 </template>
 
@@ -59,26 +61,19 @@
 	export default {
 		data() {
 			return {
-				breadcrumb: {
-					image: 'https://codebumble.net/assets/images/contents/hero.jpg',
-					alt: 'alt',
-					pageTitle: 'Founder',
-					pageDesc:
-						'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum animi aliquam voluptates harum aspernatur eveniet velit doloribus aliquid adipisci suscipit?',
-				},
-				FounderDetails: {
-					title: 'About Nurul Islam Bablu',
-					description:
-						'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi error placeat, iure sapiente nostrum quia temporibus in molestiae dicta voluptates modi exercitationem corrupti totam quidem quo. Hic vel veritatis quisquam perspiciatis dolor, earum dolorum quasi. Doloribus sunt inventore debitis maiores. Quas, veniam. Minus nobis, earum recusandae consectetur non dicta voluptas totam in eveniet neque assumenda iusto dolorem minima repellendus. Sunt.',
-				},
-				quote: {
-					imgSrc: '/frontend/images/contents/Nurul_Islam_Babul.jpg',
-					alt: 'alt',
-					quote: 'A dreamer who chiseled his dreams into reality. Like a helion you lit up our world.',
-					cite: 'Nurul Islam Bablu (3 May 1946 - 13 July 2020)',
-					status: '@Founder of Jamuna Group',
-				},
+				breadcrumb: {},
+				FounderDetails: {},
+				quote: {},
 			};
+		},
+		mounted() {
+			axios
+				.get(window.location.origin + '/founder-api/founder-speech')
+				.then((response) => {
+					this.breadcrumb = response.data.breadcrumb;
+					this.FounderDetails = response.data.FounderDetails;
+					this.quote = response.data.quote;
+				});
 		},
 		components: {
 			breadcrumb,

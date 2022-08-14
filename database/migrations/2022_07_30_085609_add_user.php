@@ -16,11 +16,11 @@ return new class extends Migration
      * @return void
      */
     public function up()
-    {   
-        
+    {
+
         DB::table('users')->insert(
             array(
-                'Name' => Str::random(10),
+                'name' => Str::random(10),
                 'username' => Str::random(10),
                 'email' => Str::random(10).'@gmail.com',
                 'email_verified_at' => time(),

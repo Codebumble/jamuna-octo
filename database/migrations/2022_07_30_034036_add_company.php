@@ -18,9 +18,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('section');
-            $table->text('description');
+            $table->longText('description');
             $table->string('establish_date')->nullable();
-            $table->text('json_data');
+            $table->longText('json_data');
             $table->string('image')->nullable();
             $table->string('updated_at')->nullable();
             $table->string('created_at')->nullable();

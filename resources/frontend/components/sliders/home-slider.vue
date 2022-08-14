@@ -3,11 +3,19 @@
 		id="cb-bg-video"
 		class="overflow-hidden cb-hero relative">
 		<div class="">
-			<Splide
-				:options="options"
-				aria-label="Hero Slider"
+			<swiper
+				:modules="modules"
+				:slides-per-view="1"
+				:grab-cursor="true"
+				:loop="true"
+				:autoplay="{
+					disableOnInteraction: false,
+					pauseOnMouseEnter: true,
+				}"
+				:hash-navigation="true"
+				:pagination="{ clickable: true }"
 				class="">
-				<SplideSlide
+				<swiper-slide
 					v-for="slide in sliderContents"
 					class="flex justify-start items-center">
 					<div :class="slide.overlay ? 'image' : 'w-full'">
@@ -41,17 +49,19 @@
 							</a>
 						</div>
 					</div>
-				</SplideSlide>
-			</Splide>
+				</swiper-slide>
+			</swiper>
 		</div>
 	</section>
 </template>
 
 <style lang="scss">
-	@import '@splidejs/vue-splide/css';
+	@import 'swiper/scss';
+	@import 'swiper/scss/pagination';
+	@import 'swiper/scss/autoplay';
 	@import '../../assets/scss/variables/_hero.scss';
 
-	.splide__pagination__page {
+	.swiper-pagination-bullet {
 		background: #fff;
 		border: 0;
 		border-radius: 50%;
@@ -65,7 +75,7 @@
 		width: 6px;
 	}
 
-	.splide__pagination__page.is-active {
+	.swiper-pagination-bullet.swiper-pagination-bullet-active {
 		//transform: scale(1.4);
 		z-index: 20;
 		width: 12px;
@@ -74,78 +84,36 @@
 		@apply bg-rose-600 #{!important};
 	}
 
-	.splide__pagination li {
-		@apply flex items-center #{!important};
-	}
+	// .splide__pagination li {
+	// 	@apply flex items-center #{!important};
+	// }
 </style>
 
 <script>
-	import { Splide, SplideSlide } from '@splidejs/vue-splide';
+	// import { Splide, SplideSlide } from '@splidejs/vue-splide';
+	import { Swiper, SwiperSlide } from 'swiper/vue';
+	import { Pagination, Autoplay } from 'swiper';
 	export default {
 		data() {
 			return {
-				sliderContents: [
-					{
-						src: '/frontend/images/slider/2.jpg',
-						alt: 'logo',
-						heading: 'demo text',
-						description: 'something',
-						buttonText: 'button',
-						button: true,
-						buttonAlt: false,
-						link: 'google.com',
-						showDescription: true,
-						showButton: true,
-						overlay: true,
-					},
-					{
-						src: '/frontend/images/slider/3.jpg',
-						alt: 'logo',
-						heading: 'overlay, button, description disabled here',
-						description: 'something',
-						buttonText: 'button',
-						button: false,
-						buttonAlt: true,
-						link: 'google.com',
-						showDescription: false,
-						showButton: false,
-						overlay: false,
-					},
-					{
-						src: '/frontend/images/slider/4.jpg',
-						alt: 'logo',
-						heading: 'demo text',
-						description: 'something',
-						buttonText: 'button',
-						button: false,
-						buttonAlt: true,
-						link: 'google.com',
-						showDescription: true,
-						showButton: true,
-						overlay: true,
-					},
-				],
+				sliderContents: [],
 			};
 		},
 		components: {
-			Splide,
-			SplideSlide,
+			Swiper,
+			SwiperSlide,
+		},
+		mounted() {
+			axios
+				.get(window.location.origin + '/frontpage-api/slider')
+				.then((response) => {
+					this.sliderContents = response.data;
+				});
 		},
 		setup() {
-			const options = {
-				rewind: false,
-				arrows: false,
-				autoplay: false,
-				perPage: 1,
-				type: 'loop',
-				perMove: 1,
-				drag: true,
-				pauseOnHover: true,
-				cloneStatus: false,
-				autoHeight: true,
+			return {
+				modules: [Pagination, Autoplay],
 			};
-
-			return { options };
 		},
 	};
 </script>

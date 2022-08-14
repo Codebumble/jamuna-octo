@@ -9,6 +9,8 @@ use App\Http\Controllers\CardsController;
 use App\Http\Controllers\ComponentsController;
 use App\Http\Controllers\Company_rest;
 use App\Http\Controllers\ExtensionController;
+use App\Http\Controllers\FrontPage;
+use App\Http\Controllers\FounderApi;
 use App\Http\Controllers\PageLayoutController;
 use App\Http\Controllers\FormsController;
 use App\Http\Controllers\TableController;
@@ -46,6 +48,10 @@ Route::group(['prefix' => 'codebumble'], function () {
     Route::post('/login', [AuthController::class, 'login'])->name('auth-login-api');
     Route::post('/forgot-password', [AuthController::class, 'forgot_password_api'])->name('auth-forget-password-api');
 
+    Route::post('/user-suspend/{username}', [AuthController::class, 'user_suspend'])->name('user_suspend');
+
+    Route::post('/user-active-by-auth/{username}', [AuthController::class, 'user_active_by_auth'])->name('user_active_by_auth');
+
 
 
     Route::group(['middleware' => 'auth:sanctum'], function(){
@@ -58,6 +64,23 @@ Route::group(['prefix' => 'codebumble'], function () {
     });
 });
 /* Route Dashboards */
+Route::group(['prefix' => 'frontpage-api', ], function () {
+    Route::get('slider', [FrontPage::class, 'slider_view']);
+    Route::get('chairpersson-speech', [FrontPage::class, 'chairpersson_speech']);
+    Route::get('all-company-view', [FrontPage::class, 'all_company_view']);
+    Route::get('footer-component', [FrontPage::class, 'footer_component']);
+    Route::get('shortBrief', [FrontPage::class, 'shortBrief']);
+
+
+
+});
+
+Route::group(['prefix' => 'founder-api', ], function () {
+    Route::get('founder-speech', [FounderApi::class, 'founder_speech_breadcrumb']);
+
+
+});
+
 Route::group(['prefix' => 'admin', ], function () {
 
     Route::group(['middleware' => 'auth:sanctum'], function(){
