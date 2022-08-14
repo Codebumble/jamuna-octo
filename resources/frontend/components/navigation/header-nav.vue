@@ -186,6 +186,8 @@
 											<router-link to="/"
 												>The Daily Jugantor</router-link
 											>
+										</li>
+										<li>
 											<router-link to=""
 												>Jamuna Television</router-link
 											>
@@ -241,6 +243,8 @@
 												>Pegasus Leathers
 												Ltd</router-link
 											>
+										</li>
+										<li>
 											<router-link to="/"
 												>Pegasus Processing
 												Unit</router-link
@@ -256,6 +260,8 @@
 												>Jamuna Hand
 												Sanitizer</router-link
 											>
+										</li>
+										<li>
 											<router-link to="/"
 												>Jamuna Distilery
 												Ltd</router-link
@@ -617,7 +623,9 @@
 				child.addEventListener('click', (e) => {
 					if (!e.target.classList.contains('mega-items')) return;
 					if (detectScreen(x) === 'desktop') return;
+
 					child.classList.toggle('active');
+					console.log(child);
 				});
 			});
 		},

@@ -99,7 +99,7 @@
 							}
 						}
 						&.active {
-							@apply absolute top-0 left-0 w-full bg-red-600 text-white;
+							@apply absolute top-0 left-0 w-full bg-red-600 text-white z-50;
 							.items-inner {
 								@apply block;
 							}
