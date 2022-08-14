@@ -8,7 +8,10 @@
 						<img
 							:src="data.businessLogo"
 							:alt="data.alt"
-							class="w-full max-w-[338px] max-h-[156px] object-cover" />
+							class="w-full max-w-[338px] max-h-[156px]"
+							:class="
+								data.objectfit ? 'object-cover' : 'object-none'
+							" />
 					</div>
 					<div
 						class="border border-slate-100 p-8 w-full shadow-lg rounded-md overflow-hidden businessInfo">
@@ -111,9 +114,8 @@
 					</h2>
 					<p
 						v-if="data.textSummary"
-						v-for="summary in data.textDetails">
-						{{ summary.details }}
-					</p>
+						v-for="summary in data.textDetails"
+						v-html="summary.details"></p>
 				</div>
 			</div>
 		</div>

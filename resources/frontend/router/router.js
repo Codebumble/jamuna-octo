@@ -30,6 +30,11 @@ const routes = [
 		name: "hoorain",
 		component: () => import("../views/hoorain.vue"),
 	},
+	{
+		path: "/hoor",
+		name: "hoor",
+		component: () => import("../views/hoor.vue"),
+	},
 ];
 
 const router = createRouter({
