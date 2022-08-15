@@ -262,22 +262,22 @@
 							>
 							<ul class="cb-mega">
 								<li class="mega-items">
-									<router-link to="/growth-story"
+									<router-link to="/growth-history"
 										>Growth Story</router-link
 									>
 								</li>
 								<li class="mega-items">
-									<router-link to="/"
+									<router-link to="/mission-vision"
 										>Mission & Vision</router-link
 									>
 								</li>
 								<li class="mega-items">
-									<router-link to="/"
+									<router-link to="/quality-process"
 										>Quality Process</router-link
 									>
 								</li>
 								<li class="mega-items">
-									<router-link to="/"
+									<router-link to="/future-expansion"
 										>Future Expansion</router-link
 									>
 								</li>
@@ -585,7 +585,6 @@
 					if (detectScreen(x) === 'desktop') return;
 
 					child.classList.toggle('active');
-					console.log(child);
 				});
 			});
 		},

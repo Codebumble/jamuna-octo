@@ -1,0 +1,23 @@
+.future-expansion {
+	.card {
+		@apply flex justify-center items-center bg-white dark:bg-darkviolet hover:bg-red-600 rounded-xl overflow-hidden p-7 shadow-lg hover:shadow-xl transition-all transform translate-y-0 duration-700 hover:-translate-y-1 hover:text-white cursor-pointer;
+
+		.card-about {
+			@apply mx-3;
+
+			h2 {
+				@apply text-2xl font-bold py-2 dark:text-gray-300;
+			}
+
+			p {
+				@apply dark:text-gray-400;
+			}
+		}
+	}
+	.road-map-description{
+		@apply mt-4;
+		p{
+			@apply mb-4;
+		}
+	}
+}
