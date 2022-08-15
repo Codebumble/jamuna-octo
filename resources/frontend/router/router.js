@@ -75,6 +75,11 @@ const routes = [
 		name: "future-expansion",
 		component: () => import("../views/future-expansion.vue"),
 	},
+	{
+		path: "/contact",
+		name: "contact",
+		component: () => import("../views/contact.vue"),
+	},
 ];
 
 const router = createRouter({

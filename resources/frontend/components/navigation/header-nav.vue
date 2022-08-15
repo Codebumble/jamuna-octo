@@ -359,7 +359,7 @@
 						],
 					},
 					{
-						route: '',
+						route: '/photo-gallery',
 						label: 'Photo Gallery',
 					},
 					{
@@ -367,7 +367,7 @@
 						label: 'Career',
 					},
 					{
-						route: '',
+						route: '/contact',
 						label: 'Contact',
 					},
 				],
