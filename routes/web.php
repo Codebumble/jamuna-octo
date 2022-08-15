@@ -51,6 +51,7 @@ Route::group(['prefix' => 'codebumble'], function () {
 
     Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::post('site-settings-general-api', [siteGeneral::class, 'site_settings_general_api'])->name('site-settings-general-api');
+        Route::post('site-settings/founder-page-api', [FounderApi::class, 'founder_update_api'])->name('founder-update-api');
         Route::post('add-section', [Company_rest::class, 'add_section'])->name('add-section-api');
         Route::post('add-company', [Company_rest::class, 'add_company'])->name('add-company-api');
         Route::get('all-company-api', [Company_rest::class, 'view_all_company_api'])->name('all-company-api');
