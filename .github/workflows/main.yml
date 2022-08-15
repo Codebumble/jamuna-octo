@@ -3,7 +3,7 @@ name: Deploy Application
 on:
     push:
         branches:
-            - backend-boi
+            - backend-boy
 
 jobs:
     create-deployment-environment:
