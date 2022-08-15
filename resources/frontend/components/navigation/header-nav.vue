@@ -31,12 +31,11 @@
 					id="vl-nav">
 					<ul
 						class="block lg:flex"
-						id="menu">
+						id="menu" :class="$route.name == 'home' ? 'nav-home' : ''">
 						<li class="cb-nav-item">
 							<router-link
 								to="/"
 								class="cb-nav-link"
-								:class="$route.name == 'home' ? '' : ''"
 								>Home</router-link
 							>
 						</li>

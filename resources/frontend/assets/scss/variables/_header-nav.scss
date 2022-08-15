@@ -32,6 +32,13 @@
 #vl-nav {
 	> ul {
 		@apply overflow-y-scroll lg:h-fit h-72;
+		&.nav-home{
+			.cb-nav-item {
+				.cb-nav-link {
+					@apply lg:text-white;
+				}
+			}
+		}
 		&.scroll {
 			.cb-nav-item {
 				.cb-nav-link {
