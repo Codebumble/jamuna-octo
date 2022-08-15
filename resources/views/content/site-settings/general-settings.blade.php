@@ -30,7 +30,7 @@
 
 		@if (isset($_GET['exist']))
             <div class="demo-spacing-0 mb-2">
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-warning" role="alert">
                 <div class="alert-body"><strong>{{ $_GET['exist'] }}</strong></div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
 		</div>
 
 
-          <form class="needs-validation" novalidate action="" enctype="multipart/form-data" method="POST">
+          <form class="needs-validation" novalidate action="{{route('site-settings-general-api')}}" enctype="multipart/form-data" method="POST">
 		  @csrf
 				<div class="row">
 						<div class="mb-1 col-12 col-md-6">
@@ -62,7 +62,7 @@
 
 
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="support_email">Logo (500 x 300)</label>
+						<label class="form-label" for="support_email">Logo (500 x 300) (.png .svg)</label>
 						<input
 							type="file"
 							id="logo"
@@ -88,7 +88,7 @@
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="name">Site Email </label>
+						<label class="form-label" for="name">Site Email</label>
 
 						<input
 							type="text"
@@ -124,25 +124,25 @@
           				</div>
 
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="longitute">Facebook</label>
-						<input type="text" class="form-control" value="{{$social_media->facebook}}" name="longitute" id="longitute"/>
+						<label class="form-label" for="facebook">Facebook</label>
+						<input type="text" class="form-control" value="{{$social_media->facebook}}" name="facebook" id="facebook"/>
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="latitude">Instagram</label>
-						<input type="text" class="form-control" value="{{$social_media->instagram}}" name="latitude" id="latitude"/>
+						<label class="form-label" for="instagram">Instagram</label>
+						<input type="text" class="form-control" value="{{$social_media->instagram}}" name="instagram" id="instagram"/>
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="website">Linkedin</label>
-						<input type="text" class="form-control" value="{{$social_media->linkedin}}" name="website" id="website" required/>
+						<label class="form-label" for="linkedin">Linkedin</label>
+						<input type="text" class="form-control" value="{{$social_media->linkedin}}" name="linkedin" id="linkedin" required/>
 						</div>
 
 
 
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="instagram">Youtube</label>
-						<input type="text" class="form-control" name="instagram" value="{{$social_media->youtube}}" id="instagram"/>
+						<label class="form-label" for="youtube">Youtube</label>
+						<input type="text" class="form-control" name="youtube" value="{{$social_media->youtube}}" id="youtube"/>
 						</div>
 
 
