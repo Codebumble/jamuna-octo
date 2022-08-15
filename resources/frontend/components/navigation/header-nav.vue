@@ -416,11 +416,22 @@
 				};
 				function toggleOnMenuClick(e) {
 					let x = e.target.parentNode.childNodes[1].childNodes;
-					Array.from(x)
-						.filter((_, index) => index % 2 !== 0)
-						.forEach((el) => {
-							el.classList.remove('active');
-						});
+					// Array.from(x).map((li, i) => {
+					// 	if (li.classList('mega-items')) {
+					// 		console.log(li);
+					// 	}
+					// });
+					// console.log(z);
+					// console.log(x);
+					// Array.from(x)
+					// 	.filter((_, index) => index % 2 !== 0)
+					// 	.forEach((el) => {
+					// 		try {
+					// 			el.classList.remove('active');
+					// 		} catch {
+					// 			console.log(el);
+					// 		}
+					// 	});
 					const a = e.currentTarget;
 					if (currentMenuItem && a !== currentMenuItem) {
 						toggleSubmenu(currentMenuItem, detectScreen(x));

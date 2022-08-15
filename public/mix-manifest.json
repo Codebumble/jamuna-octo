@@ -1474,7 +1474,5 @@
     "/data/projects-list.json": "/data/projects-list.json",
     "/data/search.json": "/data/search.json",
     "/data/table-datatable.json": "/data/table-datatable.json",
-    "/data/user-list.json": "/data/user-list.json",
-    "/images/logo/1660552450-company-short-logo.png": "/images/logo/1660552450-company-short-logo.png",
-    "/images/logo/1660553133-company-short-logo.png": "/images/logo/1660553133-company-short-logo.png"
+    "/data/user-list.json": "/data/user-list.json"
 }
