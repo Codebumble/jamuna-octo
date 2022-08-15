@@ -80,7 +80,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
 	document.querySelector("nav").classList.remove("active");
 	document.querySelector("button.hamburger").classList.remove("is-active");
-	document.body.style.overflow = "scroll";
+	document.body.style.overflowY = "scroll";
 	next();
 });
 

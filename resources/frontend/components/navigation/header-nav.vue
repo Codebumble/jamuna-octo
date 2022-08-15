@@ -389,8 +389,8 @@
 				getIcon.classList.toggle('is-active');
 				getCbNav.classList.toggle('active');
 				if (getCbNav.classList.contains('active'))
-					document.body.style.overflow = 'hidden';
-				else document.body.style.overflow = 'scroll';
+					document.body.style.overflowY = 'hidden';
+				else document.body.style.overflowY = 'scroll';
 			});
 
 			const x = window.matchMedia('(max-width: 1023px)');
@@ -416,22 +416,11 @@
 				};
 				function toggleOnMenuClick(e) {
 					let x = e.target.parentNode.childNodes[1].childNodes;
-					// Array.from(x).map((li, i) => {
-					// 	if (li.classList('mega-items')) {
-					// 		console.log(li);
-					// 	}
-					// });
-					// console.log(z);
-					// console.log(x);
-					// Array.from(x)
-					// 	.filter((_, index) => index % 2 !== 0)
-					// 	.forEach((el) => {
-					// 		try {
-					// 			el.classList.remove('active');
-					// 		} catch {
-					// 			console.log(el);
-					// 		}
-					// 	});
+					Array.from(x)
+						.filter((item) => item.firstChild !== null)
+						.forEach((el) => {
+							el.classList.remove('active');
+						});
 					const a = e.currentTarget;
 					if (currentMenuItem && a !== currentMenuItem) {
 						toggleSubmenu(currentMenuItem, detectScreen(x));
@@ -565,6 +554,9 @@
 			});
 
 			document.querySelectorAll('.has-inner').forEach((child) => {
+				child.childNodes[0].addEventListener('click', () => {
+					child.classList.toggle('active');
+				});
 				child.addEventListener('click', (e) => {
 					if (!e.target.classList.contains('mega-items')) return;
 					if (detectScreen(x) === 'desktop') return;
