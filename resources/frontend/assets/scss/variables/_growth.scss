@@ -5,20 +5,15 @@
 			@apply bg-indigo-600 list-none lg:mx-auto pt-12 relative;
 			width: 6px;
 			.content{
-				@apply bg-gray-100 dark:bg-darkviolet w-64 xl:w-108 lg:w-100 md:w-116 xs:w-98 transition-all transform translate-y-0 duration-700 p-8 shadow-lg rounded-lg hover:-translate-y-1 relative bottom-0 invisible opacity-0;
+				@apply bg-gray-100 w-64 xl:w-108 lg:w-100 md:w-116 xs:w-98 transition-all transform translate-y-0 duration-700 p-8 shadow-lg rounded-lg hover:-translate-y-1 relative bottom-0 invisible opacity-0;
 				transition: all .5s ease-in-out;
 				.heading{
 					@apply mb-4;
 					h4{
-						@apply dark:text-gray-300 font-bold text-xl;
+						@apply font-bold text-xl;
 					}
 					h2{
-						@apply dark:text-gray-300 font-bold text-3xl;
-					}
-				}
-				.main-content{
-					p{
-						@apply  dark:text-gray-400;
+						@apply font-bold text-3xl;
 					}
 				}
 			}

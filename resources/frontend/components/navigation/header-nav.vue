@@ -391,7 +391,6 @@
 			const navLink = document.querySelector('#vl-nav > ul');
 
 			window.onscroll = function () {
-				// 'use strict';
 				if (
 					document.body.scrollTop >= 280 ||
 					document.documentElement.scrollTop >= 280

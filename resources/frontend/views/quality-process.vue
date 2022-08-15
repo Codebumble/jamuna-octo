@@ -19,7 +19,7 @@
 					alt: 'directors',
 					pageTitle: 'Quality process',
 					pageDesc:
-						'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum animi aliquam voluptates harum aspernatur eveniet velit doloribus aliquid adipisci suscipit?',
+						'Jamuna Group is committed to ensure better life through quality products.',
 				},
 			};
 		},
