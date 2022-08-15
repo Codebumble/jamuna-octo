@@ -1,8 +1,8 @@
-.mission-vision{
-	.content-box{
-		@apply bg-gray-100 transition-all transform translate-y-0 duration-700 p-8 shadow-lg rounded-lg hover:-translate-y-1 mb-8;
-		transition: all .5s ease-in-out;
-		.title{
+.mission-vision {
+	.content-box {
+		@apply bg-slate-100 hover:bg-red-600 hover:text-white text-gray-800 transition-all transform translate-y-0 duration-500 p-8 shadow-lg rounded-lg hover:-translate-y-1 mb-8;
+		transition: all 0.5s ease-in-out;
+		.title {
 			@apply font-bold text-xl;
 		}
 	}

@@ -22,7 +22,7 @@
 			<div
 				class="flex flex-col justify-center items-center text-gray-800">
 				<h2
-					class="lg:text-5xl text-2xl font-bold lg:leading-tight leading-snug lg:mb-3 text-center">
+					class="lg:text-5xl text-2xl font-bold lg:leading-tight leading-snug lg:mb-3 text-center text-gray-800">
 					{{ data.pageTitle }}
 				</h2>
 				<p class="md:text-base xs:text-sm xl:w-3/5 text-center">

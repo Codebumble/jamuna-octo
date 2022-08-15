@@ -2,14 +2,14 @@
 	<footer class="footer py-[30px]">
 		<div class="container">
 			<div
-				class="pb-8 px-8 xl:px-0 flex lg:flex-row flex-col justify-between items-center lg:border-b border-gray-300">
+				class="pb-8 px-8 xl:px-0 flex lg:flex-row flex-col justify-between items-center lg:border-b border-gray-300 pt-8 lg:pt-0">
 				<div>
 					<img
 						:src="footerTop.logo"
 						:alt="footerTop.alt"
-						class="w-48" />
+						class="w-80 hidden lg:block" />
 				</div>
-				<div class="flex mt-[1.5rem]">
+				<div class="flex">
 					<ul class="flex">
 						<li class="mr-2 text-gray-600 hover:text-blue-600">
 							<a
@@ -40,17 +40,23 @@
 				<div
 					class="lg:oder-1 order-2 flex basis-8/12 flex-wrap text-sm">
 					<ul class="basis-2/4 lg:basis-2/6">
-						<li v-for="link in linksCol1">
+						<li
+							v-for="(link, key) in linksCol1"
+							:key="key">
 							<a :href="link.link">{{ link.linkText }}</a>
 						</li>
 					</ul>
 					<ul class="flex flex-col basis-2/4 lg:basis-2/6">
-						<li v-for="link in linksCol2">
+						<li
+							v-for="(link, key) in linksCol2"
+							:key="key">
 							<a :href="link.link">{{ link.linkText }}</a>
 						</li>
 					</ul>
 					<ul class="flex flex-col basis-2/4 lg:basis-2/6">
-						<li v-for="link in linksCol3">
+						<li
+							v-for="(link, key) in linksCol3"
+							:key="key">
 							<a :href="link.link">{{ link.linkText }}</a>
 						</li>
 					</ul>
@@ -90,7 +96,7 @@
 		data() {
 			return {
 				footerTop: {
-					logo: '/frontend/images/logo/code-white.svg',
+					logo: '/frontend/images/logo/jamuna.svg',
 					alt: 'logo',
 				},
 				footerSocial: {},

@@ -10,7 +10,7 @@
 						<img
 							:src="item.logoSrc"
 							:alt="item.alt"
-							class="w-36 lg:w-48" />
+							class="w-60" />
 					</router-link>
 					<!-- logo -->
 					<div class="lg:hidden">
@@ -113,7 +113,7 @@
 							</ul>
 						</div>
 						<div class="copyright-text">
-							<span>&copy; 2022 Codebumble Inc</span>
+							<span>&copy; 2022 Jamuna Group</span>
 						</div>
 					</div>
 				</nav>
@@ -135,7 +135,7 @@
 			return {
 				brandWrap: [
 					{
-						logoSrc: '/frontend/images/logo/code-white.svg',
+						logoSrc: '/frontend/images/logo/jamuna.svg',
 						alt: 'logo',
 					},
 				],
