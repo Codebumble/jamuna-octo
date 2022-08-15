@@ -1,5 +1,5 @@
 .hamburger {
-	@apply inline-block cursor-pointer bg-transparent;
+	@apply inline-block cursor-pointer bg-transparent relative -top-2.5;
 	transition-property: opacity, filter;
 	transition-duration: 0.15s;
 	transition-timing-function: linear;

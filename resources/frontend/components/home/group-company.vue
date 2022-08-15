@@ -2,37 +2,38 @@
 	<section class="group-company">
 		<div class="container">
 			<div class="title">
-				<h2 class="text-4xl text-gray-800 font-bold">
+				<h2 class="text-2xl lg:text-4xl text-gray-800 font-bold">
 					{{ groupTitle.title }}
 				</h2>
 				<p v-if="groupTitle.descVisibility">
 					{{ groupTitle.description }}
 				</p>
 			</div>
-		</div>
-		<div class="company-slide">
-			<Splide
-				:options="groupsoptions"
-				aria-label="group-companies">
-				<SplideSlide
-					class="slideItem"
-					v-for="slide in slideContent">
-					<div
-						class="p-4 pb-6 rounded-xl backdrop-blur-md min-h-[413px] max-h-[413px]">
-						<img
-							:src="slide.imgSrc"
-							:alt="slide.alt"
-							class="w-full rounded-xl min-h-[295px] max-h-[295px] object-contain p-6" />
+			<div class="company-slide">
+				<Splide
+					:options="groupsoptions"
+					aria-label="group-companies">
+					<SplideSlide
+						class="slideItem px-2 lg:px-4"
+						v-for="(slide, key) in slideContent"
+						:key="key">
+						<div
+							class="p-4 pb-6 rounded-xl backdrop-blur-md min-h-[413px] max-h-[413px]">
+							<img
+								:src="slide.imgSrc"
+								:alt="slide.alt"
+								class="w-full rounded-xl min-h-[295px] max-h-[295px] object-contain p-6 pt-0" />
 
-						<span class="itemName">{{ slide.title }}</span>
-						<a
-							:href="slide.webLink"
-							class="button block mx-auto"
-							>{{ slide.linkText }}</a
-						>
-					</div>
-				</SplideSlide>
-			</Splide>
+							<span class="itemName">{{ slide.title }}</span>
+							<a
+								:href="slide.webLink"
+								class="button block mx-auto"
+								>{{ slide.linkText }}</a
+							>
+						</div>
+					</SplideSlide>
+				</Splide>
+			</div>
 		</div>
 	</section>
 </template>
@@ -71,19 +72,20 @@
 				arrows: true,
 				autoplay: false,
 				interval: 3000,
-				perPage: 2,
+				perPage: 4,
 				type: 'loop',
-				perMove: 1,
+				perMove: 4,
 				drag: true,
 				pauseOnHover: true,
 				cloneStatus: true,
-				gap: '2rem',
-				fixedWidth: '300px',
-				focus: 'center',
+				// gap: '2rem',
+				// fixedWidth: '300px',
+				// focus: 'center',
 				breakpoints: {
 					1024: {
-						fixedWidth: '270.5px',
+						// fixedWidth: '270.5px',
 						perPage: 1,
+						perMove: 1,
 					},
 				},
 			};

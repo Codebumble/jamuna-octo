@@ -32,4 +32,7 @@
 			@apply transform scale-105;
 		}
 	}
+	.loadMore {
+		@apply block mx-auto py-3 px-4 border border-slate-300 hover:bg-red-600 transition-all hover:text-white rounded-md;
+	}
 }

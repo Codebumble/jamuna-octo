@@ -1,30 +1,8 @@
 <template>
 	<div class="container">
-		<div class="heading">
-			<h2>{{ distHeading.title }}</h2>
-			<p>
-				{{ distHeading.desc }}
-			</p>
-		</div>
-		<div
-			class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 py-8">
-			<div
-				class="member"
-				v-for="member in distCorres">
-				<div class="thumb">
-					<img
-						:src="member.imgSrc"
-						:alt="member.alt"
-						class="image max-h-[288px] min-h-[288px]" />
-				</div>
-				<div class="info">
-					<h3>{{ member.name }}</h3>
-					<p>{{ member.position }}</p>
-				</div>
-			</div>
-		</div>
+
 		<pagination
-			:data="distCorres"
+			:data="subDistCorres"
 			:limit="8">
 			<template #prev-nav>
 				<span>&lt; Previous</span>
@@ -38,30 +16,22 @@
 
 <script>
 	import LaravelVuePagination from 'laravel-vue-pagination';
-
 	//	NOTEEEEEEEEEEEEEEEEE
 
 	// Follow this repository for more about laravel pagination https://github.com/gilbitron/laravel-vue-pagination
 
 	// NOTE ENDDDDDDDDDDDDDDD
-
 	export default {
 		components: {
 			Pagination: LaravelVuePagination,
 		},
 		data() {
 			return {
-				distHeading: {
-					title: 'Correspondence by Disctrict',
-					desc: "Jamuna TV has it's own correspondence office in Dhaka. We are the only TV station in Bangladesh to have a correspondence office by district.",
+				subDistHeading: {
+					title: 'Correspondence by Sub-Disctrict',
+					desc: "Jamuna TV has it's own correspondence office in Dhaka. We are the only TV station in Bangladesh to have a correspondence office by sub-district.",
 				},
-				distCorres: [
-					{
-						imgSrc: '/frontend/images/directors/mem1-1.jpg',
-						alt: 'Jamuna TV',
-						name: 'Mrs. Salma Islam',
-						position: 'Chairman',
-					},
+				subDistCorres: [
 					{
 						imgSrc: '/frontend/images/directors/mem1-1.jpg',
 						alt: 'Jamuna TV',
@@ -107,13 +77,13 @@
 		methods: {
 			getResults(page = 1) {
 				axios.get('api here?pgae=' + page).then((response) => {
-					// this.distCorres = response.data;
+					// this.subDistCorres = response.data;
 					//	NOTEEEEEEEEEEEEEEEEE
 
 					// Follow this repository for more about laravel pagination https://github.com/gilbitron/laravel-vue-pagination
 
 					// NOTE ENDDDDDDDDDDDDDDD
-					console.table(this.distCorres);
+					console.table(this.subDistCorres);
 				});
 			},
 		},

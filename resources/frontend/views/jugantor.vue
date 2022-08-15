@@ -1,16 +1,28 @@
 <template>
-	<newsCenter />
+	<breadcrumb :data="breadcrumb" />
+	<jugantor />
 </template>
 <script>
 	import { useHead } from '@vueuse/head';
-	import newsCenter from '../components/news-center/news-center';
+	import jugantor from '../components/news-center/jugantor';
+	import breadcrumb from '../components/global/breadcrumb.vue';
 	export default {
 		components: {
-			newsCenter,
+			jugantor,
+			breadcrumb,
+		},
+		data() {
+			return {
+				breadcrumb: {
+					pageTitle: 'The Daily Jugantor',
+					pageDesc:
+						'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum animi aliquam voluptates harum aspernatur eveniet velit doloribus aliquid adipisci suscipit?',
+				},
+			};
 		},
 		setup() {
 			useHead({
-				title: 'News Center | Jamuna Group',
+				title: 'The Daily Jugantor | Jamuna Group',
 				meta: [
 					{
 						name: `description`,

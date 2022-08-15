@@ -10,7 +10,7 @@
 						<img
 							:src="item.logoSrc"
 							:alt="item.alt"
-							class="w-60" />
+							class="w-48 lg:w-60" />
 					</router-link>
 					<!-- logo -->
 					<div class="lg:hidden">
@@ -345,8 +345,18 @@
 						],
 					},
 					{
-						route: '/news-center',
+						route: '',
 						label: 'News Center',
+						parentSubmenu: [
+							{
+								route: '/jamuna-tv',
+								label: 'Jamuna Television ',
+							},
+							{
+								route: '/the-daily-jugantor',
+								label: 'The Daily Jugantor',
+							},
+						],
 					},
 					{
 						route: '',

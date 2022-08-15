@@ -21,9 +21,14 @@ const routes = [
 		component: () => import("../views/company-profile.vue"),
 	},
 	{
-		path: "/news-center",
-		name: "news-center",
-		component: () => import("../views/news-center.vue"),
+		path: "/jamuna-tv",
+		name: "jamuna-tv",
+		component: () => import("../views/jamuna.vue"),
+	},
+	{
+		path: "/the-daily-jugantor",
+		name: "jugantor",
+		component: () => import("../views/jugantor.vue"),
 	},
 	{
 		path: "/hoorain-htf",

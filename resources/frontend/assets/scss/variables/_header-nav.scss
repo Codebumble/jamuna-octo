@@ -31,7 +31,7 @@
 
 #vl-nav {
 	> ul {
-		@apply overflow-y-scroll lg:h-fit sm:h-72 h-80 mt-4;
+		@apply overflow-y-scroll lg:h-fit sm:h-72 h-80 mt-4 lg:mt-0;
 		&.nav-home {
 			.cb-nav-item {
 				.cb-nav-link {
