@@ -55,6 +55,21 @@ const routes = [
 		name: "growth",
 		component: () => import("../views/growth.vue"),
 	},
+	{
+		path: "/mission-vision",
+		name: "mission",
+		component: () => import("../views/mission.vue"),
+	},
+	{
+		path: "/quality-process",
+		name: "quality-process",
+		component: () => import("../views/quality-process.vue"),
+	},
+	{
+		path: "/future-expansion",
+		name: "future-expansion",
+		component: () => import("../views/future-expansion.vue"),
+	},
 ];
 
 const router = createRouter({
@@ -65,6 +80,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
 	document.querySelector("nav").classList.remove("active");
 	document.querySelector("button.hamburger").classList.remove("is-active");
+	document.body.style.overflow = "scroll";
 	next();
 });
 
