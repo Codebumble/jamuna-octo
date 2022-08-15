@@ -88,7 +88,7 @@
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="name">Site Email</label>
+						<label class="form-label" for="name">Site Email </label>
 
 						<input
 							type="text"
