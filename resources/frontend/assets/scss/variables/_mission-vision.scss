@@ -1,12 +1,9 @@
 .mission-vision{
 	.content-box{
-		@apply bg-gray-100 dark:bg-darkviolet transition-all transform translate-y-0 duration-700 p-8 shadow-lg rounded-lg hover:-translate-y-1 mb-8;
+		@apply bg-gray-100 transition-all transform translate-y-0 duration-700 p-8 shadow-lg rounded-lg hover:-translate-y-1 mb-8;
 		transition: all .5s ease-in-out;
 		.title{
-			@apply dark:text-gray-300 font-bold text-xl;
-		}
-		p{
-			@apply  dark:text-gray-400;
+			@apply font-bold text-xl;
 		}
 	}
 }

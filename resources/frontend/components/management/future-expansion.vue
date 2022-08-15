@@ -2,9 +2,7 @@
 	<section class="future-expansion pb-16">
 		<div class="container">
 			<div class="service-heading py-5">
-				<h2 class="text-3xl lg:text-5xl font-bold dark:text-gray-300">
-					Road Map Brief
-				</h2>
+				<h2 class="text-3xl lg:text-5xl font-bold">Road Map Brief</h2>
 			</div>
 			<div class="grid grid-cols-1 lg:grid-cols-3 gap-5 py-8">
 				<div
@@ -32,7 +30,7 @@
 				<p>
 					This farsighted approach makes Jamuna Group to explore newer
 					horizons and serves as a guideline for its �Road map to
-					Future’s Like always, Jamuna Group believes in playing a
+					Future's Like always, Jamuna Group believes in playing a
 					pioneering role and will continue to do so in the years
 					ahead.
 				</p>
