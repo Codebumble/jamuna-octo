@@ -69,214 +69,6 @@
 								</li>
 							</ul>
 						</li>
-
-						<!-- <li class="cb-nav-item has-child">
-							<router-link
-								to="/#"
-								class="cb-nav-link"
-								>Jamuna Sector</router-link
-							>
-							<ul class="cb-mega">
-								<li class="mega-items has-inner">
-									Textile Division
-									<ul class="items-inner">
-										<li>
-											<router-link to="/hoorain-htf"
-												>Hoorain HTF</router-link
-											>
-										</li>
-									</ul>
-								</li>
-								<li class="mega-items has-inner">
-									Media & Advertisement
-									<ul class="items-inner">
-										<li>
-											<router-link to="/"
-												>The Daily Jugantor</router-link
-											>
-										</li>
-										<li>
-											<router-link to=""
-												>Jamuna Television</router-link
-											>
-										</li>
-									</ul>
-								</li>
-								<li class="mega-items has-inner">
-									Jamuna Builders Ltd
-									<ul class="items-inner">
-										<li>
-											<router-link to="/"
-												>JW Marriot</router-link
-											>
-										</li>
-										<li>
-											<router-link to="/"
-												>Jamuna Residence</router-link
-											>
-										</li>
-										<li>
-											<router-link to="/"
-												>Jamuna Future Park</router-link
-											>
-										</li>
-										<li>
-											<router-link to="/"
-												>Jamuna City</router-link
-											>
-										</li>
-										<li>
-											<router-link to="/"
-												>New Ultra Model
-												Town</router-link
-											>
-										</li>
-									</ul>
-								</li>
-								<li class="mega-items has-inner">
-									Marketplace
-									<ul class="items-inner">
-										<li>
-											<router-link to=""
-												>Wholesale Club Ltd</router-link
-											>
-										</li>
-									</ul>
-								</li>
-								<li class="mega-items has-inner">
-									Leathers
-									<ul class="items-inner">
-										<li>
-											<router-link to="/"
-												>Pegasus Leathers
-												Ltd</router-link
-											>
-										</li>
-										<li>
-											<router-link to="/"
-												>Pegasus Processing
-												Unit</router-link
-											>
-										</li>
-									</ul>
-								</li>
-								<li class="mega-items has-inner">
-									Chemicals
-									<ul class="items-inner">
-										<li>
-											<router-link to="/"
-												>Jamuna Hand
-												Sanitizer</router-link
-											>
-										</li>
-										<li>
-											<router-link to="/"
-												>Jamuna Distilery
-												Ltd</router-link
-											>
-										</li>
-									</ul>
-								</li>
-								<li class="mega-items has-inner">
-									Electronics
-									<ul class="items-inner">
-										<li>
-											<router-link to="/"
-												>Jamuna Electronics</router-link
-											>
-										</li>
-									</ul>
-								</li>
-								<li class="mega-items has-inner">
-									Engineering
-									<ul class="items-inner">
-										<li>
-											<router-link to="/"
-												>Jamuna Welding
-												Electrode</router-link
-											>
-										</li>
-									</ul>
-								</li>
-								<li class="mega-items has-inner">
-									Beverage
-									<ul class="items-inner">
-										<li>
-											<router-link to="/"
-												>Crown Beverage</router-link
-											>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li> -->
-						<li class="cb-nav-item has-child">
-							<router-link
-								class="cb-nav-link"
-								to="#"
-								>Management</router-link
-							>
-							<ul class="cb-mega">
-								<li class="mega-items">
-									<router-link to="/growth-history"
-										>Growth Story</router-link
-									>
-								</li>
-								<li class="mega-items">
-									<router-link to="/mission-vision"
-										>Mission & Vision</router-link
-									>
-								</li>
-								<li class="mega-items">
-									<router-link to="/quality-process"
-										>Quality Process</router-link
-									>
-								</li>
-								<li class="mega-items">
-									<router-link to="/future-expansion"
-										>Future Expansion</router-link
-									>
-								</li>
-							</ul>
-						</li>
-
-						<li class="cb-nav-item">
-							<router-link
-								to="/news-center"
-								class="cb-nav-link">
-								News Center
-							</router-link>
-						</li>
-						<li class="cb-nav-item">
-							<router-link
-								to="/career"
-								class="cb-nav-link">
-								Career
-							</router-link>
-						</li>
-
-						<li class="cb-nav-item">
-							<router-link
-								to="/photo-gallery"
-								class="cb-nav-link"
-								>Photo Gallery</router-link
-							>
-						</li>
-
-						<li class="cb-nav-item">
-							<router-link
-								to="/etender"
-								class="cb-nav-link"
-								>E-Tender</router-link
-							>
-						</li>
-						<li class="cb-nav-item">
-							<router-link
-								to="/contact"
-								class="cb-nav-link"
-								>Contact</router-link
-							>
-						</li>
 					</ul>
 					<!-- navigation items -->
 					<div class="nav-footer">
@@ -369,67 +161,197 @@
 								childSubmenu: [
 									{
 										route: '/hoorain-htf',
-										label: 'Hoorain HTF 1',
-									},
-									{
-										route: '/hoorain-htf',
 										label: 'Hoorain HTF',
 									},
 									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF',
+										route: '/jamuna-denims-garments-ltd',
+										label: 'Jamuna Denims Garments LTD',
 									},
 									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF',
+										route: '/hoor',
+										label: 'Hoor',
+									},
+									{
+										route: '/jeansco',
+										label: 'Jeans & Co.',
+									},
+									{
+										route: '/hooram',
+										label: 'Hooram',
+									},
+									{
+										route: '',
+										label: 'Jamuna Denims Ltd (Weaving)',
+									},
+									{
+										route: '',
+										label: 'Jamuna Denims Ltd (Open End)',
+									},
+									{
+										route: '',
+										label: 'Jamuna Spinning Mills Ltd',
+									},
+									{
+										route: '',
+										label: 'Shameem Spinning Mills Ltd',
+									},
+									{
+										route: '',
+										label: 'Shameem Rotor Spinning Mills Ltd',
+									},
+									{
+										route: '',
+										label: 'Shameem Composite Mills Ltd',
 									},
 								],
 							},
 							{
 								route: '',
-								label: 'Textile Division',
+								label: 'Media & Advertisement',
 								childSubmenu: [
 									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF 2',
+										route: '/the-daily-jugantor',
+										label: 'The Daily Jugantor',
 									},
 									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF',
-									},
-									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF',
-									},
-									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF',
+										route: '/jamuna-television',
+										label: 'Jamuna Television',
 									},
 								],
 							},
 							{
 								route: '',
-								label: 'Textile Division',
+								label: 'Jamuna Builders Ltd',
 								childSubmenu: [
 									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF 3',
+										route: '',
+										label: 'JW Marriot',
 									},
 									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF',
+										route: '',
+										label: 'Jamuna Residence',
 									},
 									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF',
+										route: '',
+										label: 'Jamuna Future Park',
 									},
 									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF',
+										route: '',
+										label: 'Jamuna City',
+									},
+									{
+										route: '',
+										label: 'New Ultra Model Town',
+									},
+								],
+							},
+							{
+								route: '',
+								label: 'Marketplace',
+								childSubmenu: [
+									{
+										route: '',
+										label: 'Wholesale Club Ltd',
+									},
+								],
+							},
+							{
+								route: '',
+								label: 'Leathers',
+								childSubmenu: [
+									{
+										route: '',
+										label: 'Pegasus Leathers Ltd',
+									},
+									{
+										route: '',
+										label: 'Pegasus Leathers Ltd',
+									},
+								],
+							},
+							{
+								route: '',
+								label: 'Chemicals',
+								childSubmenu: [
+									{
+										route: '/jamuna-hand-sanitizer',
+										label: 'Jamuna Hand Sanitizer',
+									},
+									{
+										route: '/jamuna-distilery-ltd',
+										label: 'Jamuna Distilery Ltd',
+									},
+								],
+							},
+							{
+								route: '',
+								label: 'Electronics',
+								childSubmenu: [
+									{
+										route: '/jamuna-electornics',
+										label: 'Jamuna Electronics',
+									},
+								],
+							},
+							{
+								route: '',
+								label: 'Engineering',
+								childSubmenu: [
+									{
+										route: '',
+										label: 'Jamuna Welding Electrode',
+									},
+								],
+							},
+							{
+								route: '',
+								label: 'Beverage',
+								childSubmenu: [
+									{
+										route: '/crown-beverage',
+										label: 'Crown Beverage',
 									},
 								],
 							},
 						],
+					},
+					{
+						route: '',
+						label: 'Management',
+						parentSubmenu: [
+							{
+								route: '/growth-story',
+								label: 'Growth Story',
+							},
+							{
+								route: '/mission-vission',
+								label: 'Mission & Vision',
+							},
+							{
+								route: '/quality-process',
+								label: 'Quality Process',
+							},
+							{
+								route: '/future-expansion',
+								label: 'Future Expansion',
+							},
+						],
+					},
+					{
+						route: '/news-center',
+						label: 'News Center',
+					},
+					{
+						route: '',
+						label: 'Photo Gallery',
+					},
+					{
+						route: '',
+						label: 'Career',
+					},
+					{
+						route: '',
+						label: 'Contact',
 					},
 				],
 			};
