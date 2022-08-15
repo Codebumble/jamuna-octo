@@ -50,9 +50,9 @@
 						<input
 							type="text"
 							id="name"
-							name = "name"
+							name="name"
 							class="form-control"
-							value ="{{ $site_name}}"
+							value ="{{ $site_name }}"
 							placeholder="Name"
 							aria-label="Name"
 							aria-describedby="name"
@@ -62,13 +62,33 @@
 
 
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="support_email">Logo (500 x 300) (.png .svg)</label>
+						<label class="form-label" for="logo">Logo with Name (500 x 300) (.png .svg)</label>
 						<input
 							type="file"
 							id="logo"
 							name="logo"
 							class="form-control"
 							onchange="loadFile(event)"
+						/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="short-logo">Logo without Name (35 x 35) (.png .svg)</label>
+						<input
+							type="file"
+							id="short-logo"
+							name="short-logo"
+							class="form-control"
+						/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="short-logo">Logo Icon File(favicon.ico)</label>
+						<input
+							type="file"
+							id="favicon-logo"
+							name="favicon-logo"
+							class="form-control"
 						/>
 						</div>
 
