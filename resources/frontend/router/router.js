@@ -41,6 +41,16 @@ const routes = [
 		component: () => import("../views/hooram.vue"),
 	},
 	{
+		path: "/jamuna-denims-garments-ltd",
+		name: "jdgu",
+		component: () => import("../views/jdgu.vue"),
+	},
+	{
+		path: "/jeansco",
+		name: "jeansco",
+		component: () => import("../views/jeansco.vue"),
+	},
+	{
 		path: "/growth-history",
 		name: "growth",
 		component: () => import("../views/growth.vue"),
@@ -50,6 +60,12 @@ const routes = [
 const router = createRouter({
 	history: createWebHistory(),
 	routes,
+});
+
+router.beforeEach((to, from, next) => {
+	document.querySelector("nav").classList.remove("active");
+	document.querySelector("button.hamburger").classList.remove("is-active");
+	next();
 });
 
 export default router;

@@ -14,7 +14,7 @@
 					businessLogo: 'frontend/images/logo/hoorain.png',
 					alt: 'image alt',
 					objectfit: true, //For logo size responsiveness
-					companyName: 'Hoorain HTF',
+					businessName: 'Hoorain HTF',
 					establishDate: '01/01/2022',
 					ceo: 'Alex',
 					address: {
@@ -27,6 +27,9 @@
 					emailName: 'Hello Codebumble',
 					mobile: 'tel:+880123456789',
 					website: 'http://www.hoorainhtf.com/',
+					products: 'Ready made garments',
+					capacity: '30,000 pcs RMG per day',
+					manpower: '1800',
 					social: {
 						facebook: '#',
 						instagram: '#',

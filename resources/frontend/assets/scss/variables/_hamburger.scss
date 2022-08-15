@@ -8,7 +8,7 @@
 .hamburger.is-active .hamburger-inner,
 .hamburger.is-active .hamburger-inner::before,
 .hamburger.is-active .hamburger-inner::after {
-	@apply bg-gray-200;
+	@apply bg-gray-600;
 }
 
 .hamburger-box {
@@ -24,7 +24,7 @@
 .hamburger-inner,
 .hamburger-inner::before,
 .hamburger-inner::after {
-	@apply w-5 h-0.5 bg-gray-200 rounded absolute;
+	@apply w-5 h-0.5 bg-gray-600 rounded absolute;
 	transition-property: transform;
 	transition-duration: 0.15s;
 	transition-timing-function: ease;
@@ -45,7 +45,7 @@
 }
 
 .hamburger--slider .hamburger-inner {
-	top: .95rem;
+	top: 0.95rem;
 }
 
 .hamburger--slider .hamburger-inner::before {

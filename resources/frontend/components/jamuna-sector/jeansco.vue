@@ -1,5 +1,5 @@
 <template>
-	<businessDetails :data="hooram" />
+	<businessDetails :data="jeansco" />
 </template>
 
 <script>
@@ -10,15 +10,15 @@
 		},
 		data() {
 			return {
-				hooram: {
+				jeansco: {
 					businessLogo: '/frontend/images/logo/hoor.png',
 					alt: 'image alt',
 					objectfit: false, //For logo size responsiveness
-					businessName: 'Hooram by Hoor Muskan',
+					businessName: 'Jeans & Co.',
 					establishDate: '01/01/2022',
 					ceo: 'Alex',
 					address: {
-						officeName: 'Jamuna Television LTD',
+						officeName: 'Jeans & Co.',
 						officeRoad: 'KA-244 Jamuna Future Oark Complex',
 						location: 'Pragati Ave, Dhaka - 1229',
 						country: 'Bangladesh',
@@ -39,11 +39,7 @@
 					textDetails: [
 						{
 							details:
-								'After the massive success of Hoor’s lawn garment in the urban market, Jamuna Group took up the growth strategy of spreading high quality lawn to different parts of the country, both urban and rural market place alike. Thus Hooram, the wholesale wing of Hoor shaped into reality.',
-						},
-						{
-							details:
-								'For the first time in Bangladesh, hand penned designs with exotic colors are printed into high quality fabrics and distributed nationally. Hooram, as stated by the visionary mind Sumaiya Rozalin Islam is the next level of clothing evolution in Bangladesh.',
+								'With Jamuna Denim acing the denim export in Bangladesh, the visionary Sumaiya Rozalin wanted to cater the local Bangladeshi market with International standard denim garments. Thus JEANS&CO came into existence with a strong line of Designer Denim and non-denim garments. The brand has a wide variety of clothing categories including casual-wear ethnic-wear, and party-wear for men, women, and children.',
 						},
 					],
 				},

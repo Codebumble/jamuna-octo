@@ -17,32 +17,40 @@
 						class="border border-slate-100 p-8 w-full shadow-lg rounded-md overflow-hidden businessInfo">
 						<table>
 							<tr>
-								<th>Company Name</th>
-								<td>{{ data.companyName }}</td>
+								<th>Business Name</th>
+								<td>{{ data.businessName }}</td>
 							</tr>
 							<tr>
 								<th>Establish Date</th>
 								<td>{{ data.establishDate }}</td>
 							</tr>
-							<tr>
+							<tr v-if="data.ceo">
 								<th>Name of The CEO</th>
 								<td>{{ data.ceo }}</td>
 							</tr>
 							<tr>
 								<th>Address</th>
 								<td>
-									<span class="block">{{
-										data.address.officeName
-									}}</span>
-									<span class="block">{{
-										data.address.officeRoad
-									}}</span>
-									<span class="block">{{
-										data.address.location
-									}}</span>
-									<span class="block">{{
-										data.address.country
-									}}</span>
+									<span
+										class="block"
+										v-if="data.address.officeName"
+										>{{ data.address.officeName }}</span
+									>
+									<span
+										class="block"
+										v-if="data.address.officeRoad"
+										>{{ data.address.officeRoad }}</span
+									>
+									<span
+										class="block"
+										v-if="data.address.location"
+										>{{ data.address.location }}</span
+									>
+									<span
+										class="block"
+										v-if="data.address.country"
+										>{{ data.address.country }}</span
+									>
 								</td>
 							</tr>
 							<tr>
@@ -71,9 +79,21 @@
 									<a
 										:href="data.website"
 										class="underline decoration-dotted hover:decoration-solid decoration-slate-400 hover:decoration-red-600 underline-offset-4 hover:text-red-600 transition-all"
-										>{{ data.companyName }}</a
+										>{{ data.businessName }}</a
 									>
 								</td>
+							</tr>
+							<tr v-if="data.products">
+								<th>Products</th>
+								<td>{{ data.products }}</td>
+							</tr>
+							<tr v-if="data.capacity">
+								<th>Production Capacity</th>
+								<td>{{ data.capacity }}</td>
+							</tr>
+							<tr v-if="data.manpower">
+								<th>Manpower</th>
+								<td>{{ data.manpower }}</td>
 							</tr>
 							<tr class="items-center">
 								<th>Social Media</th>
@@ -113,9 +133,99 @@
 						About this Business
 					</h2>
 					<p
-						v-if="data.textSummary"
+						v-if="data.textDetails"
 						v-for="summary in data.textDetails"
 						v-html="summary.details"></p>
+					<div v-if="$route.name == 'jdgu'">
+						<h3 class="text-lg text-gray-800 font-bold underline">
+							List of Products
+						</h3>
+
+						<div class="flex flex-col">
+							<div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+								<div
+									class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+									<div class="overflow-hidden">
+										<table class="min-w-full border">
+											<thead class="bg-white border-b">
+												<tr>
+													<th
+														scope="col"
+														class="text-sm font-medium text-gray-900 px-3 py-3 text-left">
+														#
+													</th>
+													<th
+														scope="col"
+														class="text-sm font-medium text-gray-900 px-3 py-3 text-left">
+														Products List
+													</th>
+												</tr>
+											</thead>
+
+											<tbody>
+												<tr
+													class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+													v-for="(
+														product, item
+													) in data.productList"
+													:key="item">
+													<td
+														class="px-3 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
+														{{ item + 1 }}
+													</td>
+													<td
+														class="text-sm text-gray-900 font-light px-3 py-3 whitespace-nowrap">
+														{{ product.name }}
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+								<div
+									class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+									<div class="overflow-hidden">
+										<table class="min-w-full border">
+											<thead class="bg-white border-b">
+												<tr>
+													<th
+														scope="col"
+														class="text-sm font-medium text-gray-900 px-3 py-3 text-left">
+														#
+													</th>
+													<th
+														scope="col"
+														class="text-sm font-medium text-gray-900 px-3 py-3 text-left">
+														List of Buyerer
+													</th>
+												</tr>
+											</thead>
+
+											<tbody>
+												<tr
+													class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+													v-for="(
+														buyer, item
+													) in data.buyerList"
+													:key="item">
+													<td
+														class="px-3 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
+														{{ item + 1 }}
+													</td>
+													<td
+														class="text-sm text-gray-900 font-light px-3 py-3 whitespace-nowrap">
+														{{ buyer.name }}
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

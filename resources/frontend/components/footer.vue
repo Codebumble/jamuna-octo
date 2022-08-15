@@ -137,18 +137,18 @@
 					},
 				],
 				footerAbout: {
-					heading: 'Jamuna Group',
-					description:
-						'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae id dolor voluptas obcaecati.',
+					// heading: 'Jamuna Group',
+					// description:
+					// 	'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae id dolor voluptas obcaecati.',
 				},
 			};
 		},
-		mounted(){
+		mounted() {
 			axios
-      		.get(window.location.origin+'/frontpage-api/footer-component')
-      		.then(response => {
-				this.footerSocial = response.data.social_media;
-				this.footerAbout = response.data.footer_about;
+				.get(window.location.origin + '/frontpage-api/footer-component')
+				.then((response) => {
+					this.footerSocial = response.data.social_media;
+					this.footerAbout = response.data.footer_about;
 				});
 		},
 	};
