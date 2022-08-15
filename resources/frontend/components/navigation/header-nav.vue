@@ -393,8 +393,8 @@
 			window.onscroll = function () {
 				// 'use strict';
 				if (
-					document.body.scrollTop >= 280 ||
-					document.documentElement.scrollTop >= 280
+					document.body.scrollTop >= 100 ||
+					document.documentElement.scrollTop >= 100
 				) {
 					header.classList.add('transparent-shadow');
 					navLink.classList.add('scroll');

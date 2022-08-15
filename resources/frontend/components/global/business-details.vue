@@ -8,7 +8,7 @@
 						<img
 							:src="data.businessLogo"
 							:alt="data.alt"
-							class="w-full max-w-[338px] max-h-[156px]"
+							class="w-full max-w-[338px] max-h-[156px] mx-auto"
 							:class="
 								data.objectfit ? 'object-cover' : 'object-none'
 							" />
