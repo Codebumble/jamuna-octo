@@ -93,6 +93,7 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::get('all-company', [Company_rest::class, 'auth_view_all_company'])->name('all-company');
         Route::get('edit-company/{id}', [Company_rest::class, 'auth_view_edit_company'])->name('edit-company');
         Route::get('site-settings/general', [siteGeneral::class, 'general_page_view'])->name('site-settings-general');
+        Route::get('site-settings/founder-page', [siteGeneral::class, 'founder_page_view'])->name('founder-page-view');
 
         Route::get('add-section', [Company_rest::class, 'auth_view_add_section'])->name('add-section');
         Route::get('all-section', [Company_rest::class, 'auth_view_all_section'])->name('all-section');

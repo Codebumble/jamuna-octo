@@ -162,4 +162,15 @@ class siteGeneral extends Controller
 
         return redirect()->route('site-settings-general',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10)]);
     }
+
+    public function founder_page_view(){
+        $pageConfigs = ['pageHeader' => false];
+
+        $data = DB::table('codebumble_founder_page')->get();
+
+        $breadcrumb = json_decode($data[0]->value);
+        $FounderDetails = json_decode($data[1]->value);
+        $quote = json_decode($data[2]->value);
+        return view('/content/site-settings/founder-page', ['pageConfigs' => $pageConfigs,'breadcrumb'=> $breadcrumb, 'FounderDetails' => $FounderDetails, 'quote' => $quote]);
+    }
 }
