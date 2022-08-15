@@ -36,12 +36,10 @@
 						instagram: '#',
 						linkedin: '#',
 					},
-					textDetails: [
-						{
-							details:
-								'One of the recent additions to Jamuna Group is Jamuna Denims Garments Ltd., which started its operation in 2002. Jamuna Denims Garments Ltd., has state-of-the-art equipment sourced from renowned foreign manufacturers of garments machinery. Strict quality control measures are applied for flawless cutting, fusing, finishing and packing.',
-						},
-					],
+					textDetails: {
+						details:
+							'One of the recent additions to Jamuna Group is Jamuna Denims Garments Ltd., which started its operation in 2002. Jamuna Denims Garments Ltd., has state-of-the-art equipment sourced from renowned foreign manufacturers of garments machinery. Strict quality control measures are applied for flawless cutting, fusing, finishing and packing.',
+					},
 					productList: [
 						{
 							name: 'Basic 5 Pocket Denim Long pant.',

@@ -4,7 +4,8 @@
 			<div class="block lg:flex items-center justify-between max-h-12">
 				<div
 					class="brand-wrap"
-					v-for="item in brandWrap">
+					v-for="(item, key) in brandWrap"
+					:key="key">
 					<router-link to="/">
 						<img
 							:src="item.logoSrc"
@@ -36,7 +37,8 @@
 						<li
 							class="cb-nav-item"
 							:class="menu.parentSubmenu ? 'has-child' : ''"
-							v-for="menu in navMenu">
+							v-for="(menu, key) in navMenu"
+							:key="key">
 							<router-link
 								:to="menu.route"
 								class="cb-nav-link">
@@ -49,7 +51,8 @@
 								<li
 									class="mega-items"
 									:class="psm.childSubmenu ? 'has-inner' : ''"
-									v-for="psm in menu.parentSubmenu">
+									v-for="(psm, key) in menu.parentSubmenu"
+									:key="key">
 									<router-link
 										:to="psm.route"
 										v-if="psm.route">
@@ -60,17 +63,16 @@
 									<ul
 										class="items-inner"
 										v-if="psm.childSubmenu">
-										<li v-for="csm in psm.childSubmenu">
+										<li
+											v-for="(
+												csm, key
+											) in psm.childSubmenu"
+											:key="key">
 											<router-link :to="csm.route">
 												{{ csm.label }}
 											</router-link>
 										</li>
 									</ul>
-								</li>
-								<li class="mega-items">
-									<router-link to="/company-profile"
-										>Company Profile</router-link
-									>
 								</li>
 							</ul>
 						</li>
@@ -329,7 +331,7 @@
 								label: 'Growth Story',
 							},
 							{
-								route: '/mission-vission',
+								route: '/mission-vision',
 								label: 'Mission & Vision',
 							},
 							{

@@ -36,16 +36,10 @@
 						linkedin: '#',
 					},
 					textSummary: true,
-					textDetails: [
-						{
-							details:
-								'After the massive success of Hoor’s lawn garment in the urban market, Jamuna Group took up the growth strategy of spreading high quality lawn to different parts of the country, both urban and rural market place alike. Thus Hooram, the wholesale wing of Hoor shaped into reality.',
-						},
-						{
-							details:
-								'For the first time in Bangladesh, hand penned designs with exotic colors are printed into high quality fabrics and distributed nationally. Hooram, as stated by the visionary mind Sumaiya Rozalin Islam is the next level of clothing evolution in Bangladesh.',
-						},
-					],
+					textDetails: {
+						details:
+							'<p>After the massive success of Hoor’s lawn garment in the urban market, Jamuna Group took up the growth strategy of spreading high quality lawn to different parts of the country, both urban and rural market place alike. Thus Hooram, the wholesale wing of Hoor shaped into reality.</p><p>For the first time in Bangladesh, hand penned designs with exotic colors are printed into high quality fabrics and distributed nationally. Hooram, as stated by the visionary mind Sumaiya Rozalin Islam is the next level of clothing evolution in Bangladesh.</p>',
+					},
 				},
 			};
 		},

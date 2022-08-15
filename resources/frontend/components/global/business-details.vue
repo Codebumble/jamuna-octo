@@ -132,10 +132,9 @@
 						class="font-bold text-lg underline decoration-wavy decoration-gray-800 text-gray-800 underline-offset-4">
 						About this Business
 					</h2>
-					<p
+					<div
 						v-if="data.textDetails"
-						v-for="summary in data.textDetails"
-						v-html="summary.details"></p>
+						v-html="data.textDetails.details"></div>
 					<div v-if="$route.name == 'jdgu'">
 						<h3 class="text-lg text-gray-800 font-bold underline">
 							List of Products

@@ -51,7 +51,7 @@ const routes = [
 		component: () => import("../views/jeansco.vue"),
 	},
 	{
-		path: "/growth-history",
+		path: "/growth-story",
 		name: "growth",
 		component: () => import("../views/growth.vue"),
 	},

@@ -36,12 +36,10 @@
 						linkedin: '#',
 					},
 					textSummary: true,
-					textDetails: [
-						{
-							details:
-								'With Jamuna Denim acing the denim export in Bangladesh, the visionary Sumaiya Rozalin wanted to cater the local Bangladeshi market with International standard denim garments. Thus JEANS&CO came into existence with a strong line of Designer Denim and non-denim garments. The brand has a wide variety of clothing categories including casual-wear ethnic-wear, and party-wear for men, women, and children.',
-						},
-					],
+					textDetails: {
+						details:
+							'With Jamuna Denim acing the denim export in Bangladesh, the visionary Sumaiya Rozalin wanted to cater the local Bangladeshi market with International standard denim garments. Thus JEANS&CO came into existence with a strong line of Designer Denim and non-denim garments. The brand has a wide variety of clothing categories including casual-wear ethnic-wear, and party-wear for men, women, and children.',
+					},
 				},
 			};
 		},
