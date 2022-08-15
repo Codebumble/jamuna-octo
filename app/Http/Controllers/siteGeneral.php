@@ -110,8 +110,11 @@ class siteGeneral extends Controller
             $file3 = $request->file('favicon-logo') ;
             $fileName3 = 'favicon.ico' ;
             $destinationPath3 = public_path() ;
-            unlink(public_path().'favicon.ico');
+            $destinationPather = public_path().'/images/logo' ;
+            unlink(public_path().'/favicon.ico');
+            unlink(public_path().'/images/logo/favicon.ico');
             $file3->move($destinationPath3,$fileName3);
+            File::copy(public_path('/favicon.ico'), public_path('/images/logo/favicon.ico'));
 
         }
 
@@ -141,6 +144,20 @@ class siteGeneral extends Controller
             file_put_contents($path, str_replace(
                 'SUPPORT_HOST='.env('SUPPORT_HOST'), 'SUPPORT_HOST='.$field['siteEmail'], file_get_contents($path)
             ));
+
+            if($file2 = $request->hasFile('short-logo')){
+                file_put_contents($path, str_replace(
+                    'APP_SHORT_LOGO="'.env('APP_SHORT_LOGO').'"', 'APP_SHORT_LOGO="/images/logo/'.$fileName2.'"', file_get_contents($path)
+                ));
+
+            }
+            if($file1 = $request->hasFile('logo')){
+
+                file_put_contents($path, str_replace(
+                    'APP_LOGO="'.env('APP_LOGO').'"', 'APP_LOGO="/images/logo/'.$fileName1.'"', file_get_contents($path)
+                ));
+
+            }
         }
 
         return redirect()->route('site-settings-general',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10)]);
