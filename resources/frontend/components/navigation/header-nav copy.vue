@@ -33,49 +33,31 @@
 						class="block lg:flex"
 						id="menu"
 						:class="$route.name == 'home' ? 'nav-home' : ''">
-						<li
-							class="cb-nav-item"
-							:class="menu.parentSubmenu ? 'has-child' : ''"
-							v-for="menu in navMenu">
+						<li class="cb-nav-item">
 							<router-link
-								:to="menu.route"
-								class="cb-nav-link">
-								{{ menu.label }}
-							</router-link>
+								to="/"
+								class="cb-nav-link"
+								>Home</router-link
+							>
+						</li>
 
-							<ul
-								class="cb-mega"
-								v-if="menu.parentSubmenu">
-								<li
-									class="mega-items"
-									:class="psm.childSubmenu ? 'has-inner' : ''"
-									v-for="psm in menu.parentSubmenu">
-									<router-link
-										:to="psm.route"
-										v-if="psm.route">
-										{{ psm.label }}
-									</router-link>
-									<span v-else>{{ psm.label }}</span>
-
-									<ul
-										class="items-inner"
-										v-if="psm.childSubmenu">
-										<li v-for="csm in psm.childSubmenu">
-											<router-link :to="csm.route">
-												{{ csm.label }}
-											</router-link>
-										</li>
-									</ul>
+						<li class="cb-nav-item has-child">
+							<a class="cb-nav-link">About </a>
+							<ul class="cb-mega">
+								<li class="mega-items">
+									<router-link to="/founder"
+										>Founder</router-link
+									>
 								</li>
 								<li class="mega-items">
-									<router-link to="/company-profile"
-										>Company Profile</router-link
+									<router-link to="/board-of-directors"
+										>Board Of Directors</router-link
 									>
 								</li>
 							</ul>
 						</li>
 
-						<!-- <li class="cb-nav-item has-child">
+						<li class="cb-nav-item has-child">
 							<router-link
 								to="/#"
 								class="cb-nav-link"
@@ -88,6 +70,64 @@
 										<li>
 											<router-link to="/hoorain-htf"
 												>Hoorain HTF</router-link
+											>
+										</li>
+										<li>
+											<router-link
+												to="/jamuna-denims-garments-ltd"
+												>Jamuna Denims Garments
+												LTD</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/hoor"
+												>Hoor</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/jeansco"
+												>Jeans & Co.</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/hooram"
+												>Hooram</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/"
+												>Jamuna Denims Ltd
+												(Weaving)</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/"
+												>Jamuna Denims Ltd (Open
+												End)</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/"
+												>Jamuna Spinning Mills
+												Ltd</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/"
+												>Shameem Spinning Mills
+												Ltd</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/"
+												>Shameem Rotor Spinning Mills
+												Ltd</router-link
+											>
+										</li>
+										<li>
+											<router-link to="/"
+												>Shameem Composite Mills
+												Ltd</router-link
 											>
 										</li>
 									</ul>
@@ -214,7 +254,7 @@
 									</ul>
 								</li>
 							</ul>
-						</li> -->
+						</li>
 						<li class="cb-nav-item has-child">
 							<router-link
 								class="cb-nav-link"
@@ -343,98 +383,6 @@
 					{
 						logoSrc: '/frontend/images/logo/code-white.svg',
 						alt: 'logo',
-					},
-				],
-				navMenu: [
-					{
-						route: '/',
-						label: 'Home',
-					},
-					{
-						route: '',
-						label: 'About',
-						parentSubmenu: [
-							{
-								route: '/founder',
-								label: 'Founder',
-							},
-							{
-								route: '/board-of-directors',
-								label: 'Board Of Directors',
-							},
-						],
-					},
-					{
-						route: '',
-						label: 'Jamuna Sector',
-						parentSubmenu: [
-							{
-								route: '',
-								label: 'Textile Division',
-								childSubmenu: [
-									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF 1',
-									},
-									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF',
-									},
-									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF',
-									},
-									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF',
-									},
-								],
-							},
-							{
-								route: '',
-								label: 'Textile Division',
-								childSubmenu: [
-									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF 2',
-									},
-									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF',
-									},
-									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF',
-									},
-									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF',
-									},
-								],
-							},
-							{
-								route: '',
-								label: 'Textile Division',
-								childSubmenu: [
-									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF 3',
-									},
-									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF',
-									},
-									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF',
-									},
-									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF',
-									},
-								],
-							},
-						],
 					},
 				],
 			};

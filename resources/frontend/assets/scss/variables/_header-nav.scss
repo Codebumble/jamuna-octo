@@ -32,7 +32,7 @@
 #vl-nav {
 	> ul {
 		@apply overflow-y-scroll lg:h-fit h-72;
-		&.nav-home{
+		&.nav-home {
 			.cb-nav-item {
 				.cb-nav-link {
 					@apply lg:text-white;
@@ -99,9 +99,9 @@
 						}
 					}
 					&.has-inner {
-						@apply relative px-6 py-4;
+						@apply relative px-6 py-4; //px-6 py-4
 						.items-inner {
-							@apply bg-gray-50 absolute top-13 lg:top-0 -left-1 lg:left-51 w-full lg:w-max hidden z-50 border-l-4 lg:border-l-0 border-red-600  rounded lg:rounded-none lg:max-h-102 lg:overflow-y-scroll;
+							@apply bg-gray-50 absolute top-13 lg:top-0 -left-1 lg:left-[12.6rem] w-full lg:w-max hidden z-50 border-l-4 lg:border-l-0 border-red-600  rounded lg:rounded-none lg:max-h-102 lg:overflow-y-scroll;
 							li {
 								@apply bg-gray-100 hover:bg-red-600 hover:text-white text-gray-400;
 							}
