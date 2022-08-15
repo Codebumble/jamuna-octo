@@ -37,11 +37,11 @@
         @endif
 
 		<div class="d-flex row mt-1 mr-1 mb-1">
-			<img id="logoPreview" style="display: block; margin-left: auto; margin-right: auto;width: 30%; height: 30%;border-radius: 20%" src="{{$quote->imgSrc}}" height="200">
+			<img id="logoPreview" style="display: block; margin-left: auto; margin-right: auto;width: 30%; height: 30%;border-radius: 20%" src="/profile-images/{{$quote->imgSrc}}" height="200">
 		</div>
 
 
-          <form class="needs-validation" novalidate action="{{route('site-settings-general-api')}}" enctype="multipart/form-data" method="POST">
+          <form class="needs-validation" novalidate action="{{route('founder-update-api')}}" enctype="multipart/form-data" method="POST">
 		  @csrf
 				<div class="row">
 
@@ -72,7 +72,7 @@
 						<input
 							type="file"
 							id="logo"
-							name="logo"
+							name="image"
 							class="form-control"
 							onchange="loadFile(event)"
 						/>

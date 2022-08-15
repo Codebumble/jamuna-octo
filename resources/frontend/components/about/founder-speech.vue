@@ -7,7 +7,7 @@
 					class="flex flex-col xl:flex-row justify-center items-center py-4">
 					<div class="xl:basis-2/4">
 						<img
-							:src="quote.imgSrc"
+							:src="'/profile-images/'+quote.imgSrc"
 							:alt="quote.alt"
 							class="w-3/4 mx-auto rounded-md shadow-2xl" />
 					</div>

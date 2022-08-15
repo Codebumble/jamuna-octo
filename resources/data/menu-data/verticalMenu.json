@@ -72,11 +72,11 @@
           "slug": "site-settings-general"
         },
         {
-          "url": "app/invoice/list",
-          "name": "SEO Settings",
+          "url": "admin/site-settings/founder-page",
+          "name": "Founder Speech",
           "icon": "circle",
           "permission": 1,
-          "slug": "site-seo-settings"
+          "slug": "founder-page-view"
         },
         {
           "url": "app/invoice/list",
