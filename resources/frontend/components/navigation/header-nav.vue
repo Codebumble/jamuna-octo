@@ -36,6 +36,7 @@
 							<router-link
 								to="/"
 								class="cb-nav-link"
+								:class="$route.name == 'home' ? '' : ''"
 								>Home</router-link
 							>
 						</li>
