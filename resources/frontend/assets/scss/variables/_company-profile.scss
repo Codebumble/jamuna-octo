@@ -1,0 +1,10 @@
+.company-profile {
+	.description {
+		p {
+			@apply mb-3;
+			&:last-child {
+				@apply mb-0 bg-red-200;
+			}
+		}
+	}
+}

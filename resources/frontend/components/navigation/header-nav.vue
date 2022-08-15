@@ -53,6 +53,11 @@
 										>Board Of Directors</router-link
 									>
 								</li>
+								<li class="mega-items">
+									<router-link to="/company-profile"
+										>Company Profile</router-link
+									>
+								</li>
 							</ul>
 						</li>
 
