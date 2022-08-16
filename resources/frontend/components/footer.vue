@@ -96,7 +96,7 @@
 		data() {
 			return {
 				footerTop: {
-					logo: '/frontend/images/logo/jamuna.svg',
+					logo: '',
 					alt: 'logo',
 				},
 				footerSocial: {},
@@ -155,6 +155,7 @@
 				.then((response) => {
 					this.footerSocial = response.data.social_media;
 					this.footerAbout = response.data.footer_about;
+					this.footerTop.logo = response.data.APP_LOGO;
 				});
 		},
 	};

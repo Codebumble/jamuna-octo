@@ -92,8 +92,9 @@ class FrontPage extends Controller
         $data_get = DB::select('select value from codebumble_general where code_name=?',['social_media']);
         $data_get_name = DB::select('select value from codebumble_general where code_name=?',['site_name']);
         $data_get_moto = DB::select('select value from codebumble_general where code_name=?',['site_moto']);
+        $logo_url = env('APP_LOGO');
 
-        return json_encode(['social_media' => json_decode($data_get[0]->value), 'footer_about' => ['heading' => $data_get_name[0]->value, 'description' => $data_get_moto[0]->value]]);
+        return json_encode(['social_media' => json_decode($data_get[0]->value), 'footer_about' => ['heading' => $data_get_name[0]->value, 'description' => $data_get_moto[0]->value], 'APP_LOGO' => $logo_url]);
 
     }
 
