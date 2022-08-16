@@ -6,7 +6,7 @@
 <script>
 	import { useHead } from '@vueuse/head';
 	import breadcrumb from '../components/global/breadcrumb';
-	import contact from '../components/global/contact-form';
+	import contact from '../components/contact/contact';
 	export default {
 		components: {
 			breadcrumb,
