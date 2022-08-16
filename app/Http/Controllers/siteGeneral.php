@@ -253,4 +253,27 @@ class siteGeneral extends Controller
         return view('/content/site-settings/mission-vision', ['pageConfigs' => $pageConfigs]);
 
     }
+
+    public function post_a_job_view(){
+
+        $pageConfigs = ['pageHeader' => false];
+        return view('/content/career/post-a-job', ['pageConfigs' => $pageConfigs]);
+
+    }
+
+    public function all_job_list_view(){
+
+        $pageConfigs = ['pageHeader' => false];
+        return view('/content/career/all-job-list', ['pageConfigs' => $pageConfigs]);
+
+    }
+
+    public function applicant_list_view(){
+
+        $pageConfigs = ['pageHeader' => false];
+        return view('/content/career/applicant-list', ['pageConfigs' => $pageConfigs]);
+
+    }
+
+
 }

@@ -103,6 +103,9 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::get('site-settings/slider-edit', [siteGeneral::class, 'front_page_slider_view'])->name('front_page_slider_view');
         Route::get('site-settings/growth-story', [siteGeneral::class, 'growth_story_view'])->name('growth_story_view');
         Route::get('site-settings/mission-vision', [siteGeneral::class, 'mission_vision_view'])->name('mission_vision_view');
+        Route::get('career/post-a-job', [siteGeneral::class, 'post_a_job_view'])->name('post_a_job_view');
+        Route::get('career/all-job-list', [siteGeneral::class, 'all_job_list_view'])->name('all_job_list_view');
+        Route::get('career/applicant-list', [siteGeneral::class, 'applicant_list_view'])->name('applicant_list_view');
 
 
 

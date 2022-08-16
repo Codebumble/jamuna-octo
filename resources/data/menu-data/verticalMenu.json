@@ -172,9 +172,35 @@
     {
       "name": "Mission Vision",
       "url": "admin/site-settings/mission-vision",
-      "icon": "chevrons-up",
+      "icon": "instagram",
       "permission": 1,
       "slug": "mission_vision_view"
+    },
+    {
+      "navheader": "Career",
+      "permission": 0,
+      "slug": ""
+    },
+    {
+      "name": "Post A Job",
+      "url": "admin/career/post-a-job",
+      "icon": "edit-2",
+      "permission": 1,
+      "slug": "post_a_job_view"
+    },
+    {
+      "name": "All Job List",
+      "url": "admin/career/all-job-list",
+      "icon": "layers",
+      "permission": 1,
+      "slug": "all_job_list_view"
+    },
+    {
+      "name": "Demo Applicant List",
+      "url": "admin/career/applicant-list",
+      "icon": "layers",
+      "permission": 1,
+      "slug": "applicant_list_view"
     },
     {
       "navheader": "Apps & Pages",
