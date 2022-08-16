@@ -46,7 +46,7 @@
 				<div class="row">
 
 
-				<div class="divider-primary divider">
+						<div class="divider-primary divider">
             				<div class="divider-text">Basic Information</div>
           				</div>
 

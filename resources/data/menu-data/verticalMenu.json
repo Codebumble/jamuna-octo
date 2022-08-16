@@ -170,6 +170,13 @@
       "slug": "growth_story_view"
     },
     {
+      "name": "Mission Vision",
+      "url": "admin/site-settings/mission-vision",
+      "icon": "chevrons-up",
+      "permission": 1,
+      "slug": "mission_vision_view"
+    },
+    {
       "navheader": "Apps & Pages",
       "permission": 0,
       "slug": ""
