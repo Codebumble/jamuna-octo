@@ -63,6 +63,13 @@ class siteGeneral extends Controller
         return view('/content/site-settings/general-settings', ['pageConfigs' => $pageConfigs, 'site_name' => $site_name, 'site_moto' => $site_moto, 'social_media' => json_decode($social_media), 'site_url' => $site_url, 'site_logo' => $site_logo, 'support_email' => $support_email]);
     }
 
+    public function header_edit_view(){
+
+        $pageConfigs = ['pageHeader' => false];
+
+        return view('/content/site-settings/header-edit', ['pageConfigs' => $pageConfigs]);
+    }
+
     public function site_settings_general_api(Request $request){
         $field = $request->validate([
             'name' => 'required|string',

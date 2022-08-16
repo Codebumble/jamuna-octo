@@ -1,7 +1,7 @@
 
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Edit General Details')
+@section('title', 'Edit Header Details')
 
 @section('vendor-style')
   {{-- Vendor Css files --}}

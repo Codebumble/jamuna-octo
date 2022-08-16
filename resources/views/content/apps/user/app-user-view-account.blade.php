@@ -22,7 +22,7 @@
 @section('content')
 <section class="app-user-view-account">
   <div class="row">
-  <?php
+            <?php
               $auther = Auth::User();
               $json_data = json_decode(Auth::User()->json_data);
             ?>
@@ -59,7 +59,7 @@
             </div>
 
           </div>
-          
+
           <div class="d-flex justify-content-around my-2 pt-75">
 
           @if(isset($_GET['errors']))
@@ -252,7 +252,7 @@
     <!-- Modal to add new user starts-->
 
     <!-- Modal to add new user Ends-->
-  </div>
+    </div>
       <!-- /Invoice table -->
     </div>
     <!--/ User Content -->
