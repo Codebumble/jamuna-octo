@@ -75,6 +75,7 @@ Route::group(['prefix' => 'frontpage-api', ], function () {
     Route::get('footer-component', [FrontPage::class, 'footer_component']);
     Route::get('directors-list', [FrontPage::class, 'directors_list']);
     Route::get('shortBrief', [FrontPage::class, 'shortBrief']);
+    Route::get('header-data', [FrontPage::class, 'header_data']);
 
 });
 

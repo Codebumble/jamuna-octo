@@ -96,4 +96,11 @@ class FrontPage extends Controller
         return json_encode(['social_media' => json_decode($data_get[0]->value), 'footer_about' => ['heading' => $data_get_name[0]->value, 'description' => $data_get_moto[0]->value]]);
 
     }
+
+    public function header_data(){
+        $logo_url = env('APP_LOGO');
+
+        return json_encode(['APP_LOGO' => $logo_url]);
+
+    }
 }

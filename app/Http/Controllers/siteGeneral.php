@@ -86,7 +86,7 @@ class siteGeneral extends Controller
             $destinationPath1 = public_path().'/images/logo' ;
             $file1->move($destinationPath1,$fileName1);
 
-            $update_site_logo = DB::table('codebumble_general')->where('code_name', 'site_logo')->update(['value' => '/images/logo'.$fileName1, 'updated_at' => time()]);
+            $update_site_logo = DB::table('codebumble_general')->where('code_name', 'site_logo')->update(['value' => '/images/logo/'.$fileName1, 'updated_at' => time()]);
 
         }
 
@@ -99,7 +99,7 @@ class siteGeneral extends Controller
             $destinationPath2 = public_path().'/images/logo' ;
             $file2->move($destinationPath2,$fileName2);
 
-            $update_site_logo = DB::table('codebumble_general')->where('code_name', 'site_short_logo')->update(['value' => '/images/logo'.$fileName2, 'updated_at' => time()]);
+            $update_site_logo = DB::table('codebumble_general')->where('code_name', 'site_short_logo')->update(['value' => '/images/logo/'.$fileName2, 'updated_at' => time()]);
 
         }
 

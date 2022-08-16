@@ -135,7 +135,7 @@
 			return {
 				brandWrap: [
 					{
-						logoSrc: '/frontend/images/logo/jamuna.svg',
+						logoSrc: process.env.APP_LOGO,
 						alt: 'logo',
 					},
 				],
@@ -380,6 +380,12 @@
 				}
 			};
 			// Mobile Menu
+
+			axios
+				.get(window.location.origin + '/frontpage-api/header-data')
+				.then((response) => {
+					this.brandWrap[0].logoSrc = response.data.APP_LOGO;
+				});
 			function $(selector) {
 				return document.querySelector(selector);
 			}
