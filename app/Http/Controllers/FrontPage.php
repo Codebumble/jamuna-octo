@@ -83,7 +83,7 @@ class FrontPage extends Controller
 
 
 
-        return json_encode(['heading' => $data->heading, 'breadcrumb' => $data->breadcrumb, 'directors' => $c]);
+        return json_encode(['breadcrumb' => $data->breadcrumb, 'directors' => $c]);
 
 
     }

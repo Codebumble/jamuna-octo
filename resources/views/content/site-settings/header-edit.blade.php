@@ -41,7 +41,7 @@
 						<div class="divider-primary divider">
             				<div class="divider-text">Board Of Directors</div>
           				</div>
-          <form class="needs-validation" novalidate action="{{route('site-settings-general-api')}}" enctype="multipart/form-data" method="POST">
+          <form class="needs-validation" novalidate action="{{route('header-edit-api')}}" enctype="multipart/form-data" method="POST">
 		  @csrf
 				<div class="row">
 						<div class="mb-1 col-12 col-md-6">
@@ -52,7 +52,7 @@
 							id="bod-title"
 							name="bod-title"
 							class="form-control"
-							value =""
+							value ="{{ $bod->breadcrumb->pageTitle}}"
 							placeholder="bod-title"
 							aria-label="bod-title"
 							aria-describedby="bod-title"
@@ -68,7 +68,7 @@
 							name="bod-short-description"
 							rows="3"
 							required
-						></textarea>
+						>{{ $bod->breadcrumb->pageDesc}}</textarea>
 						</div>
 
 						<div class="divider-primary divider">
@@ -114,7 +114,7 @@
 							id="ncd-cbd-title"
 							name="ncd-cbd-title"
 							class="form-control"
-							value =""
+							value ="{{$ncd_cbd->title}}"
 							placeholder="ncd-cbd-title"
 							aria-label="ncd-cbd-title"
 							aria-describedby="ncd-cbd-title"
@@ -130,7 +130,7 @@
 							name="ncd-cbd-short-description"
 							rows="3"
 							required
-						></textarea>
+						>{{$ncd_cbd->desc}}</textarea>
 						</div>
 
 						<div class="divider-warning divider">
@@ -145,7 +145,7 @@
 							id="ncd-cbsd-title"
 							name="ncd-cbsd-title"
 							class="form-control"
-							value =""
+							value ="{{$ncd_cbsd->title}}"
 							placeholder="ncd-cbsd-title"
 							aria-label="ncd-cbsd-title"
 							aria-describedby="ncd-cbsd-title"
@@ -161,7 +161,7 @@
 							name="ncd-cbsd-short-description"
 							rows="3"
 							required
-						></textarea>
+						>{{$ncd_cbsd->desc}}</textarea>
 						</div>
 
 
