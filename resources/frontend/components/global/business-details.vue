@@ -1,5 +1,5 @@
 <template>
-	<section class="businessDetails pb-20">
+	<section class="businessDetails pb-20 angled upper-end">
 		<div class="container">
 			<div class="flex flex-col lg:flex-row gap-8">
 				<div class="w-full lg:w-4/12 flex flex-col gap-8">

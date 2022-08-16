@@ -1,5 +1,5 @@
 <template>
-	<section class="future-expansion pb-16">
+	<section class="future-expansion pb-16 angled upper-end">
 		<div class="container">
 			<div class="service-heading py-5">
 				<h2

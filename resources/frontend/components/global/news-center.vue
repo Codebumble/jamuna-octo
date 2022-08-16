@@ -1,5 +1,5 @@
 <template>
-	<section class="news-center">
+	<section class="news-center angled upper-end">
 		<div class="container pb-8">
 			<div
 				class="flex gap-4 justify-center items-center flex-col xl:flex-row">

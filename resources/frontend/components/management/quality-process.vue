@@ -1,5 +1,5 @@
 <template>
-	<section class="quality-process pb-16">
+	<section class="quality-process pb-16 angled upper-end">
 		<div class="container">
 			<div class="vision content-box">
 				<h2 class="title">JAMUNA QUALITY POLICY</h2>
