@@ -79,11 +79,11 @@
           "slug": "founder-page-view"
         },
         {
-          "url": "app/invoice/list",
-          "name": "Home Page",
+          "url": "admin/site-settings/header-edit",
+          "name": "Header Settings",
           "icon": "circle",
           "permission": 1,
-      "slug": "site-home-page-settings"
+          "slug": "header-edit-view"
         },
         {
           "url": "app/invoice/list",
