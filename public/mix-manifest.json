@@ -98,7 +98,6 @@
     "/js/scripts/forms/form-number-input.js": "/js/scripts/forms/form-number-input.js",
     "/js/scripts/forms/form-quill-editor.js": "/js/scripts/forms/form-quill-editor.js",
     "/js/scripts/forms/form-repeater-front-page.js": "/js/scripts/forms/form-repeater-front-page.js",
-    "/js/scripts/forms/form-repeater-growth-story.js": "/js/scripts/forms/form-repeater-growth-story.js",
     "/js/scripts/forms/form-repeater.js": "/js/scripts/forms/form-repeater.js",
     "/js/scripts/forms/form-select2.js": "/js/scripts/forms/form-select2.js",
     "/js/scripts/forms/form-tooltip-valid.js": "/js/scripts/forms/form-tooltip-valid.js",
@@ -1482,5 +1481,6 @@
     "/data/projects-list.json": "/data/projects-list.json",
     "/data/search.json": "/data/search.json",
     "/data/table-datatable.json": "/data/table-datatable.json",
-    "/data/user-list.json": "/data/user-list.json"
+    "/data/user-list.json": "/data/user-list.json",
+    "/frontend/images/ico/favicon.ico": "/frontend/images/ico/favicon.ico"
 }
