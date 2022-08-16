@@ -9,13 +9,13 @@
 }
 
 .cb-nav {
-	@apply lg:flex antialiased text-sm items-center font-bold bg-white lg:bg-transparent mt-5 lg:mt-0 transform translate-y-20 lg:translate-y-0 opacity-0 lg:opacity-100 invisible lg:visible;
+	@apply lg:flex antialiased text-sm items-center font-bold bg-white lg:bg-transparent mt-5 lg:mt-0 transform translate-y-20 lg:translate-y-0 opacity-0 lg:opacity-100 invisible lg:visible pointer-events-none lg:pointer-events-auto;
 	transition: transform 0.125s ease-in-out, opacity 0.125s ease-in,
 		visibility 0.125s ease-out;
 }
 
 .cb-nav.active {
-	@apply transform translate-y-0 lg:translate-y-0 opacity-100 visible absolute w-full left-0;
+	@apply transform translate-y-0 lg:translate-y-0 opacity-100 visible absolute w-full left-0 pointer-events-auto;
 }
 
 .sq-icon {
