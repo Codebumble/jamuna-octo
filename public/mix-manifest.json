@@ -98,6 +98,8 @@
     "/js/scripts/forms/form-number-input.js": "/js/scripts/forms/form-number-input.js",
     "/js/scripts/forms/form-quill-editor.js": "/js/scripts/forms/form-quill-editor.js",
     "/js/scripts/forms/form-repeater-front-page.js": "/js/scripts/forms/form-repeater-front-page.js",
+    "/js/scripts/forms/form-repeater-growth-story.js": "/js/scripts/forms/form-repeater-growth-story.js",
+    "/js/scripts/forms/form-repeater-mission-vision.js": "/js/scripts/forms/form-repeater-mission-vision.js",
     "/js/scripts/forms/form-repeater.js": "/js/scripts/forms/form-repeater.js",
     "/js/scripts/forms/form-select2.js": "/js/scripts/forms/form-select2.js",
     "/js/scripts/forms/form-tooltip-valid.js": "/js/scripts/forms/form-tooltip-valid.js",
@@ -1457,13 +1459,15 @@
     "/frontend/images/concerns/vueschool.png": "/frontend/images/concerns/vueschool.png",
     "/frontend/images/contents/banner.jpg": "/frontend/images/contents/banner.jpg",
     "/frontend/images/contents/Nurul_Islam_Babul.jpg": "/frontend/images/contents/Nurul_Islam_Babul.jpg",
-    "/frontend/images/contents/sunny.jpg": "/frontend/images/contents/sunny.jpg",
     "/frontend/images/directors/mem1-1.jpg": "/frontend/images/directors/mem1-1.jpg",
     "/frontend/images/directors/mem6-1.jpg": "/frontend/images/directors/mem6-1.jpg",
+    "/frontend/images/ico/favicon.ico": "/frontend/images/ico/favicon.ico",
+    "/frontend/images/logo/Asset 2.svg": "/frontend/images/logo/Asset 2.svg",
     "/frontend/images/logo/code-white.svg": "/frontend/images/logo/code-white.svg",
     "/frontend/images/logo/hoor.png": "/frontend/images/logo/hoor.png",
     "/frontend/images/logo/hoorain.png": "/frontend/images/logo/hoorain.png",
     "/frontend/images/logo/jamuna.svg": "/frontend/images/logo/jamuna.svg",
+    "/frontend/images/logo/microsoft.svg": "/frontend/images/logo/microsoft.svg",
     "/frontend/images/slider/1.jpg": "/frontend/images/slider/1.jpg",
     "/frontend/images/slider/2.jpg": "/frontend/images/slider/2.jpg",
     "/frontend/images/slider/3.jpg": "/frontend/images/slider/3.jpg",
@@ -1482,6 +1486,5 @@
     "/data/projects-list.json": "/data/projects-list.json",
     "/data/search.json": "/data/search.json",
     "/data/table-datatable.json": "/data/table-datatable.json",
-    "/data/user-list.json": "/data/user-list.json",
-    "/frontend/images/ico/favicon.ico": "/frontend/images/ico/favicon.ico"
+    "/data/user-list.json": "/data/user-list.json"
 }

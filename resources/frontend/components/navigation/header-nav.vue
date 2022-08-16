@@ -363,7 +363,7 @@
 						label: 'Photo Gallery',
 					},
 					{
-						route: '',
+						route: '/career',
 						label: 'Career',
 					},
 					{
