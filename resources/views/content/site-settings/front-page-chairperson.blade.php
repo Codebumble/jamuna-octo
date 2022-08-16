@@ -78,7 +78,7 @@
               <input type="file" name="profile_image" id="profile_image" style="display:none;" accept="image/png, image/jpeg, .jpg" onchange="loadFile(event)"/>
                 <label for="profile_image" style="display:block;">
 
-				  <img id="imagePreview" style="display: block; margin-left: auto; margin-right: auto;width: 65%;border-radius:20%;" src="/frontend/images/contents/banner.jpg" width="250" height="300">
+				  <img id="imagePreview" style="display: block; margin-left: auto; margin-right: auto;width: 20%;border-radius:6px; object-fit: cover;" src="/frontend/images/contents/banner.jpg" width="250" height="300">
                 </label>
               </form>
 
