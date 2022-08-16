@@ -93,7 +93,8 @@
           "slug": "front_page_view"
         }
       ]
-    },{
+    },
+    {
       "name": "Company",
       "icon": "anchor",
       "permission": 1,
@@ -138,6 +139,35 @@
         }
 
       ]
+    },
+    {
+      "name": "News",
+      "icon": "book",
+      "permission": 1,
+      "slug": "",
+      "submenu": [
+        {
+          "url": "admin/all-company",
+          "name": "All News",
+          "icon": "circle",
+          "permission": 1,
+      "slug": "all-company"
+        },
+        {
+          "url": "admin/add-company",
+          "name": "Add News",
+          "icon": "circle",
+          "permission": 1,
+      "slug": "add-company"
+        }
+      ]
+    },
+    {
+      "name": "Growth Story",
+      "url": "admin/site-settings/growth-story",
+      "icon": "chevrons-up",
+      "permission": 1,
+      "slug": "growth_story_view"
     },
     {
       "navheader": "Apps & Pages",

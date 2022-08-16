@@ -98,6 +98,7 @@
     "/js/scripts/forms/form-number-input.js": "/js/scripts/forms/form-number-input.js",
     "/js/scripts/forms/form-quill-editor.js": "/js/scripts/forms/form-quill-editor.js",
     "/js/scripts/forms/form-repeater-front-page.js": "/js/scripts/forms/form-repeater-front-page.js",
+    "/js/scripts/forms/form-repeater-growth-story.js": "/js/scripts/forms/form-repeater-growth-story.js",
     "/js/scripts/forms/form-repeater.js": "/js/scripts/forms/form-repeater.js",
     "/js/scripts/forms/form-select2.js": "/js/scripts/forms/form-select2.js",
     "/js/scripts/forms/form-tooltip-valid.js": "/js/scripts/forms/form-tooltip-valid.js",

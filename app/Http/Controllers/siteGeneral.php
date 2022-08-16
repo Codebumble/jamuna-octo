@@ -239,4 +239,11 @@ class siteGeneral extends Controller
         return view('/content/site-settings/front-page-slider', ['pageConfigs' => $pageConfigs]);
 
     }
+
+    public function growth_story_view(){
+
+        $pageConfigs = ['pageHeader' => false];
+        return view('/content/site-settings/growth-story', ['pageConfigs' => $pageConfigs]);
+
+    }
 }
