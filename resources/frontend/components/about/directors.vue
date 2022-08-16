@@ -1,11 +1,12 @@
 <template>
 	<breadcrumb :data="breadcrumb" />
-	<section class="directors">
+	<section class="directors angled upper-end">
 		<div class="container">
 			<div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 pb-8">
 				<div
 					class="member"
-					v-for="memeber in directors">
+					v-for="(memeber, key) in directors"
+					:key="key">
 					<div class="thumb">
 						<img
 							:src="memeber.imgSrc"

@@ -1,13 +1,13 @@
 <template>
 	<breadcrumb :data="breadcrumb" />
-	<section class="founder">
-		<div class="quote bg-slate-50">
+	<section class="founder angled upper-end">
+		<div class="quote">
 			<div class="container">
 				<div
 					class="flex flex-col xl:flex-row justify-center items-center py-4">
 					<div class="xl:basis-2/4">
 						<img
-							:src="'/profile-images/'+quote.imgSrc"
+							:src="'/profile-images/' + quote.imgSrc"
 							:alt="quote.alt"
 							class="w-3/4 mx-auto rounded-md shadow-2xl" />
 					</div>

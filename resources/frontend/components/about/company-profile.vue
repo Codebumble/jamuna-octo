@@ -1,9 +1,11 @@
 <template>
-	<section class="company-profile pb-16">
+	<section class="company-profile pb-16 angled upper-end">
 		<div class="container">
 			<div class="description">
-				<p v-for="description in descriptions">
-					{{description.value}}
+				<p
+					v-for="(description, key) in descriptions"
+					:key="key">
+				{{ description.value }}
 				</p>
 			</div>
 		</div>

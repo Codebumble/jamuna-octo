@@ -1,7 +1,7 @@
 <template>
 	<section
 		id="cb-hero-bg"
-		class="overflow-hidden cb-hero relative py-8">
+		class="overflow-hidden cb-hero relative py-8 bg-slate-100">
 		<!-- <div class="gradient-overlay image"></div>
 		<img
 			:src="data.image"
@@ -57,9 +57,9 @@
 			}
 		}
 		&#cb-hero-bg {
-			@apply h-80;
+			@apply h-96;
 			.justify-center {
-				height: 20rem;
+				@apply h-80;
 			}
 		}
 	}

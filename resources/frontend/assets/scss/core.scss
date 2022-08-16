@@ -29,3 +29,15 @@
 .button-alt {
 	@apply rounded-3xl py-2 px-7 border-2 border-red-600 text-red-600 bg-white hover:bg-red-600 hover:text-white transition-all overflow-hidden w-fit;
 }
+
+.angled {
+	@apply relative border-0 pt-16 #{!important};
+	&.upper-end {
+		&::before {
+			content: "";
+			@apply block absolute right-0 z-0 border-transparent -top-16 border-r-white;
+			border-top-width: 4rem;
+			border-right-width: 100vw;
+		}
+	}
+}

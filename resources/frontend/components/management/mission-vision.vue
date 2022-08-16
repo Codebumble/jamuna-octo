@@ -1,5 +1,5 @@
 <template>
-	<section class="mission-vision pb-16">
+	<section class="mission-vision pb-16 angled upper-end">
 		<div class="container">
 			<div class="vision content-box">
 				<h2 class="title">{{ vision.title }}</h2>
