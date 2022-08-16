@@ -27,6 +27,8 @@ class FrontPage extends Controller
 
     }
 
+    
+
     public function all_company_view(){
         $data_get = DB::select('select * from codebumble_company_list');
 

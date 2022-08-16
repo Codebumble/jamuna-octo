@@ -86,11 +86,11 @@
           "slug": "header-edit-view"
         },
         {
-          "url": "app/invoice/list",
-          "name": "Manual Entry",
+          "url": "admin/site-settings/front-page",
+          "name": "Front Page",
           "icon": "circle",
           "permission": 1,
-      "slug": "site-manual-entry"
+          "slug": "front_page_view"
         }
       ]
     },{

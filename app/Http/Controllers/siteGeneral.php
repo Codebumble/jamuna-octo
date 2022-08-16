@@ -85,6 +85,12 @@ class siteGeneral extends Controller
             'ncd-cbsd-short-description' => 'required|string',
         ]);
 
+        if(!Auth::check()){
+            header("Location: " . route('auth-login'), true, 302);
+            exit();
+
+        }
+
         $board_of_director = DB::table('codebumble_front_page')->where('code_name', 'board_of_director')->update(['value' => json_encode(['breadcrumb' => ['pageTitle' => $field['bod-title'], 'pageDesc'=> $field['bod-short-description']]]), 'updated_at' => time()]);
 
         $ncd_cbd = DB::table('codebumble_front_page')->where('code_name', 'ncd-cbd')->update(['value' => json_encode(['title' => $field['ncd-cbd-title'], 'desc' => $field['ncd-cbd-short-description']]), 'updated_at' => time()]);
@@ -97,6 +103,12 @@ class siteGeneral extends Controller
     }
 
     public function site_settings_general_api(Request $request){
+        if(!Auth::check()){
+            header("Location: " . route('auth-login'), true, 302);
+            exit();
+
+        }
+
         $field = $request->validate([
             'name' => 'required|string',
             'siteUrl' => 'required|string',
@@ -205,5 +217,26 @@ class siteGeneral extends Controller
         $FounderDetails = json_decode($data[1]->value);
         $quote = json_decode($data[2]->value);
         return view('/content/site-settings/founder-page', ['pageConfigs' => $pageConfigs,'breadcrumb'=> $breadcrumb, 'FounderDetails' => $FounderDetails, 'quote' => $quote]);
+    }
+
+    public function front_page_view(){
+
+        $pageConfigs = ['pageHeader' => false];
+        return view('/content/site-settings/front-page', ['pageConfigs' => $pageConfigs]);
+
+    }
+
+    public function front_page_chairperson_view(){
+
+        $pageConfigs = ['pageHeader' => false];
+        return view('/content/site-settings/front-page-chairperson', ['pageConfigs' => $pageConfigs]);
+
+    }
+
+    public function front_page_slider_view(){
+
+        $pageConfigs = ['pageHeader' => false];
+        return view('/content/site-settings/front-page-slider', ['pageConfigs' => $pageConfigs]);
+
     }
 }
