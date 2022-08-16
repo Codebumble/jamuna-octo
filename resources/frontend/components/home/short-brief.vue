@@ -4,7 +4,7 @@
 			<div class="flex items-center flex-col">
 				<div class="brief-title">
 					<h2
-						class="font-bold text-4xl text-center xl:w-8/12 text-gray-800">
+						class="font-bold text-2xl lg:text-4xl text-center xl:w-8/12 text-gray-800">
 						{{ shortBrief.title }}
 					</h2>
 				</div>

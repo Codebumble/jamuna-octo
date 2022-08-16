@@ -1,16 +1,29 @@
 <template>
-	<newsCenter />
+	<breadcrumb :data="breadcrumb" />
+	<contact />
 </template>
+
 <script>
 	import { useHead } from '@vueuse/head';
-	import newsCenter from '../components/news-center/news-center';
+	import breadcrumb from '../components/global/breadcrumb';
+	import contact from '../components/global/contact-form';
 	export default {
 		components: {
-			newsCenter,
+			breadcrumb,
+			contact,
+		},
+		data() {
+			return {
+				breadcrumb: {
+					pageTitle: 'Contact',
+					pageDesc:
+						'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum animi aliquam voluptates harum aspernatur eveniet velit doloribus aliquid adipisci suscipit?',
+				},
+			};
 		},
 		setup() {
 			useHead({
-				title: 'News Center | Jamuna Group',
+				title: 'Contact | Jamuna Group',
 				meta: [
 					{
 						name: `description`,

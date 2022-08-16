@@ -11,7 +11,9 @@
 						:extensions="extensions"
 						:options="conoptions"
 						aria-label="concerns logo area">
-						<SplideSlide v-for="slide in concernlogo">
+						<SplideSlide
+							v-for="(slide, key) in concernlogo"
+							:key="key">
 							<div
 								class="flex justify-around items-center rounded-md transition-all concern">
 								<img
