@@ -102,6 +102,8 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::get('site-settings/chairperson-speech', [siteGeneral::class, 'front_page_chairperson_view'])->name('front_page_chairperson_view');
         Route::get('site-settings/slider-edit', [siteGeneral::class, 'front_page_slider_view'])->name('front_page_slider_view');
         Route::get('site-settings/growth-story', [siteGeneral::class, 'growth_story_view'])->name('growth_story_view');
+        Route::get('site-settings/mission-vision', [siteGeneral::class, 'mission_vision_view'])->name('mission_vision_view');
+
 
 
         Route::get('add-section', [Company_rest::class, 'auth_view_add_section'])->name('add-section');

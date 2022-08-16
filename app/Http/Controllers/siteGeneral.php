@@ -246,4 +246,11 @@ class siteGeneral extends Controller
         return view('/content/site-settings/growth-story', ['pageConfigs' => $pageConfigs]);
 
     }
+
+    public function mission_vision_view(){
+
+        $pageConfigs = ['pageHeader' => false];
+        return view('/content/site-settings/mission-vision', ['pageConfigs' => $pageConfigs]);
+
+    }
 }
