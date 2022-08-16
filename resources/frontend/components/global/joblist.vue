@@ -1,6 +1,10 @@
 <template>
 	<section class="contact angled upper-end">
-		<div class="container pb-8"></div>
+		<div class="container pb-8">
+
+			
+
+		</div>
 	</section>
 </template>
 
