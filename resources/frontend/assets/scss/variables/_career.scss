@@ -2,7 +2,7 @@
 	@apply grid lg:grid-cols-4 md:grid-cols-2 gap-6 py-8;
 
 	.card {
-		@apply bg-slate-50 hover:bg-red-600 transition-all rounded-lg flex w-full justify-center items-center py-4 px-8 gap-4 border border-slate-100 hover:border-red-600 shadow-none cursor-pointer;
+		@apply bg-slate-50 hover:bg-red-600 transition-all rounded-lg flex w-full justify-center items-center py-4 px-8 gap-4 border border-slate-100 hover:border-red-600 shadow-none;
 
 		.icon {
 			@apply self-start mt-6;
@@ -40,6 +40,49 @@
 			p {
 				@apply text-current;
 			}
+		}
+	}
+}
+
+.upper-part {
+	.middle {
+		left: calc(50% - 5rem);
+	}
+	.category {
+		&::after {
+			content: "";
+			@apply lg:inline-block w-1.5 h-1.5 rounded-full lg:mx-7 bg-gray-500;
+		}
+	}
+	.time {
+		@apply text-gray-500 block lg:inline-block;
+	}
+}
+
+.overview {
+	li {
+		@apply my-2;
+	}
+}
+
+.box {
+	@apply rounded-xl bg-slate-50 shadow-sm p-4;
+
+	.info {
+		@apply py-2;
+		span {
+			@apply text-sm text-gray-600;
+		}
+		h4 {
+			@apply text-base text-gray-800 font-bold;
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.upper-part {
+		.middle {
+			left: calc(50% - 3.5rem);
 		}
 	}
 }

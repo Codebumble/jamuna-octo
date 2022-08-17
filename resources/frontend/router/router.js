@@ -90,6 +90,16 @@ const routes = [
 		name: "career",
 		component: () => import("../views/career.vue"),
 	},
+	{
+		path: "/career",
+		name: "career",
+		component: () => import("../views/career.vue"),
+	},
+	{
+		path: "/career-details",
+		name: "career-detail",
+		component: () => import("../views/career-detail.vue"),
+	},
 ];
 
 const router = createRouter({
