@@ -156,6 +156,10 @@
 								route: '/board-of-directors',
 								label: 'Board Of Directors',
 							},
+							{
+								route: '/company-profile',
+								label: 'Company Profile',
+							},
 						],
 					},
 					{

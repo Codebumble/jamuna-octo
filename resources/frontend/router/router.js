@@ -81,6 +81,11 @@ const routes = [
 		component: () => import("../views/contact.vue"),
 	},
 	{
+		path: "/photo-gallery",
+		name: "photo-gallery",
+		component: () => import("../views/photo-gallery.vue"),
+	},
+	{
 		path: "/career",
 		name: "career",
 		component: () => import("../views/career.vue"),
