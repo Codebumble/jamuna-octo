@@ -4,19 +4,14 @@
 			<div
 				class="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-5 pb-8">
 				<div
-					v-for="(src, index) in imgs"
+					v-for="(item, index) in imgs"
 					:key="index"
 					class="image"
 					@click="() => showImg(index)">
 					<div class="thumbnail">
 						<img
-							:src="src"
+							:src="item.src"
 							alt="" />
-					</div>
-					<div class="content">
-						<div class="title">
-							<h2>Jamuna Denim Garments</h2>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -49,7 +44,13 @@
 		},
 		mounted() {
 			axios.get('https://picsum.photos/v2/list').then((res) => {
-				res.data.forEach((item) => this.imgs.push(item.download_url));
+				res.data.forEach((item) =>
+					this.imgs.push({
+						src: item.download_url,
+						title: item.author,
+					})
+				);
+				console.log(this.imgs);
 			});
 		},
 		methods: {
