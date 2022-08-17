@@ -221,8 +221,32 @@ class siteGeneral extends Controller
 
     public function front_page_view(){
 
+        $data_1 = DB::table('codebumble_front_page')->where('code_name', 'concern-details')->get();
+        $concern = json_decode($data_1[0]->value);
+        $data_2 = DB::table('codebumble_front_page')->where('code_name', 'shortBrief')->get();
+        $short = json_decode($data_2[0]->value);
+
         $pageConfigs = ['pageHeader' => false];
-        return view('/content/site-settings/front-page', ['pageConfigs' => $pageConfigs]);
+        return view('/content/site-settings/front-page', ['pageConfigs' => $pageConfigs, 'concern'=> $concern, 'short'=>$short]);
+
+    }
+
+    public function front_page_api(Request $request){
+
+        $field= $request->validate([
+            'cn-title' => 'required|string',
+            'cn-description' => 'required|string',
+            's-title' => 'required|string',
+            's-description' => 'required|string',
+            's-lt' => 'required|string',
+            's-l' => 'required|string',
+        ]);
+
+        $db= DB::table('codebumble_front_page')->where('code_name','concern-details')->update(['value' =>json_encode(['heading'=>$field['cn-title'], 'description' => $field['cn-description']]), 'updated_at' => time()]);
+
+        $db= DB::table('codebumble_front_page')->where('code_name','shortBrief')->update(['value' =>json_encode(['title'=>$field['s-title'], 'description' => $field['s-description'], 'link'=> $field['s-l'], 'linkText' => $field['s-lt'], "linkVisibility"=>true]), "updated_at" => time()]);
+
+        return redirect()->route('front_page_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10)]);
 
     }
 

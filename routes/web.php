@@ -50,6 +50,8 @@ Route::group(['prefix' => 'codebumble'], function () {
     Route::post('/forgot-password', [AuthController::class, 'forgot_password_api'])->name('auth-forget-password-api');
 
     Route::group(['middleware' => 'auth:sanctum'], function(){
+
+        Route::post('front-page-api', [siteGeneral::class, 'front_page_api'])->name('front_page_api');
         Route::post('site-settings-general-api', [siteGeneral::class, 'site_settings_general_api'])->name('site-settings-general-api');
         Route::post('header-edit-api', [siteGeneral::class, 'header_edit_api'])->name('header-edit-api');
         Route::post('site-settings/founder-page-api', [FounderApi::class, 'founder_update_api'])->name('founder-update-api');
@@ -77,6 +79,7 @@ Route::group(['prefix' => 'frontpage-api', ], function () {
     Route::get('directors-list', [FrontPage::class, 'directors_list']);
     Route::get('shortBrief', [FrontPage::class, 'shortBrief']);
     Route::get('header-data', [FrontPage::class, 'header_data']);
+    Route::get('concern-details', [FrontPage::class, 'concern_details']);
 
 });
 
