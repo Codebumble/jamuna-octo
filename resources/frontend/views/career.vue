@@ -1,21 +1,21 @@
 <template>
 	<breadcrumb :data="breadcrumb" />
-	<contact />
+	<joblist />
 </template>
 
 <script>
 	import { useHead } from '@vueuse/head';
 	import breadcrumb from '../components/global/breadcrumb';
-	import contact from '../components/contact/contact';
+	import joblist from '../components/global/joblist';
 	export default {
 		components: {
 			breadcrumb,
-			contact,
+			joblist,
 		},
 		data() {
 			return {
 				breadcrumb: {
-					pageTitle: 'Contact',
+					pageTitle: 'Career',
 					pageDesc:
 						'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum animi aliquam voluptates harum aspernatur eveniet velit doloribus aliquid adipisci suscipit?',
 				},
@@ -23,7 +23,7 @@
 		},
 		setup() {
 			useHead({
-				title: 'Contact | Jamuna Group',
+				title: 'Career | Jamuna Group',
 				meta: [
 					{
 						name: `description`,

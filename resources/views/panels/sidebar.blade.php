@@ -7,9 +7,9 @@ $configData = Helper::applClasses();
       <li class="nav-item me-auto">
         <a class="navbar-brand" href="{{url('/')}}">
           <span class="brand-logo">
-            <img src="{{env('APP_SHORT_LOGO')}}" width="35" height="31.5"/>
+            <img src="/images/logo/logo.svg" width="35" height="35"/>
           </span>
-          <h3 class="brand-text">{{ env("APP_NAME")}}</h3>
+          <h3 class="brand-text">Dashcode Panel</h3>
         </a>
       </li>
       <li class="nav-item nav-toggle">

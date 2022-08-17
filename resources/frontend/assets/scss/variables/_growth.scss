@@ -17,6 +17,9 @@
 					}
 				}
 			}
+			.content:hover .heading h4 {
+				@apply text-white;
+			}
 			&::after {
 				@apply h-8 w-8 rounded-full absolute bottom-0 left-2/4;
 				content: "";

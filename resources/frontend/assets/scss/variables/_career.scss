@@ -1,0 +1,45 @@
+.cards {
+	@apply grid lg:grid-cols-4 md:grid-cols-2 gap-6 py-8;
+
+	.card {
+		@apply bg-slate-50 hover:bg-red-600 transition-all rounded-lg flex w-full justify-center items-center py-4 px-8 gap-4 border border-slate-100 hover:border-red-600 shadow-none cursor-pointer;
+
+		.icon {
+			@apply self-start mt-6;
+
+			i {
+				@apply text-2xl text-red-400;
+			}
+		}
+
+		&:hover {
+			@apply shadow-xl;
+			i {
+				@apply text-white;
+			}
+			h4,
+			h2,
+			p {
+				@apply text-white;
+			}
+		}
+
+		.exerp {
+			@apply text-base text-gray-500 pb-2;
+		}
+	}
+}
+
+.jobList {
+	@apply pt-8;
+	.card {
+		@apply hover:bg-slate-50 hover:border-transparent;
+		&:hover {
+			h4,
+			h2,
+			p {
+				@apply text-current;
+			}
+		}
+	}
+}

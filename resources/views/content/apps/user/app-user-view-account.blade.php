@@ -48,6 +48,7 @@
                     height="110"
                     width="110"
                     alt="User avatar"
+					style="object-fit: cover;object-position: center;"
                   />
                 </label>
               </form>

@@ -35,7 +35,7 @@ use App\Http\Controllers\FrontendController;
 */
 
 // Main Page Route
-Route::get('{any}', [FrontendController::class, 'home'])->where('any', '/|founder|board-of-directors|company-profile|jamuna-tv|the-daily-jugantor|hoorain-htf|hoor|hooram|growth-story|jamuna-denims-garments-ltd|jeansco|quality-process|future-expansion|mission-vision|contact|photo-gallery|');
+Route::get('{any}', [FrontendController::class, 'home'])->where('any', '/|founder|board-of-directors|company-profile|jamuna-tv|the-daily-jugantor|hoorain-htf|hoor|hooram|growth-story|jamuna-denims-garments-ltd|jeansco|quality-process|future-expansion|mission-vision|contact|photo-gallery|career|');
 
 
 /* Route Dashboards */
@@ -98,6 +98,16 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::get('site-settings/general', [siteGeneral::class, 'general_page_view'])->name('site-settings-general');
         Route::get('site-settings/founder-page', [siteGeneral::class, 'founder_page_view'])->name('founder-page-view');
         Route::get('site-settings/header-edit', [siteGeneral::class, 'header_edit_view'])->name('header-edit-view');
+        Route::get('site-settings/front-page', [siteGeneral::class, 'front_page_view'])->name('front_page_view');
+        Route::get('site-settings/chairperson-speech', [siteGeneral::class, 'front_page_chairperson_view'])->name('front_page_chairperson_view');
+        Route::get('site-settings/slider-edit', [siteGeneral::class, 'front_page_slider_view'])->name('front_page_slider_view');
+        Route::get('site-settings/growth-story', [siteGeneral::class, 'growth_story_view'])->name('growth_story_view');
+        Route::get('site-settings/mission-vision', [siteGeneral::class, 'mission_vision_view'])->name('mission_vision_view');
+        Route::get('career/post-a-job', [siteGeneral::class, 'post_a_job_view'])->name('post_a_job_view');
+        Route::get('career/all-job-list', [siteGeneral::class, 'all_job_list_view'])->name('all_job_list_view');
+        Route::get('career/applicant-list', [siteGeneral::class, 'applicant_list_view'])->name('applicant_list_view');
+
+
 
         Route::get('add-section', [Company_rest::class, 'auth_view_add_section'])->name('add-section');
         Route::get('all-section', [Company_rest::class, 'auth_view_all_section'])->name('all-section');
