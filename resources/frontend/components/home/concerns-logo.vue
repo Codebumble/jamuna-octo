@@ -39,11 +39,7 @@
 	export default {
 		data() {
 			return {
-				aboutConcerns: {
-					heading: 'Lorem ipsum dolor sit amet.',
-					description:
-						'Lorem ipsum dolor sit amet consectetur adipisicing elit. "Facere quod pariatur voluptatem iusto iste commodi ullam dolore. "Autem, eligendi nisi. Facere quod pariatur voluptatem iusto iste commodi ullam dolore. Autem, eligendi nisi.',
-				},
+				aboutConcerns: {},
 
 				concernlogo: [
 					{
@@ -86,6 +82,18 @@
 			Splide,
 			SplideSlide,
 		},
+
+		mounted() {
+			axios
+				.get(
+					window.location.origin +
+						'/frontpage-api/concern-details'
+				)
+				.then((response) => {
+					this.aboutConcerns = response.data;
+				});
+		},
+
 		setup() {
 			const conoptions = {
 				rewind: true,

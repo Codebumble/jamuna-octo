@@ -36,11 +36,6 @@
             </div>
         @endif
 
-		<div class="demo-spacing-0 mb-2 d-none" id="faker">
-                <div class="alert alert-warning" role="alert">
-                <div class="alert-body"><strong>Data Updated ! It may take a little bit time to Update.</strong></div>
-                </div>
-            </div>
 
 		<div class="col-xl-12 col-lg-12 col-md-12 order-0 order-md-1">
       <!-- User Pills -->
@@ -68,7 +63,7 @@
 	</div>
 
 
-          <form class="needs-validation" novalidate action="{{route('front_page_view',['exist' => 'Data Updated ! It may take a little bit time to Update.'])}}" enctype="multipart/form-data" method="GET">
+          <form class="needs-validation" novalidate action="{{route('front_page_api')}}" enctype="multipart/form-data" method="POST">
 
 		  <div class="divider-primary divider">
             				<div class="divider-text">Concern Details</div>
@@ -76,17 +71,17 @@
 		  @csrf
 				<div class="row">
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="name">Title</label>
+						<label class="form-label" for="cn-title">Title</label>
 
 						<input
 							type="text"
-							id="name"
-							name="name"
+							id="cn-title"
+							name="cn-title"
 							class="form-control"
-							value ="Lorem ipsum dolor sit amet."
-							placeholder="Name"
-							aria-label="Name"
-							aria-describedby="name"
+							value ="{{ $concern->heading }}"
+							placeholder="cn-title"
+							aria-label="cn-title"
+							aria-describedby="cn-title"
 							required
 						/>
 						</div>
@@ -96,13 +91,10 @@
 						<textarea
 							class="form-control"
 							id="validationBioBootstrap"
-							name="description"
+							name="cn-description"
 							rows="3"
 							required
-						>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. "Facere quod pariatur voluptatem iusto iste commodi ullam dolore. "Autem, eligendi nisi. Facere quod pariatur voluptatem iusto iste commodi ullam dolore. Autem, eligendi nisi.
-
-						</textarea>
+						>{{ $concern->description }}</textarea>
 						</div>
 
 
@@ -114,38 +106,65 @@
           				</div>
 
 						<div class="mb-1 col-12 col-md-6">
-						<label class="d-block form-label" for="validationBioBootstrap">Title</label>
+						<label class="d-block form-label" for="s-title">Title</label>
 						<input
 							type="text"
-							id="name"
-							name="name"
+							id="s-title"
+							name="s-title"
 							class="form-control"
-							value ="About our Awesome Business and it's summary"
-							placeholder="Name"
-							aria-label="Name"
-							aria-describedby="name"
+							value ="{{$short->title}}"
+							placeholder="s-title"
+							aria-label="s-title"
+							aria-describedby="s-title"
 							required
 						/>
 						</div>
 
 						<div class="mb-1">
-						<label class="d-block form-label" for="validationBioBootstrap">Description</label>
+						<label class="d-block form-label" for="s-description">Description</label>
 						<textarea
 							class="form-control"
 							id="validationBioBootstrap"
-							name="description"
+							name="s-description"
 							rows="3"
 							required
-						>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde perferendis aliquam odio facere omnis voluptate tempore doloremque dicta, corrupti rerum cupiditate a, fugiat, eos repellat rem ea quam quibusdam nihil dolorem! Tempora beatae facere rerum necessitatibus, tenetur commodi, soluta consequuntur recusandae harum delectus nostrum repellat ullam ipsam debitis dolorem exercitationem!
+						>{{ $short->description }}</textarea>
+						</div>
 
-						</textarea>
+						<div class="mb-1 col-12 col-md-6">
+						<label class="d-block form-label" for="s-lt">Button Text</label>
+						<input
+							type="text"
+							id="s-lt"
+							name="s-lt"
+							class="form-control"
+							value ="{{$short->linkText}}"
+							placeholder="s-lt"
+							aria-label="s-lt"
+							aria-describedby="s-lt"
+							required
+						/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="d-block form-label" for="validationBioBootstrap">Button link</label>
+						<input
+							type="text"
+							id="s-l"
+							name="s-l"
+							class="form-control"
+							value ="{{$short->link}}"
+							placeholder="s-l"
+							aria-label="s-l"
+							aria-describedby="s-l"
+							required
+						/>
 						</div>
 
 
 				</div>
 				<div class="col-12 text-center mt-2 pt-50">
-            		<button type="submit" class="btn btn-primary" onclick="event.preventDefault();document.getElementById('faker').classList.remove('d-none');">Update</button>
+            		<button type="submit" class="btn btn-primary">Update</button>
 				</div>
           </form>
         </div>

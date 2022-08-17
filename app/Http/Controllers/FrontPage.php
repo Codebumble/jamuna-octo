@@ -27,7 +27,11 @@ class FrontPage extends Controller
 
     }
 
-    
+    public function concern_details(){
+        $data_get = DB::select('select value from codebumble_front_page where code_name=?',['concern-details']);
+
+        return $data_get[0]->value;
+    }
 
     public function all_company_view(){
         $data_get = DB::select('select * from codebumble_company_list');
