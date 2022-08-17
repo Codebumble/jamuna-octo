@@ -1462,6 +1462,7 @@
     "/frontend/images/directors/mem1-1.jpg": "/frontend/images/directors/mem1-1.jpg",
     "/frontend/images/directors/mem6-1.jpg": "/frontend/images/directors/mem6-1.jpg",
     "/frontend/images/ico/favicon.ico": "/frontend/images/ico/favicon.ico",
+    "/frontend/images/logo/Asset 2.svg": "/frontend/images/logo/Asset 2.svg",
     "/frontend/images/logo/code-white.svg": "/frontend/images/logo/code-white.svg",
     "/frontend/images/logo/hoor.png": "/frontend/images/logo/hoor.png",
     "/frontend/images/logo/hoorain.png": "/frontend/images/logo/hoorain.png",
@@ -1485,5 +1486,6 @@
     "/data/projects-list.json": "/data/projects-list.json",
     "/data/search.json": "/data/search.json",
     "/data/table-datatable.json": "/data/table-datatable.json",
-    "/data/user-list.json": "/data/user-list.json"
+    "/data/user-list.json": "/data/user-list.json",
+    "/frontend/images/contents/office-1.jpg": "/frontend/images/contents/office-1.jpg"
 }

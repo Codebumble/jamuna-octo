@@ -5,13 +5,17 @@
 </template>
 
 <script>
+	import { defineAsyncComponent } from 'vue';
 	import appHeader from './components/header.vue';
-	import appFooter from './components/footer.vue';
 
 	export default {
 		components: {
 			appHeader,
-			appFooter
+			appFooter: defineAsyncComponent({
+				loader: () => import('./components/footer.vue'),
+				delay: 3000,
+				timeout: 3000,
+			}),
 		},
 		setup() {},
 	};

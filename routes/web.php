@@ -35,7 +35,9 @@ use App\Http\Controllers\FrontendController;
 */
 
 // Main Page Route
-Route::get('{any}', [FrontendController::class, 'home'])->where('any', '/|founder|board-of-directors|company-profile|jamuna-tv|the-daily-jugantor|hoorain-htf|hoor|hooram|growth-story|jamuna-denims-garments-ltd|jeansco|quality-process|future-expansion|mission-vision|contact|photo-gallery|career|career-details|');
+Route::get('{any}', [FrontendController::class, 'home'])->where('any', '/|founder|board-of-directors|company-profile|jamuna-tv|the-daily-jugantor|hoorain-htf|hoor|hooram|growth-story|jamuna-denims-garments-ltd|jeansco|quality-process|future-expansion|mission-vision|contact|photo-gallery|career|');
+
+Route::get('/career-details/{id}', [FrontendController::class, 'home'])->name('career-details');
 
 
 /* Route Dashboards */
