@@ -53,6 +53,8 @@ Route::group(['prefix' => 'codebumble'], function () {
 
     Route::group(['middleware' => 'auth:sanctum'], function(){
 
+        Route::post('front-page-chairperson-api', [siteGeneral::class, 'front_page_chairperson_api'])->name('front_page_chairperson_api');
+        
         Route::post('front-page-api', [siteGeneral::class, 'front_page_api'])->name('front_page_api');
         Route::post('site-settings-general-api', [siteGeneral::class, 'site_settings_general_api'])->name('site-settings-general-api');
         Route::post('header-edit-api', [siteGeneral::class, 'header_edit_api'])->name('header-edit-api');

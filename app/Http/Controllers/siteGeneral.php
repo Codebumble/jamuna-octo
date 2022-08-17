@@ -232,6 +232,11 @@ class siteGeneral extends Controller
     }
 
     public function front_page_api(Request $request){
+        if(!Auth::check()){
+            header("Location: " . route('auth-login'), true, 302);
+            exit();
+
+        }
 
         $field= $request->validate([
             'cn-title' => 'required|string',
@@ -251,9 +256,56 @@ class siteGeneral extends Controller
     }
 
     public function front_page_chairperson_view(){
+        if(!Auth::check()){
+            header("Location: " . route('auth-login'), true, 302);
+            exit();
+
+        }
+
+        $data = DB::table('codebumble_front_page')->where('code_name', 'chairpersson_speech')->get();
+
+
 
         $pageConfigs = ['pageHeader' => false];
-        return view('/content/site-settings/front-page-chairperson', ['pageConfigs' => $pageConfigs]);
+        return view('/content/site-settings/front-page-chairperson', ['pageConfigs' => $pageConfigs, 'sph' =>json_decode($data[0]->value)]);
+
+    }
+
+    public function front_page_chairperson_api(Request $request){
+        if(!Auth::check()){
+            header("Location: " . route('auth-login'), true, 302);
+            exit();
+
+        }
+
+
+
+        $field= $request->validate([
+            'title' => 'required|string',
+            'description' => 'required|string'
+        ]);
+
+        if($file2 = $request->hasFile('image')) {
+            $field2 = $request->validate([
+                'short-logo.*' => 'mimes:png,svg|max:1080',
+            ]);
+            $file2 = $request->file('image') ;
+            $fileName2 = time().'-company-chairperson-image.'.$file2->getClientOriginalExtension() ;
+            $destinationPath2 = public_path().'/images/avatars' ;
+            $file2->move($destinationPath2,$fileName2);
+
+
+        } else {
+            $data = DB::table('codebumble_front_page')->where('code_name', 'chairpersson_speech')->get();
+
+            $fileName2 = json_decode($data[0]->value)->imgSrc;
+        }
+
+        $update_site_logo = DB::table('codebumble_front_page')->where('code_name', 'chairpersson_speech')->update(['value' => json_encode(['imgSrc' => '/images/avatars/'.$fileName2, 'title' => $field['title'], 'description' => $field['description']]), 'updated_at' => time()]);
+
+
+        return redirect()->route('front_page_chairperson_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10)]);
+
 
     }
 

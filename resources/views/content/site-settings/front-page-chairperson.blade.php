@@ -35,11 +35,6 @@
                 </div>
             </div>
         @endif
-		<div class="demo-spacing-0 mb-2 d-none" id="faker">
-                <div class="alert alert-warning" role="alert">
-                <div class="alert-body"><strong>Data Updated ! It may take a little bit time to Update.</strong></div>
-                </div>
-            </div>
 
 		<div class="col-xl-12 col-lg-12 col-md-12 order-0 order-md-1">
       <!-- User Pills -->
@@ -73,17 +68,14 @@
           				</div>
 
 
-		<form method="get" enctype="multipart/form-data" action="{{ route('front_page_chairperson_view')}}">
+		<form method="POST" enctype="multipart/form-data" action="{{ route('front_page_chairperson_api')}}">
             @csrf
-              <input type="file" name="profile_image" id="profile_image" style="display:none;" accept="image/png, image/jpeg, .jpg" onchange="loadFile(event)"/>
+              <input type="file" name="image" id="profile_image" style="display:none;" accept="image/png, image/jpeg, .jpg" onchange="loadFile(event)"/>
                 <label for="profile_image" style="display:block;">
 
-				  <img id="imagePreview" style="display: block; margin-left: auto; margin-right: auto;width: 20%;border-radius:6px; object-fit: cover;" src="/frontend/images/contents/banner.jpg" width="250" height="300">
+				  <img id="imagePreview" style="display: block; margin-left: auto; margin-right: auto;width: 20%;border-radius:6px; object-fit: cover;" src="{{$sph->imgSrc}}" width="250" height="300">
                 </label>
-              </form>
-
-
-          <form class="needs-validation" novalidate action="{{route('front_page_view',['exist' => 'Data Updated ! It may take a little bit time to Update.'])}}" enctype="multipart/form-data" method="POST">
+              
 
 		  <div class="divider-primary divider">
             				<div class="divider-text">Speech Details</div>
@@ -91,15 +83,15 @@
 		  @csrf
 				<div class="row">
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="name">Title</label>
+						<label class="form-label" for="title">Title</label>
 
 						<input
 							type="text"
-							id="name"
-							name="name"
+							id="title"
+							name="title"
 							class="form-control"
-							value ="What our Chairperson Said"
-							placeholder="Name"
+							value ="{{$sph->title}}"
+							placeholder="title"
 							aria-label="Name"
 							aria-describedby="name"
 							required
@@ -114,13 +106,13 @@
 							name="description"
 							rows="3"
 							required
-						>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut in vitae quibusdam culpa. Non veniam perspiciatis numquam sunt itaque. Dolorem velit at voluptatibus optio praesentium. Velit, natus deleniti. Commodi neque impedit cupiditate odio excepturi consequuntur molestiae harum corporis, quas ullam, eius vel inventore modi velit ea quia? Perspiciatis distinctio laudantium, sed voluptas placeat excepturi obcaecati necessitatibus saepe deleniti, dolores ut?</textarea>
+						>{{$sph->description}}</textarea>
 						</div>
 
 
 				</div>
 				<div class="col-12 text-center mt-2 pt-50">
-            		<button type="submit" class="btn btn-primary" onclick="event.preventDefault();document.getElementById('faker').classList.remove('d-none');">Update</button>
+            		<button type="submit" class="btn btn-primary" >Update</button>
 				</div>
           </form>
         </div>
