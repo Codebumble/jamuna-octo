@@ -5927,11 +5927,6 @@ vm-browserify@^1.0.1:
   resolved "https://registry.npmjs.org/vm-browserify/-/vm-browserify-1.1.2.tgz"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
-vue-component-media-queries@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/vue-component-media-queries/-/vue-component-media-queries-1.0.0.tgz#3be97b6b2ed32facfce7cb90d436ad3ecf741210"
-  integrity sha512-fcGjDNqfOjPkk9hfs4x+K8d0nYUSwDzpcrNwLyHCaGWImEoQXGU2gROCBMXnBTErgzIRNgyYwCqCeB+p6guLtQ==
-
 vue-easy-lightbox@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/vue-easy-lightbox/-/vue-easy-lightbox-1.8.0.tgz#aa0dff4090dddc608a5505e10cfcd37038f0d3b3"
