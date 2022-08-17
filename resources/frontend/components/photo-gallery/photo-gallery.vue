@@ -8,20 +8,20 @@
 			<img :src="src" />
 		</div>
 	</div>
-	<vue-easy-lightbox
+	<use-easy-lightbox
 		:visible="visibleRef"
 		:imgs="imgs"
 		:index="indexRef"
-		@hide="onHide"></vue-easy-lightbox>
+		@hide="onHide"></use-easy-lightbox>
 </template>
 
 <script>
 	import { defineComponent, ref } from 'vue';
-	import VueEasyLightbox, { useEasyLightbox } from 'vue-easy-lightbox';
+	import { useEasyLightbox } from 'vue-easy-lightbox';
 
 	export default defineComponent({
 		components: {
-			VueEasyLightbox,
+			useEasyLightbox,
 		},
 		setup() {
 			const visibleRef = ref(false);

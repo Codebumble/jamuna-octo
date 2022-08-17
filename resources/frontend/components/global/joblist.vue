@@ -102,11 +102,15 @@
 								</div>
 								<div>
 									<h4 class="font-bold">Microsoft</h4>
-									<p class="text-sm">New York, USA</p>
+									<p class="text-sm">San Francisco, CA</p>
 								</div>
 							</div>
 							<div>
-								<h2 class="font-bold pb-1">Visual Designer</h2>
+								<h2 class="font-bold pb-1">
+									<router-link to="/career-details">
+										Technical Support Engineer
+									</router-link>
+								</h2>
 								<p class="text-sm">Full-time</p>
 							</div>
 							<div class="exerp">
@@ -143,11 +147,15 @@
 								</div>
 								<div>
 									<h4 class="font-bold">Microsoft</h4>
-									<p class="text-sm">New York, USA</p>
+									<p class="text-sm">San Francisco, CA</p>
 								</div>
 							</div>
 							<div>
-								<h2 class="font-bold pb-1">Visual Designer</h2>
+								<h2 class="font-bold pb-1">
+									<router-link to="/career-details">
+										Technical Support Engineer
+									</router-link>
+								</h2>
 								<p class="text-sm">Full-time</p>
 							</div>
 							<div class="exerp">
@@ -184,11 +192,15 @@
 								</div>
 								<div>
 									<h4 class="font-bold">Microsoft</h4>
-									<p class="text-sm">New York, USA</p>
+									<p class="text-sm">San Francisco, CA</p>
 								</div>
 							</div>
 							<div>
-								<h2 class="font-bold pb-1">Visual Designer</h2>
+								<h2 class="font-bold pb-1">
+									<router-link to="/career-details">
+										Technical Support Engineer
+									</router-link>
+								</h2>
 								<p class="text-sm">Full-time</p>
 							</div>
 							<div class="exerp">
@@ -225,52 +237,15 @@
 								</div>
 								<div>
 									<h4 class="font-bold">Microsoft</h4>
-									<p class="text-sm">New York, USA</p>
+									<p class="text-sm">San Francisco, CA</p>
 								</div>
 							</div>
 							<div>
-								<h2 class="font-bold pb-1">Visual Designer</h2>
-								<p class="text-sm">Full-time</p>
-							</div>
-							<div class="exerp">
-								<p>
-									You will be expected to lead the comapany's
-									entire UI stratagy
-								</p>
-							</div>
-							<div
-								class="flex justify-between w-full flex-col xl:flex-row">
-								<div>
-									<span
-										class="font-bold text-xl text-gray-800">
-										$6700
-									</span>
-									<span>/month</span>
-								</div>
-								<div class="my-4 xl:my-0">
-									<a
-										href="#"
-										class="rounded-md bg-red-100 text-red-600 font-bold transition-all hover:text-white hover:bg-red-600 px-2.5 py-2"
-										>Apply Now</a
-									>
-								</div>
-							</div>
-						</div>
-						<div class="card flex-col !items-start !px-4">
-							<div class="flex gap-3 items-center">
-								<div>
-									<img
-										src="/frontend/images/logo/microsoft.svg"
-										alt=""
-										class="w-8" />
-								</div>
-								<div>
-									<h4 class="font-bold">Microsoft</h4>
-									<p class="text-sm">New York, USA</p>
-								</div>
-							</div>
-							<div>
-								<h2 class="font-bold pb-1">Visual Designer</h2>
+								<h2 class="font-bold pb-1">
+									<router-link to="/career-details">
+										Technical Support Engineer
+									</router-link>
+								</h2>
 								<p class="text-sm">Full-time</p>
 							</div>
 							<div class="exerp">

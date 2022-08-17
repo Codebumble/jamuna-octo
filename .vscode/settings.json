@@ -67,7 +67,7 @@
 	"terminal.integrated.defaultProfile.windows": "PowerShell",
 	"editor.formatOnType": false,
 	"editor.formatOnSave": true,
-	"files.autoSave": "afterDelay",
+	"files.autoSave": "off",
 	"files.autoSaveDelay": 3000,
 	"git.enableSmartCommit": true,
 	"workbench.editor.untitled.hint": "hidden",
