@@ -80,6 +80,11 @@ const routes = [
 		name: "contact",
 		component: () => import("../views/contact.vue"),
 	},
+	{
+		path: "/photo-gallery",
+		name: "photo-gallery",
+		component: () => import("../views/photo-gallery.vue"),
+	},
 ];
 
 const router = createRouter({
