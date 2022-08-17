@@ -6,7 +6,7 @@
 					<img
 						:src="chairperson.imgSrc"
 						:alt="chairperson.alt"
-						class="rounded-2xl w-full xl:w-11/12 mx-auto lg:max-h-[500px] max-h-[250px] h-[250px] lg:h-[500px] object-cover object-top" />
+						class="rounded-2xl w-full xl:w-11/12 mx-auto lg:max-h-[500px] lg:h-[500px] object-cover object-top" />
 				</div>
 
 				<div

@@ -112,6 +112,7 @@ router.beforeEach((to, from, next) => {
 	document.querySelector("button.hamburger").classList.remove("is-active");
 	document.body.style.overflowY = "scroll";
 	next();
+	window.scrollTo(0, 0);
 });
 
 export default router;
