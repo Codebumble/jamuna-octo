@@ -310,9 +310,11 @@ class siteGeneral extends Controller
     }
 
     public function front_page_slider_view(){
+        $data = DB::table('codebumble_front_page')->where('code_name', 'sliders_data')->get();
+
 
         $pageConfigs = ['pageHeader' => false];
-        return view('/content/site-settings/front-page-slider', ['pageConfigs' => $pageConfigs]);
+        return view('/content/site-settings/front-page-slider', ['pageConfigs' => $pageConfigs, 'imgs' => json_decode($data[0]->value)]);
 
     }
 

@@ -22,7 +22,7 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Edit Chairperson Details</h4>
+          <h4 class="card-title">Add Slider Details</h4>
         </div>
         <div class="card-body">
 
@@ -35,11 +35,6 @@
                 </div>
             </div>
         @endif
-		<div class="demo-spacing-0 mb-2 d-none" id="faker">
-                <div class="alert alert-warning" role="alert">
-                <div class="alert-body"><strong>Data Updated ! It may take a little bit time to Update.</strong></div>
-                </div>
-            </div>
 
 		<div class="col-xl-12 col-lg-12 col-md-12 order-0 order-md-1">
       <!-- User Pills -->
@@ -73,20 +68,21 @@
           				</div>
 
 
+
+
           <form action="#" class="invoice-repeater">
             <div data-repeater-list="invoice">
 
 				<div data-repeater-item>
 					<div class="row d-flex align-items-end">
 
-					<div class="col-md-2 col-12">
+					<div class="col-md-2 col-12 mb-50">
 						<div class="mb-1">
-							<input type="file" name="slider" id="slider" style="display:none;" accept="image/png, image/jpeg, .jpg" onchange="loadFile(event)"/>
+						<label class="form-label" for="itemcost">Image</label>
+							<input type="file" name="slider"
+							class="form-control" id="slider"accept="image/png, image/jpeg, .jpg"/>
 
-							<label for="slider" style="display:block;">
 
-							<img id="imagePreview_1" style="border-radius:20%;" src="/frontend/images/slider/4.jpg" width="120" height="70">
-						</label>
 						</div>
 					</div>
 
@@ -97,7 +93,7 @@
 							type="text"
 							class="form-control"
 							id="itemcost"
-							value="Your Name"
+							value="Top Header"
 							aria-describedby="itemcost"
 							placeholder="32"
 						/>
@@ -111,7 +107,7 @@
 							type="text"
 							class="form-control"
 							id="itemquantity"
-							value="something"
+							value="123asdfghj"
 							aria-describedby="itemquantity"
 							placeholder="1"
 						/>
@@ -128,7 +124,7 @@
 					<div class="col-md-2 col-12 mb-50">
 						<div class="mb-1">
 						<label class="form-label" for="staticprice">Button URL</label>
-						<input type="text" value="google.com" class="form-control" id="staticprice" />
+						<input type="text" value="https://google.com/now" class="form-control" id="staticprice" />
 						</div>
 					</div>
 
@@ -148,16 +144,51 @@
 				</div>
 
 
-				<div data-repeater-item>
+
+
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <button class="btn btn-icon btn-warning" type="button" data-repeater-create>
+                  <i data-feather="plus" class="me-25"></i>
+                  <span>Add New</span>
+                </button>
+				<button class="btn btn-icon btn-success m-1" type="submit">
+                  <i data-feather="check" class="me-25"></i>
+                  <span>Update</span>
+                </button>
+              </div>
+            </div>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+
+	<div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Edit Slider Details</h4>
+        </div>
+        <div class="card-body">
+
+
+	<div class="invoice-repeater">
+	<?php $counter=0; ?>
+		@foreach ($imgs as $img)
+
+			<div>
+
+				<div>
 					<div class="row d-flex align-items-end">
 
 					<div class="col-md-2 col-12">
 						<div class="mb-1">
-							<input type="file" name="slider" id="slider" style="display:none;" accept="image/png, image/jpeg, .jpg" onchange="loadFile(event)"/>
 
 							<label for="slider" style="display:block;">
 
-							<img id="imagePreview_1" style="border-radius:20%;" src="/frontend/images/slider/3.jpg" width="120" height="70">
+							<img id="imagePreview_1" style="border-radius:20%;" src="{{$img->src}}" width="120" height="70">
 						</label>
 						</div>
 					</div>
@@ -169,9 +200,10 @@
 							type="text"
 							class="form-control"
 							id="itemcost"
-							value="Your Name"
+							value="{{$img->heading}}"
 							aria-describedby="itemcost"
 							placeholder="32"
+							readonly
 						/>
 						</div>
 					</div>
@@ -183,9 +215,10 @@
 							type="text"
 							class="form-control"
 							id="itemquantity"
-							value="something"
+							value="{{$img->description}}"
 							aria-describedby="itemquantity"
 							placeholder="1"
+							readonly
 						/>
 						</div>
 					</div>
@@ -193,20 +226,22 @@
 					<div class="col-md-2 col-12 mb-50">
 						<div class="mb-1">
 						<label class="form-label" for="staticprice">Button Text</label>
-						<input type="text" value="Button" class="form-control" id="staticprice" />
+						<input type="text" value="{{$img->buttonText}}" class="form-control" id="staticprice"
+						readonly/>
 						</div>
 					</div>
 
 					<div class="col-md-2 col-12 mb-50">
 						<div class="mb-1">
 						<label class="form-label" for="staticprice">Button URL</label>
-						<input type="text" value="google.com" class="form-control" id="staticprice" />
+						<input type="text" value="{{$img->link}}" class="form-control" id="staticprice"
+						readonly/>
 						</div>
 					</div>
 
 					<div class="col-md-2 col-12 mb-50">
 						<div class="mb-1">
-						<button class="btn btn-outline-danger text-nowrap px-1" data-repeater-delete type="button">
+						<button class="btn btn-outline-danger text-nowrap px-1" type="button" onclick="deleted('{{$counter}}');">
 							<i data-feather="x" class="me-25"></i>
 							<span>Delete</span>
 						</button>
@@ -217,99 +252,22 @@
 
 					</div>
 					<hr />
-              	</div>
-
-			  <div data-repeater-item>
-                <div class="row d-flex align-items-end">
-
-                  <div class="col-md-2 col-12">
-                    <div class="mb-1">
-                      	<input type="file" name="slider" id="slider" style="display:none;" accept="image/png, image/jpeg, .jpg" onchange="loadFile(event)"/>
-
-                		<label for="slider" style="display:block;">
-
-				  		<img id="imagePreview_1" style="border-radius:20%;" src="/frontend/images/slider/2.jpg" width="120" height="70">
-                	</label>
-                    </div>
-                  </div>
-
-                  <div class="col-md-2 col-12 mb-50">
-                    <div class="mb-1">
-                      <label class="form-label" for="itemcost">Header</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="itemcost"
-						value="Your Name"
-                        aria-describedby="itemcost"
-                        placeholder="32"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="col-md-2 col-12 mb-50">
-                    <div class="mb-1">
-                      <label class="form-label" for="itemquantity">Short Description</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="itemquantity"
-						value="something"
-                        aria-describedby="itemquantity"
-                        placeholder="1"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="col-md-2 col-12 mb-50">
-                    <div class="mb-1">
-                      <label class="form-label" for="staticprice">Button Text</label>
-                      <input type="text" value="Button" class="form-control" id="staticprice" />
-                    </div>
-                  </div>
-
-				  <div class="col-md-2 col-12 mb-50">
-                    <div class="mb-1">
-                      <label class="form-label" for="staticprice">Button URL</label>
-                      <input type="text" value="google.com" class="form-control" id="staticprice" />
-                    </div>
-                  </div>
-
-                  <div class="col-md-2 col-12 mb-50">
-                    <div class="mb-1">
-                      <button class="btn btn-outline-danger text-nowrap px-1" data-repeater-delete type="button">
-                        <i data-feather="x" class="me-25"></i>
-                        <span>Delete</span>
-                      </button>
-                    </div>
-                  </div>
-
-
-
-                </div>
-                <hr />
-              </div>
+				</div>
 
 
 
 
             </div>
-            <div class="row">
-              <div class="col-12">
-                <button class="btn btn-icon btn-warning" type="button" data-repeater-create>
-                  <i data-feather="plus" class="me-25"></i>
-                  <span>Add New</span>
-                </button>
-				<button class="btn btn-icon btn-success m-1" type="button">
-                  <i data-feather="check" class="me-25"></i>
-                  <span>Update</span>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+			<?php $counter +=1; ?>
+		@endforeach
+
+
+
+
+		</div>
+	</div>
+	</div>
+	</div>
     <!-- /Bootstrap Validation -->
 
     <!-- jQuery Validation -->
@@ -331,13 +289,23 @@
   <script src="{{ asset(mix('js/scripts/forms/form-validation-company-page.js')) }}"></script>
   <script src="{{ asset(mix('js/scripts/forms/form-repeater-front-page.js')) }}"></script>
   <script>
-  var loadFile = function(event) {
-	console.log(event.target.name)
-    var output = document.getElementById('imagePreview_1');
-    output.src = URL.createObjectURL(event.target.files[0]);
-    output.onload = function() {
-      URL.revokeObjectURL(output.src) // free memory
-    }
+  var deleted= function(event) {
+    console.log(event);
+
+	var data = new FormData();
+	var a= document.getElementByName('csrf-token').value;
+data.append('_token', a);
+console.log(document.getElementByName('csrf-token').value);
+var xhr = new XMLHttpRequest();
+xhr.open('GET', '/codebumble/delete-slider/'+event, true);
+xhr.onload = function () {
+    // do something to response
+    if (this.status == 200) {
+              location.reload();
+            };
+};
+xhr.send(data);
   };
 </script>
+
 @endsection
