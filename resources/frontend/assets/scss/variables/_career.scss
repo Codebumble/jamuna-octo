@@ -2,7 +2,7 @@
 	@apply grid lg:grid-cols-4 md:grid-cols-2 gap-6 py-8;
 
 	.card {
-		@apply bg-slate-50 hover:bg-red-600 transition-all rounded-lg flex w-full justify-center items-center py-4 px-8 gap-4 border border-slate-100 hover:border-red-600 shadow-none cursor-pointer;
+		@apply bg-slate-50 hover:bg-red-600 transition-all rounded-lg flex w-full justify-center items-center py-4 px-8 gap-4 border border-slate-100 hover:border-red-600 shadow-none;
 
 		.icon {
 			@apply self-start mt-6;
