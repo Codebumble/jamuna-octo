@@ -107,7 +107,7 @@
 							</div>
 							<div>
 								<h2 class="font-bold pb-1">
-									<router-link to="/career-details">
+									<router-link to="/career-details/1">
 										Technical Support Engineer
 									</router-link>
 								</h2>
@@ -152,7 +152,7 @@
 							</div>
 							<div>
 								<h2 class="font-bold pb-1">
-									<router-link to="/career-details">
+									<router-link to="/career-details/2">
 										Technical Support Engineer
 									</router-link>
 								</h2>
@@ -197,7 +197,7 @@
 							</div>
 							<div>
 								<h2 class="font-bold pb-1">
-									<router-link to="/career-details">
+									<router-link to="/career-details/3">
 										Technical Support Engineer
 									</router-link>
 								</h2>
@@ -242,7 +242,7 @@
 							</div>
 							<div>
 								<h2 class="font-bold pb-1">
-									<router-link to="/career-details">
+									<router-link to="/career-details/4">
 										Technical Support Engineer
 									</router-link>
 								</h2>
@@ -285,6 +285,11 @@
 
 <script>
 	export default {
+		data() {
+			return {
+				jobList: [],
+			};
+		},
 		props: {
 			data: Object,
 		},

@@ -50,7 +50,6 @@
 						title: item.author,
 					})
 				);
-				console.log(this.imgs);
 			});
 		},
 		methods: {

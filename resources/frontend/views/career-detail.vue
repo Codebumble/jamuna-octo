@@ -230,6 +230,9 @@
 		data() {
 			return {};
 		},
+		mounted() {
+			console.log(this.$route.params.id);
+		},
 		setup() {
 			useHead({
 				title: 'Career Details | Jamuna Group',

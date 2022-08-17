@@ -12,8 +12,15 @@
 								<h4 class="step">{{ timeline.year }}</h4>
 							</div>
 							<div class="main-content">
-								<p>
-									{{ timeline.description }}
+								<p v-if="isDesktop">
+									{{timeline.description}}
+								</p>
+								<p v-else>
+									<p v-if="timeline.description.length > 250">
+									<p v-if="!timeline.readMore">{{ timeline.description.slice(0, 250) }} <span @click="timeline.readMore = !timeline.readMore" class="font-bold cursor-pointer">...read more</span></p>
+									<p v-else>{{timeline.description}}</p>
+								</p>
+								<p v-else>{{ timeline.description }}</p>
 								</p>
 							</div>
 						</div>
@@ -35,134 +42,168 @@
 				growthHistory: [
 					{
 						year: '1974',
-						description: `The Group came into being.
-
-							Mr.M.Nurul Islam, the architect of the Group, took up the challenge of bringing necessary technologies to Bangladeshi companies aiming to offset the bulk of foreign imports. His bold entrepreneurial spirit, progressive ideas and untiring efforts along with the devoted services of his colleagues, laid the strong foundation for success and future developments.`,
+						description:
+							'The Group came into being.Mr.M.Nurul Islam, the architect of the Group, took up the challenge of bringing necessary technologies to Bangladeshi companies aiming to offset the bulk of foreign imports. His bold entrepreneurial spirit, progressive ideas and untiring efforts along with the devoted services of his colleagues, laid the strong foundation for success and future developments.',
+							readMore: false
 					},
 					{
 						year: '1975',
-						description: `The first flagship enterprise of the Group, Jamuna Electric Manufacturing Co. Ltd. started operation. It pioneered the manufacturing of electrical accessories and fittings in Bangladesh. It is also producing PVC-compound and pipes.`,
+						description:
+							'The first flagship enterprise of the Group, Jamuna Electric Manufacturing Co. Ltd. started operation. It pioneered the manufacturing of electrical accessories and fittings in Bangladesh. It is also producing PVC-compound and pipes.',
+							readMore: false
 					},
 					{
 						year: '1978',
-						description: `Jamuna Electric & Engineering Industries Ltd. was established to produce ceiling fans, exhaust fans and ballasts.
-
-	`,
+						description:
+							'Jamuna Electric & Engineering Industries Ltd. was established to produce ceiling fans, exhaust fans and ballasts.',
+							readMore: false
 					},
 					{
 						year: '1980',
-						description: `Jamuna stepped into domestic production of high and low voltage cabbies and conductors though the inception of Jamuna Cables & rubber Industries.
-
-	`,
+						description:
+							'Jamuna stepped into domestic production of high and low voltage cabbies and conductors though the inception of Jamuna Cables & rubber Industries.',
+							readMore: false
 					},
 					{
 						year: '1982',
-						description: `Jamuna Wires was established to produce super enameled copper wires.
-
-	`,
+						description:
+							'Jamuna Wires was established to produce super enameled copper wires.',
+							readMore: false
 					},
 					{
 						year: '1988',
-						description: `Jamuna Distillery Ltd. was launched for preparation of industrial and pharma alcohol, thereby making the Group�s entry into the chemical sector of the country. Presently, Jamuna Distillery Ltd. claims wide expertise in the chemical sector.`,
+						description:
+							'Jamuna Distillery Ltd. was launched for preparation of industrial and pharma alcohol, thereby making the Groups entry into the chemical sector of the country. Presently, Jamuna Distillery Ltd. claims wide expertise in the chemical sector.',
+							readMore: false
 					},
 					{
 						year: '1992',
-						description: `The Group entered into the footwear industry with Pegasus Shoes Ltd. Product line of the company includes leather shoes, sports shoes, sandals and sneakers. With a view to provide boost to the local shoe industry and meet external demand of leather, Pegasus Leather Processing Unit was set up for producing finished leathers from natural crust leathers.
-
-							Jamuna Knitting & Dyeing Ltd. made its entry into the textiles sector as a Composite Unit with knit fabrics, dyeing, finishing, printing and ready made garments.
-							Jamuna Welding Electrode Ltd. started production of are welding electrodes.
-							Rubicon Advertising was launched for nationwide advertising in different media to support its own brands and to service outside organizations as well.`,
+						description:
+							'The Group entered into the footwear industry with Pegasus Shoes Ltd. Product line of the company includes leather shoes, sports shoes, sandals and sneakers. With a view to provide boost to the local shoe industry and meet external demand of leather, Pegasus Leather Processing Unit was set up for producing finished leathers from natural crust leathers. Jamuna Knitting & Dyeing Ltd. made its entry into the textiles sector as a Composite Unit with knit fabrics, dyeing, finishing, printing and ready made garments. Jamuna Welding Electrode Ltd. started production of are welding electrodes. Rubicon Advertising was launched for nationwide advertising in different media to support its own brands and to service outside organizations as well.',
+							readMore: false
 					},
 					{
 						year: '1993',
-						description: `The Group started its most ambitious venture in the cosmetics industry with Aromatic Cosmetics Ltd. which produces cosmetics and toiletries under the Aromatic� brand name.`,
+						description:
+							'The Group started its most ambitious venture in the cosmetics industry with Aromatic Cosmetics Ltd. which produces cosmetics and toiletries under the Aromatic� brand name.',
 					},
 					{
 						year: '1996',
-						description: `Establishment of Shameem Spinning Mills Ltd. for production of knit yarn opened a new frontier in the textile technology for the Group.`,
+						description:
+							'Establishment of Shameem Spinning Mills Ltd. for production of knit yarn opened a new frontier in the textile technology for the Group.',
+							readMore: false
 					},
 					{
 						year: '1997',
-						description: `Pegasus Leathers Ltd. was set up for production of PVC and PU coated synthetic leather.`,
+						description:
+							'Pegasus Leathers Ltd. was set up for production of PVC and PU coated synthetic leather.',
+							readMore: false
 					},
 					{
 						year: '1998',
-						description: `Shameem composite Mills Ltd. came into being to produce ring spun yarn.`,
+						description:
+							'Shameem composite Mills Ltd. came into being to produce ring spun yarn.',
+							readMore: false
 					},
 					{
 						year: '1999',
-						description: `Jamuna Printing & Publishing Ltd. made its entry into publication sector by publishing The Daily Jugantor in 2000
-							The Group�s housing venture started with Jamuna Builders Ltd. which has already given shape to the project of building Asia�s biggest shopping and commercial complex-Jamuna Future Park, developing a large residential township-New Uttara Model Town, and a mega real estate venture-Jamuna City.`,
+						description:
+							'Jamuna Printing & Publishing Ltd. made its entry into publication sector by publishing The Daily Jugantor in 2000 The Group�s housing venture started with Jamuna Builders Ltd. which has already given shape to the project of building Asia�s biggest shopping and commercial complex-Jamuna Future Park, developing a large residential township-New Uttara Model Town, and a mega real estate venture-Jamuna City.',
+							readMore: false
 					},
 					{
 						year: '2000',
-						description: `Production of open-end yarn started through the establishment of Shameem Rotor Spinning Ltd.`,
+						description:
+							'Production of open-end yarn started through the establishment of Shameem Rotor Spinning Ltd.',
+							readMore: false
 					},
 					{
 						year: '2002',
-						description: `Jamuna Media Ltd. was set up and entrusted with the sales and distribution of The Daily Jugantor. The newspaper having thus emerged, soon managed to attract wide readership throughout the country. It is printed and published by Jamuna Printing & Publishing Ltd.
-							Jamuna Spinning Mills Ltd. was established to produce ring spun yarn.
-							Shameem Garments Ltd. was set up for production of export oriented ready made garments.
-							Jamuna Television Ltd. was formed to operate a terrestrial and satellite TV channel.`,
+						description:
+							'Jamuna Media Ltd. was set up and entrusted with the sales and distribution of The Daily Jugantor. The newspaper having thus emerged, soon managed to attract wide readership throughout the country. It is printed and published by Jamuna Printing & Publishing Ltd. Jamuna Spinning Mills Ltd. was established to produce ring spun yarn.  Shameem Garments Ltd. was set up for production of export oriented ready made garments. Jamuna Television Ltd. was formed to operate a terrestrial and satellite TV channel.',
+							readMore: false
 					},
 					{
 						year: '2004',
-						description: `Crown Beverage Ltd. was set up for production of non-alcoholic malt beverage and drinks.`,
+						description:
+							'Crown Beverage Ltd. was set up for production of non-alcoholic malt beverage and drinks.',
+							readMore: false
 					},
 					{
 						year: '2005',
-						description: `Jamuna Denims Ltd. (Weaving Unit)came into being as a Composite Unit for production of open-end yarn, denim fabrics and ready made garments.`,
+						description:
+							'Jamuna Denims Ltd. (Weaving Unit)came into being as a Composite Unit for production of open-end yarn, denim fabrics and ready made garments.',
+							readMore: false
 					},
 					{
 						year: '2006',
-						description: `Jamuna Denims Ltd. (Garments Unit) came into being as a Garments Unit for production of ready made garments`,
+						description:
+							'Jamuna Denims Ltd. (Garments Unit) came into being as a Garments Unit for production of ready made garments',
+							readMore: false
 					},
 					{
 						year: '2009',
-						description: `With the advent of Denim revolution around the world, Optimo Jeans was registered and launched in order to cater the massive increase in demand globally
-							Jamuna Bashundhara Housing Limited is a vast well integrated housing establishment targeted towards a niche audience. The full plan has garnered much noise in the real estate industry around the country.`,
+						description:
+							'With the advent of Denim revolution around the world, Optimo Jeans was registered and launched in order to cater the massive increase in demand globally Jamuna Bashundhara Housing Limited is a vast well integrated housing establishment targeted towards a niche audience. The full plan has garnered much noise in the real estate industry around the country.',
+							readMore: false
 					},
 					{
 						year: '2013',
-						description: `Jamuna extended their business line towards a more horizontal direction and landed their first Food venture, Jamuna Food Ltd.
-							One of the landmarks in the country, Jamuna Future Park built on a complex with area of more than 36 acres, holds the biggest 6 storied shopping mall with each floor size 440,000 sqft. The mall has every single amenities that takes Bangladesh in the world map. Late Founder Md. Nurul Islam believed Jamuna Future Park may what Urban Bangladesh needed towards a better future.`,
+						description:
+							'Jamuna extended their business line towards a more horizontal direction and landed their first Food venture, Jamuna Food Ltd. One of the landmarks in the country, Jamuna Future Park built on a complex with area of more than 36 acres, holds the biggest 6 storied shopping mall with each floor size 440,000 sqft. The mall has every single amenities that takes Bangladesh in the world map. Late Founder Md. Nurul Islam believed Jamuna Future Park may what Urban Bangladesh needed towards a better future.',
+							readMore: false
 					},
 					{
 						year: '2014',
-						description: `Jamuna widened their production unit and evolved in Jamuna Electronics and Automobiles Ltd. The first High – Tech Motorbikes came into assembly line and subsequently into production.`,
+						description:
+							'Jamuna widened their production unit and evolved in Jamuna Electronics and Automobiles Ltd. The first High – Tech Motorbikes came into assembly line and subsequently into production.',
+							readMore: false
 					},
 					{
 						year: '2015',
-						description: `Late Founder MD. Nurul Islam saw the massive demand in the automobile accessories industry and envisioned a the biggest Tyre production unit in the country and thus founded Jamuna Tyre and Rubber Ind. Ltd.`,
+						description:
+							'Late Founder MD. Nurul Islam saw the massive demand in the automobile accessories industry and envisioned a the biggest Tyre production unit in the country and thus founded Jamuna Tyre and Rubber Ind. Ltd.',
+							readMore: false
 					},
 					{
 						year: '2017',
-						description: `In order to suffice massive power intakes in our industrial facilities and Shopping Mall our managing director deployed Jamuna Power Ltd.
-							In order to suffice massive power intakes in our industrial facilities and Shopping Mall our managing director deployed Jamuna Power Ltd.
-							With the Hospitality business booming in the country Jamuna tagged with foreign counterparts in vision to develop Jamuna Hotels and Resorts.
-
-							Monika Nazneen Islam, Group Director registered both Jamuna Glass Ind. Ltd. And Jamuna Gas Ltd.
-
-							Same year Jamuna paper mills got registered as well.`,
+						description:
+							'In order to suffice massive power intakes in our industrial facilities and Shopping Mall our managing director deployed Jamuna Power Ltd. In order to suffice massive power intakes in our industrial facilities and Shopping Mall our managing director deployed Jamuna Power Ltd. With the Hospitality business booming in the country Jamuna tagged with foreign counterparts in vision to develop Jamuna Hotels and Resorts. Monika Nazneen Islam, Group Director registered both Jamuna Glass Ind. Ltd. And Jamuna Gas Ltd. Same year Jamuna paper mills got registered as well.',
+							readMore: false
 					},
 					{
 						year: '2018',
-						description: `HOORAIN HTF LTD. has emergedunder the dynamic entrepreneurship of Mr. Nurul Islam Babul – Honorable Chairman of JAMUNA Group and his highly qualified daughter Ms. Rozalin Islam – Honorable Managing Director with a mission to contribute for the esteemed and up growing Global Apparel Industry. It launched its maiden voyage in this year with the flag of a largest textile mill in the South East Asian region. It sailed along with the vision of a renaissance in this contemporary textile industry & added the group of ventures to strengthen its winningfleet consequently for a greater success of Bangladesh apparel industry.`,
+						description:
+							'HOORAIN HTF LTD. has emergedunder the dynamic entrepreneurship of Mr. Nurul Islam Babul – Honorable Chairman of JAMUNA Group and his highly qualified daughter Ms. Rozalin Islam – Honorable Managing Director with a mission to contribute for the esteemed and up growing Global Apparel Industry. It launched its maiden voyage in this year with the flag of a largest textile mill in the South East Asian region. It sailed along with the vision of a renaissance in this contemporary textile industry & added the group of ventures to strengthen its winningfleet consequently for a greater success of Bangladesh apparel industry.',
+							readMore: false
 					},
 					{
 						year: '2019',
-						description: `Wholesale Club is the one and only HYPERMARKET in Bangladesh In consideration with the huge space size of about 1,50,000 sqft area, products’ variety and products’ quantity, it is the largest in its kind in the region.
-							Lawn Processing ltd. aas registered in this year to cater the female ready garments market in the country.`,
+						description:
+							'Wholesale Club is the one and only HYPERMARKET in Bangladesh In consideration with the huge space size of about 1,50,000 sqft area, products’ variety and products’ quantity, it is the largest in its kind in the region. Lawn Processing ltd. aas registered in this year to cater the female ready garments market in the country.',
+							readMore: false
 					},
 					{
 						year: '2020',
-						description: `Hoor was launched in early part of the year. Hoor has an exotic collection of salwar suits in variant of shades being offered to our customers. It sets a benchmark for providing top quality clothing using 100% of cotton, viscos, linen in making the products.`,
+						description:
+							'Hoor was launched in early part of the year. Hoor has an exotic collection of salwar suits in variant of shades being offered to our customers. It sets a benchmark for providing top quality clothing using 100% of cotton, viscos, linen in making the products.',
+							readMore: false
 					},
 				],
+				isDesktop: true,
+				x: window.matchMedia('(max-width: 1023px)')
 			};
 		},
 		components: {},
+		methods: {
+			detectScreen(x) {
+				return x.matches ? this.isDesktop = false : this.isDesktop =true;
+			}
+		},
 		mounted() {
+			this.detectScreen(this.x);
+			this.x.addListener(this.detectScreen);
+
 			let items = document.querySelectorAll('.timeline li');
 
 			function elementInViewport(el) {
@@ -180,11 +221,11 @@
 			}
 
 			function viewport() {
-				for (let i = 0; i < items.length; i++) {
-					if (elementInViewport(items[i])) {
-						items[i].classList.add('active');
+				items.forEach((item) => {
+					if (elementInViewport(item)) {
+						item.classList.add('active');
 					}
-				}
+				});
 			}
 
 			// listen for events

@@ -20,6 +20,7 @@
         "sass-loader": "^13.0.2",
         "swiper": "^8.3.2",
         "vue": "^3.1.0-0",
+        "vue-component-media-queries": "^1.0.0",
         "vue-easy-lightbox": "^1.8.0",
         "vue-router": "4",
         "vue-tidio": "^2.0.0"
