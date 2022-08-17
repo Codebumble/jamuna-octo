@@ -1,0 +1,20 @@
+.image-gallery {
+	.image {
+		@apply mb-8;
+		.thumbnail {
+			@apply h-48 lg:h-40 xl:h-48 xl:w-72 lg:w-56 md:w-80 md:mx-auto;
+			img {
+				@apply h-full w-full object-cover object-center rounded;
+				border: 1px solid #ddd;
+			}
+		}
+		.content {
+			@apply dark:text-gray-400 xl:w-72 lg:w-56 md:w-80 md:mx-auto block;
+			.title {
+				h2 {
+					@apply text-xl font-bold py-2 dark:text-gray-300;
+				}
+			}
+		}
+	}
+}

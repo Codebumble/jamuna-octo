@@ -1,52 +1,65 @@
 <template>
-	<div class="">
-		<div
-			v-for="(src, index) in imgs"
-			:key="index"
-			class="pic"
-			@click="() => showImg(index)">
-			<img :src="src" />
+	<div class="image-gallery pb-16 angled upper-end">
+		<div class="container">
+			<div
+				class="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-5 pb-8">
+				<div
+					v-for="(src, index) in imgs"
+					:key="index"
+					class="image"
+					@click="() => showImg(index)">
+					<div class="thumbnail">
+						<img
+							:src="src"
+							alt="" />
+					</div>
+					<div class="content">
+						<div class="title">
+							<h2>Jamuna Denim Garments</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<vue-easy-lightbox
+				:visible="visibleRef"
+				:imgs="imgs"
+				:index="indexRef"
+				@hide="onHide"></vue-easy-lightbox>
 		</div>
 	</div>
-	<vue-easy-lightbox
-		:visible="visibleRef"
-		:imgs="imgs"
-		:index="indexRef"
-		@hide="onHide"></vue-easy-lightbox>
 </template>
 
-<script>
-	import { defineComponent, ref } from 'vue';
-	import VueEasyLightbox, { useEasyLightbox } from 'vue-easy-lightbox';
+<style lang="scss">
+	@import '../../assets/scss/variables/image-gallery';
+</style>
 
-	export default defineComponent({
+<script>
+	import VueEasyLightbox from 'vue-easy-lightbox';
+
+	export default {
 		components: {
 			VueEasyLightbox,
 		},
-		setup() {
-			const visibleRef = ref(false);
-			const indexRef = ref(0);
-			const imgs = [
-				'https://via.placeholder.com/450.png/',
-				'https://via.placeholder.com/300.png/',
-				'https://via.placeholder.com/150.png/',
-				{
-					src: 'https://via.placeholder.com/450.png/',
-					title: 'this is title',
-				},
-			];
-			const showImg = (index) => {
-				indexRef.value = index;
-				visibleRef.value = true;
-			};
-			const onHide = () => (visibleRef.value = false);
+		data() {
 			return {
-				visibleRef,
-				indexRef,
-				imgs,
-				showImg,
-				onHide,
+				visibleRef: false,
+				indexRef: 0,
+				imgs: [],
 			};
 		},
-	});
+		mounted() {
+			axios.get('https://picsum.photos/v2/list').then((res) => {
+				res.data.forEach((item) => this.imgs.push(item.download_url));
+			});
+		},
+		methods: {
+			showImg(index) {
+				this.indexRef = index;
+				this.visibleRef = true;
+			},
+			onHide() {
+				this.visibleRef = false;
+			},
+		},
+	};
 </script>
