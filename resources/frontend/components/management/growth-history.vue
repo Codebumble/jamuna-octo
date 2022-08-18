@@ -75,7 +75,6 @@
 			function viewport() {
 				Array.from(items.childNodes).filter((item) => item.firstChild !== null).forEach((item) => {
 					if (elementInViewport(item)) {
-						console.log(item);
 						item.classList.add('active');
 					}
 				});

@@ -41,10 +41,7 @@
 							<a
 								v-if="slide.buttonText && slide.link"
 								:href="slide.link"
-								:class="{
-									button: slide.button,
-									'button-alt': slide.buttonAlt,
-								}"
+								:class="slide.btnStyle"
 								class="mt-4 capitalize font-bold">
 								{{ slide.buttonText }}
 							</a>
