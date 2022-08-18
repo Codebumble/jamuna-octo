@@ -45,8 +45,8 @@
             <span class="fw-bold">General Details</span>
           </a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="{{route('front_page_slider_view')}}">
+        <li class="nav-item">
+          <a class="nav-link active" href="{{route('front_page_slider_view')}}">
             <i data-feather="lock" class="font-medium-3 me-50"></i>
             <span class="fw-bold">Sliders</span>
           </a>
@@ -188,7 +188,7 @@
 
 							<label for="slider" style="display:block;">
 
-							<img id="imagePreview_1" style="border-radius:20%;" src="{{$img->src}}" width="120" height="70">
+							<img id="imagePreview_1" style="border-radius:6px;" src="{{$img->src}}" width="120" height="70">
 						</label>
 						</div>
 					</div>
@@ -203,7 +203,6 @@
 							value="{{$img->heading}}"
 							aria-describedby="itemcost"
 							placeholder="32"
-							readonly
 						/>
 						</div>
 					</div>
@@ -218,7 +217,6 @@
 							value="{{$img->description}}"
 							aria-describedby="itemquantity"
 							placeholder="1"
-							readonly
 						/>
 						</div>
 					</div>
@@ -227,7 +225,7 @@
 						<div class="mb-1">
 						<label class="form-label" for="staticprice">Button Text</label>
 						<input type="text" value="{{$img->buttonText}}" class="form-control" id="staticprice"
-						readonly/>
+						/>
 						</div>
 					</div>
 
@@ -235,7 +233,7 @@
 						<div class="mb-1">
 						<label class="form-label" for="staticprice">Button URL</label>
 						<input type="text" value="{{$img->link}}" class="form-control" id="staticprice"
-						readonly/>
+						/>
 						</div>
 					</div>
 
