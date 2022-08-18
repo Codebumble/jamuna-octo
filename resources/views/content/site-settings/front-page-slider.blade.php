@@ -202,7 +202,7 @@
 							id="itemcost"
 							value="{{$img->heading}}"
 							aria-describedby="itemcost"
-							placeholder="32"
+							placeholder="32" readonly
 						/>
 						</div>
 					</div>
@@ -216,7 +216,7 @@
 							id="itemquantity"
 							value="{{$img->description}}"
 							aria-describedby="itemquantity"
-							placeholder="1"
+							placeholder="1" readonly
 						/>
 						</div>
 					</div>
@@ -224,7 +224,7 @@
 					<div class="col-md-2 col-12 mb-50">
 						<div class="mb-1">
 						<label class="form-label" for="staticprice">Button Text</label>
-						<input type="text" value="{{$img->buttonText}}" class="form-control" id="staticprice"
+						<input type="text" value="{{$img->buttonText}}" class="form-control" id="staticprice" readonly
 						/>
 						</div>
 					</div>
@@ -232,14 +232,14 @@
 					<div class="col-md-2 col-12 mb-50">
 						<div class="mb-1">
 						<label class="form-label" for="staticprice">Button URL</label>
-						<input type="text" value="{{$img->link}}" class="form-control" id="staticprice"
+						<input type="text" value="{{$img->link}}" class="form-control" id="staticprice" readonly
 						/>
 						</div>
 					</div>
 
 					<div class="col-md-2 col-12 mb-50">
 						<div class="mb-1">
-						<button class="btn btn-outline-danger text-nowrap px-1" type="button" data-repeater-delete onclick="deleted('{{$counter}}');">
+						<button class="btn btn-outline-danger text-nowrap px-1" type="button" disabled data-repeater-delete onclick="deleted('{{$counter}}');">
 							<i data-feather="x" class="me-25"></i>
 							<span>Delete</span>
 						</button>
