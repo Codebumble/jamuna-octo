@@ -198,7 +198,6 @@
 
 							<input name="preview[{{$counter}}][showButton]" value="{{$img->showButton}}" class="d-none">
 
-							<input name="preview[{{$counter}}][overlay]" value="{{$img->overlay}}" class="d-none">
 
 							<img id="imagePreview_1" style="border-radius:6px;" src="{{$img->src}}" width="120" height="70">
 						</label>

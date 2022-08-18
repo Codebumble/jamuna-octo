@@ -380,7 +380,7 @@ class siteGeneral extends Controller
 
 
             $f = [
-                "showDescription"=>"true","showButton"=>"true","overlay"=>"true",
+                "showDescription"=>"true","showButton"=>"true",
                 "src" => "/images/slider/".$fileName2,
                 "heading" => $value['heading'],
                 "description" => $value['description'],
