@@ -91,6 +91,7 @@ Route::group(['prefix' => 'frontpage-api', ], function () {
     Route::get('shortBrief', [FrontPage::class, 'shortBrief']);
     Route::get('header-data', [FrontPage::class, 'header_data']);
     Route::get('concern-details', [FrontPage::class, 'concern_details']);
+    Route::get('growth-history', [FrontPage::class, 'growth_history']);
 
 });
 
