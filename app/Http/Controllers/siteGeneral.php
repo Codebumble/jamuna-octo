@@ -310,11 +310,94 @@ class siteGeneral extends Controller
     }
 
     public function front_page_slider_view(){
-        $data = DB::table('codebumble_front_page')->where('code_name', 'sliders_data')->get();
+        $data_1 = DB::table('codebumble_front_page')->where('code_name', 'sliders_data')->get();
+
 
 
         $pageConfigs = ['pageHeader' => false];
-        return view('/content/site-settings/front-page-slider', ['pageConfigs' => $pageConfigs, 'imgs' => json_decode($data[0]->value)]);
+        return view('/content/site-settings/front-page-slider', ['pageConfigs' => $pageConfigs, 'imgs' => json_decode($data_1[0]->value)]);
+
+    }
+
+    public function slider_edit_api(Request $request){
+        if(!Auth::check()){
+            header("Location: " . route('auth-login'), true, 302);
+            exit();
+
+        }
+
+        $db_check = DB::table('codebumble_front_page')->where('code_name', 'sliders_data')->update(['value'=>json_encode($request->preview)]);
+
+        return redirect()->route('front_page_slider_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10)]);
+
+
+
+    }
+
+    public function delete_slider($id){
+
+        $data_1 = DB::table('codebumble_front_page')->where('code_name', 'sliders_data')->get();
+
+        $data = json_decode($data_1[0]->value);
+
+        $counter = 0;
+        $array = [];
+
+        foreach ($data as $key => $value) {
+            if($key != $id){
+                array_push($array, $value);
+            }
+        }
+
+        $db_check = DB::table('codebumble_front_page')->where('code_name', 'sliders_data')->update(['value'=>json_encode($array)]);
+
+        return redirect()->route('front_page_slider_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10)]);
+
+    }
+
+    public function add_slider_api(Request $request){
+        if(!Auth::check()){
+            header("Location: " . route('auth-login'), true, 302);
+            exit();
+
+        }
+
+        $data_1 = DB::table('codebumble_front_page')->where('code_name', 'sliders_data')->get();
+
+        $data = json_decode($data_1[0]->value);
+
+        $new= $request->new;
+
+
+        foreach ($new as $key => $value) {
+            if($file1 = $request->hasFile('new.'.$key.'.src')){
+
+            $file2 = $request->file('new.'.$key.'.src') ;
+            $fileName2 = time().'-company-slider.'.$file2->getClientOriginalExtension() ;
+            $destinationPath2 = public_path().'/images/slider' ;
+            $file2->move($destinationPath2,$fileName2);
+
+
+
+            $f = [
+                "showDescription"=>"true","showButton"=>"true","overlay"=>"true",
+                "src" => "/images/slider/".$fileName2,
+                "heading" => $value['heading'],
+                "description" => $value['description'],
+                "buttonText" => $value['buttonText'],
+                "link" => $value['link']
+            ];
+
+            array_push($data,$f);
+        }
+
+        }
+
+        $db_check = DB::table('codebumble_front_page')->where('code_name', 'sliders_data')->update(['value'=>json_encode($data)]);
+
+
+
+        return redirect()->route('front_page_slider_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10)]);
 
     }
 

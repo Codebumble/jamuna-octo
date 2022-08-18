@@ -54,7 +54,14 @@ Route::group(['prefix' => 'codebumble'], function () {
     Route::group(['middleware' => 'auth:sanctum'], function(){
 
         Route::post('front-page-chairperson-api', [siteGeneral::class, 'front_page_chairperson_api'])->name('front_page_chairperson_api');
-        
+
+        Route::get('delete-slider/{id}', [siteGeneral::class, 'delete_slider'])->name('delete_slider');
+
+        Route::post('add-slider-api', [siteGeneral::class, 'add_slider_api'])->name('add_slider_api');
+
+
+        Route::post('slider-edit-api', [siteGeneral::class, 'slider_edit_api'])->name('slider_edit_api');
+
         Route::post('front-page-api', [siteGeneral::class, 'front_page_api'])->name('front_page_api');
         Route::post('site-settings-general-api', [siteGeneral::class, 'site_settings_general_api'])->name('site-settings-general-api');
         Route::post('header-edit-api', [siteGeneral::class, 'header_edit_api'])->name('header-edit-api');
@@ -108,6 +115,8 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::get('site-settings/front-page', [siteGeneral::class, 'front_page_view'])->name('front_page_view');
         Route::get('site-settings/chairperson-speech', [siteGeneral::class, 'front_page_chairperson_view'])->name('front_page_chairperson_view');
         Route::get('site-settings/slider-edit', [siteGeneral::class, 'front_page_slider_view'])->name('front_page_slider_view');
+
+
         Route::get('site-settings/growth-story', [siteGeneral::class, 'growth_story_view'])->name('growth_story_view');
         Route::get('site-settings/mission-vision', [siteGeneral::class, 'mission_vision_view'])->name('mission_vision_view');
         Route::get('career/post-a-job', [siteGeneral::class, 'post_a_job_view'])->name('post_a_job_view');

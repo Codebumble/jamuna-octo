@@ -70,17 +70,18 @@
 
 
 
-          <form action="#" class="invoice-repeater">
-            <div data-repeater-list="invoice">
+          <form action="{{route('add_slider_api')}}" class="invoice-repeater" enctype="multipart/form-data" method="POST">
+		  @csrf
+            <div data-repeater-list="new">
 
 				<div data-repeater-item>
 					<div class="row d-flex align-items-end">
 
 					<div class="col-md-2 col-12 mb-50">
 						<div class="mb-1">
-						<label class="form-label" for="itemcost">Image</label>
-							<input type="file" name="slider"
-							class="form-control" id="slider"accept="image/png, image/jpeg, .jpg"/>
+						<label class="form-label" for="src">Image</label>
+							<input type="file" name="src"
+							class="form-control" id="src" accept="image/png, image/jpeg, .jpg"/>
 
 
 						</div>
@@ -88,49 +89,51 @@
 
 					<div class="col-md-2 col-12 mb-50">
 						<div class="mb-1">
-						<label class="form-label" for="itemcost">Header</label>
+						<label class="form-label" for="heading">Header</label>
 						<input
 							type="text"
 							class="form-control"
-							id="itemcost"
-							value="Top Header"
-							aria-describedby="itemcost"
-							placeholder="32"
+							name="heading"
+							id="heading"
+							value=""
+							aria-describedby="heading"
+							placeholder="Header"
 						/>
 						</div>
 					</div>
 
 					<div class="col-md-2 col-12 mb-50">
 						<div class="mb-1">
-						<label class="form-label" for="itemquantity">Short Description</label>
+						<label class="form-label" for="description">Short Description</label>
 						<input
 							type="text"
 							class="form-control"
-							id="itemquantity"
-							value="123asdfghj"
-							aria-describedby="itemquantity"
-							placeholder="1"
+							id="description"
+							value=""
+							name="description"
+							aria-describedby="description"
+							placeholder="Add Description"
 						/>
 						</div>
 					</div>
 
 					<div class="col-md-2 col-12 mb-50">
 						<div class="mb-1">
-						<label class="form-label" for="staticprice">Button Text</label>
-						<input type="text" value="Button" class="form-control" id="staticprice" />
+						<label class="form-label" for="buttonText">Button Text</label>
+						<input type="text" value="" name="buttonText" class="form-control" id="buttonText" />
 						</div>
 					</div>
 
 					<div class="col-md-2 col-12 mb-50">
 						<div class="mb-1">
-						<label class="form-label" for="staticprice">Button URL</label>
-						<input type="text" value="https://google.com/now" class="form-control" id="staticprice" />
+						<label class="form-label" for="link">Button URL</label>
+						<input type="text" value="" class="form-control" name="link" id="link" />
 						</div>
 					</div>
 
 					<div class="col-md-2 col-12 mb-50">
 						<div class="mb-1">
-						<button class="btn btn-outline-danger text-nowrap px-1" data-repeater-delete type="button">
+						<button class="btn btn-outline-danger text-nowrap px-1" data-repeater-delete type="button" onclick="this.form.submit();">
 							<i data-feather="x" class="me-25"></i>
 							<span>Delete</span>
 						</button>
@@ -173,10 +176,11 @@
         </div>
         <div class="card-body">
 
-
+	<form action="{{route('slider_edit_api')}}" method="POST" >
+	@csrf
 	<div class="invoice-repeater">
 	<?php $counter=0; ?>
-		@foreach ($imgs as $img)
+		@foreach($imgs as $img)
 
 			<div>
 
@@ -187,6 +191,14 @@
 						<div class="mb-1">
 
 							<label for="slider" style="display:block;">
+
+							<input name="preview[{{$counter}}][src]" value="{{$img->src}}" class="d-none">
+
+							<input name="preview[{{$counter}}][showDescription]" value="{{$img->showDescription}}" class="d-none">
+
+							<input name="preview[{{$counter}}][showButton]" value="{{$img->showButton}}" class="d-none">
+
+							<input name="preview[{{$counter}}][overlay]" value="{{$img->overlay}}" class="d-none">
 
 							<img id="imagePreview_1" style="border-radius:6px;" src="{{$img->src}}" width="120" height="70">
 						</label>
@@ -200,9 +212,10 @@
 							type="text"
 							class="form-control"
 							id="itemcost"
+							name="preview[{{$counter}}][heading]"
 							value="{{$img->heading}}"
 							aria-describedby="itemcost"
-							placeholder="32" readonly
+							placeholder="32"
 						/>
 						</div>
 					</div>
@@ -214,9 +227,10 @@
 							type="text"
 							class="form-control"
 							id="itemquantity"
+							name="preview[{{$counter}}][description]"
 							value="{{$img->description}}"
 							aria-describedby="itemquantity"
-							placeholder="1" readonly
+							placeholder="1"
 						/>
 						</div>
 					</div>
@@ -224,7 +238,9 @@
 					<div class="col-md-2 col-12 mb-50">
 						<div class="mb-1">
 						<label class="form-label" for="staticprice">Button Text</label>
-						<input type="text" value="{{$img->buttonText}}" class="form-control" id="staticprice" readonly
+						<input type="text"
+						name="preview[{{$counter}}][buttonText]"
+						 value="{{$img->buttonText}}" class="form-control" id="staticprice"
 						/>
 						</div>
 					</div>
@@ -232,14 +248,15 @@
 					<div class="col-md-2 col-12 mb-50">
 						<div class="mb-1">
 						<label class="form-label" for="staticprice">Button URL</label>
-						<input type="text" value="{{$img->link}}" class="form-control" id="staticprice" readonly
+						<input type="text" value="{{$img->link}}"
+						name="preview[{{$counter}}][link]" class="form-control" id="staticprice"
 						/>
 						</div>
 					</div>
 
 					<div class="col-md-2 col-12 mb-50">
 						<div class="mb-1">
-						<button class="btn btn-outline-danger text-nowrap px-1" type="button" disabled data-repeater-delete onclick="deleted('{{$counter}}');">
+						<button class="btn btn-outline-danger text-nowrap px-1" type="button" data-repeater-delete onclick="deleted('{{$counter}}');">
 							<i data-feather="x" class="me-25"></i>
 							<span>Delete</span>
 						</button>
@@ -257,10 +274,22 @@
 			<?php $counter +=1; ?>
 		@endforeach
 
+		<div class="row">
+              <div class="col-12">
+
+				<button class="btn btn-icon btn-success m-1" type="button" onclick="this.form.submit();">
+                  <i data-feather="check" class="me-25"></i>
+                  <span>Update</span>
+                </button>
+              </div>
+            </div>
+
 
 
 
 		</div>
+
+		</form>
 	</div>
 	</div>
 	</div>
@@ -289,9 +318,6 @@
     console.log(event);
 
 	var data = new FormData();
-	var a= document.getElementByName('csrf-token').value;
-data.append('_token', a);
-console.log(document.getElementByName('csrf-token').value);
 var xhr = new XMLHttpRequest();
 xhr.open('GET', '/codebumble/delete-slider/'+event, true);
 xhr.onload = function () {
