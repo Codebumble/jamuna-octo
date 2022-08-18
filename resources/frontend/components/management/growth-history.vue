@@ -49,21 +49,14 @@
 			detectScreen(x) {
 				return x.matches ? this.isDesktop = false : this.isDesktop =true;
 			}
-		},created(){
-			axios
-				.get(window.location.origin + '/frontpage-api/growth-history')
-				.then((response) => {
-					this.growthHistory = response.data;
-				});
 		},
-		mounted() {
-
-
+		async created(){
+			const result = await axios.get(window.location.origin + '/frontpage-api/growth-history')
+			this.growthHistory=await result.data
+			let items = document.querySelector('.timeline ul');
 
 			this.detectScreen(this.x);
 			this.x.addListener(this.detectScreen);
-
-			let items = document.querySelectorAll('.timeline li');
 
 			function elementInViewport(el) {
 				let rect = el.getBoundingClientRect();
@@ -80,8 +73,9 @@
 			}
 
 			function viewport() {
-				items.forEach((item) => {
+				Array.from(items.childNodes).filter((item) => item.firstChild !== null).forEach((item) => {
 					if (elementInViewport(item)) {
+						console.log(item);
 						item.classList.add('active');
 					}
 				});
