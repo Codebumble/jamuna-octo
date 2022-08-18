@@ -5,7 +5,7 @@
 				class="flex flex-col lg:flex-row gap-8 justify-between py-4 items-center">
 				<div class="lg:basis-2/4">
 					<h2
-						class="font-bold text-2xl lg:text-4xl text-gray-800 leading-snug">
+						class="font-bold text-2xl lg:text-4xl text-gray-800 leading-snug text-center lg:text-left">
 						Our Mission Vision & Objective
 					</h2>
 				</div>

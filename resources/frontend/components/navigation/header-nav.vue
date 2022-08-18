@@ -160,6 +160,14 @@
 								route: '/company-profile',
 								label: 'Company Profile',
 							},
+							{
+								route: '/growth-story',
+								label: 'Growth Story',
+							},
+							{
+								route: '/quality-process',
+								label: 'Quality Process',
+							},
 						],
 					},
 					{
@@ -330,14 +338,6 @@
 						route: '',
 						label: 'Management',
 						parentSubmenu: [
-							{
-								route: '/growth-story',
-								label: 'Growth Story',
-							},
-							{
-								route: '/quality-process',
-								label: 'Quality Process',
-							},
 							{
 								route: '/future-expansion',
 								label: 'Future Expansion',

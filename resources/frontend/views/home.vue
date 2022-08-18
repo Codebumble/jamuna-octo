@@ -4,6 +4,7 @@
 	<shortBrief />
 	<chairpersonSpeech />
 	<missionVission />
+	<futureExpension />
 	<groupCompany />
 </template>
 
@@ -14,6 +15,7 @@
 	import shortBrief from '../components/home/short-brief';
 	import chairpersonSpeech from '../components/home/chairperson-speech';
 	import missionVission from '../components/home/mission-vision';
+	import futureExpension from '../components/home/future-expansion';
 	import groupCompany from '../components/home/group-company';
 
 	export default {
@@ -23,6 +25,7 @@
 			shortBrief,
 			chairpersonSpeech,
 			missionVission,
+			futureExpension,
 			groupCompany,
 		},
 		setup() {
