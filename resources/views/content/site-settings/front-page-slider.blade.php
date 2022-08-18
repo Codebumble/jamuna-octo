@@ -239,14 +239,12 @@
 
 					<div class="col-md-2 col-12 mb-50">
 						<div class="mb-1">
-						<button class="btn btn-outline-danger text-nowrap px-1" type="button" onclick="deleted('{{$counter}}');">
+						<button class="btn btn-outline-danger text-nowrap px-1" type="button" data-repeater-delete onclick="deleted('{{$counter}}');">
 							<i data-feather="x" class="me-25"></i>
 							<span>Delete</span>
 						</button>
 						</div>
 					</div>
-
-
 
 					</div>
 					<hr />
