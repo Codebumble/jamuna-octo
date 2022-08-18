@@ -9,12 +9,7 @@ import { createHead } from "@vueuse/head";
 const head = createHead();
 
 import { createApp } from "vue";
-import VueTidio from "vue-tidio";
 
 import FrontEnd from "./App.vue";
 
-createApp(FrontEnd)
-	.use(router)
-	.use(head)
-	.use(VueTidio, { appKey: "1yoerye8srqedbbeqdfekccvmrn30ff6" })
-	.mount("#app");
+createApp(FrontEnd).use(router).use(head).mount("#app");

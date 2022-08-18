@@ -107,9 +107,7 @@
 							</div>
 							<div>
 								<h2 class="font-bold pb-1">
-									<router-link to="/career-details/1">
-										Technical Support Engineer
-									</router-link>
+									Technical Support Engineer
 								</h2>
 								<p class="text-sm">Full-time</p>
 							</div>
@@ -129,11 +127,11 @@
 									<span>/month</span>
 								</div>
 								<div class="my-4 xl:my-0">
-									<a
-										href="#"
-										class="rounded-md bg-red-100 text-red-600 font-bold transition-all hover:text-white hover:bg-red-600 px-2.5 py-2"
-										>Apply Now</a
-									>
+									<router-link
+										to="/career-details/1"
+										class="rounded-md bg-red-100 text-red-600 font-bold transition-all hover:text-white hover:bg-red-600 px-2.5 py-2">
+										View Details
+									</router-link>
 								</div>
 							</div>
 						</div>
@@ -152,9 +150,7 @@
 							</div>
 							<div>
 								<h2 class="font-bold pb-1">
-									<router-link to="/career-details/2">
-										Technical Support Engineer
-									</router-link>
+									Technical Support Engineer
 								</h2>
 								<p class="text-sm">Full-time</p>
 							</div>
@@ -174,11 +170,11 @@
 									<span>/month</span>
 								</div>
 								<div class="my-4 xl:my-0">
-									<a
-										href="#"
-										class="rounded-md bg-red-100 text-red-600 font-bold transition-all hover:text-white hover:bg-red-600 px-2.5 py-2"
-										>Apply Now</a
-									>
+									<router-link
+										to="/career-details/2"
+										class="rounded-md bg-red-100 text-red-600 font-bold transition-all hover:text-white hover:bg-red-600 px-2.5 py-2">
+										View Details
+									</router-link>
 								</div>
 							</div>
 						</div>
@@ -197,9 +193,7 @@
 							</div>
 							<div>
 								<h2 class="font-bold pb-1">
-									<router-link to="/career-details/3">
-										Technical Support Engineer
-									</router-link>
+									Technical Support Engineer
 								</h2>
 								<p class="text-sm">Full-time</p>
 							</div>
@@ -219,11 +213,11 @@
 									<span>/month</span>
 								</div>
 								<div class="my-4 xl:my-0">
-									<a
-										href="#"
-										class="rounded-md bg-red-100 text-red-600 font-bold transition-all hover:text-white hover:bg-red-600 px-2.5 py-2"
-										>Apply Now</a
-									>
+									<router-link
+										to="/career-details/3"
+										class="rounded-md bg-red-100 text-red-600 font-bold transition-all hover:text-white hover:bg-red-600 px-2.5 py-2">
+										View Details
+									</router-link>
 								</div>
 							</div>
 						</div>
@@ -242,9 +236,7 @@
 							</div>
 							<div>
 								<h2 class="font-bold pb-1">
-									<router-link to="/career-details/4">
-										Technical Support Engineer
-									</router-link>
+									Technical Support Engineer
 								</h2>
 								<p class="text-sm">Full-time</p>
 							</div>
@@ -264,11 +256,11 @@
 									<span>/month</span>
 								</div>
 								<div class="my-4 xl:my-0">
-									<a
-										href="#"
-										class="rounded-md bg-red-100 text-red-600 font-bold transition-all hover:text-white hover:bg-red-600 px-2.5 py-2"
-										>Apply Now</a
-									>
+									<router-link
+										to="/career-details/4"
+										class="rounded-md bg-red-100 text-red-600 font-bold transition-all hover:text-white hover:bg-red-600 px-2.5 py-2">
+										View Details
+									</router-link>
 								</div>
 							</div>
 						</div>
