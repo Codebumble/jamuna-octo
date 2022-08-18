@@ -61,11 +61,6 @@ const routes = [
 		component: () => import("../views/growth.vue"),
 	},
 	{
-		path: "/mission-vision",
-		name: "mission",
-		component: () => import("../views/mission.vue"),
-	},
-	{
 		path: "/quality-process",
 		name: "quality-process",
 		component: () => import("../views/quality-process.vue"),

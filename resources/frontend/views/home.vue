@@ -3,6 +3,7 @@
 	<concerns-logo />
 	<shortBrief />
 	<chairpersonSpeech />
+	<missionVission />
 	<groupCompany />
 </template>
 
@@ -12,6 +13,7 @@
 	import concernsLogo from '../components/home/concerns-logo';
 	import shortBrief from '../components/home/short-brief';
 	import chairpersonSpeech from '../components/home/chairperson-speech';
+	import missionVission from '../components/home/mission-vision';
 	import groupCompany from '../components/home/group-company';
 
 	export default {
@@ -20,6 +22,7 @@
 			concernsLogo,
 			shortBrief,
 			chairpersonSpeech,
+			missionVission,
 			groupCompany,
 		},
 		setup() {

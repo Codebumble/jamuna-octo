@@ -1489,5 +1489,11 @@
     "/data/projects-list.json": "/data/projects-list.json",
     "/data/search.json": "/data/search.json",
     "/data/table-datatable.json": "/data/table-datatable.json",
-    "/data/user-list.json": "/data/user-list.json"
+    "/data/user-list.json": "/data/user-list.json",
+    "/frontend/images/contents/Creative Process_Flatline.svg": "/frontend/images/contents/Creative Process_Flatline.svg",
+    "/frontend/images/contents/Rocket Boy_Flatline.svg": "/frontend/images/contents/Rocket Boy_Flatline.svg",
+    "/frontend/images/contents/Target_Flatline.svg": "/frontend/images/contents/Target_Flatline.svg",
+    "/frontend/images/contents/vision.svg": "/frontend/images/contents/vision.svg",
+    "/frontend/images/contents/objective.svg": "/frontend/images/contents/objective.svg",
+    "/frontend/images/contents/mission.svg": "/frontend/images/contents/mission.svg"
 }

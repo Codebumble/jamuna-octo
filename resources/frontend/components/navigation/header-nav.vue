@@ -335,10 +335,6 @@
 								label: 'Growth Story',
 							},
 							{
-								route: '/mission-vision',
-								label: 'Mission & Vision',
-							},
-							{
 								route: '/quality-process',
 								label: 'Quality Process',
 							},
