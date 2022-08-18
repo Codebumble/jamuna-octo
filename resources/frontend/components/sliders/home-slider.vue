@@ -39,7 +39,7 @@
 								</p>
 							</div>
 							<a
-								v-if="slide.showButton"
+								v-if="slide.buttonText && slide.link"
 								:href="slide.link"
 								:class="{
 									button: slide.button,
