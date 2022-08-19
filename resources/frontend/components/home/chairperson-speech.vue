@@ -1,5 +1,5 @@
 <template>
-	<section class="chairperson bg-slate-50">
+	<section class="chairperson">
 		<div class="container">
 			<div class="flex flex-col xl:flex-row items-center gap-8 xl:gap-16">
 				<div class="chairperson-image xl:basis-2/4">
@@ -15,7 +15,7 @@
 						class="text-2xl lg:text-4xl text-gray-800 font-bold pb-4 xl:pb-8">
 						{{ chairperson.title }}
 					</h2>
-					<p class="pb-4 xl:pb-8">
+					<p class="pb-4 xl:pb-8 text-gray-400">
 						{{ chairperson.description }}
 					</p>
 				</div>

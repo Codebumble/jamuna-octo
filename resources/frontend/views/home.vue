@@ -1,7 +1,8 @@
 <template>
 	<home-slider />
 	<concerns-logo />
-	<shortBrief />
+	<!-- <shortBrief /> -->
+	<aboutFounder />
 	<chairpersonSpeech />
 	<missionVission />
 	<futureExpension />
@@ -12,8 +13,9 @@
 	import { useHead } from '@vueuse/head';
 	import homeSlider from '../components/sliders/home-slider';
 	import concernsLogo from '../components/home/concerns-logo';
-	import shortBrief from '../components/home/short-brief';
+	// import shortBrief from '../components/home/short-brief';
 	import chairpersonSpeech from '../components/home/chairperson-speech';
+	import aboutFounder from '../components/home/about-founder';
 	import missionVission from '../components/home/mission-vision';
 	import futureExpension from '../components/home/future-expansion';
 	import groupCompany from '../components/home/group-company';
@@ -22,8 +24,9 @@
 		components: {
 			homeSlider,
 			concernsLogo,
-			shortBrief,
+			// shortBrief,
 			chairpersonSpeech,
+			aboutFounder,
 			missionVission,
 			futureExpension,
 			groupCompany,

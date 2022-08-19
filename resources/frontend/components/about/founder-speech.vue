@@ -47,7 +47,7 @@
 		}
 
 		p {
-			@apply xl:w-10/12 mx-auto;
+			@apply xl:w-10/12 mx-auto text-gray-400;
 		}
 	}
 

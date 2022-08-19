@@ -1,5 +1,5 @@
 <template>
-	<section class="py-10">
+	<section class="py-10 bg-slate-50">
 		<div class="container">
 			<div
 				class="flex flex-col lg:flex-row gap-8 justify-between py-4 items-center">
@@ -21,7 +21,7 @@
 			</div>
 			<div class="grid lg:grid-cols-3 gap-8 pt-8">
 				<div
-					class="rounded bg-slate-50 hover:shadow-md shadow-sm transition-all transform translate-y-0 hover:-translate-y-1 text-center lg:p-12 p-4 mx-auto">
+					class="rounded bg-white hover:shadow-md shadow-sm transition-all transform translate-y-0 hover:-translate-y-1 text-center lg:p-12 p-4 mx-auto">
 					<img
 						class="h-36 mx-auto my-4"
 						src="/frontend/images/contents/mission.svg"
@@ -38,7 +38,7 @@
 					</p>
 				</div>
 				<div
-					class="rounded bg-slate-50 hover:shadow-md shadow-sm transition-all transform translate-y-0 hover:-translate-y-1 text-center lg:p-12 p-4 mx-auto">
+					class="rounded bg-white hover:shadow-md shadow-sm transition-all transform translate-y-0 hover:-translate-y-1 text-center lg:p-12 p-4 mx-auto">
 					<img
 						class="h-36 mx-auto my-4"
 						src="/frontend/images/contents/vision.svg"
@@ -55,7 +55,7 @@
 					</p>
 				</div>
 				<div
-					class="rounded bg-slate-50 hover:shadow-md shadow-sm transition-all transform translate-y-0 hover:-translate-y-1 text-center lg:p-12 p-4 mx-auto">
+					class="rounded bg-white hover:shadow-md shadow-sm transition-all transform translate-y-0 hover:-translate-y-1 text-center lg:p-12 p-4 mx-auto">
 					<img
 						class="h-36 mx-auto my-4"
 						src="/frontend/images/contents/objective.svg"

@@ -9,7 +9,7 @@
 		}
 
 		p {
-			@apply pb-8 xl:w-10/12 mx-auto;
+			@apply pb-8 xl:w-10/12 mx-auto text-gray-400;
 		}
 	}
 }
@@ -28,12 +28,14 @@
 
 .slideItem {
 	div {
-		background: linear-gradient(
-			118.64deg,
-			rgba(255, 243, 233, 0.7) -4.78%,
-			hsla(0, 0%, 100%, 0.7) 64.5%,
-			rgba(255, 243, 233, 0.7) 111.91%
-		);
+		// background: linear-gradient(
+		// 	118.64deg,
+		// 	rgba(255, 243, 233, 0.7) -4.78%,
+		// 	hsla(0, 0%, 100%, 0.7) 64.5%,
+		// 	rgba(255, 243, 233, 0.7) 111.91%
+		// );
+
+		@apply bg-slate-100 bg-opacity-50;
 		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
 		.itemName {

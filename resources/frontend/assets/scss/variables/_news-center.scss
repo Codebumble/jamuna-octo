@@ -1,12 +1,12 @@
 .news-center {
 	@apply py-8;
 	.heading {
-		@apply py-4;
+		@apply py-8;
 		h2 {
 			@apply text-2xl xl:text-4xl text-center text-gray-800 font-bold pb-4;
 		}
 		p {
-			@apply xl:w-10/12 w-full pb-4 mx-auto text-center;
+			@apply xl:w-10/12 w-full pb-4 mx-auto text-center text-gray-400;
 		}
 	}
 

@@ -70,7 +70,8 @@
 						class="text-gray-800 text-center text-xl lg:text-4xl font-bold leading-snug">
 						Drop Us a Line
 					</h2>
-					<p class="text-base text-center leading-snug py-4">
+					<p
+						class="text-base text-center leading-snug py-4 text-gray-400">
 						Reach out to us from our contact form and we will get
 						back to you shortly.
 					</p>

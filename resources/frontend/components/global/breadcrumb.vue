@@ -2,22 +2,6 @@
 	<section
 		id="cb-hero-bg"
 		class="overflow-hidden cb-hero relative py-8 bg-slate-100">
-		<!-- <div class="gradient-overlay image"></div>
-		<img
-			:src="data.image"
-			class="overlay image"
-			:alt="data.alt" />
-		<div class="container">
-			<div class="flex flex-col justify-center text-white mt-6">
-				<h2
-					class="lg:text-5xl text-2xl font-bold lg:leading-tight leading-snug lg:mb-3">
-					{{ data.pageTitle }}
-				</h2>
-				<p class="md:text-base xs:text-sm xl:w-3/5">
-					{{ data.pageDesc }}
-				</p>
-			</div>
-		</div> -->
 		<div class="container">
 			<div
 				class="flex flex-col justify-center items-center text-gray-800">
@@ -25,7 +9,8 @@
 					class="lg:text-5xl text-2xl font-bold lg:leading-tight leading-snug lg:mb-3 text-center text-gray-800">
 					{{ data.pageTitle }}
 				</h2>
-				<p class="md:text-base xs:text-sm xl:w-3/5 text-center">
+				<p
+					class="md:text-base xs:text-sm xl:w-3/5 text-center text-gray-400">
 					{{ data.pageDesc }}
 				</p>
 			</div>

@@ -1,5 +1,5 @@
 <template>
-	<section class="py-16 overflow-hidden bg-slate-50">
+	<section class="py-16 overflow-hidden">
 		<div class="container">
 			<div class="flex flex-col lg:flex-row items-center lg:flex-wrap">
 				<div class="content lg:basis-7/12">
@@ -85,10 +85,7 @@
 
 		mounted() {
 			axios
-				.get(
-					window.location.origin +
-						'/frontpage-api/concern-details'
-				)
+				.get(window.location.origin + '/frontpage-api/concern-details')
 				.then((response) => {
 					this.aboutConcerns = response.data;
 				});
