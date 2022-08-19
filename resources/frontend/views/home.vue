@@ -6,7 +6,8 @@
 	<chairpersonSpeech />
 	<missionVission />
 	<futureExpension />
-	<groupCompany />
+	<products />
+	<events />
 </template>
 
 <script>
@@ -18,7 +19,8 @@
 	import aboutFounder from '../components/home/about-founder';
 	import missionVission from '../components/home/mission-vision';
 	import futureExpension from '../components/home/future-expansion';
-	import groupCompany from '../components/home/group-company';
+	import products from '../components/home/products';
+	import events from '../components/home/events-slider';
 
 	export default {
 		components: {
@@ -29,7 +31,8 @@
 			aboutFounder,
 			missionVission,
 			futureExpension,
-			groupCompany,
+			products,
+			events,
 		},
 		setup() {
 			useHead({
