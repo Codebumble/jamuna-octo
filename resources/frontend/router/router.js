@@ -105,6 +105,11 @@ const routes = [
 		name: "event-detail",
 		component: () => import("../views/event-details.vue"),
 	},
+	{
+		path: "/nurul-islam-foundation",
+		name: "n foundation",
+		component: () => import("../views/nfoundation.vue"),
+	},
 ];
 
 const router = createRouter({
