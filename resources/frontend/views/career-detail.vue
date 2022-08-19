@@ -31,11 +31,72 @@
 						>
 						in Dhaka, Bangladesh
 					</p>
-					<a
-						href="#"
+					<button
 						class="font-bold rounded-full px-4 py-2 bg-red-600 text-white hover:bg-white hover:text-red-600 border border-red-600 inline-block"
-						>Apply Now</a
-					>
+						@click="toggleModal">
+						Apply Now
+					</button>
+					<Modal
+						:isActiveModal="isActiveModal"
+						@close="toggleModal">
+						<div class="apply relative pt-4">
+							<span
+								class="close"
+								@click="toggleModal"
+								>&times;</span
+							>
+							<form class="pt-6">
+								<div class="input-group">
+									<div class="input-item">
+										<input
+											type="text"
+											name="name"
+											id="name"
+											class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+											placeholder="Name"
+											required />
+									</div>
+								</div>
+								<div class="input-group">
+									<div class="input-item">
+										<input
+											type="email"
+											name="email"
+											id="name"
+											class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+											placeholder="Email"
+											required />
+									</div>
+								</div>
+								<div class="input-group">
+									<div class="input-item">
+										<input
+											type="text"
+											name="cvurl"
+											id="name"
+											class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+											placeholder="CV Url (google docs or pdf link)"
+											required />
+									</div>
+								</div>
+								<div class="input-group">
+									<div class="input-item about-you">
+										<textarea
+											name="about-you"
+											id="about-you"
+											required=""
+											class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+											placeholder="About YOu"></textarea>
+									</div>
+								</div>
+								<button
+									type="submit"
+									class="inline-flex justify-center py-2 px-4 border border-transparent hover:border-red-600 shadow-sm text-sm rounded-full text-white hover:text-red-600 bg-red-600 hover:bg-white transition-all mt-8 w-full h-12 items-center font-bold">
+									Send
+								</button>
+							</form>
+						</div>
+					</Modal>
 					<div class="pt-4">
 						<span class="category">Customer Service</span>
 						<span class="time">4 Days ago</span>
@@ -218,14 +279,18 @@
 
 <style lang="scss">
 	@import '../assets/scss/variables/_career.scss';
+	@import '../assets/scss/variables/apply';
 </style>
 
 <script>
 	import { useHead } from '@vueuse/head';
 	import breadcrumb from '../components/global/breadcrumb';
+	import Modal from '../components/global/modal';
+	import { ref } from 'vue';
 	export default {
 		components: {
 			breadcrumb,
+			Modal,
 		},
 		data() {
 			return {};
@@ -234,6 +299,13 @@
 			console.log(this.$route.params.id);
 		},
 		setup() {
+			const isActiveModal = ref(false);
+			const toggleModal = () => {
+				isActiveModal.value = !isActiveModal.value;
+				if (isActiveModal.value)
+					document.body.style.overflowY = 'hidden';
+				else document.body.style.overflowY = 'scroll';
+			};
 			useHead({
 				title: 'Career Details | Jamuna Group',
 				meta: [
@@ -252,6 +324,16 @@
 					},
 				],
 			});
+			return {
+				isActiveModal,
+				toggleModal,
+			};
 		},
 	};
 </script>
+
+<style>
+	.close {
+		@apply absolute top-4 right-8 text-3xl font-bold cursor-pointer text-gray-500;
+	}
+</style>

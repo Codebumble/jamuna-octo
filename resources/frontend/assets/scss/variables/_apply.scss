@@ -1,0 +1,14 @@
+.apply {
+	@apply bg-gray-100 w-full dark:bg-darkviolet lg:w-96 shadow-xl rounded-lg mx-auto mt-8 p-8;
+	form {
+		@apply w-full;
+		.input-item {
+			@apply w-full mb-3;
+			height: 50px;
+			margin-right: 4%;
+			&:last-child {
+				@apply mr-0;
+			}
+		}
+	}
+}

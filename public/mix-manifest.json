@@ -1460,12 +1460,14 @@
     "/frontend/images/concerns/vuemastery.png": "/frontend/images/concerns/vuemastery.png",
     "/frontend/images/concerns/vueschool.png": "/frontend/images/concerns/vueschool.png",
     "/frontend/images/contents/banner.jpg": "/frontend/images/contents/banner.jpg",
+    "/frontend/images/contents/mission.svg": "/frontend/images/contents/mission.svg",
     "/frontend/images/contents/Nurul_Islam_Babul.jpg": "/frontend/images/contents/Nurul_Islam_Babul.jpg",
+    "/frontend/images/contents/objective.svg": "/frontend/images/contents/objective.svg",
     "/frontend/images/contents/office-1.jpg": "/frontend/images/contents/office-1.jpg",
+    "/frontend/images/contents/vision.svg": "/frontend/images/contents/vision.svg",
     "/frontend/images/directors/mem1-1.jpg": "/frontend/images/directors/mem1-1.jpg",
     "/frontend/images/directors/mem6-1.jpg": "/frontend/images/directors/mem6-1.jpg",
     "/frontend/images/ico/favicon.ico": "/frontend/images/ico/favicon.ico",
-    "/frontend/images/logo/Asset 2.svg": "/frontend/images/logo/Asset 2.svg",
     "/frontend/images/logo/code-white.svg": "/frontend/images/logo/code-white.svg",
     "/frontend/images/logo/hoor.png": "/frontend/images/logo/hoor.png",
     "/frontend/images/logo/hoorain.png": "/frontend/images/logo/hoorain.png",
@@ -1489,11 +1491,5 @@
     "/data/projects-list.json": "/data/projects-list.json",
     "/data/search.json": "/data/search.json",
     "/data/table-datatable.json": "/data/table-datatable.json",
-    "/data/user-list.json": "/data/user-list.json",
-    "/frontend/images/contents/Creative Process_Flatline.svg": "/frontend/images/contents/Creative Process_Flatline.svg",
-    "/frontend/images/contents/Rocket Boy_Flatline.svg": "/frontend/images/contents/Rocket Boy_Flatline.svg",
-    "/frontend/images/contents/Target_Flatline.svg": "/frontend/images/contents/Target_Flatline.svg",
-    "/frontend/images/contents/vision.svg": "/frontend/images/contents/vision.svg",
-    "/frontend/images/contents/objective.svg": "/frontend/images/contents/objective.svg",
-    "/frontend/images/contents/mission.svg": "/frontend/images/contents/mission.svg"
+    "/data/user-list.json": "/data/user-list.json"
 }
