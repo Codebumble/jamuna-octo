@@ -67,7 +67,7 @@
 						class="text-4xl font-bold text-red-600 leading-snug mb-2">
 						{{ footerAbout.heading }}
 					</h2>
-					<p class="">
+					<p class="text-gray-400">
 						{{ footerAbout.description }}
 					</p>
 				</div>

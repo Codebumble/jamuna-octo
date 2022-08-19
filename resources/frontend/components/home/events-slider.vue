@@ -17,13 +17,12 @@
 						class="slideItem px-2 lg:px-4"
 						v-for="(slide, key) in slideContent"
 						:key="key">
+						<img
+							:src="slide.imgSrc"
+							:alt="slide.alt"
+							class="w-full rounded-bl-none rounded-br-none rounded-tr rounded-tl min-h-[200px] max-h-[200px] object-cover pt-0 bg-slate-50" />
 						<div
-							class="p-4 pb-6 rounded-xl backdrop-blur-md min-h-[440px] max-h-[440px] overflow-hidden">
-							<img
-								:src="slide.imgSrc"
-								:alt="slide.alt"
-								class="w-full rounded-xl min-h-[200px] max-h-[200px] object-cover pt-0 bg-slate-50" />
-
+							class="p-4 pb-6 rounded-tl-none rounded-tr-none rounded-bl rounded-br backdrop-blur-md min-h-[240px] max-h-[240px] overflow-hidden">
 							<!-- <span class="itemName">{{ slide.title }}</span> -->
 
 							<router-link to="">

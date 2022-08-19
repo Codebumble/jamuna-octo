@@ -15,8 +15,6 @@
 		data() {
 			return {
 				breadcrumb: {
-					image: '/frontend/images/breadcrumb/directors.jpg',
-					alt: 'directors',
 					pageTitle: 'Photo Gallery',
 					pageDesc:
 						'Jamuna Group is committed to ensure better life through quality products.',

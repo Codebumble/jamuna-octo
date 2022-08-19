@@ -1,13 +1,25 @@
 <template>
+	<breadcrumb :data="breadcrumb" />
 	<directors />
 </template>
 
 <script>
 	import { useHead } from '@vueuse/head';
 	import directors from '../components/about/directors';
+	import breadcrumb from '../components/global/breadcrumb';
 	export default {
 		components: {
 			directors,
+			breadcrumb,
+		},
+		data() {
+			return {
+				breadcrumb: {
+					pageTitle: 'Contact',
+					pageDesc:
+						'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum animi aliquam voluptates harum aspernatur eveniet velit doloribus aliquid adipisci suscipit?',
+				},
+			};
 		},
 		setup() {
 			useHead({

@@ -1,5 +1,4 @@
 <template>
-	<breadcrumb :data="breadcrumb" />
 	<section class="founder angled upper-end">
 		<div class="quote">
 			<div class="container">
@@ -61,7 +60,6 @@
 	export default {
 		data() {
 			return {
-				breadcrumb: {},
 				FounderDetails: {},
 				quote: {},
 			};
@@ -70,7 +68,6 @@
 			axios
 				.get(window.location.origin + '/founder-api/founder-speech')
 				.then((response) => {
-					this.breadcrumb = response.data.breadcrumb;
 					this.FounderDetails = response.data.FounderDetails;
 					this.quote = response.data.quote;
 				});

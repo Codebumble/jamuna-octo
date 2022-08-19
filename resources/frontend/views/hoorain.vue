@@ -15,8 +15,6 @@
 		data() {
 			return {
 				breadcrumb: {
-					image: '/frontend/images/breadcrumb/directors.jpg',
-					alt: 'directors',
 					pageTitle: 'Hoorain HTF',
 					pageDesc:
 						'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum animi aliquam voluptates harum aspernatur eveniet velit doloribus aliquid adipisci suscipit?',
