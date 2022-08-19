@@ -59,13 +59,64 @@
 								</div>
 								<div class="input-group">
 									<div class="input-item">
-										<input
-											type="text"
-											name="address"
-											id="name"
-											class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-											placeholder="Address"
-											required />
+										<div class="col-span-6 sm:col-span-3">
+											<select
+												id="country"
+												name="country"
+												autocomplete="country-name"
+												class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
+												v-model="division"
+												@change="selectDivision">
+												<option selected>
+													Division
+												</option>
+												<option
+													v-for="value in Object.keys(
+														address
+													)"
+													:value="value">
+													{{ value }}
+												</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="input-group">
+									<div class="input-item">
+										<div class="col-span-6 sm:col-span-3">
+											<select
+												id="country"
+												name="country"
+												autocomplete="country-name"
+												class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
+												@change="selectDistrict">
+												<option selected>
+													District
+												</option>
+												<option
+													v-for="district in districts"
+													:value="district">
+													{{ district }}
+												</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="input-group">
+									<div class="input-item">
+										<div class="col-span-6 sm:col-span-3">
+											<select
+												id="country"
+												name="country"
+												autocomplete="country-name"
+												class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm">
+												<option selected>Thana</option>
+												<option
+													v-for="thana in districts">
+													{{ thana }}
+												</option>
+											</select>
+										</div>
 									</div>
 								</div>
 								<div class="input-group">
@@ -112,18 +163,57 @@
 								</div>
 								<div class="input-group">
 									<div class="input-item">
-										<input
-											type="file"
-											name="cvurl"
-											id="name"
-											class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-											placeholder="Upload Your Resume"
-											accept=".pdf" />
+										<div>
+											<div
+												class="mt-1 flex justify-center px-4 pt-3 pb-4 border-2 border-gray-300 border-dashed rounded-md">
+												<div
+													class="space-y-1 text-center">
+													<svg
+														xmlns="http://www.w3.org/2000/svg"
+														class="mx-auto h-8 w-8 text-gray-400"
+														viewBox="0 0 24 24"
+														fill="none"
+														stroke="currentColor"
+														stroke-width="2"
+														stroke-linecap="round"
+														stroke-linejoin="round">
+														<path
+															d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+														<polyline
+															points="13 2 13 9 20 9"></polyline>
+													</svg>
+													<div
+														class="flex text-sm text-gray-600">
+														<label
+															for="file-upload"
+															class="relative cursor-pointer bg-white rounded-md font-medium text-red-500 hover:text-red-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-red-500">
+															<span
+																>Upload a
+																file</span
+															>
+															<input
+																id="file-upload"
+																name="file-upload"
+																type="file"
+																class="sr-only"
+																accept="application/pdf" />
+														</label>
+														<p class="pl-1">
+															or drag and drop
+														</p>
+													</div>
+													<p
+														class="text-xs text-gray-500">
+														PDF
+													</p>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 								<button
 									type="submit"
-									class="inline-flex justify-center py-2 px-4 border border-transparent hover:border-red-600 shadow-sm text-sm rounded-full text-white hover:text-red-600 bg-red-600 hover:bg-white transition-all w-full h-12 items-center font-bold">
+									class="inline-flex justify-center py-2 px-4 border border-transparent hover:border-red-600 shadow-sm text-sm rounded-full text-white hover:text-red-600 bg-red-600 hover:bg-white transition-all w-full h-12 items-center font-bold mt-[72px]">
 									Send
 								</button>
 							</form>
@@ -319,6 +409,7 @@
 	import breadcrumb from '../components/global/breadcrumb';
 	import Modal from '../components/global/modal';
 	import { ref } from 'vue';
+	import address from '../util/address.js';
 	export default {
 		components: {
 			breadcrumb,
@@ -332,11 +423,19 @@
 		},
 		setup() {
 			const isActiveModal = ref(false);
+			const division = ref('Division');
+			const districts = ref('District');
 			const toggleModal = () => {
 				isActiveModal.value = !isActiveModal.value;
 				if (isActiveModal.value)
 					document.body.style.overflowY = 'hidden';
 				else document.body.style.overflowY = 'scroll';
+			};
+			const selectDivision = () => {
+				districts.value = Object.keys(address[division.value]);
+			};
+			const selectDistrict = () => {
+				console.log(districts.value);
 			};
 			useHead({
 				title: 'Career Details | Jamuna Group',
@@ -359,6 +458,11 @@
 			return {
 				isActiveModal,
 				toggleModal,
+				address,
+				division,
+				districts,
+				selectDivision,
+				selectDistrict,
 			};
 		},
 	};
