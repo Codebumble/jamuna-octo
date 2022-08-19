@@ -9,7 +9,7 @@
 					</h2>
 				</div>
 				<div class="brief-desc">
-					<p class="text-center">
+					<p class="text-center text-gray-400">
 						{{ shortBrief.description }}
 					</p>
 				</div>

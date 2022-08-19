@@ -15,7 +15,7 @@
 						class="text-2xl lg:text-4xl text-gray-800 font-bold pb-4 xl:pb-8">
 						{{ chairperson.title }}
 					</h2>
-					<p class="pb-4 xl:pb-8">
+					<p class="pb-4 xl:pb-8 text-gray-400">
 						{{ chairperson.description }}
 					</p>
 				</div>

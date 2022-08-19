@@ -335,19 +335,17 @@
 						],
 					},
 					{
-						route: '',
-						label: 'Management',
-						parentSubmenu: [
-							{
-								route: '/future-expansion',
-								label: 'Future Expansion',
-							},
-						],
+						route: '/nurul-islam-foundation',
+						label: 'N. Foundation',
 					},
 					{
 						route: '',
-						label: 'News Center',
+						label: 'Media Hub',
 						parentSubmenu: [
+							{
+								route: '/news-center',
+								label: 'News Center',
+							},
 							{
 								route: '/jamuna-tv',
 								label: 'Jamuna Television ',
