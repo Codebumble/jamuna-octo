@@ -2,6 +2,7 @@
 	<home-slider />
 	<concerns-logo />
 	<shortBrief />
+	<aboutFounder />
 	<chairpersonSpeech />
 	<missionVission />
 	<futureExpension />
@@ -14,6 +15,7 @@
 	import concernsLogo from '../components/home/concerns-logo';
 	import shortBrief from '../components/home/short-brief';
 	import chairpersonSpeech from '../components/home/chairperson-speech';
+	import aboutFounder from '../components/home/about-founder';
 	import missionVission from '../components/home/mission-vision';
 	import futureExpension from '../components/home/future-expansion';
 	import groupCompany from '../components/home/group-company';
@@ -24,6 +26,7 @@
 			concernsLogo,
 			shortBrief,
 			chairpersonSpeech,
+			aboutFounder,
 			missionVission,
 			futureExpension,
 			groupCompany,
