@@ -4,10 +4,13 @@
 		@apply w-full;
 		.input-item {
 			@apply w-full mb-3;
-			height: 50px;
-			margin-right: 4%;
 			&:last-child {
 				@apply mr-0;
+			}
+			input,
+			input::placeholder,
+			select {
+				@apply text-gray-700;
 			}
 		}
 	}
