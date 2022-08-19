@@ -12,7 +12,7 @@
 						class="w-full rounded-bl-none rounded-br-none rounded-tr rounded-tl min-h-[200px] max-h-[200px] object-cover pt-0 bg-slate-50" />
 					<div
 						class="p-4 pb-6 rounded-tl-none rounded-tr-none rounded-bl rounded-br backdrop-blur-md min-h-[260px] lg:min-h-[230px] max-h-[260px] lg:max-h-[230px] overflow-hidden">
-						<router-link to="">
+						<router-link to="/event-details/1">
 							<h4
 								class="text-xl font-bold text-gray-800 mt-4 mb-2">
 								{{ event.eventTitle.substring(0, 37) + '...' }}

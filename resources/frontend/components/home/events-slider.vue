@@ -25,7 +25,7 @@
 							class="p-4 pb-6 rounded-tl-none rounded-tr-none rounded-bl rounded-br backdrop-blur-md min-h-[240px] max-h-[240px] overflow-hidden">
 							<!-- <span class="itemName">{{ slide.title }}</span> -->
 
-							<router-link to="">
+							<router-link to="/event-details/2">
 								<h4
 									class="text-xl font-bold text-gray-800 mt-4 mb-2">
 									{{

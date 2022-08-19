@@ -100,6 +100,11 @@ const routes = [
 		name: "career-detail",
 		component: () => import("../views/career-detail.vue"),
 	},
+	{
+		path: "/event-details/:id",
+		name: "event-detail",
+		component: () => import("../views/event-details.vue"),
+	},
 ];
 
 const router = createRouter({
