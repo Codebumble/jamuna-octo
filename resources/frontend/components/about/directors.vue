@@ -1,5 +1,4 @@
 <template>
-	<breadcrumb :data="breadcrumb" />
 	<section class="directors angled upper-end">
 		<div class="container">
 			<div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 pb-8">
@@ -45,7 +44,6 @@
 				.get(window.location.origin + '/frontpage-api/directors-list')
 				.then((response) => {
 					// this.heading = response.data.heading;
-					this.breadcrumb = response.data.breadcrumb;
 					this.directors = response.data.directors;
 				});
 		},

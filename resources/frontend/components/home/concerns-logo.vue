@@ -1,12 +1,12 @@
 <template>
 	<section class="py-16 overflow-hidden">
 		<div class="container">
-			<div class="flex flex-col lg:flex-row items-center lg:flex-wrap">
+			<div class="flex flex-col lg:flex-row items-center">
 				<div class="content lg:basis-7/12">
 					<h2 class="heading">{{ aboutConcerns.heading }}</h2>
 					<p class="description">{{ aboutConcerns.description }}</p>
 				</div>
-				<div class="logo-slider lg:basis-5/12">
+				<div class="logo-slider lg:basis-5/12 w-full md:w-auto">
 					<Splide
 						:extensions="extensions"
 						:options="conoptions"
@@ -200,7 +200,7 @@
 				rewind: true,
 				rewindByDrag: true,
 				arrows: true,
-				autoplay: true,
+				autoplay: false,
 				perPage: 1,
 				perMove: 1,
 				drag: true,
@@ -215,6 +215,14 @@
 					gap: {
 						row: '1rem',
 						col: '1rem',
+					},
+				},
+				breakpoints: {
+					768: {
+						grid: {
+							rows: 2,
+							cols: 1,
+						},
 					},
 				},
 			};

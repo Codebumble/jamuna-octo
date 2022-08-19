@@ -14,11 +14,7 @@
 		},
 		data() {
 			return {
-				breadcrumb: {
-					pageTitle: 'Contact',
-					pageDesc:
-						'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum animi aliquam voluptates harum aspernatur eveniet velit doloribus aliquid adipisci suscipit?',
-				},
+				breadcrumb: {},
 			};
 		},
 		setup() {
@@ -40,6 +36,14 @@
 					},
 				],
 			});
+		},
+		mounted() {
+			axios
+				.get(window.location.origin + '/frontpage-api/directors-list')
+				.then((response) => {
+					// this.heading = response.data.heading;
+					this.breadcrumb = response.data.breadcrumb;
+				});
 		},
 	};
 </script>
