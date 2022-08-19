@@ -60,11 +60,11 @@
 								<div class="input-group">
 									<div class="input-item">
 										<input
-											type="email"
-											name="email"
+											type="text"
+											name="address"
 											id="name"
 											class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-											placeholder="Email"
+											placeholder="Address"
 											required />
 									</div>
 								</div>
@@ -72,26 +72,58 @@
 									<div class="input-item">
 										<input
 											type="text"
-											name="cvurl"
+											name="edu-qualification"
 											id="name"
 											class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-											placeholder="CV Url (google docs or pdf link)"
+											placeholder="Educational Qualification"
 											required />
 									</div>
 								</div>
 								<div class="input-group">
-									<div class="input-item about-you">
-										<textarea
-											name="about-you"
-											id="about-you"
-											required=""
+									<div class="input-item">
+										<input
+											type="text"
+											name="experience"
+											id="name"
 											class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-											placeholder="About YOu"></textarea>
+											placeholder="Experience (Years)"
+											required />
+									</div>
+								</div>
+								<div class="input-group">
+									<div class="input-item">
+										<input
+											type="text"
+											name="university"
+											id="name"
+											class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+											placeholder="University (Optional)" />
+									</div>
+								</div>
+								<div class="input-group">
+									<div class="input-item">
+										<input
+											type="text"
+											name="salary"
+											id="name"
+											class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+											placeholder="Expected Salary" />
+									</div>
+								</div>
+								<div class="input-group">
+									<div class="input-item">
+										<input
+											type="file"
+											name="cvurl"
+											id="name"
+											class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+											placeholder="Upload Your Resume"
+											accept=".pdf" />
 									</div>
 								</div>
 								<button
 									type="submit"
-									class="inline-flex justify-center py-2 px-4 border border-transparent hover:border-red-600 shadow-sm text-sm rounded-full text-white hover:text-red-600 bg-red-600 hover:bg-white transition-all mt-8 w-full h-12 items-center font-bold">
+									class="inline-flex justify-center py-2 px-4 border border-transparent hover:border-red-600 shadow-sm text-sm rounded-full text-white hover:text-red-600 bg-red-600 hover:bg-white transition-all w-full h-12 items-center font-bold">
 									Send
 								</button>
 							</form>
