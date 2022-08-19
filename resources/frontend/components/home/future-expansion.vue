@@ -1,5 +1,5 @@
 <template>
-	<section class="bg-slate-100 py-12">
+	<section class="py-12">
 		<div class="container">
 			<div class="grid lg:grid-cols-2">
 				<div class="overflow-hidden lg:order-1 order-2">

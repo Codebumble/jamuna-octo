@@ -1,5 +1,5 @@
 <template>
-	<section class="chairperson bg-slate-50">
+	<section class="chairperson">
 		<div class="container">
 			<div class="flex flex-col xl:flex-row items-center gap-8 xl:gap-16">
 				<div class="chairperson-image xl:basis-2/4">
