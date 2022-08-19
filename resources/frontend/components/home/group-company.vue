@@ -73,6 +73,24 @@
 						webLink: '/jeansco',
 						linkText: 'View Details',
 					},
+					{
+						imgSrc: '/frontend/images/contents/crown.jpg',
+						alt: 'denims1',
+						webLink: '/jeansco',
+						linkText: 'View Details',
+					},
+					{
+						imgSrc: '/frontend/images/contents/jfp1.jpg',
+						alt: 'denims1',
+						webLink: '/jeansco',
+						linkText: 'View Details',
+					},
+					{
+						imgSrc: '/frontend/images/contents/jugantor.jpg',
+						alt: 'denims1',
+						webLink: '/jeansco',
+						linkText: 'View Details',
+					},
 				],
 			};
 		},
