@@ -1497,5 +1497,12 @@
     "/data/projects-list.json": "/data/projects-list.json",
     "/data/search.json": "/data/search.json",
     "/data/table-datatable.json": "/data/table-datatable.json",
-    "/data/user-list.json": "/data/user-list.json"
+    "/data/user-list.json": "/data/user-list.json",
+    "/frontend/images/contents/12BE2C72-C856-4A08-A547-77B48FF0EE5D.jpeg": "/frontend/images/contents/12BE2C72-C856-4A08-A547-77B48FF0EE5D.jpeg",
+    "/frontend/images/contents/Apparel---Denim-Leatherwear-Jeans.jpg": "/frontend/images/contents/Apparel---Denim-Leatherwear-Jeans.jpg",
+    "/frontend/images/contents/Jeans.jpg": "/frontend/images/contents/Jeans.jpg",
+    "/frontend/images/contents/Pile-of-Jeans.jpg": "/frontend/images/contents/Pile-of-Jeans.jpg",
+    "/frontend/images/contents/denims1.jpeg": "/frontend/images/contents/denims1.jpeg",
+    "/frontend/images/contents/denims2.jpg": "/frontend/images/contents/denims2.jpg",
+    "/frontend/images/contents/denims3.jpg": "/frontend/images/contents/denims3.jpg"
 }

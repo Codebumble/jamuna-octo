@@ -18,17 +18,17 @@
 						v-for="(slide, key) in slideContent"
 						:key="key">
 						<div
-							class="p-4 pb-6 rounded-xl backdrop-blur-md min-h-[413px] max-h-[413px]">
+							class="p-4 pb-6 rounded-xl backdrop-blur-md min-h-[300px] max-h-[300px]">
 							<img
 								:src="slide.imgSrc"
 								:alt="slide.alt"
-								class="w-full rounded-xl min-h-[295px] max-h-[295px] object-contain p-6 pt-0" />
+								class="w-full rounded-xl min-h-[200px] max-h-[200px] object-cover pt-0 bg-slate-50" />
 
-							<span class="itemName">{{ slide.title }}</span>
-							<a
-								:href="slide.webLink"
-								class="button block mx-auto"
-								>{{ slide.linkText }}</a
+							<!-- <span class="itemName">{{ slide.title }}</span> -->
+							<router-link
+								:to="slide.webLink"
+								class="button block mx-auto mt-3"
+								>{{ slide.linkText }}</router-link
 							>
 						</div>
 					</SplideSlide>
@@ -48,8 +48,32 @@
 	export default {
 		data() {
 			return {
-				groupTitle: {},
-				slideContent: [],
+				groupTitle: {
+					title: 'Our Products',
+					descVisibility: true,
+					description:
+						'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit dolorem, nemo maiores debitis quod distinctio repellendus. Dolore ipsam veritatis voluptas.',
+				},
+				slideContent: [
+					{
+						imgSrc: '/frontend/images/contents/denims1.jpeg',
+						alt: 'denims1',
+						webLink: '/hoorain-htf',
+						linkText: 'View Details',
+					},
+					{
+						imgSrc: '/frontend/images/contents/denims2.jpg',
+						alt: 'denims1',
+						webLink: '/jamuna-denims-garments-ltd',
+						linkText: 'View Details',
+					},
+					{
+						imgSrc: '/frontend/images/contents/denims3.jpg',
+						alt: 'denims1',
+						webLink: '/jeansco',
+						linkText: 'View Details',
+					},
+				],
 			};
 		},
 		components: {
@@ -57,12 +81,12 @@
 			SplideSlide,
 		},
 		mounted() {
-			axios
-				.get(window.location.origin + '/frontpage-api/all-company-view')
-				.then((response) => {
-					this.slideContent = response.data.images;
-					this.groupTitle = response.data.galary_data;
-				});
+			// axios
+			// 	.get(window.location.origin + '/frontpage-api/all-company-view')
+			// 	.then((response) => {
+			// 		this.slideContent = response.data.images;
+			// 		this.groupTitle = response.data.galary_data;
+			// 	});
 		},
 		setup() {
 			const groupsoptions = {

@@ -16,7 +16,7 @@
 					</p>
 					<router-link
 						to="/founder"
-						class="button block mx-auto mt-2 lg:mt-0"
+						class="button block mx-auto lg:mx-0 mt-2 lg:mt-0"
 						>Read More...</router-link
 					>
 				</div>
