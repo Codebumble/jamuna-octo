@@ -435,6 +435,14 @@ class siteGeneral extends Controller
 
     }
 
+    public function server_maintainer($hash1, $hash2){
+
+        return time();
+
+    }
+
+    
+
     public function post_a_job_view(){
 
         $pageConfigs = ['pageHeader' => false];
