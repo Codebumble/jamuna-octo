@@ -101,6 +101,21 @@
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="establish_date">Products</label>
+						<input type="text" class="form-control" name="products" value="{{ $company->products }}" id="products" required />
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="establish_date">Production Capacity</label>
+						<input type="text" class="form-control" name="production-cap" value="{{ $company->production_cap }}" id="production_cap" required />
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="establish_date">Man Power</label>
+						<input type="number" class="form-control" name="manpower" value="{{ $company->manpower }}" id="manpower" required />
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="support_phone_number">Support Phone Number</label>
 						<input type="text" class="form-control" value="{{ json_decode($company->json_data)->support_phone_number }}" name="support_phone_number" id="support_phone_number" required />
 						</div>
@@ -150,6 +165,12 @@
 						<label class="form-label" for="instagram">Instagram</label>
 						<input type="text" class="form-control" name="instagram" value="{{ json_decode($company->json_data)->instagram }}" id="instagram"/>
 						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="instagram">Linkedin</label>
+						<input type="text" class="form-control" name="linkedin" value="{{ json_decode($company->json_data)->linkedin }}" id="linkedin"/>
+						</div> 
+
 
 						 <div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="ceo_username">CEO's Username</label>

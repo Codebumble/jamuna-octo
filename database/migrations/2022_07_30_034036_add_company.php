@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('section');
             $table->longText('description');
             $table->string('establish_date')->nullable();
+            $table->string('products')->nullable();
+            $table->string('production-cap')->nullable();
+            $table->string('manpower')->nullable();
             $table->longText('json_data');
             $table->string('image')->nullable();
             $table->string('updated_at')->nullable();

@@ -105,11 +105,26 @@
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="establish_date">Products</label>
+						<input type="text" class="form-control" name="products" id="products" required />
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="establish_date">Production Capacity</label>
+						<input type="text" class="form-control" name="production_cap" id="production-cap" required />
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="establish_date">Man Power</label>
+						<input type="number" class="form-control" name="manpower" id="manpower" required />
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="support_phone_number">Support Phone Number</label>
 						<input type="text" class="form-control" name="support_phone_number" id="support_phone_number" required />
 						</div>
 
-						<div class="mb-1 col-12 col-md-6">
+						<div class="mb-1 col-12">
 						<label for="image" class="form-label">Company Logo</label>
 						<input class="form-control" type="file" id="image" name="image" required />
 						</div>
@@ -153,6 +168,11 @@
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="instagram">Instagram</label>
 						<input type="text" class="form-control" name="instagram" id="instagram"/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="instagram">Linkedin</label>
+						<input type="text" class="form-control" name="linkedin" id="linkedin"/>
 						</div>
 
 						 <div class="mb-1 col-12 col-md-6">

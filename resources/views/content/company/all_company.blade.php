@@ -25,10 +25,18 @@
   <div class="card">
     <div class="card-body border-bottom">
       <h4 class="card-title">Company Section and View</h4>
-      @if (isset($_GET['status']))
+      @if (isset($_GET['status']) && $_GET['status'] == 'success')
             <div class="demo-spacing-0 mb-2">
                 <div class="alert alert-success" role="alert">
                 <div class="alert-body"><strong>Congratulation ! Company deleted from the Server.</strong></div>
+                </div>
+            </div>
+        @endif
+
+	@if (isset($_GET['status']) && $_GET['status'] == 'updated')
+            <div class="demo-spacing-0 mb-2">
+                <div class="alert alert-success" role="alert">
+                <div class="alert-body"><strong>Congratulation ! Company updated from the Server.</strong></div>
                 </div>
             </div>
         @endif
