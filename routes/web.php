@@ -53,6 +53,8 @@ Route::group(['prefix' => 'codebumble'], function () {
 
     Route::group(['middleware' => 'auth:sanctum'], function(){
 
+        Route::post('growth-story-api', [siteGeneral::class, 'growth_story_api'])->name('growth_story_api');
+
         Route::post('front-page-chairperson-api', [siteGeneral::class, 'front_page_chairperson_api'])->name('front_page_chairperson_api');
 
         Route::get('delete-slider/{id}', [siteGeneral::class, 'delete_slider'])->name('delete_slider');
@@ -111,6 +113,8 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::get('all-company', [Company_rest::class, 'auth_view_all_company'])->name('all-company');
         Route::get('edit-company/{id}', [Company_rest::class, 'auth_view_edit_company'])->name('edit-company');
         Route::get('site-settings/general', [siteGeneral::class, 'general_page_view'])->name('site-settings-general');
+
+
         Route::get('site-settings/founder-page', [siteGeneral::class, 'founder_page_view'])->name('founder-page-view');
         Route::get('site-settings/header-edit', [siteGeneral::class, 'header_edit_view'])->name('header-edit-view');
         Route::get('site-settings/front-page', [siteGeneral::class, 'front_page_view'])->name('front_page_view');

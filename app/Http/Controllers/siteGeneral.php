@@ -403,8 +403,28 @@ class siteGeneral extends Controller
 
     public function growth_story_view(){
 
+        $data_get = DB::select('select value from codebumble_front_page where code_name=?',['growth-history']);
+
+        $data = json_decode($data_get[0]->value);
+
         $pageConfigs = ['pageHeader' => false];
-        return view('/content/site-settings/growth-story', ['pageConfigs' => $pageConfigs]);
+        return view('/content/site-settings/growth-story', ['pageConfigs' => $pageConfigs, 'data' => $data]);
+
+    }
+
+    public function growth_story_api(Request $request){
+
+        if(!Auth::check()){
+            header("Location: " . route('auth-login'), true, 302);
+            exit();
+
+        }
+
+
+
+        $update = DB::table('codebumble_front_page')->where('code_name', 'growth-history')->update(['value'=> json_encode($request->new), 'updated_at' => time()]);
+
+        return redirect()->route('growth_story_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10)]);
 
     }
 
