@@ -16,6 +16,9 @@ class Company_rest extends Controller
             'section' => 'required|string',
             'description' => 'required|string',
             'establish_date' => 'required|string',
+            'products' => 'required|string',
+            'production-cap' => 'required|string',
+            'manpower' => 'required|string',
             'support_phone_number' => 'required|string',
             'support_email' => 'required|string',
             'ceo_of_the_company' => 'required|string',
@@ -51,6 +54,7 @@ class Company_rest extends Controller
             'website' => $request['website'],
             'facebook' => $request['website'],
             'instagram' => $request['instagram'],
+			'linkedin' => $request['linkedin'],
             'ceo_username' => $request['ceo_username']
         ]);
 
@@ -62,12 +66,28 @@ class Company_rest extends Controller
             $file->move($destinationPath,$fileName);
         }
 
-        $database_update = DB::table('codebumble_company_list')->insert(['name'=> $field['name'], 'section' => $field['section'], 'description' => $field['description'], 'establish_date' => $field['establish_date'], 'json_data' => $json_encode, 'image' => $fileName, 'created_at' => time(), 'updated_at' => time()]);
+        $database_update = DB::table('codebumble_company_list')->insert(
+			[
+				'name'=> $field['name'],
+				'section' => $field['section'],
+				'description' => $field['description'],
+				'establish_date' => $field['establish_date'],
+				'products' => $field['products'],
+				'production_cap' => $field['production-cap'],
+				'manpower' => $field['manpower'],
+				'json_data' => $json_encode,
+				'image' => $fileName,
+				'created_at' => time(),
+				'updated_at' => time()]
+		);
 
         return redirect()->route('add-company',['status' => 1]);
 
 
     }
+
+
+	// edit company
 
     public function edit_company(Request $request, $id){
         $field = $request->validate([
@@ -75,11 +95,15 @@ class Company_rest extends Controller
             'description' => 'required|string',
             'establish_date' => 'required|string',
             'support_phone_number' => 'required|string',
+            'products' => 'required|string',
+            'production-cap' => 'required|string',
+            'manpower' => 'required|string',
             'support_email' => 'required|string',
             'ceo_of_the_company' => 'required|string',
             'address' => 'required|string'
         ]);
         // add longitute,latitude, wesite, facebook, instagram
+		//aikhn a error ditese
 
 
 
@@ -89,7 +113,7 @@ class Company_rest extends Controller
 
         }
 
-        
+
 
 
         $json_encode = json_encode([
@@ -103,6 +127,7 @@ class Company_rest extends Controller
             'website' => $request['website'],
             'facebook' => $request['website'],
             'instagram' => $request['instagram'],
+			'linkedin' => $request['linkedin'],
             'ceo_username' => $request['ceo_username']
         ]);
 
@@ -125,9 +150,21 @@ class Company_rest extends Controller
             $fileName = $a->image;
         }
 
-        $database_update = DB::table('codebumble_company_list')->where('id', $id)->update(['section' => $field['section'], 'description' => $field['description'], 'establish_date' => $field['establish_date'], 'json_data' => $json_encode, 'image' => $fileName, 'updated_at' => time()]);
+        $database_update = DB::table('codebumble_company_list')->where('id', $id)->update(
 
-        return redirect()->route('all-company',['status' => 1]);
+			[
+				'section' => $field['section'],
+				'description' => $field['description'],
+				'establish_date' => $field['establish_date'],
+				'products' => $field['products'],
+				'production_cap' => $field['production-cap'],
+				'manpower' => $field['manpower'],
+				'json_data' => $json_encode,
+				'image' => $fileName, 'updated_at' => time()
+			]
+		);
+
+        return redirect()->route('all-company',['status' => 'updated']);
 
     }
 
@@ -142,7 +179,7 @@ class Company_rest extends Controller
         $a = DB::table('codebumble_company_list')->where('id', $id)->first();
         if(isset($a)){
             $b = DB::table('codebumble_company_list')->where('id', $id)->delete();
-            return redirect()->route('all-company',['status' => 1]);
+            return redirect()->route('all-company',['status' => 'success']);
         } else {
             return redirect()->route('all-company',['error' => 1]);
         }
