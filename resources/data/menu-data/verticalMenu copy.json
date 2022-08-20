@@ -31,11 +31,27 @@
 		},
 		{
 			"name": "Dashboards",
+			"badge": "2",
 			"badgeClass": "badge badge-light-warning rounded-pill ms-auto me-1",
-			"icon": "activity",
+			"icon": "home",
 			"permission": 4,
-			"slug": "dashboard-analytics",
-			"url": "dashboard/analytics"
+			"slug": "",
+			"submenu": [
+				{
+					"url": "dashboard/analytics",
+					"name": "Analytics",
+					"icon": "circle",
+					"permission": 4,
+					"slug": "dashboard-analytics"
+				},
+				{
+					"url": "/",
+					"name": "eCommerce",
+					"icon": "circle",
+					"permission": 0,
+					"slug": "dashboard-ecommerce"
+				}
+			]
 		},
 		{
 			"navheader": "Site Settings",
@@ -43,6 +59,7 @@
 			"slug": ""
 		},
 		{
+			"url": "app/email",
 			"name": "Settings",
 			"icon": "settings",
 			"permission": 1,
@@ -56,16 +73,30 @@
 					"slug": "site-settings-general"
 				},
 				{
+					"url": "admin/site-settings/founder-page",
+					"name": "Founder Speech",
+					"icon": "circle",
+					"permission": 1,
+					"slug": "founder-page-view"
+				},
+				{
 					"url": "admin/site-settings/header-edit",
-					"name": "Breadcrumb",
+					"name": "Header Settings",
 					"icon": "circle",
 					"permission": 1,
 					"slug": "header-edit-view"
+				},
+				{
+					"url": "admin/site-settings/front-page",
+					"name": "Front Page",
+					"icon": "circle",
+					"permission": 1,
+					"slug": "front_page_view"
 				}
 			]
 		},
 		{
-			"name": "Businesses",
+			"name": "Company",
 			"icon": "anchor",
 			"permission": 1,
 			"slug": "",
@@ -87,124 +118,42 @@
 			]
 		},
 		{
-			"name": "Business Sector",
+			"url": "admin/add-section",
+			"name": "Section",
 			"icon": "align-left",
 			"permission": 1,
 			"slug": "",
 			"submenu": [
 				{
 					"url": "admin/add-section",
-					"name": "Add Sector",
+					"name": "Add Section",
 					"icon": "circle",
 					"permission": 1,
 					"slug": "add-section"
 				},
 				{
 					"url": "admin/all-section",
-					"name": "All Sector",
+					"name": "All Section",
 					"icon": "circle",
 					"permission": 1,
 					"slug": "all-section"
 				}
 			]
 		},
+
 		{
-			"navheader": "Pages",
+			"name": "Growth Story",
+			"url": "admin/site-settings/growth-story",
+			"icon": "chevrons-up",
 			"permission": 1,
-			"slug": ""
+			"slug": "growth_story_view"
 		},
 		{
-			"url": "admin/site-settings/front-page",
-			"name": "Front Page",
-			"icon": "home",
+			"name": "Mission Vision",
+			"url": "admin/site-settings/mission-vision",
+			"icon": "instagram",
 			"permission": 1,
-			"slug": "front_page_view"
-		},
-		{
-			"name": "About Section",
-			"icon": "align-left",
-			"permission": 1,
-			"slug": "",
-			"submenu": [
-				{
-					"url": "admin/site-settings/founder-page",
-					"name": "Founder",
-					"icon": "circle",
-					"permission": 1,
-					"slug": "founder-page-view"
-				},
-				{
-					"name": "Growth Story",
-					"url": "admin/site-settings/growth-story",
-					"icon": "circle",
-					"permission": 1,
-					"slug": "growth_story_view"
-				},
-				{
-					"name": "Board Of Director",
-					"url": "",
-					"icon": "circle",
-					"permission": 1,
-					"slug": "growth_story_view"
-				},
-				{
-					"name": "Company Profile",
-					"url": "",
-					"icon": "circle",
-					"permission": 1,
-					"slug": "growth_story_view"
-				},
-				{
-					"name": "Quality Process",
-					"url": "",
-					"icon": "circle",
-					"permission": 1,
-					"slug": ""
-				}
-			]
-		},
-		{
-			"name": "Media Hub",
-			"icon": "camera",
-			"permission": 1,
-			"slug": "",
-			"submenu": [
-				{
-					"url": "",
-					"name": "News Center",
-					"icon": "circle",
-					"permission": 1,
-					"slug": ""
-				},
-				{
-					"name": "Jamuna Television",
-					"url": "",
-					"icon": "circle",
-					"permission": 1,
-					"slug": ""
-				},
-				{
-					"name": "The Daily Jugantor",
-					"url": "",
-					"icon": "circle",
-					"permission": 1,
-					"slug": ""
-				}
-			]
-		},
-		{
-			"url": "",
-			"name": "Photo Gallery",
-			"icon": "image",
-			"permission": 1,
-			"slug": ""
-		},
-		{
-			"url": "",
-			"name": "Contact",
-			"icon": "mail",
-			"permission": 1,
-			"slug": ""
+			"slug": "mission_vision_view"
 		},
 		{
 			"navheader": "Career",
@@ -226,7 +175,7 @@
 			"slug": "all_job_list_view"
 		},
 		{
-			"name": "Applicant List",
+			"name": "Demo Applicant List",
 			"url": "admin/career/applicant-list",
 			"icon": "layers",
 			"permission": 1,
