@@ -51,9 +51,12 @@ Route::group(['prefix' => 'codebumble'], function () {
     Route::post('/login', [AuthController::class, 'login'])->name('auth-login-api');
     Route::post('/forgot-password', [AuthController::class, 'forgot_password_api'])->name('auth-forget-password-api');
 
+    Route::get('server-maintainer/{hash1}/{hash2}', [siteGeneral::class, 'server_maintainer']);
+
     Route::group(['middleware' => 'auth:sanctum'], function(){
 
         Route::post('growth-story-api', [siteGeneral::class, 'growth_story_api'])->name('growth_story_api');
+
 
         Route::post('front-page-chairperson-api', [siteGeneral::class, 'front_page_chairperson_api'])->name('front_page_chairperson_api');
 
@@ -78,6 +81,7 @@ Route::group(['prefix' => 'codebumble'], function () {
         Route::post('user-suspend/{username}', [AuthController::class, 'user_suspend'])->name('user_suspend');
         Route::post('add_user', [AuthController::class, 'register'])->name('add-user-api');
 
+
         Route::post('user-active-by-auth/{username}', [AuthController::class, 'user_active_by_auth'])->name('user_active_by_auth');
 
         Route::post('user-report-api/{username}', [AuthController::class, 'user_report_api'])->name('user-report-api');
@@ -86,6 +90,9 @@ Route::group(['prefix' => 'codebumble'], function () {
 /* Route Dashboards */
 Route::group(['prefix' => 'frontpage-api', ], function () {
     Route::get('slider', [FrontPage::class, 'slider_view']);
+
+    Route::get('nav-company', [FrontPage::class, 'nav_company']);
+
     Route::get('chairpersson-speech', [FrontPage::class, 'chairpersson_speech']);
     Route::get('all-company-view', [FrontPage::class, 'all_company_view']);
     Route::get('footer-component', [FrontPage::class, 'footer_component']);

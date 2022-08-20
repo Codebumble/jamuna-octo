@@ -35,6 +35,41 @@ class FrontPage extends Controller
 
     }
 
+    public function nav_company(){
+
+        $a = [];
+
+
+        $data_get = DB::select('select value from codebumble_general where code_name=?',['sections']);
+
+        $c = json_decode($data_get[0]->value);
+
+        foreach ($c as $key => $value) {
+            $temp = ['route' => '', 'label' => $value->name, 'chlidSubmenu' => []];
+
+            $data_get_1 = DB::select('select * from codebumble_company_list where section=?',[$value->name]);
+
+            if(isset($data_get_1)){
+
+            foreach ($data_get_1 as $key => $value) {
+                $submenu = [
+                    'route' => '/company-data/'.$value->id,
+                    'label' => $value->name
+
+                ];
+
+                array_push($temp['chlidSubmenu'], $submenu);
+            }
+        }
+
+            array_push($a, $temp);
+        }
+
+        return json_encode($a);
+
+
+    }
+
     public function concern_details(){
         $data_get = DB::select('select value from codebumble_front_page where code_name=?',['concern-details']);
 
