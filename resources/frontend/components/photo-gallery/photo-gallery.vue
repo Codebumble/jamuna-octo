@@ -2,7 +2,7 @@
 	<div class="image-gallery pb-16 angled upper-end">
 		<div class="container">
 			<div
-				class="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-5 pb-8">
+				class="grid grid-cols-1 lg:grid-cols-4 2xl:grid-cols-5 md:grid-cols-2 gap-5 2xl:gap-3 pb-8">
 				<div
 					v-for="(item, index) in imgs"
 					:key="index"
