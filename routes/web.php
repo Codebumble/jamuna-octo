@@ -39,6 +39,8 @@ Route::get('{any}', [FrontendController::class, 'home'])->where('any', '/|founde
 
 Route::get('/career-details/{id}', [FrontendController::class, 'home'])->name('career-details');
 
+Route::get('/companies/{id}', [FrontendController::class, 'home'])->name('companies-details');
+
 
 /* Route Dashboards */
 Route::group(['prefix' => 'dashboard'], function () {
@@ -94,6 +96,7 @@ Route::group(['prefix' => 'frontpage-api', ], function () {
     Route::get('nav-company', [FrontPage::class, 'nav_company']);
 
     Route::get('chairpersson-speech', [FrontPage::class, 'chairpersson_speech']);
+    Route::get('company/{id}', [FrontPage::class, 'company_data']);
     Route::get('all-company-view', [FrontPage::class, 'all_company_view']);
     Route::get('footer-component', [FrontPage::class, 'footer_component']);
     Route::get('directors-list', [FrontPage::class, 'directors_list']);

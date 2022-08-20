@@ -41,6 +41,11 @@ const routes = [
 		component: () => import("../views/hoorain.vue"),
 	},
 	{
+		path: "/companies/:id",
+		name: "Company",
+		component: () => import("../views/hoorain.vue"),
+	},
+	{
 		path: "/hoor",
 		name: "hoor",
 		component: () => import("../views/hoor.vue"),

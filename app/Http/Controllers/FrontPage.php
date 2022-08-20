@@ -76,6 +76,12 @@ class FrontPage extends Controller
         return $data_get[0]->value;
     }
 
+    public function company_data($id){
+        $data_get = DB::select('select * from codebumble_company_list where id=?',[$id]);
+
+        return json_encode($data_get[0]);
+    }
+
     public function all_company_view(){
         $data_get = DB::select('select * from codebumble_company_list');
 
