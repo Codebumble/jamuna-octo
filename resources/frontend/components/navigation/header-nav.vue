@@ -335,7 +335,7 @@
 						],
 					},
 					{
-						route: '/nurul-islam-foundation',
+						route: 'https://nurulislamfoundation.org/',
 						label: 'N. Foundation',
 					},
 					{
