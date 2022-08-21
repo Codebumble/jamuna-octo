@@ -20,19 +20,19 @@
 			};
 		},
 		setup() {
-			useHead({
-				title: 'Nurul Islam Foundation | Jamuna Group',
-				meta: [
-					{
-						name: `description`,
-						content: `blalala`,
-					},
-					{
-						name: `keywords`,
-						content: `codebumble`,
-					},
-				],
-			});
+			// useHead({
+			// 	title: 'Nurul Islam Foundation | Jamuna Group',
+			// 	meta: [
+			// 		{
+			// 			name: `description`,
+			// 			content: `blalala`,
+			// 		},
+			// 		{
+			// 			name: `keywords`,
+			// 			content: `codebumble`,
+			// 		},
+			// 	],
+			// });
 		},
 	};
 </script>

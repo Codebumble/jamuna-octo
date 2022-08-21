@@ -18,19 +18,19 @@
 			};
 		},
 		setup() {
-			useHead({
-				title: 'Founder | Jamuna Group',
-				meta: [
-					{
-						name: `description`,
-						content: `blalala`,
-					},
-					{
-						name: `keywords`,
-						content: `codebumble`,
-					},
-				],
-			});
+			// useHead({
+			// 	title: 'Founder | Jamuna Group',
+			// 	meta: [
+			// 		{
+			// 			name: `description`,
+			// 			content: `blalala`,
+			// 		},
+			// 		{
+			// 			name: `keywords`,
+			// 			content: `codebumble`,
+			// 		},
+			// 	],
+			// });
 		},
 		mounted() {
 			axios
