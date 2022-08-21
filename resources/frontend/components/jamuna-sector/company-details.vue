@@ -68,39 +68,44 @@
 				],
 			});
 		},
+		methods: {
+			test() {
+				axios
+					.get(
+						window.location.origin +
+							'/frontpage-api/company/' +
+							this.$route.params.id
+					)
+					.then((response) => {
+						var jsn = JSON.parse(response.data.json_data);
+						this.company.businessLogo =
+							'/company-images/' + response.data.image;
+						this.company.businessName = response.data.name;
+						this.company.establishDate =
+							response.data.establish_date;
+						this.company.ceo = jsn.ceo_of_the_company;
+						this.company.address.officeName = jsn.address;
+						this.company.mail = 'mailto:' + jsn.support_email;
+						this.company.emailName = jsn.support_email;
+						this.company.mobile = jsn.support_phone_number;
+						this.company.website = jsn.website;
+						this.company.products = response.data.products;
+						this.company.capacity = response.data.production_cap;
+						this.company.manpower = response.data.manpower;
+						this.company.textDetails.details =
+							response.data.description;
+						this.company.textDetails.shortDetails =
+							response.data.short_details;
+						this.company.social.facebook = jsn.facebook;
+					});
+			},
+		},
 		created() {
+			this.test();
 			this.$watch(
 				() => this.$route.params,
 				(toParams, PreviousParams) => {
-					axios
-						.get(
-							window.location.origin +
-								'/frontpage-api/company/' +
-								this.$route.params.id
-						)
-						.then((response) => {
-							var jsn = JSON.parse(response.data.json_data);
-							this.company.businessLogo =
-								'/company-images/' + response.data.image;
-							this.company.businessName = response.data.name;
-							this.company.establishDate =
-								response.data.establish_date;
-							this.company.ceo = jsn.ceo_of_the_company;
-							this.company.address.officeName = jsn.address;
-							this.company.mail = 'mailto:' + jsn.support_email;
-							this.company.emailName = jsn.support_email;
-							this.company.mobile = jsn.support_phone_number;
-							this.company.website = jsn.website;
-							this.company.products = response.data.products;
-							this.company.capacity =
-								response.data.production_cap;
-							this.company.manpower = response.data.manpower;
-							this.company.textDetails.details =
-								response.data.description;
-							this.company.textDetails.shortDetails =
-								response.data.short_details;
-							this.company.social.facebook = jsn.facebook;
-						});
+					this.test();
 				}
 			);
 		},
