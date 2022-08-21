@@ -39,7 +39,7 @@ Route::get('{any}', [FrontendController::class, 'home'])->where('any', '/|founde
 
 Route::get('/career-details/{id}', [FrontendController::class, 'home'])->name('career-details');
 
-Route::get('/companies/{id}', [FrontendController::class, 'home'])->name('companies-details');
+Route::get('/companies/{id}/{name}', [FrontendController::class, 'home'])->name('companies-details');
 
 
 /* Route Dashboards */
