@@ -8,12 +8,9 @@
 						class="text-2xl lg:text-4xl text-gray-800 font-bold pb-4 xl:pb-8">
 						About Our Founder
 					</h2>
-					<p class="pb-4 xl:pb-8 text-gray-400">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Assumenda iure veniam nam sunt est accusantium natus
-						iste possimus tempora fuga, debitis, nisi repellendus
-						adipisci animi. Consequuntur aut qui cum quos!
-					</p>
+					<p
+						class="pb-4 xl:pb-8 text-gray-400"
+						v-html="FounderDetails.description"></p>
 					<router-link
 						to="/founder"
 						class="button block mx-auto lg:mx-0 mt-2 lg:mt-0"
@@ -36,5 +33,19 @@
 <script>
 	export default {
 		name: 'about founder',
+		data() {
+			return {
+				FounderDetails: {},
+			};
+		},
+
+		mounted() {
+			axios
+				.get(window.location.origin + '/founder-api/founder-speech')
+				.then((response) => {
+					this.FounderDetails.description =
+						response.data.FounderDetails.description;
+				});
+		},
 	};
 </script>
