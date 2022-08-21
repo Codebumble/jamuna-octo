@@ -119,8 +119,10 @@ Route::group(['prefix' => 'admin', ], function () {
 
     Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::get('logout', [AuthController::class, 'logout']);
+
         Route::get('user', [AuthController::class, 'user']);
         Route::get('register', [AuthenticationController::class, 'register'])->name('auth-register');
+        Route::get('photo-gallery', [siteGeneral::class, 'photo_gallery_view'])->name('photo_gallery_view');
         Route::get('add-company', [Company_rest::class, 'auth_view_add_company'])->name('add-company');
         Route::get('all-company', [Company_rest::class, 'auth_view_all_company'])->name('all-company');
         Route::get('edit-company/{id}', [Company_rest::class, 'auth_view_edit_company'])->name('edit-company');

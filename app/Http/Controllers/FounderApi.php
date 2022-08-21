@@ -55,9 +55,9 @@ class FounderApi extends Controller
             $file1->move($destinationPath1,$fileName1);
 
         } else {
-            $db_check = DB::table('codebumble_founder_page')->where('code_name', 'quote')->get();
+            $db_check = DB::select('select * from codebumble_founder_page where code_name=?',['quote']);
 
-            $fileName1 = json_decode($db_check->value)->imgSrc;
+            $fileName1 = json_decode($db_check[0]->value)->imgSrc;
         }
 
         $db_update_1 = DB::table('codebumble_founder_page')->where('code_name', 'quote')->update(['value'=>json_encode(['imgSrc' => $fileName1, 'quote' => $field['quote-quote'], 'cite' => $field['quote-cite'], 'status' => $field['quote-status']])]);

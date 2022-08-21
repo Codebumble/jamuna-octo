@@ -370,6 +370,14 @@ class siteGeneral extends Controller
 
     }
 
+    public function photo_gallery_view(){
+
+
+        $pageConfigs = ['pageHeader' => false];
+        return view('/content/photo-gallery/photo-gallery', ['pageConfigs' => $pageConfigs]);
+
+    }
+
     public function slider_edit_api(Request $request){
         if(!Auth::check()){
             header("Location: " . route('auth-login'), true, 302);
