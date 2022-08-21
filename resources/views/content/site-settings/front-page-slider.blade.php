@@ -126,6 +126,16 @@
 
 					<div class="col-md-2 col-12 mb-50">
 						<div class="mb-1">
+						<label class="form-label" for="btnStyle">Button Style</label>
+						<select name="btnStyle" class="form-select">
+							<option value="button">button</option>
+							<option value="button-alt">button-alt</option>
+						</select>
+						</div>
+					</div>
+
+					<div class="col-md-2 col-12 mb-50">
+						<div class="mb-1">
 						<label class="form-label" for="link">Button URL</label>
 						<input type="text" value="" class="form-control" name="link" id="link" />
 						</div>
@@ -241,6 +251,19 @@
 						name="preview[{{$counter}}][buttonText]"
 						 value="{{$img->buttonText}}" class="form-control" id="staticprice"
 						/>
+						</div>
+					</div>
+
+					<div class="col-md-2 col-12 mb-50">
+						<div class="mb-1">
+						<label class="form-label" for="btnStyle">Button Style</label>
+						<select name="btnStyle" class="form-select">
+						@if(isset($img->btnStyle))
+							<option value="{{$img->btnStyle}}" selected> {{$img->btnStyle}} </option>
+						@endif
+							<option value="button" >button</option>
+							<option value="button-alt">button-alt</option>
+						</select>
 						</div>
 					</div>
 

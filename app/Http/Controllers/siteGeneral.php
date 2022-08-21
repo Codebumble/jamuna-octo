@@ -373,6 +373,7 @@ class siteGeneral extends Controller
     public function photo_gallery_view(){
 
 
+
         $pageConfigs = ['pageHeader' => false];
         return view('/content/photo-gallery/photo-gallery', ['pageConfigs' => $pageConfigs]);
 
@@ -444,7 +445,8 @@ class siteGeneral extends Controller
                 "heading" => $value['heading'],
                 "description" => $value['description'],
                 "buttonText" => $value['buttonText'],
-                "link" => $value['link']
+                "link" => $value['link'],
+                "btnStyle" => $value['btnStyle']
             ];
 
             array_push($data,$f);
