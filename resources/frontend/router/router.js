@@ -41,7 +41,7 @@ const routes = [
 		component: () => import("../views/hoorain.vue"),
 	},
 	{
-		path: "/companies/:id",
+		path: "/companies/:id/:name",
 		name: "Company",
 		component: () => import("../views/hoorain.vue"),
 	},
@@ -114,10 +114,6 @@ const routes = [
 		path: "/nurul-islam-foundation",
 		name: "n foundation",
 		component: () => import("../views/nfoundation.vue"),
-		beforeEnter(to, from, next) {
-			window.location.href = "https://nurulislamfoundation.org/";
-			// window.open("https://nurulislamfoundation.org/", "_blank");
-		},
 	},
 ];
 
