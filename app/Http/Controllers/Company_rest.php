@@ -23,7 +23,8 @@ class Company_rest extends Controller
             'support_email' => 'required|string',
             'ceo_of_the_company' => 'required|string',
             'address' => 'required|string',
-            'image.*' => 'mimes:jpeg,png,jpg,svg|max:3080'
+            'image.*' => 'mimes:jpeg,png,jpg,svg|max:3080',
+			'short-details' => 'required|string',
         ]);
         // add longitute,latitude, wesite, facebook, instagram
         $check_name = Db::table('codebumble_company_list')->where('name', $field['name'])->first();
@@ -78,7 +79,9 @@ class Company_rest extends Controller
 				'json_data' => $json_encode,
 				'image' => $fileName,
 				'created_at' => time(),
-				'updated_at' => time()]
+				'updated_at' => time(),
+				'short_details' => $field['short-details']
+				]
 		);
 
         return redirect()->route('add-company',['status' => 1]);
@@ -100,7 +103,10 @@ class Company_rest extends Controller
             'manpower' => 'required|string',
             'support_email' => 'required|string',
             'ceo_of_the_company' => 'required|string',
-            'address' => 'required|string'
+            'address' => 'required|string',
+			'image.*' => 'mimes:jpeg,png,jpg,svg|max:3080',
+			'short-details' => 'required|string',
+
         ]);
         // add longitute,latitude, wesite, facebook, instagram
 		//aikhn a error ditese
@@ -160,7 +166,9 @@ class Company_rest extends Controller
 				'production_cap' => $field['production-cap'],
 				'manpower' => $field['manpower'],
 				'json_data' => $json_encode,
-				'image' => $fileName, 'updated_at' => time()
+				'image' => $fileName, 'updated_at' => time(),
+				'short_details' => $field['short-details']
+
 			]
 		);
 

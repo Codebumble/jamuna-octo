@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('manpower')->nullable();
             $table->longText('json_data');
             $table->string('image')->nullable();
+            $table->string('short_details');
             $table->string('updated_at')->nullable();
             $table->string('created_at')->nullable();
         });

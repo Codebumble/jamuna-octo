@@ -67,7 +67,7 @@
 								<th>Support Phone</th>
 								<td>
 									<a
-										:href="data.mobile"
+										:href="'tel:' + data.mobile"
 										class="underline decoration-dotted hover:decoration-solid decoration-slate-400 hover:decoration-red-600 underline-offset-4 hover:text-red-600 transition-all"
 										>{{ data.mobile }}</a
 									>
@@ -129,7 +129,7 @@
 				<div
 					class="w-full lg:w-8/12 rounded-md shadow-lg border border-slate-100 p-8 overflow-hidden businessDetails">
 					<h2
-						class="font-bold text-lg underline decoration-wavy decoration-gray-800 text-gray-800 underline-offset-4">
+						class="font-bold text-lg underline decoration-wavy decoration-gray-800 text-gray-800 underline-offset-4 mb-4">
 						About this Business
 					</h2>
 					<div

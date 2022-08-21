@@ -101,17 +101,17 @@
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="establish_date">Products</label>
+						<label class="form-label" for="products">Products</label>
 						<input type="text" class="form-control" name="products" value="{{ $company->products }}" id="products" required />
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="establish_date">Production Capacity</label>
+						<label class="form-label" for="production_cap">Production Capacity</label>
 						<input type="text" class="form-control" name="production-cap" value="{{ $company->production_cap }}" id="production_cap" required />
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="establish_date">Man Power</label>
+						<label class="form-label" for="manpower">Man Power</label>
 						<input type="number" class="form-control" name="manpower" value="{{ $company->manpower }}" id="manpower" required />
 						</div>
 
@@ -123,6 +123,12 @@
 						<div class="mb-1 col-12 col-md-6">
 						<label for="image" class="form-label">Company Logo</label>
 						<input class="form-control" type="file" id="image" name="image"/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6" x-data="{ count: 0 }" x-init="count = $refs.countme.value.length">
+						<label class="form-label" for="short-details">Short Details (It will be placed top of the page after the page title.)</label>
+						<textarea rows="1" class="form-control" name="short-details" id="short-details" maxlength="200" x-ref="countme" x-on:keyup="count = $refs.countme.value.length" required>{{ $company->short_details }}</textarea>
+						<span x-html="count"></span> / <span x-html="$refs.countme.maxLength"></span>
 						</div>
 
 
@@ -167,9 +173,9 @@
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="instagram">Linkedin</label>
+						<label class="form-label" for="linkedin">Linkedin</label>
 						<input type="text" class="form-control" name="linkedin" value="{{ json_decode($company->json_data)->linkedin }}" id="linkedin"/>
-						</div> 
+						</div>
 
 
 						 <div class="mb-1 col-12 col-md-6">
@@ -206,6 +212,8 @@
   <!-- vendor files -->
   <script src="{{ asset(mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
   <script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
+  <script src="{{ asset(mix('js/app.js')) }}"></script>
 @endsection
 @section('page-script')
   <!-- Page js files -->
