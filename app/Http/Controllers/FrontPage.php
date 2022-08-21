@@ -45,7 +45,7 @@ class FrontPage extends Controller
         $c = json_decode($data_get[0]->value);
 
         foreach ($c as $key => $value) {
-            $temp = ['route' => '', 'label' => $value->name, 'chlidSubmenu' => []];
+            $temp = ['route' => '', 'label' => $value->name, 'childSubmenu' => []];
 
             $data_get_1 = DB::select('select * from codebumble_company_list where section=?',[$value->name]);
 
@@ -53,12 +53,12 @@ class FrontPage extends Controller
 
             foreach ($data_get_1 as $key => $value) {
                 $submenu = [
-                    'route' => '/company-data/'.$value->id,
+                    'route' => '/companies/'.$value->id,
                     'label' => $value->name
 
                 ];
 
-                array_push($temp['chlidSubmenu'], $submenu);
+                array_push($temp['childSubmenu'], $submenu);
             }
         }
 
