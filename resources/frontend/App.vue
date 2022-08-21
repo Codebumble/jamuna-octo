@@ -34,7 +34,6 @@
 			appFooter: defineAsyncComponent({
 				loader: () => import('./components/footer.vue'),
 				delay: 3000,
-				timeout: 3000,
 			}),
 		},
 		setup() {},

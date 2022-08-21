@@ -36,34 +36,9 @@ const routes = [
 		component: () => import("../views/jugantor.vue"),
 	},
 	{
-		path: "/hoorain-htf",
-		name: "hoorain",
-		component: () => import("../views/hoorain.vue"),
-	},
-	{
 		path: "/companies/:id",
 		name: "Company",
-		component: () => import("../views/hoorain.vue"),
-	},
-	{
-		path: "/hoor",
-		name: "hoor",
-		component: () => import("../views/hoor.vue"),
-	},
-	{
-		path: "/hooram",
-		name: "hooram",
-		component: () => import("../views/hooram.vue"),
-	},
-	{
-		path: "/jamuna-denims-garments-ltd",
-		name: "jdgu",
-		component: () => import("../views/jdgu.vue"),
-	},
-	{
-		path: "/jeansco",
-		name: "jeansco",
-		component: () => import("../views/jeansco.vue"),
+		component: () => import("../views/company-view.vue"),
 	},
 	{
 		path: "/growth-story",
