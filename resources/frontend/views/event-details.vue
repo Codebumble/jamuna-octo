@@ -3,7 +3,6 @@
 </template>
 
 <script>
-	import { useHead } from '@vueuse/head';
 	import eventDetails from '../components/global/event-details';
 	export default {
 		components: {
@@ -23,19 +22,7 @@
 			};
 		},
 		setup() {
-			// useHead({
-			// 	title: 'Founder | Jamuna Group',
-			// 	meta: [
-			// 		{
-			// 			name: `description`,
-			// 			content: `blalala`,
-			// 		},
-			// 		{
-			// 			name: `keywords`,
-			// 			content: `codebumble`,
-			// 		},
-			// 	],
-			// });
+
 		},
 	};
 </script>

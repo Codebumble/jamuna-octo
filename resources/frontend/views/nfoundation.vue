@@ -4,7 +4,6 @@
 </template>
 
 <script>
-	import { useHead } from '@vueuse/head';
 	import nfoundation from '../components/nfoundation/nfoundation.vue';
 	export default {
 		components: {
@@ -20,19 +19,7 @@
 			};
 		},
 		setup() {
-			// useHead({
-			// 	title: 'Nurul Islam Foundation | Jamuna Group',
-			// 	meta: [
-			// 		{
-			// 			name: `description`,
-			// 			content: `blalala`,
-			// 		},
-			// 		{
-			// 			name: `keywords`,
-			// 			content: `codebumble`,
-			// 		},
-			// 	],
-			// });
+
 		},
 	};
 </script>
