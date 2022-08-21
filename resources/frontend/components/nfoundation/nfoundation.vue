@@ -21,7 +21,7 @@
 			return {};
 		},
 		created() {
-			window.location.href = 'https://google.com/contact';
+			window.location.href = 'https://nurulislamfoundation.org/';
 		},
 	};
 </script>
