@@ -53,9 +53,11 @@ class FrontPage extends Controller
 
             foreach ($data_get_1 as $key => $value) {
 
-                $value->name = str_replace(" ", "-", $value->name);
+                $name = $value->name;
+				$replace = $name = str_replace(" ", "-", $value->name);
+
                 $submenu = [
-                    'route' => '/companies/'.$value->id.'/'.$value->name,
+                    'route' => '/companies/'.$value->id.'/'.$replace,
                     'label' => $value->name
 
                 ];
