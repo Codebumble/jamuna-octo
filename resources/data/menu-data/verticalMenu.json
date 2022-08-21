@@ -193,11 +193,11 @@
 			]
 		},
 		{
-			"url": "",
+			"url": "/admin/photo-gallery",
 			"name": "Photo Gallery",
 			"icon": "image",
 			"permission": 1,
-			"slug": ""
+			"slug": "photo_gallery_view"
 		},
 		{
 			"url": "",

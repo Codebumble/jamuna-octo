@@ -1,7 +1,7 @@
 
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Edit Front Page Details')
+@section('title', 'Gallery - Image Uploader')
 
 @section('vendor-style')
   {{-- Vendor Css files --}}
@@ -40,9 +40,7 @@
 
 
 
-		<div class="divider-primary divider">
-            				<div class="divider-text">Sliders Images</div>
-          				</div>
+
 
 
 
@@ -50,29 +48,38 @@
           <form action="{{route('add_slider_api')}}" class="invoice-repeater" enctype="multipart/form-data" method="POST">
 		  @csrf
             <div data-repeater-list="new">
-			  <div class="row match-height">
 				<div data-repeater-item>
 
-						<div class="col-md-6 col-lg-4">
-						<div class="card">
-							<img class="card-img-top" src="{{asset('images/slider/04.jpg')}}" alt="Card image cap" />
-							<div class="card-body">
-							<h4 class="card-title">Card title</h4>
-							<p class="card-text">
-								Some quick example text to build on the card title and make up the bulk of the card's content.
-							</p>
-							<a href="#" class="btn btn-outline-primary">Go somewhere</a>
+					<div class="row d-flex align-items-end">
+
+						<div class="col-md-6 col-6 mb-50">
+							<div class="mb-1">
+								<label class="form-label" for="itemcost">Image</label>
+								<input
+									type="file"
+									class="form-control"
+									id="image"
+									name="image"
+									aria-describedby="image"
+									placeholder="32"
+								/>
 							</div>
 						</div>
+
+						<div class="col-md-6 col-12 mb-50">
+						<div class="mb-1">
+						<button class="btn btn-outline-danger text-nowrap px-1" type="button" data-repeater-delete >
+							<i data-feather="x" class="me-25"></i>
+							<span>Delete</span>
+						</button>
 						</div>
+					</div>
 
-
+					</div>
+					<hr/>
 
 
 				</div>
-			  </div>
-
-
 
             </div>
             <div class="row">
@@ -92,7 +99,33 @@
 
         </div>
       </div>
+
+
     </div>
+
+	<div class="divider-primary divider">
+        <div class="divider-text">Uploaded Image</div>
+       </div>
+
+	<div class="col-12">
+
+	<div class="row match-height">
+    <div class="col-md-6 col-lg-4">
+      <div class="card">
+        <img class="card-img-top" src="{{asset('images/slider/04.jpg')}}" alt="Card image cap" />
+        <div class="card-body">
+
+          <a href="/codebumble/photo-galley-delete/" class="btn btn-outline-danger col-md-6">Delete</a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+	</div>
+
+
 
 
     <!-- /Bootstrap Validation -->
