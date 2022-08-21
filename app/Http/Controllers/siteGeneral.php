@@ -49,6 +49,34 @@ class siteGeneral extends Controller
             if($datam->code_name == "support_email"){
                 $support_email = $datam->value;
             }
+
+            if($datam->code_name == "support_email_backup"){
+                $support_email_backup = $datam->value;
+            }
+
+            if($datam->code_name == "support_phone"){
+                $support_phone = $datam->value;
+            }
+
+            if($datam->code_name == "support_phone_backup"){
+                $support_phone_backup = $datam->value;
+            }
+
+            if($datam->code_name == "location"){
+                $location = $datam->value;
+            }
+
+            if($datam->code_name == "address"){
+                $address = $datam->value;
+            }
+
+            if($datam->code_name == "gmapkey"){
+                $gmapkey = $datam->value;
+            }
+
+            if($datam->code_name == "cityCountry"){
+                $cityCountry = $datam->value;
+            }
         }
 
 
@@ -60,7 +88,7 @@ class siteGeneral extends Controller
         // $site_logo=null;
         // $support_email=null;
 
-        return view('/content/site-settings/general-settings', ['pageConfigs' => $pageConfigs, 'site_name' => $site_name, 'site_moto' => $site_moto, 'social_media' => json_decode($social_media), 'site_url' => $site_url, 'site_logo' => $site_logo, 'support_email' => $support_email]);
+        return view('/content/site-settings/general-settings', ['pageConfigs' => $pageConfigs, 'site_name' => $site_name, 'site_moto' => $site_moto, 'social_media' => json_decode($social_media), 'site_url' => $site_url, 'site_logo' => $site_logo, 'support_email' => $support_email, 'support_email_backup' => $support_email_backup, 'support_phone' => $support_phone, 'support_phone_backup' => $support_phone_backup, 'location' => json_decode($location),'gmapkey' => $gmapkey, 'address' => $address, 'cityCountry' => $cityCountry]);
     }
 
     public function header_edit_view(){
@@ -114,6 +142,14 @@ class siteGeneral extends Controller
             'siteUrl' => 'required|string',
             'siteEmail' => 'required|string',
             'description' => 'required|string',
+            'siteEmailBackUp' => 'required|string',
+            'sitePhoneNumber' => 'required|string',
+            'sitePhoneNumberBackup' => 'required|string',
+            'siteGMapKey' => 'required|string',
+            'address' => 'required|string',
+            'citycountry' => 'required|string',
+            'longitude' => 'required|string',
+            'latitude' => 'required|string',
         ]);
 
         $social_media= [];
@@ -174,6 +210,21 @@ class siteGeneral extends Controller
         $update_site_moto = DB::table('codebumble_general')->where('code_name', 'site_moto')->update(['value' => $field['description'], 'updated_at' => time()]);
 
         $update_social_media = DB::table('codebumble_general')->where('code_name', 'social_media')->update(['value' => json_encode($social_media), 'updated_at' => time()]);
+
+        $update_siteEmailBackUp = DB::table('codebumble_general')->where('code_name', 'support_email_backup')->update(['value' => $field['siteEmailBackUp'], 'updated_at' => time()]);
+
+        $update_phone = DB::table('codebumble_general')->where('code_name', 'support_phone')->update(['value' => $field['sitePhoneNumber'], 'updated_at' => time()]);
+
+        $update_phone_backup = DB::table('codebumble_general')->where('code_name', 'support_phone_backup')->update(['value' => $field['sitePhoneNumberBackup'], 'updated_at' => time()]);
+
+        $update_siteGMapKey = DB::table('codebumble_general')->where('code_name', 'gmapkey')->update(['value' => $field['siteGMapKey'], 'updated_at' => time()]);
+
+        $update_address  = DB::table('codebumble_general')->where('code_name', 'address')->update(['value' => $field['address'], 'updated_at' => time()]);
+
+        $update_cc  = DB::table('codebumble_general')->where('code_name', 'cityCountry')->update(['value' => $field['citycountry'], 'updated_at' => time()]);
+
+        $update_location  = DB::table('codebumble_general')->where('code_name', 'location')->update(['value' => ['longitude' => $field['longitude'], 'latitude' => $field['latitude']], 'updated_at' => time()]);
+
 
         $path = base_path('.env');
 
@@ -441,7 +492,7 @@ class siteGeneral extends Controller
 
     }
 
-    
+
 
     public function post_a_job_view(){
 

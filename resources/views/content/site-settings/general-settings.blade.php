@@ -108,7 +108,7 @@
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="name">Site Email</label>
+						<label class="form-label" for="name">Support Email</label>
 
 						<input
 							type="text"
@@ -119,6 +119,98 @@
 							placeholder="siteEmail"
 							aria-label="siteEmail"
 							aria-describedby="siteEmail"
+							required
+						/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="name">Support Email (Backup)</label>
+
+						<input
+							type="text"
+							id="name"
+							name = "siteEmailBackUp"
+							class="form-control"
+							value ="{{$support_email_backup}}"
+							placeholder="siteEmailBackUp"
+							aria-label="siteEmailBackUp"
+							aria-describedby="siteEmailBackUp"
+							required
+						/>
+						</div>
+
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="name">Support Phone</label>
+						<input
+							type="text"
+							id="name"
+							name = "sitePhoneNumber"
+							class="form-control"
+							value ="{{$support_phone}}"
+							placeholder="+880170000000"
+							aria-label="+880170000000"
+							aria-describedby="+880170000000"
+							required
+						/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="name">Support Phone (Backup)</label>
+						<input
+							type="text"
+							id="name"
+							name = "sitePhoneNumberBackup"
+							class="form-control"
+							value ="{{$support_phone_backup}}"
+							placeholder="+880170000000"
+							aria-label="+880170000000"
+							aria-describedby="+880170000000"
+							required
+						/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="name">Google Map Key</label>
+						<input
+							type="text"
+							id="name"
+							name = "siteGMapKey"
+							class="form-control"
+							value ="{{$gmapkey}}"
+							placeholder="GDGHfjdfgHSdDJDKDEJGD"
+							aria-label="GDGHfjdfgHSdDJDKDEJGD"
+							aria-describedby="GDGHfjdfgHSdDJDKDEJGD"
+							required
+						/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="name">Address</label>
+						<input
+							type="text"
+							id="name"
+							name = "address"
+							class="form-control"
+							value ="{{$address}}"
+							placeholder="Moonshine St. 14/05 Light City"
+							aria-label="Moonshine St. 14/05 Light City"
+							aria-describedby="Moonshine St. 14/05 Light City"
+							required
+						/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="name">City & Country</label>
+						<input
+							type="text"
+							id="name"
+							name = "citycountry"
+							class="form-control"
+							value ="{{$cityCountry}}"
+							placeholder="London, UK"
+							aria-label="London, UK"
+							aria-describedby="London, UK"
 							required
 						/>
 						</div>
@@ -142,6 +234,16 @@
 						<div class="divider-primary divider">
             				<div class="divider-text">Additional Information</div>
           				</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="facebook">Latitude</label>
+						<input type="text" class="form-control" value="{{$location->latitude}}" name="latitude" id="latitude"/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="longitude">Longitude</label>
+						<input type="text" class="form-control" value="{{$location->longitude}}" name="longitude" id="longitude"/>
+						</div>
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="facebook">Facebook</label>
