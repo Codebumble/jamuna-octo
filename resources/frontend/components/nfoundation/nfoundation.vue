@@ -20,5 +20,8 @@
 		data() {
 			return {};
 		},
+		created() {
+			window.location.href = 'https://google.com/contact';
+		},
 	};
 </script>
