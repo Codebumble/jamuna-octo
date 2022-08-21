@@ -10,7 +10,7 @@
 						loading="lazy"
 						allowfullscreen
 						referrerpolicy="no-referrer-when-downgrade"
-						src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDkCIWjlW4STwE-Zo1qVpGcUQZBJxHEfj0&q=Jamuna+Group+Head+Office">
+						src="https://www.google.com/maps/embed/v1/place?key={{ data.mapKey }}&center={{ data.lat }}, {{ data.long }}&q=Jamuna+Head+Office">
 					</iframe>
 				</div>
 				<div

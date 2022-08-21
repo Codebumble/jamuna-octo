@@ -96,6 +96,8 @@ Route::group(['prefix' => 'frontpage-api', ], function () {
     Route::get('nav-company', [FrontPage::class, 'nav_company']);
 
     Route::get('chairpersson-speech', [FrontPage::class, 'chairpersson_speech']);
+    Route::get('contact-us-api', [FrontPage::class, 'contact_us_api']);
+
     Route::get('company/{id}', [FrontPage::class, 'company_data']);
     Route::get('all-company-view', [FrontPage::class, 'all_company_view']);
     Route::get('footer-component', [FrontPage::class, 'footer_component']);

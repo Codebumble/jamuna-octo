@@ -53,9 +53,11 @@ class FrontPage extends Controller
 
             foreach ($data_get_1 as $key => $value) {
 
-                $value->name = str_replace(" ", "-", $value->name);
+                $name = $value->name;
+				$replace = $name = str_replace(" ", "-", $value->name);
+
                 $submenu = [
-                    'route' => '/companies/'.$value->id.'/'.$value->name,
+                    'route' => '/companies/'.$value->id.'/'.$replace,
                     'label' => $value->name
 
                 ];
@@ -82,6 +84,40 @@ class FrontPage extends Controller
         $data_get = DB::select('select * from codebumble_company_list where id=?',[$id]);
 
         return json_encode($data_get[0]);
+    }
+
+    public function contact_us_api(){
+        $data_get_1 = DB::select('select * from codebumble_general where code_name=?',['gmapkey']);
+
+        $data_get_2 = DB::select('select * from codebumble_general where code_name=?',['location']);
+
+        $data_get_3 = DB::select('select * from codebumble_general where code_name=?',['address']);
+
+        $data_get_4 = DB::select('select * from codebumble_general where code_name=?',['support_phone']);
+
+        $data_get_5 = DB::select('select * from codebumble_general where code_name=?',['support_phone_backup']);
+
+        $data_get_6 = DB::select('select * from codebumble_general where code_name=?',['support_email']);
+
+        $data_get_7 = DB::select('select * from codebumble_general where code_name=?',['support_email_backup']);
+
+        $data_get_8 = DB::select('select * from codebumble_general where code_name=?',['cityCountry']);
+
+        $a = [
+            'mapKey' => $data_get_1[0]->value,
+            'lat' => json_decode($data_get_2[0]->value)->latitude,
+            'long' => json_decode($data_get_2[0]->value)->longitude,
+            'location' => $data_get_3[0]->value,
+            'phonePrimary' => $data_get_4[0]->value,
+            'phoneSecondary' =>  $data_get_5[0]->value,
+            'mailPrimary' => $data_get_6[0]->value,
+            'mailSecondary' => $data_get_7[0]->value,
+            'cityCountry' => $data_get_8[0]->value,
+        ];
+
+        return json_encode($a);
+
+
     }
 
     public function all_company_view(){

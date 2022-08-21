@@ -10,17 +10,13 @@
 		},
 		data() {
 			return {
-				contact: {
-					mapKey: 'AIzaSyDkCIWjlW4STwE-Zo1qVpGcUQZBJxHEfj0',
-					mapMarker: 'Jamuna+Group+Head+Office',
-					location: 'Moonshine St. 14/05 Light City,',
-					cityCountry: 'London, UK',
-					phonePrimary: '00 (123) 456 78 90',
-					phoneSecondary: '00 (987) 654 32 10',
-					mailPrimary: 'Hello@jamuna.com',
-					mailSecondary: 'Support@jamuna.com',
-				},
+				contact: {},
 			};
 		},
+		async mounted(){
+
+				const result = await axios.get(window.location.origin + '/frontpage-api/contact-us-api')
+			this.contact=await result.data
+		}
 	};
 </script>
