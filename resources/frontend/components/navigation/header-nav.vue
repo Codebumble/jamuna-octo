@@ -50,7 +50,14 @@
 								v-if="menu.parentSubmenu">
 								<li
 									class="mega-items"
-									:class="psm.childSubmenu ? 'has-inner' : ''"
+									:class="
+										psm.childSubmenu ||
+										menu.parentSubmenu[
+											menu.parentSubmenu.length - 1
+										].hasInner
+											? 'has-inner'
+											: ''
+									"
 									v-for="(psm, key) in menu.parentSubmenu"
 									:key="key">
 									<router-link
@@ -62,7 +69,12 @@
 
 									<ul
 										class="items-inner"
-										v-if="psm.childSubmenu">
+										v-if="
+											psm.childSubmenu ||
+											menu.parentSubmenu[
+												menu.parentSubmenu.length - 1
+											].hasInner
+										">
 										<li
 											v-for="(
 												csm, key
@@ -370,6 +382,16 @@
 					},
 				],
 			};
+		},
+		created() {
+			axios
+				.get(window.location.origin + '/frontpage-api/nav-company')
+				.then((response) => {
+					this.navMenu[2].parentSubmenu = [
+						...response.data,
+						{ hasInner: true },
+					];
+				});
 		},
 		mounted() {
 			const header = document.querySelector('header');
