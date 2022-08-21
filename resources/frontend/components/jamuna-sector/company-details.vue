@@ -4,6 +4,7 @@
 </template>
 
 <script>
+	import { useHead } from '@vueuse/head';
 	import businessDetails from '../global/business-details';
 	import breadcrumb from '../global/company-breadcrumb';
 	export default {

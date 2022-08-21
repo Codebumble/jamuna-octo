@@ -89,6 +89,9 @@ const routes = [
 		path: "/nurul-islam-foundation",
 		name: "n foundation",
 		component: () => import("../views/nfoundation.vue"),
+		beforeEnter: (to, from, next) => {
+			window.location.href = "https://google.com/contact";
+		},
 	},
 ];
 
