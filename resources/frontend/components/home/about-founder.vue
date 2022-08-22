@@ -19,7 +19,7 @@
 				</div>
 				<div class="chairperson-image xl:basis-2/4 lg:order-2 order-1">
 					<img
-						:src="quote.imgSrc"
+						:src="'/profile-images/' + quote.imgSrc"
 						alt="chairperson.alt"
 						class="rounded-2xl w-full xl:w-11/12 mx-auto lg:max-h-[500px] lg:h-[500px] object-cover object-top" />
 				</div>
