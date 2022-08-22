@@ -10,6 +10,7 @@ use App\Http\Controllers\ComponentsController;
 use App\Http\Controllers\Company_rest;
 use App\Http\Controllers\ExtensionController;
 use App\Http\Controllers\FrontPage;
+use App\Http\Controllers\photo_gallery;
 use App\Http\Controllers\FounderApi;
 use App\Http\Controllers\PageLayoutController;
 use App\Http\Controllers\FormsController;
@@ -59,9 +60,9 @@ Route::group(['prefix' => 'codebumble'], function () {
 
         Route::post('growth-story-api', [siteGeneral::class, 'growth_story_api'])->name('growth_story_api');
 
-
+        Route::post('add-gallery-photo', [photo_gallery::class, 'add_gallery_photo'])->name('add_gallery_photo');
+        Route::get('delete-gallery-image/{id}', [photo_gallery::class, 'delete_image'])->name('delete_gallery_image');
         Route::post('front-page-chairperson-api', [siteGeneral::class, 'front_page_chairperson_api'])->name('front_page_chairperson_api');
-
         Route::get('delete-slider/{id}', [siteGeneral::class, 'delete_slider'])->name('delete_slider');
 
         Route::post('add-slider-api', [siteGeneral::class, 'add_slider_api'])->name('add_slider_api');
@@ -123,6 +124,7 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::get('user', [AuthController::class, 'user']);
         Route::get('register', [AuthenticationController::class, 'register'])->name('auth-register');
         Route::get('photo-gallery', [siteGeneral::class, 'photo_gallery_view'])->name('photo_gallery_view');
+
         Route::get('add-company', [Company_rest::class, 'auth_view_add_company'])->name('add-company');
         Route::get('all-company', [Company_rest::class, 'auth_view_all_company'])->name('all-company');
         Route::get('edit-company/{id}', [Company_rest::class, 'auth_view_edit_company'])->name('edit-company');

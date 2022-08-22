@@ -45,7 +45,7 @@
 
 
 
-          <form action="{{route('add_slider_api')}}" class="invoice-repeater" enctype="multipart/form-data" method="POST">
+          <form action="{{route('add_gallery_photo')}}" class="invoice-repeater" enctype="multipart/form-data" method="POST">
 		  @csrf
             <div data-repeater-list="new">
 				<div data-repeater-item>
@@ -61,7 +61,7 @@
 									id="image"
 									name="image"
 									aria-describedby="image"
-									placeholder="32"
+									placeholder="32" required
 								/>
 							</div>
 						</div>
@@ -88,7 +88,7 @@
                   <i data-feather="plus" class="me-25"></i>
                   <span>Add New</span>
                 </button>
-				<button class="btn btn-icon btn-success m-1" type="submit">
+				        <button class="btn btn-icon btn-success m-1" type="submit">
                   <i data-feather="check" class="me-25"></i>
                   <span>Update</span>
                 </button>
@@ -110,15 +110,28 @@
 	<div class="col-12">
 
 	<div class="row match-height">
-    <div class="col-md-6 col-lg-4">
+  @php
+  $counter = 0;
+  @endphp
+
+  @foreach ($imgs as $value)
+
+  <div class="col-md-6 col-lg-4">
       <div class="card">
-        <img class="card-img-top" src="{{asset('images/slider/04.jpg')}}" alt="Card image cap" />
+        <img class="card-img-top" src="{{asset($value->src)}}" alt="Card image cap" />
         <div class="card-body">
 
-          <a href="/codebumble/photo-galley-delete/" class="btn btn-outline-danger col-md-6">Delete</a>
+          <a href="{{route('delete_gallery_image', ['id' => $counter])}}" class="btn btn-outline-danger col-md-6">Delete</a>
         </div>
       </div>
     </div>
+
+    @php
+      $counter +=1;
+    @endphp
+
+  @endforeach
+
 
 
   </div>
