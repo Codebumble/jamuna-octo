@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Auth;
 class photo_gallery extends Controller
 {
     public function add_gallery_photo(Request $request){
+        if(!Auth::check()){
+            header("Location: " . route('auth-login'), true, 302);
+            exit();
+
+        }
 
         $new= $request->new;
         $data_get = DB::select('select value from codebumble_front_page where code_name=?',['gallery']);
@@ -43,6 +48,12 @@ class photo_gallery extends Controller
     }
 
     public function delete_image ($id){
+        if(!Auth::check()){
+            header("Location: " . route('auth-login'), true, 302);
+            exit();
+
+        }
+        
         $data_get = DB::select('select value from codebumble_front_page where code_name=?',['gallery']);
         $a = json_decode($data_get[0]->value);
         $b = [];

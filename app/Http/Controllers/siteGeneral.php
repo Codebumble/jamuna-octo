@@ -465,6 +465,8 @@ class siteGeneral extends Controller
 
     public function growth_story_view(){
 
+        check_auth();
+
         $data_get = DB::select('select value from codebumble_front_page where code_name=?',['growth-history']);
 
         $data = json_decode($data_get[0]->value);
