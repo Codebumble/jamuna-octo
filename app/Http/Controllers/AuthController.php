@@ -81,7 +81,7 @@ class AuthController extends Controller
 
         }
 
-        
+
 
         if($file1 = $request->hasFile('image')) {
             $user1 = $field['username'];
@@ -202,7 +202,7 @@ class AuthController extends Controller
             date_default_timezone_set(env('TIMEZONE'));
 
             $updated = DB::table('codebumble_login_table')->insert(['username' => $user->username, 'ip' => $request->ip(), 'browser' => $browser->getName(), 'browser_full' => $browser->getName().' '.$browser->getVersion(), 'os' => $os->getName().' '.$os->getVersion(), 'date' => date('d-M, Y'), 'time' => date('h:i a'), 'updated_at' => time(), 'created_at' => time()]);
-            return redirect()->route('dashboard-ecommerce');
+            return redirect()->route('dashboard-analytics');
 
         }else{
             return redirect()->route('auth-login',['error'=> 'IiiZ2hs1g1vzhEMBdkjMUCPh9YzpRVC8CMojxRar', 'hasher' => Str::random(40).'-'.Str::random(70), 'time' => time(), 'hasher_ip' => Str::random(10)]);
