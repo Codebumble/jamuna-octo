@@ -257,7 +257,7 @@
 					<div class="col-md-2 col-12 mb-50">
 						<div class="mb-1">
 						<label class="form-label" for="btnStyle">Button Style</label>
-						<select name="btnStyle" class="form-select">
+						<select name="preview[{{$counter}}][btnStyle]" class="form-select">
 						@if(isset($img->btnStyle))
 							<option value="{{$img->btnStyle}}" selected> {{$img->btnStyle}} </option>
 						@endif
