@@ -48,6 +48,32 @@
 			};
 		},
 		setup() {},
+		metaInfo() {
+			return {
+				title: this.company.businessName,
+				// title: this.FounderDetails.title,
+				description: this.company.textDetails.shortDetails.substring(
+					0,
+					150
+				),
+				charset: 'utf-8',
+				htmlAttrs: {
+					lang: 'en',
+				},
+				og: {
+					title: this.company.businessName,
+					description:
+						this.company.textDetails.shortDetails.substring(0, 150),
+					image: this.company.businessLogo,
+				},
+				twitter: {
+					title: this.company.businessName,
+					description:
+						this.company.textDetails.shortDetails.substring(0, 150),
+					image: this.company.businessLogo,
+				},
+			};
+		},
 		methods: {
 			switcher() {
 				axios
