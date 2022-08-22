@@ -14,7 +14,7 @@
 							" />
 					</div>
 					<div
-						class="border border-slate-100 p-8 w-full shadow-lg rounded-md overflow-hidden businessInfo">
+						class="border border-slate-100 py-6 px-4 w-full shadow-lg rounded-md overflow-hidden businessInfo">
 						<table>
 							<tr>
 								<th>Business Name</th>

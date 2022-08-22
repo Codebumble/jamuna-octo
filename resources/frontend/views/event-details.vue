@@ -21,8 +21,24 @@
 				},
 			};
 		},
-		setup() {
-
+		metaInfo() {
+			return {
+				title: this.eventDetail.eventTitle,
+				// title: this.FounderDetails.title,
+				description: this.eventDetail.detail.substring(0, 150),
+				charset: 'utf-8',
+				htmlAttrs: {
+					lang: 'en',
+				},
+				og: {
+					description: this.eventDetail.detail.substring(0, 150),
+					image: '',
+				},
+				twitter: {
+					description: this.eventDetail.detail.substring(0, 150),
+					image: '',
+				},
+			};
 		},
 	};
 </script>

@@ -1,13 +1,13 @@
 .businessInfo {
 	table {
-		@apply w-full lg:w-auto;
+		@apply w-full;
 		tr {
-			@apply flex justify-between py-[0.4rem];
+			@apply flex justify-between py-[0.4rem] overflow-hidden;
 			th {
 				@apply text-left w-2/4 lg:w-5/12 text-gray-800;
 			}
 			td {
-				@apply w-2/4 lg:w-7/12 pl-3;
+				@apply w-2/4 lg:w-7/12 pl-2;
 
 				ul {
 					li {

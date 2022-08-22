@@ -1,4 +1,9 @@
 <template>
+	<metainfo>
+		<template v-slot:title="{ content }"
+			>{{ content }} | Jamuna Group</template
+		>
+	</metainfo>
 	<appHeader />
 	<router-view v-slot="{ Component, route }">
 		<transition
