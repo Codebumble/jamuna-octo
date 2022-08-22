@@ -174,6 +174,32 @@
 							</div>
 						</div>
 
+						<div class="col-md-6 col-12 mb-50">
+							<div class="mb-1">
+								<label class="form-label" for="short_description">URL</label>
+								<select class="form-select" id="url" name="type" required>
+
+								<option value="Default">Default </option>
+								<option value="Custom URL">Custom URL</option>
+
+								</select>
+							</div>
+						</div>
+
+						<div class="col-md-6 col-12 mb-50">
+							<div class="mb-1">
+								<label class="form-label" for="custom-link">Custom Link</label>
+								<input
+									type="text"
+									class="form-control"
+									id="custom-link"
+									name="link"
+									placeholder="https://google.com"
+									aria-describedby="custom_link"
+								/>
+							</div>
+						</div>
+
 
 
 						<div class="col-md-6 col-12 mb-50">

@@ -1,7 +1,7 @@
 
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Add Products')
+@section('title', 'Edit Product')
 
 @section('vendor-style')
   {{-- Vendor Css files --}}
@@ -22,7 +22,7 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Add New Products</h4>
+          <h4 class="card-title">Edit This Product</h4>
         </div>
         <div class="card-body">
 
@@ -47,8 +47,7 @@
 
           <form action="{{route('add_product')}}" class="invoice-repeater" enctype="multipart/form-data" method="POST">
 		  @csrf
-            <div data-repeater-list="new">
-				<div data-repeater-item>
+            
 
 					<div class="row d-flex align-items-end">
 
@@ -109,8 +108,8 @@
 
 						<div class="col-md-6 col-12 mb-50">
 							<div class="mb-1">
-								<label class="form-label" for="company">Stock</label>
-								<select class="form-control select2" name="company" required>
+								<label class="form-label" for="company">Under Company</label>
+								<select class="form-select" name="company" id="company" required>
 
 								@foreach($companies as $company)
 							<option value="{{$company->name}}">{{$company->name}}</option>
@@ -165,12 +164,38 @@
 						<div class="col-md-6 col-12 mb-50">
 							<div class="mb-1">
 								<label class="form-label" for="short_description">Stock</label>
-								<select class="form-control select2" name="stock" required>
+								<select class="form-select" id="stock" name="stock" required>
 
 								<option value="Available">Available </option>
 								<option value="Out of Stock">Out of Stock</option>
 
 								</select>
+							</div>
+						</div>
+
+						<div class="col-md-6 col-12 mb-50">
+							<div class="mb-1">
+								<label class="form-label" for="short_description">URL</label>
+								<select class="form-select" id="url" name="[type]" required>
+
+								<option value="Default">Default </option>
+								<option value="Custom URL">Custom URL</option>
+
+								</select>
+							</div>
+						</div>
+
+						<div class="col-md-6 col-12 mb-50">
+							<div class="mb-1">
+								<label class="form-label" for="custom-link">Custom Link</label>
+								<input
+									type="text"
+									class="form-control"
+									id="custom-link"
+									name="[link]"
+									placeholder="https://google.com"
+									aria-describedby="custom_link"required
+								/>
 							</div>
 						</div>
 
@@ -189,9 +214,7 @@
 					<hr/>
 
 
-				</div>
 
-            </div>
             <div class="row">
               <div class="col-12">
                 <button class="btn btn-icon btn-warning" type="button" data-repeater-create>

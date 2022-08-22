@@ -127,6 +127,7 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::get('register', [AuthenticationController::class, 'register'])->name('auth-register');
         Route::get('photo-gallery', [siteGeneral::class, 'photo_gallery_view'])->name('photo_gallery_view');
         Route::get('add-product', [Product_rest::class, 'auth_add_product_page'])->name('auth_add_product_page');
+        Route::get('edit-product/{id}', [Product_rest::class, 'auth_edit_product_page'])->name('auth_edit_product_page');
 
         Route::get('add-company', [Company_rest::class, 'auth_view_add_company'])->name('add-company');
         Route::get('all-company', [Company_rest::class, 'auth_view_all_company'])->name('all-company');
