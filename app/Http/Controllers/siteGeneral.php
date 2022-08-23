@@ -372,10 +372,11 @@ class siteGeneral extends Controller
 
     public function photo_gallery_view(){
 
+        $data_1 = DB::table('codebumble_front_page')->where('code_name', 'gallery')->get();
 
 
         $pageConfigs = ['pageHeader' => false];
-        return view('/content/photo-gallery/photo-gallery', ['pageConfigs' => $pageConfigs]);
+        return view('/content/photo-gallery/photo-gallery', ['pageConfigs' => $pageConfigs, 'imgs' => json_decode($data_1[0]->value)]);
 
     }
 
@@ -463,6 +464,8 @@ class siteGeneral extends Controller
     }
 
     public function growth_story_view(){
+
+        check_auth();
 
         $data_get = DB::select('select value from codebumble_front_page where code_name=?',['growth-history']);
 
