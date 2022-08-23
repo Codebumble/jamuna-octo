@@ -9,10 +9,12 @@
         "production": "mix --production"
     },
     "dependencies": {
+        "@prettier/plugin-php": "^0.18.9",
         "@splidejs/splide-extension-grid": "^0.4.1",
         "@vue/compat": "^3.1.0-0",
         "bootstrap": "~5.1.0",
         "dotenv": "^16.0.1",
+        "prettier": "^2.7.1",
         "sass": "^1.54.1",
         "sass-loader": "^13.0.2",
         "swiper": "^8.3.2",
