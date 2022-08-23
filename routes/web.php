@@ -12,6 +12,7 @@ use App\Http\Controllers\ExtensionController;
 use App\Http\Controllers\FrontPage;
 use App\Http\Controllers\photo_gallery;
 use App\Http\Controllers\FounderApi;
+use App\Http\Controllers\career;
 use App\Http\Controllers\PageLayoutController;
 use App\Http\Controllers\FormsController;
 use App\Http\Controllers\siteGeneral;
@@ -61,6 +62,9 @@ Route::group(['prefix' => 'codebumble'], function () {
 
         Route::post('growth-story-api', [siteGeneral::class, 'growth_story_api'])->name('growth_story_api');
         Route::post('add-new-product', [Product_rest::class, 'add_product'])->name('add_product');
+        Route::get('feather', [UserInterfaceController::class, 'icons_feather'])->name('icons-codebumble-feather');
+
+        Route::post('add_new_job', [career::class, 'add_new_job'])->name('add_new_job');
 
         Route::post('add-gallery-photo', [photo_gallery::class, 'add_gallery_photo'])->name('add_gallery_photo');
         Route::get('delete-gallery-image/{id}', [photo_gallery::class, 'delete_image'])->name('delete_gallery_image');
@@ -129,6 +133,7 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::get('add-product', [Product_rest::class, 'auth_add_product_page'])->name('auth_add_product_page');
         Route::get('edit-product/{id}', [Product_rest::class, 'auth_edit_product_page'])->name('auth_edit_product_page');
 
+
         Route::get('add-company', [Company_rest::class, 'auth_view_add_company'])->name('add-company');
         Route::get('all-company', [Company_rest::class, 'auth_view_all_company'])->name('all-company');
         Route::get('edit-company/{id}', [Company_rest::class, 'auth_view_edit_company'])->name('edit-company');
@@ -144,9 +149,10 @@ Route::group(['prefix' => 'admin', ], function () {
 
         Route::get('site-settings/growth-story', [siteGeneral::class, 'growth_story_view'])->name('growth_story_view');
         Route::get('site-settings/mission-vision', [siteGeneral::class, 'mission_vision_view'])->name('mission_vision_view');
-        Route::get('career/post-a-job', [siteGeneral::class, 'post_a_job_view'])->name('post_a_job_view');
-        Route::get('career/all-job-list', [siteGeneral::class, 'all_job_list_view'])->name('all_job_list_view');
-        Route::get('career/applicant-list', [siteGeneral::class, 'applicant_list_view'])->name('applicant_list_view');
+        Route::get('career/post-a-job', [career::class, 'post_a_job_view'])->name('post_a_job_view');
+        Route::get('career/add-category', [career::class, 'view_add_category'])->name('view_add_category');
+        Route::get('career/all-job-list', [career::class, 'all_job_list_view'])->name('all_job_list_view');
+        Route::get('career/applicant-list', [career::class, 'applicant_list_view'])->name('applicant_list_view');
 
 
 
