@@ -1,11 +1,10 @@
 <template>
-	<businessDetails :data="company" />
+	<businessDetails :data="company" :images="images" @pageNumber="photos" />
 	<p>{{ currentUrl }}</p>
 </template>
 
 <script>
 	import businessDetails from '../global/business-details';
-	import { computed } from 'vue';
 	export default {
 		components: {
 			businessDetails,
@@ -85,6 +84,8 @@
 						},
 					],
 				},
+				images: [],
+				page: 1
 			};
 		},
 		setup() {},
@@ -144,6 +145,21 @@
 							response.data.short_details;
 						this.company.social.facebook = jsn.facebook;
 					});
+
+					// Lightbox api
+					this.photos(this.page)
+			},
+			photos(page){
+				this.images = []
+				axios.get(`https://picsum.photos/v2/list?page=${page}&limit=4`).then((res) => {
+					res.data.forEach((item) =>{
+						this.images.push({
+							src: item.download_url,
+							title: item.author,
+						})
+						}
+					);
+				});
 			},
 		},
 		created() {

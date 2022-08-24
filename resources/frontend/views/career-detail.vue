@@ -48,150 +48,152 @@
 							<form
 								class="pt-6"
 								@submit.prevent="submitResume">
-								<div class="input-group">
-									<div class="input-item">
-										<input
-											type="text"
-											name="name"
-											id="name"
-											class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-											placeholder="Name"
-											required
-											v-model="name" />
-									</div>
-								</div>
-								<div class="input-group">
-									<div class="input-item">
-										<div class="col-span-6 sm:col-span-3">
-											<select
-												id="division"
-												name="division"
-												autocomplete="division-name"
-												class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
-												v-model="division"
-												@change="selectDivision"
-												required>
-												<option
-													v-for="value in Object.keys(
-														address
-													)"
-													:value="value">
-													{{ value }}
-												</option>
-											</select>
+								<div class="grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-4">
+									<div class="input-group">
+										<div class="input-item">
+											<input
+												type="text"
+												name="name"
+												id="name"
+												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+												placeholder="Name"
+												required
+												v-model="name" />
 										</div>
 									</div>
-								</div>
-								<div class="input-group">
-									<div class="input-item">
-										<div class="col-span-6 sm:col-span-3">
-											<select
-												id="district"
-												name="district"
-												autocomplete="district-name"
-												class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
-												@change="selectDistrict"
-												v-model="district"
-												required>
-												<option v-if="isDistrict">
-													{{ district }}
-												</option>
-												<option
-													v-for="district in districts"
-													:value="district">
-													{{ district }}
-												</option>
-											</select>
+									<div class="input-group">
+										<div class="input-item">
+											<div class="col-span-6 sm:col-span-3">
+												<select
+													id="division"
+													name="division"
+													autocomplete="division-name"
+													class="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
+													v-model="division"
+													@change="selectDivision"
+													required>
+													<option
+														v-for="value in Object.keys(
+															address
+														)"
+														:value="value">
+														{{ value }}
+													</option>
+												</select>
+											</div>
 										</div>
 									</div>
-								</div>
-								<div class="input-group">
-									<div class="input-item">
-										<div class="col-span-6 sm:col-span-3">
-											<select
-												id="subdistrict"
-												name="subdistrict"
-												autocomplete="subdistrict-name"
-												class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
-												v-model="subdistrict"
-												required>
-												<option v-if="isSubdistrict">
-													{{ subdistrict }}
-												</option>
-												<option
-													v-for="subdistrict in subdistricts">
-													{{ subdistrict }}
-												</option>
-											</select>
+									<div class="input-group">
+										<div class="input-item">
+											<div class="col-span-6 sm:col-span-3">
+												<select
+													id="district"
+													name="district"
+													autocomplete="district-name"
+													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
+													@change="selectDistrict"
+													v-model="district"
+													required>
+													<option v-if="isDistrict">
+														{{ district }}
+													</option>
+													<option
+														v-for="district in districts"
+														:value="district">
+														{{ district }}
+													</option>
+												</select>
+											</div>
 										</div>
 									</div>
-								</div>
-								<div class="input-group">
-									<div class="input-item">
-										<div class="col-span-6 sm:col-span-3">
-											<select
-												id="qualification"
-												name="qualification"
-												autocomplete="qualification-name"
-												class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
-												v-model="qualification"
-												required>
-												<option>Qualification</option>
-												<option
-													v-for="qualification in qualifications">
-													{{ qualification }}
-												</option>
-											</select>
+									<div class="input-group">
+										<div class="input-item">
+											<div class="col-span-6 sm:col-span-3">
+												<select
+													id="subdistrict"
+													name="subdistrict"
+													autocomplete="subdistrict-name"
+													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
+													v-model="subdistrict"
+													required>
+													<option v-if="isSubdistrict">
+														{{ subdistrict }}
+													</option>
+													<option
+														v-for="subdistrict in subdistricts">
+														{{ subdistrict }}
+													</option>
+												</select>
+											</div>
 										</div>
 									</div>
-								</div>
-								<div class="input-group">
-									<div class="input-item">
-										<div class="col-span-6 sm:col-span-3">
-											<select
+									<div class="input-group">
+										<div class="input-item">
+											<div class="col-span-6 sm:col-span-3">
+												<select
+													id="qualification"
+													name="qualification"
+													autocomplete="qualification-name"
+													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
+													v-model="qualification"
+													required>
+													<option>Qualification</option>
+													<option
+														v-for="qualification in qualifications">
+														{{ qualification }}
+													</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="input-group">
+										<div class="input-item">
+											<div class="col-span-6 sm:col-span-3">
+												<select
+													id="experience"
+													name="experience"
+													autocomplete="experience-name"
+													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
+													v-model="experience"
+													required>
+													<option>
+														Experience (Years)
+													</option>
+													<option
+														v-for="experience in 20">
+														{{
+															experience.toString()
+																.length > 1
+																? experience
+																: '0' + experience
+														}}
+													</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="input-group">
+										<div class="input-item">
+											<input
+												type="text"
+												name="university"
 												id="experience"
-												name="experience"
-												autocomplete="experience-name"
-												class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
-												v-model="experience"
-												required>
-												<option>
-													Experience (Years)
-												</option>
-												<option
-													v-for="experience in 20">
-													{{
-														experience.toString()
-															.length > 1
-															? experience
-															: '0' + experience
-													}}
-												</option>
-											</select>
+												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+												placeholder="University (Optional)"
+												v-model="university" />
 										</div>
 									</div>
-								</div>
-								<div class="input-group">
-									<div class="input-item">
-										<input
-											type="text"
-											name="university"
-											id="experience"
-											class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-											placeholder="University (Optional)"
-											v-model="university" />
-									</div>
-								</div>
-								<div class="input-group">
-									<div class="input-item">
-										<input
-											type="text"
-											name="salary"
-											id="salary"
-											class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-											placeholder="Expected Salary"
-											v-model="salary"
-											required />
+									<div class="input-group">
+										<div class="input-item">
+											<input
+												type="text"
+												name="salary"
+												id="salary"
+												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+												placeholder="Expected Salary"
+												v-model="salary"
+												required />
+										</div>
 									</div>
 								</div>
 								<div class="input-group">
@@ -250,7 +252,7 @@
 								</div>
 								<button
 									type="submit"
-									class="inline-flex justify-center py-2 px-4 border border-transparent hover:border-red-600 shadow-sm text-sm rounded-full text-white hover:text-red-600 bg-red-600 hover:bg-white transition-all w-full h-12 items-center font-bold">
+									class="inline-flex justify-center pt-2 px-4 border border-transparent hover:border-red-600 shadow-sm text-sm rounded-full text-white hover:text-red-600 bg-red-600 hover:bg-white transition-all w-full h-12 items-center font-bold">
 									Send
 								</button>
 							</form>

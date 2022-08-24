@@ -246,6 +246,35 @@
 							</div>
 						</div>
 					</div>
+				<div class="company-gallery pt-8">
+					<div
+					class="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-5 pb-8">
+						<div
+							v-for="(item, index) in images"
+							:key="index"
+							class="image"
+							@click="() => showImg(index)">
+							<div class="thumbnail">
+								<img
+									:src="item.src"
+									alt="" />
+							</div>
+						</div>
+					</div>
+					<vue-awesome-paginate
+						:total-items="30"
+						:items-per-page="4"
+						:max-pages-shown="5"
+						:current-page="currentPage"
+						:on-click="onClickHandler"
+						:key="currentPage"
+					/>
+				</div>
+				<vue-easy-lightbox
+					:visible="visibleRef"
+					:imgs="images"
+					:index="indexRef"
+					@hide="onHide"></vue-easy-lightbox>
 				</div>
 			</div>
 		</div>
@@ -254,13 +283,48 @@
 
 <style lang="scss">
 	@import '../../assets/scss/variables/_business-details';
+	@import '../../assets/scss/variables/company-gallery';
+	@import '../../assets/scss/variables/pagination';
 </style>
 
 <script>
+	import VueEasyLightbox from 'vue-easy-lightbox';
 	export default {
 		name: 'businessDetails',
+		components: {
+			VueEasyLightbox,
+		},
+		data() {
+			return {
+				visibleRef: false,
+				indexRef: 0,
+				currentPage: 1
+			};
+		},
+		created() {
+			this.$watch(
+				() => this.$route.params,
+				(toParams, PreviousParams) => {
+					this.currentPage = 1
+				}
+			);
+		},
+		methods: {
+			showImg(index) {
+				this.indexRef = index;
+				this.visibleRef = true;
+			},
+			onHide() {
+				this.visibleRef = false;
+			},
+			onClickHandler (page){
+				this.currentPage = page
+    			this.$emit('pageNumber', page)
+  			}
+		},
 		props: {
 			data: Object,
+			images: Array
 		},
 	};
 </script>

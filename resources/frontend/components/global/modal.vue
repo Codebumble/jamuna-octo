@@ -53,5 +53,8 @@
 	}
 	.modal {
 		@apply bg-white flex justify-center items-center h-screen w-screen fixed top-0 left-0 bg-opacity-80;
+		.modal-inner{
+			@apply w-full lg:w-auto;
+		}
 	}
 </style>

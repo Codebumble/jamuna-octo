@@ -1,0 +1,17 @@
+.company-gallery {
+	.image {
+		.thumbnail {
+			@apply h-48 lg:h-40 xl:h-48 xl:w-44 lg:w-32 md:w-80 md:mx-auto;
+			img {
+				@apply h-full w-full object-cover object-center rounded transition-all duration-500;
+				border: 1px solid #ddd;
+			}
+		}
+		// &:hover .thumbnail img {
+		// 	@apply transform scale-105;
+		// }
+	}
+	.vel-img-title {
+		@apply bg-red-600 text-white p-2 mb-2 text-3xl text-center bg-opacity-30;
+	}
+}

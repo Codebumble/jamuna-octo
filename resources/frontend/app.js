@@ -6,6 +6,7 @@ import router from "./router/router";
 import VueSocialSharing from "vue-social-sharing";
 
 import { createMetaManager, plugin as vueMetaPlugin } from "vue-meta";
+import VueAwesomePaginate from "vue-awesome-paginate";
 
 const metaManager = createMetaManager();
 
@@ -18,4 +19,5 @@ createApp(FrontEnd)
 	.use(metaManager)
 	.use(vueMetaPlugin)
 	.use(VueSocialSharing)
+	.use(VueAwesomePaginate)
 	.mount("#app");

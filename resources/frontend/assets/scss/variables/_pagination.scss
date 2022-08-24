@@ -1,0 +1,19 @@
+.pagination-container {
+	@apply flex;
+	column-gap: 10px;
+	justify-content: center;
+	.paginate-buttons {
+		@apply bg-slate-50 text-gray-800 h-10 w-10 rounded-full cursor-pointer;
+		border: 1px solid rgb(217, 217, 217);
+	}
+	.paginate-buttons:hover {
+		background-color: #d8d8d8;
+	}
+	.active-page {
+		@apply bg-red-500 text-white border-red-700;
+		border: 1px solid;
+	}
+	.active-page:hover {
+		@apply bg-red-700;
+	}
+}
