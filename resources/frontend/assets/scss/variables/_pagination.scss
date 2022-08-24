@@ -1,9 +1,8 @@
 .pagination-container {
-	@apply flex;
-	column-gap: 10px;
+	@apply flex gap-x-1 md:gap-x-2;
 	justify-content: center;
 	.paginate-buttons {
-		@apply bg-slate-50 text-gray-800 h-10 w-10 rounded-full cursor-pointer;
+		@apply bg-slate-50 text-gray-800 h-8 w-8 md:h-10 md:w-10 rounded-full cursor-pointer;
 		border: 1px solid rgb(217, 217, 217);
 	}
 	.paginate-buttons:hover {
@@ -15,5 +14,9 @@
 	}
 	.active-page:hover {
 		@apply bg-red-700;
+	}
+	button.back-button.paginate-buttons,
+	button.paginate-buttons.next-button {
+		@apply flex items-center justify-center;
 	}
 }

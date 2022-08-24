@@ -248,7 +248,7 @@
 					</div>
 				<div class="company-gallery pt-8">
 					<div
-					class="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-5 pb-8">
+					class="grid grid-cols-1 lg:grid-cols-4 2xl:gap-3 md:grid-cols-2 gap-5 pb-8">
 						<div
 							v-for="(item, index) in images"
 							:key="index"
@@ -264,11 +264,18 @@
 					<vue-awesome-paginate
 						:total-items="30"
 						:items-per-page="4"
-						:max-pages-shown="5"
+						:max-pages-shown="3"
 						:current-page="currentPage"
 						:on-click="onClickHandler"
 						:key="currentPage"
-					/>
+					>
+						<template #prev-button>
+							<i class="fas fa-angle-left"></i>
+						</template>
+						<template #next-button>
+							<i class="fas fa-angle-right"></i>
+						</template>
+					</vue-awesome-paginate>
 				</div>
 				<vue-easy-lightbox
 					:visible="visibleRef"
