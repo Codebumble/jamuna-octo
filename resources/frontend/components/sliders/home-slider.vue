@@ -19,7 +19,7 @@
 					v-for="(slide, item) in sliderContents"
 					:key="item"
 					class="flex justify-start items-center">
-					<div :class="slide.overlay ? 'image' : 'w-full'">
+					<div class="image">
 						<img
 							:src="slide.src"
 							:alt="slide.alt"

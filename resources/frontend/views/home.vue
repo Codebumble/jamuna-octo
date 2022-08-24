@@ -1,9 +1,6 @@
 <template>
 	<home-slider />
 	<concerns-logo />
-	<!-- <shortBrief /> -->
-	<aboutFounder />
-	<chairpersonSpeech />
 	<missionVission />
 	<futureExpension />
 	<products />
@@ -13,7 +10,6 @@
 <script>
 	import homeSlider from '../components/sliders/home-slider';
 	import concernsLogo from '../components/home/concerns-logo';
-	import chairpersonSpeech from '../components/home/chairperson-speech';
 	import aboutFounder from '../components/home/about-founder';
 	import missionVission from '../components/home/mission-vision';
 	import futureExpension from '../components/home/future-expansion';
@@ -24,7 +20,6 @@
 		components: {
 			homeSlider,
 			concernsLogo,
-			chairpersonSpeech,
 			aboutFounder,
 			missionVission,
 			futureExpension,

@@ -24,6 +24,29 @@
 					}
 				}
 			}
+			> .share {
+				@apply flex items-center text-[1.3rem] gap-3;
+
+				a {
+					@apply text-gray-800 transition-all;
+				}
+
+				.share-network-facebook {
+					@apply hover:text-blue-600 transition-all;
+				}
+				.share-network-linkedin {
+					@apply hover:text-[#0077b5] transition-all;
+				}
+				.share-network-messenger {
+					@apply hover:text-[#2f80fe] transition-all;
+				}
+				.share-network-twitter {
+					@apply hover:text-[#1da1f2] transition-all;
+				}
+				.share-network-whatsapp {
+					@apply hover:text-green-600 transition-all;
+				}
+			}
 		}
 	}
 }

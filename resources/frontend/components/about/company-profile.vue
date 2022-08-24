@@ -1,5 +1,5 @@
 <template>
-	<section class="company-profile pb-16 angled upper-end">
+	<section class="company-profile pb-28 pt-32">
 		<div class="container">
 			<div class="description">
 				<p

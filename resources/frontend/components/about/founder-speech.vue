@@ -1,5 +1,5 @@
 <template>
-	<section class="founder angled upper-end">
+	<section class="founder pb-28 pt-32">
 		<div class="quote">
 			<div class="container">
 				<div
@@ -8,7 +8,7 @@
 						<img
 							:src="'/profile-images/' + quote.imgSrc"
 							:alt="quote.alt"
-							class="w-3/4 mx-auto rounded-md shadow-2xl" />
+							class="w-7/12 mx-auto rounded shadow-2xl" />
 					</div>
 					<div class="xl:basis-2/4 mt-8 xl:mt-0">
 						<blockquote
@@ -51,7 +51,7 @@
 	}
 
 	.quote {
-		@apply py-8;
+		@apply pb-8 pt-12;
 	}
 </style>
 

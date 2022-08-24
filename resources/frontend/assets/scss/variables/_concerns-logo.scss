@@ -1,12 +1,11 @@
 .content {
-	@apply lg:w-8/12 lg:pr-8;
-
+	@apply text-center;
 	.heading {
-		@apply font-bold text-2xl lg:text-4xl text-gray-800 leading-snug py-3 lg:w-5/6;
+		@apply font-bold text-2xl lg:text-4xl text-gray-800 leading-snug py-4 lg:w-5/6 mx-auto;
 	}
 
 	.description {
-		@apply text-gray-400 leading-snug lg:w-5/6 pb-3;
+		@apply text-gray-400 leading-snug lg:w-5/6 pb-8 mx-auto;
 	}
 }
 

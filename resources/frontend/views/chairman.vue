@@ -1,12 +1,12 @@
 <template>
-	<newsCenter />
+	<chairman />
 </template>
 
 <script>
-	import newsCenter from '../components/news-center/news-center';
+	import chairman from '../components/about/chairman-speech';
 	export default {
 		components: {
-			newsCenter,
+			chairman,
 		},
 		data() {
 			return {};
@@ -23,14 +23,21 @@
 				og: {
 					// title: this.breadcrumb.pageTitle,
 					// description: this.breadcrumb.pageDesc.substring(0, 150),
-					image: '',
+					// image: '/profile-image/' + this.quote.imgSrc,
 				},
 				twitter: {
 					// title: this.breadcrumb.pageTitle,
 					// description: this.breadcrumb.pageDesc.substring(0, 150),
-					image: '',
+					// image: '/profile-image/' + this.quote.imgSrc,
 				},
 			};
+		},
+		mounted() {
+			axios
+				.get(window.location.origin + '/founder-api/founder-speech')
+				.then((response) => {
+					// this.quote = response.data.quote;
+				});
 		},
 	};
 </script>

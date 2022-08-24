@@ -1,5 +1,5 @@
 <template>
-	<section class="news-center angled upper-end">
+	<section class="news-center pb-28 pt-32">
 		<div class="container pb-8">
 			<div
 				class="flex gap-4 justify-center items-center flex-col xl:flex-row">
@@ -69,39 +69,6 @@
 				class="loadMore"
 				@click="distMemberVisible += step"
 				v-if="distMemberVisible < data.distCorres.length">
-				Load more...
-			</button>
-
-			<!-- sub disctrict correspondent -->
-			<div class="heading">
-				<h2>{{ data.subDistHeading.title }}</h2>
-				<p>
-					{{ data.subDistHeading.desc }}
-				</p>
-			</div>
-			<div
-				class="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 py-8">
-				<div
-					class="member"
-					v-for="(member, key) in visibleSubDistMember"
-					:key="key">
-					<div class="thumb">
-						<img
-							:src="member.imgSrc"
-							:alt="member.alt"
-							class="image max-h-[288px] min-h-[288px]" />
-					</div>
-					<div class="info">
-						<h3>{{ member.name }}</h3>
-						<p>{{ member.position }}</p>
-						<p>{{ member.areas }}</p>
-					</div>
-				</div>
-			</div>
-			<button
-				class="loadMore"
-				@click="subDistMemberVisible += step"
-				v-if="subDistMemberVisible < data.subDistCorres.length">
 				Load more...
 			</button>
 		</div>

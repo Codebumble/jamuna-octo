@@ -3,11 +3,11 @@ require("./bootstrap");
 import "./assets/scss/app.scss";
 import "./assets/js/script.js";
 import router from "./router/router";
+import VueSocialSharing from "vue-social-sharing";
 
 import { createMetaManager, plugin as vueMetaPlugin } from "vue-meta";
 
 const metaManager = createMetaManager();
-
 
 import { createApp } from "vue";
 
@@ -17,4 +17,5 @@ createApp(FrontEnd)
 	.use(router)
 	.use(metaManager)
 	.use(vueMetaPlugin)
+	.use(VueSocialSharing)
 	.mount("#app");

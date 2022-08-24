@@ -1,5 +1,5 @@
 <template>
-	<section class="contact angled upper-end">
+	<section class="contact pb-28 pt-32">
 		<div class="container pb-8">
 			<div class="py-8">
 				<h2

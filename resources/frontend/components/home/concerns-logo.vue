@@ -1,13 +1,28 @@
 <template>
 	<section class="py-16 overflow-hidden">
 		<div class="container">
-			<div class="flex flex-col lg:flex-row items-center">
-				<div class="content lg:basis-7/12">
+			<div class="flex flex-col items-center">
+				<div class="content w-full mb-6">
 					<h2 class="heading">{{ aboutConcerns.heading }}</h2>
-					<p class="description">{{ aboutConcerns.description }}</p>
+					<p class="description">
+						{{ aboutConcerns.description }}
+					</p>
 				</div>
-				<div class="logo-slider lg:basis-5/12 w-full md:w-auto">
-					<Splide
+				<div class="logo-slider w-full">
+					<div
+						class="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+						<div
+							class="flex justify-around items-center rounded transition-all concern"
+							v-for="logo in concernlogo"
+							:key="logo">
+							<img
+								:src="logo.src"
+								:alt="logo.alt"
+								class="w-32" />
+						</div>
+					</div>
+
+					<!-- <Splide
 						:extensions="extensions"
 						:options="conoptions"
 						aria-label="concerns logo area">
@@ -22,7 +37,7 @@
 									class="w-32" />
 							</div>
 						</SplideSlide>
-					</Splide>
+					</Splide> -->
 				</div>
 			</div>
 		</div>
@@ -34,8 +49,6 @@
 </style>
 
 <script>
-	import { Splide, SplideSlide } from '@splidejs/vue-splide';
-	import { Grid } from '@splidejs/splide-extension-grid';
 	export default {
 		data() {
 			return {
@@ -181,58 +194,12 @@
 				],
 			};
 		},
-
-		components: {
-			Splide,
-			SplideSlide,
-		},
-
 		mounted() {
 			axios
 				.get(window.location.origin + '/frontpage-api/concern-details')
 				.then((response) => {
 					this.aboutConcerns = response.data;
 				});
-		},
-
-		setup() {
-			const conoptions = {
-				rewind: true,
-				rewindByDrag: true,
-				arrows: true,
-				autoplay: false,
-				perPage: 1,
-				perMove: 1,
-				drag: true,
-				pauseOnHover: true,
-				cloneStatus: false,
-				autoHeight: true,
-				pagination: false,
-				gap: '1rem',
-				grid: {
-					rows: 2,
-					cols: 2,
-					gap: {
-						row: '1rem',
-						col: '1rem',
-					},
-				},
-				breakpoints: {
-					768: {
-						grid: {
-							rows: 2,
-							cols: 1,
-						},
-					},
-				},
-			};
-
-			return {
-				conoptions,
-				extensions: {
-					Grid,
-				},
-			};
 		},
 	};
 </script>

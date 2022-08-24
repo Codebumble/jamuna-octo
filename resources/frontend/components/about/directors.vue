@@ -1,5 +1,5 @@
 <template>
-	<section class="directors angled upper-end">
+	<section class="directors pb-28 pt-32">
 		<div class="container">
 			<div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 pb-8">
 				<div

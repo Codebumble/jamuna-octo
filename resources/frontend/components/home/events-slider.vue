@@ -22,7 +22,7 @@
 							:alt="slide.alt"
 							class="w-full rounded-bl-none rounded-br-none rounded-tr rounded-tl min-h-[200px] max-h-[200px] object-cover pt-0 bg-slate-50" />
 						<div
-							class="p-4 pb-6 rounded-tl-none rounded-tr-none rounded-bl rounded-br backdrop-blur-md min-h-[240px] max-h-[240px] overflow-hidden">
+							class="p-4 pb-6 rounded-tl-none rounded-tr-none rounded-bl rounded-br backdrop-blur-md min-h-[180px] max-h-[180px] overflow-hidden">
 							<!-- <span class="itemName">{{ slide.title }}</span> -->
 
 							<router-link to="/event-details/2">
@@ -35,9 +35,7 @@
 								</h4>
 							</router-link>
 							<p class="text-base text-gray-400 pb-2">
-								{{
-									slide.eventExerp.substring(0, 150) + ' ...'
-								}}
+								{{ slide.eventExerp.substring(0, 80) + ' ...' }}
 							</p>
 						</div>
 					</SplideSlide>
@@ -110,7 +108,7 @@
 				rewindByDrag: false,
 				trimSpace: true,
 				arrows: true,
-				autoplay: false,
+				autoplay: true,
 				interval: 3000,
 				perPage: 3,
 				type: 'loop',

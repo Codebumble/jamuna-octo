@@ -260,6 +260,24 @@
 						<span class="category">Customer Service</span>
 						<span class="time">4 Days ago</span>
 					</div>
+					<div class="share">
+						<ShareNetwork
+							v-for="network in networks"
+							:network="network.network"
+							:key="network.network"
+							:style="{
+								backgroundColor: network.color,
+							}"
+							:url="sharing.url"
+							:title="sharing.title"
+							:description="sharing.description"
+							:quote="sharing.quote"
+							:hashtags="sharing.hashtags"
+							:twitterUser="sharing.twitterUser">
+							<i :class="network.icon"></i>
+							<!-- <span>{{ network.name }}</span> -->
+						</ShareNetwork>
+					</div>
 				</div>
 			</div>
 			<!-- upper part closed -->
@@ -411,7 +429,7 @@
 								<a
 									href=""
 									class="hover:text-blue-600 transition-all text-[1.3rem] text-gray-800">
-									<i class="fab fa-facebook-f"></i>
+									<i class="fab fa-facebook"></i>
 								</a>
 							</li>
 							<li>
@@ -443,17 +461,57 @@
 
 <script>
 	// import { useHead } from '@vueuse/head';
-	import breadcrumb from '../components/global/breadcrumb';
 	import Modal from '../components/global/modal';
 	import { ref } from 'vue';
 	import { address, qualifications } from '../util/address.js';
 	export default {
 		components: {
-			breadcrumb,
 			Modal,
 		},
 		data() {
-			return {};
+			return {
+				sharing: {
+					url: window.location.origin + this.$route.path,
+					title: 'Say hi to Vite! A brand new, extremely fast development setup for Vue.',
+					description:
+						'This week, I’d like to introduce you to "Vite", which means "Fast". It’s a brand new development setup created by Evan You.',
+					quote: "The hot reload is so fast it's near instant. - Evan You",
+					hashtags: 'vuejs,vite,javascript',
+					twitterUser: 'youyuxi',
+				},
+				networks: [
+					{
+						network: 'email',
+						name: 'Email',
+						icon: 'far fa-envelope',
+					},
+					{
+						network: 'facebook',
+						name: 'Facebook',
+						icon: 'fab fa-facebook',
+					},
+					{
+						network: 'linkedin',
+						name: 'LinkedIn',
+						icon: 'fab fa-linkedin',
+					},
+					{
+						network: 'messenger',
+						name: 'Messenger',
+						icon: 'fab fa-facebook-messenger',
+					},
+					{
+						network: 'twitter',
+						name: 'Twitter',
+						icon: 'fab fa-twitter',
+					},
+					{
+						network: 'whatsapp',
+						name: 'Whatsapp',
+						icon: 'fab fa-whatsapp',
+					},
+				],
+			};
 		},
 		mounted() {
 			console.log(this.$route.params.id);
@@ -504,24 +562,6 @@
 					return;
 				}
 			};
-			// useHead({
-			// 	title: 'Career Details | Jamuna Group',
-			// 	meta: [
-			// 		{
-			// 			name: `description`,
-			// 			content: `Jamuna Group is one of the largest Bangladeshi industrial conglomerates. The industries under this conglomerate include Textiles, Chemicals, Leather, motor cycles, Consumer products, Media, Advertisement etc.`,
-			// 		},
-			// 		{
-			// 			'http-equiv': `Content-Type`,
-			// 			content: `text/html; charset=UTF-8`,
-			// 		},
-			// 		{
-			// 			name: 'viewport',
-			// 			content:
-			// 				'width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui',
-			// 		},
-			// 	],
-			// });
 			const submitResume = () => {
 				const userData = {
 					name: name.value,
@@ -576,9 +616,31 @@
 		},
 	};
 </script>
-
-<style>
+<style lang="scss">
 	.close {
 		@apply absolute top-4 right-8 text-3xl font-bold cursor-pointer text-gray-500;
+	}
+	.share {
+		@apply flex items-center text-[1.3rem] gap-3 justify-center content-center py-4;
+
+		a {
+			@apply text-gray-800 transition-all;
+		}
+
+		.share-network-facebook {
+			@apply hover:text-blue-600 transition-all;
+		}
+		.share-network-linkedin {
+			@apply hover:text-[#0077b5] transition-all;
+		}
+		.share-network-messenger {
+			@apply hover:text-[#2f80fe] transition-all;
+		}
+		.share-network-twitter {
+			@apply hover:text-[#1da1f2] transition-all;
+		}
+		.share-network-whatsapp {
+			@apply hover:text-green-600 transition-all;
+		}
 	}
 </style>

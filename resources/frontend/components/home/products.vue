@@ -18,11 +18,11 @@
 						v-for="(slide, key) in slideContent"
 						:key="key">
 						<div
-							class="p-4 pb-6 rounded-xl backdrop-blur-md min-h-[300px] max-h-[300px]">
+							class="p-4 pb-6 rounded hover:backdrop-blur-md min-h-[300px] max-h-[300px]">
 							<img
 								:src="slide.imgSrc"
 								:alt="slide.alt"
-								class="w-full rounded-xl min-h-[200px] max-h-[200px] object-cover pt-0 bg-slate-50" />
+								class="w-full rounded min-h-[200px] max-h-[200px] object-cover pt-0 bg-slate-50" />
 
 							<!-- <span class="itemName">{{ slide.title }}</span> -->
 							<router-link

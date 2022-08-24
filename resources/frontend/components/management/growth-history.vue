@@ -1,5 +1,5 @@
 <template>
-	<section class="growthHistory pb-16 angled upper-end">
+	<section class="growthHistory pb-16 pb-28 pt-32">
 		<div class="container relative">
 			<div class="timeline">
 				<ul>

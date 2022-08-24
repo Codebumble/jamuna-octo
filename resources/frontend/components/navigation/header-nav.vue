@@ -153,6 +153,10 @@
 								label: 'Founder',
 							},
 							{
+								route: '/chairman',
+								label: 'Chairman',
+							},
+							{
 								route: '/board-of-directors',
 								label: 'Board Of Directors',
 							},

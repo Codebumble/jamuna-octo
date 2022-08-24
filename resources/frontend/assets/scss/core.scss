@@ -31,13 +31,13 @@
 }
 
 .angled {
-	@apply relative border-0 pt-16 #{!important};
-	&.upper-end {
-		&::before {
-			content: "";
-			@apply block absolute right-0 z-0 border-transparent -top-16 border-r-white;
-			border-top-width: 4rem;
-			border-right-width: 100vw;
-		}
-	}
+	@apply pt-16 #{!important};
+	// &.upper-end {
+	// 	&::before {
+	// 		content: "";
+	// 		@apply block absolute right-0 z-0 border-transparent -top-16 border-r-white;
+	// 		border-top-width: 4rem;
+	// 		border-right-width: 100vw;
+	// 	}
+	// }
 }

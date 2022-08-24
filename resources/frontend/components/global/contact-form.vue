@@ -1,5 +1,5 @@
 <template>
-	<section class="contact angled upper-end">
+	<section class="contact pb-28 pt-32">
 		<div class="container pb-8">
 			<div
 				class="flex flex-col lg:flex-row lg:w-8/12 w-full mx-auto rounded-xl overflow-hidden border border-slate-100 shadow-lg flex-wrap bg-slate-50">

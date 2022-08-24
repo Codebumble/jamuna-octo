@@ -1,5 +1,5 @@
 <template>
-	<section class="businessDetails pb-20 angled upper-end">
+	<section class="businessDetails pb-28 pt-32">
 		<div class="container">
 			<div class="flex flex-col lg:flex-row gap-8">
 				<div class="w-full lg:w-4/12 flex flex-col gap-8">
@@ -96,7 +96,7 @@
 								<td>{{ data.manpower }}</td>
 							</tr>
 							<tr class="items-center">
-								<th>Social Media</th>
+								<th>Follow</th>
 								<td>
 									<ul class="flex">
 										<li class="">
@@ -121,6 +121,27 @@
 											></a>
 										</li>
 									</ul>
+								</td>
+							</tr>
+							<tr>
+								<th>Share</th>
+								<td class="share">
+									<ShareNetwork
+										v-for="network in data.networks"
+										:network="network.network"
+										:key="network.network"
+										:style="{
+											backgroundColor: network.color,
+										}"
+										:url="data.sharing.url"
+										:title="data.sharing.title"
+										:description="data.sharing.description"
+										:quote="data.sharing.quote"
+										:hashtags="data.sharing.hashtags"
+										:twitterUser="data.sharing.twitterUser">
+										<i :class="network.icon"></i>
+										<!-- <span>{{ network.name }}</span> -->
+									</ShareNetwork>
 								</td>
 							</tr>
 						</table>

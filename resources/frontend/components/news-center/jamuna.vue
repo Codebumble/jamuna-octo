@@ -1,3 +1,4 @@
+
 <template>
 	<newsCenter :data="jamunaTv" />
 </template>

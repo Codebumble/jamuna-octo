@@ -11,6 +11,11 @@ const routes = [
 		component: () => import("../views/founder.vue"),
 	},
 	{
+		path: "/chairman",
+		name: "chairman",
+		component: () => import("../views/chairman.vue"),
+	},
+	{
 		path: "/board-of-directors",
 		name: "board-of-directors",
 		component: () => import("../views/bod.vue"),

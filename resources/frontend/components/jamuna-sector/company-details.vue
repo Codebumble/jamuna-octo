@@ -1,15 +1,14 @@
 <template>
-	<breadcrumb :data="company" />
 	<businessDetails :data="company" />
+	<p>{{ currentUrl }}</p>
 </template>
 
 <script>
 	import businessDetails from '../global/business-details';
-	import breadcrumb from '../global/company-breadcrumb';
+	import { computed } from 'vue';
 	export default {
 		components: {
 			businessDetails,
-			breadcrumb,
 		},
 		data() {
 			return {
@@ -44,6 +43,47 @@
 						details: '',
 						shortDetails: '',
 					},
+					sharing: {
+						url: window.location.origin + this.$route.path,
+						title: 'Say hi to Vite! A brand new, extremely fast development setup for Vue.',
+						description:
+							'This week, I’d like to introduce you to "Vite", which means "Fast". It’s a brand new development setup created by Evan You.',
+						quote: "The hot reload is so fast it's near instant. - Evan You",
+						hashtags: 'vuejs,vite,javascript',
+						twitterUser: 'youyuxi',
+					},
+					networks: [
+						{
+							network: 'email',
+							name: 'Email',
+							icon: 'far fa-envelope',
+						},
+						{
+							network: 'facebook',
+							name: 'Facebook',
+							icon: 'fab fa-facebook',
+						},
+						{
+							network: 'linkedin',
+							name: 'LinkedIn',
+							icon: 'fab fa-linkedin',
+						},
+						{
+							network: 'messenger',
+							name: 'Messenger',
+							icon: 'fab fa-facebook-messenger',
+						},
+						{
+							network: 'twitter',
+							name: 'Twitter',
+							icon: 'fab fa-twitter',
+						},
+						{
+							network: 'whatsapp',
+							name: 'Whatsapp',
+							icon: 'fab fa-whatsapp',
+						},
+					],
 				},
 			};
 		},
