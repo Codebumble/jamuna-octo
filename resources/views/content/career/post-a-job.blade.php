@@ -44,7 +44,7 @@
 
 
 
-          <form class="needs-validation" novalidate action="{{route('site-settings-general-api')}}" enctype="multipart/form-data" method="POST">
+          <form class="needs-validation" novalidate action="{{route('add_new_job')}}" enctype="multipart/form-data" method="POST">
 		  @csrf
 				<div class="row">
 						<div class="mb-1 col-12 col-md-6">
@@ -53,91 +53,120 @@
 						<input
 							type="text"
 							id="name"
-							name="name"
+							name="new[name]"
 							class="form-control"
-							value ="IT Head Required!!"
-							placeholder="Name"
 							aria-label="Name"
 							aria-describedby="name"
 							required
 						/>
 						</div>
 
-
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="logo">Poster</label>
-						<input
-							type="file"
-							id="logo"
-							name="logo"
-							class="form-control"
-							onchange="loadFile(event)"
-						/>
+						<label class="form-label" for="company">Company Name</label>
+
+						<select class="form-select" name="new[company]" id="company" required>
+
+								@foreach($companies as $company)
+							<option value="{{$company->name}}">{{$company->name}}</option>
+								@endforeach
+
+								</select>
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="short-logo">Essential Information & Instruction (.pdf .docx)</label>
-						<input
-							type="file"
-							id="short-logo"
-							name="short-logo"
-							class="form-control"
-						/>
-						</div>
-
-						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="siteUrl">Age</label>
-
-						<input
-							type="text"
-							id="siteUrl"
-							name = "siteUrl"
-							class="form-control"
-							value ="18-25 years at 21 January,2022"
-							aria-label="siteUrl"
-							aria-describedby="siteUrl"
-							required
-						/>
-						</div>
-
-						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="siteUrl">Educational Requirement (Minimum)</label>
-
-						<input
-							type="text"
-							id="siteUrl"
-							name = "siteUrl"
-							class="form-control"
-							value ="HSC Passed"
-							aria-label="siteUrl"
-							aria-describedby="siteUrl"
-							required
-						/>
-						</div>
-
-						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="name">Gender</label>
+						<label class="form-label" for="sector">Job Sector</label>
 
 						<input
 							type="text"
 							id="name"
-							name = "siteEmail"
+							name="new[sector]"
 							class="form-control"
-							value ="Any Gender"
-							placeholder="siteEmail"
-							aria-label="siteEmail"
-							aria-describedby="siteEmail"
+							aria-label="sector"
+							aria-describedby="sector"
+							required
+						/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="company">Short Description</label>
+
+						<input
+							type="text"
+							id="name"
+							name="new[s_description]"
+							class="form-control"
+							aria-label="s_description"
+							aria-describedby="s_description"
 							required
 						/>
 						</div>
 
 
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="backgroud_poster">Background Poster</label>
+						<input
+							type="file"
+							id="logo"
+							name="new[b_image]"
+							class="form-control"
+						/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="a_information">Essential Information & Instruction (.pdf .docx)</label>
+						<input
+							type="file"
+							id="a_information"
+							name="new[a_information]"
+							class="form-control"
+						/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="age">Age</label>
+
+						<input
+							type="text"
+							id="siteUrl"
+							name = "new[age]"
+							class="form-control"
+							aria-label="age"
+							aria-describedby="siteUrl"
+							required
+						/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="me_req">Educational Requirement (Minimum)</label>
+
+						<input
+							type="text"
+							id="me_req"
+							name = "new[me_req]"
+							class="form-control"
+							aria-label="me_req"
+							aria-describedby="siteUrl"
+							required
+						/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="gender">Gender</label>
+
+						<select class="form-select" name="new[gender]">
+							<option value="Male"> Male Only </option>
+							<option value="Women"> Women Only </option>
+							<option value="Anyone Can Apply"> Anyone Can Apply </option>
+						</select>
+						</div>
+
+
 						<div class="mb-1">
-						<label class="d-block form-label" for="validationBioBootstrap">Job Details</label>
+						<label class="d-block form-label" for="description">Job Details</label>
 						<textarea
 							class="form-control"
-							id="validationBioBootstrap"
-							name="description"
+							id="description"
+							name="new[description]"
 							rows="3"
 							required
 						></textarea>
@@ -152,18 +181,38 @@
           				</div>
 
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="facebook">Helpline Number</label>
-						<input type="text" class="form-control" value="+8801828463829" name="facebook" id="facebook"/>
+						<label class="form-label" for="salary">Salary</label>
+						<input type="text" class="form-control"  name="new[salary]" id="salary"/>
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="instagram">Helpline Email</label>
-						<input type="text" class="form-control" value="asjdhajh@gmail.com" name="instagram" id="instagram"/>
+						<label class="form-label" for="min_expo">Experience (Minimum)</label>
+						<input type="text" class="form-control"  name="new[min_expo]" id="min_expo"/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="emp_type">Employment Type</label>
+						<input type="text" class="form-control"  name="new[emp_type]" id="emp_type"/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="w_location">Working Location</label>
+						<input type="text" class="form-control"  name="new[w_location]" id="w_location"/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="h_number">Helpline Number</label>
+						<input type="text" class="form-control"  name="new[h_number]" id="h_number"/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="h_email">Helpline Email</label>
+						<input type="text" class="form-control" name="new[h_email]" id="h_email"/>
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="linkedin">Last Date of Application</label>
-						<input type="date" class="form-control" value="" name="linkedin" id="linkedin" required/>
+						<input type="date" class="form-control" name="new[l_date]" id="linkedin" required/>
 						</div>
 
 
