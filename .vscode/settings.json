@@ -98,7 +98,8 @@
 	"vetur.validation.templateProps": true,
 	"[blade]": {
 		"editor.defaultFormatter": "shufo.vscode-blade-formatter"
-	}
+	},
+	"intelephense.diagnostics.undefinedTypes": false
 	// "[vue]": {
 	// 	"editor.defaultFormatter": "esbenp.prettier-vscode"
 	// }

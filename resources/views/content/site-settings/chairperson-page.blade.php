@@ -1,6 +1,6 @@
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Edit Front Page Details')
+@section('title', 'Edit Founder Page Details')
 
 @section('vendor-style')
     {{-- Vendor Css files --}}
@@ -34,32 +34,6 @@
                             </div>
                         </div>
                     @endif
-
-                    <div class="col-xl-12 col-lg-12 col-md-12 order-0 order-md-1">
-                        <!-- User Pills -->
-                        <ul class="nav nav-pills mb-2">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('front_page_view') }}">
-                                    <i data-feather="user" class="font-medium-3 me-50"></i>
-                                    <span class="fw-bold">General Details</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('front_page_slider_view') }}">
-                                    <i data-feather="lock" class="font-medium-3 me-50"></i>
-                                    <span class="fw-bold">Sliders</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('front_page_chairperson_view') }}">
-                                    <i data-feather="bookmark" class="font-medium-3 me-50"></i>
-                                    <span class="fw-bold">Chairperson Speech</span>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </div>
-
 
 
                     <div class="divider-primary divider">
@@ -127,7 +101,7 @@
     <script src="{{ asset(mix('js/scripts/forms/form-validation-company-page.js')) }}"></script>
     <script>
         var loadFile = function(event) {
-            var output = document.getElementById('imagePreview');
+            var output = document.getElementById('logoPreview');
             output.src = URL.createObjectURL(event.target.files[0]);
             output.onload = function() {
                 URL.revokeObjectURL(output.src) // free memory

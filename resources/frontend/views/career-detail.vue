@@ -333,10 +333,20 @@
 							:key="skill"
 							v-html="skill.skill"></li>
 					</ul>
-					<h4 class="text-gray-800 font-bold text-xl my-4">
+					<h4
+						class="text-gray-800 font-bold text-xl my-4"
+						v-if="
+							jobdescription.attachedfilelink &&
+							jobdescription.attachedfilelinklabel
+						">
 						Attached Files
 					</h4>
-					<ul class="list-disc list-inside text-gray-600">
+					<ul
+						class="list-disc list-inside text-gray-600"
+						v-if="
+							jobdescription.attachedfilelink &&
+							jobdescription.attachedfilelinklabel
+						">
 						<li>
 							<a
 								:href="jobdescription.attachedfilelink"

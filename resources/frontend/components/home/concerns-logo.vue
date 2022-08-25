@@ -21,23 +21,6 @@
 								class="w-32" />
 						</div>
 					</div>
-
-					<!-- <Splide
-						:extensions="extensions"
-						:options="conoptions"
-						aria-label="concerns logo area">
-						<SplideSlide
-							v-for="(slide, key) in concernlogo"
-							:key="key">
-							<div
-								class="flex justify-around items-center rounded-md transition-all concern">
-								<img
-									:src="slide.src"
-									:alt="slide.alt"
-									class="w-32" />
-							</div>
-						</SplideSlide>
-					</Splide> -->
 				</div>
 			</div>
 		</div>
