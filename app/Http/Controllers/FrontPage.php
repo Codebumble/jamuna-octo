@@ -152,6 +152,13 @@ class FrontPage extends Controller
 
     }
 
+    public function gallery_api(){
+        $data_get = DB::select('select value from codebumble_front_page where code_name=?',['gallery']);
+
+        return $data_get[0]->value;
+
+    }
+
     public function directors_list(){
         $data_get = DB::select('select value from codebumble_front_page where code_name=?',['board_of_director']);
 
