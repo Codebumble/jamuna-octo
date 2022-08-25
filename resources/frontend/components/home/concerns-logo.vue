@@ -16,7 +16,7 @@
 							v-for="logo in concernlogo"
 							:key="logo">
 							<img
-								:src="logo.image"
+								:src="'/company-images/' + logo.image"
 								:alt="logo.name"
 								class="w-32" />
 						</div>
