@@ -26,10 +26,58 @@ class career extends Controller
 
     }
 
+    public function edit_a_job_view($id){
+
+        check_auth();
+        check_power('admin');
+
+        $selected_company = DB::select('select * from codebumble_job_list where id=?', [$id]);
+
+        $companys = DB::table('codebumble_company_list')->select('name')->get();
+        $category = DB::select('select value from codebumble_front_page where code_name=?', ['job_category']);
+
+        $pageConfigs = ['pageHeader' => false];
+        return view('/content/career/edit-a-job', ['pageConfigs' => $pageConfigs, 'companies' => $companys,  'categories' => json_decode($category[0]->value), 'd' => $selected_company[0]]);
+
+    }
+
     public function all_job_list_view(){
+
+        check_auth();
+        check_power('admin');
 
         $pageConfigs = ['pageHeader' => false];
         return view('/content/career/all-job-list', ['pageConfigs' => $pageConfigs]);
+
+    }
+
+    public function all_job_list_view_api(){
+
+        check_auth();
+        check_power('admin');
+        $job_list= DB::table('codebumble_job_list')->select('id','name','l_date', 'created_at')->get();
+        $job_list = json_decode(json_encode($job_list), true);
+
+        foreach ($job_list as $key => $value) {
+            $job_list[$key]['created_at'] = date('d-m-Y', $value['created_at']);
+
+            if((strtotime($job_list[$key]['l_date']) - time()) >= 0){
+                $job_list[$key]['l_date'] = ''.round((strtotime($job_list[$key]['l_date']) - time())/86400).' Days';
+
+            } else {
+                $job_list[$key]['l_date'] = "Expired";
+            }
+
+
+
+
+
+            $job_list[$key] += ["counter" => "12"];
+        }
+
+
+
+        return json_encode(['data' =>$job_list]);
 
     }
 
@@ -37,6 +85,77 @@ class career extends Controller
 
         $pageConfigs = ['pageHeader' => false];
         return view('/content/career/applicant-list', ['pageConfigs' => $pageConfigs]);
+
+    }
+
+    public function edit_new_job(Request $request){
+        check_auth();
+        check_power('admin');
+        foreach($request->new as $key=>$value){
+            if($request->new[$key] == "" || $request->new[$key] == null){
+                return redirect()->route('edit_a_job_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Field black Detected.', 'hasher_ip' => Str::random(10)]);
+            }
+        }
+
+
+
+        $dev = $request->new;
+        $dbcheck= DB::select('select * from codebumble_job_list where id=', [$dev['id']]);
+
+        if(!isset($dbcheck[0])){
+
+            return redirect()->route('edit_a_job_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Wrong Id for the Action', 'hasher_ip' => Str::random(10)]);
+
+        }
+
+
+        if($file1 = $request->hasFile('new.b_image')) {
+            $vale = $request->validate([
+                'new.b_image.*' => 'mimes:jpg,jpeg,png|max:1080'
+            ]);
+            $user1 = Auth::user()->username;
+            $file1 = $request->file('new.b_image') ;
+            $fileName1 = time().'-'.$user1.'.'.$file1->getClientOriginalExtension() ;
+            $destinationPath1 = public_path().'/images/job-background' ;
+            $file1->move($destinationPath1,$fileName1);
+
+            unset($dev['b_image']);
+            $dev['b_image'] = '/images/job-background/'.$fileName1;
+
+
+
+        }
+
+        if($file2 = $request->hasFile('new.a_information')) {
+
+            $vale1 = $request->validate([
+                'new.a_information.*' => 'mimes:pdf,doc,docx|max:10080'
+            ]);
+
+            $user2 = Auth::user()->username;
+            $file2 = $request->file('new.a_information');
+            $fileName2 = time().'-'.$user2.'.'.$file2->getClientOriginalExtension();
+            $destinationPath2 = public_path().'/documents/job-information' ;
+            $file2->move($destinationPath2,$fileName2);
+
+            unset($dev['a_information']);
+            $dev['a_information'] = '/images/job-information/'.$fileName2;
+
+
+        }
+
+
+
+
+
+        $dev['updated_at'] = time();
+
+
+
+        $update = DB::table('codebumble_job_list')->insert($dev);
+
+        return redirect()->route('post_a_job_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Job Post Added. The post is now visible', 'hasher_ip' => Str::random(10)]);
+
 
     }
 

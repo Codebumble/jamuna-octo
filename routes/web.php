@@ -91,9 +91,18 @@ Route::group(["prefix" => "codebumble"], function () {
 		Route::post("add_new_job", [career::class, "add_new_job"])->name(
 			"add_new_job"
 		);
+		Route::post("edit-new-job", [career::class, "edit_new_job"])->name(
+			"edit_new_job"
+		);
+
+
 
 		Route::post("add-new-category", [career::class, "add_new_category"])->name(
 			"add_new_category"
+		);
+
+		Route::get("all-job-list-view-api", [career::class, "all_job_list_view_api"])->name(
+			"all_job_list_view_api"
 		);
 
 		Route::post("add-gallery-photo", [
@@ -282,6 +291,11 @@ Route::group(["prefix" => "admin"], function () {
 			career::class,
 			"post_a_job_view",
 		])->name("post_a_job_view");
+		Route::get("career/edit-the-job/{id}", [
+			career::class,
+			"edit_a_job_view",
+		])->name("edit_a_job_view");
+
 		Route::get("career/add-category", [
 			career::class,
 			"view_add_category",
