@@ -134,6 +134,13 @@
 					"slug": "founder-page-view"
 				},
 				{
+					"url": "admin/site-settings/chairperson-speech",
+					"name": "Chairman",
+					"icon": "circle",
+					"permission": 1,
+					"slug": "front_page_chairperson_view"
+				},
+				{
 					"name": "Growth Story",
 					"url": "admin/site-settings/growth-story",
 					"icon": "circle",
@@ -224,7 +231,6 @@
 			"permission": 1,
 			"slug": "",
 			"submenu": [
-
 				{
 					"name": "Add Category",
 					"url": "admin/career/add-category",
@@ -239,7 +245,6 @@
 					"permission": 1,
 					"slug": "view_list_category"
 				}
-
 			]
 		},
 		{
