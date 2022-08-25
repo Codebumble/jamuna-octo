@@ -51,6 +51,12 @@
                                     <span class="fw-bold">Sliders</span>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('mission_vision_view') }}">
+                                    <i data-feather="trending-up" class="font-medium-3 me-50"></i>
+                                    <span class="fw-bold">Mission & Vision</span>
+                                </a>
+                            </li>
 
                         </ul>
                     </div>
@@ -107,8 +113,8 @@
                             <div class="col-12 col-md-6 mb-1">
                                 <label class="d-block form-label" for="validationBioBootstrap">Button link</label>
                                 <input id="s-l" type="text" name="s-l" class="form-control"
-                                    value="{{ $short->link }}" placeholder="s-l" aria-label="s-l" aria-describedby="s-l"
-                                    required />
+                                    value="{{ $short->link }}" placeholder="s-l" aria-label="s-l"
+                                    aria-describedby="s-l" required />
                             </div>
 
 

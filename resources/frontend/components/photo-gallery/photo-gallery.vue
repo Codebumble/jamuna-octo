@@ -1,5 +1,5 @@
 <template>
-	<div class="image-gallery pb-16 pb-28 pt-32">
+	<div class="image-gallery pb-16 pt-32">
 		<div class="container">
 			<div
 				class="grid grid-cols-1 lg:grid-cols-4 2xl:grid-cols-5 md:grid-cols-2 gap-5 2xl:gap-3 pb-8">

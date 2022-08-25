@@ -148,18 +148,11 @@
 					"slug": "growth_story_view"
 				},
 				{
-					"name": "Board Of Director",
-					"url": "",
-					"icon": "circle",
-					"permission": 1,
-					"slug": "growth_story_view"
-				},
-				{
 					"name": "Company Profile",
 					"url": "",
 					"icon": "circle",
 					"permission": 1,
-					"slug": "growth_story_view"
+					"slug": "company-profile"
 				},
 				{
 					"name": "Quality Process",
