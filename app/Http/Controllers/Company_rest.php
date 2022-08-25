@@ -215,6 +215,20 @@ class Company_rest extends Controller
 
     }
 
+    public function view_all_company_frontend_api(){
+
+
+
+        $database_details = DB::select('select id,name,image from codebumble_company_list');
+
+        return json_encode($database_details);
+
+
+
+
+
+    }
+
 
 
     public function view_single_company(Request $request){

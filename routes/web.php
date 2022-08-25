@@ -186,6 +186,7 @@ Route::group(["prefix" => "frontpage-api"], function () {
 		"chairpersson_speech",
 	]);
 	Route::get("contact-us-api", [FrontPage::class, "contact_us_api"]);
+	Route::get("/company-name-logo", [Company_rest::class, "view_all_company_frontend_api"]);
 
 	Route::get("company/{id}", [FrontPage::class, "company_data"]);
 	Route::get("all-company-view", [FrontPage::class, "all_company_view"]);
