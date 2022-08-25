@@ -16,8 +16,8 @@
 							v-for="logo in concernlogo"
 							:key="logo">
 							<img
-								:src="logo.src"
-								:alt="logo.alt"
+								:src="logo.image"
+								:alt="logo.name"
 								class="w-32" />
 						</div>
 					</div>
@@ -54,144 +54,7 @@
 			return {
 				aboutConcerns: {},
 
-				concernlogo: [
-					{
-						src: '/frontend/images/concerns/1.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/2.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/3.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/4.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/5.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/6.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/7.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/8.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/9.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/10.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/11.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/12.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/13.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/14.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/15.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/16.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/17.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/18.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/19.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/20.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/21.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/22.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/23.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/24.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/25.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/26.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/27.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/28.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/29.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/30.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/31.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/32.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/33.png',
-						alt: 'concern 1',
-					},
-					{
-						src: '/frontend/images/concerns/34.png',
-						alt: 'concern 1',
-					},
-				],
+				concernlogo: [],
 			};
 		},
 		mounted() {
@@ -199,6 +62,13 @@
 				.get(window.location.origin + '/frontpage-api/concern-details')
 				.then((response) => {
 					this.aboutConcerns = response.data;
+				});
+			axios
+				.get(
+					window.location.origin + '/frontpage-api/company-name-logo'
+				)
+				.then((response) => {
+					this.concernlogo = response.data;
 				});
 		},
 	};

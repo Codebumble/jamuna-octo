@@ -48,7 +48,8 @@
 							<form
 								class="pt-6"
 								@submit.prevent="submitResume">
-								<div class="grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-4">
+								<div
+									class="grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-4">
 									<div class="input-group">
 										<div class="input-item">
 											<input
@@ -63,7 +64,8 @@
 									</div>
 									<div class="input-group">
 										<div class="input-item">
-											<div class="col-span-6 sm:col-span-3">
+											<div
+												class="col-span-6 sm:col-span-3">
 												<select
 													id="division"
 													name="division"
@@ -85,7 +87,8 @@
 									</div>
 									<div class="input-group">
 										<div class="input-item">
-											<div class="col-span-6 sm:col-span-3">
+											<div
+												class="col-span-6 sm:col-span-3">
 												<select
 													id="district"
 													name="district"
@@ -108,7 +111,8 @@
 									</div>
 									<div class="input-group">
 										<div class="input-item">
-											<div class="col-span-6 sm:col-span-3">
+											<div
+												class="col-span-6 sm:col-span-3">
 												<select
 													id="subdistrict"
 													name="subdistrict"
@@ -116,7 +120,8 @@
 													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
 													v-model="subdistrict"
 													required>
-													<option v-if="isSubdistrict">
+													<option
+														v-if="isSubdistrict">
 														{{ subdistrict }}
 													</option>
 													<option
@@ -129,7 +134,8 @@
 									</div>
 									<div class="input-group">
 										<div class="input-item">
-											<div class="col-span-6 sm:col-span-3">
+											<div
+												class="col-span-6 sm:col-span-3">
 												<select
 													id="qualification"
 													name="qualification"
@@ -137,7 +143,9 @@
 													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
 													v-model="qualification"
 													required>
-													<option>Qualification</option>
+													<option>
+														Qualification
+													</option>
 													<option
 														v-for="qualification in qualifications">
 														{{ qualification }}
@@ -148,7 +156,8 @@
 									</div>
 									<div class="input-group">
 										<div class="input-item">
-											<div class="col-span-6 sm:col-span-3">
+											<div
+												class="col-span-6 sm:col-span-3">
 												<select
 													id="experience"
 													name="experience"
@@ -165,7 +174,8 @@
 															experience.toString()
 																.length > 1
 																? experience
-																: '0' + experience
+																: '0' +
+																  experience
 														}}
 													</option>
 												</select>
@@ -359,6 +369,18 @@
 							ColdFusion
 						</li>
 						<li>HTML, CSS, XHTML, XML</li>
+					</ul>
+					<h4 class="text-gray-800 font-bold text-xl my-4">
+						Attached Files
+					</h4>
+					<ul class="list-disc list-inside text-gray-600">
+						<li>
+							<a
+								href="#"
+								class="underline decoration-dotted hover:decoration-solid decoration-slate-400 hover:decoration-red-600 underline-offset-4 hover:text-red-600 transition-all"
+								>Download the attached file</a
+							>
+						</li>
 					</ul>
 				</div>
 				<div class="flex flex-col gap-6">

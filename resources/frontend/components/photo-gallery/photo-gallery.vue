@@ -43,14 +43,16 @@
 			};
 		},
 		mounted() {
-			axios.get('https://picsum.photos/v2/list').then((res) => {
-				res.data.forEach((item) =>
-					this.imgs.push({
-						src: item.download_url,
-						title: item.author,
-					})
-				);
-			});
+			axios
+				.get(window.location.origin + '/frontpage-api/gallery-api')
+				.then((res) => {
+					res.data.forEach((item) =>
+						this.imgs.push({
+							src: item.src,
+							// title: item.author,
+						})
+					);
+				});
 		},
 		methods: {
 			showImg(index) {
