@@ -4,84 +4,22 @@
 			<div class="py-8">
 				<h2
 					class="text-3xl text-gray-800 text-center w-full lg:w-4/6 mx-auto font-bold">
-					One Platform Many Solutions
+					{{ jobList.categoryTitle }}
 				</h2>
 				<div class="cards">
-					<div class="card">
+					<div
+						class="card"
+						v-for="category in jobList.jobCategories"
+						:key="category">
 						<div class="icon">
-							<i class="fas fa-bullhorn"></i>
+							<i :class="category.icon"></i>
 						</div>
 						<div>
 							<h4 class="font-bold text-xl text-gray-800 py-2">
-								Marketing & Communication
+								{{ category.cateName }}
 							</h4>
 							<p class="text-base text-gray-500">
-								58 Jobs Available
-							</p>
-						</div>
-					</div>
-					<div class="card">
-						<div class="icon">
-							<i class="fas fa-pencil-ruler"></i>
-						</div>
-						<div>
-							<h4 class="font-bold text-xl text-gray-800 py-2">
-								Design & Development
-							</h4>
-							<p class="text-base text-gray-500">
-								120 Jobs Available
-							</p>
-						</div>
-					</div>
-					<div class="card">
-						<div class="icon">
-							<i class="fas fa-baby"></i>
-						</div>
-						<div>
-							<h4 class="font-bold text-xl text-gray-800 py-2">
-								Human Research & Development
-							</h4>
-							<p class="text-base text-gray-500">
-								199 Jobs Available
-							</p>
-						</div>
-					</div>
-					<div class="card">
-						<div class="icon">
-							<i class="fas fa-chart-line"></i>
-						</div>
-						<div>
-							<h4 class="font-bold text-xl text-gray-800 py-2">
-								Finance Management
-							</h4>
-							<p class="text-base text-gray-500">
-								234 Jobs Available
-							</p>
-						</div>
-					</div>
-					<div class="card">
-						<div class="icon">
-							<i class="fas fa-user-shield"></i>
-						</div>
-						<div>
-							<h4 class="font-bold text-xl text-gray-800 py-2">
-								Armforce Guide & Security
-							</h4>
-							<p class="text-base text-gray-500">
-								120 Jobs Available
-							</p>
-						</div>
-					</div>
-					<div class="card">
-						<div class="icon">
-							<i class="fas fa-project-diagram"></i>
-						</div>
-						<div>
-							<h4 class="font-bold text-xl text-gray-800 py-2">
-								Business & Consulting
-							</h4>
-							<p class="text-base text-gray-500">
-								47 Jobs Available
+								{{ category.jobAvailable + ' Jobs Available' }}
 							</p>
 						</div>
 					</div>
@@ -92,29 +30,35 @@
 						Available Job Circulars
 					</h2>
 					<div class="cards">
-						<div class="card flex-col !items-start !px-4">
+						<div
+							class="card flex-col !items-start !px-4"
+							v-for="circular in jobList.circulars"
+							:key="circular">
 							<div class="flex gap-3 items-center">
 								<div>
 									<img
-										src="/frontend/images/logo/microsoft.svg"
-										alt=""
+										:src="circular.compLogo"
+										:alt="circular.compName"
 										class="w-8" />
 								</div>
 								<div>
-									<h4 class="font-bold">Microsoft</h4>
-									<p class="text-sm">San Francisco, CA</p>
+									<h4 class="font-bold">
+										{{ circular.compName }}
+									</h4>
+									<p class="text-sm">
+										{{ circular.location }}
+									</p>
 								</div>
 							</div>
 							<div>
 								<h2 class="font-bold pb-1">
-									Technical Support Engineer
+									{{ circular.jobTitle }}
 								</h2>
-								<p class="text-sm">Full-time</p>
+								<p class="text-sm">{{ circular.empTime }}</p>
 							</div>
 							<div class="exerp">
 								<p>
-									You will be expected to lead the comapany's
-									entire UI stratagy
+									{{ circular.shortDesc.substring(0, 62) }}
 								</p>
 							</div>
 							<div
@@ -122,142 +66,13 @@
 								<div>
 									<span
 										class="font-bold text-xl text-gray-800">
-										$6700
+										{{ circular.salary }}
 									</span>
 									<span>/month</span>
 								</div>
 								<div class="my-4 xl:my-0">
 									<router-link
-										to="/career-details/1"
-										class="rounded-md bg-red-100 text-red-600 font-bold transition-all hover:text-white hover:bg-red-600 px-2.5 py-2">
-										View Details
-									</router-link>
-								</div>
-							</div>
-						</div>
-						<div class="card flex-col !items-start !px-4">
-							<div class="flex gap-3 items-center">
-								<div>
-									<img
-										src="/frontend/images/logo/microsoft.svg"
-										alt=""
-										class="w-8" />
-								</div>
-								<div>
-									<h4 class="font-bold">Microsoft</h4>
-									<p class="text-sm">San Francisco, CA</p>
-								</div>
-							</div>
-							<div>
-								<h2 class="font-bold pb-1">
-									Technical Support Engineer
-								</h2>
-								<p class="text-sm">Full-time</p>
-							</div>
-							<div class="exerp">
-								<p>
-									You will be expected to lead the comapany's
-									entire UI stratagy
-								</p>
-							</div>
-							<div
-								class="flex justify-between w-full flex-col xl:flex-row">
-								<div>
-									<span
-										class="font-bold text-xl text-gray-800">
-										$6700
-									</span>
-									<span>/month</span>
-								</div>
-								<div class="my-4 xl:my-0">
-									<router-link
-										to="/career-details/2"
-										class="rounded-md bg-red-100 text-red-600 font-bold transition-all hover:text-white hover:bg-red-600 px-2.5 py-2">
-										View Details
-									</router-link>
-								</div>
-							</div>
-						</div>
-						<div class="card flex-col !items-start !px-4">
-							<div class="flex gap-3 items-center">
-								<div>
-									<img
-										src="/frontend/images/logo/microsoft.svg"
-										alt=""
-										class="w-8" />
-								</div>
-								<div>
-									<h4 class="font-bold">Microsoft</h4>
-									<p class="text-sm">San Francisco, CA</p>
-								</div>
-							</div>
-							<div>
-								<h2 class="font-bold pb-1">
-									Technical Support Engineer
-								</h2>
-								<p class="text-sm">Full-time</p>
-							</div>
-							<div class="exerp">
-								<p>
-									You will be expected to lead the comapany's
-									entire UI stratagy
-								</p>
-							</div>
-							<div
-								class="flex justify-between w-full flex-col xl:flex-row">
-								<div>
-									<span
-										class="font-bold text-xl text-gray-800">
-										$6700
-									</span>
-									<span>/month</span>
-								</div>
-								<div class="my-4 xl:my-0">
-									<router-link
-										to="/career-details/3"
-										class="rounded-md bg-red-100 text-red-600 font-bold transition-all hover:text-white hover:bg-red-600 px-2.5 py-2">
-										View Details
-									</router-link>
-								</div>
-							</div>
-						</div>
-						<div class="card flex-col !items-start !px-4">
-							<div class="flex gap-3 items-center">
-								<div>
-									<img
-										src="/frontend/images/logo/microsoft.svg"
-										alt=""
-										class="w-8" />
-								</div>
-								<div>
-									<h4 class="font-bold">Microsoft</h4>
-									<p class="text-sm">San Francisco, CA</p>
-								</div>
-							</div>
-							<div>
-								<h2 class="font-bold pb-1">
-									Technical Support Engineer
-								</h2>
-								<p class="text-sm">Full-time</p>
-							</div>
-							<div class="exerp">
-								<p>
-									You will be expected to lead the comapany's
-									entire UI stratagy
-								</p>
-							</div>
-							<div
-								class="flex justify-between w-full flex-col xl:flex-row">
-								<div>
-									<span
-										class="font-bold text-xl text-gray-800">
-										$6700
-									</span>
-									<span>/month</span>
-								</div>
-								<div class="my-4 xl:my-0">
-									<router-link
-										to="/career-details/4"
+										:to="circular.detailsLink"
 										class="rounded-md bg-red-100 text-red-600 font-bold transition-all hover:text-white hover:bg-red-600 px-2.5 py-2">
 										View Details
 									</router-link>
@@ -279,7 +94,87 @@
 	export default {
 		data() {
 			return {
-				jobList: [],
+				jobList: {
+					categoryTitle: 'One Platform Many Solutions',
+					jobCategories: [
+						{
+							cateName: 'Marketing & Communication',
+							jobAvailable: '58',
+							icon: 'fas fa-bullhorn',
+						},
+						{
+							cateName: 'Design & Development',
+							jobAvailable: '120',
+							icon: 'fas fa-pencil-ruler',
+						},
+						{
+							cateName: 'Human Research & Development',
+							jobAvailable: '199',
+							icon: 'fas fa-baby',
+						},
+						{
+							cateName: 'Finance Management',
+							jobAvailable: '234',
+							icon: 'fas fa-chart-line',
+						},
+						{
+							cateName: 'Armforce Guide & Security',
+							jobAvailable: '120',
+							icon: 'fas fa-user-shield',
+						},
+						{
+							cateName: 'Business & Consulting',
+							jobAvailable: '47',
+							icon: 'fas fa-project-diagram',
+						},
+					],
+					circulars: [
+						{
+							compLogo: '/frontend/images/logo/microsoft.svg',
+							compName: 'Microsoft',
+							location: 'San Francisco, CA',
+							jobTitle: 'Technical Support Engineer',
+							empTime: 'Full-time',
+							shortDesc:
+								"You will be expected to lead the comapany's entire UI stratagy",
+							salary: '$6700',
+							detailsLink: '/career-details/1',
+						},
+						{
+							compLogo: '/frontend/images/logo/microsoft.svg',
+							compName: 'Microsoft',
+							location: 'San Francisco, CA',
+							jobTitle: 'Technical Support Engineer',
+							empTime: 'Full-time',
+							shortDesc:
+								"You will be expected to lead the comapany's entire UI stratagy",
+							salary: '$6700',
+							detailsLink: '/career-details/2',
+						},
+						{
+							compLogo: '/frontend/images/logo/microsoft.svg',
+							compName: 'Microsoft',
+							location: 'San Francisco, CA',
+							jobTitle: 'Technical Support Engineer',
+							empTime: 'Full-time',
+							shortDesc:
+								"You will be expected to lead the comapany's entire UI stratagy",
+							salary: '$6700',
+							detailsLink: '/career-details/3',
+						},
+						{
+							compLogo: '/frontend/images/logo/microsoft.svg',
+							compName: 'Microsoft',
+							location: 'San Francisco, CA',
+							jobTitle: 'Technical Support Engineer',
+							empTime: 'Full-time',
+							shortDesc:
+								"You will be expected to lead the comapany's entire UI stratagy",
+							salary: '$6700',
+							detailsLink: '/career-details/4',
+						},
+					],
+				},
 			};
 		},
 		props: {
