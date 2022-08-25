@@ -1,6 +1,6 @@
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Sector List')
+@section('title', 'Category List')
 
 @section('vendor-style')
   {{-- Page Css files --}}
@@ -24,11 +24,11 @@
   <!-- list and filter start -->
   <div class="card">
     <div class="card-body border-bottom">
-      <h4 class="card-title">Section Section and View</h4>
+      <h4 class="card-title">Category List</h4>
       @if (isset($_GET['status']))
             <div class="demo-spacing-0 mb-2">
                 <div class="alert alert-success" role="alert">
-                <div class="alert-body"><strong>Congratulation ! Section deleted from the Server.</strong></div>
+                <div class="alert-body"><strong>Congratulation ! Category deleted from the Server.</strong></div>
                 </div>
             </div>
         @endif
@@ -36,7 +36,7 @@
 		@if (isset($_GET['error']))
             <div class="demo-spacing-0 mb-2">
                 <div class="alert alert-danger" role="alert">
-                <div class="alert-body"><strong>Wrong @{id} . Try Again. (Possible Reason: Company Exist with this section. Delete those to Delete This Section.)</strong></div>
+                <div class="alert-body"><strong>Wrong @{id} . Try Again. (Possible Reason: Job Exist with this Category. Delete those to Delete This Category.)</strong></div>
                 </div>
             </div>
         @endif
@@ -47,7 +47,7 @@
           <tr>
             <th></th>
 			<th>ID</th>
-            <th>Company Name</th>
+            <th>Category Name</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -63,7 +63,7 @@
             <td>
 			<div class="btn-group">
 
-			<a href="{{ route('delete-section', ['name' => base64_encode($section->name)])}}" style="text-decoration: none;"> <i data-feather='trash-2'></i> Delete</a>
+			<a href="{{ route('delete-category', ['name' => base64_encode($section->name)])}}" style="text-decoration: none;"> <i data-feather='trash-2'></i>Delete</a>
 			<div>
 
 			</td>

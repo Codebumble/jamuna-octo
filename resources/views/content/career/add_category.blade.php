@@ -40,7 +40,7 @@
                 </div>
             </div>
         @endif
-          <form class="needs-validation" novalidate action="{{ route('add-section-api') }}" method="POST">
+          <form class="needs-validation" novalidate action="{{ route('add_new_category') }}" method="POST">
 		  @csrf
 				<div class="row">
 						<div class="mb-1 col-12 col-md-6">
@@ -80,19 +80,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 				</div>
 				<div class="col-12 text-center mt-2 pt-50">
-				<a class="btn btn-warning" href="{{route('icons-codebumble-feather')}}">Icon List</a>
+				<a class="btn btn-warning" href="https://fontawesome.com/v4/icons/">Icon List</a>
             		<button type="submit" class="btn btn-primary">Submit</button>
 				</div>
           </form>
