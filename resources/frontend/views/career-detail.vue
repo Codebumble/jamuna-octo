@@ -5,31 +5,31 @@
 				<div class="w-full lg:w-8/12 mx-auto">
 					<div>
 						<img
-							src="https://pixelprime.co/themes/jobster/images/office-1.jpg"
-							alt=""
+							:src="jobheading.cover"
+							:alt="jobheading.by"
 							class="rounded-md w-full h-44 lg:h-96 object-cover" />
 					</div>
 					<div
 						class="absolute w-28 lg:w-40 h-28 lg:h-40 border-2 border-slate-100 rounded-xl lg:-mt-24 -mt-14 middle overflow-hidden bg-white">
 						<img
-							src="/frontend/images/logo/microsoft.svg"
-							alt=""
+							:src="jobheading.complogo"
+							:alt="jobheading.by"
 							class="" />
 					</div>
 				</div>
 				<div class="pt-28 text-center">
 					<h2
 						class="font-bold text-gray-800 text-3xl leading-snug pb-1">
-						Technical Support Engineer
+						{{ jobheading.jobtitle }}
 					</h2>
 					<p class="mb-4">
 						by
 						<a
 							href="#"
 							class="font-bold"
-							>Microsoft</a
+							>{{ jobheading.by }}</a
 						>
-						in Dhaka, Bangladesh
+						in {{ jobheading.location }}
 					</p>
 					<button
 						class="font-bold rounded-full px-4 py-2 bg-red-600 text-white hover:bg-white hover:text-red-600 border border-red-600 inline-block"
@@ -78,7 +78,8 @@
 														v-for="value in Object.keys(
 															address
 														)"
-														:value="value">
+														:value="value"
+														:key="value">
 														{{ value }}
 													</option>
 												</select>
@@ -102,7 +103,8 @@
 													</option>
 													<option
 														v-for="district in districts"
-														:value="district">
+														:value="district"
+														:key="district">
 														{{ district }}
 													</option>
 												</select>
@@ -125,7 +127,8 @@
 														{{ subdistrict }}
 													</option>
 													<option
-														v-for="subdistrict in subdistricts">
+														v-for="subdistrict in subdistricts"
+														:key="subdistrict">
 														{{ subdistrict }}
 													</option>
 												</select>
@@ -147,7 +150,8 @@
 														Qualification
 													</option>
 													<option
-														v-for="qualification in qualifications">
+														v-for="qualification in qualifications"
+														:key="qualification">
 														{{ qualification }}
 													</option>
 												</select>
@@ -169,7 +173,8 @@
 														Experience (Years)
 													</option>
 													<option
-														v-for="experience in 20">
+														v-for="experience in 20"
+														:key="experience">
 														{{
 															experience.toString()
 																.length > 1
@@ -269,8 +274,8 @@
 						</div>
 					</Modal>
 					<div class="pt-4">
-						<span class="category">Customer Service</span>
-						<span class="time">4 Days ago</span>
+						<span class="category">{{ jobheading.category }}</span>
+						<span class="time">{{ jobheading.time }}</span>
 					</div>
 					<div class="share">
 						<ShareNetwork
@@ -299,76 +304,34 @@
 					<h4 class="text-gray-800 font-bold text-xl mb-4">
 						Overview
 					</h4>
-					<p class="text-base text-gray-600 mb-2">
-						As a Product Designer, you will work within a Product
-						Delivery Team fused with UX, engineering, product and
-						data talent. You will help the team design beautiful
-						interfaces that solve business challenges for our
-						clients. We work with a number of Tier 1 banks on
-						building web-based applications for AML, KYC and
-						Sanctions List management workflows. This role is ideal
-						if you are looking to segue your career into the FinTech
-						or Big Data arenas.
-					</p>
+					<p
+						class="text-base text-gray-600 mb-2"
+						v-html="jobdescription.overview"></p>
 					<h4 class="text-gray-800 font-bold text-xl my-4">
 						Responsabilities
 					</h4>
 					<ul class="list-disc list-inside text-gray-600">
-						<li>
-							Be involved in every step of the product design
-							cycle from discovery to developer handoff and user
-							acceptance testing.
-						</li>
-						<li>
-							Work with BAs, product managers and tech teams to
-							lead the Product Design
-						</li>
-						<li>
-							Maintain quality of the design process and ensure
-							that when designs are translated into code they
-							accurately reflect the design specifications.
-						</li>
-						<li>
-							Accurately estimate design tickets during planning
-							sessions.
-						</li>
-						<li>
-							Contribute to sketching sessions involving
-							non-designersCreate, iterate and maintain UI
-							deliverables including sketch files, style guides,
-							high fidelity prototypes, micro interaction
-							specifications and pattern libraries.
-						</li>
+						<li
+							v-for="responsibility in jobdescription.responsibilities"
+							:key="responsibility"
+							v-html="responsibility.res"></li>
 					</ul>
 					<h4 class="text-gray-800 font-bold text-xl my-4">
 						Requirements
 					</h4>
 
 					<ul class="list-disc list-inside text-gray-600">
-						<li>
-							4+ years of system administration experience with
-							the Microsoft Server platform (2012/2016, Microsoft
-							IIS, Active Directory)
-						</li>
-						<li>
-							3+ years of hands-on system administration
-							experience with AWS (EC2, Elastic Load Balancing,
-							Multi AZ, etc.)
-						</li>
-						<li>4+ years of SQL Server, MySQL</li>
+						<li
+							v-for="requirement in jobdescription.requirements"
+							:key="requirement"
+							v-html="requirement.req"></li>
 					</ul>
 					<h4 class="text-gray-800 font-bold text-xl my-4">Skills</h4>
 					<ul class="list-disc list-inside text-gray-600">
-						<li>
-							Programming experience developing web applications
-							with the Microsoft .NET stack and a basic knowledge
-							of SQL
-						</li>
-						<li>
-							Development experience with Angular, Node.JS, or
-							ColdFusion
-						</li>
-						<li>HTML, CSS, XHTML, XML</li>
+						<li
+							v-for="skill in jobdescription.skills"
+							:key="skill"
+							v-html="skill.skill"></li>
 					</ul>
 					<h4 class="text-gray-800 font-bold text-xl my-4">
 						Attached Files
@@ -376,9 +339,9 @@
 					<ul class="list-disc list-inside text-gray-600">
 						<li>
 							<a
-								href="#"
+								:href="jobdescription.attachedfilelink"
 								class="underline decoration-dotted hover:decoration-solid decoration-slate-400 hover:decoration-red-600 underline-offset-4 hover:text-red-600 transition-all"
-								>Download the attached file</a
+								>{{ jobdescription.attachedfilelinklabel }}</a
 							>
 						</li>
 					</ul>
@@ -387,33 +350,35 @@
 					<div class="box">
 						<div class="info">
 							<span>Experience</span>
-							<h4>Minimum 1 Year</h4>
+							<h4>{{ jobInfo.experience }}</h4>
 						</div>
 						<div class="info">
 							<span>Work Level</span>
-							<h4>Senior Level</h4>
+							<h4>{{ jobInfo.workLevel }}</h4>
 						</div>
 						<div class="info">
 							<span>Employment Type</span>
-							<h4>Full Time</h4>
+							<h4>{{ jobInfo.employmentType }}</h4>
 						</div>
 						<div class="info">
 							<span>Salary</span>
-							<h4>$35k / year</h4>
+							<h4>{{ jobInfo.salary }} / year</h4>
 						</div>
 					</div>
 					<div class="box">
 						<div class="flex gap-4 items-center mb-4">
 							<div>
 								<img
-									src="/frontend/images/logo/microsoft.svg"
-									alt=""
+									:src="companyInfo.logo"
+									:alt="companyInfo.name"
 									class="rounded-lg w-10 h-10" />
 							</div>
 							<div>
-								<h4 class="font-bold text-xl">Microsoft</h4>
+								<h4 class="font-bold text-xl">
+									{{ companyInfo.name }}
+								</h4>
 								<a
-									href="#"
+									:href="companyInfo.websiteLink"
 									class="underline decoration-dotted underline-offset-4 decoration-slate-400 hover:text-red-600 hover:decoration-red-600 transition-all text-sm text-gray-600"
 									>View Website</a
 								>
@@ -421,51 +386,56 @@
 						</div>
 						<div class="info">
 							<span>Industry</span>
-							<h4>Software</h4>
+							<h4>{{ companyInfo.industry }}</h4>
 						</div>
 						<div class="info">
 							<span>Company size</span>
-							<h4>50 - 100</h4>
+							<h4>{{ companyInfo.companySize }}</h4>
 						</div>
 						<div class="info">
 							<span>Founded in</span>
-							<h4>2005</h4>
+							<h4>{{ companyInfo.foundedIn }}</h4>
 						</div>
 						<div class="info">
 							<span>Phone</span>
-							<h4>0124 456 789</h4>
+							<h4>{{ companyInfo.phone }}</h4>
 						</div>
 						<div class="info">
 							<span>Email</span>
-							<h4>office@illuminate.com</h4>
+							<h4>{{ companyInfo.email }}</h4>
 						</div>
 						<div class="info">
 							<span>Location</span>
-							<h4>San Francisco, CA</h4>
+							<h4>{{ companyInfo.location }}</h4>
 						</div>
 						<div class="info">
 							<span>Website</span>
-							<h4><a href="#">www.Illuminati.com</a></h4>
+							<h4>
+								<a
+									:href="'https://' + companyInfo.websiteLink"
+									>{{ companyInfo.websiteLink }}</a
+								>
+							</h4>
 						</div>
 
 						<ul class="flex gap-4">
 							<li>
 								<a
-									href=""
+									:href="companyInfo.social.facebook"
 									class="hover:text-blue-600 transition-all text-[1.3rem] text-gray-800">
 									<i class="fab fa-facebook"></i>
 								</a>
 							</li>
 							<li>
 								<a
-									href=""
+									:href="companyInfo.social.instagram"
 									class="hover:text-red-600 transition-all text-[1.3rem] text-gray-800">
 									<i class="fab fa-instagram"></i>
 								</a>
 							</li>
 							<li>
 								<a
-									href=""
+									:href="companyInfo.social.linkedin"
 									class="hover:text-[#0077b5] transition-all text-[1.3rem] text-gray-800">
 									<i class="fab fa-linkedin"></i>
 								</a>
@@ -535,10 +505,81 @@
 						icon: 'fab fa-whatsapp',
 					},
 				],
+				jobheading: {
+					cover: 'https://pixelprime.co/themes/jobster/images/office-1.jpg',
+					complogo: '/frontend/images/logo/microsoft.svg',
+					jobtitle: 'Technical Support Engineer',
+					by: 'Microsoft',
+					location: 'Dhaka, Bangladesh',
+					category: 'Customer Service',
+					time: '4 Days ago',
+				},
+				jobdescription: {
+					overview:
+						'As a Product Designer, you will work within a Product Delivery Team fused with UX, engineering, product and data talent. You will help the team design beautiful interfaces that solve business challenges for our clients. We work with a number of Tier 1 banks on building web-based applications for AML, KYC and Sanctions List management workflows. This role is ideal if you are looking to segue your career into the FinTech or Big Data arenas.',
+					responsibilities: [
+						{
+							res: 'Be involved in every step of the product design cycle from discovery to developer handoff and user acceptance testing.',
+						},
+						{
+							res: 'Work with BAs, product managers and tech teams to lead the Product Design.',
+						},
+						{
+							res: 'Maintain quality of the design process and ensure that when designs are translated into code they accurately reflect the design specifications.',
+						},
+						{
+							res: 'Accurately estimate design tickets during planning sessions.',
+						},
+					],
+					requirements: [
+						{
+							req: '4+ years of system administration experience with the Microsoft Server platform (2012/2016, Microsoft IIS, Active Directory)',
+						},
+						{
+							req: '3+ years of hands-on system administration experience with AWS (EC2, Elastic Load Balancing, Multi AZ, etc.)',
+						},
+						{
+							req: '4+ years of SQL Server, MySQL',
+						},
+					],
+					skills: [
+						{
+							skill: 'Programming experience developing web applications with the Microsoft .NET stack and a basic knowledge of SQL',
+						},
+						{
+							skill: 'Development experience with Angular, Node.JS, or ColdFusion',
+						},
+						{
+							skill: 'HTML, CSS, XHTML, XML',
+						},
+					],
+					attachedfilelink: '#',
+					attachedfilelinklabel: 'Download the attached file',
+				},
+				jobInfo: {
+					experience: 'Minimum 1 Year',
+					workLevel: 'Senior Level',
+					employmentType: 'Full Time',
+					salary: '$35k',
+				},
+				companyInfo: {
+					logo: '/frontend/images/logo/microsoft.svg',
+					name: 'Microsoft',
+					website: '#',
+					industry: 'Software',
+					companySize: '50-100',
+					foundedIn: '2005',
+					phone: '0124 456 789',
+					email: 'office@illuminate.com',
+					location: 'San Francisco, CA',
+					websiteLink: 'www.Illuminati.com',
+					social: {
+						facebook: '#',
+						instagram: '#',
+						linkedin: '#',
+					},
+				},
 			};
-		},
-		mounted() {
-			console.log(this.$route.params.id);
 		},
 		setup() {
 			const isDistrict = ref(true);
