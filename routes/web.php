@@ -92,6 +92,10 @@ Route::group(["prefix" => "codebumble"], function () {
 			"add_new_job"
 		);
 
+		Route::post("add-new-category", [career::class, "add_new_category"])->name(
+			"add_new_category"
+		);
+
 		Route::post("add-gallery-photo", [
 			photo_gallery::class,
 			"add_gallery_photo",
@@ -290,6 +294,16 @@ Route::group(["prefix" => "admin"], function () {
 			career::class,
 			"applicant_list_view",
 		])->name("applicant_list_view");
+
+		Route::get("career/list-of-category", [
+			career::class,
+			"view_list_category",
+		])->name("view_list_category");
+
+		Route::get("delete-category/{name}", [
+			career::class,
+			"delete_category",
+		])->name("delete-category");
 
 		Route::get("add-section", [
 			Company_rest::class,

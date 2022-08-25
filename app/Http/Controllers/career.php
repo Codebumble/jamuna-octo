@@ -19,9 +19,10 @@ class career extends Controller
         check_power('admin');
 
         $companys = DB::table('codebumble_company_list')->select('name')->get();
+        $category = DB::select('select value from codebumble_front_page where code_name=?', ['job_category']);
 
         $pageConfigs = ['pageHeader' => false];
-        return view('/content/career/post-a-job', ['pageConfigs' => $pageConfigs, 'companies' => $companys]);
+        return view('/content/career/post-a-job', ['pageConfigs' => $pageConfigs, 'companies' => $companys,  'categories' => json_decode($category[0]->value)]);
 
     }
 
@@ -102,9 +103,101 @@ class career extends Controller
     }
 
     public function view_add_category(){
+        check_auth();
+        check_power('admin');
+
+
 
         $pageConfigs = ['pageHeader' => false];
         return view('/content/career/add_category', ['pageConfigs' => $pageConfigs]);
+
+    }
+
+    public function add_new_category(Request $request){
+        check_auth();
+        check_power('admin');
+
+        $field = $request->validate([
+            'name' => 'required|string',
+            'icon' => 'required|string'
+        ]);
+
+        $last_data = DB::table('codebumble_front_page')->where('code_name', 'job_category')->first();
+
+        if(isset($last_data->value)){
+
+                $data = json_decode($last_data->value);
+                $checker = false;
+            // loop for checking section name already exist or not
+                foreach($data as $datam){
+                    if($datam->name == $field['name'] ){
+                        $checker = true;
+                    }
+                }
+
+                if($checker){
+                    return redirect()->route('view_add_category',['exist' => 1]);
+                }
+                array_push($data, ['name' => $field['name'], 'icon' => $field['icon']]);
+                $data = json_encode($data);
+                $database = DB::table('codebumble_front_page')->where('code_name', 'job_category')->update(['value' => $data]);
+        } else {
+                $data = [];
+                array_push($data, ['name' => $field['name'], 'icon' => $field['icon']]);
+                $data = json_encode($data);
+                $database = DB::table('codebumble_front_page')->insert(['code_name'=> 'job_category', 'value' => $data]);
+        }
+
+
+
+        return redirect()->route('view_add_category',['status' => 1]);
+
+    }
+
+    public function view_list_category(){
+        check_auth();
+        check_power('admin');
+
+        $data = DB::select('select value from codebumble_front_page where code_name=?', ['job_category']);
+
+        $pageConfigs = ['pageHeader' => false];
+        return view('/content/career/list_category', ['pageConfigs' => $pageConfigs, 'sections' => json_decode($data[0]->value)]);
+
+    }
+
+    public function delete_category($name){
+        check_auth();
+        check_power('admin');
+
+        $z= DB::table('codebumble_job_list')->where('sector', base64_decode($name))->first();
+
+        if(isset($z)){
+            return redirect()->route('view_list_category',['error' => 1]);
+        }
+
+
+
+        $a= DB::table('codebumble_front_page')->where('code_name', 'job_category')->first();
+        if(!isset($a)){
+            return redirect()->route('view_list_category',['error' => 1]);
+        }
+
+
+        $b = json_decode($a->value);
+
+        $c = [];
+
+        foreach($b as $bc){
+            if(base64_encode($bc->name) != $name ){
+                array_push($c, $bc);
+            }
+        }
+
+
+
+        $d = $a= DB::table('codebumble_front_page')->where('code_name', 'job_category')->update(['value' => json_encode($c)]);
+        return redirect()->route('view_list_category',['status' => 1]);
+
 
     }
 }

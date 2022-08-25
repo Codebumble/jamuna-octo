@@ -219,6 +219,30 @@
 			"slug": "post_a_job_view"
 		},
 		{
+			"name": "Category",
+			"icon": "grid",
+			"permission": 1,
+			"slug": "",
+			"submenu": [
+
+				{
+					"name": "Add Category",
+					"url": "admin/career/add-category",
+					"icon": "circle",
+					"permission": 1,
+					"slug": "view_add_category"
+				},
+				{
+					"name": "List of Category",
+					"url": "admin/career/list-of-category",
+					"icon": "circle",
+					"permission": 1,
+					"slug": "view_list_category"
+				}
+
+			]
+		},
+		{
 			"name": "All Job List",
 			"url": "admin/career/all-job-list",
 			"icon": "layers",

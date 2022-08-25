@@ -36,11 +36,7 @@
             </div>
         @endif
 
-		<div class="demo-spacing-0 mb-2 d-none" id="faker">
-                <div class="alert alert-warning" role="alert">
-                <div class="alert-body"><strong>Data Updated ! It may take a little bit time to Update.</strong></div>
-                </div>
-            </div>
+
 
 
 
@@ -76,19 +72,17 @@
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="sector">Job Sector</label>
 
-						<input
-							type="text"
-							id="name"
-							name="new[sector]"
-							class="form-control"
-							aria-label="sector"
-							aria-describedby="sector"
-							required
-						/>
+						<select class="form-select" name="new[sector]" id="sector" required>
+
+								@foreach($categories as $category)
+							<option value="{{$category->name}}">{{$category->name}}</option>
+								@endforeach
+
+								</select>
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="company">Short Description</label>
+						<label class="form-label" for="s_description">Short Description</label>
 
 						<input
 							type="text"
@@ -193,6 +187,10 @@
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="emp_type">Employment Type</label>
 						<input type="text" class="form-control"  name="new[emp_type]" id="emp_type"/>
+						<select id="emp_type" name="new[emp_type]" class="form-select">
+							<option value="part-time">Part Time</option>
+							<option value="full-time">Full Time</option>
+						</select>
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
