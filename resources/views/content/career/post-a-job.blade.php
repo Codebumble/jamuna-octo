@@ -186,7 +186,6 @@
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="emp_type">Employment Type</label>
-						<input type="text" class="form-control"  name="new[emp_type]" id="emp_type"/>
 						<select id="emp_type" name="new[emp_type]" class="form-select">
 							<option value="part-time">Part Time</option>
 							<option value="full-time">Full Time</option>

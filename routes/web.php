@@ -214,6 +214,8 @@ Route::group(["prefix" => "frontpage-api"], function () {
 	Route::get("gallery-api", [FrontPage::class, "gallery_api"]);
 
 	Route::get("company/{id}", [FrontPage::class, "company_data"]);
+	Route::get("circular-and-category-short-list", [career::class, "front_short_list"]);
+
 	Route::get("all-company-view", [FrontPage::class, "all_company_view"]);
 	Route::get("footer-component", [FrontPage::class, "footer_component"]);
 	Route::get("directors-list", [FrontPage::class, "directors_list"]);

@@ -142,10 +142,6 @@ class career extends Controller
 
         }
 
-
-
-
-
         $dev['updated_at'] = time();
 
 
@@ -172,16 +168,6 @@ class career extends Controller
         DB::table('codebumble_job_list')->where('id', $id)->delete();
 
         return redirect()->route('all_job_list_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Job Post Added. The post is now visible', 'hasher_ip' => Str::random(10)]);
-
-
-
-
-
-
-
-
-
-
     }
 
     public function add_new_job(Request $request){
@@ -341,6 +327,56 @@ class career extends Controller
 
         $d = DB::table('codebumble_front_page')->where('code_name', 'job_category')->update(['value' => json_encode($c)]);
         return redirect()->route('view_list_category',['status' => 1]);
+
+
+    }
+
+    public function front_short_list(){
+
+        $data1 = DB::select('select value from codebumble_front_page where code_name=?', ['job_category']);
+        $data2 = DB::select('select * from codebumble_job_list');
+
+        $filtering = [];
+
+        foreach ($data2 as $key => $value) {
+            $temp = DB::select('select name,image from codebumble_company_list where name =?', [$value->company]);
+            $a = [
+                'compLogo' => '/company-images/'.$temp[0]->image,
+                'compName' => $temp[0]->name,
+                'location' => $value->w_location,
+                'jobTitle' => $value->name,
+                'empTime' => $value->emp_type,
+                'shortDesc' => $value->s_description,
+                'salary' => $value->salary,
+                'detailsLink' => '/career-details/'.$value->id
+
+            ];
+
+            array_push($filtering, $a);
+
+        }
+
+        $category = [];
+
+        foreach (json_decode($data1[0]->value) as $key => $value) {
+            $temp = DB::select('select count(*) as number from codebumble_job_list where sector =?', [$value->name]);
+            $a = [
+                'cateName' => $value->name,
+                'jobAvailable' => $temp[0]->number,
+                'icon' => $value->icon,
+
+
+            ];
+
+            array_push($category, $a);
+
+        }
+
+        return json_encode(['circulars' => $filtering, 'jobCategories'=>$category]);
+
+
+
+
 
 
     }
