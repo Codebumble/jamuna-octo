@@ -81,7 +81,7 @@
 				'<a href="javascript:;" class="dropdown-item">' +
 				feather.icons['file-text'].toSvg({ class: 'font-small-4 me-50' }) +
 				'Details</a>' +
-				'<a href="javascript:;" class="dropdown-item delete-record">' +
+				'<a href="'+assetPath+'admin/career/delete-new-job/'+full['id']+'" class="dropdown-item delete-record">' +
 				feather.icons['trash-2'].toSvg({ class: 'font-small-4 me-50' }) +
 				'Delete</a>' +
 				'</div>' +
@@ -148,7 +148,7 @@
 			display: $.fn.dataTable.Responsive.display.modal({
 			  header: function (row) {
 				var data = row.data();
-				return 'Details of ' + data['full_name'];
+				return 'Details of ' + data['name'];
 			  }
 			}),
 			type: 'column',
@@ -194,13 +194,7 @@
 	  });
 	}
 
-	// Add New record
 
-
-	// Delete Record
-	$('.datatables-basic tbody').on('click', '.delete-record', function () {
-	  dt_basic.row($(this).parents('tr')).remove().draw();
-	});
 
 
 

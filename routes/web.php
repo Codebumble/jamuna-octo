@@ -228,14 +228,17 @@ Route::group(["prefix" => "admin"], function () {
 			AuthenticationController::class,
 			"register",
 		])->name("auth-register");
+
 		Route::get("photo-gallery", [
 			siteGeneral::class,
 			"photo_gallery_view",
 		])->name("photo_gallery_view");
+
 		Route::get("add-product", [
 			Product_rest::class,
 			"auth_add_product_page",
 		])->name("auth_add_product_page");
+
 		Route::get("edit-product/{id}", [
 			Product_rest::class,
 			"auth_edit_product_page",
@@ -245,6 +248,7 @@ Route::group(["prefix" => "admin"], function () {
 			Company_rest::class,
 			"auth_view_add_company",
 		])->name("add-company");
+
 		Route::get("all-company", [
 			Company_rest::class,
 			"auth_view_all_company",
@@ -262,18 +266,22 @@ Route::group(["prefix" => "admin"], function () {
 			siteGeneral::class,
 			"founder_page_view",
 		])->name("founder-page-view");
+
 		Route::get("site-settings/header-edit", [
 			siteGeneral::class,
 			"header_edit_view",
 		])->name("header-edit-view");
+
 		Route::get("site-settings/front-page", [
 			siteGeneral::class,
 			"front_page_view",
 		])->name("front_page_view");
+
 		Route::get("site-settings/chairperson-speech", [
 			siteGeneral::class,
 			"front_page_chairperson_view",
 		])->name("front_page_chairperson_view");
+
 		Route::get("site-settings/slider-edit", [
 			siteGeneral::class,
 			"front_page_slider_view",
@@ -291,6 +299,7 @@ Route::group(["prefix" => "admin"], function () {
 			career::class,
 			"post_a_job_view",
 		])->name("post_a_job_view");
+
 		Route::get("career/edit-the-job/{id}", [
 			career::class,
 			"edit_a_job_view",
@@ -300,10 +309,17 @@ Route::group(["prefix" => "admin"], function () {
 			career::class,
 			"view_add_category",
 		])->name("view_add_category");
+
 		Route::get("career/all-job-list", [
 			career::class,
 			"all_job_list_view",
 		])->name("all_job_list_view");
+
+		Route::get("career/delete-new-job/{id}", [
+			career::class,
+			"delete_new_job",
+		])->name("delete_new_job");
+
 		Route::get("career/applicant-list", [
 			career::class,
 			"applicant_list_view",

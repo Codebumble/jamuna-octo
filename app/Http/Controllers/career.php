@@ -63,16 +63,12 @@ class career extends Controller
         foreach ($job_list as $key => $value) {
             $job_list[$key]['created_at'] = date('d-m-Y', $value['created_at']);
 
-            if((strtotime($job_list[$key]['l_date']) - time()) >= 0){
-                $job_list[$key]['l_date'] = ''.round((strtotime($job_list[$key]['l_date']) - time())/86400).' Days';
+                if((strtotime($job_list[$key]['l_date']) - time()) >= 0){
+                    $job_list[$key]['l_date'] = ''.round((strtotime($job_list[$key]['l_date']) - time())/86400).' Days';
 
-            } else {
-                $job_list[$key]['l_date'] = "Expired";
-            }
-
-
-
-
+                } else {
+                    $job_list[$key]['l_date'] = "Expired";
+                }
 
             $job_list[$key] += ["counter" => "12"];
         }
@@ -141,7 +137,7 @@ class career extends Controller
             $file2->move($destinationPath2,$fileName2);
 
             unset($dev['a_information']);
-            $dev['a_information'] = '/images/job-information/'.$fileName2;
+            $dev['a_information'] = '/documents/job-information/'.$fileName2;
 
 
         }
@@ -156,7 +152,34 @@ class career extends Controller
 
         $update = DB::table('codebumble_job_list')->where('id', $dev['id'])->update($dev);
 
-        return redirect()->route('edit_a_job_view',['id'=> $dev['id'], 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Job Post Added. The post is now visible', 'hasher_ip' => Str::random(10)]);
+        return redirect()->route('edit_a_job_view',['id'=> $dev['id'], 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Job Post Edited. The post is now visible', 'hasher_ip' => Str::random(10)]);
+
+
+    }
+
+    public function delete_new_job($id){
+        check_auth();
+        check_power('admin');
+
+        $dbcheck= DB::select('select * from codebumble_job_list where id=?', [$id]);
+        $link=public_path().''.$dbcheck[0]->b_image;
+        $link= str_replace("/", "\\", $link);
+        unlink($link);
+        $link1=public_path().''.$dbcheck[0]->a_information;
+        $link1= str_replace("/", "\\", $link1);
+        unlink($link1);
+
+        DB::table('codebumble_job_list')->where('id', $id)->delete();
+
+        return redirect()->route('all_job_list_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Job Post Added. The post is now visible', 'hasher_ip' => Str::random(10)]);
+
+
+
+
+
+
+
+
 
 
     }
@@ -209,7 +232,7 @@ class career extends Controller
         unset($dev['b_image']);
         $dev['b_image'] = '/images/job-background/'.$fileName1;
         unset($dev['a_information']);
-        $dev['a_information'] = '/images/job-information/'.$fileName2;
+        $dev['a_information'] = '/documents/job-information/'.$fileName2;
         $dev['added_by'] = Auth::user()->username;
         $dev['created_at'] = time();
         $dev['updated_at'] = time();
@@ -316,7 +339,7 @@ class career extends Controller
 
 
 
-        $d = $a= DB::table('codebumble_front_page')->where('code_name', 'job_category')->update(['value' => json_encode($c)]);
+        $d = DB::table('codebumble_front_page')->where('code_name', 'job_category')->update(['value' => json_encode($c)]);
         return redirect()->route('view_list_category',['status' => 1]);
 
 
