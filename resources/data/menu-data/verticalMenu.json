@@ -71,18 +71,18 @@
 			"slug": "",
 			"submenu": [
 				{
-					"url": "admin/all-company",
-					"name": "All Company",
-					"icon": "circle",
-					"permission": 1,
-					"slug": "all-company"
-				},
-				{
 					"url": "admin/add-company",
 					"name": "Add Company",
 					"icon": "circle",
 					"permission": 1,
 					"slug": "add-company"
+				},
+				{
+					"url": "admin/all-company",
+					"name": "All Company",
+					"icon": "circle",
+					"permission": 1,
+					"slug": "all-company"
 				},
 				{
 					"url": "admin/add-product",
