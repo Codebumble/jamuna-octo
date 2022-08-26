@@ -40,7 +40,7 @@ use App\Http\Controllers\FrontendController;
 // Main Page Route
 Route::get("{any}", [FrontendController::class, "home"])->where(
 	"any",
-	"/|founder|board-of-directors|company-profile|jamuna-tv|the-daily-jugantor|growth-story|quality-process|future-expansion|contact|photo-gallery|career|news-center|event-details|nurul-islam-foundation|"
+	"/|founder|chairman|board-of-directors|company-profile|jamuna-tv|the-daily-jugantor|growth-story|quality-process|future-expansion|contact|photo-gallery|career|news-center|event-details|nurul-islam-foundation|"
 );
 
 Route::get("/career-details/{id}", [FrontendController::class, "home"])->name(
