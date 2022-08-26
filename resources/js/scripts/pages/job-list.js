@@ -86,7 +86,7 @@
 				'Delete</a>' +
 				'</div>' +
 				'</div>' +
-				'<a href="'+assetPath+'/admin/career/edit-the-job/'+full['id']+'" class="item-edit">' +
+				'<a href="'+assetPath+'admin/career/edit-the-job/'+full['id']+'" class="item-edit">' +
 				feather.icons['edit'].toSvg({ class: 'font-small-4' }) +
 				'</a>'
 			  );

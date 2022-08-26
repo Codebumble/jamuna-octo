@@ -220,7 +220,7 @@
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="linkedin">Last Date of Application</label>
-						<input type="date" class="form-control" name="new[l_date]" value={{$d->l_date}}" id="linkedin" required/>
+						<input type="date" class="form-control" name="new[l_date]" value="{{$d->l_date}}" id="l_date" required/>
 						</div>
 
 

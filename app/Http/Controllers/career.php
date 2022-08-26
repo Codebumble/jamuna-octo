@@ -31,6 +31,8 @@ class career extends Controller
         check_auth();
         check_power('admin');
 
+
+
         $selected_company = DB::select('select * from codebumble_job_list where id=?', [$id]);
 
         $companys = DB::table('codebumble_company_list')->select('name')->get();
@@ -93,18 +95,18 @@ class career extends Controller
         check_power('admin');
         foreach($request->new as $key=>$value){
             if($request->new[$key] == "" || $request->new[$key] == null){
-                return redirect()->route('edit_a_job_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Field black Detected.', 'hasher_ip' => Str::random(10)]);
+                return redirect()->route('edit_a_job_view',[ 'id'=> $dev['id'],'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Field black Detected.', 'hasher_ip' => Str::random(10)]);
             }
         }
 
 
 
         $dev = $request->new;
-        $dbcheck= DB::select('select * from codebumble_job_list where id=', [$dev['id']]);
+        $dbcheck= DB::select('select * from codebumble_job_list where id=?', [$dev['id']]);
 
         if(!isset($dbcheck[0])){
 
-            return redirect()->route('edit_a_job_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Wrong Id for the Action', 'hasher_ip' => Str::random(10)]);
+            return redirect()->route('edit_a_job_view',[ 'id'=> $dev['id'],'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Wrong Id for the Action', 'hasher_ip' => Str::random(10)]);
 
         }
 
@@ -152,9 +154,9 @@ class career extends Controller
 
 
 
-        $update = DB::table('codebumble_job_list')->insert($dev);
+        $update = DB::table('codebumble_job_list')->where('id', $dev['id'])->update($dev);
 
-        return redirect()->route('post_a_job_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Job Post Added. The post is now visible', 'hasher_ip' => Str::random(10)]);
+        return redirect()->route('edit_a_job_view',['id'=> $dev['id'], 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Job Post Added. The post is now visible', 'hasher_ip' => Str::random(10)]);
 
 
     }

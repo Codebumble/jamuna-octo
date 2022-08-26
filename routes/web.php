@@ -291,7 +291,7 @@ Route::group(["prefix" => "admin"], function () {
 			career::class,
 			"post_a_job_view",
 		])->name("post_a_job_view");
-		Route::get("career/edit-the-job", [
+		Route::get("career/edit-the-job/{id}", [
 			career::class,
 			"edit_a_job_view",
 		])->name("edit_a_job_view");
