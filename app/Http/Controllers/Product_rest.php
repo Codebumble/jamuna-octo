@@ -30,7 +30,7 @@ class Product_rest extends Controller
 
             $value['image'] = "/images/product-gallery/".$fileName2;
 
-            $value['json_data'] = json_encode(['type' => $value['type'], 'custom_url' => $value['link']]);
+            $value['json_data'] = json_encode(['type' => $value['type'], 'custom_url' => $value['link'],'added_by' => Auth::user()->username]);
 
 
             $value['created_at']= time();
@@ -93,5 +93,37 @@ class Product_rest extends Controller
 
 
     }
+
+    public function auth_all_product_page(){
+
+        check_auth();
+        check_power('employee');
+
+        if(Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin'){
+            $data = DB::select('select * from codebumble_product_list');
+
+        } else {
+            $data = DB::select("select * from codebumble_product_list where josn_data like '%\"added_by\":\"".Auth::user()->username."\"%'");
+        }
+
+        if(!isset($data[0])){
+            return redirect()->route('misc-not-authorized');
+        }
+
+        $pageConfigs = [
+            'contentLayout' => "content-detached-left-sidebar",
+            'pageClass' => 'ecommerce-application',
+        ];
+
+        $breadcrumbs = [
+            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Company"], ['name' => "All Product"]
+        ];
+        return view('/content/products/all_products', ['pageConfigs' => $pageConfigs,
+        'breadcrumbs' => $breadcrumbs, 'data' => $data[0]]);
+
+
+    }
+
+
 
 }

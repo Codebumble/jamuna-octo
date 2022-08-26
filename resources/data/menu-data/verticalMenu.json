@@ -83,6 +83,20 @@
 					"icon": "circle",
 					"permission": 1,
 					"slug": "add-company"
+				},
+				{
+					"url": "admin/add-product",
+					"name": "Add product",
+					"icon": "circle",
+					"permission": 1,
+					"slug": "auth_add_product_page"
+				},
+				{
+					"url": "admin/list-product",
+					"name": "All products",
+					"icon": "circle",
+					"permission": 1,
+					"slug": "auth_all_product_page"
 				}
 			]
 		},

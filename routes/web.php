@@ -239,6 +239,11 @@ Route::group(["prefix" => "admin"], function () {
 			"auth_add_product_page",
 		])->name("auth_add_product_page");
 
+		Route::get("list-product", [
+			Product_rest::class,
+			"auth_all_product_page",
+		])->name("auth_all_product_page");
+
 		Route::get("edit-product/{id}", [
 			Product_rest::class,
 			"auth_edit_product_page",
