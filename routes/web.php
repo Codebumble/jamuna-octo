@@ -83,6 +83,17 @@ Route::group(["prefix" => "codebumble"], function () {
 			Product_rest::class,
 			"add_product",
 		])->name("add_product");
+
+		Route::post("edit-product-api/{id}", [
+			Product_rest::class,
+			"edit_product",
+		])->name("edit_product");
+
+		Route::get("delete-product-api/{id}", [
+			Product_rest::class,
+			"delete_product",
+		])->name("delete_product");
+
 		Route::get("feather", [
 			UserInterfaceController::class,
 			"icons_feather",

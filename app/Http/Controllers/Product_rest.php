@@ -26,9 +26,10 @@ class Product_rest extends Controller
             $destinationPath2 = public_path().'/images/product-image' ;
             $file2->move($destinationPath2,$fileName2);
 
+
             unset($value['images']);
 
-            $value['image'] = "/images/product-gallery/".$fileName2;
+            $value['image'] = "/images/product-image/".$fileName2;
 
             $value['json_data'] = json_encode(['type' => $value['type'], 'custom_url' => $value['link'],'added_by' => Auth::user()->username]);
 
@@ -46,15 +47,105 @@ class Product_rest extends Controller
 
         }
 
-        return redirect()->route('auth_add_product_page',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Product Added!! This Product is now Visible in The website.', 'hasher_ip' => Str::random(10)]);
+        return redirect()->route('auth_add_product_page',['hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Product Updated!! This Product is now Visible in The website.', 'hasher_ip' => Str::random(10)]);
 
     }
 
     public function edit_product(Request $request){
 
+        check_auth();
+        check_power('employee');
+
+        $new = $request->new;
+
+        $id = "";
+
+
+
+
+        foreach ($new as $key => $value) {
+
+
+            if(Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin'){
+                $data = DB::select("select * from codebumble_product_list where id = ?", [$value['id']]);
+
+
+            } else {
+                $data = DB::select("select * from codebumble_product_list where json_data like '%\"added_by\":\"".Auth::user()->username."\"%' and id=?", [$value['id']]);
+            }
+
+
+
+            if(!isset($data[0])){
+                return redirect()->route('misc-not-authorized');
+                exit();
+            }
+
+        if($file2 = $request->hasFile('new.'.$key.'.image')){
+
+            $file2 = $request->file('new.'.$key.'.image') ;
+            $fileName2 = time().'-'.$value['name'].'-product-images.'.$file2->getClientOriginalExtension() ;
+            $destinationPath2 = public_path().'/images/product-image' ;
+            $file2->move($destinationPath2,$fileName2);
+
+            $link=public_path().''.$data[0]->images;
+            $link= str_replace("/", "\\", $link);
+            unlink($link);
+            unset($value['images']);
+
+            $value['image'] = "/images/product-image/".$fileName2;
+        } else {
+            unset($value['images']);
+        }
+
+            $value['json_data'] = json_encode(['type' => $value['type'], 'custom_url' => $value['link'],'added_by' => json_decode($data[0]->json_data)->added_by, 'edited_by' => Auth::user()->username]);
+
+
+            $value['updated_at']= time();
+
+            unset($value['type']);
+            unset($value['link']);
+            $id = $data[0]->id;
+            unset($value['id']);
+            unset($value['name']);
+
+
+            $insert = DB::table('codebumble_product_list')->where('id', $data[0]->id)->update($value);
+
     }
 
-    public function delete_product(Request $request){
+
+        return redirect()->route('auth_edit_product_page',['id'=> $id,'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Product Added!! This Product is now Visible in The website.', 'hasher_ip' => Str::random(10)]);
+
+
+    }
+
+    public function delete_product($id){
+
+        check_auth();
+        check_power('employee');
+
+        if(Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin'){
+            $data = DB::select("select * from codebumble_product_list where id = ?", [$id]);
+
+
+        } else {
+            $data = DB::select("select * from codebumble_product_list where json_data like '%\"added_by\":\"".Auth::user()->username."\"%' and id=?", [$id]);
+        }
+
+        if(!isset($data[0])){
+            return redirect()->route('misc-not-authorized');
+            exit();
+        }
+
+        $link=public_path().''.$data[0]->image;
+        $link= str_replace("/", "\\", $link);
+        unlink($link);
+
+        $delete = DB::table('codebumble_product_list')->where('id', $data[0]->id)->delete();
+
+        return redirect()->route('auth_all_product_page',['hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Product Added!! This Product is now Visible in The website.', 'hasher_ip' => Str::random(10)]);
+
 
     }
 
@@ -82,7 +173,15 @@ class Product_rest extends Controller
 
         $companys = DB::table('codebumble_company_list')->select('name')->get();
 
-        $data = DB::select('select * from codebumble_product_list where id = ?', [$id]);
+        if(Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin'){
+            $data = DB::select("select * from codebumble_product_list where id = ?", [$id]);
+
+
+        } else {
+            $data = DB::select("select * from codebumble_product_list where json_data like '%\"added_by\":\"".Auth::user()->username."\"%' and id=?", [$id]);
+        }
+
+
 
         if(!isset($data[0])){
             return redirect()->route('misc-not-authorized');
@@ -102,8 +201,9 @@ class Product_rest extends Controller
         if(Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin'){
             $data = DB::select('select * from codebumble_product_list');
 
+
         } else {
-            $data = DB::select("select * from codebumble_product_list where josn_data like '%\"added_by\":\"".Auth::user()->username."\"%'");
+            $data = DB::select("select * from codebumble_product_list where json_data like '%\"added_by\":\"".Auth::user()->username."\"%'");
         }
 
         if(!isset($data[0])){
@@ -119,7 +219,7 @@ class Product_rest extends Controller
             ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Company"], ['name' => "All Product"]
         ];
         return view('/content/products/all_products', ['pageConfigs' => $pageConfigs,
-        'breadcrumbs' => $breadcrumbs, 'data' => $data[0]]);
+        'breadcrumbs' => $breadcrumbs, 'data' => $data]);
 
 
     }

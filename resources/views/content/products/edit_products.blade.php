@@ -1,7 +1,7 @@
 
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Edit Product')
+@section('title', 'Edit This Product')
 
 @section('vendor-style')
   {{-- Vendor Css files --}}
@@ -22,7 +22,7 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Edit This Product</h4>
+          <h4 class="card-title">Edit This Product: <b>{{$data->name}}</b></h4>
         </div>
         <div class="card-body">
 
@@ -45,22 +45,25 @@
 
 
 
-          <form action="{{route('add_product')}}" class="invoice-repeater" enctype="multipart/form-data" method="POST">
+          <form action="{{route('edit_product', ['id'=> $data->id])}}" class="invoice-repeater" enctype="multipart/form-data" method="POST">
 		  @csrf
-            
+            <div data-repeater-list="new">
+				<div data-repeater-item>
 
 					<div class="row d-flex align-items-end">
 
 						<div class="col-md-6 col-12 mb-50">
 							<div class="mb-1">
 								<label class="form-label" for="name">Name</label>
+								<input type="hidden" value="{{$data->id}}" name="id"/>
 								<input
 									type="name"
 									class="form-control"
 									id="image"
 									name="name"
+									value="{{$data->name}}"
 									placeholder="T-shirt"
-									aria-describedby="name" required
+									aria-describedby="name" readonly
 								/>
 							</div>
 						</div>
@@ -73,7 +76,7 @@
 									class="form-control"
 									id="image"
 									name="image"
-									aria-describedby="image"required
+									aria-describedby="image"
 								/>
 							</div>
 						</div>
@@ -86,6 +89,7 @@
 									class="form-control"
 									id="minimum_order"
 									name="minimum_order"
+									value="{{$data->minimum_order}}"
 									placeholder="7 lot in number Or 100 pis"
 									aria-describedby="minimum_order" required
 								/>
@@ -100,6 +104,7 @@
 									class="form-control"
 									id="estimated_delivery"
 									name="estimated_delivery"
+									value="{{$data->estimated_delivery}}"
 									placeholder="7-8 Days"
 									aria-describedby="estimated_delivery" required
 								/>
@@ -112,7 +117,11 @@
 								<select class="form-select" name="company" id="company" required>
 
 								@foreach($companies as $company)
-							<option value="{{$company->name}}">{{$company->name}}</option>
+								@if($company->name == $data->company)
+									<option value="{{$company->name}}" selected>{{$company->name}}</option>
+								@else
+									<option value="{{$company->name}}">{{$company->name}}</option>
+								@endif
 								@endforeach
 
 								</select>
@@ -128,6 +137,7 @@
 									class="form-control"
 									id="short_description"
 									name="short_description"
+									value="{{$data->short_description}}"
 									placeholder="A future changing quality with Codebumble"
 									aria-describedby="short_description"required
 								/>
@@ -143,7 +153,7 @@
 									name="description"
 									placeholder="7-8 Days"
 									aria-describedby="short_description"required
-								></textarea>
+								>{{$data->short_description}}</textarea>
 							</div>
 						</div>
 
@@ -155,7 +165,8 @@
 									class="form-control"
 									id="price"
 									name="price"
-									placeholder="509 /- tk per Item"
+									value="{{$data->price}}"
+									placeholder="৳ 509 /-"
 									aria-describedby="short_description"required
 								/>
 							</div>
@@ -165,21 +176,18 @@
 							<div class="mb-1">
 								<label class="form-label" for="short_description">Stock</label>
 								<select class="form-select" id="stock" name="stock" required>
+								@php
+								$b ="";
+								$c="";
+								if($data->stock == "Available"){
+									$b = "selected";
+								} else {
+									$c = "selected";
+								}
 
-								<option value="Available">Available </option>
-								<option value="Out of Stock">Out of Stock</option>
-
-								</select>
-							</div>
-						</div>
-
-						<div class="col-md-6 col-12 mb-50">
-							<div class="mb-1">
-								<label class="form-label" for="short_description">URL</label>
-								<select class="form-select" id="url" name="[type]" required>
-
-								<option value="Default">Default </option>
-								<option value="Custom URL">Custom URL</option>
+								@endphp
+								<option value="Available" {{$b}}>Available </option>
+								<option value="Out of Stock" {{$c}}>Out of Stock</option>
 
 								</select>
 							</div>
@@ -187,41 +195,56 @@
 
 						<div class="col-md-6 col-12 mb-50">
 							<div class="mb-1">
-								<label class="form-label" for="custom-link">Custom Link</label>
+								<label class="form-label" for="type">URL</label>
+								<select class="form-select" id="type" name="type" required>
+
+								@php
+								$d ="";
+								$e="";
+								if(json_decode($data->json_data)->type == "Default"){
+									$d = "selected";
+								} else {
+									$e = "selected";
+								}
+
+								@endphp
+
+								<option value="Default" {{$d}}>Default </option>
+								<option value="Custom URL" {{$e}}>Custom URL</option>
+
+								</select>
+							</div>
+						</div>
+
+						<div class="col-md-6 col-12 mb-50">
+							<div class="mb-1">
+								<label class="form-label" for="link">Custom Link</label>
 								<input
 									type="text"
 									class="form-control"
-									id="custom-link"
-									name="[link]"
+									id="link"
+									name="link"
+									value="{{json_decode($data->json_data)->custom_url}}"
 									placeholder="https://google.com"
-									aria-describedby="custom_link"required
+									aria-describedby="link"
 								/>
 							</div>
 						</div>
 
 
 
-						<div class="col-md-6 col-12 mb-50">
-						<div class="mb-1">
-						<button class="btn btn-outline-danger text-nowrap px-1" type="button" data-repeater-delete >
-							<i data-feather="x" class="me-25"></i>
-							<span>Delete</span>
-						</button>
-						</div>
-					</div>
+
 
 					</div>
 					<hr/>
 
 
+				</div>
 
+            </div>
             <div class="row">
               <div class="col-12">
-                <button class="btn btn-icon btn-warning" type="button" data-repeater-create>
-                  <i data-feather="plus" class="me-25"></i>
-                  <span>Add New</span>
-                </button>
-				        <button class="btn btn-icon btn-success m-1" type="submit">
+				<button class="btn btn-icon btn-success m-1" type="submit">
                   <i data-feather="check" class="me-25"></i>
                   <span>Update</span>
                 </button>
