@@ -681,8 +681,19 @@
                   <div class="col-12 mb-1 mt-1">
                     <div class="form-check form-check-secondary">
                       <input type="checkbox" class="form-check-input" id="isDistrict"/>
-                      <label class="form-check-label" for="isDistrict">Show in "Correspondence by Disctrict"</label>
+                      <label class="form-check-label" for="isDistrict">Show in "Correspondence by District"</label>
                     </div>
+                  </div>
+
+                  <div class="col-12 mb-1 mt-1">
+                    <label class="form-label" for="company">If Yes, Correspondence by District Company Name :</label>
+                    <select class="select2 w-100" name="cd_company" id="cd_company" required>
+                      <option value="" selected></option>
+					              @foreach($companys as $company)
+							        <option value="{{$company->name}}">{{$company->name}}</option>
+					              @endforeach
+
+					          </select>
                   </div>
 
                   <div class="col-12 mb-1 mt-1">
@@ -690,6 +701,17 @@
                       <input type="checkbox" class="form-check-input" id="isSubDistrict"/>
                       <label class="form-check-label" for="isSubDistrict">Show in "Correspondence by Sub-Disctrict"</label>
                     </div>
+                  </div>
+
+                  <div class="col-12 mb-1 mt-1">
+                    <label class="form-label" for="company">If Yes, Sub-Correspondence by District Company Name:</label>
+                    <select class="select2 w-100" name="csd_company" id="csd_company" required>
+                      <option value="" selected></option>
+					              @foreach($companys as $company)
+							        <option value="{{$company->name}}">{{$company->name}}</option>
+					              @endforeach
+
+					          </select>
                   </div>
 
                 @endif
