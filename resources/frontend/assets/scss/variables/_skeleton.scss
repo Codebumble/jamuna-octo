@@ -1,0 +1,15 @@
+.skeleton_bg {
+	animation: pulse-bg 1s infinite;
+}
+
+@keyframes pulse-bg {
+	0% {
+		@apply bg-gray-100;
+	}
+	50% {
+		background-color: #eaeaea;
+	}
+	100% {
+		@apply bg-gray-100;
+	}
+}

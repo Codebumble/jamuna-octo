@@ -1,13 +1,28 @@
 <template>
-	<qualityProcess />
+		<Suspense>
+		<template #default>
+			<qualityProcess />
+		</template>
+		<template #fallback>
+			<qualityProcessSkeleton />
+		</template>
+	</Suspense>
 </template>
 
 <script>
-	import qualityProcess from '../components/management/quality-process.vue';
+import { defineAsyncComponent } from 'vue';
+const qualityProcess = defineAsyncComponent({
+	loader: () => import('../components/management/quality-process.vue'),
+	timeout: 2000,
+});
+// Skeleton
+import qualityProcessSkeleton from '../components/skeleton/quality-process-skeleton.vue';
 	export default {
 		components: {
 			qualityProcess,
+			qualityProcessSkeleton
 		},
+
 		data() {
 			return {};
 		},
