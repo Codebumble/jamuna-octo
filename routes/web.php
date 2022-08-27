@@ -251,6 +251,7 @@ Route::group(["prefix" => "frontpage-api"], function () {
 	Route::get("circular-details/{id}", [career::class, "front_circular_details"]);
 
 	Route::get("event-list", [event_rest::class, "frontpage_event_list"]);
+	Route::get("event-details/{id}", [event_rest::class, "frontpage_single_event_view"]);
 
 
 	Route::get("all-company-view", [FrontPage::class, "all_company_view"]);

@@ -211,6 +211,14 @@ class event_rest extends Controller
 
     public function frontpage_single_event_view($id){
 
+        $db= DB::select('select * from codebumble_event_list where id=?', [$id]);
+
+        if(isset($db[0])){
+        return json_encode($db[0]);
+        } else {
+            return json_encode($db);
+        }
+
     }
 
 
