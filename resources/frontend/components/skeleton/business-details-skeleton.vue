@@ -67,19 +67,19 @@
 					<h2 class="bg-gray-100 h-6 mb-4 w-80"></h2>
 					<div>
 						<div class="bg-gray-100 h-6 mb-4 w-full"></div>
+						<div class="bg-gray-100 h-6 mb-4 w-8/12"></div>
+						<div class="bg-gray-100 h-6 mb-4 w-10/12"></div>
+						<div class="bg-gray-100 h-6 mb-4 w-7/12"></div>
 						<div class="bg-gray-100 h-6 mb-4 w-full"></div>
+						<div class="bg-gray-100 h-6 mb-4 w-9/12"></div>
+						<div class="bg-gray-100 h-6 mb-4 w-11/12"></div>
+						<div class="bg-gray-100 h-6 mb-4 w-10/12"></div>
 						<div class="bg-gray-100 h-6 mb-4 w-full"></div>
+						<div class="bg-gray-100 h-6 mb-4 w-6/6"></div>
+						<div class="bg-gray-100 h-6 mb-4 w-3/4"></div>
+						<div class="bg-gray-100 h-6 mb-4 w-11/12"></div>
 						<div class="bg-gray-100 h-6 mb-4 w-full"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-full"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-full"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-full"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-full"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-full"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-full"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-full"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-full"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-full"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-full"></div>
+						<div class="bg-gray-100 h-6 mb-4 w-2/4"></div>
 					</div>
 
 					<div class="company-gallery pt-8">
