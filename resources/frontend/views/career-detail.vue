@@ -319,7 +319,7 @@
 			<!-- upper part closed -->
 			<div
 				class="grid lg:grid-cols-3 gap-6 w-full lg:w-10/12 mx-auto overview pt-20">
-				<div class="lg:col-span-2 w-full break-words overflow-hidden">
+				<div class="lg:col-span-2 w-full break-words overflow-hidden description">
 					<div v-html="jobdescription.description"></div>
 					<ul
 						class="list-disc list-inside text-gray-600"
