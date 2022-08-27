@@ -166,12 +166,16 @@
 			photos(page) {
 				this.images = [];
 				axios
-					.get(`https://picsum.photos/v2/list?page=${page}&limit=4`)
+					.get(
+						window.location.origin +
+							'/frontpage-api/company-images/' +
+							this.$route.params.id
+					)
 					.then((res) => {
 						res.data.forEach((item) => {
 							this.images.push({
-								src: item.download_url,
-								title: item.author,
+								src: item.src,
+								title: item.name,
 							});
 						});
 					});
