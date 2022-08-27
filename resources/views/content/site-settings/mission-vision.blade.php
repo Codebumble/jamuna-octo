@@ -34,6 +34,12 @@
                                         <span class="fw-bold">Mission & Vision</span>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('future_expension_view') }}">
+                                        <i data-feather="trending-up" class="font-medium-3 me-50"></i>
+                                        <span class="fw-bold">Future Expension</span>
+                                    </a>
+                                </li>
 
                             </ul>
                         </div>
@@ -67,6 +73,22 @@
 
                                 <div data-repeater-item>
                                     <div class="row d-flex align-items-end">
+
+                                <div class="divider-primary divider">
+                                    <div class="divider-text">Heading</div>
+                                </div>
+                                <div class="col-12 mb-1">
+                                    <div class="mb-1">
+                                        <label class="form-label" for="title">Title</label>
+                                        <input type="text" class="form-control" name="title" value="{{$data[0]->title}}"
+                                            aria-describedby="title" placeholder="" />
+                                    </div>
+                                </div>
+
+                                <div class="mb-1">
+                                    <label class="d-block form-label" for="desc">Description</label>
+                                    <textarea id="desc" class="form-control" name="desc" rows="3" required>{{$data[0]->desc}}</textarea>
+                                </div>
 
                                 <div class="divider-primary divider">
                                     <div class="divider-text">Mission</div>
