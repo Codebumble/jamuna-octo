@@ -228,15 +228,15 @@ var quill = new Quill('#editor', {
                     <h2 class="ql-align-center">Getting Started is Easy</h2>
                     <p class="card-text"><br /></p>
                     <pre>
-// &lt;link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet"&gt;
-// &lt;script src="https://cdn.quilljs.com/1.3.6/quill.min.js" type="text/javascript"&gt;&lt;/script&gt;
-var quill = new Quill('#editor', {
-    modules: {
-        toolbar: '#toolbar'
-    },
-    theme: 'snow'
-});
-// Open your browser's developer console to try out the API!</pre
+                      // &lt;link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet"&gt;
+                      // &lt;script src="https://cdn.quilljs.com/1.3.6/quill.min.js" type="text/javascript"&gt;&lt;/script&gt;
+                      var quill = new Quill('#editor', {
+                          modules: {
+                              toolbar: '#toolbar'
+                          },
+                          theme: 'snow'
+                      });
+                      // Open your browser's developer console to try out the API!</pre
                     >
                     <p class="card-text"><br /></p>
                     <p class="card-text"><br /></p>

@@ -7,12 +7,20 @@
   {{-- Vendor Css files --}}
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/forms/select/select2.min.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/pickers/flatpickr/flatpickr.min.css')) }}">
+
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/editors/quill/katex.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/editors/quill/monokai-sublime.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/editors/quill/quill.snow.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/editors/quill/quill.bubble.css')) }}">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Roboto+Slab&family=Slabo+27px&family=Sofia&family=Ubuntu+Mono&display=swap" rel="stylesheet">
 @endsection
 
 @section('page-style')
   {{-- Page Css files --}}
   <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/form-validation.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-flat-pickr.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/form-quill-editor.css')) }}">
 @endsection
 
 @section('content')
@@ -166,14 +174,16 @@
 
 
 						<div class="mb-1">
-						<label class="d-block form-label" for="description">Job Details</label>
-						<textarea
-							class="form-control"
-							id="description"
-							name="new[description]"
-							rows="3"
-							required
-						>{{$d->description}}</textarea>
+						<div class="col-sm-12">
+						<label class="form-label" for="description">Description</label>
+							<div id="full-wrapper">
+								<div id="full-container">
+									<div class="editor" id="ql-editor" spellcheck="false">
+									</div>
+
+								</div>
+							</div>
+							</div>
 						</div>
 
 
@@ -247,9 +257,119 @@
   <!-- vendor files -->
   <script src="{{ asset(mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
   <script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/editors/quill/katex.min.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/editors/quill/highlight.min.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/editors/quill/quill.min.js')) }}"></script>
 @endsection
 @section('page-script')
   <!-- Page js files -->
-  <script src="{{ asset(mix('js/scripts/forms/form-validation-company-page.js')) }}"></script>
+  <script src="{{ asset(mix('js/scripts/forms/form-validation-job-page.js')) }}"></script>
+
+  <script>
+(function (window, document, $) {
+	'use strict';
+
+	var Font = Quill.import('formats/font');
+	Font.whitelist = ['sofia', 'slabo', 'roboto', 'inconsolata', 'ubuntu'];
+	Quill.register(Font, true);
+
+	// Bubble Editor
+
+
+
+	// Snow Editor
+
+
+
+	// Full Editor
+
+
+
+	var fullEditor = new Quill('#full-container .editor', {
+	  bounds: '#full-container .editor',
+	  modules: {
+		formula: true,
+		syntax: true,
+		toolbar: [
+		  [
+			{
+			  font: []
+			},
+			{
+			  size: []
+			}
+		  ],
+		  ['bold', 'italic', 'underline', 'strike'],
+		  [
+			{
+			  color: []
+			},
+			{
+			  background: []
+			}
+		  ],
+		  [
+			{
+			  script: 'super'
+			},
+			{
+			  script: 'sub'
+			}
+		  ],
+		  [
+			{
+			  header: '1'
+			},
+			{
+			  header: '2'
+			},
+			'blockquote',
+			'code-block'
+		  ],
+		  [
+			{
+			  list: 'ordered'
+			},
+			{
+			  list: 'bullet'
+			},
+			{
+			  indent: '-1'
+			},
+			{
+			  indent: '+1'
+			}
+		  ],
+		  [
+			'direction',
+			{
+			  align: []
+			}
+		  ],
+		  ['link', 'image', 'video', 'formula'],
+		  ['clean']
+		]
+	  },
+	  theme: 'snow'
+	});
+
+	$("#job-post").on("submit", function () {
+		var hvalue = $('#ql-editor').html();
+		$(this).append("<textarea name='new[description]' style='display:none' spellcheck='false'>"+fullEditor.root.innerHTML.trim()+"</textarea>");
+
+	   });
+
+
+
+	var editors = [fullEditor];
+  })(window, document, jQuery);
+
+
+
+
+
+   </script>
+
+
 
 @endsection

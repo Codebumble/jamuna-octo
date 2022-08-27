@@ -215,6 +215,7 @@ Route::group(["prefix" => "frontpage-api"], function () {
 
 	Route::get("company/{id}", [FrontPage::class, "company_data"]);
 	Route::get("circular-and-category-short-list", [career::class, "front_short_list"]);
+	Route::get("circular-details/{id}", [career::class, "front_circular_details"]);
 
 	Route::get("all-company-view", [FrontPage::class, "all_company_view"]);
 	Route::get("footer-component", [FrontPage::class, "footer_component"]);

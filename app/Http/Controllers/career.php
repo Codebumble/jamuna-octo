@@ -175,7 +175,7 @@ class career extends Controller
         check_power('admin');
         foreach($request->new as $key=>$value){
             if($request->new[$key] == "" || $request->new[$key] == null){
-                return redirect()->route('post_a_job_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Product Added!! This Product is now Visible in The website.', 'hasher_ip' => Str::random(10)]);
+                return redirect()->route('post_a_job_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> $key.' got nulled.', 'hasher_ip' => Str::random(10)]);
             }
         }
 
@@ -376,6 +376,26 @@ class career extends Controller
 
 
 
+
+
+
+    }
+
+    public function front_circular_details($id){
+
+        $data2 = DB::select('select * from codebumble_job_list where id = ?', [$id]);
+
+        if(!isset($data2[0])){
+            $pageConfigs = ['blankPage' => true];
+
+            return view('/content/miscellaneous/error', ['pageConfigs' => $pageConfigs]);
+        }
+
+        // $a = [
+        //     '' => ,
+        //     '' => ,
+        //     '' => ,
+        // ];
 
 
 
