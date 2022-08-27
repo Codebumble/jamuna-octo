@@ -200,6 +200,42 @@
     </div>
     <!-- /Bootstrap Validation -->
 
+	<div class="divider-primary divider">
+            <div class="divider-text">Uploaded Image</div>
+        </div>
+
+        <div class="col-12">
+
+            <div class="row match-height">
+                @php
+                    $counter = 0;
+                @endphp
+
+                @foreach ($imgs as $value)
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card">
+                            <img class="card-img-top" style="height: 15rem; object-fit: cover; max-width: 100%"
+                                src="{{ asset($value->src) }}" alt="{{$value->name}}" />
+
+                            <div class="card-body">
+
+                                <a href="{{ route('delete_company_image', ['id' => $counter, 'company_id' => $company->id]) }}"
+                                    class="btn btn-outline-danger col-md-6">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    @php
+                        $counter += 1;
+                    @endphp
+                @endforeach
+
+
+
+            </div>
+
+        </div>
+
     <!-- jQuery Validation -->
 
     <!-- /jQuery Validation -->
