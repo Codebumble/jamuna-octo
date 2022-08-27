@@ -523,4 +523,15 @@ class Company_rest extends Controller
         return redirect()->route('all-company',['status' => 'updated']);
 
     }
+
+    public function company_gallery_api($c_id){
+
+        $data_get = DB::select('select json_data from codebumble_company_list where id=?',[$c_id]);
+        $z = json_decode($data_get[0]->json_data);
+        $a= $z->other_images;
+
+        return json_encode($a);
+
+
+    }
 }
