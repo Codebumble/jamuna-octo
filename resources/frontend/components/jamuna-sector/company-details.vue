@@ -174,8 +174,8 @@
 					.then((res) => {
 						res.data.forEach((item) => {
 							this.images.push({
-								src: item.download_url,
-								title: item.author,
+								src: item.src,
+								title: item.name,
 							});
 						});
 					});
