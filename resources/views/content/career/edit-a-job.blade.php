@@ -48,7 +48,7 @@
 
 
 
-          <form class="needs-validation" novalidate action="{{route('edit_new_job')}}" enctype="multipart/form-data" method="POST">
+          <form class="needs-validation" novalidate action="{{route('edit_new_job')}}" enctype="multipart/form-data" id="job-post" method="POST">
 		  @csrf
 				<div class="row">
 						<div class="mb-1 col-12 col-md-6">
