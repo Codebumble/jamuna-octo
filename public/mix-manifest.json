@@ -1206,6 +1206,7 @@
     "/images/elements/jbl-speaker.png": "/images/elements/jbl-speaker.png",
     "/images/elements/macbook-pro.png": "/images/elements/macbook-pro.png",
     "/images/elements/magic-mouse.png": "/images/elements/magic-mouse.png",
+    "/images/event-image/1661619164-YzVPR-event-images.jpg": "/images/event-image/1661619164-YzVPR-event-images.jpg",
     "/images/ico/favicon-32x32.png": "/images/ico/favicon-32x32.png",
     "/images/ico/favicon.ico": "/images/ico/favicon.ico",
     "/images/icons/amazon.png": "/images/icons/amazon.png",
@@ -1550,6 +1551,5 @@
     "/data/projects-list.json": "/data/projects-list.json",
     "/data/search.json": "/data/search.json",
     "/data/table-datatable.json": "/data/table-datatable.json",
-    "/data/user-list.json": "/data/user-list.json",
-    "/images/event-image/1661619164-YzVPR-event-images.jpg": "/images/event-image/1661619164-YzVPR-event-images.jpg"
+    "/data/user-list.json": "/data/user-list.json"
 }

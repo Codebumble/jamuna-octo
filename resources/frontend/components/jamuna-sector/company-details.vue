@@ -167,7 +167,8 @@
 			},
 			photos(page) {
 				this.images = [];
-				axios
+				if (this.$route.params.id) {
+					axios
 					.get(
 						window.location.origin +
 							'/frontpage-api/company-images/' +
@@ -181,6 +182,7 @@
 							});
 						});
 					});
+				}
 			},
 		},
 		created() {
