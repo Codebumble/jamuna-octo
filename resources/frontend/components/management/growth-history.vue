@@ -1,10 +1,11 @@
 <template>
-	<section class="growthHistory pb-16 pb-28 pt-32">
+	<section class="growthHistory pb-16 pt-32">
 		<div class="container relative">
 			<div class="timeline">
 				<ul>
 					<li
 						class="item"
+						:class="key === 0 ? 'active' : ''"
 						v-for="(timeline, key) in growthHistory"
 						:key="key">
 						<div class="content">
