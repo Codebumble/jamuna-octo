@@ -1,13 +1,27 @@
 <template>
-	<businessDetails :data="company" :images="images" @pageNumber="photos" />
-	<p>{{ currentUrl }}</p>
+	<Suspense>
+		<template #default>
+			<businessDetails
+				:data="company"
+				:images="images"
+				@pageNumber="photos" />
+		</template>
+		<template #fallback> <skeleton /> </template>
+	</Suspense>
 </template>
 
 <script>
-	import businessDetails from '../global/business-details';
+	import { defineAsyncComponent } from 'vue';
+	import skeleton from '../skeleton/business-details-skeleton';
+	// import businessDetails from '../global/business-details';
+	const businessDetails = defineAsyncComponent({
+		loader: () => import('../global/business-details'),
+		timeout: 2000,
+	});
 	export default {
 		components: {
 			businessDetails,
+			skeleton,
 		},
 		data() {
 			return {
@@ -85,7 +99,7 @@
 					],
 				},
 				images: [],
-				page: 1
+				page: 1,
 			};
 		},
 		setup() {},
@@ -146,20 +160,21 @@
 						this.company.social.facebook = jsn.facebook;
 					});
 
-					// Lightbox api
-					this.photos(this.page)
+				// Lightbox api
+				this.photos(this.page);
 			},
-			photos(page){
-				this.images = []
-				axios.get(`https://picsum.photos/v2/list?page=${page}&limit=4`).then((res) => {
-					res.data.forEach((item) =>{
-						this.images.push({
-							src: item.download_url,
-							title: item.author,
-						})
-						}
-					);
-				});
+			photos(page) {
+				this.images = [];
+				axios
+					.get(`https://picsum.photos/v2/list?page=${page}&limit=4`)
+					.then((res) => {
+						res.data.forEach((item) => {
+							this.images.push({
+								src: item.download_url,
+								title: item.author,
+							});
+						});
+					});
 			},
 		},
 		created() {
