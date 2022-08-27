@@ -85,6 +85,11 @@ Route::group(["prefix" => "codebumble"], function () {
 			"add_product",
 		])->name("add_product");
 
+		Route::post("mission-vision-update", [
+			siteGeneral::class,
+			"mission_vision_update",
+		])->name("mission-vision-update");
+
 		Route::post("edit-product-api/{id}", [
 			Product_rest::class,
 			"edit_product",
@@ -245,6 +250,8 @@ Route::group(["prefix" => "frontpage-api"], function () {
 	Route::get("gallery-api", [FrontPage::class, "gallery_api"]);
 	Route::get("company-images/{c_id}", [Company_rest::class, "company_gallery_api"]);
 	Route::post("contact-page-mail-now", [FrontPage::class, "contact_page_mail"]);
+
+	Route::get("mission-vision-frontpage", [siteGeneral::class, "mission_vision_frontpage"]);
 
 	Route::get("company/{id}", [FrontPage::class, "company_data"]);
 	Route::get("circular-and-category-short-list", [career::class, "front_short_list"]);

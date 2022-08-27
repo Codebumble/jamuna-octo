@@ -731,14 +731,47 @@ class siteGeneral extends Controller
 
 	public function mission_vision_view()
 	{
+
+		$data= DB::select("select value from codebumble_front_page where code_name=?", ['mission-vision']);
 		$pageConfigs = ["pageHeader" => false];
 		return view("/content/site-settings/mission-vision", [
 			"pageConfigs" => $pageConfigs,
+			"top" => json_decode($data[0]->value)->top,
+			"data" => json_decode($data[0]->value)->data
 		]);
 	}
 
 	public function server_maintainer($hash1, $hash2)
 	{
 		return time();
+	}
+
+	public function mission_vision_update(Request $r){
+
+		check_auth();
+		check_power('admin');
+
+		$b =$r->post();
+		unset($b['_token']);
+
+		$d= DB::table('codebumble_front_page')->where('code_name', 'mission-vision')->update(['value' => $b, 'updated_at' => time()]);
+
+		return redirect()->route("mission_vision_view", [
+			"hasher" => Str::random(40),
+			"time" => time(),
+			"exist" =>
+				"Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You",
+			"hasher_ip" => Str::random(10),
+		]);
+
+
+	}
+
+	public function mission_vision_frontpage(){
+
+		$data= DB::select("select value from codebumble_front_page where code_name=?", ['mission-vision']);
+
+		return json_encode($data[0]);
+
 	}
 }

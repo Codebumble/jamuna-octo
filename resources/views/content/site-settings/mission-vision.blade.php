@@ -37,67 +37,79 @@
 
                             </ul>
                         </div>
-                        <div id="faker" class="demo-spacing-0 d-none mb-2">
-                            <div class="alert alert-warning" role="alert">
-                                <div class="alert-body"><strong>Data Updated ! It may take a little bit time to
-                                        Update.</strong></div>
+                        @if (isset($_GET['exist']))
+                            <div class="demo-spacing-0 mb-2">
+                                <div class="alert alert-warning" role="alert">
+                                <div class="alert-body"><strong>{{ $_GET['exist'] }}</strong></div>
+                                </div>
                             </div>
-                        </div>
+                        @endif
 
-                        <form action="#" class="invoice-repeater">
+                        <form action="{{route('mission-vision-update')}}" class="invoice-repeater" method="POST">
+                        @csrf
                             <div class="row">
+
+                                <div class="col-12 mb-1">
+                                    <div class="mb-1">
+                                        <label class="form-label" for="header">Header</label>
+                                        <input type="text" class="form-control" name="top[header]" value="{{$top->header}}"
+                                            aria-describedby="header" placeholder="header" />
+                                    </div>
+                                </div>
+
+                                <div class="mb-1">
+                                    <label class="d-block form-label" for="h_description">Header Description</label>
+                                    <textarea id="validationBioBootstrap" class="form-control" name="top[h_description]" rows="3" required>{{$top->h_description}}</textarea>
+                                </div>
+
+
+                            <div data-repeater-list="data">
+
+                                <div data-repeater-item>
+                                    <div class="row d-flex align-items-end">
 
                                 <div class="divider-primary divider">
                                     <div class="divider-text">Mission</div>
                                 </div>
                                 <div class="col-12 mb-1">
                                     <div class="mb-1">
-                                        <label class="form-label" for="itemname">Title</label>
-                                        <input type="text" class="form-control" name="title" value="Mission & Vision"
-                                            aria-describedby="itemname" placeholder="Vuexy Admin Template" />
+                                        <label class="form-label" for="title">Title</label>
+                                        <input type="text" class="form-control" name="title" value="{{$data[0]->title}}"
+                                            aria-describedby="title" placeholder="" />
                                     </div>
                                 </div>
 
                                 <div class="mb-1">
-                                    <label class="d-block form-label" for="validationBioBootstrap">Description</label>
-                                    <textarea id="validationBioBootstrap" class="form-control" name="description" rows="3" required>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum animi aliquam voluptates harum aspernatur eveniet velit doloribus aliquid adipisci suscipit?</textarea>
+                                    <label class="d-block form-label" for="desc">Description</label>
+                                    <textarea id="desc" class="form-control" name="desc" rows="3" required>{{$data[0]->desc}}</textarea>
                                 </div>
 
                                 <div class="divider-primary divider">
                                     <div class="divider-text">Vision</div>
                                 </div>
                             </div>
-                            <div data-repeater-list="invoice">
 
                                 <div data-repeater-item>
                                     <div class="row d-flex align-items-end">
 
                                         <div class="col-12 mb-1">
                                             <div class="mb-1">
-                                                <label class="form-label" for="itemname">Title</label>
+                                                <label class="form-label" for="title">Title</label>
                                                 <input type="text" class="form-control" name="title"
-                                                    value="Mission Vision" aria-describedby="itemname"
-                                                    placeholder="Vuexy Admin Template" />
+                                                    value="{{$data[1]->title}}" aria-describedby="title"
+                                                    placeholder="title" />
                                             </div>
                                         </div>
 
                                         <div class="mb-1">
                                             <label class="d-block form-label"
-                                                for="validationBioBootstrap">Description</label>
-                                            <textarea id="validationBioBootstrap" class="form-control" name="description" rows="3" required>Our mission is to produce and provide quality services and un innovative products for people, maintain ethical slandered in business operation, also ensuring benefit to the stakeholders and peoples of Bangladesh.</textarea>
+                                                for="desc">Description</label>
+                                            <textarea id="desc" class="form-control" name="desc" rows="3" required>{{$data[1]->desc}}.</textarea>
                                         </div>
 
-                                        <div class="col-md-2 col-12 mb-50">
-                                            <div class="mb-1">
-                                                <button class="btn btn-outline-danger text-nowrap px-1" data-repeater-delete
-                                                    type="button">
-                                                    <i data-feather="x" class="me-25"></i>
-                                                    <span>Delete</span>
-                                                </button>
-                                            </div>
-                                        </div>
 
-                                    </div>
+
+
                                     <div class="divider-primary divider">
                                         <div class="divider-text">Objective</div>
                                     </div>
@@ -108,28 +120,19 @@
 
                                         <div class="col-12 mb-1">
                                             <div class="mb-1">
-                                                <label class="form-label" for="itemname">Title</label>
+                                                <label class="form-label" for="title">Title</label>
                                                 <input type="text" class="form-control" name="title"
-                                                    value="Our Mission" aria-describedby="itemname"
-                                                    placeholder="Vuexy Admin Template" />
+                                                    value="{{$data[2]->title}}" aria-describedby="title"
+                                                    placeholder="title" />
                                             </div>
                                         </div>
 
                                         <div class="mb-1">
                                             <label class="d-block form-label"
-                                                for="validationBioBootstrap">Description</label>
-                                            <textarea id="validationBioBootstrap" class="form-control" name="description" rows="3" required>We view business as a means to the material and social well being of the investors, employees at large leading to accretion of wealth through financial and moral gains as a part of the process of development of civilization.</textarea>
+                                                for="desc">Description</label>
+                                            <textarea id="desc" class="form-control" name="desc" rows="3" required>{{$data[2]->desc}}</textarea>
                                         </div>
 
-                                        <div class="col-md-2 col-12 mb-50">
-                                            <div class="mb-1">
-                                                <button class="btn btn-outline-danger text-nowrap px-1"
-                                                    data-repeater-delete type="button">
-                                                    <i data-feather="x" class="me-25"></i>
-                                                    <span>Delete</span>
-                                                </button>
-                                            </div>
-                                        </div>
 
                                     </div>
                                     <hr />
@@ -140,8 +143,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <button class="btn btn-icon btn-success m-1" type="button"
-                                        onclick="event.preventDefault();document.getElementById('faker').classList.remove('d-none');">
+                                    <button class="btn btn-icon btn-success m-1" type="submit">
                                         <i data-feather="check" class="me-25"></i>
                                         <span>Update</span>
                                     </button>
