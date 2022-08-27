@@ -13,6 +13,7 @@ use App\Http\Controllers\FrontPage;
 use App\Http\Controllers\photo_gallery;
 use App\Http\Controllers\FounderApi;
 use App\Http\Controllers\career;
+use App\Http\Controllers\event_rest;
 use App\Http\Controllers\PageLayoutController;
 use App\Http\Controllers\FormsController;
 use App\Http\Controllers\siteGeneral;
@@ -88,6 +89,16 @@ Route::group(["prefix" => "codebumble"], function () {
 			Product_rest::class,
 			"edit_product",
 		])->name("edit_product");
+
+		Route::post("event/add-event", [
+			event_rest::class,
+			"add_event",
+		])->name("add_event");
+
+		Route::post("event/edit-event/{id}", [
+			event_rest::class,
+			"edit_event",
+		])->name("edit_event");
 
 		Route::get("delete-product-api/{id}", [
 			Product_rest::class,
@@ -222,12 +233,15 @@ Route::group(["prefix" => "frontpage-api"], function () {
 	Route::get("contact-us-api", [FrontPage::class, "contact_us_api"]);
 	Route::get("/company-name-logo", [Company_rest::class, "view_all_company_frontend_api"]);
 	Route::get("gallery-api", [FrontPage::class, "gallery_api"]);
+	Route::get("company-images/{c_id}", [Company_rest::class, "company_gallery_api"]);
+	Route::post("contact-page-mail-now", [FrontPage::class, "contact_page_mail"]);
 
 	Route::get("company/{id}", [FrontPage::class, "company_data"]);
 	Route::get("circular-and-category-short-list", [career::class, "front_short_list"]);
 	Route::get("circular-details/{id}", [career::class, "front_circular_details"]);
 
 	Route::get("all-company-view", [FrontPage::class, "all_company_view"]);
+	Route::get("all-product-view", [Product_rest::class, "front_all_product_page"]);
 	Route::get("footer-component", [FrontPage::class, "footer_component"]);
 	Route::get("directors-list", [FrontPage::class, "directors_list"]);
 	Route::get("shortBrief", [FrontPage::class, "shortBrief"]);
@@ -257,6 +271,21 @@ Route::group(["prefix" => "admin"], function () {
 			siteGeneral::class,
 			"photo_gallery_view",
 		])->name("photo_gallery_view");
+
+		Route::get("event/add-event", [
+			event_rest::class,
+			"auth_add_event",
+		])->name("auth_add_event");
+
+		Route::get("event/edit-event/{id}", [
+			event_rest::class,
+			"auth_edit_event",
+		])->name("auth_edit_event");
+
+		Route::get("event/all-event", [
+			event_rest::class,
+			"auth_all_event",
+		])->name("auth_all_event");
 
 		Route::get("add-product", [
 			Product_rest::class,

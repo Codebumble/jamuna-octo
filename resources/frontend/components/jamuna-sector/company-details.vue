@@ -131,47 +131,53 @@
 		},
 		methods: {
 			switcher() {
-				axios
-					.get(
-						window.location.origin +
-							'/frontpage-api/company/' +
-							this.$route.params.id
-					)
-					.then((response) => {
-						var jsn = JSON.parse(response.data.json_data);
-						this.company.businessLogo =
-							'/company-images/' + response.data.image;
-						this.company.businessName = response.data.name;
-						this.company.establishDate =
-							response.data.establish_date;
-						this.company.ceo = jsn.ceo_of_the_company;
-						this.company.address.officeName = jsn.address;
-						this.company.mail = 'mailto:' + jsn.support_email;
-						this.company.emailName = jsn.support_email;
-						this.company.mobile = jsn.support_phone_number;
-						this.company.website = jsn.website;
-						this.company.products = response.data.products;
-						this.company.capacity = response.data.production_cap;
-						this.company.manpower = response.data.manpower;
-						this.company.textDetails.details =
-							response.data.description;
-						this.company.textDetails.shortDetails =
-							response.data.short_details;
-						this.company.social.facebook = jsn.facebook;
-					});
-
+				if (this.$route.params.id) {
+					axios
+						.get(
+							window.location.origin +
+								'/frontpage-api/company/' +
+								this.$route.params.id
+						)
+						.then((response) => {
+							var jsn = JSON.parse(response.data.json_data);
+							this.company.businessLogo =
+								'/company-images/' + response.data.image;
+							this.company.businessName = response.data.name;
+							this.company.establishDate =
+								response.data.establish_date;
+							this.company.ceo = jsn.ceo_of_the_company;
+							this.company.address.officeName = jsn.address;
+							this.company.mail = 'mailto:' + jsn.support_email;
+							this.company.emailName = jsn.support_email;
+							this.company.mobile = jsn.support_phone_number;
+							this.company.website = jsn.website;
+							this.company.products = response.data.products;
+							this.company.capacity =
+								response.data.production_cap;
+							this.company.manpower = response.data.manpower;
+							this.company.textDetails.details =
+								response.data.description;
+							this.company.textDetails.shortDetails =
+								response.data.short_details;
+							this.company.social.facebook = jsn.facebook;
+						});
+				}
 				// Lightbox api
 				this.photos(this.page);
 			},
 			photos(page) {
 				this.images = [];
 				axios
-					.get(`https://picsum.photos/v2/list?page=${page}&limit=4`)
+					.get(
+						window.location.origin +
+							'/frontpage-api/company-images/' +
+							this.$route.params.id
+					)
 					.then((res) => {
 						res.data.forEach((item) => {
 							this.images.push({
-								src: item.download_url,
-								title: item.author,
+								src: item.src,
+								title: item.name,
 							});
 						});
 					});

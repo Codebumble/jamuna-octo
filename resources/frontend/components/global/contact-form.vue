@@ -87,8 +87,9 @@
 				<div class="grid lg:w-6/12 mx-auto md:gap-6">
 					<div class="mt-5 md:mt-0">
 						<form
-							action="#"
+							action="/frontpage-api/contact-page-mail-now"
 							method="POST">
+							<input type="hidden" name="_token" :value="csrf"/>
 							<div class="">
 								<div class="px-4 py-5 space-y-6 sm:p-6">
 									<div class="grid grid-cols-4 gap-6">
@@ -97,7 +98,7 @@
 												class="mt-1 flex rounded-md shadow-sm">
 												<input
 													type="text"
-													name="name"
+													name="c[name]"
 													id="name"
 													class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
 													placeholder="Name" />
@@ -109,7 +110,7 @@
 												<input
 													type="tel"
 													pattern="[0-9]{4}[0-9]{3}[0-9]{4}"
-													name="phone"
+													name="c[phone]"
 													id="phone"
 													class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
 													placeholder="Mobile Number (Ex: 0123-456-7890)" />
@@ -122,7 +123,7 @@
 												class="mt-1 flex rounded-md shadow-sm">
 												<input
 													type="email"
-													name="email"
+													name="c[email]"
 													id="email"
 													class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
 													placeholder="Email (Ex: alex@example.com)" />
@@ -134,8 +135,8 @@
 											<div
 												class="mt-1 flex rounded-md shadow-sm">
 												<input
-													type="email"
-													name="email"
+													type="text"
+													name="c[subject]"
 													id="email"
 													class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
 													placeholder="Subject (Ex: Contacting for some query)" />
@@ -147,7 +148,7 @@
 										<div class="mt-1">
 											<textarea
 												id="about"
-												name="about"
+												name="c[about]"
 												rows="3"
 												class="shadow-sm focus:ring-red-500 focus:border-red-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
 												placeholder="Enter your message here..." />
@@ -176,8 +177,18 @@
 
 <script>
 	export default {
+		data() {
+    return {
+        csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+    }
+},
+
 		props: {
 			data: Object,
+
 		},
 	};
+</script>
+<script>
+
 </script>

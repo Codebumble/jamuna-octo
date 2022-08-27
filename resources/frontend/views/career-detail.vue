@@ -10,11 +10,11 @@
 							class="rounded-md w-full h-44 lg:h-96 object-cover" />
 					</div>
 					<div
-						class="absolute w-28 lg:w-40 h-28 lg:h-40 border-2 border-slate-100 rounded-xl lg:-mt-24 -mt-14 middle overflow-hidden bg-white">
+						class="absolute w-28 lg:w-40 h-28 lg:h-40 border-2 border-slate-100 rounded-xl lg:-mt-24 -mt-14 middle overflow-hidden bg-white flex justify-center items-center">
 						<img
 							:src="jobheading.complogo"
 							:alt="jobheading.by"
-							class="" />
+							class="p-4" />
 					</div>
 				</div>
 				<div class="pt-28 text-center">
@@ -210,6 +210,29 @@
 												required />
 										</div>
 									</div>
+									<div class="input-group">
+										<div class="input-item">
+											<input
+												type="text"
+												name="mobile"
+												id="experience"
+												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+												placeholder="Your Mobile Number"
+												v-model="mobile" />
+										</div>
+									</div>
+									<div class="input-group">
+										<div class="input-item">
+											<input
+												type="email"
+												name="email"
+												id="salary"
+												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+												placeholder="Your Email"
+												v-model="email"
+												required />
+										</div>
+									</div>
 								</div>
 								<div class="input-group">
 									<div class="input-item">
@@ -238,8 +261,8 @@
 															for="file-upload"
 															class="relative cursor-pointer bg-white rounded-md font-medium text-red-500 hover:text-red-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-red-500">
 															<span
-																>Upload a
-																file</span
+																>Upload your
+																CV/Resume</span
 															>
 															<input
 																id="file-upload"
@@ -254,12 +277,9 @@
 														</label>
 														<p class="pl-1">
 															or drag and drop
+															your CV/Resume
 														</p>
 													</div>
-													<p
-														class="text-xs text-gray-500">
-														PDF
-													</p>
 												</div>
 											</div>
 										</div>
@@ -292,7 +312,6 @@
 							:hashtags="sharing.hashtags"
 							:twitterUser="sharing.twitterUser">
 							<i :class="network.icon"></i>
-							<!-- <span>{{ network.name }}</span> -->
 						</ShareNetwork>
 					</div>
 				</div>
@@ -300,47 +319,8 @@
 			<!-- upper part closed -->
 			<div
 				class="grid lg:grid-cols-3 gap-6 w-full lg:w-10/12 mx-auto overview pt-20">
-				<div class="lg:col-span-2">
-					<h4 class="text-gray-800 font-bold text-xl mb-4">
-						Overview
-					</h4>
-					<p
-						class="text-base text-gray-600 mb-2"
-						v-html="jobdescription.overview"></p>
-					<h4 class="text-gray-800 font-bold text-xl my-4">
-						Responsabilities
-					</h4>
-					<ul class="list-disc list-inside text-gray-600">
-						<li
-							v-for="responsibility in jobdescription.responsibilities"
-							:key="responsibility"
-							v-html="responsibility.res"></li>
-					</ul>
-					<h4 class="text-gray-800 font-bold text-xl my-4">
-						Requirements
-					</h4>
-
-					<ul class="list-disc list-inside text-gray-600">
-						<li
-							v-for="requirement in jobdescription.requirements"
-							:key="requirement"
-							v-html="requirement.req"></li>
-					</ul>
-					<h4 class="text-gray-800 font-bold text-xl my-4">Skills</h4>
-					<ul class="list-disc list-inside text-gray-600">
-						<li
-							v-for="skill in jobdescription.skills"
-							:key="skill"
-							v-html="skill.skill"></li>
-					</ul>
-					<h4
-						class="text-gray-800 font-bold text-xl my-4"
-						v-if="
-							jobdescription.attachedfilelink &&
-							jobdescription.attachedfilelinklabel
-						">
-						Attached Files
-					</h4>
+				<div class="lg:col-span-2 w-full break-words overflow-hidden description">
+					<div v-html="jobdescription.description"></div>
 					<ul
 						class="list-disc list-inside text-gray-600"
 						v-if="
@@ -363,10 +343,6 @@
 							<h4>{{ jobInfo.experience }}</h4>
 						</div>
 						<div class="info">
-							<span>Work Level</span>
-							<h4>{{ jobInfo.workLevel }}</h4>
-						</div>
-						<div class="info">
 							<span>Employment Type</span>
 							<h4>{{ jobInfo.employmentType }}</h4>
 						</div>
@@ -376,16 +352,17 @@
 						</div>
 						<div class="info">
 							<span>Can Apply</span>
-							<h4>{{ jobInfo.gender }}</h4>
+							<h4>{{ jobInfo.gander }}</h4>
 						</div>
 					</div>
 					<div class="box">
 						<div class="flex gap-4 items-center mb-4">
-							<div>
+							<div
+								class="w-16 flex justify-center items-center h-[2.8rem] border border-gray-100 bg-white">
 								<img
 									:src="companyInfo.logo"
 									:alt="companyInfo.name"
-									class="rounded-lg w-10 h-10" />
+									class="rounded-lg w-full h-auto p-2" />
 							</div>
 							<div>
 								<h4 class="font-bold text-xl">
@@ -480,12 +457,12 @@
 			return {
 				sharing: {
 					url: window.location.origin + this.$route.path,
-					title: 'Say hi to Vite! A brand new, extremely fast development setup for Vue.',
+					title: '',
 					description:
-						'This week, I’d like to introduce you to "Vite", which means "Fast". It’s a brand new development setup created by Evan You.',
-					quote: "The hot reload is so fast it's near instant. - Evan You",
-					hashtags: 'vuejs,vite,javascript',
-					twitterUser: 'youyuxi',
+						'A new job circular has been published by The Jamuna Group for the position of' +
+						'this.jobheading.jobtitle ' +
+						'. Visit this link to sse the circular.',
+					hashtags: 'JamunaGroup, Job, Circular, Bangladesh',
 				},
 				networks: [
 					{
@@ -509,92 +486,37 @@
 						icon: 'fab fa-facebook-messenger',
 					},
 					{
-						network: 'twitter',
-						name: 'Twitter',
-						icon: 'fab fa-twitter',
-					},
-					{
 						network: 'whatsapp',
 						name: 'Whatsapp',
 						icon: 'fab fa-whatsapp',
 					},
 				],
-				jobheading: {
-					cover: 'https://pixelprime.co/themes/jobster/images/office-1.jpg',
-					complogo: '/frontend/images/logo/microsoft.svg',
-					jobtitle: 'Technical Support Engineer',
-					by: 'Microsoft',
-					location: 'Dhaka, Bangladesh',
-					category: 'Customer Service',
-					time: '4 Days ago',
-				},
-				jobdescription: {
-					overview:
-						'As a Product Designer, you will work within a Product Delivery Team fused with UX, engineering, product and data talent. You will help the team design beautiful interfaces that solve business challenges for our clients. We work with a number of Tier 1 banks on building web-based applications for AML, KYC and Sanctions List management workflows. This role is ideal if you are looking to segue your career into the FinTech or Big Data arenas.',
-					responsibilities: [
-						{
-							res: 'Be involved in every step of the product design cycle from discovery to developer handoff and user acceptance testing.',
-						},
-						{
-							res: 'Work with BAs, product managers and tech teams to lead the Product Design.',
-						},
-						{
-							res: 'Maintain quality of the design process and ensure that when designs are translated into code they accurately reflect the design specifications.',
-						},
-						{
-							res: 'Accurately estimate design tickets during planning sessions.',
-						},
-					],
-					requirements: [
-						{
-							req: '4+ years of system administration experience with the Microsoft Server platform (2012/2016, Microsoft IIS, Active Directory)',
-						},
-						{
-							req: '3+ years of hands-on system administration experience with AWS (EC2, Elastic Load Balancing, Multi AZ, etc.)',
-						},
-						{
-							req: '4+ years of SQL Server, MySQL',
-						},
-					],
-					skills: [
-						{
-							skill: 'Programming experience developing web applications with the Microsoft .NET stack and a basic knowledge of SQL',
-						},
-						{
-							skill: 'Development experience with Angular, Node.JS, or ColdFusion',
-						},
-						{
-							skill: 'HTML, CSS, XHTML, XML',
-						},
-					],
-					attachedfilelink: '#',
-					attachedfilelinklabel: 'Download the attached file',
-				},
-				jobInfo: {
-					experience: 'Minimum 1 Year',
-					workLevel: 'Senior Level',
-					employmentType: 'Full Time',
-					salary: '$35k',
-					gander: '',
-				},
+				jobheading: {},
+				jobdescription: {},
+				jobInfo: {},
 				companyInfo: {
-					logo: '/frontend/images/logo/microsoft.svg',
-					name: 'Microsoft',
-					website: '#',
-					industry: 'Software',
-					companySize: '50-100',
-					foundedIn: '2005',
-					phone: '0124 456 789',
-					email: 'office@illuminate.com',
-					location: 'San Francisco, CA',
-					websiteLink: 'www.Illuminati.com',
 					social: {
-						facebook: '#',
-						instagram: '#',
-						linkedin: '#',
+						facebook: '',
+						instagram: '',
+						linkedin: '',
 					},
 				},
 			};
+		},
+		mounted() {
+			axios
+				.get(
+					window.location.origin +
+						'/frontpage-api/circular-details/' +
+						this.$route.params.id
+				)
+				.then((response) => {
+					this.jobheading = response.data.jobheading;
+					this.jobdescription = response.data.jobdescription;
+					this.jobInfo = response.data.jobInfo;
+					this.companyInfo = response.data.companyInfo;
+					this.companyInfo.social = response.data.companyInfo.social;
+				});
 		},
 		setup() {
 			const isDistrict = ref(true);
@@ -612,6 +534,8 @@
 			const university = ref('');
 			const salary = ref('');
 			const pdf = ref();
+			const mobile = ref();
+			const email = ref();
 
 			const toggleModal = () => {
 				isActiveModal.value = !isActiveModal.value;
@@ -692,6 +616,8 @@
 				experience,
 				university,
 				salary,
+				mobile,
+				email,
 			};
 		},
 	};

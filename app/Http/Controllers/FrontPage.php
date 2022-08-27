@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Validator;
 use File;
 use DB;
+use Illuminate\Support\Facades\Mail;
 
 class FrontPage extends Controller
 {
@@ -202,6 +203,20 @@ class FrontPage extends Controller
         $logo_url = DB::select('select value from codebumble_general where code_name=?', ['site_logo']);
 
         return json_encode(['APP_LOGO' => $logo_url[0]->value]);
+
+    }
+
+    public function contact_page_mail(Request $request){
+
+        $c = $request->c;
+
+    Mail::send('email.contact-form', [ 'name' => $c['name'], 'phone' => $c['phone'],'email' => $c['email'], 'ip' => $request->ip(), 'about' => $c['about'], 'facebook_page' => '', 'insta_account'=>'', 'twitter_account'=>''], function($message) use($c){ $message->subject($c['subject'].' - Contact form - '.env('APP_NAME')); $message->to([$c['email'], env('SUPPORT_HOST')]); });
+
+
+        return redirect('/contact?text=success');
+
+
+
 
     }
 }

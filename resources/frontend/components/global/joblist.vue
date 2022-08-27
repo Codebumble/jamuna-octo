@@ -35,11 +35,11 @@
 							v-for="circular in jobList.circulars"
 							:key="circular">
 							<div class="flex gap-3 items-center">
-								<div>
+								<div class="w-16">
 									<img
 										:src="circular.compLogo"
 										:alt="circular.compName"
-										class="w-8" />
+										class="w-full" />
 								</div>
 								<div>
 									<h4 class="font-bold">
@@ -54,7 +54,9 @@
 								<h2 class="font-bold pb-1">
 									{{ circular.jobTitle }}
 								</h2>
-								<p class="text-sm">{{ circular.empTime }}</p>
+								<p class="text-sm capitalize">
+									{{ circular.empTime }}
+								</p>
 							</div>
 							<div class="exerp">
 								<p>
@@ -107,12 +109,8 @@
 			return {
 				jobList: {
 					categoryTitle: 'One Platform Many Solutions',
-					jobCategories: [
-
-					],
-					circulars: [
-
-					],
+					jobCategories: [],
+					circulars: [],
 				},
 			};
 		},

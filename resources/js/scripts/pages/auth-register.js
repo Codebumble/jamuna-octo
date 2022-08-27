@@ -144,13 +144,11 @@ $(function () {
           birth_certificate_number = $('#birth_certificate_number').val(),
           nid_number = $('#nid_number').val(),
           passport_number = $('#passport_number').val(),
-          csd_company = $('#csd_company').val(),
           cd_company = $('#cd_company').val(),
           cv = $("#cv")[0].files[0],
           token = $("input[name='_token']").val(),
           isBoardofDirectors = document.getElementById("isBoardofDirectors"),
-          isDistrict = document.getElementById("isDistrict"),
-          isSubDistrict = document.getElementById("isSubDistrict");
+          isDistrict = document.getElementById("isDistrict");
 
 
 

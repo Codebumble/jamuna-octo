@@ -54,44 +54,7 @@
 					description:
 						'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit dolorem, nemo maiores debitis quod distinctio repellendus. Dolore ipsam veritatis voluptas.',
 				},
-				slideContent: [
-					{
-						imgSrc: '/frontend/images/contents/denims1.jpeg',
-						alt: 'denims1',
-						webLink: '/hoorain-htf',
-						linkText: 'View Details',
-					},
-					{
-						imgSrc: '/frontend/images/contents/denims2.jpg',
-						alt: 'denims1',
-						webLink: '/jamuna-denims-garments-ltd',
-						linkText: 'View Details',
-					},
-					{
-						imgSrc: '/frontend/images/contents/denims3.jpg',
-						alt: 'denims1',
-						webLink: '/jeansco',
-						linkText: 'View Details',
-					},
-					{
-						imgSrc: '/frontend/images/contents/crown.jpg',
-						alt: 'denims1',
-						webLink: '/jeansco',
-						linkText: 'View Details',
-					},
-					{
-						imgSrc: '/frontend/images/contents/jfp1.jpg',
-						alt: 'denims1',
-						webLink: '/jeansco',
-						linkText: 'View Details',
-					},
-					{
-						imgSrc: '/frontend/images/contents/jugantor.jpg',
-						alt: 'denims1',
-						webLink: '/jeansco',
-						linkText: 'View Details',
-					},
-				],
+				slideContent: [],
 			};
 		},
 		components: {
@@ -99,12 +62,11 @@
 			SplideSlide,
 		},
 		mounted() {
-			// axios
-			// 	.get(window.location.origin + '/frontpage-api/all-company-view')
-			// 	.then((response) => {
-			// 		this.slideContent = response.data.images;
-			// 		this.groupTitle = response.data.galary_data;
-			// 	});
+			axios
+				.get(window.location.origin + '/frontpage-api/all-product-view')
+				.then((response) => {
+					this.slideContent = response.data;
+				});
 		},
 		setup() {
 			const groupsoptions = {

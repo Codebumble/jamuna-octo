@@ -39,7 +39,7 @@
 		},
 		{
 			"navheader": "Site Settings",
-			"permission": 1,
+			"permission": 3,
 			"slug": ""
 		},
 		{
@@ -67,7 +67,7 @@
 		{
 			"name": "Businesses",
 			"icon": "anchor",
-			"permission": 1,
+			"permission": 3,
 			"slug": "",
 			"submenu": [
 				{
@@ -88,14 +88,14 @@
 					"url": "admin/add-product",
 					"name": "Add product",
 					"icon": "circle",
-					"permission": 1,
+					"permission": 3,
 					"slug": "auth_add_product_page"
 				},
 				{
 					"url": "admin/list-product",
 					"name": "All products",
 					"icon": "circle",
-					"permission": 1,
+					"permission": 3,
 					"slug": "auth_all_product_page"
 				},
 				{
@@ -126,6 +126,28 @@
 					"icon": "circle",
 					"permission": 1,
 					"slug": "all-section"
+				}
+			]
+		},
+		{
+			"name": "Events",
+			"icon": "tag",
+			"permission": 2,
+			"slug": "",
+			"submenu": [
+				{
+					"url": "admin/event/add-event",
+					"name": "Add Event",
+					"icon": "circle",
+					"permission": 2,
+					"slug": "auth_add_event"
+				},
+				{
+					"url": "admin/event/all-event",
+					"name": "All Events",
+					"icon": "circle",
+					"permission": 2,
+					"slug": "auth_all_event"
 				}
 			]
 		},
@@ -221,15 +243,8 @@
 			"slug": "photo_gallery_view"
 		},
 		{
-			"url": "",
-			"name": "Contact",
-			"icon": "mail",
-			"permission": 1,
-			"slug": ""
-		},
-		{
 			"navheader": "Career",
-			"permission": 0,
+			"permission": 1,
 			"slug": ""
 		},
 		{

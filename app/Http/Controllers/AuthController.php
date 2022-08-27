@@ -73,13 +73,11 @@ class AuthController extends Controller
         $json_data['nid_number'] = $request['nid_number'];
         $json_data['passport_number'] = $request['passport_number'];
         $json_data['cd_company'] = $request['cd_company'];
-        $json_data['csd_company'] = $request['csd_company'];
 
         if(Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin'){
 
             $json_data['isBoardofDirectors'] = $request['isBoardofDirectors'];
             $json_data['isDistrict'] = $request['isDistrict'];
-            $json_data['isSubDistrict'] = $request['isSubDistrict'];
 
         }
 
