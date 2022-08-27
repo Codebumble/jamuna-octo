@@ -82,25 +82,29 @@ Route::group(['prefix' => 'codebumble'], function () {
 		])->name('growth_story_api');
 		Route::post('add-new-product', [
 			Product_rest::class,
-			"add_product",
-		])->name("add_product");
+			'add_product',
+		])->name('add_product');
 
-		Route::post("mission-vision-update", [
+		Route::post('mission-vision-update', [
 			siteGeneral::class,
-			"mission_vision_update",
-		])->name("mission-vision-update");
+			'mission_vision_update',
+		])->name('mission-vision-update');
 
-		Route::post("edit-product-api/{id}", [
+		Route::get('site-settings/future-expension', [
+			siteGeneral::class,
+			'future_expension_view',
+		])->name('future_expension_view');
+
+		Route::post('edit-product-api/{id}', [
 			Product_rest::class,
 			'edit_product',
 		])->name('edit_product');
 
-		Route::post("event/add-event", [
-			event_rest::class,
-			"add_event",
-		])->name("add_event");
+		Route::post('event/add-event', [event_rest::class, 'add_event'])->name(
+			'add_event'
+		);
 
-		Route::post("event/edit-event/{id}", [
+		Route::post('event/edit-event/{id}', [
 			event_rest::class,
 			'edit_event',
 		])->name('edit_event');
@@ -245,30 +249,53 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 		FrontPage::class,
 		'chairpersson_speech',
 	]);
-	Route::get("contact-us-api", [FrontPage::class, "contact_us_api"]);
-	Route::get("/company-name-logo", [Company_rest::class, "view_all_company_frontend_api"]);
-	Route::get("gallery-api", [FrontPage::class, "gallery_api"]);
-	Route::get("company-images/{c_id}", [Company_rest::class, "company_gallery_api"]);
-	Route::post("contact-page-mail-now", [FrontPage::class, "contact_page_mail"]);
+	Route::get('contact-us-api', [FrontPage::class, 'contact_us_api']);
+	Route::get('/company-name-logo', [
+		Company_rest::class,
+		'view_all_company_frontend_api',
+	]);
+	Route::get('gallery-api', [FrontPage::class, 'gallery_api']);
+	Route::get('company-images/{c_id}', [
+		Company_rest::class,
+		'company_gallery_api',
+	]);
+	Route::post('contact-page-mail-now', [
+		FrontPage::class,
+		'contact_page_mail',
+	]);
 
-	Route::get("mission-vision-frontpage", [siteGeneral::class, "mission_vision_frontpage"]);
+	Route::get('mission-vision-frontpage', [
+		siteGeneral::class,
+		'mission_vision_frontpage',
+	]);
 
-	Route::get("company/{id}", [FrontPage::class, "company_data"]);
-	Route::get("circular-and-category-short-list", [career::class, "front_short_list"]);
-	Route::get("circular-details/{id}", [career::class, "front_circular_details"]);
+	Route::get('company/{id}', [FrontPage::class, 'company_data']);
+	Route::get('circular-and-category-short-list', [
+		career::class,
+		'front_short_list',
+	]);
+	Route::get('circular-details/{id}', [
+		career::class,
+		'front_circular_details',
+	]);
 
-	Route::get("event-list", [event_rest::class, "frontpage_event_list"]);
-	Route::get("event-details/{id}", [event_rest::class, "frontpage_single_event_view"]);
+	Route::get('event-list', [event_rest::class, 'frontpage_event_list']);
+	Route::get('event-details/{id}', [
+		event_rest::class,
+		'frontpage_single_event_view',
+	]);
 
-
-	Route::get("all-company-view", [FrontPage::class, "all_company_view"]);
-	Route::get("all-product-view", [Product_rest::class, "front_all_product_page"]);
-	Route::get("footer-component", [FrontPage::class, "footer_component"]);
-	Route::get("directors-list", [FrontPage::class, "directors_list"]);
-	Route::get("shortBrief", [FrontPage::class, "shortBrief"]);
-	Route::get("header-data", [FrontPage::class, "header_data"]);
-	Route::get("concern-details", [FrontPage::class, "concern_details"]);
-	Route::get("growth-history", [FrontPage::class, "growth_history"]);
+	Route::get('all-company-view', [FrontPage::class, 'all_company_view']);
+	Route::get('all-product-view', [
+		Product_rest::class,
+		'front_all_product_page',
+	]);
+	Route::get('footer-component', [FrontPage::class, 'footer_component']);
+	Route::get('directors-list', [FrontPage::class, 'directors_list']);
+	Route::get('shortBrief', [FrontPage::class, 'shortBrief']);
+	Route::get('header-data', [FrontPage::class, 'header_data']);
+	Route::get('concern-details', [FrontPage::class, 'concern_details']);
+	Route::get('growth-history', [FrontPage::class, 'growth_history']);
 });
 
 Route::group(['prefix' => 'founder-api'], function () {
@@ -377,9 +404,9 @@ Route::group(['prefix' => 'admin'], function () {
 		])->name('growth_story_view');
 		Route::get('site-settings/mission-vision', [
 			siteGeneral::class,
-			"mission_vision_view",
-		])->name("mission_vision_view");
-		Route::get("career/post-a-job", [
+			'mission_vision_view',
+		])->name('mission_vision_view');
+		Route::get('career/post-a-job', [
 			career::class,
 			'post_a_job_view',
 		])->name('post_a_job_view');
