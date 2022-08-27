@@ -13,6 +13,7 @@ use App\Http\Controllers\FrontPage;
 use App\Http\Controllers\photo_gallery;
 use App\Http\Controllers\FounderApi;
 use App\Http\Controllers\career;
+use App\Http\Controllers\event_rest;
 use App\Http\Controllers\PageLayoutController;
 use App\Http\Controllers\FormsController;
 use App\Http\Controllers\siteGeneral;
@@ -260,6 +261,21 @@ Route::group(["prefix" => "admin"], function () {
 			siteGeneral::class,
 			"photo_gallery_view",
 		])->name("photo_gallery_view");
+
+		Route::get("event/add-event", [
+			event::class,
+			"auth_add_event",
+		])->name("auth_add_event");
+
+		Route::get("event/edit-event/{id}", [
+			event::class,
+			"auth_edit_event",
+		])->name("auth_edit_event");
+
+		Route::get("event/all-event", [
+			event::class,
+			"auth_all_event",
+		])->name("auth_all_event");
 
 		Route::get("add-product", [
 			Product_rest::class,
