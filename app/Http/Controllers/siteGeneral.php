@@ -15,8 +15,8 @@ class siteGeneral extends Controller
 {
 	public function general_page_view()
 	{
-		$pageConfigs = ["pageHeader" => false];
-		$db_data = DB::table("codebumble_general")->get();
+		$pageConfigs = ['pageHeader' => false];
+		$db_data = DB::table('codebumble_general')->get();
 
 		$site_name = null;
 		$site_moto = null;
@@ -26,55 +26,55 @@ class siteGeneral extends Controller
 		$support_email = null;
 
 		foreach ($db_data as $datam) {
-			if ($datam->code_name == "site_name") {
+			if ($datam->code_name == 'site_name') {
 				$site_name = $datam->value;
 			}
 
-			if ($datam->code_name == "site_moto") {
+			if ($datam->code_name == 'site_moto') {
 				$site_moto = $datam->value;
 			}
 
-			if ($datam->code_name == "social_media") {
+			if ($datam->code_name == 'social_media') {
 				$social_media = $datam->value;
 			}
 
-			if ($datam->code_name == "site_url") {
+			if ($datam->code_name == 'site_url') {
 				$site_url = $datam->value;
 			}
 
-			if ($datam->code_name == "site_logo") {
+			if ($datam->code_name == 'site_logo') {
 				$site_logo = $datam->value;
 			}
 
-			if ($datam->code_name == "support_email") {
+			if ($datam->code_name == 'support_email') {
 				$support_email = $datam->value;
 			}
 
-			if ($datam->code_name == "support_email_backup") {
+			if ($datam->code_name == 'support_email_backup') {
 				$support_email_backup = $datam->value;
 			}
 
-			if ($datam->code_name == "support_phone") {
+			if ($datam->code_name == 'support_phone') {
 				$support_phone = $datam->value;
 			}
 
-			if ($datam->code_name == "support_phone_backup") {
+			if ($datam->code_name == 'support_phone_backup') {
 				$support_phone_backup = $datam->value;
 			}
 
-			if ($datam->code_name == "location") {
+			if ($datam->code_name == 'location') {
 				$location = $datam->value;
 			}
 
-			if ($datam->code_name == "address") {
+			if ($datam->code_name == 'address') {
 				$address = $datam->value;
 			}
 
-			if ($datam->code_name == "gmapkey") {
+			if ($datam->code_name == 'gmapkey') {
 				$gmapkey = $datam->value;
 			}
 
-			if ($datam->code_name == "cityCountry") {
+			if ($datam->code_name == 'cityCountry') {
 				$cityCountry = $datam->value;
 			}
 		}
@@ -86,273 +86,273 @@ class siteGeneral extends Controller
 		// $site_logo=null;
 		// $support_email=null;
 
-		return view("/content/site-settings/general-settings", [
-			"pageConfigs" => $pageConfigs,
-			"site_name" => $site_name,
-			"site_moto" => $site_moto,
-			"social_media" => json_decode($social_media),
-			"site_url" => $site_url,
-			"site_logo" => $site_logo,
-			"support_email" => $support_email,
-			"support_email_backup" => $support_email_backup,
-			"support_phone" => $support_phone,
-			"support_phone_backup" => $support_phone_backup,
-			"location" => json_decode($location),
-			"gmapkey" => $gmapkey,
-			"address" => $address,
-			"cityCountry" => $cityCountry,
+		return view('/content/site-settings/general-settings', [
+			'pageConfigs' => $pageConfigs,
+			'site_name' => $site_name,
+			'site_moto' => $site_moto,
+			'social_media' => json_decode($social_media),
+			'site_url' => $site_url,
+			'site_logo' => $site_logo,
+			'support_email' => $support_email,
+			'support_email_backup' => $support_email_backup,
+			'support_phone' => $support_phone,
+			'support_phone_backup' => $support_phone_backup,
+			'location' => json_decode($location),
+			'gmapkey' => $gmapkey,
+			'address' => $address,
+			'cityCountry' => $cityCountry,
 		]);
 	}
 
 	public function header_edit_view()
 	{
-		$pageConfigs = ["pageHeader" => false];
+		$pageConfigs = ['pageHeader' => false];
 		$board_of_director = DB::select(
-			"select value from codebumble_front_page where code_name=?",
-			["board_of_director"]
+			'select value from codebumble_front_page where code_name=?',
+			['board_of_director']
 		);
 		$ncd_cbd = DB::select(
-			"select value from codebumble_front_page where code_name=?",
-			["ncd-cbd"]
+			'select value from codebumble_front_page where code_name=?',
+			['ncd-cbd']
 		);
 		$ncd_cbsd = DB::select(
-			"select value from codebumble_front_page where code_name=?",
-			["ncd-cbsd"]
+			'select value from codebumble_front_page where code_name=?',
+			['ncd-cbsd']
 		);
 
-		return view("/content/site-settings/header-edit", [
-			"pageConfigs" => $pageConfigs,
-			"bod" => json_decode($board_of_director[0]->value),
-			"ncd_cbd" => json_decode($ncd_cbd[0]->value),
-			"ncd_cbsd" => json_decode($ncd_cbsd[0]->value),
+		return view('/content/site-settings/header-edit', [
+			'pageConfigs' => $pageConfigs,
+			'bod' => json_decode($board_of_director[0]->value),
+			'ncd_cbd' => json_decode($ncd_cbd[0]->value),
+			'ncd_cbsd' => json_decode($ncd_cbsd[0]->value),
 		]);
 	}
 
 	public function header_edit_api(Request $request)
 	{
 		$field = $request->validate([
-			"bod-title" => "required|string",
-			"bod-short-description" => "required|string",
-			"ncd-cbd-title" => "required|string",
-			"ncd-cbd-short-description" => "required|string",
-			"ncd-cbsd-title" => "required|string",
-			"ncd-cbsd-short-description" => "required|string",
+			'bod-title' => 'required|string',
+			'bod-short-description' => 'required|string',
+			'ncd-cbd-title' => 'required|string',
+			'ncd-cbd-short-description' => 'required|string',
+			'ncd-cbsd-title' => 'required|string',
+			'ncd-cbsd-short-description' => 'required|string',
 		]);
 
 		if (!Auth::check()) {
-			header("Location: " . route("auth-login"), true, 302);
+			header('Location: ' . route('auth-login'), true, 302);
 			exit();
 		}
 
-		$board_of_director = DB::table("codebumble_front_page")
-			->where("code_name", "board_of_director")
+		$board_of_director = DB::table('codebumble_front_page')
+			->where('code_name', 'board_of_director')
 			->update([
-				"value" => json_encode([
-					"breadcrumb" => [
-						"pageTitle" => $field["bod-title"],
-						"pageDesc" => $field["bod-short-description"],
+				'value' => json_encode([
+					'breadcrumb' => [
+						'pageTitle' => $field['bod-title'],
+						'pageDesc' => $field['bod-short-description'],
 					],
 				]),
-				"updated_at" => time(),
+				'updated_at' => time(),
 			]);
 
-		$ncd_cbd = DB::table("codebumble_front_page")
-			->where("code_name", "ncd-cbd")
+		$ncd_cbd = DB::table('codebumble_front_page')
+			->where('code_name', 'ncd-cbd')
 			->update([
-				"value" => json_encode([
-					"title" => $field["ncd-cbd-title"],
-					"desc" => $field["ncd-cbd-short-description"],
+				'value' => json_encode([
+					'title' => $field['ncd-cbd-title'],
+					'desc' => $field['ncd-cbd-short-description'],
 				]),
-				"updated_at" => time(),
+				'updated_at' => time(),
 			]);
 
-		$ncd_cbd = DB::table("codebumble_front_page")
-			->where("code_name", "ncd-cbsd")
+		$ncd_cbd = DB::table('codebumble_front_page')
+			->where('code_name', 'ncd-cbsd')
 			->update([
-				"value" => json_encode([
-					"title" => $field["ncd-cbsd-title"],
-					"desc" => $field["ncd-cbsd-short-description"],
+				'value' => json_encode([
+					'title' => $field['ncd-cbsd-title'],
+					'desc' => $field['ncd-cbsd-short-description'],
 				]),
-				"updated_at" => time(),
+				'updated_at' => time(),
 			]);
 
-		return redirect()->route("header-edit-view", [
-			"hasher" => Str::random(40),
-			"time" => time(),
-			"exist" =>
-				"Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You",
-			"hasher_ip" => Str::random(10),
+		return redirect()->route('header-edit-view', [
+			'hasher' => Str::random(40),
+			'time' => time(),
+			'exist' =>
+				'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You',
+			'hasher_ip' => Str::random(10),
 		]);
 	}
 
 	public function site_settings_general_api(Request $request)
 	{
 		if (!Auth::check()) {
-			header("Location: " . route("auth-login"), true, 302);
+			header('Location: ' . route('auth-login'), true, 302);
 			exit();
 		}
 
 		$field = $request->validate([
-			"name" => "required|string",
-			"siteUrl" => "required|string",
-			"siteEmail" => "required|string",
-			"description" => "required|string",
-			"siteEmailBackUp" => "required|string",
-			"sitePhoneNumber" => "required|string",
-			"sitePhoneNumberBackup" => "required|string",
-			"siteGMapKey" => "required|string",
-			"address" => "required|string",
-			"citycountry" => "required|string",
-			"longitude" => "required|string",
-			"latitude" => "required|string",
+			'name' => 'required|string',
+			'siteUrl' => 'required|string',
+			'siteEmail' => 'required|string',
+			'description' => 'required|string',
+			'siteEmailBackUp' => 'required|string',
+			'sitePhoneNumber' => 'required|string',
+			'sitePhoneNumberBackup' => 'required|string',
+			'siteGMapKey' => 'required|string',
+			'address' => 'required|string',
+			'citycountry' => 'required|string',
+			'longitude' => 'required|string',
+			'latitude' => 'required|string',
 		]);
 
 		$social_media = [];
-		$social_media["facebook"] = $request["facebook"];
-		$social_media["instagram"] = $request["instagram"];
-		$social_media["linkedin"] = $request["linkedin"];
-		$social_media["youtube"] = $request["youtube"];
+		$social_media['facebook'] = $request['facebook'];
+		$social_media['instagram'] = $request['instagram'];
+		$social_media['linkedin'] = $request['linkedin'];
+		$social_media['youtube'] = $request['youtube'];
 
-		if ($file1 = $request->hasFile("logo")) {
+		if ($file1 = $request->hasFile('logo')) {
 			$field1 = $request->validate([
-				"logo.*" => "mimes:png,svg|max:1080",
+				'logo.*' => 'mimes:png,svg|max:1080',
 			]);
-			$file1 = $request->file("logo");
+			$file1 = $request->file('logo');
 			$fileName1 =
 				time() .
-				"-company-logo." .
+				'-company-logo.' .
 				$file1->getClientOriginalExtension();
-			$destinationPath1 = public_path() . "/images/logo";
+			$destinationPath1 = public_path() . '/images/logo';
 			$file1->move($destinationPath1, $fileName1);
 
-			$update_site_logo = DB::table("codebumble_general")
-				->where("code_name", "site_logo")
+			$update_site_logo = DB::table('codebumble_general')
+				->where('code_name', 'site_logo')
 				->update([
-					"value" => "/images/logo/" . $fileName1,
-					"updated_at" => time(),
+					'value' => '/images/logo/' . $fileName1,
+					'updated_at' => time(),
 				]);
 		}
 
-		if ($file2 = $request->hasFile("short-logo")) {
+		if ($file2 = $request->hasFile('short-logo')) {
 			$field2 = $request->validate([
-				"short-logo.*" => "mimes:png,svg|max:1080",
+				'short-logo.*' => 'mimes:png,svg|max:1080',
 			]);
-			$file2 = $request->file("short-logo");
+			$file2 = $request->file('short-logo');
 			$fileName2 =
 				time() .
-				"-company-short-logo." .
+				'-company-short-logo.' .
 				$file2->getClientOriginalExtension();
-			$destinationPath2 = public_path() . "/images/logo";
+			$destinationPath2 = public_path() . '/images/logo';
 			$file2->move($destinationPath2, $fileName2);
 
-			$update_site_logo = DB::table("codebumble_general")
-				->where("code_name", "site_short_logo")
+			$update_site_logo = DB::table('codebumble_general')
+				->where('code_name', 'site_short_logo')
 				->update([
-					"value" => "/images/logo/" . $fileName2,
-					"updated_at" => time(),
+					'value' => '/images/logo/' . $fileName2,
+					'updated_at' => time(),
 				]);
 		}
 
-		if ($file3 = $request->hasFile("favicon-logo")) {
+		if ($file3 = $request->hasFile('favicon-logo')) {
 			$field3 = $request->validate([
-				"favicon-logo.*" => "mimes:ico|max:1080",
+				'favicon-logo.*' => 'mimes:ico|max:1080',
 			]);
-			$file3 = $request->file("favicon-logo");
-			$fileName3 = "favicon.ico";
+			$file3 = $request->file('favicon-logo');
+			$fileName3 = 'favicon.ico';
 			$destinationPath3 = public_path();
-			$destinationPather = public_path() . "/images/logo";
-			unlink(public_path() . "/favicon.ico");
-			unlink(public_path() . "/images/logo/favicon.ico");
+			$destinationPather = public_path() . '/images/logo';
+			unlink(public_path() . '/favicon.ico');
+			unlink(public_path() . '/images/logo/favicon.ico');
 			$file3->move($destinationPath3, $fileName3);
 			File::copy(
-				public_path("/favicon.ico"),
-				public_path("/images/logo/favicon.ico")
+				public_path('/favicon.ico'),
+				public_path('/images/logo/favicon.ico')
 			);
 		}
 
-		$update_site_name = DB::table("codebumble_general")
-			->where("code_name", "site_name")
-			->update(["value" => $field["name"], "updated_at" => time()]);
+		$update_site_name = DB::table('codebumble_general')
+			->where('code_name', 'site_name')
+			->update(['value' => $field['name'], 'updated_at' => time()]);
 
-		$update_siteUrl = DB::table("codebumble_general")
-			->where("code_name", "site_url")
-			->update(["value" => $field["siteUrl"], "updated_at" => time()]);
+		$update_siteUrl = DB::table('codebumble_general')
+			->where('code_name', 'site_url')
+			->update(['value' => $field['siteUrl'], 'updated_at' => time()]);
 
-		$update_site_email = DB::table("codebumble_general")
-			->where("code_name", "support_email")
-			->update(["value" => $field["siteEmail"], "updated_at" => time()]);
+		$update_site_email = DB::table('codebumble_general')
+			->where('code_name', 'support_email')
+			->update(['value' => $field['siteEmail'], 'updated_at' => time()]);
 
-		$update_site_moto = DB::table("codebumble_general")
-			->where("code_name", "site_moto")
+		$update_site_moto = DB::table('codebumble_general')
+			->where('code_name', 'site_moto')
 			->update([
-				"value" => $field["description"],
-				"updated_at" => time(),
+				'value' => $field['description'],
+				'updated_at' => time(),
 			]);
 
-		$update_social_media = DB::table("codebumble_general")
-			->where("code_name", "social_media")
+		$update_social_media = DB::table('codebumble_general')
+			->where('code_name', 'social_media')
 			->update([
-				"value" => json_encode($social_media),
-				"updated_at" => time(),
+				'value' => json_encode($social_media),
+				'updated_at' => time(),
 			]);
 
-		$update_siteEmailBackUp = DB::table("codebumble_general")
-			->where("code_name", "support_email_backup")
+		$update_siteEmailBackUp = DB::table('codebumble_general')
+			->where('code_name', 'support_email_backup')
 			->update([
-				"value" => $field["siteEmailBackUp"],
-				"updated_at" => time(),
+				'value' => $field['siteEmailBackUp'],
+				'updated_at' => time(),
 			]);
 
-		$update_phone = DB::table("codebumble_general")
-			->where("code_name", "support_phone")
+		$update_phone = DB::table('codebumble_general')
+			->where('code_name', 'support_phone')
 			->update([
-				"value" => $field["sitePhoneNumber"],
-				"updated_at" => time(),
+				'value' => $field['sitePhoneNumber'],
+				'updated_at' => time(),
 			]);
 
-		$update_phone_backup = DB::table("codebumble_general")
-			->where("code_name", "support_phone_backup")
+		$update_phone_backup = DB::table('codebumble_general')
+			->where('code_name', 'support_phone_backup')
 			->update([
-				"value" => $field["sitePhoneNumberBackup"],
-				"updated_at" => time(),
+				'value' => $field['sitePhoneNumberBackup'],
+				'updated_at' => time(),
 			]);
 
-		$update_siteGMapKey = DB::table("codebumble_general")
-			->where("code_name", "gmapkey")
+		$update_siteGMapKey = DB::table('codebumble_general')
+			->where('code_name', 'gmapkey')
 			->update([
-				"value" => $field["siteGMapKey"],
-				"updated_at" => time(),
+				'value' => $field['siteGMapKey'],
+				'updated_at' => time(),
 			]);
 
-		$update_address = DB::table("codebumble_general")
-			->where("code_name", "address")
-			->update(["value" => $field["address"], "updated_at" => time()]);
+		$update_address = DB::table('codebumble_general')
+			->where('code_name', 'address')
+			->update(['value' => $field['address'], 'updated_at' => time()]);
 
-		$update_cc = DB::table("codebumble_general")
-			->where("code_name", "cityCountry")
+		$update_cc = DB::table('codebumble_general')
+			->where('code_name', 'cityCountry')
 			->update([
-				"value" => $field["citycountry"],
-				"updated_at" => time(),
+				'value' => $field['citycountry'],
+				'updated_at' => time(),
 			]);
 
-		$update_location = DB::table("codebumble_general")
-			->where("code_name", "location")
+		$update_location = DB::table('codebumble_general')
+			->where('code_name', 'location')
 			->update([
-				"value" => [
-					"longitude" => $field["longitude"],
-					"latitude" => $field["latitude"],
+				'value' => [
+					'longitude' => $field['longitude'],
+					'latitude' => $field['latitude'],
 				],
-				"updated_at" => time(),
+				'updated_at' => time(),
 			]);
 
-		$path = base_path(".env");
+		$path = base_path('.env');
 
 		if (file_exists($path)) {
 			file_put_contents(
 				$path,
 				str_replace(
-					'APP_NAME="' . env("APP_NAME") . '"',
-					'APP_NAME="' . $field["name"] . '"',
+					'APP_NAME="' . env('APP_NAME') . '"',
+					'APP_NAME="' . $field['name'] . '"',
 					file_get_contents($path)
 				)
 			);
@@ -360,8 +360,8 @@ class siteGeneral extends Controller
 			file_put_contents(
 				$path,
 				str_replace(
-					"APP_URL=" . env("APP_URL"),
-					"APP_URL=" . $field["siteUrl"],
+					'APP_URL=' . env('APP_URL'),
+					'APP_URL=' . $field['siteUrl'],
 					file_get_contents($path)
 				)
 			);
@@ -369,27 +369,27 @@ class siteGeneral extends Controller
 			file_put_contents(
 				$path,
 				str_replace(
-					"SUPPORT_HOST=" . env("SUPPORT_HOST"),
-					"SUPPORT_HOST=" . $field["siteEmail"],
+					'SUPPORT_HOST=' . env('SUPPORT_HOST'),
+					'SUPPORT_HOST=' . $field['siteEmail'],
 					file_get_contents($path)
 				)
 			);
 
-			if ($file2 = $request->hasFile("short-logo")) {
+			if ($file2 = $request->hasFile('short-logo')) {
 				file_put_contents(
 					$path,
 					str_replace(
-						'APP_SHORT_LOGO="' . env("APP_SHORT_LOGO") . '"',
+						'APP_SHORT_LOGO="' . env('APP_SHORT_LOGO') . '"',
 						'APP_SHORT_LOGO="/images/logo/' . $fileName2 . '"',
 						file_get_contents($path)
 					)
 				);
 			}
-			if ($file1 = $request->hasFile("logo")) {
+			if ($file1 = $request->hasFile('logo')) {
 				file_put_contents(
 					$path,
 					str_replace(
-						'APP_LOGO="' . env("APP_LOGO") . '"',
+						'APP_LOGO="' . env('APP_LOGO') . '"',
 						'APP_LOGO="/images/logo/' . $fileName1 . '"',
 						file_get_contents($path)
 					)
@@ -397,218 +397,218 @@ class siteGeneral extends Controller
 			}
 		}
 
-		return redirect()->route("site-settings-general", [
-			"hasher" => Str::random(40),
-			"time" => time(),
-			"exist" =>
-				"Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You",
-			"hasher_ip" => Str::random(10),
+		return redirect()->route('site-settings-general', [
+			'hasher' => Str::random(40),
+			'time' => time(),
+			'exist' =>
+				'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You',
+			'hasher_ip' => Str::random(10),
 		]);
 	}
 
 	public function founder_page_view()
 	{
-		$pageConfigs = ["pageHeader" => false];
+		$pageConfigs = ['pageHeader' => false];
 
-		$data = DB::table("codebumble_founder_page")->get();
+		$data = DB::table('codebumble_founder_page')->get();
 
 		$breadcrumb = json_decode($data[0]->value);
 		$FounderDetails = json_decode($data[1]->value);
 		$quote = json_decode($data[2]->value);
-		return view("/content/site-settings/founder-page", [
-			"pageConfigs" => $pageConfigs,
-			"breadcrumb" => $breadcrumb,
-			"FounderDetails" => $FounderDetails,
-			"quote" => $quote,
+		return view('/content/site-settings/founder-page', [
+			'pageConfigs' => $pageConfigs,
+			'breadcrumb' => $breadcrumb,
+			'FounderDetails' => $FounderDetails,
+			'quote' => $quote,
 		]);
 	}
 
 	public function front_page_view()
 	{
-		$data_1 = DB::table("codebumble_front_page")
-			->where("code_name", "concern-details")
+		$data_1 = DB::table('codebumble_front_page')
+			->where('code_name', 'concern-details')
 			->get();
 		$concern = json_decode($data_1[0]->value);
-		$data_2 = DB::table("codebumble_front_page")
-			->where("code_name", "shortBrief")
+		$data_2 = DB::table('codebumble_front_page')
+			->where('code_name', 'shortBrief')
 			->get();
 		$short = json_decode($data_2[0]->value);
 
-		$pageConfigs = ["pageHeader" => false];
-		return view("/content/site-settings/front-page", [
-			"pageConfigs" => $pageConfigs,
-			"concern" => $concern,
-			"short" => $short,
+		$pageConfigs = ['pageHeader' => false];
+		return view('/content/site-settings/front-page', [
+			'pageConfigs' => $pageConfigs,
+			'concern' => $concern,
+			'short' => $short,
 		]);
 	}
 
 	public function front_page_api(Request $request)
 	{
 		if (!Auth::check()) {
-			header("Location: " . route("auth-login"), true, 302);
+			header('Location: ' . route('auth-login'), true, 302);
 			exit();
 		}
 
 		$field = $request->validate([
-			"cn-title" => "required|string",
-			"cn-description" => "required|string",
-			"s-title" => "required|string",
-			"s-description" => "required|string",
-			"s-lt" => "required|string",
-			"s-l" => "required|string",
+			'cn-title' => 'required|string',
+			'cn-description' => 'required|string',
+			's-title' => 'required|string',
+			's-description' => 'required|string',
+			's-lt' => 'required|string',
+			's-l' => 'required|string',
 		]);
 
-		$db = DB::table("codebumble_front_page")
-			->where("code_name", "concern-details")
+		$db = DB::table('codebumble_front_page')
+			->where('code_name', 'concern-details')
 			->update([
-				"value" => json_encode([
-					"heading" => $field["cn-title"],
-					"description" => $field["cn-description"],
+				'value' => json_encode([
+					'heading' => $field['cn-title'],
+					'description' => $field['cn-description'],
 				]),
-				"updated_at" => time(),
+				'updated_at' => time(),
 			]);
 
-		$db = DB::table("codebumble_front_page")
-			->where("code_name", "shortBrief")
+		$db = DB::table('codebumble_front_page')
+			->where('code_name', 'shortBrief')
 			->update([
-				"value" => json_encode([
-					"title" => $field["s-title"],
-					"description" => $field["s-description"],
-					"link" => $field["s-l"],
-					"linkText" => $field["s-lt"],
-					"linkVisibility" => true,
+				'value' => json_encode([
+					'title' => $field['s-title'],
+					'description' => $field['s-description'],
+					'link' => $field['s-l'],
+					'linkText' => $field['s-lt'],
+					'linkVisibility' => true,
 				]),
-				"updated_at" => time(),
+				'updated_at' => time(),
 			]);
 
-		return redirect()->route("front_page_view", [
-			"hasher" => Str::random(40),
-			"time" => time(),
-			"exist" =>
-				"Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You",
-			"hasher_ip" => Str::random(10),
+		return redirect()->route('front_page_view', [
+			'hasher' => Str::random(40),
+			'time' => time(),
+			'exist' =>
+				'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You',
+			'hasher_ip' => Str::random(10),
 		]);
 	}
 
 	public function front_page_chairperson_view()
 	{
 		if (!Auth::check()) {
-			header("Location: " . route("auth-login"), true, 302);
+			header('Location: ' . route('auth-login'), true, 302);
 			exit();
 		}
 
-		$data = DB::table("codebumble_front_page")
-			->where("code_name", "chairpersson_speech")
+		$data = DB::table('codebumble_front_page')
+			->where('code_name', 'chairpersson_speech')
 			->get();
 
-		$pageConfigs = ["pageHeader" => false];
-		return view("/content/site-settings/chairperson-page", [
-			"pageConfigs" => $pageConfigs,
-			"sph" => json_decode($data[0]->value),
+		$pageConfigs = ['pageHeader' => false];
+		return view('/content/site-settings/chairperson-page', [
+			'pageConfigs' => $pageConfigs,
+			'sph' => json_decode($data[0]->value),
 		]);
 	}
 
 	public function front_page_chairperson_api(Request $request)
 	{
 		if (!Auth::check()) {
-			header("Location: " . route("auth-login"), true, 302);
+			header('Location: ' . route('auth-login'), true, 302);
 			exit();
 		}
 
 		$field = $request->validate([
-			"title" => "required|string",
-			"description" => "required|string",
+			'title' => 'required|string',
+			'description' => 'required|string',
 		]);
 
-		if ($file2 = $request->hasFile("image")) {
+		if ($file2 = $request->hasFile('image')) {
 			$field2 = $request->validate([
-				"short-logo.*" => "mimes:png,svg|max:1080",
+				'short-logo.*' => 'mimes:png,svg|max:1080',
 			]);
-			$file2 = $request->file("image");
+			$file2 = $request->file('image');
 			$fileName2 =
 				time() .
-				"-company-chairperson-image." .
+				'-company-chairperson-image.' .
 				$file2->getClientOriginalExtension();
-			$destinationPath2 = public_path() . "/images/avatars";
+			$destinationPath2 = public_path() . '/images/avatars';
 			$file2->move($destinationPath2, $fileName2);
 		} else {
-			$data = DB::table("codebumble_front_page")
-				->where("code_name", "chairpersson_speech")
+			$data = DB::table('codebumble_front_page')
+				->where('code_name', 'chairpersson_speech')
 				->get();
 
 			$fileName2 = json_decode($data[0]->value)->imgSrc;
 		}
 
-		$update_site_logo = DB::table("codebumble_front_page")
-			->where("code_name", "chairpersson_speech")
+		$update_site_logo = DB::table('codebumble_front_page')
+			->where('code_name', 'chairpersson_speech')
 			->update([
-				"value" => json_encode([
-					"imgSrc" => "/images/avatars/" . $fileName2,
-					"title" => $field["title"],
-					"description" => $field["description"],
+				'value' => json_encode([
+					'imgSrc' => '/images/avatars/' . $fileName2,
+					'title' => $field['title'],
+					'description' => $field['description'],
 				]),
-				"updated_at" => time(),
+				'updated_at' => time(),
 			]);
 
-		return redirect()->route("front_page_chairperson_view", [
-			"hasher" => Str::random(40),
-			"time" => time(),
-			"exist" =>
-				"Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You",
-			"hasher_ip" => Str::random(10),
+		return redirect()->route('front_page_chairperson_view', [
+			'hasher' => Str::random(40),
+			'time' => time(),
+			'exist' =>
+				'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You',
+			'hasher_ip' => Str::random(10),
 		]);
 	}
 
 	public function front_page_slider_view()
 	{
-		$data_1 = DB::table("codebumble_front_page")
-			->where("code_name", "sliders_data")
+		$data_1 = DB::table('codebumble_front_page')
+			->where('code_name', 'sliders_data')
 			->get();
 
-		$pageConfigs = ["pageHeader" => false];
-		return view("/content/site-settings/front-page-slider", [
-			"pageConfigs" => $pageConfigs,
-			"imgs" => json_decode($data_1[0]->value),
+		$pageConfigs = ['pageHeader' => false];
+		return view('/content/site-settings/front-page-slider', [
+			'pageConfigs' => $pageConfigs,
+			'imgs' => json_decode($data_1[0]->value),
 		]);
 	}
 
 	public function photo_gallery_view()
 	{
-		$data_1 = DB::table("codebumble_front_page")
-			->where("code_name", "gallery")
+		$data_1 = DB::table('codebumble_front_page')
+			->where('code_name', 'gallery')
 			->get();
 
-		$pageConfigs = ["pageHeader" => false];
-		return view("/content/photo-gallery/photo-gallery", [
-			"pageConfigs" => $pageConfigs,
-			"imgs" => json_decode($data_1[0]->value),
+		$pageConfigs = ['pageHeader' => false];
+		return view('/content/photo-gallery/photo-gallery', [
+			'pageConfigs' => $pageConfigs,
+			'imgs' => json_decode($data_1[0]->value),
 		]);
 	}
 
 	public function slider_edit_api(Request $request)
 	{
 		if (!Auth::check()) {
-			header("Location: " . route("auth-login"), true, 302);
+			header('Location: ' . route('auth-login'), true, 302);
 			exit();
 		}
 
-		$db_check = DB::table("codebumble_front_page")
-			->where("code_name", "sliders_data")
-			->update(["value" => json_encode($request->preview)]);
+		$db_check = DB::table('codebumble_front_page')
+			->where('code_name', 'sliders_data')
+			->update(['value' => json_encode($request->preview)]);
 
-		return redirect()->route("front_page_slider_view", [
-			"hasher" => Str::random(40),
-			"time" => time(),
-			"exist" =>
-				"Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You",
-			"hasher_ip" => Str::random(10),
+		return redirect()->route('front_page_slider_view', [
+			'hasher' => Str::random(40),
+			'time' => time(),
+			'exist' =>
+				'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You',
+			'hasher_ip' => Str::random(10),
 		]);
 	}
 
 	public function delete_slider($id)
 	{
-		$data_1 = DB::table("codebumble_front_page")
-			->where("code_name", "sliders_data")
+		$data_1 = DB::table('codebumble_front_page')
+			->where('code_name', 'sliders_data')
 			->get();
 
 		$data = json_decode($data_1[0]->value);
@@ -622,28 +622,28 @@ class siteGeneral extends Controller
 			}
 		}
 
-		$db_check = DB::table("codebumble_front_page")
-			->where("code_name", "sliders_data")
-			->update(["value" => json_encode($array)]);
+		$db_check = DB::table('codebumble_front_page')
+			->where('code_name', 'sliders_data')
+			->update(['value' => json_encode($array)]);
 
-		return redirect()->route("front_page_slider_view", [
-			"hasher" => Str::random(40),
-			"time" => time(),
-			"exist" =>
-				"Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You",
-			"hasher_ip" => Str::random(10),
+		return redirect()->route('front_page_slider_view', [
+			'hasher' => Str::random(40),
+			'time' => time(),
+			'exist' =>
+				'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You',
+			'hasher_ip' => Str::random(10),
 		]);
 	}
 
 	public function add_slider_api(Request $request)
 	{
 		if (!Auth::check()) {
-			header("Location: " . route("auth-login"), true, 302);
+			header('Location: ' . route('auth-login'), true, 302);
 			exit();
 		}
 
-		$data_1 = DB::table("codebumble_front_page")
-			->where("code_name", "sliders_data")
+		$data_1 = DB::table('codebumble_front_page')
+			->where('code_name', 'sliders_data')
 			->get();
 
 		$data = json_decode($data_1[0]->value);
@@ -651,40 +651,40 @@ class siteGeneral extends Controller
 		$new = $request->new;
 
 		foreach ($new as $key => $value) {
-			if ($file1 = $request->hasFile("new." . $key . ".src")) {
-				$file2 = $request->file("new." . $key . ".src");
+			if ($file1 = $request->hasFile('new.' . $key . '.src')) {
+				$file2 = $request->file('new.' . $key . '.src');
 				$fileName2 =
 					time() .
-					"-company-slider." .
+					'-company-slider.' .
 					$file2->getClientOriginalExtension();
-				$destinationPath2 = public_path() . "/images/slider";
+				$destinationPath2 = public_path() . '/images/slider';
 				$file2->move($destinationPath2, $fileName2);
 
 				$f = [
-					"showDescription" => "true",
-					"showButton" => "true",
-					"src" => "/images/slider/" . $fileName2,
-					"heading" => $value["heading"],
-					"description" => $value["description"],
-					"buttonText" => $value["buttonText"],
-					"link" => $value["link"],
-					"btnStyle" => $value["btnStyle"],
+					'showDescription' => 'true',
+					'showButton' => 'true',
+					'src' => '/images/slider/' . $fileName2,
+					'heading' => $value['heading'],
+					'description' => $value['description'],
+					'buttonText' => $value['buttonText'],
+					'link' => $value['link'],
+					'btnStyle' => $value['btnStyle'],
 				];
 
 				array_push($data, $f);
 			}
 		}
 
-		$db_check = DB::table("codebumble_front_page")
-			->where("code_name", "sliders_data")
-			->update(["value" => json_encode($data)]);
+		$db_check = DB::table('codebumble_front_page')
+			->where('code_name', 'sliders_data')
+			->update(['value' => json_encode($data)]);
 
-		return redirect()->route("front_page_slider_view", [
-			"hasher" => Str::random(40),
-			"time" => time(),
-			"exist" =>
-				"Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You",
-			"hasher_ip" => Str::random(10),
+		return redirect()->route('front_page_slider_view', [
+			'hasher' => Str::random(40),
+			'time' => time(),
+			'exist' =>
+				'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You',
+			'hasher_ip' => Str::random(10),
 		]);
 	}
 
@@ -693,47 +693,55 @@ class siteGeneral extends Controller
 		check_auth();
 
 		$data_get = DB::select(
-			"select value from codebumble_front_page where code_name=?",
-			["growth-history"]
+			'select value from codebumble_front_page where code_name=?',
+			['growth-history']
 		);
 
 		$data = json_decode($data_get[0]->value);
 
-		$pageConfigs = ["pageHeader" => false];
-		return view("/content/site-settings/growth-story", [
-			"pageConfigs" => $pageConfigs,
-			"data" => $data,
+		$pageConfigs = ['pageHeader' => false];
+		return view('/content/site-settings/growth-story', [
+			'pageConfigs' => $pageConfigs,
+			'data' => $data,
 		]);
 	}
 
 	public function growth_story_api(Request $request)
 	{
 		if (!Auth::check()) {
-			header("Location: " . route("auth-login"), true, 302);
+			header('Location: ' . route('auth-login'), true, 302);
 			exit();
 		}
 
-		$update = DB::table("codebumble_front_page")
-			->where("code_name", "growth-history")
+		$update = DB::table('codebumble_front_page')
+			->where('code_name', 'growth-history')
 			->update([
-				"value" => json_encode($request->new),
-				"updated_at" => time(),
+				'value' => json_encode($request->new),
+				'updated_at' => time(),
 			]);
 
-		return redirect()->route("growth_story_view", [
-			"hasher" => Str::random(40),
-			"time" => time(),
-			"exist" =>
-				"Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You",
-			"hasher_ip" => Str::random(10),
+		return redirect()->route('growth_story_view', [
+			'hasher' => Str::random(40),
+			'time' => time(),
+			'exist' =>
+				'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You',
+			'hasher_ip' => Str::random(10),
 		]);
 	}
 
 	public function mission_vision_view()
 	{
-		$pageConfigs = ["pageHeader" => false];
-		return view("/content/site-settings/mission-vision", [
-			"pageConfigs" => $pageConfigs,
+		$pageConfigs = ['pageHeader' => false];
+		return view('/content/site-settings/mission-vision', [
+			'pageConfigs' => $pageConfigs,
+		]);
+	}
+
+	public function future_expension_view()
+	{
+		$pageConfigs = ['pageHeader' => false];
+		return view('/content/site-settings/future-expension', [
+			'pageConfigs' => $pageConfigs,
 		]);
 	}
 

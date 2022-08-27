@@ -57,6 +57,12 @@
                                     <span class="fw-bold">Mission & Vision</span>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('future_expension_view') }}">
+                                    <i data-feather="trending-up" class="font-medium-3 me-50"></i>
+                                    <span class="fw-bold">Future Expension</span>
+                                </a>
+                            </li>
 
                         </ul>
                     </div>

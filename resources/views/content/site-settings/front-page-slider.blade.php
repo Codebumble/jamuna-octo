@@ -37,7 +37,7 @@
 
                     <div class="col-xl-12 col-lg-12 col-md-12 order-0 order-md-1">
                         <!-- User Pills -->
-                       <ul class="nav nav-pills mb-2">
+                        <ul class="nav nav-pills mb-2">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('front_page_view') }}">
                                     <i data-feather="user" class="font-medium-3 me-50"></i>
@@ -54,6 +54,12 @@
                                 <a class="nav-link" href="{{ route('mission_vision_view') }}">
                                     <i data-feather="trending-up" class="font-medium-3 me-50"></i>
                                     <span class="fw-bold">Mission & Vision</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('future_expension_view') }}">
+                                    <i data-feather="trending-up" class="font-medium-3 me-50"></i>
+                                    <span class="fw-bold">Future Expension</span>
                                 </a>
                             </li>
 

@@ -1,6 +1,6 @@
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Mission Vision')
+@section('title', 'Future Expension')
 
 @section('content')
     <section class="form-control-repeater">
@@ -29,18 +29,17 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="{{ route('mission_vision_view') }}">
+                                    <a class="nav-link" href="{{ route('mission_vision_view') }}">
                                         <i data-feather="trending-up" class="font-medium-3 me-50"></i>
                                         <span class="fw-bold">Mission & Vision</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('future_expension_view') }}">
+                                    <a class="nav-link active" href="{{ route('future_expension_view') }}">
                                         <i data-feather="trending-up" class="font-medium-3 me-50"></i>
                                         <span class="fw-bold">Future Expension</span>
                                     </a>
                                 </li>
-
                             </ul>
                         </div>
                         <div id="faker" class="demo-spacing-0 d-none mb-2">
@@ -68,98 +67,62 @@
                                     <label class="d-block form-label" for="validationBioBootstrap">Description</label>
                                     <textarea id="validationBioBootstrap" class="form-control" name="description" rows="3" required>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum animi aliquam voluptates harum aspernatur eveniet velit doloribus aliquid adipisci suscipit?</textarea>
                                 </div>
-
                                 <div class="divider-primary divider">
-                                    <div class="divider-text">Mission</div>
+                                    <div class="divider-text">Items</div>
                                 </div>
-                                <div class="col-12 mb-1">
+                                <div class="col-12 col-lg-6 mb-1">
                                     <div class="mb-1">
-                                        <label class="form-label" for="itemname">Title</label>
+                                        <label class="form-label" for="itemname">Item 1</label>
                                         <input type="text" class="form-control" name="title" value="Mission & Vision"
                                             aria-describedby="itemname" placeholder="Vuexy Admin Template" />
                                     </div>
                                 </div>
 
-                                <div class="mb-1">
-                                    <label class="d-block form-label" for="validationBioBootstrap">Description</label>
-                                    <textarea id="validationBioBootstrap" class="form-control" name="description" rows="3" required>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum animi aliquam voluptates harum aspernatur eveniet velit doloribus aliquid adipisci suscipit?</textarea>
-                                </div>
-
-                                <div class="divider-primary divider">
-                                    <div class="divider-text">Vision</div>
-                                </div>
-                            </div>
-                            <div data-repeater-list="invoice">
-
-                                <div data-repeater-item>
-                                    <div class="row d-flex align-items-end">
-
-                                        <div class="col-12 mb-1">
-                                            <div class="mb-1">
-                                                <label class="form-label" for="itemname">Title</label>
-                                                <input type="text" class="form-control" name="title"
-                                                    value="Mission Vision" aria-describedby="itemname"
-                                                    placeholder="Vuexy Admin Template" />
-                                            </div>
-                                        </div>
-
-                                        <div class="mb-1">
-                                            <label class="d-block form-label"
-                                                for="validationBioBootstrap">Description</label>
-                                            <textarea id="validationBioBootstrap" class="form-control" name="description" rows="3" required>Our mission is to produce and provide quality services and un innovative products for people, maintain ethical slandered in business operation, also ensuring benefit to the stakeholders and peoples of Bangladesh.</textarea>
-                                        </div>
-
-                                        <div class="col-md-2 col-12 mb-50">
-                                            <div class="mb-1">
-                                                <button class="btn btn-outline-danger text-nowrap px-1"
-                                                    data-repeater-delete type="button">
-                                                    <i data-feather="x" class="me-25"></i>
-                                                    <span>Delete</span>
-                                                </button>
-                                            </div>
-                                        </div>
-
+                                <div class="col-12 col-lg-6 mb-1">
+                                    <div class="mb-1">
+                                        <label class="form-label" for="itemname">Item 2</label>
+                                        <input type="text" class="form-control" name="title" value="Mission & Vision"
+                                            aria-describedby="itemname" placeholder="Vuexy Admin Template" />
                                     </div>
-                                    <div class="divider-primary divider">
-                                        <div class="divider-text">Objective</div>
+                                </div>
+                                <div class="col-12 col-lg-6 mb-1">
+                                    <div class="mb-1">
+                                        <label class="form-label" for="itemname">Item 3</label>
+                                        <input type="text" class="form-control" name="title" value="Mission & Vision"
+                                            aria-describedby="itemname" placeholder="Vuexy Admin Template" />
                                     </div>
                                 </div>
 
-                                <div data-repeater-item>
-                                    <div class="row d-flex align-items-end">
-
-                                        <div class="col-12 mb-1">
-                                            <div class="mb-1">
-                                                <label class="form-label" for="itemname">Title</label>
-                                                <input type="text" class="form-control" name="title"
-                                                    value="Our Mission" aria-describedby="itemname"
-                                                    placeholder="Vuexy Admin Template" />
-                                            </div>
-                                        </div>
-
-                                        <div class="mb-1">
-                                            <label class="d-block form-label"
-                                                for="validationBioBootstrap">Description</label>
-                                            <textarea id="validationBioBootstrap" class="form-control" name="description" rows="3" required>We view business as a means to the material and social well being of the investors, employees at large leading to accretion of wealth through financial and moral gains as a part of the process of development of civilization.</textarea>
-                                        </div>
-
-                                        <div class="col-md-2 col-12 mb-50">
-                                            <div class="mb-1">
-                                                <button class="btn btn-outline-danger text-nowrap px-1"
-                                                    data-repeater-delete type="button">
-                                                    <i data-feather="x" class="me-25"></i>
-                                                    <span>Delete</span>
-                                                </button>
-                                            </div>
-                                        </div>
-
+                                <div class="col-12 col-lg-6 mb-1">
+                                    <div class="mb-1">
+                                        <label class="form-label" for="itemname">Item 4</label>
+                                        <input type="text" class="form-control" name="title" value="Mission & Vision"
+                                            aria-describedby="itemname" placeholder="Vuexy Admin Template" />
                                     </div>
-                                    <hr />
                                 </div>
+                                <div class="col-12 col-lg-6 mb-1">
+                                    <div class="mb-1">
+                                        <label class="form-label" for="itemname">Item 5</label>
+                                        <input type="text" class="form-control" name="title"
+                                            value="Mission & Vision" aria-describedby="itemname"
+                                            placeholder="Vuexy Admin Template" />
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-6 mb-1">
+                                    <div class="mb-1">
+                                        <label class="form-label" for="itemname">Item 6</label>
+                                        <input type="text" class="form-control" name="title"
+                                            value="Mission & Vision" aria-describedby="itemname"
+                                            placeholder="Vuexy Admin Template" />
+                                    </div>
+                                </div>
+
 
 
 
                             </div>
+
                             <div class="row">
                                 <div class="col-12">
                                     <button class="btn btn-icon btn-success m-1" type="button"
