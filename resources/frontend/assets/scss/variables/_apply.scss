@@ -1,5 +1,5 @@
 .apply {
-	@apply bg-gray-100 w-full lg:w-160 shadow-xl rounded-lg mx-auto mt-28 2xl:mt-8 p-8 h-[29rem] md:h-[30rem] overflow-y-scroll;
+	@apply bg-gray-100 w-full lg:w-160 shadow-xl rounded-lg mx-auto mt-16 2xl:mt-8 p-8 h-[29rem] md:h-[32rem] overflow-y-scroll;
 	form {
 		@apply w-full;
 		.input-item {
@@ -13,7 +13,7 @@
 				@apply text-gray-700;
 			}
 		}
-		button{
+		button {
 			@apply mt-3;
 		}
 	}

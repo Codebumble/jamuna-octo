@@ -210,6 +210,29 @@
 												required />
 										</div>
 									</div>
+									<div class="input-group">
+										<div class="input-item">
+											<input
+												type="text"
+												name="mobile"
+												id="experience"
+												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+												placeholder="Your Mobile Number"
+												v-model="mobile" />
+										</div>
+									</div>
+									<div class="input-group">
+										<div class="input-item">
+											<input
+												type="email"
+												name="email"
+												id="salary"
+												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+												placeholder="Your Email"
+												v-model="email"
+												required />
+										</div>
+									</div>
 								</div>
 								<div class="input-group">
 									<div class="input-item">
@@ -238,8 +261,8 @@
 															for="file-upload"
 															class="relative cursor-pointer bg-white rounded-md font-medium text-red-500 hover:text-red-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-red-500">
 															<span
-																>Upload a
-																file</span
+																>Upload your
+																CV/Resume</span
 															>
 															<input
 																id="file-upload"
@@ -254,12 +277,9 @@
 														</label>
 														<p class="pl-1">
 															or drag and drop
+															your CV/Resume
 														</p>
 													</div>
-													<p
-														class="text-xs text-gray-500">
-														PDF
-													</p>
 												</div>
 											</div>
 										</div>
@@ -612,6 +632,8 @@
 			const university = ref('');
 			const salary = ref('');
 			const pdf = ref();
+			const mobile = ref();
+			const email = ref();
 
 			const toggleModal = () => {
 				isActiveModal.value = !isActiveModal.value;
@@ -692,6 +714,8 @@
 				experience,
 				university,
 				salary,
+				mobile,
+				email,
 			};
 		},
 	};
