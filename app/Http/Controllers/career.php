@@ -384,6 +384,7 @@ class career extends Controller
     public function front_circular_details($id){
 
         $data2 = DB::select('select * from codebumble_job_list where id = ?', [$id]);
+        $company = DB::select('select * from codebumble_company_list where name = ?', [$data2[0]->company]);
 
         if(!isset($data2[0])){
             $pageConfigs = ['blankPage' => true];
@@ -391,13 +392,74 @@ class career extends Controller
             return view('/content/miscellaneous/error', ['pageConfigs' => $pageConfigs]);
         }
 
-        // $a = [
-        //     '' => ,
-        //     '' => ,
-        //     '' => ,
-        // ];
+        $a = [
+            'jobheading' => [
+                'cover' => $data2[0]->b_image,
+                'complogo' => '/company-images/'.$company[0]->image,
+                'jobtitle' => $data2[0]->name,
+                'by' => $data2[0]->company,
+                'location' => $data2[0]->w_location,
+                'category' => $data2[0]->sector
+            ],
+            'jobdescription' => [
+                'description' => $data2[0]->description,
+                'attachedfilelink' => $data2[0]->a_information,
+                'attachedfilelinklabel' => 'Download Instruction, Form and Rules'
+            ],
+            'jobInfo' => [
+                'experience' => $data2[0]->min_expo,
+                'employmentType' =>  $data2[0]->emp_type,
+                'salary' => $data2[0]->salary,
+                'gander' => $data2[0]->gender,
+            ],
+            'companyInfo' => [
+                'logo' => '/company-images/'.$company[0]->image,
+                'name' => $company[0]->name,
+                'website' => json_decode($company[0]->json_data)->website,
+                'websiteLink' => json_decode($company[0]->json_data)->website,
+                'industry' => $company[0]->section,
+                'companySize' => $company[0]->manpower,
+                'foundedIn' => explode("-",$company[0]->establish_date)[0],
+                'phone' => $data2[0]->h_number,
+                'email' => $data2[0]->h_email,
+                'location' => $data2[0]->w_location,
+                'social' => [
+                    'facebook' => '#',
+                    'instagram' => '#',
+                    'linkedin' => '#',
+                ]
 
+            ]
+        ];
 
+        if((strtotime($data2[0]->l_date) - time()) >= 0){
+            $a['jobheading']['time'] = ''.round((strtotime($data2[0]->l_date) - time())/86400).' Days Left';
+
+        } else {
+            $a['jobheading']['time'] = "Expired";
+        }
+
+        if(isset(json_decode($company[0]->json_data)->facebook) && json_decode($company[0]->json_data)->facebook != null){
+
+            $a['companyInfo']['social']['facebook'] = json_decode($company[0]->json_data)->facebook;
+
+        }
+
+        if(isset(json_decode($company[0]->json_data)->instagram) && json_decode($company[0]->json_data)->instagram != null){
+
+            $a['companyInfo']['social']['instagram'] = json_decode($company[0]->json_data)->instagram;
+
+        }
+
+        if(isset(json_decode($company[0]->json_data)->linkedin) && json_decode($company[0]->json_data)->linkedin != null){
+
+            $a['companyInfo']['social']['linkedin'] = json_decode($company[0]->json_data)->linkedin;
+
+        }
+
+        return json_encode($a);
 
     }
+
+
 }

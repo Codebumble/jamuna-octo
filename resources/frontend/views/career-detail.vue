@@ -383,10 +383,6 @@
 							<h4>{{ jobInfo.experience }}</h4>
 						</div>
 						<div class="info">
-							<span>Work Level</span>
-							<h4>{{ jobInfo.workLevel }}</h4>
-						</div>
-						<div class="info">
 							<span>Employment Type</span>
 							<h4>{{ jobInfo.employmentType }}</h4>
 						</div>
@@ -592,7 +588,6 @@
 				},
 				jobInfo: {
 					experience: 'Minimum 1 Year',
-					workLevel: 'Senior Level',
 					employmentType: 'Full Time',
 					salary: '$35k',
 					gander: '',
