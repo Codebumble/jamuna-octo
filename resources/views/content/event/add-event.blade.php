@@ -1,7 +1,7 @@
 
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Edit This Event')
+@section('title', 'Add Event')
 
 @section('vendor-style')
   {{-- Vendor Css files --}}
@@ -22,7 +22,7 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Edit This Event</h4>
+          <h4 class="card-title">Add New Event</h4>
         </div>
         <div class="card-body">
 
@@ -45,7 +45,7 @@
 
 
 
-          <form action="{{route('edit_event', ['id' => $d->id])}}" class="invoice-repeater" enctype="multipart/form-data" method="POST">
+          <form action="{{route('add_event')}}" class="invoice-repeater" enctype="multipart/form-data" method="POST">
 		  @csrf
             <div data-repeater-list="new">
 				<div data-repeater-item>
@@ -55,13 +55,11 @@
 						<div class="col-md-6 col-12 mb-50">
 							<div class="mb-1">
 								<label class="form-label" for="name">Event Name</label>
-								<input type="hidden" name="id" value="{{$d->id}}"/>
 								<input
 									type="name"
 									class="form-control"
 									id="name"
 									name="name"
-									value="{{$d->name}}"
 									placeholder="Meeting is Going on!"
 									aria-describedby="name" required
 								/>
@@ -76,7 +74,7 @@
 									class="form-control"
 									id="image"
 									name="image"
-									aria-describedby="image"
+									aria-describedby="image"required
 								/>
 							</div>
 						</div>
@@ -89,7 +87,6 @@
 									class="form-control"
 									id="location"
 									name="location"
-									value="{{$d->location}}"
 									placeholder="Dhaka, Bangladesh"
 									aria-describedby="location" required
 								/>
@@ -105,7 +102,7 @@
 									id="category"
 									name="category"
 									placeholder="Event"
-									value="{{$d->category}}"
+									value="Event"
 									aria-describedby="event" required
 								/>
 							</div>
@@ -119,7 +116,6 @@
 									class="form-control"
 									id="time_data"
 									name="time_data"
-									value="{{$d->time_data}}"
 									placeholder="mm/dd/yyyy"
 									aria-describedby="time_data" required
 								/>
@@ -132,11 +128,7 @@
 								<select class="form-select" name="company" id="company" required>
 
 								@foreach($companies as $company)
-								@if( $company->id == $d->company)
-									<option value="{{$company->id}}" selected>{{$company->name}}</option>
-								@else
-									<option value="{{$company->id}}" selected>{{$company->name}}</option>
-								@endif
+							<option value="{{$company->id}}">{{$company->name}}</option>
 								@endforeach
 
 								</select>
@@ -152,7 +144,7 @@
 									class="form-control"
 									id="detail"
 									name="detail" required
-								>{{$d->detail}}</textarea>
+								></textarea>
 							</div>
 						</div>
 

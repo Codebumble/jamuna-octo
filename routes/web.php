@@ -90,6 +90,16 @@ Route::group(["prefix" => "codebumble"], function () {
 			"edit_product",
 		])->name("edit_product");
 
+		Route::post("event/add-event", [
+			event_rest::class,
+			"add_event",
+		])->name("add_event");
+
+		Route::post("event/edit-event/{id}", [
+			event_rest::class,
+			"edit_event",
+		])->name("edit_event");
+
 		Route::get("delete-product-api/{id}", [
 			Product_rest::class,
 			"delete_product",
@@ -263,17 +273,17 @@ Route::group(["prefix" => "admin"], function () {
 		])->name("photo_gallery_view");
 
 		Route::get("event/add-event", [
-			event::class,
+			event_rest::class,
 			"auth_add_event",
 		])->name("auth_add_event");
 
 		Route::get("event/edit-event/{id}", [
-			event::class,
+			event_rest::class,
 			"auth_edit_event",
 		])->name("auth_edit_event");
 
 		Route::get("event/all-event", [
-			event::class,
+			event_rest::class,
 			"auth_all_event",
 		])->name("auth_all_event");
 
