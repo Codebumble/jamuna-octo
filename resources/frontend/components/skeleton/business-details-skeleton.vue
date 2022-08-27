@@ -6,80 +6,80 @@
 					<div
 						class="border border-slate-100 p-8 w-full shadow-lg rounded-md overflow-hidden">
 						<div
-							class="w-full max-w-[338px] max-h-[156px] h-[156px] bg-gray-100 mx-auto object-cover"></div>
+							class="w-full max-w-[338px] max-h-[156px] h-[156px]  skeleton_bg mx-auto object-cover"></div>
 					</div>
 					<div
 						class="border border-slate-100 py-6 px-4 w-full shadow-lg rounded-md overflow-hidden businessInfo">
 						<table>
 							<tr>
-								<th class="bg-gray-100 h-6 mb-4 w-80 mr-3"></th>
-								<td class="bg-gray-100 h-6 mb-4 w-80"></td>
+								<th class=" skeleton_bg h-6 mb-4 w-80 mr-3"></th>
+								<td class=" skeleton_bg h-6 mb-4 w-80"></td>
 							</tr>
 							<tr>
-								<th class="bg-gray-100 h-6 mb-4 w-80 mr-3"></th>
-								<td class="bg-gray-100 h-6 mb-4 w-80"></td>
+								<th class=" skeleton_bg h-6 mb-4 w-80 mr-3"></th>
+								<td class=" skeleton_bg h-6 mb-4 w-80"></td>
 							</tr>
 							<tr>
-								<th class="bg-gray-100 h-6 mb-4 w-80 mr-3"></th>
-								<td class="bg-gray-100 h-6 mb-4 w-80"></td>
+								<th class=" skeleton_bg h-6 mb-4 w-80 mr-3"></th>
+								<td class=" skeleton_bg h-6 mb-4 w-80"></td>
 							</tr>
 							<tr>
-								<th class="bg-gray-100 h-6 mb-4 w-80 mr-3"></th>
-								<td class="bg-gray-100 h-6 mb-4 w-80"></td>
+								<th class=" skeleton_bg h-6 mb-4 w-80 mr-3"></th>
+								<td class=" skeleton_bg h-6 mb-4 w-80"></td>
 							</tr>
 							<tr>
-								<th class="bg-gray-100 h-6 mb-4 w-80 mr-3"></th>
-								<td class="bg-gray-100 h-6 mb-4 w-80"></td>
+								<th class=" skeleton_bg h-6 mb-4 w-80 mr-3"></th>
+								<td class=" skeleton_bg h-6 mb-4 w-80"></td>
 							</tr>
 							<tr>
-								<th class="bg-gray-100 h-6 mb-4 w-80 mr-3"></th>
-								<td class="bg-gray-100 h-6 mb-4 w-80"></td>
+								<th class=" skeleton_bg h-6 mb-4 w-80 mr-3"></th>
+								<td class=" skeleton_bg h-6 mb-4 w-80"></td>
 							</tr>
 							<tr>
-								<th class="bg-gray-100 h-6 mb-4 w-80 mr-3"></th>
-								<td class="bg-gray-100 h-6 mb-4 w-80"></td>
+								<th class=" skeleton_bg h-6 mb-4 w-80 mr-3"></th>
+								<td class=" skeleton_bg h-6 mb-4 w-80"></td>
 							</tr>
 							<tr>
-								<th class="bg-gray-100 h-6 mb-4 w-80 mr-3"></th>
-								<td class="bg-gray-100 h-6 mb-4 w-80"></td>
+								<th class=" skeleton_bg h-6 mb-4 w-80 mr-3"></th>
+								<td class=" skeleton_bg h-6 mb-4 w-80"></td>
 							</tr>
 							<tr>
-								<th class="bg-gray-100 h-6 mb-4 w-80 mr-3"></th>
-								<td class="bg-gray-100 h-6 mb-4 w-80"></td>
+								<th class=" skeleton_bg h-6 mb-4 w-80 mr-3"></th>
+								<td class=" skeleton_bg h-6 mb-4 w-80"></td>
 							</tr>
 							<tr>
-								<th class="bg-gray-100 h-6 mb-4 w-80 mr-3"></th>
-								<td class="bg-gray-100 h-6 mb-4 w-80"></td>
+								<th class=" skeleton_bg h-6 mb-4 w-80 mr-3"></th>
+								<td class=" skeleton_bg h-6 mb-4 w-80"></td>
 							</tr>
 							<tr class="items-center">
-								<th class="bg-gray-100 h-6 mb-4 w-80 mr-3"></th>
-								<td class="bg-gray-100 h-6 mb-4 w-80"></td>
+								<th class=" skeleton_bg h-6 mb-4 w-80 mr-3"></th>
+								<td class=" skeleton_bg h-6 mb-4 w-80"></td>
 							</tr>
 							<tr>
-								<th class="bg-gray-100 h-6 mb-4 w-80 mr-3"></th>
-								<td class="bg-gray-100 h-6 mb-4 w-80"></td>
+								<th class=" skeleton_bg h-6 mb-4 w-80 mr-3"></th>
+								<td class=" skeleton_bg h-6 mb-4 w-80"></td>
 							</tr>
 						</table>
 					</div>
 				</div>
 				<div
 					class="w-full lg:w-8/12 rounded-md shadow-lg border border-slate-100 p-8 overflow-hidden businessDetails">
-					<h2 class="bg-gray-100 h-6 mb-4 w-80"></h2>
+					<h2 class=" skeleton_bg h-6 mb-4 w-80"></h2>
 					<div>
-						<div class="bg-gray-100 h-6 mb-4 w-full"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-8/12"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-10/12"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-7/12"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-full"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-9/12"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-11/12"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-10/12"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-full"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-6/6"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-3/4"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-11/12"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-full"></div>
-						<div class="bg-gray-100 h-6 mb-4 w-2/4"></div>
+						<div class=" skeleton_bg h-6 mb-4 w-full"></div>
+						<div class=" skeleton_bg h-6 mb-4 w-8/12"></div>
+						<div class=" skeleton_bg h-6 mb-4 w-10/12"></div>
+						<div class=" skeleton_bg h-6 mb-4 w-7/12"></div>
+						<div class=" skeleton_bg h-6 mb-4 w-full"></div>
+						<div class=" skeleton_bg h-6 mb-4 w-9/12"></div>
+						<div class=" skeleton_bg h-6 mb-4 w-11/12"></div>
+						<div class=" skeleton_bg h-6 mb-4 w-10/12"></div>
+						<div class=" skeleton_bg h-6 mb-4 w-full"></div>
+						<div class=" skeleton_bg h-6 mb-4 w-6/6"></div>
+						<div class=" skeleton_bg h-6 mb-4 w-3/4"></div>
+						<div class=" skeleton_bg h-6 mb-4 w-11/12"></div>
+						<div class=" skeleton_bg h-6 mb-4 w-full"></div>
+						<div class=" skeleton_bg h-6 mb-4 w-2/4"></div>
 					</div>
 
 					<div class="company-gallery pt-8">

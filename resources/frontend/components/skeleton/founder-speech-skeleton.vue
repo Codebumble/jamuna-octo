@@ -5,20 +5,20 @@
 				<div
 					class="flex flex-col xl:flex-row justify-center items-center py-4">
 					<div class="xl:basis-2/4">
-						<img
-							:src="'/profile-images/' + quote.imgSrc"
-							:alt="quote.alt"
-							class="w-7/12 mx-auto rounded shadow-2xl" />
+						<div
+							class="w-7/12 h-98 mx-auto rounded skeleton_bg"></div>
 					</div>
 					<div class="xl:basis-2/4 mt-8 xl:mt-0">
 						<blockquote
-							class="text-3xl xl:text-5xl xl:w-3/4 leading-tight">
-							{{ quote.quote }}
+							class="xl:w-3/4">
+							<div class="skeleton_bg h-6 mb-4 w-full"></div>
+						<div class="skeleton_bg h-6 mb-4 w-8/12"></div>
+						<div class="skeleton_bg h-6 mb-4 w-10/12"></div>
 						</blockquote>
 						<cite class="block text-lg pt-2">
-							{{ quote.cite }}
+							<div class="skeleton_bg h-6 mb-4 w-full"></div>
 						</cite>
-						<span clsas="py-2">{{ quote.status }}</span>
+						<span clsas="py-2"><div class="skeleton_bg h-6 mb-4 w-full"></div></span>
 					</div>
 				</div>
 			</div>
@@ -27,10 +27,14 @@
 		<div class="py-16 lg:py-28">
 			<div class="container">
 				<div class="about-founder">
-					<h2>{{ FounderDetails.title }}</h2>
-					<p>
-						{{ FounderDetails.description }}
-					</p>
+					<h2 class=" skeleton_bg h-6 mb-4 w-80"></h2>
+					<div>
+						<div class="skeleton_bg h-6 mb-4 w-full"></div>
+						<div class="skeleton_bg h-6 mb-4 w-8/12"></div>
+						<div class="skeleton_bg h-6 mb-4 w-10/12"></div>
+						<div class="skeleton_bg h-6 mb-4 w-7/12"></div>
+						<div class="skeleton_bg h-6 mb-4 w-full"></div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -56,20 +60,5 @@
 </style>
 
 <script>
-	export default {
-		data() {
-			return {
-				FounderDetails: {},
-				quote: {},
-			};
-		},
-		mounted() {
-			axios
-				.get(window.location.origin + '/founder-api/founder-speech')
-				.then((response) => {
-					this.FounderDetails = response.data.FounderDetails;
-					this.quote = response.data.quote;
-				});
-		},
-	};
+	export default {};
 </script>
