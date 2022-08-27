@@ -374,6 +374,10 @@
 							<span>Salary</span>
 							<h4>{{ jobInfo.salary }} / year</h4>
 						</div>
+						<div class="info">
+							<span>Can Apply</span>
+							<h4>{{ jobInfo.gender }}</h4>
+						</div>
 					</div>
 					<div class="box">
 						<div class="flex gap-4 items-center mb-4">
@@ -571,6 +575,7 @@
 					workLevel: 'Senior Level',
 					employmentType: 'Full Time',
 					salary: '$35k',
+					gander: '',
 				},
 				companyInfo: {
 					logo: '/frontend/images/logo/microsoft.svg',
@@ -695,7 +700,7 @@
 	.close {
 		@apply absolute top-4 right-8 text-3xl font-bold cursor-pointer text-gray-500;
 	}
-	.share {
+	.upper-part .share {
 		@apply flex items-center text-[1.3rem] gap-3 justify-center content-center py-4;
 
 		a {
