@@ -223,6 +223,7 @@ Route::group(["prefix" => "frontpage-api"], function () {
 	Route::get("/company-name-logo", [Company_rest::class, "view_all_company_frontend_api"]);
 	Route::get("gallery-api", [FrontPage::class, "gallery_api"]);
 	Route::get("company-images/{c_id}", [Company_rest::class, "company_gallery_api"]);
+	Route::post("contact-page-mail-now", [FrontPage::class, "contact_page_mail"]);
 
 	Route::get("company/{id}", [FrontPage::class, "company_data"]);
 	Route::get("circular-and-category-short-list", [career::class, "front_short_list"]);
