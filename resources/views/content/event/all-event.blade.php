@@ -1,7 +1,7 @@
 
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'DataTables')
+@section('title', 'All Event List')
 
 @section('vendor-style')
   {{-- vendor css files --}}
@@ -24,12 +24,11 @@
             <tr>
               <th></th>
               <th></th>
-              <th>id</th>
+              <th>Id</th>
               <th>Name</th>
-              <th>Email</th>
+              <th>Company</th>
               <th>Date</th>
-              <th>Expected Salary</th>
-              <th>Status</th>
+              <th>Author</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -63,5 +62,5 @@
 @endsection
 @section('page-script')
   {{-- Page js files --}}
-  <script src="{{ asset(mix('js/scripts/tables/table-applicant-list.js')) }}"></script>
+  <script src="{{ asset(mix('js/scripts/tables/table-all-event.js')) }}"></script>
 @endsection

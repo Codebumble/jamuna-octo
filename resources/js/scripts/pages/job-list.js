@@ -183,7 +183,7 @@
 		  }
 		}
 	  });
-	  $('div.head-label').html('<h6 class="mb-0">Report Of Office Staff</h6>');
+	  $('div.head-label').html('<h6 class="mb-0">All Job list</h6>');
 	}
 
 	// Flat Date picker

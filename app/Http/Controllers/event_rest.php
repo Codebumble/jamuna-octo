@@ -52,6 +52,32 @@ class event_rest extends Controller
         return view('/content/event/all-event', ['pageConfigs' => $pageConfigs]);
     }
 
+    public function auth_all_event_api(){
+        check_auth();
+		check_power('manager');
+
+        if(Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin'){
+            $data = DB::select('select * from codebumble_event_list');
+
+        } else {
+            $data = DB::select(
+                "select * from codebumble_event_list where json_data like '%\"added_by\":\"" .
+                    Auth::user()->username .
+                    "\"%'");
+        }
+
+        //$data->author = json_decode($data[0]->json_data, true)->added_by;
+
+        $data2 = DB::select('select * from codebumble_company_list where id=?', [$data[0]->company]);
+
+        $data[0]->author = json_decode($data[0]->json_data)->added_by;
+
+        $data[0]->company = $data2[0]->name;
+
+
+        return json_encode(['data' =>$data]);
+    }
+
     public function add_event(Request $r){
         check_auth();
 		check_power('manager');
@@ -74,6 +100,8 @@ class event_rest extends Controller
         }
 
         $new['created_at'] = time();
+
+        $new['json_data'] = json_encode(['added_by' => Auth::user()->username]);
 
         $db = DB::table('codebumble_event_list')->insert($new);
 
@@ -120,9 +148,15 @@ class event_rest extends Controller
             unlink($unlink_path);
         }
 
-        $new['created_at'] = time();
+        $new['updated_at'] = time();
+
 
         $db = DB::table('codebumble_event_list')->where('id', $id)->update($new);
+
+        $new['json_data'] = [
+            'added_by' => json_decode($dbcheck[0]->json_data)->added_by,
+            'last_edited_by' => Auth::user()->username
+        ];
 
 
         return redirect()->route('auth_edit_event', [
@@ -140,9 +174,38 @@ class event_rest extends Controller
         check_auth();
 		check_power('manager');
 
+        if(Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin'){
+            $data = DB::select('select * from codebumble_event_list where id=?', [$id]);
+
+        } else {
+            $data = DB::select(
+                "select * from codebumble_event_list where json_data like '%\"added_by\":\"" .
+                    Auth::user()->username .
+                    "\"%' and id=?", [$id]);
+        }
+
+        if(isset($data[0])){
+            $b = DB::table('codebumble_event_list')->where('id', $id)->delete();
+
+            return redirect()->route('auth_all_event', [
+                'hasher' => Str::random(40),
+                'time' => time(),
+                'exist' =>
+                    'Event Updated!! This Event is now Visible in The website.',
+                'hasher_ip' => Str::random(10),
+            ]);
+
+        } else {
+
+        }
+
     }
 
     public function frontpage_event_list(){
+
+        $db= DB::select('select * from codebumble_event_list');
+
+        return json_encode($db);
 
     }
 

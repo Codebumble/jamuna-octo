@@ -100,6 +100,16 @@ Route::group(["prefix" => "codebumble"], function () {
 			"edit_event",
 		])->name("edit_event");
 
+		Route::get("event/delete-event/{id}", [
+			event_rest::class,
+			"delete_event",
+		])->name("delete_event");
+
+		Route::get("event/all-event", [
+			event_rest::class,
+			"auth_all_event_api",
+		])->name("auth_all_event_api");
+
 		Route::get("delete-product-api/{id}", [
 			Product_rest::class,
 			"delete_product",
@@ -239,6 +249,9 @@ Route::group(["prefix" => "frontpage-api"], function () {
 	Route::get("company/{id}", [FrontPage::class, "company_data"]);
 	Route::get("circular-and-category-short-list", [career::class, "front_short_list"]);
 	Route::get("circular-details/{id}", [career::class, "front_circular_details"]);
+
+	Route::get("event-list", [event_rest::class, "frontpage_event_list"]);
+
 
 	Route::get("all-company-view", [FrontPage::class, "all_company_view"]);
 	Route::get("all-product-view", [Product_rest::class, "front_all_product_page"]);
