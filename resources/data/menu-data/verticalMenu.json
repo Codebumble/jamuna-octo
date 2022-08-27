@@ -97,6 +97,13 @@
 					"icon": "circle",
 					"permission": 1,
 					"slug": "auth_all_product_page"
+				},
+				{
+					"url": "admin/company/add-images",
+					"name": "Add Images",
+					"icon": "circle",
+					"permission": 1,
+					"slug": "auth_view_add_photo"
 				}
 			]
 		},

@@ -173,6 +173,16 @@ Route::group(["prefix" => "codebumble"], function () {
 			Company_rest::class,
 			"edit_company",
 		])->name("edit-company-api");
+		Route::post("add-image-to-company", [
+			Company_rest::class,
+			"add_image_to_company",
+		])->name("add_image_to_company");
+
+		Route::get("delete-company-image/{id}/{company_id}", [
+			Company_rest::class,
+			"delete_company_image",
+		])->name("delete_company_image");
+
 		Route::post("test-output", [TestOutput::class, "test_post"])->name(
 			"test-post"
 		);
@@ -276,6 +286,11 @@ Route::group(["prefix" => "admin"], function () {
 			Company_rest::class,
 			"auth_view_edit_company",
 		])->name("edit-company");
+		Route::get("company/add-images", [
+			Company_rest::class,
+			"auth_view_add_photo",
+		])->name("auth_view_add_photo");
+
 		Route::get("site-settings/general", [
 			siteGeneral::class,
 			"general_page_view",
