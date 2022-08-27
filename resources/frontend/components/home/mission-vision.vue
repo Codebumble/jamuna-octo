@@ -6,16 +6,13 @@
 				<div class="lg:basis-2/4">
 					<h2
 						class="font-bold text-2xl lg:text-4xl text-gray-800 leading-snug text-center lg:text-left">
-						Our Mission Vision & Objective
+						{{ mvo.headingTitle }}
 					</h2>
 				</div>
 				<div class="lg:basis-2/4">
 					<p
 						class="text-gray-400 leading-looset text-center lg:text-left">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Sed luctus eget justo et iaculis. Quisque vitae nulla
-						malesuada, auctor arcu vitae, luctus nisi. Sed elementum
-						vitae ligula id imperdiet.
+						{{ mvo.headingDesc }}
 					</p>
 				</div>
 			</div>
@@ -27,14 +24,11 @@
 						src="/frontend/images/contents/mission.svg"
 						alt="mission" />
 					<h3 class="mb-2 font-bold font-heading text-xl">
-						Our Mission
+						{{ mvo.missionTitle }}
 					</h3>
 					<p
 						class="text-sm text-gray-400 leading-relaxed pb-4 lg:pb-0">
-						We view business as a means to the material and social
-						well being of the investors, employees at large leading
-						to accretion of wealth through financial and moral gains
-						as a part of the process of development of civilization.
+						{{ mvo.missionDesc }}
 					</p>
 				</div>
 				<div
@@ -44,14 +38,11 @@
 						src="/frontend/images/contents/vision.svg"
 						alt="mission" />
 					<h3 class="mb-2 font-bold font-heading text-xl">
-						Our Vision
+						{{ mvo.visionTitle }}
 					</h3>
 					<p
 						class="text-sm text-gray-400 leading-relaxed pb-4 lg:pb-0">
-						Our mission is to produce and provide quality services
-						and un innovative products for people, maintain ethical
-						slandered in business operation, also ensuring benefit
-						to the stakeholders and peoples of Bangladesh.
+						{{ mvo.visionDesc }}
 					</p>
 				</div>
 				<div
@@ -61,13 +52,11 @@
 						src="/frontend/images/contents/objective.svg"
 						alt="mission" />
 					<h3 class="mb-2 font-bold font-heading text-xl">
-						Our Objective
+						{{ mvo.objectiveTitle }}
 					</h3>
 					<p
 						class="text-sm text-gray-400 leading-relaxed pb-4 lg:pb-0">
-						to accomplish our vision and Mission we are constantly
-						parsing for besetment of socio-economic life of our
-						people.
+						{{ mvo.objectiveDesc }}
 					</p>
 				</div>
 			</div>
@@ -78,5 +67,23 @@
 <script>
 	export default {
 		name: 'mission vission',
+		data() {
+			return {
+				mvo: {
+					headingTitle: 'Our Mission Vision & Objective',
+					headingDesc:
+						'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus eget justo et iaculis. Quisque vitae nulla malesuada, auctor arcu vitae, luctus nisi. Sed elementum vitae ligula id imperdiet.',
+					missionTitle: 'Our Mission',
+					missionDesc:
+						'We view business as a means to the material and social well being of the investors, employees at large leading to accretion of wealth through financial and moral gains as a part of the process of development of civilization.',
+					visionTitle: 'Our Vision',
+					visionDesc:
+						'Our mission is to produce and provide quality services and un innovative products for people, maintain ethical slandered in business operation, also ensuring benefit to the stakeholders and peoples of Bangladesh.',
+					objectiveTitle: 'Our Objective',
+					objectiveDesc:
+						'to accomplish our vision and Mission we are constantly parsing for besetment of socio-economic life of our people.',
+				},
+			};
+		},
 	};
 </script>
