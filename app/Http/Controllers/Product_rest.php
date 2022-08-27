@@ -279,4 +279,34 @@ class Product_rest extends Controller
 			'data' => $data,
 		]);
 	}
+
+	public function front_all_product_page()
+	{
+		$data = DB::select('select * from codebumble_product_list');
+		$b=[];
+
+		foreach ($data as $key => $value) {
+			$a= [
+				'imgSrc' => $value->image,
+				'alt' => $value->name,
+				'linkText' => 'View Details'
+			];
+
+			if(json_decode($value->json_data)->type == "Default"){
+
+				$data = DB::select('select * from codebumble_company_list where name=?', [$value->company]);
+
+				$a += ['webLink' => '/companies/'.$data[0]->id.'/'.str_replace(" ", "-", $data[0]->name)];
+
+
+			} else {
+				$a += ['webLink' => json_decode($alue->json_data)->custom_url];
+			}
+
+			array_push($b,$a);
+
+		}
+
+		return json_encode($b);
+	}
 }

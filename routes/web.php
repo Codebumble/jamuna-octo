@@ -230,6 +230,7 @@ Route::group(["prefix" => "frontpage-api"], function () {
 	Route::get("circular-details/{id}", [career::class, "front_circular_details"]);
 
 	Route::get("all-company-view", [FrontPage::class, "all_company_view"]);
+	Route::get("all-product-view", [Product_rest::class, "front_all_product_page"]);
 	Route::get("footer-component", [FrontPage::class, "footer_component"]);
 	Route::get("directors-list", [FrontPage::class, "directors_list"]);
 	Route::get("shortBrief", [FrontPage::class, "shortBrief"]);
