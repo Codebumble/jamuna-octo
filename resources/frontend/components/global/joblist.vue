@@ -92,93 +92,29 @@
 
 <script>
 	export default {
+		mounted() {
+			axios
+				.get(
+					window.location.origin +
+						'/frontpage-api/circular-and-category-short-list'
+				)
+				.then((response) => {
+					this.jobList.jobCategories = response.data.jobCategories;
+					this.jobList.circulars = response.data.circulars;
+				});
+		},
 		data() {
 			return {
 				jobList: {
 					categoryTitle: 'One Platform Many Solutions',
 					jobCategories: [
-						{
-							cateName: 'Marketing & Communication',
-							jobAvailable: '58',
-							icon: 'fas fa-bullhorn',
-						},
-						{
-							cateName: 'Design & Development',
-							jobAvailable: '120',
-							icon: 'fas fa-pencil-ruler',
-						},
-						{
-							cateName: 'Human Research & Development',
-							jobAvailable: '199',
-							icon: 'fas fa-baby',
-						},
-						{
-							cateName: 'Finance Management',
-							jobAvailable: '234',
-							icon: 'fas fa-chart-line',
-						},
-						{
-							cateName: 'Armforce Guide & Security',
-							jobAvailable: '120',
-							icon: 'fas fa-user-shield',
-						},
-						{
-							cateName: 'Business & Consulting',
-							jobAvailable: '47',
-							icon: 'fas fa-project-diagram',
-						},
+
 					],
 					circulars: [
-						{
-							compLogo: '/frontend/images/logo/microsoft.svg',
-							compName: 'Microsoft',
-							location: 'San Francisco, CA',
-							jobTitle: 'Technical Support Engineer',
-							empTime: 'Full-time',
-							shortDesc:
-								"You will be expected to lead the comapany's entire UI stratagy",
-							salary: '$6700',
-							detailsLink: '/career-details/1',
-						},
-						{
-							compLogo: '/frontend/images/logo/microsoft.svg',
-							compName: 'Microsoft',
-							location: 'San Francisco, CA',
-							jobTitle: 'Technical Support Engineer',
-							empTime: 'Full-time',
-							shortDesc:
-								"You will be expected to lead the comapany's entire UI stratagy",
-							salary: '$6700',
-							detailsLink: '/career-details/2',
-						},
-						{
-							compLogo: '/frontend/images/logo/microsoft.svg',
-							compName: 'Microsoft',
-							location: 'San Francisco, CA',
-							jobTitle: 'Technical Support Engineer',
-							empTime: 'Full-time',
-							shortDesc:
-								"You will be expected to lead the comapany's entire UI stratagy",
-							salary: '$6700',
-							detailsLink: '/career-details/3',
-						},
-						{
-							compLogo: '/frontend/images/logo/microsoft.svg',
-							compName: 'Microsoft',
-							location: 'San Francisco, CA',
-							jobTitle: 'Technical Support Engineer',
-							empTime: 'Full-time',
-							shortDesc:
-								"You will be expected to lead the comapany's entire UI stratagy",
-							salary: '$6700',
-							detailsLink: '/career-details/4',
-						},
+
 					],
 				},
 			};
-		},
-		props: {
-			data: Object,
 		},
 	};
 </script>
