@@ -682,7 +682,10 @@
 						salary: salary.value,
 						'file-upload': pdf.value,
 						qualification: qualification.value,
-						university: university.value
+						university: university.value,
+						job_id : job_id.value,
+			_token : _token.value,
+			company : company.value
 					}
 					}
 					axios
