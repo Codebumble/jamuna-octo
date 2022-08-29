@@ -22,6 +22,12 @@ class RestrictIpAddressMiddleware
             return response()->view('/content/miscellaneous/custom-ip-block', ['ip' => $request->ip()]);
         }
 
+        if(env('SERVER_STATUS') == null || env('SERVER_STATUS') != "on"){
+
+            return response()->view('/content/miscellaneous/custom-maintenance');
+
+        }
+
         //$db = DB::table('codebumble_blockip')->select('ip')->get();
 
         return $next($request);
