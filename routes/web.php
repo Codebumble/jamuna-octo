@@ -265,6 +265,11 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 		'future_expansion_frontpage',
 	]);
 
+	Route::get('media-center/{id}', [
+		FrontPage::class,
+		'media-center-front',
+	]);
+
 	Route::get('quality-process-data', [
 		siteGeneral::class,
 		'quality_process_frontpage',
