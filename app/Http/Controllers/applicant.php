@@ -14,20 +14,23 @@ use DB;
 class applicant extends Controller
 {
     public function from_receive(Request $request){
-        foreach($request->new as $key=>$value){
-            if($key != 'university'){
+		// return $request->post();
+		$new = $request->new;
+		// return json_encode($new);
+        foreach($new as $key=>$value){
+            if($key != 'university' || $key != 'file-upload'){
                 if($request->new[$key] == "" || $request->new[$key] == null){
-                    return redirect("/career-details/5/?data=1"); //field required all
+                    return json_encode(['key'=>$key]); //field required all
                         }
                     }
         }
 
-        $db_check= DB::select('select * from codebumble_applicant_list where email=? and job_id =?',[$new->email, $new->job_id]);
+        $db_check= DB::select('select * from codebumble_applicant_list where email=? and job_id =?',[$new['email'], $new['job_id']]);
         if(isset($db_check[0])){
             return json_encode(['error' => 'You have already applied on this job using this Email Address', 'data' => 0]);
         }
 
-        $db_check= DB::select('select * from codebumble_applicant_list where phone=? and job_id =?',[$new->phone, $new->job_id]);
+        $db_check= DB::select('select * from codebumble_applicant_list where phone=? and job_id =?',[$new['phone'], $new['job_id']]);
         if(isset($db_check[0])){
             return json_encode(['error' => 'You have already applied on this job using this Phone Number', 'data' => 0]);
         }
@@ -45,15 +48,18 @@ class applicant extends Controller
             $file2->move($destinationPath2,$fileName2);
 
             $new['cv_link'] = '/app/securefolder/'.$fileName2;
-            unset($new['file-upload']);
 
 
 
 
-        }
+
+        } else {
+			return json_encode(['error' => 'No CV Found.', 'data' => 0]);
+		}
         $new['created_at'] = time();
+		unset($new['file-upload']);
 
-        $db = $DB::table('codebumble_applicant_list')->insert($new);
+        $db = DB::table('codebumble_applicant_list')->insert($new);
 
         return json_encode(['data' => 1]);
 

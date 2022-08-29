@@ -46,8 +46,7 @@
 								>&times;</span
 							>
 							<form
-								class="pt-6"
-								@submit.prevent="submitResume">
+								class="pt-6" @submit.prevent="submitResume">
 								<div
 									class="grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-4">
 									<div class="input-group">
@@ -74,7 +73,7 @@
 												name="new[name]"
 												id="name"
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-												placeholder="Name"
+												placeholder="Applicant Name"
 												required
 												v-model="name" />
 										</div>
@@ -158,7 +157,7 @@
 												class="col-span-6 sm:col-span-3">
 												<select
 													id="qualification"
-													name="new[qualification]"
+													name="new[qualifications]"
 													autocomplete="qualification-name"
 													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
 													v-model="qualification"
@@ -548,8 +547,8 @@
 			const name = ref('');
 			const division = ref('Division');
 			const district = ref('District');
-			const subdistrict = ref('Subdistrict');
-			const qualification = ref('Qualification');
+			const subdistrict = ref('Thana');
+			const qualification = ref('Educational Qualification');
 			const experience = ref('Experience (Years)');
 			const university = ref('');
 			const salary = ref('');
@@ -603,15 +602,41 @@
 					division.value === 'Division' ||
 					district.value === 'District' ||
 					subdistrict.value === 'Subdistrict' ||
-					experience.value === 'Experience (Years)'
+					experience.value === 'Experience (Years)' ||
+					qualification.value === 'Qualification' ||
+					!pdf.value ||
+					!mobile ||
+					!email
 				) {
 					return;
 				} else {
-					console.log(userData);
-				}
+					const userData = {
+						new:{
+						name: name.value,
+						email: email.value,
+						phone: mobile.value,
+						division: division.value,
+						district: district.value,
+						subdistrict: subdistrict.value,
+						experience: experience.value,
+						salary: salary.value,
+						'file-upload': pdf.value,
+						qualification: qualification.value,
+						university: university.value
+					}
+					}
+					axios
+					.post(window.location.origin + '/codebumble/from-receive', userData)
+						.then((response) => {
+							console.log(response);
+						})
+						.catch( error =>{
+							console.log(error);
+						})
+					}
 			};
 			const onFileChange = (e) => {
-				var files = e.target.files || e.dataTransfer.files;
+				let files = e.target.files || e.dataTransfer.files;
 				if (!files.length) return;
 				pdf.value = files[0];
 			};
