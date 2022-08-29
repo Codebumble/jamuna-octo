@@ -180,9 +180,36 @@
 						<input type="text" class="form-control" name="linkedin" id="linkedin"/>
 						</div>
 
-						 <div class="mb-1 col-12 col-md-6">
+						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="ceo_username">CEO's Username</label>
 						<input type="text" class="form-control" name="ceo_username" id="ceo_username"/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6 mt-2">
+                    	<div class="form-check form-check-secondary">
+                      	<input type="checkbox" class="form-check-input" id="new_center" name="new_center" value="yes"/>
+                      	<label class="form-check-label" for="new_center">Add as New Center</label>
+                    	</div>
+                  		</div>
+
+						<div class="mb-1 col-12 col-md-6 d-none" id="yv_link">
+						<label class="form-label" for="yv_link">Youtube Video Link</label>
+						<input type="text" class="form-control" name="yv_link"/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6 d-none" id="p_header">
+						<label class="form-label" for="p_header">Page Header</label>
+						<input type="text" class="form-control" name="p_header"/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6 d-none" id="ct_title">
+						<label class="form-label" for="ct_title">Correspondence Title</label>
+						<input type="text" class="form-control" name="ct_title"/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6 d-none" id="ct_desc">
+						<label class="form-label" for="ct_desc">Correspondence Description</label>
+						<input type="text" class="form-control" name="ct_desc"/>
 						</div>
 
 				</div>
@@ -212,4 +239,30 @@
 @section('page-script')
   <!-- Page js files -->
   <script src="{{ asset(mix('js/scripts/forms/form-validation-company-page.js')) }}"></script>
+  <script>
+
+  const checkbox = document.getElementById('new_center')
+  const yt_link = document.getElementById('yv_link')
+  const p_header = document.getElementById('p_header')
+  const ct_title = document.getElementById('ct_title')
+  const ct_desc = document.getElementById('ct_desc')
+
+
+	checkbox.addEventListener('change', (event) => {
+	if (event.currentTarget.checked) {
+		yt_link.classList.remove("d-none");
+		p_header.classList.remove("d-none");
+		ct_title.classList.remove("d-none");
+		ct_desc.classList.remove("d-none");
+	} else {
+		yt_link.classList.add("d-none");
+		p_header.classList.add("d-none");
+		ct_title.classList.add("d-none");
+		ct_desc.classList.add("d-none");
+	}
+	})
+
+
+
+  </script>
 @endsection
