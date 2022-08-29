@@ -52,6 +52,23 @@
 									class="grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-4">
 									<div class="input-group">
 										<div class="input-item">
+
+											<input
+												type="hidden"
+												name="new[job_id]"
+												:value="jobInfo.id" />
+
+											<input
+												type="hidden"
+												name="_token"
+												:value="jobInfo.token" />
+
+											<input
+												type="hidden"
+												name="new[company]"
+												:value="companyInfo.name" >
+
+
 											<input
 												type="text"
 												name="new[name]"
