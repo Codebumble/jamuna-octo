@@ -52,6 +52,8 @@ Route::get('/companies/{id}/{name}', [FrontendController::class, 'home'])->name(
 	'companies-details'
 );
 
+
+
 /* Route Dashboards */
 Route::group(['prefix' => 'dashboard'], function () {
 	Route::get('analytics', [
