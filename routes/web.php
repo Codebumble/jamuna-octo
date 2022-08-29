@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\applicant;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AppsController;
 use App\Http\Controllers\UserInterfaceController;
@@ -71,6 +72,12 @@ Route::group(['prefix' => 'codebumble'], function () {
 		AuthController::class,
 		'forgot_password_api',
 	])->name('auth-forget-password-api');
+
+	Route::post('/from-receive', [
+		applicant::class,
+		'from_receive',
+	])->name('from_receive');
+
 
 	Route::get('server-maintainer/{hash1}/{hash2}', [
 		siteGeneral::class,
