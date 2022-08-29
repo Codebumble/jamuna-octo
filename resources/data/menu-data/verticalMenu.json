@@ -199,10 +199,10 @@
 				},
 				{
 					"name": "Quality Process",
-					"url": "",
+					"url": "admin/site-settings/quality-process",
 					"icon": "circle",
 					"permission": 1,
-					"slug": ""
+					"slug": "quality-process"
 				}
 			]
 		},
