@@ -22,6 +22,8 @@ class applicant extends Controller
                     }
         }
 
+        $db_check= DB::select('select * from codebumble_applicant_list');
+
         if($file2 = $request->hasFile('new.file-upload')) {
 
             $vale1 = $request->validate([
@@ -38,6 +40,7 @@ class applicant extends Controller
 
 
         }
+
 
 
 

@@ -384,13 +384,14 @@ class career extends Controller
     public function front_circular_details($id){
 
         $data2 = DB::select('select * from codebumble_job_list where id = ?', [$id]);
-        $company = DB::select('select * from codebumble_company_list where name = ?', [$data2[0]->company]);
 
         if(!isset($data2[0])){
-            $pageConfigs = ['blankPage' => true];
-
-            return view('/content/miscellaneous/error', ['pageConfigs' => $pageConfigs]);
+            return json_encode(['error' => 404]);
         }
+
+        $company = DB::select('select * from codebumble_company_list where name = ?', [$data2[0]->company]);
+
+
 
         $a = [
             'jobheading' => [
