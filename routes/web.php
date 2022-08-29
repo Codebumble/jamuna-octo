@@ -276,6 +276,11 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 		'quality_process_frontpage',
 	]);
 
+	Route::get('company-profile-data', [
+		siteGeneral::class,
+		'company_profile_frontpage',
+	]);
+
 	Route::get('chairpersson-speech', [
 		FrontPage::class,
 		'chairpersson_speech',
@@ -541,10 +546,20 @@ Route::group(['prefix' => 'admin'], function () {
 			'quality_process_view',
 		])->name('quality_process_view');
 
+		Route::get('site-settings/company-profile', [
+			siteGeneral::class,
+			'company_profile_view',
+		])->name('company_profile_view');
+
 		Route::post('quality-process-update', [
 			siteGeneral::class,
 			'quality_process_update',
 		])->name('quality_process_update');
+
+		Route::post('company-profile-update', [
+			siteGeneral::class,
+			'company_profile_update',
+		])->name('company_profile_update');
 	});
 	Route::get('profile-billing', [
 		AppsController::class,

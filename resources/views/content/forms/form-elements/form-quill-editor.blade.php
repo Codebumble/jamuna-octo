@@ -266,5 +266,5 @@ var quill = new Quill('#editor', {
 @endsection
 @section('page-script')
   <!-- Page js files -->
-  <script src="{{ asset(mix('js/scripts/forms/form-quill-editor.js')) }}"></script>
+  <script src="{{ asset(mix('js/scripts/forms/form-quill-e`ditor.js')) }}"></script>
 @endsection

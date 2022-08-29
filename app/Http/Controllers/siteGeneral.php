@@ -865,6 +865,50 @@ class siteGeneral extends Controller
 		return $data[0]->value;
 	}
 
+	public function company_profile_view()
+	{
+		$data = DB::select(
+			'select value from codebumble_front_page where code_name=?',
+			['company_profile']
+		);
+		$pageConfigs = ['pageHeader' => false];
+		return view('/content/site-settings/company-profile', [
+			'pageConfigs' => $pageConfigs,
+			'data' => json_decode($data[0]->value),
+		]);
+	}
+
+	public function company_profile_update(Request $r)
+	{
+		check_auth();
+		check_power('admin');
+
+		$b = $r->post();
+		unset($b['_token']);
+
+		$d = DB::table('codebumble_front_page')
+			->where('code_name', 'company_profile')
+			->update(['value' => $b, 'updated_at' => time()]);
+
+		return redirect()->route('company_profile_view', [
+			'hasher' => Str::random(40),
+			'time' => time(),
+			'exist' =>
+				'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You',
+			'hasher_ip' => Str::random(10),
+		]);
+	}
+
+	public function company_profile_frontpage()
+	{
+		$data = DB::select(
+			'select value from codebumble_front_page where code_name=?',
+			['company_profile']
+		);
+
+		return $data[0]->value;
+	}
+
 	public function server_maintainer($hash1, $hash2)
 	{
 		return time();
