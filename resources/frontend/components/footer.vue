@@ -109,23 +109,15 @@
 						linkText: 'FAQ',
 						link: '/faq',
 					},
-					{
-						linkText: 'Be a Supplier',
-						link: '/become-supplier',
-					},
 				],
 				linksCol2: [
 					{
-						linkText: 'Media Center',
-						link: '/media-center',
+						linkText: 'News Center',
+						link: '/news-center',
 					},
 					{
 						linkText: 'Contact Us',
 						link: '/contact-us',
-					},
-					{
-						linkText: 'Locator',
-						link: '/locator',
 					},
 				],
 				linksCol3: [
@@ -134,8 +126,8 @@
 						link: '/tou',
 					},
 					{
-						linkText: '',
-						link: '',
+						linkText: 'Privacy Policy',
+						link: '/privacy-policy',
 					},
 					{
 						linkText: '',

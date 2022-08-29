@@ -350,14 +350,6 @@
 								route: '/news-center',
 								label: 'News Center',
 							},
-							{
-								route: '/jamuna-tv',
-								label: 'Jamuna Television ',
-							},
-							{
-								route: '/the-daily-jugantor',
-								label: 'The Daily Jugantor',
-							},
 						],
 					},
 					{
@@ -380,6 +372,7 @@
 				.get(window.location.origin + '/frontpage-api/nav-company')
 				.then((response) => {
 					this.navMenu[2].parentSubmenu = [...response.data.company];
+					this.navMenu[4].parentSubmenu = [...this.navMenu[4].parentSubmenu, ...response.data.mediahub];
 				});
 		},
 		mounted() {
