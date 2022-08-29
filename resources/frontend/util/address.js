@@ -1,9 +1,9 @@
 export const address = {
 	Division: {
-		District: ["Subdistrict"],
+		District: ["Thana"],
 	},
 	Barisal: {
-		District: ["Subdistrict"],
+		District: ["Thana"],
 		Barisal: [
 			"Agailjhara",
 			"Babuganj",
@@ -55,7 +55,7 @@ export const address = {
 		],
 	},
 	Chittagong: {
-		District: ["Subdistrict"],
+		District: ["Thana"],
 		Brahmanbaria: [
 			"Brahmanbaria Sadar",
 			"Kasba",
@@ -183,7 +183,7 @@ export const address = {
 		],
 	},
 	Dhaka: {
-		District: ["Subdistrict"],
+		District: ["Thana"],
 		Dhaka: ["Dhamrai", "Dohar", "Keraniganj", "Nawabganj ", "Savar"],
 		Gazipur: [
 			"Gazipur Sadar",
@@ -296,7 +296,7 @@ export const address = {
 		],
 	},
 	Khulna: {
-		District: ["Subdistrict"],
+		District: ["Thana"],
 		Bagerhat: [
 			"Bagerhat Sadar",
 			"Chitalmari",
@@ -360,7 +360,7 @@ export const address = {
 		],
 	},
 	Rajshahi: {
-		District: ["Subdistrict"],
+		District: ["Thana"],
 		Rajshahi: [
 			"Bagmara",
 			"Charghat",
@@ -445,7 +445,7 @@ export const address = {
 		],
 	},
 	Sylhet: {
-		District: ["Subdistrict"],
+		District: ["Thana"],
 		Habiganj: [
 			"Ajmiriganj",
 			"Baniachang",
@@ -497,7 +497,7 @@ export const address = {
 		],
 	},
 	Rangpur: {
-		District: ["Subdistrict"],
+		District: ["Thana"],
 		Dinajpur: [
 			"Biral",
 			"Birampur",
@@ -574,7 +574,7 @@ export const address = {
 		],
 	},
 	Mymensingh: {
-		District: ["Subdistrict"],
+		District: ["Thana"],
 		Mymensingh: [
 			"Bhaluka",
 			"Trishal",
@@ -613,4 +613,4 @@ export const address = {
 	},
 };
 
-export const qualifications = ["SSC", "HSC", "BSc", "MSc", "PhD"];
+export const qualifications = ["PSC", "JSC", "SSC", "HSC", "BSc", "MSc", "PhD"];

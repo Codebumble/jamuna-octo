@@ -80,6 +80,37 @@
 									</div>
 									<div class="input-group">
 										<div class="input-item">
+											<input
+												type="text"
+												name="new[age]"
+												id="age"
+												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+												placeholder="Age"
+												required
+												v-model="age" />
+										</div>
+									</div>
+									<div class="input-group">
+										<div class="input-item">
+											<div
+												class="col-span-6 sm:col-span-3">
+												<select
+													id="gender"
+													name="new[gender]"
+													autocomplete="gender-name"
+													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
+													v-model="gender"
+													required>
+													<option>{{gender}}</option>
+													<option>Male</option>
+													<option>Female</option>
+													<option>Other</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="input-group">
+										<div class="input-item">
 											<div
 												class="col-span-6 sm:col-span-3">
 												<select
@@ -163,7 +194,7 @@
 													v-model="qualification"
 													required>
 													<option>
-														Qualification
+														Educational Qualification
 													</option>
 													<option
 														v-for="qualification in qualifications"
@@ -247,6 +278,30 @@
 												placeholder="Your Email"
 												v-model="email"
 												required />
+										</div>
+									</div>
+									<div class="input-group">
+										<div class="input-item">
+											<input
+												type="text"
+												name="new[sCountry]"
+												id="sCountry"
+												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+												placeholder="Study Country (Optional)"
+												v-model="sCountry"
+												required />
+										</div>
+									</div>
+									<div class="input-group">
+										<div class="input-item">
+											<input
+												type="text"
+												name="new[pCompany]"
+												id="pCompany"
+												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+												placeholder="Previous Company (Optional)"
+												v-model="pCompany"
+												/>
 										</div>
 									</div>
 								</div>
@@ -545,6 +600,8 @@
 			const subdistricts = ref([]);
 
 			const name = ref('');
+			const age = ref('');
+			const gender = ref('Gender');
 			const division = ref('Division');
 			const district = ref('District');
 			const subdistrict = ref('Thana');
@@ -553,8 +610,10 @@
 			const university = ref('');
 			const salary = ref('');
 			const pdf = ref();
-			const mobile = ref();
-			const email = ref();
+			const mobile = ref('');
+			const email = ref('');
+			const sCountry = ref('');
+			const pCompany = ref('');
 
 			const toggleModal = () => {
 				isActiveModal.value = !isActiveModal.value;
@@ -565,10 +624,10 @@
 			const selectDivision = () => {
 				districts.value = Object.keys(address[division.value]);
 				district.value = 'District';
-				subdistrict.value = 'Subdistrict';
+				subdistrict.value = 'Thana';
 				isDistrict.value = false;
 				if (division.value === 'Division') {
-					subdistricts.value = ['Subdistrict'];
+					subdistricts.value = ['Thana'];
 					isSubdistrict.value = false;
 					return;
 				} else {
@@ -580,39 +639,32 @@
 					...address[division.value][district.value],
 				];
 				if (district.value === 'District') {
-					subdistricts.value = ['Subdistrict'];
+					subdistricts.value = ['Thana'];
 					isSubdistrict.value = false;
 					return;
 				}
 			};
 			const submitResume = () => {
-				const userData = {
-					name: name.value,
-					division: division.value,
-					district: district.value,
-					subdistrict: subdistrict.value,
-					qualification: qualification.value,
-					experience: experience.value,
-					university: university.value,
-					salary: salary.value,
-					pdf: pdf.value,
-				};
 				if (
 					!name.value ||
 					division.value === 'Division' ||
 					district.value === 'District' ||
-					subdistrict.value === 'Subdistrict' ||
+					subdistrict.value === 'Thana' ||
 					experience.value === 'Experience (Years)' ||
-					qualification.value === 'Qualification' ||
+					qualification.value === 'Educational Qualification' ||
 					!pdf.value ||
-					!mobile ||
-					!email
+					!mobile.value ||
+					!email.value ||
+					!age.value ||
+					gender.value === 'Gender'
 				) {
 					return;
 				} else {
 					const userData = {
 						new:{
 						name: name.value,
+						age: age.value,
+						gender: gender.value,
 						email: email.value,
 						phone: mobile.value,
 						division: division.value,
@@ -654,6 +706,8 @@
 				isSubdistrict,
 				qualifications,
 				name,
+				age,
+				gender,
 				division,
 				district,
 				subdistrict,
@@ -663,6 +717,8 @@
 				salary,
 				mobile,
 				email,
+				sCountry,
+				pCompany
 			};
 		},
 	};
