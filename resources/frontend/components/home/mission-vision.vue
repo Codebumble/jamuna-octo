@@ -6,57 +6,29 @@
 				<div class="lg:basis-2/4">
 					<h2
 						class="font-bold text-2xl lg:text-4xl text-gray-800 leading-snug text-center lg:text-left">
-						{{ mvo.headingTitle }}
+						{{ top.headingTitle }}
 					</h2>
 				</div>
 				<div class="lg:basis-2/4">
 					<p
 						class="text-gray-400 leading-looset text-center lg:text-left">
-						{{ mvo.headingDesc }}
+						{{ top.headingDesc }}
 					</p>
 				</div>
 			</div>
 			<div class="grid lg:grid-cols-3 gap-8 pt-8">
 				<div
-					class="rounded bg-white hover:shadow-md shadow-sm transition-all transform translate-y-0 hover:-translate-y-1 text-center lg:p-12 p-4 mx-auto">
+					class="rounded bg-white hover:shadow-md shadow-sm transition-all transform translate-y-0 hover:-translate-y-1 text-center lg:p-12 p-4 mx-auto" v-for="data in mvo">
 					<img
 						class="h-36 mx-auto my-4"
-						src="/frontend/images/contents/mission.svg"
+						:src="data.src"
 						alt="mission" />
 					<h3 class="mb-2 font-bold font-heading text-xl">
-						{{ mvo.missionTitle }}
+						{{data.title }}
 					</h3>
 					<p
 						class="text-sm text-gray-400 leading-relaxed pb-4 lg:pb-0">
-						{{ mvo.missionDesc }}
-					</p>
-				</div>
-				<div
-					class="rounded bg-white hover:shadow-md shadow-sm transition-all transform translate-y-0 hover:-translate-y-1 text-center lg:p-12 p-4 mx-auto">
-					<img
-						class="h-36 mx-auto my-4"
-						src="/frontend/images/contents/vision.svg"
-						alt="mission" />
-					<h3 class="mb-2 font-bold font-heading text-xl">
-						{{ mvo.visionTitle }}
-					</h3>
-					<p
-						class="text-sm text-gray-400 leading-relaxed pb-4 lg:pb-0">
-						{{ mvo.visionDesc }}
-					</p>
-				</div>
-				<div
-					class="rounded bg-white hover:shadow-md shadow-sm transition-all transform translate-y-0 hover:-translate-y-1 text-center lg:p-12 p-4 mx-auto">
-					<img
-						class="h-36 mx-auto my-4"
-						src="/frontend/images/contents/objective.svg"
-						alt="mission" />
-					<h3 class="mb-2 font-bold font-heading text-xl">
-						{{ mvo.objectiveTitle }}
-					</h3>
-					<p
-						class="text-sm text-gray-400 leading-relaxed pb-4 lg:pb-0">
-						{{ mvo.objectiveDesc }}
+						{{ data.desc }}
 					</p>
 				</div>
 			</div>
@@ -69,21 +41,39 @@
 		name: 'mission vission',
 		data() {
 			return {
-				mvo: {
-					headingTitle: 'Our Mission Vision & Objective',
-					headingDesc:
-						'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus eget justo et iaculis. Quisque vitae nulla malesuada, auctor arcu vitae, luctus nisi. Sed elementum vitae ligula id imperdiet.',
-					missionTitle: 'Our Mission',
-					missionDesc:
-						'We view business as a means to the material and social well being of the investors, employees at large leading to accretion of wealth through financial and moral gains as a part of the process of development of civilization.',
-					visionTitle: 'Our Vision',
-					visionDesc:
-						'Our mission is to produce and provide quality services and un innovative products for people, maintain ethical slandered in business operation, also ensuring benefit to the stakeholders and peoples of Bangladesh.',
-					objectiveTitle: 'Our Objective',
-					objectiveDesc:
-						'to accomplish our vision and Mission we are constantly parsing for besetment of socio-economic life of our people.',
+				top: {
+					headingTitle: '',
+					headingDesc: '',
 				},
+				mvo: [
+					{
+						src: '/frontend/images/contents/mission.svg'
+					},
+					{
+						src: '/frontend/images/contents/vision.svg'
+					},
+					{
+						src: '/frontend/images/contents/objective.svg'
+					}
+				],
 			};
 		},
+		created(){
+			axios
+			.get(window.location.origin + '/frontpage-api/mission-vision-frontpage')
+			.then((response) => {
+				this.top = {
+					headingTitle: response.data.top.header,
+					headingDesc: response.data.top.h_description,
+				}
+				response.data.data.forEach((item, index) => {
+					this.mvo[index] = {
+						...this.mvo[index],
+						title: item.title,
+						desc: item.desc,
+					}
+				})
+			});
+		}
 	};
 </script>

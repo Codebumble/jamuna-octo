@@ -5,7 +5,7 @@
 				class="flex flex-col lg:flex-row gap-8 justify-between py-4 items-center">
 				<div class="lg:basis-2/4">
 					<h2
-						class="font-bold text-2xl lg:text-4xl text-gray-800 leading-snug text-center lg:text-left  skeleton_bg h-6 mb-4 w-80"></h2>
+						class="skeleton_bg h-6 mb-4 w-80"></h2>
 				</div>
 				<div class="lg:basis-2/4">
 					<div>
