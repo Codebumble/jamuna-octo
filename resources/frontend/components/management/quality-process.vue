@@ -3,7 +3,7 @@
 		<div class="container">
 			<div
 				class="vision content-box"
-				v-html="qp"></div>
+				v-html="qp.qp"></div>
 		</div>
 	</section>
 </template>
@@ -16,9 +16,20 @@
 	export default {
 		data() {
 			return {
-				qp: '',
+				qp: {},
 			};
 		},
-		components: {},
+		mounted() {
+			axios
+				.get(
+					window.location.origin +
+						'/frontpage-api/quality-process-data'
+				)
+				.then((response) => {
+					this.qp = response.data;
+				});
+
+			console.log(this.qp);
+		},
 	};
 </script>
