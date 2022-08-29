@@ -407,6 +407,8 @@ class career extends Controller
                 'attachedfilelinklabel' => 'Download Instruction, Form and Rules'
             ],
             'jobInfo' => [
+                'token' => csrf_token(),
+                'id' => $id,
                 'experience' => $data2[0]->min_expo,
                 'employmentType' =>  $data2[0]->emp_type,
                 'salary' => $data2[0]->salary,
@@ -414,6 +416,7 @@ class career extends Controller
             ],
             'companyInfo' => [
                 'logo' => '/company-images/'.$company[0]->image,
+                'id' => $company[0]->id,
                 'name' => $company[0]->name,
                 'website' => json_decode($company[0]->json_data)->website,
                 'websiteLink' => json_decode($company[0]->json_data)->website,

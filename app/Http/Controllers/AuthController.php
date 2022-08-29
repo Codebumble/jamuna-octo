@@ -202,6 +202,8 @@ class AuthController extends Controller
             date_default_timezone_set(env('TIMEZONE'));
 
             $updated = DB::table('codebumble_login_table')->insert(['username' => $user->username, 'ip' => $request->ip(), 'browser' => $browser->getName(), 'browser_full' => $browser->getName().' '.$browser->getVersion(), 'os' => $os->getName().' '.$os->getVersion(), 'date' => date('d-M, Y'), 'time' => date('h:i a'), 'updated_at' => time(), 'created_at' => time()]);
+
+            $datama = DB::statement('DELETE FROM `codebumble_login_table` WHERE `username`=:username1 AND id NOT IN ( SELECT id FROM ( SELECT id FROM `codebumble_login_table` WHERE `username` =:username2  ORDER BY id DESC LIMIT 13 ) foo )', ['username1' => Auth::user()->username, 'username2' => Auth::user()->username]);
             return redirect()->route('dashboard-analytics');
 
         }else{
