@@ -55,17 +55,21 @@
 											<input
 												type="hidden"
 												name="new[job_id]"
-												:value="jobInfo.id" />
+												:value="jobInfo.id"
+												:v-model="job_id"
+												/>
 
 											<input
 												type="hidden"
 												name="_token"
-												:value="jobInfo.token" />
+												:value="jobInfo.token"
+												:v-model="_token" />
 
 											<input
 												type="hidden"
 												name="new[company]"
-												:value="companyInfo.name" >
+												:value="companyInfo.name"
+												:v-model="company" >
 
 
 											<input
@@ -614,6 +618,10 @@
 			const email = ref('');
 			const sCountry = ref('');
 			const pCompany = ref('');
+
+			const job_id = ref('');
+			const _token = ref('');
+			const company = ref('');
 
 			const toggleModal = () => {
 				isActiveModal.value = !isActiveModal.value;

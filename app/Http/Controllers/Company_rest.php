@@ -184,7 +184,12 @@ class Company_rest extends Controller
             $destinationPath9 = public_path().'/documents/company-documents' ;
             $file9->move($destinationPath9,$fileName9);
         } else {
-            $fileName9 = json_decode($a->json_data)->dfile;
+            if(isset(json_decode($a->json_data)->dfile)){
+                $fileName9 = "";
+            } else{
+                $fileName9 = json_decode($a->json_data)->dfile;
+            }
+
         }
 
         $json_encode += [
