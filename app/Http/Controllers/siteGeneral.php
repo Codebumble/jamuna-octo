@@ -111,6 +111,7 @@ class siteGeneral extends Controller
 			'select value from codebumble_front_page where code_name=?',
 			['board_of_director']
 		);
+
 		$ncd_cbd = DB::select(
 			'select value from codebumble_front_page where code_name=?',
 			['ncd-cbd']
@@ -522,7 +523,7 @@ class siteGeneral extends Controller
 
 		if ($file2 = $request->hasFile('image')) {
 			$field2 = $request->validate([
-				'short-logo.*' => 'mimes:png,svg|max:1080',
+				'image.*' => 'mimes:jpg,jpeg,png,svg|max:1080',
 			]);
 			$file2 = $request->file('image');
 			$fileName2 =
@@ -531,19 +532,19 @@ class siteGeneral extends Controller
 				$file2->getClientOriginalExtension();
 			$destinationPath2 = public_path() . '/images/avatars';
 			$file2->move($destinationPath2, $fileName2);
+			$fileName2 = '/images/avatars/'.$fileName2;
+
 		} else {
-			$data = DB::table('codebumble_front_page')
-				->where('code_name', 'chairpersson_speech')
-				->get();
+			$data = DB::select('select value from codebumble_front_page where code_name=?', ['chairpersson_speech']);
 
 			$fileName2 = json_decode($data[0]->value)->imgSrc;
 		}
 
-		$update_site_logo = DB::table('codebumble_front_page')
+		$update_data= DB::table('codebumble_front_page')
 			->where('code_name', 'chairpersson_speech')
 			->update([
 				'value' => json_encode([
-					'imgSrc' => '/images/avatars/' . $fileName2,
+					'imgSrc' => $fileName2,
 					'title' => $field['title'],
 					'description' => $field['description'],
 				]),
