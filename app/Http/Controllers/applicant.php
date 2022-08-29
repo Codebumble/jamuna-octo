@@ -65,8 +65,9 @@ class applicant extends Controller
         check_auth();
         check_power('manager');
 
-        $data = DB::table('codebubmle_applicant_list')->get();
+        $data = DB::table('codebumble_applicant_list')->get();
 
-        
+        return json_encode(['data' => $data]);
+
     }
 }

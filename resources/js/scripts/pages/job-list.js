@@ -38,33 +38,12 @@
 			targets: 0
 		  },
 		  {
-			// For Checkboxes
 			targets: 1,
-			orderable: false,
-			responsivePriority: 3,
-			render: function (data, type, full, meta) {
-			  return (
-				'<div class="form-check"> <input class="form-check-input dt-checkboxes" type="checkbox" value="" id="checkbox' +
-				data +
-				'" /><label class="form-check-label" for="checkbox' +
-				data +
-				'"></label></div>'
-			  );
-			},
-			checkboxes: {
-			  selectAllRender:
-				'<div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="checkboxSelectAll" /><label class="form-check-label" for="checkboxSelectAll"></label></div>'
-			}
-		  },
-		  {
-			targets: 2,
 			visible: false
 		  },
 		  {
 			responsivePriority: 1,
 			targets: 4
-		  },
-		  {
 		  },
 		  {
 			// Actions
@@ -93,7 +72,7 @@
 			}
 		  }
 		],
-		order: [[2, 'desc']],
+		order: [[2, 'asc']],
 		dom: '<"card-header border-bottom p-1"<"head-label"><"dt-action-buttons text-end"B>><"d-flex justify-content-between align-items-center mx-0 row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>t<"d-flex justify-content-between mx-0 row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
 		displayLength: 7,
 		lengthMenu: [7, 10, 25, 50, 75, 100],

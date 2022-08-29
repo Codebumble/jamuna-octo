@@ -85,6 +85,12 @@ Route::group(['prefix' => 'codebumble'], function () {
 			siteGeneral::class,
 			'growth_story_api',
 		])->name('growth_story_api');
+
+		Route::get('applicant-list', [
+			applicant::class,
+			'applicant_list_api',
+		])->name('applicant_list_api');
+
 		Route::post('add-new-product', [
 			Product_rest::class,
 			'add_product',
