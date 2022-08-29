@@ -12,7 +12,7 @@
 						class="w-full rounded-bl-none rounded-br-none rounded-tr rounded-tl min-h-[200px] max-h-[200px] object-cover pt-0 bg-slate-50" />
 					<div
 						class="p-4 pb-6 rounded-tl-none rounded-tr-none rounded-bl rounded-br backdrop-blur-md min-h-[180px] max-h-[180px] overflow-hidden">
-						<router-link to="/event-details/1">
+						<router-link :to="'/event-details/'+event.webLink">
 							<h4
 								class="text-xl font-bold text-gray-800 mt-4 mb-2">
 								{{ event.eventTitle.substring(0, 37) + '...' }}
@@ -49,59 +49,23 @@
 			return {
 				eventVisible: 3,
 				step: 3,
-				events: [
-					{
-						imgSrc: 'https://images.unsplash.com/photo-1518135714426-c18f5ffb6f4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1496&q=80',
-						alt: 'denims1',
-						webLink: '/hoorain-htf',
-						eventTitle: 'Jamuna group signs a new agreement',
-						eventExerp:
-							'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum totam, facilis sunt repellat rerum fugit. Magnam quod quis voluptates, porro, molestias quo laudantium perferendis possimus repellat iste placeat architecto nulla.',
-					},
-					{
-						imgSrc: 'https://images.unsplash.com/photo-1549923746-c502d488b3ea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80',
-						alt: 'denims1',
-						webLink: '/hoorain-htf',
-						eventTitle: 'Jamuna invested 99 lacs BDT to a evaly',
-						eventExerp:
-							'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum totam, facilis sunt repellat rerum fugit. Magnam quod quis voluptates, porro, molestias quo laudantium perferendis possimus repellat iste placeat architecto nulla.',
-					},
-					{
-						imgSrc: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-						alt: 'denims1',
-						webLink: '/hoorain-htf',
-						eventTitle:
-							'Jamuna arranged meeting to start new business',
-						eventExerp:
-							'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum totam, facilis sunt repellat rerum fugit. Magnam quod quis voluptates, porro, molestias quo laudantium perferendis possimus repellat iste placeat architecto nulla.',
-					},
-					{
-						imgSrc: 'https://images.unsplash.com/photo-1518135714426-c18f5ffb6f4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1496&q=80',
-						alt: 'denims1',
-						webLink: '/hoorain-htf',
-						eventTitle: 'Jamuna group signs a new agreement',
-						eventExerp:
-							'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum totam, facilis sunt repellat rerum fugit. Magnam quod quis voluptates, porro, molestias quo laudantium perferendis possimus repellat iste placeat architecto nulla.',
-					},
-					{
-						imgSrc: 'https://images.unsplash.com/photo-1549923746-c502d488b3ea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80',
-						alt: 'denims1',
-						webLink: '/hoorain-htf',
-						eventTitle: 'Jamuna invested 99 lacs BDT to a evaly',
-						eventExerp:
-							'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum totam, facilis sunt repellat rerum fugit. Magnam quod quis voluptates, porro, molestias quo laudantium perferendis possimus repellat iste placeat architecto nulla.',
-					},
-					{
-						imgSrc: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-						alt: 'denims1',
-						webLink: '/hoorain-htf',
-						eventTitle:
-							'Jamuna arranged meeting to start new business',
-						eventExerp:
-							'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum totam, facilis sunt repellat rerum fugit. Magnam quod quis voluptates, porro, molestias quo laudantium perferendis possimus repellat iste placeat architecto nulla.',
-					},
-				],
+				events: [],
 			};
+		},
+		created() {
+			axios
+			.get(window.location.origin + '/frontpage-api/event-list')
+			.then((response) => {
+				response.data.forEach(item=>{
+					this.events.push({
+						imgSrc: item.image,
+						alt: item.name,
+						webLink: item.id,
+						eventTitle: item.name,
+						eventExerp: item.detail,
+					})
+				})
+			});
 		},
 		computed: {
 			visibleEvents() {
