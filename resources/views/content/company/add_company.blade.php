@@ -79,7 +79,7 @@
 							name="support_email"
 							class="form-control"
 							placeholder="support@codebumble.net"
-							required
+
 						/>
 						<div class="valid-feedback">Looks good!</div>
 						<div class="invalid-feedback">Please enter a valid email.</div>
@@ -87,51 +87,51 @@
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="ceo_of_the_company">Name of The CEO</label>
-						<input type="text" class="form-control" name="ceo_of_the_company" id="ceo_of_the_company" required />
+						<input type="text" class="form-control" name="ceo_of_the_company" id="ceo_of_the_company"  />
 						<div class="valid-feedback">Looks good!</div>
 						<div class="invalid-feedback">Please enter a valid CEO Name.</div>
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="address">Address</label>
-						<input type="text" class="form-control" name="address" id="address" required />
+						<input type="text" class="form-control" name="address" id="address"  />
 						<div class="valid-feedback">Looks good!</div>
 						<div class="invalid-feedback">Please enter a valid Address.</div>
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="establish_date">Establish Date</label>
-						<input type="date" class="form-control picker" name="establish_date" id="establish_date" required />
+						<input type="date" class="form-control picker" name="establish_date" id="establish_date"  />
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="products">Products</label>
-						<input type="text" class="form-control" name="products" id="products" required />
+						<input type="text" class="form-control" name="products" id="products" />
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="production-cap">Production Capacity</label>
-						<input type="text" class="form-control" name="production-cap" id="production-cap" required />
+						<input type="text" class="form-control" name="production-cap" id="production-cap"  />
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="manpower">Man Power</label>
-						<input type="number" class="form-control" name="manpower" id="manpower" required />
+						<input type="number" class="form-control" name="manpower" id="manpower"  />
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="support_phone_number">Support Phone Number</label>
-						<input type="text" class="form-control" name="support_phone_number" id="support_phone_number" required />
+						<input type="text" class="form-control" name="support_phone_number" id="support_phone_number"  />
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
 						<label for="image" class="form-label">Company Logo</label>
-						<input class="form-control" type="file" id="image" name="image" required />
+						<input class="form-control" type="file" id="image" name="image"  />
 						</div>
 
 						<div class="mb-1 col-12 col-md-6" x-data="{ count: 0 }" x-init="count = $refs.countme.value.length">
 						<label class="form-label" for="short-details">Short Details (It will be placed top of the page after the page title.)</label>
-						<textarea rows="1" class="form-control" name="short-details" id="short-details" maxlength="200" x-ref="countme" x-on:keyup="count = $refs.countme.value.length" required></textarea>
+						<textarea rows="1" class="form-control" name="short-details" id="short-details" maxlength="200" x-ref="countme" x-on:keyup="count = $refs.countme.value.length" ></textarea>
 						<span x-html="count"></span> / <span x-html="$refs.countme.maxLength"></span>
 						</div>
 
@@ -162,7 +162,7 @@
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="website">Website</label>
-						<input type="text" class="form-control" name="website" id="website" required/>
+						<input type="text" class="form-control" name="website" id="website" />
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">

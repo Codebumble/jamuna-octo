@@ -75,7 +75,7 @@
 							value="{{ json_decode($company->json_data)->support_email }}"
 							class="form-control"
 							placeholder="support@codebumble.net"
-							required
+
 						/>
 						<div class="valid-feedback">Looks good!</div>
 						<div class="invalid-feedback">Please enter a valid email.</div>
@@ -83,41 +83,41 @@
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="ceo_of_the_company">Name of The CEO</label>
-						<input type="text" class="form-control" value="{{ json_decode($company->json_data)->ceo_of_the_company }}" name="ceo_of_the_company" id="ceo_of_the_company" required />
+						<input type="text" class="form-control" value="{{ json_decode($company->json_data)->ceo_of_the_company }}" name="ceo_of_the_company" id="ceo_of_the_company" />
 						<div class="valid-feedback">Looks good!</div>
 						<div class="invalid-feedback">Please enter a valid CEO Name.</div>
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="address">Address</label>
-						<input type="text" class="form-control" value="{{ json_decode($company->json_data)->address }}" name="address" id="address" required />
+						<input type="text" class="form-control" value="{{ json_decode($company->json_data)->address }}" name="address" id="address"  />
 						<div class="valid-feedback">Looks good!</div>
 						<div class="invalid-feedback">Please enter a valid Address.</div>
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="establish_date">Establish Date</label>
-						<input type="date" class="form-control picker" value="{{ $company->establish_date }}" name="establish_date" id="establish_date" required />
+						<input type="date" class="form-control picker" value="{{ $company->establish_date }}" name="establish_date" id="establish_date"  />
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="products">Products</label>
-						<input type="text" class="form-control" name="products" value="{{ $company->products }}" id="products" required />
+						<input type="text" class="form-control" name="products" value="{{ $company->products }}" id="products" />
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="production_cap">Production Capacity</label>
-						<input type="text" class="form-control" name="production-cap" value="{{ $company->production_cap }}" id="production_cap" required />
+						<input type="text" class="form-control" name="production-cap" value="{{ $company->production_cap }}" id="production_cap"  />
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="manpower">Man Power</label>
-						<input type="number" class="form-control" name="manpower" value="{{ $company->manpower }}" id="manpower" required />
+						<input type="number" class="form-control" name="manpower" value="{{ $company->manpower }}" id="manpower"  />
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="support_phone_number">Support Phone Number</label>
-						<input type="text" class="form-control" value="{{ json_decode($company->json_data)->support_phone_number }}" name="support_phone_number" id="support_phone_number" required />
+						<input type="text" class="form-control" value="{{ json_decode($company->json_data)->support_phone_number }}" name="support_phone_number" id="support_phone_number"  />
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
@@ -127,7 +127,7 @@
 
 						<div class="mb-1 col-12 col-md-6" x-data="{ count: 0 }" x-init="count = $refs.countme.value.length">
 						<label class="form-label" for="short-details">Short Details (It will be placed top of the page after the page title.)</label>
-						<textarea rows="1" class="form-control" name="short-details" id="short-details" maxlength="200" x-ref="countme" x-on:keyup="count = $refs.countme.value.length" required>{{ $company->short_details }}</textarea>
+						<textarea rows="1" class="form-control" name="short-details" id="short-details" maxlength="200" x-ref="countme" x-on:keyup="count = $refs.countme.value.length" >{{ $company->short_details }}</textarea>
 						<span x-html="count"></span> / <span x-html="$refs.countme.maxLength"></span>
 						</div>
 
@@ -139,7 +139,7 @@
 							id="validationBioBootstrap"
 							name="description"
 							rows="3"
-							required
+
 						>{{ $company->description }}</textarea>
 						</div>
 
@@ -159,7 +159,7 @@
 
 						<div class="mb-1 col-12 col-md-6">
 						<label class="form-label" for="website">Website</label>
-						<input type="text" class="form-control" value="{{ json_decode($company->json_data)->website }}" name="website" id="website" required/>
+						<input type="text" class="form-control" value="{{ json_decode($company->json_data)->website }}" name="website" id="website" />
 						</div>
 
 						<div class="mb-1 col-12 col-md-6">
@@ -193,7 +193,7 @@
 						<div class="mb-1 col-12 col-md-6 mt-2">
                     	<div class="form-check form-check-secondary">
                       	<input type="checkbox" class="form-check-input" id="new_center" name="new_center" value="yes"
-						@if(json_decode($company->json_data)->new_center == "yes")
+						@if(isset(json_decode($company->json_data)->new_center) && json_decode($company->json_data)->new_center == "yes")
 						checked
 						@endif
 
@@ -205,7 +205,7 @@
 
 						$dn = "";
 
-						if(json_decode($company->json_data)->new_center == "no"){
+						if(!isset(json_decode($company->json_data)->new_center) || json_decode($company->json_data)->new_center == "no"){
 							$dn = "d-none";
 
 						}
@@ -216,7 +216,7 @@
 						<div class="mb-1 col-12 col-md-6 {{$dn}}" id="yv_link">
 						<label class="form-label" for="yv_link">Youtube Video Link</label>
 						<input type="text" class="form-control" name="yv_link"
-						@if(json_decode($company->json_data)->new_center == "no")
+						@if(!isset(json_decode($company->json_data)->new_center) || json_decode($company->json_data)->new_center == "no")
 						value=""
 						@else
 						value="{{json_decode($company->json_data)->yv_link}}"
@@ -228,7 +228,7 @@
 						<div class="mb-1 col-12 col-md-6 {{$dn}}" id="p_header">
 						<label class="form-label" for="p_header">Page Header</label>
 						<input type="text" class="form-control" name="p_header"
-						@if(json_decode($company->json_data)->new_center == "no")
+						@if(!isset(json_decode($company->json_data)->new_center) || json_decode($company->json_data)->new_center == "no")
 						value=""
 						@else
 						value="{{json_decode($company->json_data)->p_header}}"
@@ -239,7 +239,7 @@
 						<div class="mb-1 col-12 col-md-6 {{$dn}}" id="ct_title">
 						<label class="form-label" for="ct_title">Correspondence Title</label>
 						<input type="text" class="form-control" name="ct_title"
-						@if(json_decode($company->json_data)->new_center == "no")
+						@if(!isset(json_decode($company->json_data)->new_center) || json_decode($company->json_data)->new_center == "no")
 						value=""
 						@else
 						value="{{json_decode($company->json_data)->ct_title}}"
@@ -250,7 +250,7 @@
 						<div class="mb-1 col-12 col-md-6 {{$dn}}" id="ct_desc">
 						<label class="form-label" for="ct_desc">Correspondence Description</label>
 						<input type="text" class="form-control" name="ct_desc"
-						@if(json_decode($company->json_data)->new_center == "no")
+						@if(!isset(json_decode($company->json_data)->new_center) || json_decode($company->json_data)->new_center == "no")
 						value=""
 						@else
 						value="{{json_decode($company->json_data)->ct_desc}}"
@@ -322,4 +322,30 @@
 @section('page-script')
   <!-- Page js files -->
   <script src="{{ asset(mix('js/scripts/forms/form-validation-company-page.js')) }}"></script>
+  <script>
+
+  const checkbox = document.getElementById('new_center')
+  const yt_link = document.getElementById('yv_link')
+  const p_header = document.getElementById('p_header')
+  const ct_title = document.getElementById('ct_title')
+  const ct_desc = document.getElementById('ct_desc')
+
+
+	checkbox.addEventListener('change', (event) => {
+	if (event.currentTarget.checked) {
+		yt_link.classList.remove("d-none");
+		p_header.classList.remove("d-none");
+		ct_title.classList.remove("d-none");
+		ct_desc.classList.remove("d-none");
+	} else {
+		yt_link.classList.add("d-none");
+		p_header.classList.add("d-none");
+		ct_title.classList.add("d-none");
+		ct_desc.classList.add("d-none");
+	}
+	})
+
+
+
+  </script>
 @endsection
