@@ -29,12 +29,6 @@
 								data.address.officeName
 							}}</span>
 							<span class="block">{{ data.address.road }}</span>
-							<span class="block">{{
-								data.address.location
-							}}</span>
-							<span class="block">{{
-								data.address.country
-							}}</span>
 						</div>
 					</div>
 				</div>
@@ -80,11 +74,7 @@
 </style>
 
 <script>
-	// import LaravelVuePagination from 'laravel-vue-pagination';
 	export default {
-		components: {
-			// Pagination: LaravelVuePagination,
-		},
 		data() {
 			return {
 				distMemberVisible: 4,
