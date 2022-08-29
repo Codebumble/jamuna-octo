@@ -59,8 +59,5 @@ class applicant extends Controller
 
 
 
-
-
-
     }
 }

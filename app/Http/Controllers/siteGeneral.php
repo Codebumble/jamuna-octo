@@ -776,7 +776,7 @@ class siteGeneral extends Controller
 			['mission-vision']
 		);
 
-		return json_encode($data[0]);
+		return $data[0]->value;
 	}
 
 	public function future_expension_view()
