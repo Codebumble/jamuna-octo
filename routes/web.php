@@ -260,9 +260,20 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 	Route::get('slider', [FrontPage::class, 'slider_view']);
 
 	Route::get('nav-company', [FrontPage::class, 'nav_company']);
-	Route::get('future-expansion-data', [siteGeneral::class, 'future_expansion_frontpage']);
+	Route::get('future-expansion-data', [
+		siteGeneral::class,
+		'future_expansion_frontpage',
+	]);
 
+	Route::get('media-center/{id}', [
+		FrontPage::class,
+		'media-center-front',
+	]);
 
+	Route::get('quality-process-data', [
+		siteGeneral::class,
+		'quality_process_frontpage',
+	]);
 
 	Route::get('chairpersson-speech', [
 		FrontPage::class,
@@ -523,6 +534,16 @@ Route::group(['prefix' => 'admin'], function () {
 			AuthController::class,
 			'profile_visitor_under_ref',
 		])->name('profile_visitor_under_ref');
+
+		Route::get('site-settings/quality-process', [
+			siteGeneral::class,
+			'quality_process_view',
+		])->name('quality_process_view');
+
+		Route::post('quality-process-update', [
+			siteGeneral::class,
+			'quality_process_update',
+		])->name('quality_process_update');
 	});
 	Route::get('profile-billing', [
 		AppsController::class,

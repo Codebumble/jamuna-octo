@@ -58,12 +58,6 @@
 					},
 					sharing: {
 						url: window.location.origin + this.$route.path,
-						title: 'Say hi to Vite! A brand new, extremely fast development setup for Vue.',
-						description:
-							'This week, I’d like to introduce you to "Vite", which means "Fast". It’s a brand new development setup created by Evan You.',
-						quote: "The hot reload is so fast it's near instant. - Evan You",
-						hashtags: 'vuejs,vite,javascript',
-						twitterUser: 'youyuxi',
 					},
 					networks: [
 						{
@@ -85,11 +79,6 @@
 							network: 'messenger',
 							name: 'Messenger',
 							icon: 'fab fa-facebook-messenger',
-						},
-						{
-							network: 'twitter',
-							name: 'Twitter',
-							icon: 'fab fa-twitter',
 						},
 						{
 							network: 'whatsapp',
@@ -169,19 +158,19 @@
 				this.images = [];
 				if (this.$route.params.id) {
 					axios
-					.get(
-						window.location.origin +
-							'/frontpage-api/company-images/' +
-							this.$route.params.id
-					)
-					.then((res) => {
-						res.data.forEach((item) => {
-							this.images.push({
-								src: item.src,
-								title: item.name,
+						.get(
+							window.location.origin +
+								'/frontpage-api/company-images/' +
+								this.$route.params.id
+						)
+						.then((res) => {
+							res.data.forEach((item) => {
+								this.images.push({
+									src: item.src,
+									title: item.name,
+								});
 							});
 						});
-					});
 				}
 			},
 		},

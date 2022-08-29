@@ -38,7 +38,10 @@ class FrontPage extends Controller
 
     public function nav_company(){
 
-        $a = [];
+        $a = [
+            'company' => [],
+            'mediahub' => []
+        ];
 
 
         $data_get = DB::select('select value from codebumble_general where code_name=?',['sections']);
@@ -67,7 +70,26 @@ class FrontPage extends Controller
             }
         }
 
-            array_push($a, $temp);
+            array_push($a['company'], $temp);
+        }
+
+        $data_get_3 = DB::select("select * from codebumble_company_list where json_data like '%\"new_center\":\"yes\"%'");
+
+            if(isset($data_get_3)){
+
+            foreach ($data_get_3 as $key => $value) {
+
+                $name = $value->name;
+				$replace = $name = str_replace(" ", "-", $value->name);
+
+                $submenu = [
+                    'route' => '/media-center/'.$value->id.'/'.$replace,
+                    'label' => $value->name
+
+                ];
+
+                array_push($a['mediahub'], $submenu);
+            }
         }
 
         return json_encode($a);

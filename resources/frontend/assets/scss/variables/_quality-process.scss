@@ -2,7 +2,7 @@
 	.content-box {
 		@apply bg-gray-100 transition-all transform translate-y-0 duration-700 p-8 shadow-lg rounded-lg hover:-translate-y-1 mb-8;
 		transition: all 0.5s ease-in-out;
-		.title {
+		h2, h1 {
 			@apply font-bold text-xl;
 		}
 		p {

@@ -16,11 +16,11 @@
 					<div
 						class="border border-slate-100 py-6 px-4 w-full shadow-lg rounded-md overflow-hidden businessInfo">
 						<table>
-							<tr>
+							<tr v-if="data.businessName">
 								<th>Business Name</th>
 								<td>{{ data.businessName }}</td>
 							</tr>
-							<tr>
+							<tr v-if="data.establishDate">
 								<th>Establish Date</th>
 								<td>{{ data.establishDate }}</td>
 							</tr>
@@ -28,7 +28,7 @@
 								<th>Name of The CEO</th>
 								<td>{{ data.ceo }}</td>
 							</tr>
-							<tr>
+							<tr v-if="data.address.officeName">
 								<th>Address</th>
 								<td>
 									<span
@@ -53,7 +53,7 @@
 									>
 								</td>
 							</tr>
-							<tr>
+							<tr v-if="data.mail && data.emailName">
 								<th>Support Email</th>
 								<td>
 									<a
@@ -63,7 +63,7 @@
 									>
 								</td>
 							</tr>
-							<tr>
+							<tr v-if="data.mobile">
 								<th>Support Phone</th>
 								<td>
 									<a
@@ -73,7 +73,7 @@
 									>
 								</td>
 							</tr>
-							<tr>
+							<tr v-if="data.website">
 								<th>Website</th>
 								<td>
 									<a
@@ -133,14 +133,8 @@
 										:style="{
 											backgroundColor: network.color,
 										}"
-										:url="data.sharing.url"
-										:title="data.sharing.title"
-										:description="data.sharing.description"
-										:quote="data.sharing.quote"
-										:hashtags="data.sharing.hashtags"
-										:twitterUser="data.sharing.twitterUser">
+										:url="data.sharing.url">
 										<i :class="network.icon"></i>
-										<!-- <span>{{ network.name }}</span> -->
 									</ShareNetwork>
 								</td>
 							</tr>
@@ -246,42 +240,41 @@
 							</div>
 						</div>
 					</div>
-				<div class="company-gallery pt-8">
-					<div
-					class="grid grid-cols-1 lg:grid-cols-4 2xl:gap-3 md:grid-cols-2 gap-5 pb-8">
+					<div class="company-gallery pt-8">
 						<div
-							v-for="(item, index) in images"
-							:key="index"
-							class="image"
-							@click="() => showImg(index)">
-							<div class="thumbnail">
-								<img
-									:src="item.src"
-									alt="" />
+							class="grid grid-cols-1 lg:grid-cols-4 2xl:gap-3 md:grid-cols-2 gap-5 pb-8">
+							<div
+								v-for="(item, index) in images"
+								:key="index"
+								class="image"
+								@click="() => showImg(index)">
+								<div class="thumbnail">
+									<img
+										:src="item.src"
+										alt="" />
+								</div>
 							</div>
 						</div>
+						<vue-awesome-paginate
+							:total-items="30"
+							:items-per-page="4"
+							:max-pages-shown="3"
+							:current-page="currentPage"
+							:on-click="onClickHandler"
+							:key="currentPage">
+							<template #prev-button>
+								<i class="fas fa-angle-left"></i>
+							</template>
+							<template #next-button>
+								<i class="fas fa-angle-right"></i>
+							</template>
+						</vue-awesome-paginate>
 					</div>
-					<vue-awesome-paginate
-						:total-items="30"
-						:items-per-page="4"
-						:max-pages-shown="3"
-						:current-page="currentPage"
-						:on-click="onClickHandler"
-						:key="currentPage"
-					>
-						<template #prev-button>
-							<i class="fas fa-angle-left"></i>
-						</template>
-						<template #next-button>
-							<i class="fas fa-angle-right"></i>
-						</template>
-					</vue-awesome-paginate>
-				</div>
-				<vue-easy-lightbox
-					:visible="visibleRef"
-					:imgs="images"
-					:index="indexRef"
-					@hide="onHide"></vue-easy-lightbox>
+					<vue-easy-lightbox
+						:visible="visibleRef"
+						:imgs="images"
+						:index="indexRef"
+						@hide="onHide"></vue-easy-lightbox>
 				</div>
 			</div>
 		</div>
@@ -305,14 +298,14 @@
 			return {
 				visibleRef: false,
 				indexRef: 0,
-				currentPage: 1
+				currentPage: 1,
 			};
 		},
 		created() {
 			this.$watch(
 				() => this.$route.params,
 				(toParams, PreviousParams) => {
-					this.currentPage = 1
+					this.currentPage = 1;
 				}
 			);
 		},
@@ -324,14 +317,14 @@
 			onHide() {
 				this.visibleRef = false;
 			},
-			onClickHandler (page){
-				this.currentPage = page
-    			this.$emit('pageNumber', page)
-  			}
+			onClickHandler(page) {
+				this.currentPage = page;
+				this.$emit('pageNumber', page);
+			},
 		},
 		props: {
 			data: Object,
-			images: Array
+			images: Array,
 		},
 	};
 </script>

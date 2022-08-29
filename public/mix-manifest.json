@@ -111,6 +111,7 @@
     "/js/scripts/forms/form-wizard.js": "/js/scripts/forms/form-wizard.js",
     "/js/scripts/forms/job-post-quill.js": "/js/scripts/forms/job-post-quill.js",
     "/js/scripts/forms/pickers/form-pickers.js": "/js/scripts/forms/pickers/form-pickers.js",
+    "/js/scripts/forms/quality-process-quill.js": "/js/scripts/forms/quality-process-quill.js",
     "/js/scripts/maps/map-leaflet.js": "/js/scripts/maps/map-leaflet.js",
     "/js/scripts/pages/all-user-list.js": "/js/scripts/pages/all-user-list.js",
     "/js/scripts/pages/app-access-permission.js": "/js/scripts/pages/app-access-permission.js",

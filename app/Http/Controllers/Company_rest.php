@@ -12,21 +12,7 @@ class Company_rest extends Controller
 {
     public function add_company(Request $request){
 
-        $field = $request->validate([
-            'name' => 'required|string',
-            'section' => 'required|string',
-            'description' => 'required|string',
-            'establish_date' => 'required|string',
-            'products' => 'required|string',
-            'production-cap' => 'required|string',
-            'manpower' => 'required|string',
-            'support_phone_number' => 'required|string',
-            'support_email' => 'required|string',
-            'ceo_of_the_company' => 'required|string',
-            'address' => 'required|string',
-            'image.*' => 'mimes:jpeg,png,jpg,svg|max:3080',
-			'short-details' => 'required|string',
-        ]);
+        $field = $request->post();
         // add longitute,latitude, wesite, facebook, instagram
         $check_name = Db::table('codebumble_company_list')->where('name', $field['name'])->first();
         if(isset($check_name->name)){
@@ -111,21 +97,7 @@ class Company_rest extends Controller
 	// edit company
 
     public function edit_company(Request $request, $id){
-        $field = $request->validate([
-            'section' => 'required|string',
-            'description' => 'required|string',
-            'establish_date' => 'required|string',
-            'support_phone_number' => 'required|string',
-            'products' => 'required|string',
-            'production-cap' => 'required|string',
-            'manpower' => 'required|string',
-            'support_email' => 'required|string',
-            'ceo_of_the_company' => 'required|string',
-            'address' => 'required|string',
-			'image.*' => 'mimes:jpeg,png,jpg,svg|max:3080',
-			'short-details' => 'required|string',
-
-        ]);
+        $field = $request->post();
         // add longitute,latitude, wesite, facebook, instagram
 		//aikhn a error ditese
 
