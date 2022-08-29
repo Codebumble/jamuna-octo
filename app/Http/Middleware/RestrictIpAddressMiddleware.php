@@ -6,7 +6,7 @@ use DB;
 class RestrictIpAddressMiddleware
 {
     // Blocked IP addresses
-    public $restrictedIp = ['127.0.0.1'];
+    public $restrictedIp = [];
     /**
      * Handle an incoming request.
      *
