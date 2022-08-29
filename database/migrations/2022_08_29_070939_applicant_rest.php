@@ -18,16 +18,18 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('company');
+            $table->string('job_id');
             $table->string('email');
             $table->string('phone');
             $table->string('division')->nullable();
+            $table->string('district')->nullable();
             $table->string('subdistrict')->nullable();
             $table->string('qualifications')->nullable();
             $table->string('experience')->nullable();
             $table->string('university')->nullable();
             $table->string('expo_salary')->nullable();
             $table->string('cv_link')->nullable();
-            $table->string('json_data')->nullable();
+            $table->string('json_data')->default('{}')->nullable();
             $table->string('created_at')->nullable();
         });
     }

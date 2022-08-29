@@ -54,7 +54,7 @@
 										<div class="input-item">
 											<input
 												type="text"
-												name="name"
+												name="new[name]"
 												id="name"
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
 												placeholder="Name"
@@ -68,7 +68,7 @@
 												class="col-span-6 sm:col-span-3">
 												<select
 													id="division"
-													name="division"
+													name="new[division]"
 													autocomplete="division-name"
 													class="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
 													v-model="division"
@@ -92,7 +92,7 @@
 												class="col-span-6 sm:col-span-3">
 												<select
 													id="district"
-													name="district"
+													name="new[district]"
 													autocomplete="district-name"
 													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
 													@change="selectDistrict"
@@ -117,7 +117,7 @@
 												class="col-span-6 sm:col-span-3">
 												<select
 													id="subdistrict"
-													name="subdistrict"
+													name="new[subdistrict]"
 													autocomplete="subdistrict-name"
 													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
 													v-model="subdistrict"
@@ -141,7 +141,7 @@
 												class="col-span-6 sm:col-span-3">
 												<select
 													id="qualification"
-													name="qualification"
+													name="new[qualification]"
 													autocomplete="qualification-name"
 													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
 													v-model="qualification"
@@ -164,7 +164,7 @@
 												class="col-span-6 sm:col-span-3">
 												<select
 													id="experience"
-													name="experience"
+													name="new[experience]"
 													autocomplete="experience-name"
 													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
 													v-model="experience"
@@ -202,7 +202,7 @@
 										<div class="input-item">
 											<input
 												type="text"
-												name="salary"
+												name="new[expo_salary]"
 												id="salary"
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
 												placeholder="Expected Salary"
@@ -214,7 +214,7 @@
 										<div class="input-item">
 											<input
 												type="text"
-												name="mobile"
+												name="new[phone]"
 												id="experience"
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
 												placeholder="Your Mobile Number"
@@ -225,7 +225,7 @@
 										<div class="input-item">
 											<input
 												type="email"
-												name="email"
+												name="new[email]"
 												id="salary"
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
 												placeholder="Your Email"
@@ -266,7 +266,7 @@
 															>
 															<input
 																id="file-upload"
-																name="file-upload"
+																name="new[file-upload]"
 																type="file"
 																class="sr-only"
 																accept="application/pdf"
