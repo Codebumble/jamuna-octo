@@ -241,4 +241,29 @@ class FrontPage extends Controller
 
 
     }
+
+    public function media_center_front($id){
+        $data = DB::select('select * from codebumble_company_list where id=?',[$id]);
+
+        if(isset($data[0])){
+            $d = $data[0];
+            $d_j = json_decode($d->json_data);
+
+            $output = [];
+
+            $output['data'] = [
+                'ytSrc' => '',
+                'title' => '',
+                'phone' => '',
+                'email' => '',
+                'address' => [
+                    'officeName' => ''
+                ]
+            ];
+
+        } else {
+            return "No Data found.";
+        }
+
+    }
 }

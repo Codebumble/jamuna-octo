@@ -61,7 +61,7 @@ class Company_rest extends Controller
             ];
         }
 
-        $json_encode = json_encode($json_encode);
+
 
         if($file = $request->hasFile('image')) {
             $user = Auth::user()->username;
@@ -70,6 +70,20 @@ class Company_rest extends Controller
             $destinationPath = public_path().'/company-images' ;
             $file->move($destinationPath,$fileName);
         }
+
+        if($file9 = $request->hasFile('dfile')) {
+            $user = Auth::user()->username;
+            $file9 = $request->file('dfile') ;
+            $fileName9 = time().'-'.$user.'.'.$file9->getClientOriginalExtension() ;
+            $destinationPath9 = public_path().'/documents/company-documents' ;
+            $file9->move($destinationPath9,$fileName9);
+        }
+
+        $json_encode += [
+            'dfile' => $fileName9
+        ];
+
+        $json_encode = json_encode($json_encode);
 
         $database_update = DB::table('codebumble_company_list')->insert(
 			[
@@ -142,7 +156,7 @@ class Company_rest extends Controller
             ];
         }
 
-        $json_encode = json_encode($json_encode);
+
 
         $a = DB::table('codebumble_company_list')->where('id', $id)->first();
 
@@ -162,6 +176,24 @@ class Company_rest extends Controller
         } else {
             $fileName = $a->image;
         }
+
+        if($file9 = $request->hasFile('dfile')) {
+            $user = Auth::user()->username;
+            $file9 = $request->file('dfile') ;
+            $fileName9 = time().'-'.$user.'.'.$file9->getClientOriginalExtension() ;
+            $destinationPath9 = public_path().'/documents/company-documents' ;
+            $file9->move($destinationPath9,$fileName9);
+        } else {
+            $fileName9 = json_decode($a->json_data)->dfile;
+        }
+
+        $json_encode += [
+            'dfile' => $fileName9
+        ];
+
+        $json_encode = json_encode($json_encode);
+
+
 
         $database_update = DB::table('codebumble_company_list')->where('id', $id)->update(
 
