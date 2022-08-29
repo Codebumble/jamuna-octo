@@ -24,6 +24,12 @@
 						>
 						in {{ data.location }}
 					</p>
+				</div>
+			</div>
+			<!-- upper part closed -->
+			<div class="description">
+				<div class="">
+					<span class="text-xs font-bold">{{data.category}} . {{data.time}} . </span>
 					<div class="share">
 						<ShareNetwork
 							v-for="network in networks"
@@ -42,10 +48,6 @@
 						</ShareNetwork>
 					</div>
 				</div>
-			</div>
-			<!-- upper part closed -->
-			<div class="description">
-				<span class="text-xs font-bold">{{data.time}}</span>
 				<p>
 					{{data.detail}}
 				</p>
@@ -103,11 +105,11 @@
 	};
 </script>
 <style lang="scss">
-	.upper-part .share {
-		@apply flex items-center text-[1.3rem] gap-3 justify-center content-center py-4;
+	.share {
+		@apply text-[1.3rem] py-4 inline-block;
 
 		a {
-			@apply text-gray-800 transition-all;
+			@apply text-gray-800 transition-all mr-3;
 		}
 
 		.share-network-facebook {

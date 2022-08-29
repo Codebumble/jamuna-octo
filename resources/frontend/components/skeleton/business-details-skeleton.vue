@@ -64,22 +64,22 @@
 				</div>
 				<div
 					class="w-full lg:w-8/12 rounded-md shadow-lg border border-slate-100 p-8 overflow-hidden businessDetails">
-					<h2 class=" skeleton_bg h-6 mb-4 w-80"></h2>
+					<h2 class="skeleton_bg h-6 mb-4 w-80"></h2>
 					<div>
-						<div class=" skeleton_bg h-6 mb-4 w-full"></div>
-						<div class=" skeleton_bg h-6 mb-4 w-8/12"></div>
-						<div class=" skeleton_bg h-6 mb-4 w-10/12"></div>
-						<div class=" skeleton_bg h-6 mb-4 w-7/12"></div>
-						<div class=" skeleton_bg h-6 mb-4 w-full"></div>
-						<div class=" skeleton_bg h-6 mb-4 w-9/12"></div>
-						<div class=" skeleton_bg h-6 mb-4 w-11/12"></div>
-						<div class=" skeleton_bg h-6 mb-4 w-10/12"></div>
-						<div class=" skeleton_bg h-6 mb-4 w-full"></div>
-						<div class=" skeleton_bg h-6 mb-4 w-6/6"></div>
-						<div class=" skeleton_bg h-6 mb-4 w-3/4"></div>
-						<div class=" skeleton_bg h-6 mb-4 w-11/12"></div>
-						<div class=" skeleton_bg h-6 mb-4 w-full"></div>
-						<div class=" skeleton_bg h-6 mb-4 w-2/4"></div>
+						<div class="skeleton_bg h-6 mb-4 w-full"></div>
+						<div class="skeleton_bg h-6 mb-4 w-8/12"></div>
+						<div class="skeleton_bg h-6 mb-4 w-10/12"></div>
+						<div class="skeleton_bg h-6 mb-4 w-7/12"></div>
+						<div class="skeleton_bg h-6 mb-4 w-full"></div>
+						<div class="skeleton_bg h-6 mb-4 w-9/12"></div>
+						<div class="skeleton_bg h-6 mb-4 w-11/12"></div>
+						<div class="skeleton_bg h-6 mb-4 w-10/12"></div>
+						<div class="skeleton_bg h-6 mb-4 w-full"></div>
+						<div class="skeleton_bg h-6 mb-4 w-6/6"></div>
+						<div class="skeleton_bg h-6 mb-4 w-3/4"></div>
+						<div class="skeleton_bg h-6 mb-4 w-11/12"></div>
+						<div class="skeleton_bg h-6 mb-4 w-full"></div>
+						<div class="skeleton_bg h-6 mb-4 w-2/4"></div>
 					</div>
 
 					<div class="company-gallery pt-8">
