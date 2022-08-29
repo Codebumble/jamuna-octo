@@ -53,6 +53,10 @@ Route::get('/companies/{id}/{name}', [FrontendController::class, 'home'])->name(
 	'companies-details'
 );
 
+Route::get('/event-details/{id}', [FrontendController::class, 'home'])->name(
+	'event-details'
+);
+
 /* Route Dashboards */
 Route::group(['prefix' => 'dashboard'], function () {
 	Route::get('analytics', [
@@ -265,10 +269,7 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 		'future_expansion_frontpage',
 	]);
 
-	Route::get('media-center/{id}', [
-		FrontPage::class,
-		'media-center-front',
-	]);
+	Route::get('media-center/{id}', [FrontPage::class, 'media_center_front']);
 
 	Route::get('quality-process-data', [
 		siteGeneral::class,

@@ -129,6 +129,11 @@
 						<input class="form-control" type="file" id="image" name="image"  />
 						</div>
 
+						<div class="mb-1 col-12 col-md-6">
+						<label for="dfile" class="form-label">Document</label>
+						<input class="form-control" type="file" id="dfile" name="dfile"  />
+						</div>
+
 						<div class="mb-1 col-12 col-md-6" x-data="{ count: 0 }" x-init="count = $refs.countme.value.length">
 						<label class="form-label" for="short-details">Short Details (It will be placed top of the page after the page title.)</label>
 						<textarea rows="1" class="form-control" name="short-details" id="short-details" maxlength="200" x-ref="countme" x-on:keyup="count = $refs.countme.value.length" ></textarea>
