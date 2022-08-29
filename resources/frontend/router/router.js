@@ -31,14 +31,9 @@ const routes = [
 		component: () => import("../views/news-center.vue"),
 	},
 	{
-		path: "/jamuna-tv",
+		path: "/media-center/:id/:name",
 		name: "jamuna-tv",
 		component: () => import("../views/jamuna.vue"),
-	},
-	{
-		path: "/the-daily-jugantor",
-		name: "jugantor",
-		component: () => import("../views/jugantor.vue"),
 	},
 	{
 		path: "/companies/:id/:name",
