@@ -18,13 +18,15 @@
 			</div>
 			<div class="grid lg:grid-cols-3 gap-8 pt-8">
 				<div
-					class="rounded bg-white hover:shadow-md shadow-sm transition-all transform translate-y-0 hover:-translate-y-1 text-center lg:p-12 p-4 mx-auto" v-for="data in mvo">
+					class="rounded bg-white hover:shadow-md shadow-sm transition-all transform translate-y-0 hover:-translate-y-1 text-center lg:p-12 p-4 mx-auto"
+					v-for="data in mvo"
+					:key="data">
 					<img
 						class="h-36 mx-auto my-4"
 						:src="data.src"
 						alt="mission" />
 					<h3 class="mb-2 font-bold font-heading text-xl">
-						{{data.title }}
+						{{ data.title }}
 					</h3>
 					<p
 						class="text-sm text-gray-400 leading-relaxed pb-4 lg:pb-0">
@@ -47,33 +49,36 @@
 				},
 				mvo: [
 					{
-						src: '/frontend/images/contents/mission.svg'
+						src: '/frontend/images/contents/mission.svg',
 					},
 					{
-						src: '/frontend/images/contents/vision.svg'
+						src: '/frontend/images/contents/vision.svg',
 					},
 					{
-						src: '/frontend/images/contents/objective.svg'
-					}
+						src: '/frontend/images/contents/objective.svg',
+					},
 				],
 			};
 		},
-		created(){
+		created() {
 			axios
-			.get(window.location.origin + '/frontpage-api/mission-vision-frontpage')
-			.then((response) => {
-				this.top = {
-					headingTitle: response.data.top.header,
-					headingDesc: response.data.top.h_description,
-				}
-				response.data.data.forEach((item, index) => {
-					this.mvo[index] = {
-						...this.mvo[index],
-						title: item.title,
-						desc: item.desc,
-					}
-				})
-			});
-		}
+				.get(
+					window.location.origin +
+						'/frontpage-api/mission-vision-frontpage'
+				)
+				.then((response) => {
+					this.top = {
+						headingTitle: response.data.top.header,
+						headingDesc: response.data.top.h_description,
+					};
+					response.data.data.forEach((item, index) => {
+						this.mvo[index] = {
+							...this.mvo[index],
+							title: item.title,
+							desc: item.desc,
+						};
+					});
+				});
+		},
 	};
 </script>

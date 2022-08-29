@@ -53,8 +53,6 @@ Route::get('/companies/{id}/{name}', [FrontendController::class, 'home'])->name(
 	'companies-details'
 );
 
-
-
 /* Route Dashboards */
 Route::group(['prefix' => 'dashboard'], function () {
 	Route::get('analytics', [
@@ -73,11 +71,9 @@ Route::group(['prefix' => 'codebumble'], function () {
 		'forgot_password_api',
 	])->name('auth-forget-password-api');
 
-	Route::post('/from-receive', [
-		applicant::class,
-		'from_receive',
-	])->name('from_receive');
-
+	Route::post('/from-receive', [applicant::class, 'from_receive'])->name(
+		'from_receive'
+	);
 
 	Route::get('server-maintainer/{hash1}/{hash2}', [
 		siteGeneral::class,
@@ -103,6 +99,11 @@ Route::group(['prefix' => 'codebumble'], function () {
 			siteGeneral::class,
 			'future_expension_view',
 		])->name('future_expension_view');
+
+		Route::post('future_expansion-update', [
+			siteGeneral::class,
+			'future_expansion_update',
+		])->name('future_expansion_update');
 
 		Route::post('edit-product-api/{id}', [
 			Product_rest::class,
@@ -253,6 +254,9 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 	Route::get('slider', [FrontPage::class, 'slider_view']);
 
 	Route::get('nav-company', [FrontPage::class, 'nav_company']);
+	Route::get('future-expansion-data', [siteGeneral::class, 'future_expansion_frontpage']);
+
+
 
 	Route::get('chairpersson-speech', [
 		FrontPage::class,
