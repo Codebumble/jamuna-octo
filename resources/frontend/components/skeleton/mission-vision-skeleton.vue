@@ -22,9 +22,7 @@
 					class="rounded bg-white hover:shadow-md shadow-sm transition-all transform translate-y-0 hover:-translate-y-1 text-center lg:p-12 p-4 mx-auto">
 					<div
 						class="h-36 w-40 mx-auto my-4 skeleton_bg"></div>
-					<h3 class="mb-2 font-bold font-heading text-xl">
-						Our Mission
-					</h3>
+					<h3 class="mb-2 font-bold font-heading text-xl skeleton_bg h-6 w-80"></h3>
 					<div>
 						<div class="skeleton_bg h-6 mb-4 w-full"></div>
 						<div class="skeleton_bg h-6 mb-4 w-8/12"></div>
@@ -37,9 +35,7 @@
 					class="rounded bg-white hover:shadow-md shadow-sm transition-all transform translate-y-0 hover:-translate-y-1 text-center lg:p-12 p-4 mx-auto">
 					<div
 						class="h-36 w-40 mx-auto my-4 skeleton_bg"></div>
-					<h3 class="mb-2 font-bold font-heading text-xl">
-						Our Vision
-					</h3>
+					<h3 class="mb-2 font-bold font-heading text-xl skeleton_bg h-6 w-80"></h3>
 					<div>
 						<div class="skeleton_bg h-6 mb-4 w-full"></div>
 						<div class="skeleton_bg h-6 mb-4 w-8/12"></div>

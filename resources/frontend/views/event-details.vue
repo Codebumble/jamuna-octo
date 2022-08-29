@@ -11,15 +11,30 @@
 		data() {
 			return {
 				eventDetail: {
-					eventTitle:
-						'Jamuna group signs a new agreement with a new company',
-					by: 'Jamuna Group',
-					location: 'Chittagong, Bangladesh',
-					category: 'Event',
-					time: 'Today',
-					detail: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio, earum! Enim nam expedita modi sequi cupiditate excepturi alias explicabo dignissimos eaque illo numquam hic, aut fuga ab temporibus sunt assumenda dicta dolorem repudiandae nulla perferendis labore omnis! Libero voluptatem modi eveniet, deserunt quibusdam facere possimus fuga temporibus? Laboriosam, dolorum expedita?',
+					eventTitle: '',
+					by: '',
+					location: '',
+					category: '',
+					time: '',
+					detail: '',
+					image: ''
 				},
 			};
+		},
+		created() {
+			axios
+			.get(window.location.origin + '/frontpage-api/event-details/'+this.$route.params.id)
+			.then((response) => {
+				this.eventDetail = {
+					eventTitle: response.data.name,
+					by: 'Jamuna Group',
+					location: response.data.location,
+					category: response.data.category,
+					time: response.data.time_data,
+					detail: response.data.detail,
+					image: response.data.image
+				}
+			});
 		},
 		metaInfo() {
 			return {
