@@ -67,12 +67,15 @@ class event_rest extends Controller
         }
 
         //$data->author = json_decode($data[0]->json_data, true)->added_by;
+        foreach ($data as $key => $value) {
+            $data2 = DB::select('select * from codebumble_company_list where id=?', [$data[$key]->company]);
 
-        $data2 = DB::select('select * from codebumble_company_list where id=?', [$data[0]->company]);
+        $data[$key]->author = json_decode($data[$key]->json_data)->added_by;
 
-        $data[0]->author = json_decode($data[0]->json_data)->added_by;
+        $data[$key]->company = $data2[0]->name;
+            # code...
+        }
 
-        $data[0]->company = $data2[0]->name;
 
 
         return json_encode(['data' =>$data]);
