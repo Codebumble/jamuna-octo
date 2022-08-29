@@ -45,7 +45,7 @@ class Company_rest extends Controller
 
 
 
-        $json_encode = json_encode([
+        $json_encode = [
             'address' => $field['address'],
             'added_by' => Auth::user()->username,
             'ceo_of_the_company' => $field['ceo_of_the_company'],
@@ -58,7 +58,24 @@ class Company_rest extends Controller
             'instagram' => $request['instagram'],
 			'linkedin' => $request['linkedin'],
             'ceo_username' => $request['ceo_username']
-        ]);
+        ];
+
+        if(isset($request['new_center'])){
+            $json_encode += [
+                'yv_link' => $request['yv_link'],
+                'new_center' => $request['new_center'],
+                'p_header' => $request['p_header'],
+                'ct_title' => $request['ct_title'],
+                'ct_desc' => $request['ct_desc']
+            ];
+
+        } else {
+            $json_encode += [
+                'new_center' => 'no'
+            ];
+        }
+
+        $json_encode = json_encode($json_encode);
 
         if($file = $request->hasFile('image')) {
             $user = Auth::user()->username;
@@ -123,12 +140,12 @@ class Company_rest extends Controller
 
 
 
-        $json_encode = json_encode([
+        $json_encode = [
             'address' => $field['address'],
             'added_by' => Auth::user()->username,
             'ceo_of_the_company' => $field['ceo_of_the_company'],
             'latitude' => $request['latitude'],
-            'longitute' => $request['longitut'],
+            'longitute' => $request['longitute'],
             'support_phone_number' => $field['support_phone_number'],
             'support_email' => $field['support_email'],
             'website' => $request['website'],
@@ -136,7 +153,24 @@ class Company_rest extends Controller
             'instagram' => $request['instagram'],
 			'linkedin' => $request['linkedin'],
             'ceo_username' => $request['ceo_username']
-        ]);
+        ];
+
+        if(isset($request['new_center'])){
+            $json_encode += [
+                'yv_link' => $request['yv_link'],
+                'new_center' => $request['new_center'],
+                'p_header' => $request['p_header'],
+                'ct_title' => $request['ct_title'],
+                'ct_desc' => $request['ct_desc']
+            ];
+
+        } else {
+            $json_encode += [
+                'new_center' => 'no'
+            ];
+        }
+
+        $json_encode = json_encode($json_encode);
 
         $a = DB::table('codebumble_company_list')->where('id', $id)->first();
 

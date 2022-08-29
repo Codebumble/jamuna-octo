@@ -190,6 +190,74 @@
 						<input type="text" class="form-control" name="ceo_username" value="{{ $json_data_ceo_username }}" id="ceo_username"/>
 						</div>
 
+						<div class="mb-1 col-12 col-md-6 mt-2">
+                    	<div class="form-check form-check-secondary">
+                      	<input type="checkbox" class="form-check-input" id="new_center" name="new_center" value="yes"
+						@if(json_decode($company->json_data)->new_center == "yes")
+						checked
+						@endif
+
+						/>
+                      	<label class="form-check-label" for="new_center">Add as New Center</label>
+                    	</div>
+                  		</div>
+						@php
+
+						$dn = "";
+
+						if(json_decode($company->json_data)->new_center == "no"){
+							$dn = "d-none";
+
+						}
+
+
+						@endphp
+
+						<div class="mb-1 col-12 col-md-6 {{$dn}}" id="yv_link">
+						<label class="form-label" for="yv_link">Youtube Video Link</label>
+						<input type="text" class="form-control" name="yv_link"
+						@if(json_decode($company->json_data)->new_center == "no")
+						value=""
+						@else
+						value="{{json_decode($company->json_data)->yv_link}}"
+						@endif
+
+						/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6 {{$dn}}" id="p_header">
+						<label class="form-label" for="p_header">Page Header</label>
+						<input type="text" class="form-control" name="p_header"
+						@if(json_decode($company->json_data)->new_center == "no")
+						value=""
+						@else
+						value="{{json_decode($company->json_data)->p_header}}"
+						@endif
+						/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6 {{$dn}}" id="ct_title">
+						<label class="form-label" for="ct_title">Correspondence Title</label>
+						<input type="text" class="form-control" name="ct_title"
+						@if(json_decode($company->json_data)->new_center == "no")
+						value=""
+						@else
+						value="{{json_decode($company->json_data)->ct_title}}"
+						@endif
+						/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6 {{$dn}}" id="ct_desc">
+						<label class="form-label" for="ct_desc">Correspondence Description</label>
+						<input type="text" class="form-control" name="ct_desc"
+						@if(json_decode($company->json_data)->new_center == "no")
+						value=""
+						@else
+						value="{{json_decode($company->json_data)->ct_desc}}"
+						@endif
+						/>
+						</div>
+
 				</div>
 				<div class="col-12 text-center mt-2 pt-50">
             		<button type="submit" class="btn btn-primary">Update</button>

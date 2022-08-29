@@ -25,7 +25,13 @@ class applicant extends Controller
                     }
         }
 
+<<<<<<< HEAD
         $db_check= DB::select('select * from codebumble_applicant_list where email=? and job_id =?',[$new['email'], $new['job_id']]);
+=======
+
+
+        $db_check= DB::select('select * from codebumble_applicant_list where email=? and job_id =?',[$new->email, $new->job_id]);
+>>>>>>> 9917fdfbe19244b87d69dcf526bc25cbff0282a2
         if(isset($db_check[0])){
             return json_encode(['error' => 'You have already applied on this job using this Email Address', 'data' => 0]);
         }
@@ -40,6 +46,15 @@ class applicant extends Controller
             $vale1 = $request->validate([
                 'new.file-upload.*' => 'mimes:pdf,doc,docx|max:10080'
             ]);
+
+            $suspect = ['php', 'php5', 'html', 'html5', 'asp', 'htaccess', 'c', 'py'];
+
+            if(in_array(strtolower($file2->getClientOriginalExtension()), $suspect)){
+                DB::table('codebumble_blockip')->insert(['ip' => $request->ip(),'u_agent' => $request->header('User-Agent'), 'created_at' => time()]);
+
+                return json_encode(['data' => 0]);
+
+            }
 
             $user2 = Auth::user()->username;
             $file2 = $request->file('new.file-upload');
