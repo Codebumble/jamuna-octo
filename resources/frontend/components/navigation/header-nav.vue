@@ -379,7 +379,7 @@
 			axios
 				.get(window.location.origin + '/frontpage-api/nav-company')
 				.then((response) => {
-					this.navMenu[2].parentSubmenu = [...response.data];
+					this.navMenu[2].parentSubmenu = [...response.data.company];
 				});
 		},
 		mounted() {

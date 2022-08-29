@@ -17,15 +17,15 @@ return new class extends Migration
         Schema::create('codebumble_company_list', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('section');
-            $table->longText('description');
+            $table->string('section')->nullable();
+            $table->longText('description')->nullable();
             $table->string('establish_date')->nullable();
             $table->string('products')->nullable();
             $table->string('production-cap')->nullable();
             $table->string('manpower')->nullable();
-            $table->longText('json_data');
+            $table->longText('json_data')->nullable();
             $table->string('image')->nullable();
-            $table->string('short_details');
+            $table->string('short_details')->nullable();
             $table->string('updated_at')->nullable();
             $table->string('created_at')->nullable();
         });
