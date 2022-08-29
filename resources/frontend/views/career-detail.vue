@@ -533,7 +533,10 @@
 					this.jobInfo = response.data.jobInfo;
 					this.companyInfo = response.data.companyInfo;
 					this.companyInfo.social = response.data.companyInfo.social;
-				});
+				})
+				.catch(()=>{
+					this.$router.push({ name: "not-found" })
+				})
 		},
 		setup() {
 			const isDistrict = ref(true);
