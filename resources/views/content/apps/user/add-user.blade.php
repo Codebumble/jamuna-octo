@@ -690,7 +690,7 @@
                     <select class="select2 w-100" name="cd_company" id="cd_company" required>
                       <option value="" selected></option>
 					              @foreach($companys as $company)
-							        <option value="{{$company->name}}">{{$company->name}}</option>
+							        <option value="{{$company->id}}">{{$company->name}}</option>
 					              @endforeach
 
 					          </select>

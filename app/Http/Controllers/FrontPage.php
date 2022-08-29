@@ -246,20 +246,45 @@ class FrontPage extends Controller
         $data = DB::select('select * from codebumble_company_list where id=?',[$id]);
 
         if(isset($data[0])){
+            $data_2 = DB::select("select * from users where json_data like '%\"DistrictCompany\":".$id."%'");
             $d = $data[0];
             $d_j = json_decode($d->json_data);
 
-            $output = [];
 
-            $output['data'] = [
-                'ytSrc' => '',
-                'title' => '',
-                'phone' => '',
-                'email' => '',
+
+            $output = [
+                'ytSrc' => $d_j->yv_link,
+                'title' => $d_j->p_header,
+                'phone' => $d_j->support_phone_number,
+                'email' => $d_j->support_email,
                 'address' => [
-                    'officeName' => ''
-                ]
+                    'officeName' => $d->name,
+                    'road' => $d_j->address
+                ],
+                'distHeading' => [
+                    'title' => $d_j->ct_title,
+                    'desc' => $d_j->ct_desc
+                ],
+                'distCorres'=> []
             ];
+
+            if(isset($data_2[0])){
+
+            foreach ($data_2 as $key => $value) {
+                $a = [
+                    'imgSrc' => $value->avatar,
+                    'alt' => $value->name,
+                    'name' => $value->name,
+                    'position' => $value->designation,
+                    'areas' => json_decode($value->json_data)->city,
+                ];
+
+
+
+                array_push($output['distCorres'],$a);
+            }
+        }
+            return json_encode($output);
 
         } else {
             return "No Data found.";
