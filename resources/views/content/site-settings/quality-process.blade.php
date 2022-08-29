@@ -49,7 +49,6 @@
                                     <div id="ql-editor" class="editor" spellcheck="false">
                                         {{ $qp }}
                                     </div>
-
                                 </div>
                             </div>
                         </div>
