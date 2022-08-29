@@ -34,7 +34,10 @@
 					detail: response.data.detail,
 					image: response.data.image
 				}
-			});
+			})
+			.catch(()=>{
+				this.$router.push({ name: "not-found" })
+			})
 		},
 		metaInfo() {
 			return {

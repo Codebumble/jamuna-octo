@@ -98,6 +98,11 @@ const routes = [
 			window.location.href = "https://nurulislamfoundation.org/";
 		},
 	},
+	{
+		path: "/notfound",
+		name: "not-found",
+		component: () => import("../views/404.vue"),
+	},
 ];
 
 const router = createRouter({
