@@ -19,10 +19,12 @@ class applicant extends Controller
 		$new = $request->new;
 		// return json_encode($new);
 		foreach ($new as $key => $value) {
-			if ($key != 'university' || $key != 'file-upload') {
+			if ($key != 'university') {
+                if($key != 'file-upload'){
 				if ($request->new[$key] == '' || $request->new[$key] == null) {
 					return json_encode(['key' => $key]); //field required all
 				}
+            }
 			}
 		}
 
