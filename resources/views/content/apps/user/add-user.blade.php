@@ -238,7 +238,7 @@
                                                 Village</label>
                                             <input id="area-address" type="text" name="area-address"
                                                 class="form-control" placeholder="Area, Street, Sector, Village"
-                                                required />
+                                                 />
                                         </div>
 
                                         <div class="col-md-6 mb-1">
@@ -655,13 +655,7 @@
                                         </div>
 
 
-                                        <div class="col-md-6 mb-1">
-                                            <label class="form-label" for="multiStepsURL">CV and Other Education Details
-                                                (*.pdf/*.docx)</label>
 
-                                            <input id="cv" class="form-control" type="file" name="cv"
-                                                accept="application/pdf, application/msword" required />
-                                        </div>
                                         @if (Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin')
                                             <div class="col-12 mb-1 mt-1">
                                                 <div class="form-check form-check-secondary">

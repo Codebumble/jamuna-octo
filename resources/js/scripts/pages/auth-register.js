@@ -145,7 +145,6 @@ $(function () {
           nid_number = $('#nid_number').val(),
           passport_number = $('#passport_number').val(),
           cd_company = $('#cd_company').val(),
-          cv = $("#cv")[0].files[0],
           token = $("input[name='_token']").val(),
           isBoardofDirectors = document.getElementById("isBoardofDirectors"),
           isDistrict = document.getElementById("isDistrict");
@@ -171,7 +170,6 @@ $(function () {
           formData.append("nid_number", nid_number);
           formData.append("passport_number", passport_number);
           formData.append("cd_company", cd_company);
-          formData.append("cv", cv);
           formData.append("_token", token);
 
           if(isBoardofDirectors.checked == true){

@@ -39,7 +39,6 @@ class AuthController extends Controller
             'role'=>'required|string',
             'designation'=>'required|string',
             'date_of_birth'=>'required|string',
-            'cv.*' => 'mimes:pdf,doc,docx|max:3080'
         ]);
         $db_check= DB::select('select * from users where username=? or email=?',[$field['username'], $field['email']]);
 
@@ -92,16 +91,8 @@ class AuthController extends Controller
 
         }
 
-        if($file2 = $request->hasFile('cv')) {
-            $user2 = $field['username'];
-            $file2 = $request->file('cv') ;
-            $fileName2 = time().'-'.$field['username'].'.'.$file2->getClientOriginalExtension() ;
-            $destinationPath2 = public_path().'/user-cv' ;
-            $file2->move($destinationPath2,$fileName2);
 
-        }
 
-        $json_data['cv'] = $fileName2;
 
         $insert_user = DB::table('users')->insert([
             'name' => $field['name'],
