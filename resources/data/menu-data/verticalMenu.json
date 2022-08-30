@@ -63,7 +63,7 @@
 					"slug": "site-settings-general"
 				},
 				{
-					"url": "admin/site-settings/header-edit",
+					"url": "admin/site-settings/meta-settings",
 					"name": "Meta Settings",
 					"icon": "circle",
 					"permission": 1,
@@ -214,6 +214,13 @@
 			]
 		},
 		{
+			"url": "/admin/photo-gallery",
+			"name": "Photo Gallery",
+			"icon": "image",
+			"permission": 1,
+			"slug": "photo_gallery_view"
+		},
+		{
 			"url": "admin/site-settings/front-page",
 			"name": "Terms and Conditions",
 			"icon": "help-circle",
@@ -233,13 +240,6 @@
 			"icon": "help-circle",
 			"permission": 1,
 			"slug": "faq"
-		},
-		{
-			"url": "/admin/photo-gallery",
-			"name": "Photo Gallery",
-			"icon": "image",
-			"permission": 1,
-			"slug": "photo_gallery_view"
 		},
 		{
 			"navheader": "Career",

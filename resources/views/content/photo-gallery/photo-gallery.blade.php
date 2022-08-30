@@ -56,7 +56,7 @@
                                         <div class="mb-1">
                                             <label class="form-label" for="itemcost">Image</label>
                                             <input id="image" type="file" class="form-control" name="image"
-                                                aria-describedby="image" placeholder="32" required />
+                                                aria-describedby="image" required accpet="image/*" />
                                         </div>
                                     </div>
 

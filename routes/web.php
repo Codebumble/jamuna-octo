@@ -197,10 +197,9 @@ Route::group(['prefix' => 'codebumble'], function () {
 			'site_settings_general_api',
 		])->name('site-settings-general-api');
 
-		Route::post('meta-settings-api', [
-			siteGeneral::class,
-			'header_edit_api',
-		])->name('meta-settings-api');
+		Route::post('meta-update', [siteGeneral::class, 'meta_update'])->name(
+			'meta-update'
+		);
 
 		Route::post('site-settings/founder-page-api', [
 			FounderApi::class,
@@ -333,6 +332,8 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 		Product_rest::class,
 		'front_all_product_page',
 	]);
+
+	Route::get('meta-data', [siteGeneral::class, 'meta_api']);
 	Route::get('footer-component', [FrontPage::class, 'footer_component']);
 	Route::get('event-header', [FrontPage::class, 'event_header']);
 	Route::get('product-header', [FrontPage::class, 'product_header']);

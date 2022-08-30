@@ -79,13 +79,6 @@ class siteGeneral extends Controller
 			}
 		}
 
-		// $site_name= null;
-		// $site_moto = null;
-		// $social_media = null;
-		// $site_url=null;
-		// $site_logo=null;
-		// $support_email=null;
-
 		return view('/content/site-settings/general-settings', [
 			'pageConfigs' => $pageConfigs,
 			'site_name' => $site_name,
@@ -107,83 +100,57 @@ class siteGeneral extends Controller
 	public function meta_settings_view()
 	{
 		$pageConfigs = ['pageHeader' => false];
-		$board_of_director = DB::select(
+		$data = DB::select(
 			'select value from codebumble_front_page where code_name=?',
-			['board_of_director']
-		);
-
-		$ncd_cbd = DB::select(
-			'select value from codebumble_front_page where code_name=?',
-			['ncd-cbd']
-		);
-		$ncd_cbsd = DB::select(
-			'select value from codebumble_front_page where code_name=?',
-			['ncd-cbsd']
+			['meta']
 		);
 
 		return view('/content/site-settings/meta-settings', [
 			'pageConfigs' => $pageConfigs,
-			'bod' => json_decode($board_of_director[0]->value),
-			'ncd_cbd' => json_decode($ncd_cbd[0]->value),
-			'ncd_cbsd' => json_decode($ncd_cbsd[0]->value),
+			'meta' => json_decode($data[0]->value),
 		]);
 	}
 
-	public function header_edit_api(Request $request)
+	public function meta_update(Request $request)
 	{
-		$field = $request->validate([
-			'bod-title' => 'required|string',
-			'bod-short-description' => 'required|string',
-			'ncd-cbd-title' => 'required|string',
-			'ncd-cbd-short-description' => 'required|string',
-			'ncd-cbsd-title' => 'required|string',
-			'ncd-cbsd-short-description' => 'required|string',
-		]);
-
 		if (!Auth::check()) {
 			header('Location: ' . route('auth-login'), true, 302);
 			exit();
 		}
 
-		$board_of_director = DB::table('codebumble_front_page')
-			->where('code_name', 'board_of_director')
-			->update([
-				'value' => json_encode([
-					'breadcrumb' => [
-						'pageTitle' => $field['bod-title'],
-						'pageDesc' => $field['bod-short-description'],
-					],
-				]),
-				'updated_at' => time(),
-			]);
+		$b = $request->post();
+		unset($b['_token']);
 
-		$ncd_cbd = DB::table('codebumble_front_page')
-			->where('code_name', 'ncd-cbd')
-			->update([
-				'value' => json_encode([
-					'title' => $field['ncd-cbd-title'],
-					'desc' => $field['ncd-cbd-short-description'],
-				]),
-				'updated_at' => time(),
-			]);
+		if ($file2 = $request->hasFile('image')) {
+			$file2 = $request->file('image');
+			$fileName2 = time() . '.' . $file2->getClientOriginalExtension();
+			$destinationPath2 = public_path() . '/images/meta';
+			$file2->move($destinationPath2, $fileName2);
+			$f = '/images/meta/' . $fileName2;
+			$b['image'] = $f;
+		}
 
-		$ncd_cbd = DB::table('codebumble_front_page')
-			->where('code_name', 'ncd-cbsd')
-			->update([
-				'value' => json_encode([
-					'title' => $field['ncd-cbsd-title'],
-					'desc' => $field['ncd-cbsd-short-description'],
-				]),
-				'updated_at' => time(),
-			]);
+		$ok = DB::table('codebumble_front_page')
+			->where('code_name', 'meta')
+			->update(['value' => $b, 'updated_at' => time()]);
 
-		return redirect()->route('meta-settings-view', [
+		return redirect()->route('meta_settings_view', [
 			'hasher' => Str::random(40),
 			'time' => time(),
 			'exist' =>
 				'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You',
 			'hasher_ip' => Str::random(10),
 		]);
+	}
+
+	public function meta_api()
+	{
+		$data = DB::select(
+			'select value from codebumble_front_page where code_name=?',
+			['meta']
+		);
+
+		return $data[0]->value;
 	}
 
 	public function site_settings_general_api(Request $request)
@@ -445,15 +412,13 @@ class siteGeneral extends Controller
 			->get();
 		$eh = json_decode($data_4[0]->value);
 
-
-
 		$pageConfigs = ['pageHeader' => false];
 		return view('/content/site-settings/front-page', [
 			'pageConfigs' => $pageConfigs,
 			'concern' => $concern,
 			'short' => $short,
 			'ph' => $ph,
-			'eh' => $eh
+			'eh' => $eh,
 		]);
 	}
 
@@ -496,7 +461,7 @@ class siteGeneral extends Controller
 				'updated_at' => time(),
 			]);
 
-			$db = DB::table('codebumble_front_page')
+		$db = DB::table('codebumble_front_page')
 			->where('code_name', 'product-heading')
 			->update([
 				'value' => json_encode([
@@ -507,7 +472,7 @@ class siteGeneral extends Controller
 				'updated_at' => time(),
 			]);
 
-			$db = DB::table('codebumble_front_page')
+		$db = DB::table('codebumble_front_page')
 			->where('code_name', 'event')
 			->update([
 				'value' => json_encode([
@@ -517,8 +482,6 @@ class siteGeneral extends Controller
 				]),
 				'updated_at' => time(),
 			]);
-
-
 
 		return redirect()->route('front_page_view', [
 			'hasher' => Str::random(40),
