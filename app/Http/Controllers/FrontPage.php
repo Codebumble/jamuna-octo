@@ -248,14 +248,14 @@ class FrontPage extends Controller
 
         if(isset($data[0])){
 
-            if(isset(json_decode($data[0]->json_date)->new_center)){
-                if(json_decode($data[0]->json_date)->new_center == "no"){
+            if(isset(json_decode($data[0]->json_data)->new_center)){
+                if(json_decode($data[0]->json_data)->new_center == "no"){
                     return json_encode(['error' =>1, 'data'=> 'Not A Media center']);
                 }
             } else {
                 return json_encode(['error' =>1, 'data'=> 'Not A Media center']);
             }
-            
+
             $data_2 = DB::select("select * from users where json_data like '%\"DistrictCompany\":".$id."%'");
             $d = $data[0];
             $d_j = json_decode($d->json_data);
