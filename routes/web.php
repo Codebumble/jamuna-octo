@@ -334,6 +334,8 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 		'front_all_product_page',
 	]);
 	Route::get('footer-component', [FrontPage::class, 'footer_component']);
+	Route::get('event-header', [FrontPage::class, 'event_header']);
+	Route::get('product-header', [FrontPage::class, 'product_header']);
 	Route::get('directors-list', [FrontPage::class, 'directors_list']);
 	Route::get('shortBrief', [FrontPage::class, 'shortBrief']);
 	Route::get('header-data', [FrontPage::class, 'header_data']);

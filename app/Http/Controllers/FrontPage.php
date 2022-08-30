@@ -315,4 +315,26 @@ class FrontPage extends Controller
             return json_encode(['data' => "User"]);
         }
     }
+
+    public function event_header(){
+        $data = DB::select('select * from codebumble_front_page where code_name=?',['event']);
+        if(isset($data)){
+            return $data[0]->value;
+        } else {
+            return null;
+        }
+
+
+    }
+
+    public function product_header(){
+        $data = DB::select('select * from codebumble_front_page where code_name=?',['product-heading']);
+        if(isset($data)){
+            return $data[0]->value;
+        } else {
+            return null;
+        }
+
+
+    }
 }

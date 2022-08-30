@@ -435,11 +435,25 @@ class siteGeneral extends Controller
 			->get();
 		$short = json_decode($data_2[0]->value);
 
+		$data_3 = DB::table('codebumble_front_page')
+			->where('code_name', 'product-heading')
+			->get();
+		$ph = json_decode($data_3[0]->value);
+
+		$data_4 = DB::table('codebumble_front_page')
+			->where('code_name', 'event')
+			->get();
+		$eh = json_decode($data_4[0]->value);
+
+
+
 		$pageConfigs = ['pageHeader' => false];
 		return view('/content/site-settings/front-page', [
 			'pageConfigs' => $pageConfigs,
 			'concern' => $concern,
 			'short' => $short,
+			'ph' => $ph,
+			'eh' => $eh
 		]);
 	}
 
@@ -481,6 +495,30 @@ class siteGeneral extends Controller
 				]),
 				'updated_at' => time(),
 			]);
+
+			$db = DB::table('codebumble_front_page')
+			->where('code_name', 'product-heading')
+			->update([
+				'value' => json_encode([
+					'title' => $request['ph-title'],
+					'descVisibility' => $request['ph-dv'],
+					'description' => $request['ph-d'],
+				]),
+				'updated_at' => time(),
+			]);
+
+			$db = DB::table('codebumble_front_page')
+			->where('code_name', 'event')
+			->update([
+				'value' => json_encode([
+					'title' => $request['eh-title'],
+					'descVisibility' => $request['eh-dv'],
+					'description' => $request['eh-d'],
+				]),
+				'updated_at' => time(),
+			]);
+
+
 
 		return redirect()->route('front_page_view', [
 			'hasher' => Str::random(40),
