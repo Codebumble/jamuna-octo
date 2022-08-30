@@ -9,17 +9,17 @@
 
  // Filter column wise function
  function filterColumn(i, val) {
-   if (i == 5) {
-	 var startDate = $('.start_date').val(),
-	   endDate = $('.end_date').val();
-	 if (startDate !== '' && endDate !== '') {
-	   filterByDate(i, startDate, endDate); // We call our filter function
-	 }
 
-	 $('.dt-advanced-search').dataTable().fnDraw();
-   } else {
+	//  var startDate = $('.start_date').val(),
+	//    endDate = $('.end_date').val();
+	//  if (startDate !== '' && endDate !== '') {
+	//    filterByDate(i, startDate, endDate); // We call our filter function
+	//  }
+
+	//  $('.dt-advanced-search').dataTable().fnDraw();
+
 	 $('.dt-advanced-search').DataTable().column(i).search(val, false, true).draw();
-   }
+
  }
 
  // Datepicker for advanced filter
@@ -121,44 +121,7 @@
 	 });
    }
 
-   // Column Search
-   // --------------------------------------------------------------------
 
-   if (dt_filter_table.length) {
-	 // Setup - add a text input to each footer cell
-	 $('.dt-column-search thead tr').clone(true).appendTo('.dt-column-search thead');
-	 $('.dt-column-search thead tr:eq(1) th').each(function (i) {
-	   var title = $(this).text();
-	   $(this).html('<input type="text" class="form-control form-control-sm" placeholder="Search ' + title + '" />');
-
-	   $('input', this).on('keyup change', function () {
-		 if (dt_filter.column(i).search() !== this.value) {
-		   dt_filter.column(i).search(this.value).draw();
-		 }
-	   });
-	 });
-
-	 var dt_filter = dt_filter_table.DataTable({
-	   ajax: assetPath + 'data/table-datatable.json',
-	   columns: [
-		 { data: 'full_name' },
-		 { data: 'email' },
-		 { data: 'post' },
-		 { data: 'city' },
-		 { data: 'start_date' },
-		 { data: 'salary' }
-	   ],
-	   dom: '<"d-flex justify-content-between align-items-center mx-0 row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>t<"d-flex justify-content-between mx-0 row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
-	   orderCellsTop: true,
-	   language: {
-		 paginate: {
-		   // remove previous & next text from pagination
-		   previous: '&nbsp;',
-		   next: '&nbsp;'
-		 }
-	   }
-	 });
-   }
 
    // Advanced Search
    // --------------------------------------------------------------------
@@ -170,6 +133,8 @@
 	   columns: [
 		 { data: 'id' },
 		 { data: 'name' },
+		 { data: 'age' },
+		 { data: 'gender' },
 		 { data: 'company' },
 		 { data: 'job_id' },
 		 { data: 'division' },
@@ -187,12 +152,12 @@
 		 },
 		 {
 			// For Checkboxes
-			targets: 8,
+			targets: 10,
 			orderable: false,
 			responsivePriority: 3,
 			render: function (data, type, full, meta) {
 			  return (
-				'<a href="'+assetPath+''+
+				'<a href="'+assetPath+'admin/secure-documents/'+
 				full['cv_link']
 				+'" target="_blank">Click Here</a>'
 			  );
@@ -203,9 +168,51 @@
 			}
 		  },
 		  {
-			// For Checkboxes
-			targets: 7,
+
+			targets: 2,
+			orderable: true,
+			responsivePriority: 3,
+			render: function (data, type, full, meta) {
+				if(typeof(JSON.parse(full['json_data']).age) == 'undefined' || JSON.parse(full['json_data']).age === null)
+				{
+					var $age =  '';
+				}
+				else{
+					var $age =  JSON.parse(full['json_data']).age;
+				}
+			  return $age
+			  ;
+			},
+			checkboxes: {
+			  selectAllRender:
+				'<div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="checkboxSelectAll" /><label class="form-check-label" for="checkboxSelectAll"></label></div>'
+			}
+		  },
+		  {
+
+			targets: 3,
 			orderable: false,
+			responsivePriority: 3,
+			render: function (data, type, full, meta) {
+				if(typeof(JSON.parse(full['json_data']).gender) == 'undefined' || JSON.parse(full['json_data']).gender === null)
+				{
+					var $gender =  '';
+				}
+				else{
+					var $gender =  JSON.parse(full['json_data']).gender;
+				}
+			  return $gender
+			  ;
+			},
+			checkboxes: {
+			  selectAllRender:
+				'<div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="checkboxSelectAll" /><label class="form-check-label" for="checkboxSelectAll"></label></div>'
+			}
+		  },
+		  {
+			// For Checkboxes
+			targets: 9,
+			orderable: true,
 			responsivePriority: 3,
 			render: function (data, type, full, meta) {
 			  return (
