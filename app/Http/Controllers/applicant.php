@@ -70,7 +70,7 @@ class applicant extends Controller
 			$destinationPath2 = storage_path() . '/app/securefolder';
 			$file2->move($destinationPath2, $fileName2);
 
-			$new['cv_link'] = '/app/securefolder/' . $fileName2;
+			$new['cv_link'] = $fileName2;
 		} else {
 			return json_encode(['error' => 'No CV Found.', 'data' => 0]);
 		}

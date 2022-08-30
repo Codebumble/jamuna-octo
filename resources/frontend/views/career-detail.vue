@@ -7,10 +7,32 @@
 						<img
 							:src="jobheading.cover"
 							:alt="jobheading.by"
-							class="rounded-md w-full h-44 lg:h-96 object-cover" />
+							class="
+								rounded-md
+								w-full
+								h-44
+								lg:h-96
+								object-cover
+							" />
 					</div>
 					<div
-						class="absolute w-28 lg:w-40 h-28 lg:h-40 border-2 border-slate-100 rounded-xl lg:-mt-24 -mt-14 middle overflow-hidden bg-white flex justify-center items-center">
+						class="
+							absolute
+							w-28
+							lg:w-40
+							h-28
+							lg:h-40
+							border-2 border-slate-100
+							rounded-xl
+							lg:-mt-24
+							-mt-14
+							middle
+							overflow-hidden
+							bg-white
+							flex
+							justify-center
+							items-center
+						">
 						<img
 							:src="jobheading.complogo"
 							:alt="jobheading.by"
@@ -19,45 +41,57 @@
 				</div>
 				<div class="pt-28 text-center">
 					<h2
-						class="font-bold text-gray-800 text-3xl leading-snug pb-1">
+						class="
+							font-bold
+							text-gray-800 text-3xl
+							leading-snug
+							pb-1
+						">
 						{{ jobheading.jobtitle }}
 					</h2>
 					<p class="mb-4">
 						by
-						<a
-							href="#"
-							class="font-bold"
-							>{{ jobheading.by }}</a
-						>
+						<a href="#" class="font-bold">{{ jobheading.by }}</a>
 						in {{ jobheading.location }}
 					</p>
 					<button
-						class="font-bold rounded-full px-4 py-2 bg-red-600 text-white hover:bg-white hover:text-red-600 border border-red-600 inline-block"
+						class="
+							font-bold
+							rounded-full
+							px-4
+							py-2
+							bg-red-600
+							text-white
+							hover:bg-white hover:text-red-600
+							border border-red-600
+							inline-block
+						"
 						@click="toggleModal">
 						Apply Now
 					</button>
-					<Modal
-						:isActiveModal="isActiveModal"
-						@close="toggleModal">
+					<Modal :isActiveModal="isActiveModal" @close="toggleModal">
 						<div class="apply relative pt-4">
-							<span
-								class="close"
-								@click="toggleModal"
+							<span class="close" @click="toggleModal"
 								>&times;</span
 							>
 							<form
-								class="pt-6" @submit.prevent="submitResume" enctype="multipart/form-data">
+								class="pt-6"
+								@submit.prevent="submitResume"
+								enctype="multipart/form-data">
 								<div
-									class="grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-4">
+									class="
+										grid grid-cols-1
+										md:grid-cols-2
+										gap-x-0
+										md:gap-x-4
+									">
 									<div class="input-group">
 										<div class="input-item">
-
 											<input
 												type="hidden"
 												name="new[job_id]"
 												:value="jobInfo.id"
-												:v-model="job_id"
-												/>
+												:v-model="job_id" />
 
 											<input
 												type="hidden"
@@ -69,16 +103,23 @@
 												type="hidden"
 												name="new[company]"
 												:value="companyInfo.name"
-												:v-model="company" >
-
+												:v-model="company" />
 
 											<input
 												type="text"
 												name="new[name]"
 												id="name"
-												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+												class="
+													focus:ring-red-500
+													focus:border-red-500
+													flex-1
+													block
+													w-full
+													rounded-md
+													sm:text-sm
+													border-gray-300
+												"
 												placeholder="Applicant Name"
-
 												v-model="name" />
 										</div>
 									</div>
@@ -88,24 +129,50 @@
 												type="text"
 												name="new[age]"
 												id="age"
-												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+												class="
+													focus:ring-red-500
+													focus:border-red-500
+													flex-1
+													block
+													w-full
+													rounded-md
+													sm:text-sm
+													border-gray-300
+												"
 												placeholder="Age"
-
 												v-model="age" />
 										</div>
 									</div>
 									<div class="input-group">
 										<div class="input-item">
 											<div
-												class="col-span-6 sm:col-span-3">
+												class="
+													col-span-6
+													sm:col-span-3
+												">
 												<select
 													id="gender"
 													name="new[gender]"
 													autocomplete="gender-name"
-													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
-													v-model="gender"
-													>
-													<option>{{gender}}</option>
+													class="
+														mt-1
+														block
+														w-full
+														py-2
+														px-3
+														border border-gray-300
+														bg-white
+														rounded-md
+														shadow-sm
+														focus:outline-none
+														focus:ring-red-500
+														focus:border-red-500
+														sm:text-sm
+													"
+													v-model="gender">
+													<option>
+														{{ gender }}
+													</option>
 													<option>Male</option>
 													<option>Female</option>
 													<option>Other</option>
@@ -116,15 +183,30 @@
 									<div class="input-group">
 										<div class="input-item">
 											<div
-												class="col-span-6 sm:col-span-3">
+												class="
+													col-span-6
+													sm:col-span-3
+												">
 												<select
 													id="division"
 													name="new[division]"
 													autocomplete="division-name"
-													class="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
+													class="
+														block
+														w-full
+														py-2
+														px-3
+														border border-gray-300
+														bg-white
+														rounded-md
+														shadow-sm
+														focus:outline-none
+														focus:ring-red-500
+														focus:border-red-500
+														sm:text-sm
+													"
 													v-model="division"
-													@change="selectDivision"
-													>
+													@change="selectDivision">
 													<option
 														v-for="value in Object.keys(
 															address
@@ -140,15 +222,31 @@
 									<div class="input-group">
 										<div class="input-item">
 											<div
-												class="col-span-6 sm:col-span-3">
+												class="
+													col-span-6
+													sm:col-span-3
+												">
 												<select
 													id="district"
 													name="new[district]"
 													autocomplete="district-name"
-													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
+													class="
+														mt-1
+														block
+														w-full
+														py-2
+														px-3
+														border border-gray-300
+														bg-white
+														rounded-md
+														shadow-sm
+														focus:outline-none
+														focus:ring-red-500
+														focus:border-red-500
+														sm:text-sm
+													"
 													@change="selectDistrict"
-													v-model="district"
-													>
+													v-model="district">
 													<option v-if="isDistrict">
 														{{ district }}
 													</option>
@@ -165,14 +263,30 @@
 									<div class="input-group">
 										<div class="input-item">
 											<div
-												class="col-span-6 sm:col-span-3">
+												class="
+													col-span-6
+													sm:col-span-3
+												">
 												<select
 													id="subdistrict"
 													name="new[subdistrict]"
 													autocomplete="subdistrict-name"
-													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
-													v-model="subdistrict"
-													>
+													class="
+														mt-1
+														block
+														w-full
+														py-2
+														px-3
+														border border-gray-300
+														bg-white
+														rounded-md
+														shadow-sm
+														focus:outline-none
+														focus:ring-red-500
+														focus:border-red-500
+														sm:text-sm
+													"
+													v-model="subdistrict">
 													<option
 														v-if="isSubdistrict">
 														{{ subdistrict }}
@@ -189,16 +303,33 @@
 									<div class="input-group">
 										<div class="input-item">
 											<div
-												class="col-span-6 sm:col-span-3">
+												class="
+													col-span-6
+													sm:col-span-3
+												">
 												<select
 													id="qualification"
 													name="new[qualifications]"
 													autocomplete="qualification-name"
-													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
-													v-model="qualification"
-													>
+													class="
+														mt-1
+														block
+														w-full
+														py-2
+														px-3
+														border border-gray-300
+														bg-white
+														rounded-md
+														shadow-sm
+														focus:outline-none
+														focus:ring-red-500
+														focus:border-red-500
+														sm:text-sm
+													"
+													v-model="qualification">
 													<option>
-														Educational Qualification
+														Educational
+														Qualification
 													</option>
 													<option
 														v-for="qualification in qualifications"
@@ -212,14 +343,30 @@
 									<div class="input-group">
 										<div class="input-item">
 											<div
-												class="col-span-6 sm:col-span-3">
+												class="
+													col-span-6
+													sm:col-span-3
+												">
 												<select
 													id="experience"
 													name="new[experience]"
 													autocomplete="experience-name"
-													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
-													v-model="experience"
-													>
+													class="
+														mt-1
+														block
+														w-full
+														py-2
+														px-3
+														border border-gray-300
+														bg-white
+														rounded-md
+														shadow-sm
+														focus:outline-none
+														focus:ring-red-500
+														focus:border-red-500
+														sm:text-sm
+													"
+													v-model="experience">
 													<option>
 														Experience (Years)
 													</option>
@@ -244,7 +391,16 @@
 												type="text"
 												name="university"
 												id="experience"
-												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+												class="
+													focus:ring-red-500
+													focus:border-red-500
+													flex-1
+													block
+													w-full
+													rounded-md
+													sm:text-sm
+													border-gray-300
+												"
 												placeholder="University (Optional)"
 												v-model="university" />
 										</div>
@@ -255,10 +411,18 @@
 												type="text"
 												name="new[expo_salary]"
 												id="salary"
-												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+												class="
+													focus:ring-red-500
+													focus:border-red-500
+													flex-1
+													block
+													w-full
+													rounded-md
+													sm:text-sm
+													border-gray-300
+												"
 												placeholder="Expected Salary"
-												v-model="salary"
-												 />
+												v-model="salary" />
 										</div>
 									</div>
 									<div class="input-group">
@@ -267,7 +431,16 @@
 												type="text"
 												name="new[phone]"
 												id="phone"
-												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+												class="
+													focus:ring-red-500
+													focus:border-red-500
+													flex-1
+													block
+													w-full
+													rounded-md
+													sm:text-sm
+													border-gray-300
+												"
 												placeholder="Your Mobile Number"
 												v-model="mobile" />
 										</div>
@@ -278,10 +451,18 @@
 												type="email"
 												name="new[email]"
 												id="email"
-												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+												class="
+													focus:ring-red-500
+													focus:border-red-500
+													flex-1
+													block
+													w-full
+													rounded-md
+													sm:text-sm
+													border-gray-300
+												"
 												placeholder="Your Email"
-												v-model="email"
-												 />
+												v-model="email" />
 										</div>
 									</div>
 									<div class="input-group">
@@ -290,10 +471,18 @@
 												type="text"
 												name="new[sCountry]"
 												id="sCountry"
-												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+												class="
+													focus:ring-red-500
+													focus:border-red-500
+													flex-1
+													block
+													w-full
+													rounded-md
+													sm:text-sm
+													border-gray-300
+												"
 												placeholder="Study Country (Optional)"
-												v-model="sCountry"
-												 />
+												v-model="sCountry" />
 										</div>
 									</div>
 									<div class="input-group">
@@ -302,10 +491,18 @@
 												type="text"
 												name="new[pCompany]"
 												id="pCompany"
-												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+												class="
+													focus:ring-red-500
+													focus:border-red-500
+													flex-1
+													block
+													w-full
+													rounded-md
+													sm:text-sm
+													border-gray-300
+												"
 												placeholder="Previous Company (Optional)"
-												v-model="pCompany"
-												/>
+												v-model="pCompany" />
 										</div>
 									</div>
 								</div>
@@ -313,12 +510,31 @@
 									<div class="input-item">
 										<div>
 											<div
-												class="mt-1 flex justify-center px-4 pt-3 pb-4 border-2 border-gray-300 border-dashed rounded-md">
+												class="
+													mt-1
+													flex
+													justify-center
+													px-4
+													pt-3
+													pb-4
+													border-2
+													border-gray-300
+													border-dashed
+													rounded-md
+												">
 												<div
-													class="space-y-1 text-center">
+													class="
+														space-y-1
+														text-center
+													">
 													<svg
 														xmlns="http://www.w3.org/2000/svg"
-														class="mx-auto h-8 w-8 text-gray-400"
+														class="
+															mx-auto
+															h-8
+															w-8
+															text-gray-400
+														"
 														viewBox="0 0 24 24"
 														fill="none"
 														stroke="currentColor"
@@ -331,10 +547,29 @@
 															points="13 2 13 9 20 9"></polyline>
 													</svg>
 													<div
-														class="flex text-sm text-gray-600">
+														class="
+															flex
+															text-sm
+															text-gray-600
+														">
 														<label
 															for="file-upload"
-															class="relative cursor-pointer bg-white rounded-md font-medium text-red-500 hover:text-red-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-red-500 border-[1px] border-gray-300" id="pdf">
+															class="
+																relative
+																cursor-pointer
+																bg-white
+																rounded-md
+																font-medium
+																text-red-500
+																hover:text-red-500
+																focus-within:outline-none
+																focus-within:ring-2
+																focus-within:ring-offset-2
+																focus-within:ring-red-500
+																border-[1px]
+																border-gray-300
+															"
+															id="pdf">
 															<span
 																>Upload your
 																CV/Resume</span
@@ -345,8 +580,9 @@
 																type="file"
 																class="sr-only"
 																accept="application/pdf"
-																@change="previewFiles"
-																 />
+																@change="
+																	previewFiles
+																" />
 														</label>
 														<p class="pl-1">
 															or drag and drop
@@ -360,7 +596,26 @@
 								</div>
 								<button
 									type="submit"
-									class="inline-flex justify-center pt-2 px-4 border border-transparent hover:border-red-600 shadow-sm text-sm rounded-full text-white hover:text-red-600 bg-red-600 hover:bg-white transition-all w-full h-12 items-center font-bold">
+									class="
+										inline-flex
+										justify-center
+										pt-2
+										px-4
+										border border-transparent
+										hover:border-red-600
+										shadow-sm
+										text-sm
+										rounded-full
+										text-white
+										hover:text-red-600
+										bg-red-600
+										hover:bg-white
+										transition-all
+										w-full
+										h-12
+										items-center
+										font-bold
+									">
 									Send
 								</button>
 							</form>
@@ -391,8 +646,24 @@
 			</div>
 			<!-- upper part closed -->
 			<div
-				class="grid lg:grid-cols-3 gap-6 w-full lg:w-10/12 mx-auto overview pt-20">
-				<div class="lg:col-span-2 w-full break-words overflow-hidden description">
+				class="
+					grid
+					lg:grid-cols-3
+					gap-6
+					w-full
+					lg:w-10/12
+					mx-auto
+					overview
+					pt-20
+				">
+				<div
+					class="
+						lg:col-span-2
+						w-full
+						break-words
+						overflow-hidden
+						description
+					">
 					<div v-html="jobdescription.description"></div>
 					<ul
 						class="list-disc list-inside text-gray-600"
@@ -403,7 +674,16 @@
 						<li>
 							<a
 								:href="jobdescription.attachedfilelink"
-								class="underline decoration-dotted hover:decoration-solid decoration-slate-400 hover:decoration-red-600 underline-offset-4 hover:text-red-600 transition-all"
+								class="
+									underline
+									decoration-dotted
+									hover:decoration-solid
+									decoration-slate-400
+									hover:decoration-red-600
+									underline-offset-4
+									hover:text-red-600
+									transition-all
+								"
 								>{{ jobdescription.attachedfilelinklabel }}</a
 							>
 						</li>
@@ -431,7 +711,15 @@
 					<div class="box">
 						<div class="flex gap-4 items-center mb-4">
 							<div
-								class="w-16 flex justify-center items-center h-[2.8rem] border border-gray-100 bg-white">
+								class="
+									w-16
+									flex
+									justify-center
+									items-center
+									h-[2.8rem]
+									border border-gray-100
+									bg-white
+								">
 								<img
 									:src="companyInfo.logo"
 									:alt="companyInfo.name"
@@ -443,7 +731,16 @@
 								</h4>
 								<a
 									:href="companyInfo.websiteLink"
-									class="underline decoration-dotted underline-offset-4 decoration-slate-400 hover:text-red-600 hover:decoration-red-600 transition-all text-sm text-gray-600"
+									class="
+										underline
+										decoration-dotted
+										underline-offset-4
+										decoration-slate-400
+										hover:text-red-600
+										hover:decoration-red-600
+										transition-all
+										text-sm text-gray-600
+									"
 									>View Website</a
 								>
 							</div>
@@ -486,21 +783,33 @@
 							<li>
 								<a
 									:href="companyInfo.social.facebook"
-									class="hover:text-blue-600 transition-all text-[1.3rem] text-gray-800">
+									class="
+										hover:text-blue-600
+										transition-all
+										text-[1.3rem] text-gray-800
+									">
 									<i class="fab fa-facebook"></i>
 								</a>
 							</li>
 							<li>
 								<a
 									:href="companyInfo.social.instagram"
-									class="hover:text-red-600 transition-all text-[1.3rem] text-gray-800">
+									class="
+										hover:text-red-600
+										transition-all
+										text-[1.3rem] text-gray-800
+									">
 									<i class="fab fa-instagram"></i>
 								</a>
 							</li>
 							<li>
 								<a
 									:href="companyInfo.social.linkedin"
-									class="hover:text-[#0077b5] transition-all text-[1.3rem] text-gray-800">
+									class="
+										hover:text-[#0077b5]
+										transition-all
+										text-[1.3rem] text-gray-800
+									">
 									<i class="fab fa-linkedin"></i>
 								</a>
 							</li>
@@ -513,363 +822,381 @@
 </template>
 
 <style lang="scss">
-	@import '../assets/scss/variables/_career.scss';
-	@import '../assets/scss/variables/apply';
+@import '../assets/scss/variables/_career.scss';
+@import '../assets/scss/variables/apply';
 </style>
 
 <script>
-	// import { useHead } from '@vueuse/head';
-	import Modal from '../components/global/modal';
-	import { ref } from 'vue';
-	import { useRoute } from 'vue-router'
-	import { createToaster } from "@meforma/vue-toaster";
-	import { address, qualifications } from '../util/address.js';
-	export default {
-		components: {
-			Modal,
-		},
-		setup() {
-			const toaster = createToaster({ /* options */ });
-			const route = useRoute()
+// import { useHead } from '@vueuse/head';
+import Modal from '../components/global/modal';
+import { ref } from 'vue';
+import { useRoute } from 'vue-router';
+import { createToaster } from '@meforma/vue-toaster';
+import { address, qualifications } from '../util/address.js';
+export default {
+	components: {
+		Modal,
+	},
+	setup() {
+		const toaster = createToaster({
+			/* options */
+		});
+		const route = useRoute();
 
-			const sharing = ref({
-					url: window.location.origin + route.path,
-					title: '',
-					description:
-						'A new job circular has been published by The Jamuna Group for the position of' +
-						'this.jobheading.jobtitle ' +
-						'. Visit this link to sse the circular.',
-					hashtags: 'JamunaGroup, Job, Circular, Bangladesh',
-				});
+		const sharing = ref({
+			url: window.location.origin + route.path,
+			title: '',
+			description:
+				'A new job circular has been published by The Jamuna Group for the position of' +
+				'this.jobheading.jobtitle ' +
+				'. Visit this link to sse the circular.',
+			hashtags: 'JamunaGroup, Job, Circular, Bangladesh',
+		});
 
-			const networks = ref([
-					{
-						network: 'email',
-						name: 'Email',
-						icon: 'far fa-envelope',
-					},
-					{
-						network: 'facebook',
-						name: 'Facebook',
-						icon: 'fab fa-facebook',
-					},
-					{
-						network: 'linkedin',
-						name: 'LinkedIn',
-						icon: 'fab fa-linkedin',
-					},
-					{
-						network: 'messenger',
-						name: 'Messenger',
-						icon: 'fab fa-facebook-messenger',
-					},
-					{
-						network: 'whatsapp',
-						name: 'Whatsapp',
-						icon: 'fab fa-whatsapp',
-					},
-				],);
-			const jobheading = ref({});
-			const jobdescription = ref({});
-			const jobInfo = ref({});
-			const companyInfo = ref({
-					social: {
-						facebook: '',
-						instagram: '',
-						linkedin: '',
-					},
-				});
+		const networks = ref([
+			{
+				network: 'email',
+				name: 'Email',
+				icon: 'far fa-envelope',
+			},
+			{
+				network: 'facebook',
+				name: 'Facebook',
+				icon: 'fab fa-facebook',
+			},
+			{
+				network: 'linkedin',
+				name: 'LinkedIn',
+				icon: 'fab fa-linkedin',
+			},
+			{
+				network: 'messenger',
+				name: 'Messenger',
+				icon: 'fab fa-facebook-messenger',
+			},
+			{
+				network: 'whatsapp',
+				name: 'Whatsapp',
+				icon: 'fab fa-whatsapp',
+			},
+		]);
+		const jobheading = ref({});
+		const jobdescription = ref({});
+		const jobInfo = ref({});
+		const companyInfo = ref({
+			social: {
+				facebook: '',
+				instagram: '',
+				linkedin: '',
+			},
+		});
 
-			const isDistrict = ref(true);
-			const isSubdistrict = ref(true);
-			const isActiveModal = ref(false);
-			const districts = ref([]);
-			const subdistricts = ref([]);
+		const isDistrict = ref(true);
+		const isSubdistrict = ref(true);
+		const isActiveModal = ref(false);
+		const districts = ref([]);
+		const subdistricts = ref([]);
 
-			const name = ref('');
-			const age = ref('');
-			const gender = ref('Gender');
-			const division = ref('Division');
-			const district = ref('District');
-			const subdistrict = ref('Thana');
-			const qualification = ref('Educational Qualification');
-			const experience = ref('Experience (Years)');
-			const university = ref('');
-			const salary = ref('');
-			const pdf = ref();
-			const mobile = ref('');
-			const email = ref('');
-			const sCountry = ref('');
-			const pCompany = ref('');
+		const name = ref('');
+		const age = ref('');
+		const gender = ref('Gender');
+		const division = ref('Division');
+		const district = ref('District');
+		const subdistrict = ref('Thana');
+		const qualification = ref('Educational Qualification');
+		const experience = ref('Experience (Years)');
+		const university = ref('');
+		const salary = ref('');
+		const pdf = ref();
+		const mobile = ref('');
+		const email = ref('');
+		const sCountry = ref('');
+		const pCompany = ref('');
 
-			const toggleModal = () => {
-				isActiveModal.value = !isActiveModal.value;
-				if (isActiveModal.value)
-					document.body.style.overflowY = 'hidden';
-				else document.body.style.overflowY = 'scroll';
-			};
-			const selectDivision = () => {
-				districts.value = Object.keys(address[division.value]);
-				district.value = 'District';
-				subdistrict.value = 'Thana';
-				isDistrict.value = false;
-				if (division.value === 'Division') {
-					subdistricts.value = ['Thana'];
-					isSubdistrict.value = false;
-					return;
-				} else {
-					isSubdistrict.value = true;
-				}
-			};
-			const selectDistrict = () => {
-				subdistricts.value = [
-					...address[division.value][district.value],
-				];
-				if (district.value === 'District') {
-					subdistricts.value = ['Thana'];
-					isSubdistrict.value = false;
-					return;
-				}
-			};
-
-			const previewFiles = (e)=> {
-				pdf.value = e.target.files[0];
+		const toggleModal = () => {
+			isActiveModal.value = !isActiveModal.value;
+			if (isActiveModal.value) document.body.style.overflowY = 'hidden';
+			else document.body.style.overflowY = 'scroll';
+		};
+		const selectDivision = () => {
+			districts.value = Object.keys(address[division.value]);
+			district.value = 'District';
+			subdistrict.value = 'Thana';
+			isDistrict.value = false;
+			if (division.value === 'Division') {
+				subdistricts.value = ['Thana'];
+				isSubdistrict.value = false;
+				return;
+			} else {
+				isSubdistrict.value = true;
 			}
-
-			const submitResume = () => {
-				let formData = new FormData();
-				formData.append("new[name]", name.value);
-				formData.append("new[age]", age.value);
-				formData.append("new[gender]", gender.value);
-				formData.append("new[email]", email.value);
-				formData.append("new[phone]", mobile.value);
-				formData.append("new[division]", division.value);
-				formData.append("new[district]", district.value);
-				formData.append("new[subdistrict]", subdistrict.value);
-				formData.append("new[experience]", experience.value);
-
-				formData.append("new[expo_salary]", salary.value);
-				formData.append("new[qualifications]", qualification.value);
-				formData.append("new[university]", university.value);
-				formData.append("new[job_id]", jobInfo.value.id);
-				formData.append("new[company]", companyInfo.value.name);
-
-				formData.append("new[file_upload]", document.querySelector('#file-upload').files[0]);
-				formData.append("_token", jobInfo.value.token);
-
-				const addClass = (selector)=>{
-					document.getElementById(selector).classList.add('border-red-500')
-				}
-				const removeClass = (selector)=>{
-					document.getElementById(selector).classList.remove('border-red-500')
-				}
-
-				if(
-					!name.value ||
-					division.value === 'Division' ||
-					district.value === 'District' ||
-					subdistrict.value === 'Thana' ||
-					experience.value === 'Experience (Years)' ||
-					qualification.value === 'Educational Qualification' ||
-					!mobile.value ||
-					!email.value ||
-					!age.value ||
-					gender.value === 'Gender' ||
-					!pdf.value || pdf.value.type !== 'application/pdf'
-				){
-					if(!name.value){
-						addClass('name')
-					}else{
-						removeClass('name')
-					}
-
-					if(!age.value){
-						addClass('age')
-					}else{
-						removeClass('age')
-					}
-
-					if(gender.value === 'Gender'){
-						addClass('gender')
-					}else{
-						removeClass('gender')
-					}
-
-					if(division.value === 'Division'){
-						addClass('division')
-					}else{
-						removeClass('division')
-					}
-
-					if(district.value === 'District'){
-						addClass('district')
-					}else{
-						removeClass('district')
-					}
-
-					if(subdistrict.value === 'Thana'){
-						addClass('subdistrict')
-					}else{
-						removeClass('subdistrict')
-					}
-
-					if(qualification.value === 'Educational Qualification'){
-						addClass('qualification')
-					}else{
-						removeClass('qualification')
-					}
-
-					if(experience.value === 'Experience (Years)'){
-						addClass('experience')
-					}else{
-						removeClass('experience')
-					}
-
-					if(!salary.value || isNaN(salary.value) || salary.value.length < 3){
-						addClass('salary')
-					}else{
-						removeClass('salary')
-					}
-
-					if(!mobile.value || isNaN(mobile.value)){
-						addClass('phone')
-					}
-					else{
-						removeClass('phone')
-					}
-
-					if(!email.value){
-						addClass('email')
-					}else{
-						removeClass('email')
-					}
-
-					if(!pdf.value || pdf.value.type !== 'application/pdf'){
-						addClass('pdf')
-					}else{
-						removeClass('pdf')
-					}
-				}else{
-					let xhr = new XMLHttpRequest();
-					xhr.open('POST', window.location.origin + '/codebumble/from-receive', true)
-					xhr.onload = function() {
-						if (JSON.parse(this.response).data > 0) {
-							name.value = '';
-							age.value = '';
-							gender.value = 'Gender';
-							division.value = 'Division';
-							district.value = 'District';
-							subdistrict.value = 'Thana';
-							qualification.value = 'Educational Qualification';
-							experience.value = 'Experience (Years)';
-							university.value = '';
-							salary.value = '';
-							pdf.value = undefined;
-							mobile.value = '';
-							email.value = '';
-							sCountry.value = '';
-							pCompany.value = '';
-							subdistricts.value = ['Thana'];
-							isSubdistrict.value = false;
-							removeClass('name')
-							removeClass('age')
-							removeClass('gender')
-							removeClass('division')
-							removeClass('district')
-							removeClass('subdistrict')
-							removeClass('qualification')
-							removeClass('experience')
-							removeClass('salary')
-							removeClass('phone')
-							removeClass('email')
-							removeClass('pdf')
-							toggleModal()
-							toaster.success('Form submit successfully')
-							return;
-						}else{
-							toaster.error(JSON.parse(this.response).error)
-						}
-					};
-					xhr.send(formData);
-				}
+		};
+		const selectDistrict = () => {
+			subdistricts.value = [...address[division.value][district.value]];
+			if (district.value === 'District') {
+				subdistricts.value = ['Thana'];
+				isSubdistrict.value = false;
+				return;
+			}
 		};
 
-			// Get Data
-			axios
-				.get(window.location.origin + '/frontpage-api/circular-details/' + route.params.id)
-				.then((response) => {
-					jobheading.value = response.data.jobheading;
-					jobdescription.value = response.data.jobdescription;
-					jobInfo.value = response.data.jobInfo;
-					companyInfo.value = response.data.companyInfo;
-					companyInfo.value.social = response.data.companyInfo.social;
-				})
-				.catch(()=>{
-					this.$router.push({ name: "not-found" })
-				})
+		const previewFiles = (e) => {
+			pdf.value = e.target.files[0];
+		};
 
-			return {
-				isActiveModal,
-				toggleModal,
-				selectDivision,
-				selectDistrict,
-				submitResume,
-				address,
-				districts,
-				subdistricts,
-				isDistrict,
-				isSubdistrict,
-				qualifications,
-				name,
-				age,
-				gender,
-				division,
-				district,
-				subdistrict,
-				qualification,
-				experience,
-				university,
-				salary,
-				mobile,
-				email,
-				sCountry,
-				pCompany,
-				sharing,
-				networks,
-				jobheading,
-				jobdescription,
-				jobInfo,
-				companyInfo,
-				previewFiles
+		const submitResume = () => {
+			let formData = new FormData();
+			formData.append('new[name]', name.value);
+			formData.append('new[age]', age.value);
+			formData.append('new[gender]', gender.value);
+			formData.append('new[email]', email.value);
+			formData.append('new[phone]', mobile.value);
+			formData.append('new[division]', division.value);
+			formData.append('new[district]', district.value);
+			formData.append('new[subdistrict]', subdistrict.value);
+			formData.append('new[experience]', experience.value);
+
+			formData.append('new[expo_salary]', salary.value);
+			formData.append('new[qualifications]', qualification.value);
+			formData.append('new[university]', university.value);
+			formData.append('new[job_id]', jobInfo.value.id);
+			formData.append('new[company]', companyInfo.value.name);
+
+			formData.append(
+				'new[file_upload]',
+				document.querySelector('#file-upload').files[0]
+			);
+			formData.append('_token', jobInfo.value.token);
+
+			const addClass = (selector) => {
+				document
+					.getElementById(selector)
+					.classList.add('border-red-500');
 			};
-		},
-	};
+			const removeClass = (selector) => {
+				document
+					.getElementById(selector)
+					.classList.remove('border-red-500');
+			};
+
+			if (
+				!name.value ||
+				division.value === 'Division' ||
+				district.value === 'District' ||
+				subdistrict.value === 'Thana' ||
+				experience.value === 'Experience (Years)' ||
+				qualification.value === 'Educational Qualification' ||
+				!mobile.value ||
+				!email.value ||
+				!age.value ||
+				gender.value === 'Gender' ||
+				!pdf.value ||
+				pdf.value.type !== 'application/pdf'
+			) {
+				if (!name.value) {
+					addClass('name');
+				} else {
+					removeClass('name');
+				}
+
+				if (!age.value) {
+					addClass('age');
+				} else {
+					removeClass('age');
+				}
+
+				if (gender.value === 'Gender') {
+					addClass('gender');
+				} else {
+					removeClass('gender');
+				}
+
+				if (division.value === 'Division') {
+					addClass('division');
+				} else {
+					removeClass('division');
+				}
+
+				if (district.value === 'District') {
+					addClass('district');
+				} else {
+					removeClass('district');
+				}
+
+				if (subdistrict.value === 'Thana') {
+					addClass('subdistrict');
+				} else {
+					removeClass('subdistrict');
+				}
+
+				if (qualification.value === 'Educational Qualification') {
+					addClass('qualification');
+				} else {
+					removeClass('qualification');
+				}
+
+				if (experience.value === 'Experience (Years)') {
+					addClass('experience');
+				} else {
+					removeClass('experience');
+				}
+
+				if (
+					!salary.value ||
+					isNaN(salary.value) ||
+					salary.value.length < 3
+				) {
+					addClass('salary');
+				} else {
+					removeClass('salary');
+				}
+
+				if (!mobile.value || isNaN(mobile.value)) {
+					addClass('phone');
+				} else {
+					removeClass('phone');
+				}
+
+				if (!email.value) {
+					addClass('email');
+				} else {
+					removeClass('email');
+				}
+
+				if (!pdf.value || pdf.value.type !== 'application/pdf') {
+					addClass('pdf');
+				} else {
+					removeClass('pdf');
+				}
+			} else {
+				let xhr = new XMLHttpRequest();
+				xhr.open(
+					'POST',
+					window.location.origin + '/codebumble/from-receive',
+					true
+				);
+				xhr.onload = function () {
+					if (JSON.parse(this.response).data > 0) {
+						name.value = '';
+						age.value = '';
+						gender.value = 'Gender';
+						division.value = 'Division';
+						district.value = 'District';
+						subdistrict.value = 'Thana';
+						qualification.value = 'Educational Qualification';
+						experience.value = 'Experience (Years)';
+						university.value = '';
+						salary.value = '';
+						pdf.value = undefined;
+						mobile.value = '';
+						email.value = '';
+						sCountry.value = '';
+						pCompany.value = '';
+						subdistricts.value = ['Thana'];
+						isSubdistrict.value = false;
+						removeClass('name');
+						removeClass('age');
+						removeClass('gender');
+						removeClass('division');
+						removeClass('district');
+						removeClass('subdistrict');
+						removeClass('qualification');
+						removeClass('experience');
+						removeClass('salary');
+						removeClass('phone');
+						removeClass('email');
+						removeClass('pdf');
+						toggleModal();
+						toaster.success('Form submit successfully');
+						return;
+					} else {
+						toaster.error(JSON.parse(this.response).error);
+					}
+				};
+				xhr.send(formData);
+			}
+		};
+
+		// Get Data
+		axios
+			.get(
+				window.location.origin +
+					'/frontpage-api/circular-details/' +
+					route.params.id
+			)
+			.then((response) => {
+				jobheading.value = response.data.jobheading;
+				jobdescription.value = response.data.jobdescription;
+				jobInfo.value = response.data.jobInfo;
+				companyInfo.value = response.data.companyInfo;
+				companyInfo.value.social = response.data.companyInfo.social;
+			})
+			.catch(() => {
+				this.$router.push({ name: 'not-found' });
+			});
+
+		return {
+			isActiveModal,
+			toggleModal,
+			selectDivision,
+			selectDistrict,
+			submitResume,
+			address,
+			districts,
+			subdistricts,
+			isDistrict,
+			isSubdistrict,
+			qualifications,
+			name,
+			age,
+			gender,
+			division,
+			district,
+			subdistrict,
+			qualification,
+			experience,
+			university,
+			salary,
+			mobile,
+			email,
+			sCountry,
+			pCompany,
+			sharing,
+			networks,
+			jobheading,
+			jobdescription,
+			jobInfo,
+			companyInfo,
+			previewFiles,
+		};
+	},
+};
 </script>
 <style lang="scss">
-	.close {
-		@apply absolute top-4 right-8 text-3xl font-bold cursor-pointer text-gray-500;
-	}
-	.upper-part .share {
-		@apply flex items-center text-[1.3rem] gap-3 justify-center content-center py-4;
+.close {
+	@apply absolute top-4 right-8 text-3xl font-bold cursor-pointer text-gray-500;
+}
+.upper-part .share {
+	@apply flex items-center text-[1.3rem] gap-3 justify-center content-center py-4;
 
-		a {
-			@apply text-gray-800 transition-all;
-		}
-
-		.share-network-facebook {
-			@apply hover:text-blue-600 transition-all;
-		}
-		.share-network-linkedin {
-			@apply hover:text-[#0077b5] transition-all;
-		}
-		.share-network-messenger {
-			@apply hover:text-[#2f80fe] transition-all;
-		}
-		.share-network-twitter {
-			@apply hover:text-[#1da1f2] transition-all;
-		}
-		.share-network-whatsapp {
-			@apply hover:text-green-600 transition-all;
-		}
+	a {
+		@apply text-gray-800 transition-all;
 	}
+
+	.share-network-facebook {
+		@apply hover:text-blue-600 transition-all;
+	}
+	.share-network-linkedin {
+		@apply hover:text-[#0077b5] transition-all;
+	}
+	.share-network-messenger {
+		@apply hover:text-[#2f80fe] transition-all;
+	}
+	.share-network-twitter {
+		@apply hover:text-[#1da1f2] transition-all;
+	}
+	.share-network-whatsapp {
+		@apply hover:text-green-600 transition-all;
+	}
+}
 </style>

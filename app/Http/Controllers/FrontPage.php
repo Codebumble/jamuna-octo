@@ -301,4 +301,40 @@ class FrontPage extends Controller
         }
 
     }
+
+    public function cv_cast($pathToFile){
+        if (isset(Auth::user()->role) ) {
+            if(Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin' || Auth::user()->role == 'manager')
+            if(file_exists(storage_path('app/securefolder/'.$pathToFile))){
+                return response()->file(storage_path('app/securefolder/'.$pathToFile));
+            } else {
+                return json_encode(['data' => null]);
+            }
+
+        } else {
+            return json_encode(['data' => "User"]);
+        }
+    }
+
+    public function event_header(){
+        $data = DB::select('select * from codebumble_front_page where code_name=?',['event']);
+        if(isset($data)){
+            return $data[0]->value;
+        } else {
+            return null;
+        }
+
+
+    }
+
+    public function product_header(){
+        $data = DB::select('select * from codebumble_front_page where code_name=?',['product-heading']);
+        if(isset($data)){
+            return $data[0]->value;
+        } else {
+            return null;
+        }
+
+
+    }
 }

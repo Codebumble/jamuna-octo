@@ -123,6 +123,56 @@
                                     aria-describedby="s-l" required />
                             </div>
 
+                            <div class="divider-primary divider">
+                                <div class="divider-text">Product Heading</div>
+                            </div>
+
+                            <div class="col-12 col-md-6 mb-1">
+                                <label class="d-block form-label" for="ph-title">Title</label>
+                                <input id="ph-title" type="text" name="ph-title" class="form-control"
+                                    value="{{ $ph->title }}" placeholder="ph-title" aria-label="ph-title"
+                                    aria-describedby="s-title" required />
+                            </div>
+
+                            <div class="col-12 col-md-6 mb-1">
+                                <label class="d-block form-label" for="ph-dv">Description Visibility</label>
+                                <select class="form-select" id="ph-dv" name="ph-dv">
+                                <option value="{{$ph->descVisibility}}" selected>{{$ph->descVisibility}}</option>
+                                <option value="true">True</option>
+                                <option value="false">False</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-1">
+                                <label class="d-block form-label" for="ph-d">Description</label>
+                                <textarea id="validationBioBootstrap" class="form-control" name="ph-d" rows="3" required>{{ $ph->description }}</textarea>
+                            </div>
+
+                            <div class="divider-primary divider">
+                                <div class="divider-text">Event Heading</div>
+                            </div>
+
+                            <div class="col-12 col-md-6 mb-1">
+                                <label class="d-block form-label" for="eh-title">Title</label>
+                                <input id="eh-title" type="text" name="eh-title" class="form-control"
+                                    value="{{ $eh->title }}" placeholder="eh-title" aria-label="eh-title"
+                                    aria-describedby="eh-title" required />
+                            </div>
+
+                            <div class="col-12 col-md-6 mb-1">
+                                <label class="d-block form-label" for="eh-dv">Description Visibility</label>
+                                <select class="form-select" id="eh-dv" name="eh-dv">
+                                <option value="{{$eh->descVisibility}}" selected>{{$eh->descVisibility}}</option>
+                                <option value="true">True</option>
+                                <option value="false">False</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-1">
+                                <label class="d-block form-label" for="eh-d">Description</label>
+                                <textarea id="validationBioBootstrap" class="form-control" name="eh-d" rows="3" required>{{ $eh->description }}</textarea>
+                            </div>
+
 
                         </div>
                         <div class="col-12 pt-50 mt-2 text-center">
