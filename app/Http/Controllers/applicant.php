@@ -20,7 +20,7 @@ class applicant extends Controller
 		// return json_encode($new);
 		foreach ($new as $key => $value) {
 			if ($key != 'university') {
-                if($key != 'file-upload'){
+                if($key != 'file_upload'){
 				if ($request->new[$key] == '' || $request->new[$key] == null) {
 					return json_encode(['key' => $key]); //field required all
 				}
@@ -52,13 +52,15 @@ class applicant extends Controller
 			]);
 		}
 
-		if ($file2 = $request->hasFile('new.file-upload')) {
+
+
+		if ($file2 = $request->hasFile('new.file_upload')) {
 			$vale1 = $request->validate([
-				'new.file-upload.*' => 'mimes:pdf,doc,docx|max:10080',
+				'new.file_upload.*' => 'mimes:pdf,doc,docx|max:10080',
 			]);
 
-			$user2 = Auth::user()->username;
-			$file2 = $request->file('new.file-upload');
+			$user2 = Str::random(5);
+			$file2 = $request->file('new.file_upload');
 			$fileName2 =
 				time() .
 				'-' .
@@ -73,7 +75,7 @@ class applicant extends Controller
 			return json_encode(['error' => 'No CV Found.', 'data' => 0]);
 		}
 		$new['created_at'] = time();
-		unset($new['file-upload']);
+		unset($new['file_upload']);
 
 		$db = DB::table('codebumble_applicant_list')->insert($new);
 

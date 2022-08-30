@@ -12,20 +12,20 @@ export default {
 	data() {
 		return {
 			mediaCenter: {
-					ytSrc: '',
-					title: '',
-					phone: '',
-					email: '',
-					address: {
-						officeName: '',
-						road: '',
-					},
-					distHeading: {
-						title: '',
-						desc: '',
-					},
-					distCorres: []
+				ytSrc: '',
+				title: '',
+				phone: '',
+				email: '',
+				address: {
+					officeName: '',
+					road: '',
 				},
+				distHeading: {
+					title: '',
+					desc: '',
+				},
+				distCorres: [],
+			},
 			// mediaCenter: {
 			// 	ytSrc: 'https://www.youtube.com/embed/Kaat7BzcEI0',
 			// 	title: 'Jamuna Television known as "Jamuna TV" is a 24 hour news channel of Bangladesh',
@@ -117,34 +117,47 @@ export default {
 		};
 	},
 	created() {
-		axios
-			.get(
-				window.location.origin +
-					'/frontpage-api/media-center/' +
-					this.$route.params.id
-			)
-			.then((response) => {
-				const data = response.data;
-				this.mediaCenter = {
-					...this.mediaCenter,
-					ytSrc: data.ytSrc,
-					title: data.title,
-					phone: data.phone,
-					email: data.email,
-					address: {
-						officeName: data.address.officeName,
-						road: data.address.road,
-					},
-					distHeading: {
-						title: data.distHeading.tittle,
-						desc: data.distHeading.desc,
-					},
-				};
+		this.switcher();
+		this.$watch(
+			() => this.$route.params,
+			(toParams, PreviousParams) => {
+				this.switcher();
+			}
+		);
+	},
+	methods: {
+		switcher() {
+			if (this.$route.params.id) {
+				axios
+					.get(
+						window.location.origin +
+							'/frontpage-api/media-center/' +
+							this.$route.params.id
+					)
+					.then((response) => {
+						const data = response.data;
+						this.mediaCenter = {
+							...this.mediaCenter,
+							ytSrc: data.ytSrc,
+							title: data.title,
+							phone: data.phone,
+							email: data.email,
+							address: {
+								officeName: data.address.officeName,
+								road: data.address.road,
+							},
+							distHeading: {
+								title: data.distHeading.tittle,
+								desc: data.distHeading.desc,
+							},
+						};
 
-				data.distCorres.forEach((item) => {
-					this.mediaCenter.distCorres.push(item);
-				});
-			});
+						data.distCorres.forEach((item) => {
+							this.mediaCenter.distCorres.push(item);
+						});
+					});
+			}
+		},
 	},
 };
 </script>

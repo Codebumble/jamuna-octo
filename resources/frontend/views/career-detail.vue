@@ -46,7 +46,7 @@
 								>&times;</span
 							>
 							<form
-								class="pt-6" @submit.prevent="submitResume">
+								class="pt-6" @submit.prevent="submitResume" enctype="multipart/form-data">
 								<div
 									class="grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-4">
 									<div class="input-group">
@@ -523,23 +523,26 @@
 	// import { useHead } from '@vueuse/head';
 	import Modal from '../components/global/modal';
 	import { ref } from 'vue';
+	import { useRoute } from 'vue-router'
 	import { address, qualifications } from '../util/address.js';
 	export default {
 		components: {
 			Modal,
 		},
-		data() {
-			return {
-				sharing: {
-					url: window.location.origin + this.$route.path,
+		setup() {
+			const route = useRoute()
+
+			const sharing = ref({
+					url: window.location.origin + route.path,
 					title: '',
 					description:
 						'A new job circular has been published by The Jamuna Group for the position of' +
 						'this.jobheading.jobtitle ' +
 						'. Visit this link to sse the circular.',
 					hashtags: 'JamunaGroup, Job, Circular, Bangladesh',
-				},
-				networks: [
+				});
+
+			const networks = ref([
 					{
 						network: 'email',
 						name: 'Email',
@@ -565,38 +568,18 @@
 						name: 'Whatsapp',
 						icon: 'fab fa-whatsapp',
 					},
-				],
-				jobheading: {},
-				jobdescription: {},
-				jobInfo: {},
-				companyInfo: {
+				],);
+			const jobheading = ref({});
+			const jobdescription = ref({});
+			const jobInfo = ref({});
+			const companyInfo = ref({
 					social: {
 						facebook: '',
 						instagram: '',
 						linkedin: '',
 					},
-				},
-			};
-		},
-		mounted() {
-			axios
-				.get(
-					window.location.origin +
-						'/frontpage-api/circular-details/' +
-						this.$route.params.id
-				)
-				.then((response) => {
-					this.jobheading = response.data.jobheading;
-					this.jobdescription = response.data.jobdescription;
-					this.jobInfo = response.data.jobInfo;
-					this.companyInfo = response.data.companyInfo;
-					this.companyInfo.social = response.data.companyInfo.social;
-				})
-				.catch(()=>{
-					this.$router.push({ name: "not-found" })
-				})
-		},
-		setup() {
+				});
+
 			const isDistrict = ref(true);
 			const isSubdistrict = ref(true);
 			const isActiveModal = ref(false);
@@ -618,10 +601,6 @@
 			const email = ref('');
 			const sCountry = ref('');
 			const pCompany = ref('');
-
-			const job_id = ref('');
-			const _token = ref('');
-			const company = ref('');
 
 			const toggleModal = () => {
 				isActiveModal.value = !isActiveModal.value;
@@ -669,40 +648,61 @@
 					return;
 				} else {
 					const userData = {
-						new:{
-						name: name.value,
-						age: age.value,
-						gender: gender.value,
-						email: email.value,
-						phone: mobile.value,
-						division: division.value,
-						district: district.value,
-						subdistrict: subdistrict.value,
-						experience: experience.value,
-						salary: salary.value,
-						'file-upload': pdf.value,
-						qualification: qualification.value,
-						university: university.value,
-						job_id : job_id.value,
-			_token : _token.value,
-			company : company.value
+						new: {
+							name: name.value,
+							age: age.value,
+							gender: gender.value,
+							email: email.value,
+							phone: mobile.value,
+							division: division.value,
+							district: district.value,
+							subdistrict: subdistrict.value,
+							experience: experience.value,
+							salary: salary.value,
+							'file_upload': pdf.value,
+							qualification: qualification.value,
+							university: university.value,
+							job_id : jobInfo.value.id,
+
+							company : companyInfo.value.name
+							},
+						_token : jobInfo.value.token,
 					}
-					}
+					console.log(userData);
 					axios
-					.post(window.location.origin + '/codebumble/from-receive', userData)
-						.then((response) => {
-							console.log(response);
-						})
-						.catch( error =>{
-							console.log(error);
-						})
-					}
+						.post(window.location.origin + '/codebumble/from-receive', userData,  {
+								headers: {
+									"Content-Type": "multipart/form-data",
+								},
+								})
+							.then((response) => {
+								console.log(response);
+							})
+							.catch( error =>{
+								console.log(error);
+							})
+						}
 			};
 			const onFileChange = (e) => {
 				let files = e.target.files || e.dataTransfer.files;
 				if (!files.length) return;
 				pdf.value = files[0];
 			};
+
+			// Get Data
+			axios
+				.get(window.location.origin + '/frontpage-api/circular-details/' + route.params.id)
+				.then((response) => {
+					jobheading.value = response.data.jobheading;
+					jobdescription.value = response.data.jobdescription;
+					jobInfo.value = response.data.jobInfo;
+					companyInfo.value = response.data.companyInfo;
+					companyInfo.value.social = response.data.companyInfo.social;
+				})
+				.catch(()=>{
+					this.$router.push({ name: "not-found" })
+				})
+
 			return {
 				isActiveModal,
 				toggleModal,
@@ -729,7 +729,14 @@
 				mobile,
 				email,
 				sCountry,
-				pCompany
+				pCompany,
+				sharing,
+				networks,
+				jobheading,
+				jobdescription,
+				jobInfo,
+				companyInfo
+
 			};
 		},
 	};
