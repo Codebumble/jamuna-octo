@@ -77,6 +77,8 @@ class Company_rest extends Controller
             $fileName9 = time().'-'.$user.'.'.$file9->getClientOriginalExtension() ;
             $destinationPath9 = public_path().'/documents/company-documents' ;
             $file9->move($destinationPath9,$fileName9);
+        } else {
+            $fileName9 = null;
         }
 
         $json_encode += [
