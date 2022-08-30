@@ -100,7 +100,9 @@
 		"editor.defaultFormatter": "shufo.vscode-blade-formatter"
 	},
 	"intelephense.diagnostics.undefinedTypes": false,
-	"intelephense.diagnostics.undefinedVariables": false
+	"intelephense.diagnostics.undefinedVariables": false,
+	"intelephense.diagnostics.typeErrors": false
+
 	// "[vue]": {
 	// 	"editor.defaultFormatter": "esbenp.prettier-vscode"
 	// }

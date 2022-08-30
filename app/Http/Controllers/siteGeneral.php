@@ -104,7 +104,7 @@ class siteGeneral extends Controller
 		]);
 	}
 
-	public function header_edit_view()
+	public function meta_settings_view()
 	{
 		$pageConfigs = ['pageHeader' => false];
 		$board_of_director = DB::select(
@@ -121,7 +121,7 @@ class siteGeneral extends Controller
 			['ncd-cbsd']
 		);
 
-		return view('/content/site-settings/header-edit', [
+		return view('/content/site-settings/meta-settings', [
 			'pageConfigs' => $pageConfigs,
 			'bod' => json_decode($board_of_director[0]->value),
 			'ncd_cbd' => json_decode($ncd_cbd[0]->value),
@@ -177,7 +177,7 @@ class siteGeneral extends Controller
 				'updated_at' => time(),
 			]);
 
-		return redirect()->route('header-edit-view', [
+		return redirect()->route('meta-settings-view', [
 			'hasher' => Str::random(40),
 			'time' => time(),
 			'exist' =>

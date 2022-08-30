@@ -79,13 +79,11 @@ Route::group(['prefix' => 'codebumble'], function () {
 		'from_receive'
 	);
 
-
 	Route::group(['middleware' => 'auth:sanctum'], function () {
 		Route::post('growth-story-api', [
 			siteGeneral::class,
 			'growth_story_api',
 		])->name('growth_story_api');
-
 
 		Route::get('applicant-list', [
 			applicant::class,
@@ -198,10 +196,12 @@ Route::group(['prefix' => 'codebumble'], function () {
 			siteGeneral::class,
 			'site_settings_general_api',
 		])->name('site-settings-general-api');
-		Route::post('header-edit-api', [
+
+		Route::post('meta-settings-api', [
 			siteGeneral::class,
 			'header_edit_api',
-		])->name('header-edit-api');
+		])->name('meta-settings-api');
+
 		Route::post('site-settings/founder-page-api', [
 			FounderApi::class,
 			'founder_update_api',
@@ -426,10 +426,10 @@ Route::group(['prefix' => 'admin'], function () {
 			'founder_page_view',
 		])->name('founder-page-view');
 
-		Route::get('site-settings/header-edit', [
+		Route::get('site-settings/meta-settings', [
 			siteGeneral::class,
-			'header_edit_view',
-		])->name('header-edit-view');
+			'meta_settings_view',
+		])->name('meta_settings_view');
 
 		Route::get('site-settings/front-page', [
 			siteGeneral::class,

@@ -64,10 +64,10 @@
 				},
 				{
 					"url": "admin/site-settings/header-edit",
-					"name": "Breadcrumb",
+					"name": "Meta Settings",
 					"icon": "circle",
 					"permission": 1,
-					"slug": "header-edit-view"
+					"slug": "meta-settings"
 				}
 			]
 		},
@@ -214,33 +214,25 @@
 			]
 		},
 		{
-			"name": "Media Hub",
-			"icon": "camera",
+			"url": "admin/site-settings/front-page",
+			"name": "Terms and Conditions",
+			"icon": "help-circle",
 			"permission": 1,
-			"slug": "",
-			"submenu": [
-				{
-					"url": "",
-					"name": "News Center",
-					"icon": "circle",
-					"permission": 1,
-					"slug": ""
-				},
-				{
-					"name": "Jamuna Television",
-					"url": "",
-					"icon": "circle",
-					"permission": 1,
-					"slug": ""
-				},
-				{
-					"name": "The Daily Jugantor",
-					"url": "",
-					"icon": "circle",
-					"permission": 1,
-					"slug": ""
-				}
-			]
+			"slug": "terms_and_conditions"
+		},
+		{
+			"url": "admin/site-settings/front-page",
+			"name": "Privacy Policy",
+			"icon": "help-circle",
+			"permission": 1,
+			"slug": "privacy_policy"
+		},
+		{
+			"url": "admin/site-settings/front-page",
+			"name": "FAQ",
+			"icon": "help-circle",
+			"permission": 1,
+			"slug": "faq"
 		},
 		{
 			"url": "/admin/photo-gallery",
