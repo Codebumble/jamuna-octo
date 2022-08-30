@@ -28,7 +28,7 @@ class AuthenticationController extends Controller
 
         }
 
-        $companys = DB::table('codebumble_company_list')->select('name,id')->get();
+        $companys = DB::table('codebumble_company_list')->select('name','id')->get();
 
 
 
