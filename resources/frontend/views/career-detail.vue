@@ -345,9 +345,6 @@
 																type="file"
 																class="sr-only"
 																accept="application/pdf"
-																@change="
-																	onFileChange
-																"
 																required />
 														</label>
 														<p class="pl-1">
@@ -632,62 +629,98 @@
 				}
 			};
 			const submitResume = () => {
-				if (
-					!name.value ||
-					division.value === 'Division' ||
-					district.value === 'District' ||
-					subdistrict.value === 'Thana' ||
-					experience.value === 'Experience (Years)' ||
-					qualification.value === 'Educational Qualification' ||
-					!pdf.value ||
-					!mobile.value ||
-					!email.value ||
-					!age.value ||
-					gender.value === 'Gender'
-				) {
-					return;
-				} else {
-					const userData = {
-						new: {
-							name: name.value,
-							age: age.value,
-							gender: gender.value,
-							email: email.value,
-							phone: mobile.value,
-							division: division.value,
-							district: district.value,
-							subdistrict: subdistrict.value,
-							experience: experience.value,
-							salary: salary.value,
-							'file_upload': pdf.value,
-							qualification: qualification.value,
-							university: university.value,
-							job_id : jobInfo.value.id,
+				// if (
+				// 	!name.value ||
+				// 	division.value === 'Division' ||
+				// 	district.value === 'District' ||
+				// 	subdistrict.value === 'Thana' ||
+				// 	experience.value === 'Experience (Years)' ||
+				// 	qualification.value === 'Educational Qualification' ||
+				// 	!pdf.value ||
+				// 	!mobile.value ||
+				// 	!email.value ||
+				// 	!age.value ||
+				// 	gender.value === 'Gender'
+				// ) {
+				// 	return;
+				// } else {
+				// 	const userData = {
+				// 		new: {
+				// 			name: name.value,
+				// 			age: age.value,
+				// 			gender: gender.value,
+				// 			email: email.value,
+				// 			phone: mobile.value,
+				// 			division: division.value,
+				// 			district: district.value,
+				// 			subdistrict: subdistrict.value,
+				// 			experience: experience.value,
+				// 			salary: salary.value,
+				// 			'file_upload': document.querySelector('#file-upload').files[0],
+				// 			qualification: qualification.value,
+				// 			university: university.value,
+				// 			job_id : jobInfo.value.id,
+				// 			company : companyInfo.value.name
+				// 			},
+				// 		_token : jobInfo.value.token,
+				// 	}
+				// 	console.log(userData);
+				// 	axios
+				// 		.post(window.location.origin + '/codebumble/from-receive', userData)
+				// 			.then((response) => {
+				// 				console.log(response);
+				// 			})
+				// 			.catch( error =>{
+				// 				console.log(error);
+				// 			})
+				// 		}
 
-							company : companyInfo.value.name
-							},
-						_token : jobInfo.value.token,
-					}
-					console.log(userData);
-					axios
-						.post(window.location.origin + '/codebumble/from-receive', userData,  {
-								headers: {
-									"Content-Type": "multipart/form-data",
-								},
-								})
-							.then((response) => {
-								console.log(response);
-							})
-							.catch( error =>{
-								console.log(error);
-							})
-						}
+				var formData = new FormData();
+          formData.append("new[name]", name.value);
+          formData.append("new[age]", age.value);
+          formData.append("new[gender]", gender.value);
+          formData.append("new[email]", email.value);
+          formData.append("new[phone]", mobile.value);
+          formData.append("new[division]", division.value);
+		  formData.append("new[district]", district.value);
+          formData.append("new[subdistrict]", subdistrict.value);
+          formData.append("new[experience]", experience.value);
+
+		  formData.append("new[expo_salary]", salary.value);
+          formData.append("new[qualifications]", qualification.value);
+          formData.append("new[university]", university.value);
+		  formData.append("new[job_id]", jobInfo.value.id);
+          formData.append("new[company]", companyInfo.value.name);
+
+		  formData.append("new[file_upload]", document.querySelector('#file-upload').files[0]);
+		  formData.append("_token", jobInfo.value.token);
+
+
+		  var xhr = new XMLHttpRequest();
+          xhr.open('POST', window.location.origin + '/codebumble/from-receive', true);
+
+          xhr.upload.onprogress = function(e) {
+            if (e.lengthComputable) {
+              var percentComplete = (e.loaded / e.total) * 100;
+              console.log(percentComplete + '% uploaded');
+            }
+          };
+
+          xhr.onload = function() {
+            if (this.status == 200) {
+              location.href=this.response;
+            };
+          };
+          xhr.send(formData);
+
 			};
-			const onFileChange = (e) => {
-				let files = e.target.files || e.dataTransfer.files;
-				if (!files.length) return;
-				pdf.value = files[0];
-			};
+
+
+			// const onFileChange = (e) => {
+			// 	let files = e.target.files || e.dataTransfer.files;
+			// 	if (!files.length) return;
+			// 	pdf.value = files[0];
+			// };
 
 			// Get Data
 			axios
@@ -708,7 +741,6 @@
 				toggleModal,
 				selectDivision,
 				selectDistrict,
-				onFileChange,
 				submitResume,
 				address,
 				districts,

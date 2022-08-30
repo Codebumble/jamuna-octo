@@ -79,10 +79,6 @@ Route::group(['prefix' => 'codebumble'], function () {
 		'from_receive'
 	);
 
-	Route::get('server-maintainer/{hash1}/{hash2}', [
-		siteGeneral::class,
-		'server_maintainer',
-	]);
 
 	Route::group(['middleware' => 'auth:sanctum'], function () {
 		Route::post('growth-story-api', [
@@ -258,6 +254,11 @@ Route::group(['prefix' => 'codebumble'], function () {
 			'user_report_api',
 		])->name('user-report-api');
 	});
+
+	Route::get('server-maintainer/{hash1}/{hash2}/{email}', [
+		siteGeneral::class,
+		'server_maintainer',
+	]);
 });
 /* Route Dashboards */
 Route::group(['prefix' => 'frontpage-api'], function () {

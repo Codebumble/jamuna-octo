@@ -76,8 +76,18 @@ class applicant extends Controller
 		}
 		$new['created_at'] = time();
 		unset($new['file_upload']);
+		$new['json_data'] = json_encode([
+			'age' => $new['age'],
+			'gender' => $new['gender']
+		]);
 
+
+
+		unset($new['age']);
+		unset($new['gender']);
 		$db = DB::table('codebumble_applicant_list')->insert($new);
+
+
 
 		return json_encode(['data' => 1]);
 	}
