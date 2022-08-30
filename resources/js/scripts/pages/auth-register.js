@@ -187,14 +187,6 @@ $(function () {
             formData.append("isDistrict", "No");
           }
 
-          if(isSubDistrict.checked == true){
-            formData.append("isSubDistrict", "Yes");
-          } else {
-            formData.append("isSubDistrict", "No");
-          }
-
-
-
           var xhr = new XMLHttpRequest();
           xhr.open('POST', '/codebumble/add_user', true);
 
