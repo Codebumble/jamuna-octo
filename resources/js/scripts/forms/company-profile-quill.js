@@ -428,15 +428,56 @@
 	});
 
 	$("#company-profile").on("submit", function () {
-		var hvalue = $("#ql-editor").html();
 		$(this).append(
-			"<textarea name='cp[descriptions]' style='display:none' spellcheck='false'>" +
-				fullEditor.root.innerHTML.trim() +
+			"<textarea name='cp[0][descriptions]' style='display:none' spellcheck='false'>" +
+				fullEditor1.root.innerHTML.trim() +
+				"</textarea>"
+		);
+	});
+	$("#company-profile").on("submit", function () {
+		$(this).append(
+			"<textarea name='cp[1][awards]' style='display:none' spellcheck='false'>" +
+				fullEditor2.root.innerHTML.trim() +
+				"</textarea>"
+		);
+	});
+	$("#company-profile").on("submit", function () {
+		$(this).append(
+			"<textarea name='cp[2][hdrCorporate]' style='display:none' spellcheck='false'>" +
+				fullEditor3.root.innerHTML.trim() +
+				"</textarea>"
+		);
+	});
+	$("#company-profile").on("submit", function () {
+		$(this).append(
+			"<textarea name='cp[3][environment]' style='display:none' spellcheck='false'>" +
+				fullEditor4.root.innerHTML.trim() +
+				"</textarea>"
+		);
+	});
+	$("#company-profile").on("submit", function () {
+		$(this).append(
+			"<textarea name='cp[4][goals]' style='display:none' spellcheck='false'>" +
+				fullEditor5.root.innerHTML.trim() +
+				"</textarea>"
+		);
+	});
+	$("#company-profile").on("submit", function () {
+		$(this).append(
+			"<textarea name='cp[5][activities]' style='display:none' spellcheck='false'>" +
+				fullEditor6.root.innerHTML.trim() +
 				"</textarea>"
 		);
 	});
 
 	// need to copy up case
 
-	var editors = [fullEditor1, fullEditor2, fullEditor3, fullEditor4, fullEditor5, fullEditor6];
+	var editors = [
+		fullEditor1,
+		fullEditor2,
+		fullEditor3,
+		fullEditor4,
+		fullEditor5,
+		fullEditor6,
+	];
 })(window, document, jQuery);

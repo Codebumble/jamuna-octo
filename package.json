@@ -1,5 +1,6 @@
 {
     "private": true,
+	"rules": {"no-console": "off"},
     "scripts": {
         "development": "mix",
         "dev": "mix",

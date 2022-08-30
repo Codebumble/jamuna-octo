@@ -46,18 +46,18 @@
 								>&times;</span
 							>
 							<form
-								class="pt-6" @submit.prevent="submitResume" enctype="multipart/form-data">
+								class="pt-6"
+								@submit.prevent="submitResume"
+								enctype="multipart/form-data">
 								<div
 									class="grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-4">
 									<div class="input-group">
 										<div class="input-item">
-
 											<input
 												type="hidden"
 												name="new[job_id]"
 												:value="jobInfo.id"
-												:v-model="job_id"
-												/>
+												:v-model="job_id" />
 
 											<input
 												type="hidden"
@@ -69,8 +69,7 @@
 												type="hidden"
 												name="new[company]"
 												:value="companyInfo.name"
-												:v-model="company" >
-
+												:v-model="company" />
 
 											<input
 												type="text"
@@ -105,7 +104,9 @@
 													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
 													v-model="gender"
 													required>
-													<option>{{gender}}</option>
+													<option>
+														{{ gender }}
+													</option>
 													<option>Male</option>
 													<option>Female</option>
 													<option>Other</option>
@@ -198,7 +199,8 @@
 													v-model="qualification"
 													required>
 													<option>
-														Educational Qualification
+														Educational
+														Qualification
 													</option>
 													<option
 														v-for="qualification in qualifications"
@@ -223,6 +225,7 @@
 													<option>
 														Experience (Years)
 													</option>
+													<option>0</option>
 													<option
 														v-for="experience in 20"
 														:key="experience">
@@ -230,8 +233,7 @@
 															experience.toString()
 																.length > 1
 																? experience
-																: '0' +
-																  experience
+																: experience
 														}}
 													</option>
 												</select>
@@ -304,8 +306,7 @@
 												id="pCompany"
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
 												placeholder="Previous Company (Optional)"
-												v-model="pCompany"
-												/>
+												v-model="pCompany" />
 										</div>
 									</div>
 								</div>
@@ -391,7 +392,8 @@
 			<!-- upper part closed -->
 			<div
 				class="grid lg:grid-cols-3 gap-6 w-full lg:w-10/12 mx-auto overview pt-20">
-				<div class="lg:col-span-2 w-full break-words overflow-hidden description">
+				<div
+					class="lg:col-span-2 w-full break-words overflow-hidden description">
 					<div v-html="jobdescription.description"></div>
 					<ul
 						class="list-disc list-inside text-gray-600"
@@ -520,62 +522,62 @@
 	// import { useHead } from '@vueuse/head';
 	import Modal from '../components/global/modal';
 	import { ref } from 'vue';
-	import { useRoute } from 'vue-router'
+	import { useRoute } from 'vue-router';
 	import { address, qualifications } from '../util/address.js';
 	export default {
 		components: {
 			Modal,
 		},
 		setup() {
-			const route = useRoute()
+			const route = useRoute();
 
 			const sharing = ref({
-					url: window.location.origin + route.path,
-					title: '',
-					description:
-						'A new job circular has been published by The Jamuna Group for the position of' +
-						'this.jobheading.jobtitle ' +
-						'. Visit this link to sse the circular.',
-					hashtags: 'JamunaGroup, Job, Circular, Bangladesh',
-				});
+				url: window.location.origin + route.path,
+				title: '',
+				description:
+					'A new job circular has been published by The Jamuna Group for the position of' +
+					'this.jobheading.jobtitle ' +
+					'. Visit this link to sse the circular.',
+				hashtags: 'JamunaGroup, Job, Circular, Bangladesh',
+			});
 
 			const networks = ref([
-					{
-						network: 'email',
-						name: 'Email',
-						icon: 'far fa-envelope',
-					},
-					{
-						network: 'facebook',
-						name: 'Facebook',
-						icon: 'fab fa-facebook',
-					},
-					{
-						network: 'linkedin',
-						name: 'LinkedIn',
-						icon: 'fab fa-linkedin',
-					},
-					{
-						network: 'messenger',
-						name: 'Messenger',
-						icon: 'fab fa-facebook-messenger',
-					},
-					{
-						network: 'whatsapp',
-						name: 'Whatsapp',
-						icon: 'fab fa-whatsapp',
-					},
-				],);
+				{
+					network: 'email',
+					name: 'Email',
+					icon: 'far fa-envelope',
+				},
+				{
+					network: 'facebook',
+					name: 'Facebook',
+					icon: 'fab fa-facebook',
+				},
+				{
+					network: 'linkedin',
+					name: 'LinkedIn',
+					icon: 'fab fa-linkedin',
+				},
+				{
+					network: 'messenger',
+					name: 'Messenger',
+					icon: 'fab fa-facebook-messenger',
+				},
+				{
+					network: 'whatsapp',
+					name: 'Whatsapp',
+					icon: 'fab fa-whatsapp',
+				},
+			]);
 			const jobheading = ref({});
 			const jobdescription = ref({});
 			const jobInfo = ref({});
 			const companyInfo = ref({
-					social: {
-						facebook: '',
-						instagram: '',
-						linkedin: '',
-					},
-				});
+				social: {
+					facebook: '',
+					instagram: '',
+					linkedin: '',
+				},
+			});
 
 			const isDistrict = ref(true);
 			const isSubdistrict = ref(true);
@@ -676,45 +678,49 @@
 				// 		}
 
 				var formData = new FormData();
-          formData.append("new[name]", name.value);
-          formData.append("new[age]", age.value);
-          formData.append("new[gender]", gender.value);
-          formData.append("new[email]", email.value);
-          formData.append("new[phone]", mobile.value);
-          formData.append("new[division]", division.value);
-		  formData.append("new[district]", district.value);
-          formData.append("new[subdistrict]", subdistrict.value);
-          formData.append("new[experience]", experience.value);
+				formData.append('new[name]', name.value);
+				formData.append('new[age]', age.value);
+				formData.append('new[gender]', gender.value);
+				formData.append('new[email]', email.value);
+				formData.append('new[phone]', mobile.value);
+				formData.append('new[division]', division.value);
+				formData.append('new[district]', district.value);
+				formData.append('new[subdistrict]', subdistrict.value);
+				formData.append('new[experience]', experience.value);
 
-		  formData.append("new[expo_salary]", salary.value);
-          formData.append("new[qualifications]", qualification.value);
-          formData.append("new[university]", university.value);
-		  formData.append("new[job_id]", jobInfo.value.id);
-          formData.append("new[company]", companyInfo.value.name);
+				formData.append('new[expo_salary]', salary.value);
+				formData.append('new[qualifications]', qualification.value);
+				formData.append('new[university]', university.value);
+				formData.append('new[job_id]', jobInfo.value.id);
+				formData.append('new[company]', companyInfo.value.name);
 
-		  formData.append("new[file_upload]", document.querySelector('#file-upload').files[0]);
-		  formData.append("_token", jobInfo.value.token);
+				formData.append(
+					'new[file_upload]',
+					document.querySelector('#file-upload').files[0]
+				);
+				formData.append('_token', jobInfo.value.token);
 
+				var xhr = new XMLHttpRequest();
+				xhr.open(
+					'POST',
+					window.location.origin + '/codebumble/from-receive',
+					true
+				);
 
-		  var xhr = new XMLHttpRequest();
-          xhr.open('POST', window.location.origin + '/codebumble/from-receive', true);
+				xhr.upload.onprogress = function (e) {
+					if (e.lengthComputable) {
+						var percentComplete = (e.loaded / e.total) * 100;
+						console.log(percentComplete + '% uploaded');
+					}
+				};
 
-          xhr.upload.onprogress = function(e) {
-            if (e.lengthComputable) {
-              var percentComplete = (e.loaded / e.total) * 100;
-              console.log(percentComplete + '% uploaded');
-            }
-          };
-
-          xhr.onload = function() {
-            if (this.status == 200) {
-              location.href=this.response;
-            };
-          };
-          xhr.send(formData);
-
+				xhr.onload = function () {
+					if (this.status == 200) {
+						location.href = this.response;
+					}
+				};
+				xhr.send(formData);
 			};
-
 
 			// const onFileChange = (e) => {
 			// 	let files = e.target.files || e.dataTransfer.files;
@@ -724,7 +730,11 @@
 
 			// Get Data
 			axios
-				.get(window.location.origin + '/frontpage-api/circular-details/' + route.params.id)
+				.get(
+					window.location.origin +
+						'/frontpage-api/circular-details/' +
+						route.params.id
+				)
 				.then((response) => {
 					jobheading.value = response.data.jobheading;
 					jobdescription.value = response.data.jobdescription;
@@ -732,9 +742,9 @@
 					companyInfo.value = response.data.companyInfo;
 					companyInfo.value.social = response.data.companyInfo.social;
 				})
-				.catch(()=>{
-					this.$router.push({ name: "not-found" })
-				})
+				.catch(() => {
+					this.$router.push({ name: 'not-found' });
+				});
 
 			return {
 				isActiveModal,
@@ -767,8 +777,7 @@
 				jobheading,
 				jobdescription,
 				jobInfo,
-				companyInfo
-
+				companyInfo,
 			};
 		},
 	};

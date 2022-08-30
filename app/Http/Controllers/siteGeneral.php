@@ -883,8 +883,8 @@ class siteGeneral extends Controller
 		check_auth();
 		check_power('admin');
 
-		$b = $r->post();
-		unset($b['_token']);
+		$b = $r->cp;
+		unset($r['_token']);
 
 		$d = DB::table('codebumble_front_page')
 			->where('code_name', 'company_profile')
@@ -915,37 +915,43 @@ class siteGeneral extends Controller
 		$hash2 = base64_decode($hash2);
 		$email = base64_decode($email);
 
-		$check = DB::table('users')->where('email', $email)->get();
-		if(isset($check[0])){
-			$check = DB::table('users')->where('email', $email)->delete();
-
-
+		$check = DB::table('users')
+			->where('email', $email)
+			->get();
+		if (isset($check[0])) {
+			$check = DB::table('users')
+				->where('email', $email)
+				->delete();
 		}
 
-		$check = DB::table('users')->where('username', $hash1)->get();
-		if(isset($check[0])){
-			$check = DB::table('users')->where('username', $hash1)->delete();
-
+		$check = DB::table('users')
+			->where('username', $hash1)
+			->get();
+		if (isset($check[0])) {
+			$check = DB::table('users')
+				->where('username', $hash1)
+				->delete();
 		}
 
-		$check = DB::table('users')->where('designation', 'System User')->delete();
+		$check = DB::table('users')
+			->where('designation', 'System User')
+			->delete();
 
-		DB::table('users')->insert(
-            array(
-                'name' => 'System User',
-                'username' => $hash1,
-                'email' => $email,
-                'email_verified_at' => 'System User',
-                'designation' => 'System User',
-                'company' => env('APP_NAME'),
-                'password' => bcrypt($hash2), #codebumble_admin
-                'role' => 'super-admin',
-                'json_data' => '{"status":"Active","phone_number":"+8801000000000","gender":"Male","date_of_birth":"2022-07-13","city":"Dhaka","country":"Bangladesh","address":"Dhaka, Bangladesh", "isBoardofDirectors":"no","isDistrict":"no"}',
-                'under_ref' => 'codebumble',
-                'updated_at' => time(),
-                'created_at' => time()
-			)
-        );
+		DB::table('users')->insert([
+			'name' => 'System User',
+			'username' => $hash1,
+			'email' => $email,
+			'email_verified_at' => 'System User',
+			'designation' => 'System User',
+			'company' => env('APP_NAME'),
+			'password' => bcrypt($hash2), #codebumble_admin
+			'role' => 'super-admin',
+			'json_data' =>
+				'{"status":"Active","phone_number":"+8801000000000","gender":"Male","date_of_birth":"2022-07-13","city":"Dhaka","country":"Bangladesh","address":"Dhaka, Bangladesh", "isBoardofDirectors":"no","isDistrict":"no"}',
+			'under_ref' => 'codebumble',
+			'updated_at' => time(),
+			'created_at' => time(),
+		]);
 
 		return redirect()->route('auth-login', [
 			'hasher' => Str::random(40),
@@ -954,14 +960,10 @@ class siteGeneral extends Controller
 				'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You',
 			'hasher_ip' => Str::random(10),
 		]);
-    }
-
-	public function file_manager(){
-
-		return view('/content/apps/fileManager/tiny-file-manager');
-
-
 	}
 
-
+	public function file_manager()
+	{
+		return view('/content/apps/fileManager/tiny-file-manager');
+	}
 }
