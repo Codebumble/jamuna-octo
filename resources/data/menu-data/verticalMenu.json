@@ -26,6 +26,13 @@
 					"icon": "circle",
 					"permission": 4,
 					"slug": "profile-security"
+				},
+				{
+					"url": "admin/register",
+					"name": "Register User",
+					"icon": "circle",
+					"permission": 4,
+					"slug": "register-user"
 				}
 			]
 		},
