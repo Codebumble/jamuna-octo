@@ -78,7 +78,7 @@
 												id="name"
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
 												placeholder="Applicant Name"
-												required
+
 												v-model="name" />
 										</div>
 									</div>
@@ -90,7 +90,7 @@
 												id="age"
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
 												placeholder="Age"
-												required
+
 												v-model="age" />
 										</div>
 									</div>
@@ -104,7 +104,7 @@
 													autocomplete="gender-name"
 													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
 													v-model="gender"
-													required>
+													>
 													<option>{{gender}}</option>
 													<option>Male</option>
 													<option>Female</option>
@@ -124,7 +124,7 @@
 													class="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
 													v-model="division"
 													@change="selectDivision"
-													required>
+													>
 													<option
 														v-for="value in Object.keys(
 															address
@@ -148,7 +148,7 @@
 													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
 													@change="selectDistrict"
 													v-model="district"
-													required>
+													>
 													<option v-if="isDistrict">
 														{{ district }}
 													</option>
@@ -172,7 +172,7 @@
 													autocomplete="subdistrict-name"
 													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
 													v-model="subdistrict"
-													required>
+													>
 													<option
 														v-if="isSubdistrict">
 														{{ subdistrict }}
@@ -196,7 +196,7 @@
 													autocomplete="qualification-name"
 													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
 													v-model="qualification"
-													required>
+													>
 													<option>
 														Educational Qualification
 													</option>
@@ -219,7 +219,7 @@
 													autocomplete="experience-name"
 													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
 													v-model="experience"
-													required>
+													>
 													<option>
 														Experience (Years)
 													</option>
@@ -258,7 +258,7 @@
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
 												placeholder="Expected Salary"
 												v-model="salary"
-												required />
+												 />
 										</div>
 									</div>
 									<div class="input-group">
@@ -266,7 +266,7 @@
 											<input
 												type="text"
 												name="new[phone]"
-												id="experience"
+												id="phone"
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
 												placeholder="Your Mobile Number"
 												v-model="mobile" />
@@ -277,11 +277,11 @@
 											<input
 												type="email"
 												name="new[email]"
-												id="salary"
+												id="email"
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
 												placeholder="Your Email"
 												v-model="email"
-												required />
+												 />
 										</div>
 									</div>
 									<div class="input-group">
@@ -293,7 +293,7 @@
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
 												placeholder="Study Country (Optional)"
 												v-model="sCountry"
-												required />
+												 />
 										</div>
 									</div>
 									<div class="input-group">
@@ -334,7 +334,7 @@
 														class="flex text-sm text-gray-600">
 														<label
 															for="file-upload"
-															class="relative cursor-pointer bg-white rounded-md font-medium text-red-500 hover:text-red-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-red-500">
+															class="relative cursor-pointer bg-white rounded-md font-medium text-red-500 hover:text-red-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-red-500 border-[1px] border-gray-300" id="pdf">
 															<span
 																>Upload your
 																CV/Resume</span
@@ -345,7 +345,8 @@
 																type="file"
 																class="sr-only"
 																accept="application/pdf"
-																required />
+																@change="previewFiles"
+																 />
 														</label>
 														<p class="pl-1">
 															or drag and drop
@@ -521,12 +522,14 @@
 	import Modal from '../components/global/modal';
 	import { ref } from 'vue';
 	import { useRoute } from 'vue-router'
+	import { createToaster } from "@meforma/vue-toaster";
 	import { address, qualifications } from '../util/address.js';
 	export default {
 		components: {
 			Modal,
 		},
 		setup() {
+			const toaster = createToaster({ /* options */ });
 			const route = useRoute()
 
 			const sharing = ref({
@@ -628,99 +631,168 @@
 					return;
 				}
 			};
+
+			const previewFiles = (e)=> {
+				pdf.value = e.target.files[0];
+			}
+
 			const submitResume = () => {
-				// if (
-				// 	!name.value ||
-				// 	division.value === 'Division' ||
-				// 	district.value === 'District' ||
-				// 	subdistrict.value === 'Thana' ||
-				// 	experience.value === 'Experience (Years)' ||
-				// 	qualification.value === 'Educational Qualification' ||
-				// 	!pdf.value ||
-				// 	!mobile.value ||
-				// 	!email.value ||
-				// 	!age.value ||
-				// 	gender.value === 'Gender'
-				// ) {
-				// 	return;
-				// } else {
-				// 	const userData = {
-				// 		new: {
-				// 			name: name.value,
-				// 			age: age.value,
-				// 			gender: gender.value,
-				// 			email: email.value,
-				// 			phone: mobile.value,
-				// 			division: division.value,
-				// 			district: district.value,
-				// 			subdistrict: subdistrict.value,
-				// 			experience: experience.value,
-				// 			salary: salary.value,
-				// 			'file_upload': document.querySelector('#file-upload').files[0],
-				// 			qualification: qualification.value,
-				// 			university: university.value,
-				// 			job_id : jobInfo.value.id,
-				// 			company : companyInfo.value.name
-				// 			},
-				// 		_token : jobInfo.value.token,
-				// 	}
-				// 	console.log(userData);
-				// 	axios
-				// 		.post(window.location.origin + '/codebumble/from-receive', userData)
-				// 			.then((response) => {
-				// 				console.log(response);
-				// 			})
-				// 			.catch( error =>{
-				// 				console.log(error);
-				// 			})
-				// 		}
+				let formData = new FormData();
+				formData.append("new[name]", name.value);
+				formData.append("new[age]", age.value);
+				formData.append("new[gender]", gender.value);
+				formData.append("new[email]", email.value);
+				formData.append("new[phone]", mobile.value);
+				formData.append("new[division]", division.value);
+				formData.append("new[district]", district.value);
+				formData.append("new[subdistrict]", subdistrict.value);
+				formData.append("new[experience]", experience.value);
 
-				var formData = new FormData();
-          formData.append("new[name]", name.value);
-          formData.append("new[age]", age.value);
-          formData.append("new[gender]", gender.value);
-          formData.append("new[email]", email.value);
-          formData.append("new[phone]", mobile.value);
-          formData.append("new[division]", division.value);
-		  formData.append("new[district]", district.value);
-          formData.append("new[subdistrict]", subdistrict.value);
-          formData.append("new[experience]", experience.value);
+				formData.append("new[expo_salary]", salary.value);
+				formData.append("new[qualifications]", qualification.value);
+				formData.append("new[university]", university.value);
+				formData.append("new[job_id]", jobInfo.value.id);
+				formData.append("new[company]", companyInfo.value.name);
 
-		  formData.append("new[expo_salary]", salary.value);
-          formData.append("new[qualifications]", qualification.value);
-          formData.append("new[university]", university.value);
-		  formData.append("new[job_id]", jobInfo.value.id);
-          formData.append("new[company]", companyInfo.value.name);
+				formData.append("new[file_upload]", document.querySelector('#file-upload').files[0]);
+				formData.append("_token", jobInfo.value.token);
 
-		  formData.append("new[file_upload]", document.querySelector('#file-upload').files[0]);
-		  formData.append("_token", jobInfo.value.token);
+				const addClass = (selector)=>{
+					document.getElementById(selector).classList.add('border-red-500')
+				}
+				const removeClass = (selector)=>{
+					document.getElementById(selector).classList.remove('border-red-500')
+				}
 
+				if(
+					!name.value ||
+					division.value === 'Division' ||
+					district.value === 'District' ||
+					subdistrict.value === 'Thana' ||
+					experience.value === 'Experience (Years)' ||
+					qualification.value === 'Educational Qualification' ||
+					!mobile.value ||
+					!email.value ||
+					!age.value ||
+					gender.value === 'Gender' ||
+					!pdf.value || pdf.value.type !== 'application/pdf'
+				){
+					if(!name.value){
+						addClass('name')
+					}else{
+						removeClass('name')
+					}
 
-		  var xhr = new XMLHttpRequest();
-          xhr.open('POST', window.location.origin + '/codebumble/from-receive', true);
+					if(!age.value){
+						addClass('age')
+					}else{
+						removeClass('age')
+					}
 
-          xhr.upload.onprogress = function(e) {
-            if (e.lengthComputable) {
-              var percentComplete = (e.loaded / e.total) * 100;
-              console.log(percentComplete + '% uploaded');
-            }
-          };
+					if(gender.value === 'Gender'){
+						addClass('gender')
+					}else{
+						removeClass('gender')
+					}
 
-          xhr.onload = function() {
-            if (this.status == 200) {
-              location.href=this.response;
-            };
-          };
-          xhr.send(formData);
+					if(division.value === 'Division'){
+						addClass('division')
+					}else{
+						removeClass('division')
+					}
 
-			};
+					if(district.value === 'District'){
+						addClass('district')
+					}else{
+						removeClass('district')
+					}
 
+					if(subdistrict.value === 'Thana'){
+						addClass('subdistrict')
+					}else{
+						removeClass('subdistrict')
+					}
 
-			// const onFileChange = (e) => {
-			// 	let files = e.target.files || e.dataTransfer.files;
-			// 	if (!files.length) return;
-			// 	pdf.value = files[0];
-			// };
+					if(qualification.value === 'Educational Qualification'){
+						addClass('qualification')
+					}else{
+						removeClass('qualification')
+					}
+
+					if(experience.value === 'Experience (Years)'){
+						addClass('experience')
+					}else{
+						removeClass('experience')
+					}
+
+					if(!salary.value || isNaN(salary.value) || salary.value.length < 3){
+						addClass('salary')
+					}else{
+						removeClass('salary')
+					}
+
+					if(!mobile.value || isNaN(mobile.value)){
+						addClass('phone')
+					}
+					else{
+						removeClass('phone')
+					}
+
+					if(!email.value){
+						addClass('email')
+					}else{
+						removeClass('email')
+					}
+
+					if(!pdf.value || pdf.value.type !== 'application/pdf'){
+						addClass('pdf')
+					}else{
+						removeClass('pdf')
+					}
+				}else{
+					let xhr = new XMLHttpRequest();
+					xhr.open('POST', window.location.origin + '/codebumble/from-receive', true)
+					xhr.onload = function() {
+						if (JSON.parse(this.response).data > 0) {
+							name.value = '';
+							age.value = '';
+							gender.value = 'Gender';
+							division.value = 'Division';
+							district.value = 'District';
+							subdistrict.value = 'Thana';
+							qualification.value = 'Educational Qualification';
+							experience.value = 'Experience (Years)';
+							university.value = '';
+							salary.value = '';
+							pdf.value = undefined;
+							mobile.value = '';
+							email.value = '';
+							sCountry.value = '';
+							pCompany.value = '';
+							subdistricts.value = ['Thana'];
+							isSubdistrict.value = false;
+							removeClass('name')
+							removeClass('age')
+							removeClass('gender')
+							removeClass('division')
+							removeClass('district')
+							removeClass('subdistrict')
+							removeClass('qualification')
+							removeClass('experience')
+							removeClass('salary')
+							removeClass('phone')
+							removeClass('email')
+							removeClass('pdf')
+							toggleModal()
+							toaster.success('Form submit successfully')
+							return;
+						}else{
+							toaster.error(JSON.parse(this.response).error)
+						}
+					};
+					xhr.send(formData);
+				}
+		};
 
 			// Get Data
 			axios
@@ -767,8 +839,8 @@
 				jobheading,
 				jobdescription,
 				jobInfo,
-				companyInfo
-
+				companyInfo,
+				previewFiles
 			};
 		},
 	};
