@@ -46,58 +46,63 @@
                         <div class="col-sm-12">
                             <label class="form-label" for="description">Profile Details</label>
                             <div id="full-wrapper">
-                                <div id="full-container">
-                                    <div id="ql-editor" class="editor" spellcheck="false">
+                                <div id="full-container1">
+                                    <div id="ql-editor1" class="editor" spellcheck="false">
                                         {{ $data[0]->descriptions }}
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-sm-12">
                             <label class="form-label" for="description">Awards</label>
                             <div id="full-wrapper">
-                                <div id="full-container">
-                                    <div id="ql-editor" class="editor" spellcheck="false">
+                                <div id="full-container2">
+                                    <div id="ql-editor2" class="editor" spellcheck="false">
                                         {{ $data[1]->awards }}
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-sm-12">
                             <label class="form-label" for="description">HRD & Corporate Governance</label>
                             <div id="full-wrapper">
-                                <div id="full-container">
-                                    <div id="ql-editor" class="editor" spellcheck="false">
+                                <div id="full-container3">
+                                    <div id="ql-editor3" class="editor" spellcheck="false">
                                         {{ $data[2]->hdrCorporate }}
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-sm-12">
                             <label class="form-label" for="description">Environment: We Care</label>
                             <div id="full-wrapper">
-                                <div id="full-container">
-                                    <div id="ql-editor" class="editor" spellcheck="false">
+                                <div id="full-container4">
+                                    <div id="ql-editor4" class="editor" spellcheck="false">
                                         {{ $data[3]->environment }}
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-sm-12">
                             <label class="form-label" for="description">Our Goal</label>
                             <div id="full-wrapper">
-                                <div id="full-container">
-                                    <div id="ql-editor" class="editor" spellcheck="false">
+                                <div id="full-container5">
+                                    <div id="ql-editor5" class="editor" spellcheck="false">
                                         {{ $data[4]->goals }}
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-sm-12">
                             <label class="form-label" for="description">Nation building activities</label>
                             <div id="full-wrapper">
-                                <div id="full-container">
-                                    <div id="ql-editor" class="editor" spellcheck="false">
+                                <div id="full-container6">
+                                    <div id="ql-editor6" class="editor" spellcheck="false">
                                         {{ $data[5]->activities }}
                                     </div>
                                 </div>
