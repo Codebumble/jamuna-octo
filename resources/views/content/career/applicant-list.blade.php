@@ -41,35 +41,50 @@
                 />
               </div>
               <div class="col-md-4">
+                <label class="form-label">Gender</label>
+                <input
+                  type="text"
+                  class="form-control dt-input"
+                  data-column="3"
+                  placeholder="Male"
+                  data-column-index="3"
+                />
+              </div>
+
+              <div class="col-md-4">
                 <label class="form-label">Company</label>
                 <input
                   type="text"
                   class="form-control dt-input"
-                  data-column="2"
-                  placeholder="Codebumble Inc."
-                  data-column-index="2"
+                  data-column="4"
+                  placeholder="Male"
+                  data-column-index="4"
                 />
               </div>
+              </div>
+
+              <div class="row g-1">
               <div class="col-md-4">
                 <label class="form-label">Job ID</label>
                 <input
                   type="text"
                   class="form-control dt-input"
-                  data-column="3"
+                  data-column="5"
                   placeholder="2"
-                  data-column-index="3"
+                  data-column-index="5"
                 />
               </div>
-            </div>
-            <div class="row g-1">
+
+
+
               <div class="col-md-4">
                 <label class="form-label">Division:</label>
                 <input
                   type="text"
                   class="form-control dt-input"
-                  data-column="4"
+                  data-column="6"
                   placeholder="Dhaka"
-                  data-column-index="4"
+                  data-column-index="6"
                 />
               </div>
               <div class="col-md-4">
@@ -77,9 +92,9 @@
                 <input
                   type="text"
                   class="form-control dt-input"
-                  data-column="4"
+                  data-column="7"
                   placeholder="Dhaka"
-                  data-column-index="5"
+                  data-column-index="7"
                 />
               </div>
 
@@ -88,9 +103,9 @@
                 <input
                   type="text"
                   class="form-control dt-input"
-                  data-column="6"
+                  data-column="9"
                   placeholder="2 Years"
-                  data-column-index="7"
+                  data-column-index="9"
                 />
               </div>
             </div>
@@ -103,6 +118,8 @@
               <tr>
                 <th></th>
                 <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
                 <th>Company</th>
                 <th>Job Id</th>
                 <th>District</th>
@@ -116,6 +133,8 @@
               <tr>
                 <th></th>
                 <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
                 <th>Company</th>
                 <th>Job Id</th>
                 <th>District</th>

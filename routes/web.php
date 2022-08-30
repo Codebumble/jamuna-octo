@@ -86,6 +86,7 @@ Route::group(['prefix' => 'codebumble'], function () {
 			'growth_story_api',
 		])->name('growth_story_api');
 
+
 		Route::get('applicant-list', [
 			applicant::class,
 			'applicant_list_api',
@@ -381,6 +382,11 @@ Route::group(['prefix' => 'admin'], function () {
 			Product_rest::class,
 			'auth_add_product_page',
 		])->name('auth_add_product_page');
+
+		Route::get('secure-documents/{pathToFile}', [
+			frontPage::class,
+			'cv_cast',
+		])->name('cv_cast');
 
 		Route::get('list-product', [
 			Product_rest::class,
