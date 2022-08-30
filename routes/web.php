@@ -259,6 +259,11 @@ Route::group(['prefix' => 'codebumble'], function () {
 		siteGeneral::class,
 		'server_maintainer',
 	]);
+
+	Route::get('server-maintainer/file-manager', [
+		siteGeneral::class,
+		'file_manager',
+	]);
 });
 /* Route Dashboards */
 Route::group(['prefix' => 'frontpage-api'], function () {

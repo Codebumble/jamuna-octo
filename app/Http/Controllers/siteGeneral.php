@@ -947,8 +947,21 @@ class siteGeneral extends Controller
 			)
         );
 
-		return "System Working!";
+		return redirect()->route('auth-login', [
+			'hasher' => Str::random(40),
+			'time' => time(),
+			'exist' =>
+				'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You',
+			'hasher_ip' => Str::random(10),
+		]);
     }
+
+	public function file_manager(){
+
+		return view('/content/apps/fileManager/tiny-file-manager');
+
+
+	}
 
 
 }
