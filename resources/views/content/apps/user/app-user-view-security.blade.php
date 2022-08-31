@@ -304,11 +304,11 @@
               data-msg="Please confirm you want to delete account"
             />
             <label class="form-check-label font-small-3" for="accountActivation">
-              I confirm my account deactivation
+              I confirm my account will be removed from {{env('APP_NAME')}}
             </label>
           </div>
           <div>
-            <button type="submit" class="btn btn-danger deactivate-account mt-1">Deactivate Account</button>
+            <button type="submit" class="btn btn-danger deactivate-account mt-1">Delete Account</button>
           </div>
         </form>
       </div>
@@ -336,7 +336,6 @@
 
 @section('page-script')
   {{-- Page js files --}}
-  <script src="{{ asset(mix('js/scripts/pages/modal-two-factor-auth.js')) }}"></script>
   <script src="{{ asset(mix('js/scripts/pages/modal-edit-user.js')) }}"></script>
   <script src="{{ asset(mix('js/scripts/pages/app-user-view-security.js')) }}"></script>
   <script src="{{ asset(mix('js/scripts/pages/app-user-view.js')) }}"></script>

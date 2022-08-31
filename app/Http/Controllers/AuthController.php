@@ -206,6 +206,18 @@ class AuthController extends Controller
         }
     }
 
+    public function delete_user(){
+        check_auth();
+
+        $checker = DB::table('users')->where('username', Auth::user()->username)->delete();
+        Auth::logout();
+        return json_encode(['data'=> route('auth-login',['success'=> 'Your Account Has Been Deleted. Have A Nice Journy.', 'hasher' => Str::random(40).'-'.Str::random(70), 'time' => time(), 'hasher_ip' => Str::random(10)])]);
+
+
+
+
+    }
+
 
     /**
     * Get the authenticated User
