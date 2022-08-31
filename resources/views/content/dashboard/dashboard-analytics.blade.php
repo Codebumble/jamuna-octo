@@ -93,7 +93,7 @@
                   <span class="fw-bold ms-75 me-25">Desktop</span>
                 </div>
                 <div>
-                  <span>2%</span>
+                  <span>{{$b['desktop']}}%</span>
                 </div>
               </div>
               <div class="d-flex justify-content-between mb-1">
@@ -102,18 +102,10 @@
                   <span class="fw-bold ms-75 me-25">Mobile</span>
                 </div>
                 <div>
-                  <span>8%</span>
+                  <span>{{$b['mobile']}}%</span>
                 </div>
               </div>
-              <div class="d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                  <i data-feather="tablet" class="font-medium-2 text-danger"></i>
-                  <span class="fw-bold ms-75 me-25">Tablet</span>
-                </div>
-                <div>
-                  <span>5%</span>
-                </div>
-              </div>
+
             </div>
           </div>
     </div>
@@ -145,7 +137,7 @@
               <i data-feather="anchor" class="font-medium-5"></i>
             </div>
           </div>
-          <h2 class="fw-bolder mt-1">27</h2>
+          <h2 class="fw-bolder mt-1">{{$b['company']}}</h2>
           <p class="card-text">Total Business</p>
         </div>
       </div>
@@ -162,8 +154,8 @@
               <i data-feather="smile" class="font-medium-5"></i>
             </div>
           </div>
-          <h2 class="fw-bolder mt-1">20k</h2>
-          <p class="card-text">Total Job Candidates</p>
+          <h2 class="fw-bolder mt-1">{{$b['applicant']}}</h2>
+          <p class="card-text">Total Applicant</p>
         </div>
       </div>
 
@@ -174,7 +166,7 @@
               <i data-feather="list" class="font-medium-5"></i>
             </div>
           </div>
-          <h2 class="fw-bolder mt-1">10</h2>
+          <h2 class="fw-bolder mt-1">{{$b['job']}}</h2>
           <p class="card-text">Available Job Circular</p>
         </div>
       </div>
@@ -239,5 +231,34 @@
   <!-- Page js files -->
   <script src="{{ asset(mix('js/scripts/pages/dashboard-analytics.js')) }}"></script>
   <script src="{{ asset(mix('js/scripts/pages/app-invoice-list.js')) }}"></script>
-  <script src="{{ asset(mix('js/scripts/cards/card-analytics.js')) }}"></script>
+  <script>
+
+
+  var $sessionChart = document.querySelector('#session-chart');
+  var avgSessionChartOptions;
+  var sessionChart;
+
+  sessionChartOptions = {
+    chart: {
+      type: 'donut',
+      height: 300,
+      toolbar: {
+        show: false
+      }
+    },
+    dataLabels: {
+      enabled: false
+    },
+    series: [{{$b['desktop']}}, {{$b['mobile']}}],
+    legend: { show: false },
+    comparedResult: [1, 1],
+    labels: ['Desktop', 'Mobile'],
+    stroke: { width: 0 },
+    colors: [window.colors.solid.warning, window.colors.solid.danger]
+  };
+  sessionChart = new ApexCharts($sessionChart, sessionChartOptions);
+  sessionChart.render();
+
+
+  </script>
 @endsection

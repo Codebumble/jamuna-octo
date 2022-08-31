@@ -80,6 +80,10 @@ Route::group(['prefix' => 'codebumble'], function () {
 	);
 
 	Route::group(['middleware' => 'auth:sanctum'], function () {
+
+		
+
+
 		Route::post('growth-story-api', [
 			siteGeneral::class,
 			'growth_story_api',
