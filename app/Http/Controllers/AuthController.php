@@ -137,6 +137,10 @@ class AuthController extends Controller
         $json_data->address = $field['city'];
         $json_data->country = $field['country'];
 
+        $json_data->nid_number = $request['nid_number'];
+        $json_data->birth_certificate_number = $request['birth_certificate_number'];
+        $json_data->passport_number = $request['passport_number'];
+
 
 
         if(Auth::check()){

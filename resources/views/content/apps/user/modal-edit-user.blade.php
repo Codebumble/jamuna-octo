@@ -397,6 +397,54 @@
             </select>
           </div>
 
+          <div class="col-12 col-md-6">
+            <label class="form-label" for="nid_number">NID Number</label>
+            <input
+              type="text"
+              id="nid_number"
+              name="nid_number"
+              class="form-control"
+              placeholder="39278 27360 2729"
+              @if(isset(json_decode($auther['json_data'])->nid_number))
+              value="{{json_decode($auther['json_data'])->nid_number}}"
+              @else
+              value=""
+              @endif
+            />
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label class="form-label" for="birth_certificate_number">Birth Certificate Number</label>
+            <input
+              type="text"
+              id="birth_certificate_number"
+              name="birth_certificate_number"
+              class="form-control"
+              placeholder="Bk382673"
+              @if(isset(json_decode($auther['json_data'])->birth_certificate_number))
+              value="{{json_decode($auther['json_data'])->birth_certificate_number}}"
+              @else
+              value=""
+              @endif
+            />
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label class="form-label" for="passport_number">Passport Number</label>
+            <input
+              type="text"
+              id="passport_number"
+              name="passport_number"
+              class="form-control"
+              placeholder="Bk382673"
+              @if(isset(json_decode($auther['json_data'])->passport_number))
+              value="{{json_decode($auther['json_data'])->passport_number}}"
+              @else
+              value=""
+              @endif
+            />
+          </div>
+
           <div class="col-12 text-center mt-2 pt-50">
             <button type="submit" class="btn btn-primary me-1">Submit</button>
             <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal" aria-label="Close">
