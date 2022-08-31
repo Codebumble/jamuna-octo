@@ -13,7 +13,7 @@
 		},
 		metaInfo() {
 			return {
-				// title: this.breadcrumb.pageTitle,
+				title: 'Contact | Jamuna Group',
 				// title: this.FounderDetails.title,
 				// description: this.breadcrumb.pageDesc.substring(0, 150),
 				htmlAttrs: {

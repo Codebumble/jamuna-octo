@@ -36,7 +36,7 @@ export default {
 	setup() {},
 	metaInfo() {
 		return {
-			title: 'Frequently Asked Question',
+			title: 'Frequently Asked Question | Jamuna Group',
 			description: '',
 			charset: 'utf-8',
 			htmlAttrs: {
