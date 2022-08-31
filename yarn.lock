@@ -918,6 +918,11 @@
   resolved "https://registry.npmjs.org/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
+"@dzangolab/vue-accordion@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@dzangolab/vue-accordion/-/vue-accordion-2.0.0.tgz#e77a3e71d983b50a588b7e56d8464f1082b90bf8"
+  integrity sha512-ILCLGN4V/ISX7Wf0cy/7o5au9p6dINkticRSH6QgYvX+AGbI2pW2N+nMJ9EKuFV5MdlX49EHm9ziZLwfimcxTw==
+
 "@jridgewell/gen-mapping@^0.1.0":
   version "0.1.1"
   resolved "https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.1.1.tgz"

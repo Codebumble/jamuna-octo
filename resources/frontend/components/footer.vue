@@ -43,21 +43,21 @@
 						<li
 							v-for="(link, key) in linksCol1"
 							:key="key">
-							<a :href="link.link">{{ link.linkText }}</a>
+							<router-link :to="link.link">{{ link.linkText }}</router-link>
 						</li>
 					</ul>
 					<ul class="flex flex-col basis-2/4 lg:basis-2/6">
 						<li
 							v-for="(link, key) in linksCol2"
 							:key="key">
-							<a :href="link.link">{{ link.linkText }}</a>
+							<router-link :to="link.link">{{ link.linkText }}</router-link>
 						</li>
 					</ul>
 					<ul class="flex flex-col basis-2/4 lg:basis-2/6">
 						<li
 							v-for="(link, key) in linksCol3"
 							:key="key">
-							<a :href="link.link">{{ link.linkText }}</a>
+							<router-link :to="link.link">{{ link.linkText }}</router-link>
 						</li>
 					</ul>
 				</div>
@@ -117,7 +117,7 @@
 					},
 					{
 						linkText: 'Contact Us',
-						link: '/contact-us',
+						link: '/contact',
 					},
 				],
 				linksCol3: [
