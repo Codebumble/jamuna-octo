@@ -65,6 +65,7 @@
     <!-- Greetings Card ends -->
 
     <!-- Sessions Card -->
+
     <div class="col-md-6 col-12">
           <div class="card">
             <div class="card-header d-flex justify-content-between align-items-end">
@@ -116,33 +117,33 @@
 
 
     <!-- Subscribers Chart Card starts -->
-    <div class="col-lg-3 col-12">
+      <div class="col-lg-3 col-12">
 
-      <div class="card">
-        <div class="card-header flex-column align-items-start">
-          <div class="avatar bg-light-primary p-50 m-0">
-            <div class="avatar-content">
-              <i data-feather="users" class="font-medium-5"></i>
+        <div class="card">
+          <div class="card-header flex-column align-items-start">
+            <div class="avatar bg-light-primary p-50 m-0">
+              <div class="avatar-content">
+                <i data-feather="users" class="font-medium-5"></i>
+              </div>
             </div>
+            <h2 class="fw-bolder mt-1">10k</h2>
+            <p class="card-text">Employee Gained</p>
           </div>
-          <h2 class="fw-bolder mt-1">10k</h2>
-          <p class="card-text">Employee Gained</p>
         </div>
-      </div>
 
-      <div class="card">
-        <div class="card-header flex-column align-items-start">
-          <div class="avatar bg-light-warning p-50 m-0">
-            <div class="avatar-content">
-              <i data-feather="anchor" class="font-medium-5"></i>
+        <div class="card">
+          <div class="card-header flex-column align-items-start">
+            <div class="avatar bg-light-warning p-50 m-0">
+              <div class="avatar-content">
+                <i data-feather="anchor" class="font-medium-5"></i>
+              </div>
             </div>
+            <h2 class="fw-bolder mt-1">{{$b['company']}}</h2>
+            <p class="card-text">Total Business</p>
           </div>
-          <h2 class="fw-bolder mt-1">{{$b['company']}}</h2>
-          <p class="card-text">Total Business</p>
         </div>
-      </div>
 
-    </div>
+      </div>
     <!-- Subscribers Chart Card ends -->
 
     <!-- Orders Chart Card starts -->
@@ -190,7 +191,7 @@
   <!-- List DataTable -->
   <div class="card">
     <div class="card-body border-bottom">
-      <h4 class="card-title">Search & Filter</h4>
+      <h4 class="card-title">Your Office Mates</h4>
       <div class="row">
         <div class="col-md-4 user_role"></div>
         <div class="col-md-4 user_plan"></div>
@@ -203,9 +204,9 @@
           <tr>
             <th></th>
             <th>Name</th>
+            <th>Designation</th>
             <th>Role</th>
             <th>Status</th>
-            <th>Action</th>
           </tr>
         </thead>
       </table>
