@@ -556,7 +556,9 @@ class Company_rest extends Controller
             if( $key == $id){
             $unlink_path = public_path().''.$value->src;
             $unlink_path = str_replace("/", "\\", $unlink_path);
-            unlink($unlink_path);
+            if(file_exists($unlink_path)){
+                unlink($unlink_path);
+                }
 
             } else {
                 array_push($b, $value);
