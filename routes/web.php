@@ -377,6 +377,11 @@ Route::group(['prefix' => 'admin'], function () {
 			'photo_gallery_view',
 		])->name('photo_gallery_view');
 
+		Route::get('company-user-list-api', [
+			AuthController::class,
+			'company_user_list_api',
+		])->name('company-user-list-api');
+
 		Route::get('event/add-event', [
 			event_rest::class,
 			'auth_add_event',

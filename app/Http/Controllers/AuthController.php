@@ -569,4 +569,27 @@ class AuthController extends Controller
         }
 
     }
+
+    public function company_user_list_api(){
+        check_auth();
+
+        $datam = DB::select('select id,name,avatar,email,username,role,json_data,designation from users where company=?', [Auth::user()->company]);
+
+
+        foreach($datam as $user){
+            $user_decode= json_decode($user->json_data);
+            $status = $user_decode->status;
+            if ($status == "Suspended" || $status == "Pending"){
+                $status = 0;
+            } else if($status == "Active"){
+                $status = 1;
+            } else if ($status == "Inactive"){
+                $status = 2;
+            }
+            $user->json_data = $status;
+
+        }
+
+        return json_encode(['data' => $datam]);
+    }
 }

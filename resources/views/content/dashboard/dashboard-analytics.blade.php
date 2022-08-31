@@ -188,29 +188,28 @@
   </div>
 
   <!-- List DataTable -->
-  <div class="row">
-    <div class="col-12">
-      <div class="card invoice-list-wrapper">
-        <div class="card-datatable table-responsive">
-          <table class="invoice-list-table table">
-            <thead>
-              <tr>
-                <th></th>
-                <th>#</th>
-                <th><i data-feather="trending-up"></i></th>
-                <th>Client</th>
-                <th>Total</th>
-                <th class="text-truncate">Issued Date</th>
-                <th>Balance</th>
-                <th>Invoice Status</th>
-                <th class="cell-fit">Actions</th>
-              </tr>
-            </thead>
-          </table>
-        </div>
+  <div class="card">
+    <div class="card-body border-bottom">
+      <h4 class="card-title">Search & Filter</h4>
+      <div class="row">
+        <div class="col-md-4 user_role"></div>
+        <div class="col-md-4 user_plan"></div>
+        <div class="col-md-4 user_status"></div>
       </div>
     </div>
-  </div>
+    <div class="card-datatable table-responsive pt-0">
+      <table class="user-list-table table">
+        <thead class="table-light">
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
   <!--/ List DataTable -->
 </section>
 <!-- Dashboard Analytics end -->
@@ -229,8 +228,7 @@
 @endsection
 @section('page-script')
   <!-- Page js files -->
-  <script src="{{ asset(mix('js/scripts/pages/dashboard-analytics.js')) }}"></script>
-  <script src="{{ asset(mix('js/scripts/pages/app-invoice-list.js')) }}"></script>
+  <script src="{{ asset(mix('js/scripts/pages/company-user-list.js')) }}"></script>
   <script>
 
 

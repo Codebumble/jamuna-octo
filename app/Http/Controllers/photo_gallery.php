@@ -53,7 +53,7 @@ class photo_gallery extends Controller
             exit();
 
         }
-        
+
         $data_get = DB::select('select value from codebumble_front_page where code_name=?',['gallery']);
         $a = json_decode($data_get[0]->value);
         $b = [];
@@ -61,8 +61,9 @@ class photo_gallery extends Controller
             if( $key == $id){
             $unlink_path = public_path().''.$value->src;
             $unlink_path = str_replace("/", "\\", $unlink_path);
+            if(file_exists($unlink_path)){
             unlink($unlink_path);
-
+            }
             } else {
                 array_push($b, $value);
             }
