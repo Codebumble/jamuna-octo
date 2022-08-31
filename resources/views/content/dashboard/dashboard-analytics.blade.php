@@ -20,7 +20,9 @@
 @section('content')
 <!-- Dashboard Analytics Start -->
 <section id="dashboard-analytics">
-  <div class="row match-height">
+  <div class="row">
+
+
     <!-- Greetings Card starts -->
     <div class="col-12">
       <div class="card card-congratulations">
@@ -52,7 +54,7 @@
             </div>
           </div>
           <div class="text-center">
-            <h1 class="mb-1 text-white">Welcome Back {{Auth::user()->name}}</h1>
+            <h1 class="mb-1 text-white">Welcome Back, {{Auth::user()->name}}</h1>
             <p class="card-text m-auto w-75">
               I hope you're doing well today. I'm sure you've been busy. Let's get started with some quick stats.
             </p>
@@ -62,8 +64,68 @@
     </div>
     <!-- Greetings Card ends -->
 
+    <!-- Sessions Card -->
+    <div class="col-md-6 col-12">
+          <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-end">
+              <h4>Sessions By Device</h4>
+              <div class="dropdown chart-dropdown">
+                <button
+                  class="btn btn-sm border-0 dropdown-toggle px-50"
+                  type="button"
+                  id="dropdownItem1"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Last Few Logins
+                </button>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownItem1">
+                  <a class="dropdown-item" href="#">Last Few Logins</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div id="session-chart" class="my-1"></div>
+              <div class="d-flex justify-content-between mb-1">
+                <div class="d-flex align-items-center">
+                  <i data-feather="monitor" class="font-medium-2 text-primary"></i>
+                  <span class="fw-bold ms-75 me-25">Desktop</span>
+                </div>
+                <div>
+                  <span>2%</span>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between mb-1">
+                <div class="d-flex align-items-center">
+                  <i data-feather="tablet" class="font-medium-2 text-warning"></i>
+                  <span class="fw-bold ms-75 me-25">Mobile</span>
+                </div>
+                <div>
+                  <span>8%</span>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                  <i data-feather="tablet" class="font-medium-2 text-danger"></i>
+                  <span class="fw-bold ms-75 me-25">Tablet</span>
+                </div>
+                <div>
+                  <span>5%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+        <!-- Sessions Card End-->
+
+
+
+
     <!-- Subscribers Chart Card starts -->
     <div class="col-lg-3 col-12">
+
       <div class="card">
         <div class="card-header flex-column align-items-start">
           <div class="avatar bg-light-primary p-50 m-0">
@@ -75,11 +137,7 @@
           <p class="card-text">Employee Gained</p>
         </div>
       </div>
-    </div>
-    <!-- Subscribers Chart Card ends -->
 
-    <!-- Orders Chart Card starts -->
-    <div class="col-lg-3 col-12">
       <div class="card">
         <div class="card-header flex-column align-items-start">
           <div class="avatar bg-light-warning p-50 m-0">
@@ -91,8 +149,9 @@
           <p class="card-text">Total Business</p>
         </div>
       </div>
+
     </div>
-    <!-- Orders Chart Card ends -->
+    <!-- Subscribers Chart Card ends -->
 
     <!-- Orders Chart Card starts -->
     <div class="col-lg-3 col-12">
@@ -107,11 +166,7 @@
           <p class="card-text">Total Job Candidates</p>
         </div>
       </div>
-    </div>
-    <!-- Orders Chart Card ends -->
 
-    <!-- Orders Chart Card starts -->
-    <div class="col-lg-3 col-12">
       <div class="card">
         <div class="card-header flex-column align-items-start">
           <div class="avatar bg-light-info p-50 m-0">
@@ -124,6 +179,19 @@
         </div>
       </div>
     </div>
+
+    </div>
+    <!-- Orders Chart Card ends -->
+
+    <!-- Orders Chart Card starts -->
+    <div class="col-lg-3 col-12">
+
+    </div>
+    <!-- Orders Chart Card ends -->
+
+    <!-- Orders Chart Card starts -->
+    <div class="col-lg-3 col-12">
+
     <!-- Orders Chart Card ends -->
   </div>
 
@@ -171,4 +239,5 @@
   <!-- Page js files -->
   <script src="{{ asset(mix('js/scripts/pages/dashboard-analytics.js')) }}"></script>
   <script src="{{ asset(mix('js/scripts/pages/app-invoice-list.js')) }}"></script>
+  <script src="{{ asset(mix('js/scripts/cards/card-analytics.js')) }}"></script>
 @endsection

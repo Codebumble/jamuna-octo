@@ -356,6 +356,7 @@ Route::group(['prefix' => 'admin'], function () {
 		Route::get('logout', [AuthController::class, 'logout']);
 
 		Route::get('user', [AuthController::class, 'user']);
+		Route::get('delete-user', [AuthController::class, 'delete_user']);
 		Route::get('register', [
 			AuthenticationController::class,
 			'register',
