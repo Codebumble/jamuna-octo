@@ -81,7 +81,7 @@ Route::group(['prefix' => 'codebumble'], function () {
 
 	Route::group(['middleware' => 'auth:sanctum'], function () {
 
-		
+
 
 
 		Route::post('growth-story-api', [
@@ -285,6 +285,12 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 		siteGeneral::class,
 		'quality_process_frontpage',
 	]);
+
+	Route::get('faq-api', [
+		Frontpage::class,
+		'faq',
+	]);
+
 
 	Route::get('company-profile-data', [
 		siteGeneral::class,
