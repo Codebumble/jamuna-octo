@@ -1053,4 +1053,49 @@ class siteGeneral extends Controller
 
 		return $data[0]->value;
 	}
+
+	// Privacy Policy
+	public function privacy_view()
+	{
+		$data = DB::select(
+			'select value from codebumble_front_page where code_name=?',
+			['privacy']
+		);
+		$pageConfigs = ['pageHeader' => false];
+		return view('/content/site-settings/privacy-policy', [
+			'pageConfigs' => $pageConfigs,
+			'data' => json_decode($data[0]->value),
+		]);
+	}
+
+	public function privacy_update(Request $r)
+	{
+		check_auth();
+		check_power('admin');
+
+		$b = $r->post();
+		unset($b['_token']);
+
+		$d = DB::table('codebumble_front_page')
+			->where('code_name', 'privacy')
+			->update(['value' => $b, 'updated_at' => time()]);
+
+		return redirect()->route('privacy_view', [
+			'hasher' => Str::random(40),
+			'time' => time(),
+			'exist' =>
+				'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You',
+			'hasher_ip' => Str::random(10),
+		]);
+	}
+
+	public function privacy_frontpage()
+	{
+		$data = DB::select(
+			'select value from codebumble_front_page where code_name=?',
+			['privacy']
+		);
+
+		return $data[0]->value;
+	}
 }

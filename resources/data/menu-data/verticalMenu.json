@@ -67,7 +67,7 @@
 					"name": "Meta Settings",
 					"icon": "circle",
 					"permission": 1,
-					"slug": "meta-settings"
+					"slug": "meta_settings_view"
 				}
 			]
 		},

@@ -1,6 +1,6 @@
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Terms and Condition')
+@section('title', 'Privacy Policy')
 
 @section('content')
     <section class="form-control-repeater">
@@ -9,7 +9,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Terms and Condition</h4>
+                        <h4 class="card-title">Privacy Policy</h4>
                     </div>
                     <div class="card-body">
                         @if (isset($_GET['exist']))
@@ -20,7 +20,7 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('tac_update') }}" class="invoice-repeater" method="POST">
+                        <form action="{{ route('privacy_update') }}" class="invoice-repeater" method="POST">
                             @csrf
                             <div class="row d-flex align-items-end">
                                 <div class="col-12 col-lg-6 mb-1">

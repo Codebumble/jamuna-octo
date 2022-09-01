@@ -42,7 +42,7 @@ use App\Http\Controllers\FrontendController;
 // Main Page Route
 Route::get('{any}', [FrontendController::class, 'home'])->where(
 	'any',
-	'/|founder|chairman|board-of-directors|company-profile|jamuna-tv|the-daily-jugantor|growth-story|quality-process|future-expansion|contact|photo-gallery|career|news-center|event-details|nurul-islam-foundation|about|tou|'
+	'/|founder|chairman|board-of-directors|company-profile|jamuna-tv|the-daily-jugantor|growth-story|quality-process|future-expansion|contact|photo-gallery|career|news-center|event-details|nurul-islam-foundation|about|tou|privacy-policy|'
 );
 
 Route::get('/career-details/{id}', [FrontendController::class, 'home'])->name(
@@ -56,6 +56,11 @@ Route::get('/companies/{id}/{name}', [FrontendController::class, 'home'])->name(
 Route::get('/event-details/{id}', [FrontendController::class, 'home'])->name(
 	'event-details'
 );
+
+Route::get('/media-center/{id}/{name}', [
+	FrontendController::class,
+	'home',
+])->name('media-center');
 
 /* Route Dashboards */
 Route::group(['prefix' => 'dashboard'], function () {
@@ -287,6 +292,7 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 	]);
 
 	Route::get('tac-data', [siteGeneral::class, 'tac_frontpage']);
+	Route::get('privacy-data', [siteGeneral::class, 'privacy_frontpage']);
 
 	Route::get('faq-api', [Frontpage::class, 'faq']);
 
@@ -583,6 +589,11 @@ Route::group(['prefix' => 'admin'], function () {
 			'tac_view'
 		);
 
+		Route::get('site-settings/privacy', [
+			siteGeneral::class,
+			'privacy_view',
+		])->name('privacy_view');
+
 		Route::get('site-settings/company-profile', [
 			siteGeneral::class,
 			'company_profile_view',
@@ -596,6 +607,11 @@ Route::group(['prefix' => 'admin'], function () {
 		Route::post('tac-update', [siteGeneral::class, 'tac_update'])->name(
 			'tac_update'
 		);
+
+		Route::post('privacy-update', [
+			siteGeneral::class,
+			'privacy_update',
+		])->name('privacy_update');
 
 		Route::post('company-profile-update', [
 			siteGeneral::class,
