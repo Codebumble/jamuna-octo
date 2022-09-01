@@ -14,4 +14,7 @@
 	.vel-img-title {
 		@apply bg-red-600 text-white p-2 mb-2 text-3xl text-center bg-opacity-30;
 	}
+	.loadMore {
+		@apply block mx-auto py-3 px-4 border border-slate-300 hover:bg-red-600 transition-all hover:text-white rounded-md;
+	}
 }

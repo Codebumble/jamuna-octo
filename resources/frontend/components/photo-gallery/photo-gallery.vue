@@ -4,7 +4,7 @@
 			<div
 				class="grid grid-cols-1 lg:grid-cols-4 2xl:grid-cols-5 md:grid-cols-2 gap-5 2xl:gap-3 pb-8">
 				<div
-					v-for="(item, index) in imgs"
+					v-for="(item, index) in visibleImages"
 					:key="index"
 					class="image"
 					@click="() => showImg(index)">
@@ -15,6 +15,12 @@
 					</div>
 				</div>
 			</div>
+			<button
+				class="loadMore"
+				@click="images += step"
+				v-if="images < imgs.length">
+				Load more...
+			</button>
 			<vue-easy-lightbox
 				:visible="visibleRef"
 				:imgs="imgs"
@@ -35,11 +41,18 @@
 		components: {
 			VueEasyLightbox,
 		},
+		computed: {
+			visibleImages() {
+				return this.imgs.slice(0, this.images);
+			},
+		},
 		data() {
 			return {
 				visibleRef: false,
 				indexRef: 0,
 				imgs: [],
+				images: 8,
+				step: 4
 			};
 		},
 		mounted() {
