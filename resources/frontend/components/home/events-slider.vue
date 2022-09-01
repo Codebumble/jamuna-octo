@@ -25,7 +25,8 @@
 							class="p-4 pb-6 rounded-tl-none rounded-tr-none rounded-bl rounded-br backdrop-blur-md min-h-[180px] max-h-[180px] overflow-hidden">
 							<!-- <span class="itemName">{{ slide.title }}</span> -->
 
-							<router-link :to="'/event-details/'+slide.webLink">
+							<router-link
+								:to="'/event-details/' + slide.webLink">
 								<h4
 									class="text-xl font-bold text-gray-800 mt-4 mb-2">
 									{{
@@ -56,10 +57,9 @@
 		data() {
 			return {
 				groupTitle: {
-					title: 'Events',
-					descVisibility: true,
-					description:
-						'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit dolorem, nemo maiores debitis quod distinctio repellendus. Dolore ipsam veritatis voluptas.',
+					title: '',
+					descVisibility: '',
+					description: '',
 				},
 				slideContent: [],
 			};
@@ -72,15 +72,23 @@
 			axios
 				.get(window.location.origin + '/frontpage-api/event-list')
 				.then((response) => {
-					response.data.forEach(item=>{
+					response.data.forEach((item) => {
 						this.slideContent.push({
 							imgSrc: item.image,
 							alt: '',
 							webLink: item.id,
 							eventTitle: item.name,
 							eventExerp: item.detail,
-						})
-					})
+						});
+					});
+				});
+			axios
+				.get(window.location.origin + '/frontpage-api/event-header')
+				.then((response) => {
+					this.groupTitle.title = response.data.title;
+					this.groupTitle.descVisibility =
+						response.data.descVisibility;
+					this.groupTitle.description = response.data.description;
 				});
 		},
 		setup() {

@@ -49,10 +49,9 @@
 		data() {
 			return {
 				groupTitle: {
-					title: 'Our Products',
-					descVisibility: true,
-					description:
-						'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit dolorem, nemo maiores debitis quod distinctio repellendus. Dolore ipsam veritatis voluptas.',
+					title: '',
+					descVisibility: '',
+					description: '',
 				},
 				slideContent: [],
 			};
@@ -66,6 +65,14 @@
 				.get(window.location.origin + '/frontpage-api/all-product-view')
 				.then((response) => {
 					this.slideContent = response.data;
+				});
+			axios
+				.get(window.location.origin + '/frontpage-api/product-header')
+				.then((response) => {
+					this.groupTitle.title = response.data.title;
+					this.groupTitle.descVisibility =
+						response.data.descVisibility;
+					this.groupTitle.description = response.data.description;
 				});
 		},
 		setup() {
