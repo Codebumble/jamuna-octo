@@ -1,13 +1,28 @@
 <template>
-	<faq :contents="contents" />
+	<Suspense>
+		<template #default>
+			<faq :contents="contents" />
+		</template>
+		<template #fallback>
+			<faqSkeleton />
+		</template>
+	</Suspense>
 </template>
 
 <script>
-import faq from '../components/footer/faq.vue';
+import { defineAsyncComponent } from 'vue';
+const faq = defineAsyncComponent({
+	loader: () => import('../components/footer/faq.vue'),
+	timeout: 2000,
+});
+// Skeleton
+import faqSkeleton from '../components/skeleton/terms-condition-skeleton.vue';
+
 
 export default {
 	components: {
 		faq,
+		faqSkeleton
 	},
 	data() {
 		return {

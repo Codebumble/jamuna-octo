@@ -2,7 +2,7 @@
 	<section class="contact pb-28 pt-32">
 		<div class="container pb-8">
 			<div class="py-8">
-				<h2 class="text-3xl text-gray-800 text-center lg:w-4/6 mx-auto font-bold w-102 skeleton_bg h-8"></h2>
+				<h2 class="lg:w-4/6 mx-auto w-102 skeleton_bg h-8"></h2>
 				<div class="cards">
 					<div
 						class="card"
@@ -24,49 +24,27 @@
 							:key="circular">
 							<div class="flex gap-3 items-center">
 								<div class="w-16">
-									<img
-										:src="circular.compLogo"
-										:alt="circular.compName"
-										class="w-full" />
+									<div class="w-full h-10 skeleton_bg"></div>
 								</div>
 								<div>
-									<h4 class="font-bold">
-										{{ circular.compName }}
-									</h4>
-									<p class="text-sm">
-										{{ circular.location }}
-									</p>
+									<h4 class="font-bold skeleton_bg w-30 h-5 mb-2"></h4>
+									<p class="text-sm skelton_bg w-30 h-5"></p>
 								</div>
 							</div>
 							<div>
-								<h2 class="font-bold pb-1">
-									{{ circular.jobTitle }}
-								</h2>
-								<p class="text-sm capitalize">
-									{{ circular.empTime }}
-								</p>
+								<h2 class="font-bold pb-1 skeleton_bg h-6 w-60 mb-2"></h2>
+								<p class="text-sm capitalize skelton_bg w-10 h-5"></p>
 							</div>
 							<div class="exerp">
-								<p>
-									{{ circular.shortDesc.substring(0, 62) }}
-								</p>
+								<div class="skeleton_bg h-6 mb-4 w-full"></div>
+								<div class="skeleton_bg h-6 mb-4 w-8/12"></div>
 							</div>
 							<div
 								class="flex justify-between w-full flex-col xl:flex-row">
 								<div>
-									<span
-										class="font-bold text-xl text-gray-800">
-										{{ circular.salary }}
-									</span>
-									<span>/month</span>
+									<span class="skelton_bg w-30 h-8"></span>
 								</div>
-								<div class="my-4 xl:my-0">
-									<router-link
-										:to="circular.detailsLink"
-										class="rounded-md bg-red-100 text-red-600 font-bold transition-all hover:text-white hover:bg-red-600 px-2.5 py-2">
-										View Details
-									</router-link>
-								</div>
+								<div class="my-4 xl:my-0 skeleton_bg w-[110px] h-[35px]"></div>
 							</div>
 						</div>
 					</div>
@@ -81,26 +59,5 @@
 </style>
 
 <script>
-	export default {
-		mounted() {
-			axios
-				.get(
-					window.location.origin +
-						'/frontpage-api/circular-and-category-short-list'
-				)
-				.then((response) => {
-					this.jobList.jobCategories = response.data.jobCategories;
-					this.jobList.circulars = response.data.circulars;
-				});
-		},
-		data() {
-			return {
-				jobList: {
-					categoryTitle: 'One Platform Many Solutions',
-					jobCategories: [],
-					circulars: [],
-				},
-			};
-		},
-	};
+	export default {};
 </script>

@@ -8,62 +8,43 @@
 				</div>
 				<div
 					class="md:w-8/12 xl:border-l-2 border-gray-400 min-h-[250px] basis-4/2 py-4 px-8 xl:ml-4">
-					<h2 class="text-xl font-bold mb-4">{{ data.title }}</h2>
+					<h2 class="text-xl font-bold mb-4 w-full h-8 skeleton_bg"></h2>
 					<div
 						class="flex flex-col sm:flex-row xl:flex-col justify-between">
 						<div class="mb-4">
-							<h4 class="text-md font-bold">Contact Us:</h4>
-							<span class="block">Phone: {{ data.phone }}</span>
-							<span class="block">Email:{{ data.email }}</span>
+							<h4 class="w-15 h-6 skeleton_bg"></h4>
+							<span class="block w-40 h-5 skeleton_bg"></span>
+							<span class="block w-40 h-5 skeleton_bg"></span>
 						</div>
 						<div class="">
-							<h4 class="text-md font-bold">Address:</h4>
-							<span class="block">{{
-								data.address.officeName
-							}}</span>
-							<span class="block">{{ data.address.road }}</span>
-							<span class="block">{{
-								data.address.location
-							}}</span>
-							<span class="block">{{
-								data.address.country
-							}}</span>
+							<h4 class="w-15 h-6 skeleton_bg"></h4>
+							<span class="block w-40 h-5 skeleton_bg"></span>
+							<span class="block w-40 h-5 skeleton_bg"></span>
 						</div>
 					</div>
 				</div>
 			</div>
 			<!-- district correspondent -->
 			<div class="heading">
-				<h2>{{ data.distHeading.title }}</h2>
-				<p>
-					{{ data.distHeading.desc }}
-				</p>
+				<h2 class="skeleton_bg w-80 h-8 mb-4 mx-auto"></h2>
+				<p class="skeleton_bg lg:w-100 h-6"></p>
 			</div>
 			<div
 				class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 py-8">
 				<div
 					class="member"
-					v-for="(member, key) in visibleDistMember"
-					:key="key">
+					v-for="index in 4"
+					:key="index">
 					<div class="thumb">
-						<img
-							:src="member.imgSrc"
-							:alt="member.alt"
-							class="image max-h-[288px] min-h-[288px]" />
+						<div class="image max-h-[288px] min-h-[288px] w-[280px] skeleton_bg" ></div>
 					</div>
 					<div class="info">
-						<h3>{{ member.name }}</h3>
-						<p>{{ member.position }}</p>
-						<p>{{ member.areas }}</p>
+						<h3 class="skeleton_bg w-26 h-8 mb-4"></h3>
+						<p class="skeleton_bg w-26 h-6 mb-4"></p>
+						<p class="skeleton_bg w-26 h-6"></p>
 					</div>
 				</div>
 			</div>
-			<button
-				class="loadMore"
-				@click="distMemberVisible += step"
-				v-if="distMemberVisible < data.distCorres.length">
-				Load more...
-			</button>
 		</div>
 	</section>
 </template>
@@ -73,31 +54,5 @@
 </style>
 
 <script>
-	// import LaravelVuePagination from 'laravel-vue-pagination';
-	export default {
-		components: {
-			// Pagination: LaravelVuePagination,
-		},
-		data() {
-			return {
-				distMemberVisible: 4,
-				subDistMemberVisible: 4,
-				step: 4,
-			};
-		},
-		props: {
-			data: Object,
-		},
-		computed: {
-			visibleDistMember() {
-				return this.data.distCorres.slice(0, this.distMemberVisible);
-			},
-			visibleSubDistMember() {
-				return this.data.subDistCorres.slice(
-					0,
-					this.subDistMemberVisible
-				);
-			},
-		},
-	};
+	export default {};
 </script>

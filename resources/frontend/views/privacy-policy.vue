@@ -1,13 +1,28 @@
 <template>
-	<privacyPolicy :contents="contents" />
+	<Suspense>
+		<template #default>
+			<privacyPolicy :contents="contents" />
+		</template>
+		<template #fallback>
+			<privacyPolicySkeleton />
+		</template>
+	</Suspense>
+
 </template>
 
 <script>
-	import privacyPolicy from '../components/footer/privacy-policy.vue';
+import { defineAsyncComponent } from 'vue';
+const privacyPolicy = defineAsyncComponent({
+	loader: () => import('../components/footer/terms-condition.vue'),
+	timeout: 2000,
+});
+// Skeleton
+import privacyPolicySkeleton from '../components/skeleton/terms-condition-skeleton.vue';
 
 	export default {
 		components: {
 			privacyPolicy,
+			privacyPolicySkeleton
 		},
 		data() {
 			return {
