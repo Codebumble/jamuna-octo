@@ -94,6 +94,26 @@ const routes = [
 		},
 	},
 	{
+		path: "/faq",
+		name: "faq",
+		component: () => import("../views/faq.vue"),
+	},
+	{
+		path: "/tou",
+		name: "terms-n-condition",
+		component: () => import("../views/terms-condition.vue"),
+	},
+	{
+		path: "/privacy-policy",
+		name: "privacy-policy",
+		component: () => import("../views/privacy-policy.vue"),
+	},
+	{
+		path: "/about",
+		name: "about",
+		component: () => import("../views/about.vue"),
+	},
+	{
 		path: "/notfound",
 		name: "not-found",
 		component: () => import("../views/404.vue"),

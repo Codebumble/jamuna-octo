@@ -49,14 +49,14 @@
 
   //? Billing page have multiple buttons
   // Cancel Subscription alert
-  const cancelSubscription = document.querySelectorAll('.cancel-subscription');
+  const cancelSubscription = document.querySelectorAll('.deactivate-account');
 
   // Alert With Functional Confirm Button
   if (cancelSubscription) {
     cancelSubscription.forEach(cancelBtn => {
       cancelBtn.onclick = function () {
         Swal.fire({
-          text: 'Are you sure you would like to cancel your subscription?',
+          text: 'Are you sure you would like to Delete Your Account',
           icon: 'warning',
           showCancelButton: true,
           confirmButtonText: 'Yes',
@@ -69,16 +69,38 @@
           if (result.value) {
             Swal.fire({
               icon: 'success',
-              title: 'Unsubscribed!',
-              text: 'Your subscription cancelled successfully.',
+              title: 'Deleted!',
+              text: 'Your Acoount Has Been Deleted Soon.',
               customClass: {
                 confirmButton: 'btn btn-success'
               }
+
             });
+
+            var formData = new FormData();
+              formData.append("action", "delete");
+
+              var xhr = new XMLHttpRequest();
+              xhr.open('GET', '/admin/delete-user', true);
+
+          xhr.upload.onprogress = function(e) {
+            if (e.lengthComputable) {
+              var percentComplete = (e.loaded / e.total) * 100;
+              console.log(percentComplete + '% uploaded');
+            }
+          };
+
+          xhr.onload = function() {
+            if (this.status == 200) {
+              location.href=JSON.parse(this.response).data;
+            };
+          };
+          xhr.send(formData);
+
           } else if (result.dismiss === Swal.DismissReason.cancel) {
             Swal.fire({
               title: 'Cancelled',
-              text: 'Unsubscription Cancelled!!',
+              text: 'Delete Process Cancelled!!',
               icon: 'error',
               customClass: {
                 confirmButton: 'btn btn-success'

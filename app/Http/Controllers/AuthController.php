@@ -137,6 +137,10 @@ class AuthController extends Controller
         $json_data->address = $field['city'];
         $json_data->country = $field['country'];
 
+        $json_data->nid_number = $request['nid_number'];
+        $json_data->birth_certificate_number = $request['birth_certificate_number'];
+        $json_data->passport_number = $request['passport_number'];
+
 
 
         if(Auth::check()){
@@ -200,6 +204,18 @@ class AuthController extends Controller
         }else{
             return redirect()->route('auth-login',['error'=> 'IiiZ2hs1g1vzhEMBdkjMUCPh9YzpRVC8CMojxRar', 'hasher' => Str::random(40).'-'.Str::random(70), 'time' => time(), 'hasher_ip' => Str::random(10)]);
         }
+    }
+
+    public function delete_user(){
+        check_auth();
+
+        $checker = DB::table('users')->where('username', Auth::user()->username)->delete();
+        Auth::logout();
+        return json_encode(['data'=> route('auth-login',['success'=> 'Your Account Has Been Deleted. Have A Nice Journy.', 'hasher' => Str::random(40).'-'.Str::random(70), 'time' => time(), 'hasher_ip' => Str::random(10)])]);
+
+
+
+
     }
 
 
@@ -552,5 +568,28 @@ class AuthController extends Controller
             return redirect()->route('profile-account',[ 'hasher' => Str::random(40), 'time' => time(), 'errors'=> 'Username Entered for Report is Invalid or Modified by Third Party. Please try Again!', 'hasher_ip' => Str::random(10)]);
         }
 
+    }
+
+    public function company_user_list_api(){
+        check_auth();
+
+        $datam = DB::select('select id,name,avatar,email,username,role,json_data,designation from users where company=?', [Auth::user()->company]);
+
+
+        foreach($datam as $user){
+            $user_decode= json_decode($user->json_data);
+            $status = $user_decode->status;
+            if ($status == "Suspended" || $status == "Pending"){
+                $status = 0;
+            } else if($status == "Active"){
+                $status = 1;
+            } else if ($status == "Inactive"){
+                $status = 2;
+            }
+            $user->json_data = $status;
+
+        }
+
+        return json_encode(['data' => $datam]);
     }
 }

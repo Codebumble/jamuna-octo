@@ -80,6 +80,10 @@ Route::group(['prefix' => 'codebumble'], function () {
 	);
 
 	Route::group(['middleware' => 'auth:sanctum'], function () {
+
+
+
+
 		Route::post('growth-story-api', [
 			siteGeneral::class,
 			'growth_story_api',
@@ -282,6 +286,12 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 		'quality_process_frontpage',
 	]);
 
+	Route::get('faq-api', [
+		Frontpage::class,
+		'faq',
+	]);
+
+
 	Route::get('company-profile-data', [
 		siteGeneral::class,
 		'company_profile_frontpage',
@@ -356,6 +366,7 @@ Route::group(['prefix' => 'admin'], function () {
 		Route::get('logout', [AuthController::class, 'logout']);
 
 		Route::get('user', [AuthController::class, 'user']);
+		Route::get('delete-user', [AuthController::class, 'delete_user']);
 		Route::get('register', [
 			AuthenticationController::class,
 			'register',
@@ -365,6 +376,11 @@ Route::group(['prefix' => 'admin'], function () {
 			siteGeneral::class,
 			'photo_gallery_view',
 		])->name('photo_gallery_view');
+
+		Route::get('company-user-list-api', [
+			AuthController::class,
+			'company_user_list_api',
+		])->name('company-user-list-api');
 
 		Route::get('event/add-event', [
 			event_rest::class,
