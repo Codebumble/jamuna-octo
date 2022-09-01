@@ -968,7 +968,8 @@ class siteGeneral extends Controller
 		return view('/content/apps/fileManager/tiny-file-manager');
 	}
 
-	public function faq_edit(){
+	public function faq_edit()
+	{
 		$data = DB::select(
 			'select value from codebumble_front_page where code_name=?',
 			['faq']
@@ -978,12 +979,11 @@ class siteGeneral extends Controller
 			'pageConfigs' => $pageConfigs,
 			'data' => json_decode($data[0]->value)->items,
 		]);
-
 	}
 
-	public function faq_edit_api(Request $r){
+	public function faq_edit_api(Request $r)
+	{
 		$data = $r->new;
-
 
 		$redist = DB::select(
 			'select value from codebumble_front_page where code_name=?',
@@ -992,11 +992,13 @@ class siteGeneral extends Controller
 
 		$redist = json_decode($redist[0]->value)->header;
 
-		$a =[];
+		$a = [];
 		$a['header'] = $redist;
 		$a['items'] = $data;
 
-		$upate = DB::table('codebumble_front_page')->where('code_name', 'faq')->update(['value' => json_encode($a), 'updated_at' => time()]);
+		$upate = DB::table('codebumble_front_page')
+			->where('code_name', 'faq')
+			->update(['value' => json_encode($a), 'updated_at' => time()]);
 
 		return redirect()->route('faq-edit', [
 			'hasher' => Str::random(40),
@@ -1005,10 +1007,50 @@ class siteGeneral extends Controller
 				'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You',
 			'hasher_ip' => Str::random(10),
 		]);
+	}
 
+	// terms and condition
+	public function tac_view()
+	{
+		$data = DB::select(
+			'select value from codebumble_front_page where code_name=?',
+			['tac']
+		);
+		$pageConfigs = ['pageHeader' => false];
+		return view('/content/site-settings/terms-of-condition', [
+			'pageConfigs' => $pageConfigs,
+			'data' => json_decode($data[0]->value),
+		]);
+	}
 
+	public function tac_update(Request $r)
+	{
+		check_auth();
+		check_power('admin');
 
+		$b = $r->post();
+		unset($b['_token']);
 
+		$d = DB::table('codebumble_front_page')
+			->where('code_name', 'tac')
+			->update(['value' => $b, 'updated_at' => time()]);
 
+		return redirect()->route('tac_view', [
+			'hasher' => Str::random(40),
+			'time' => time(),
+			'exist' =>
+				'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You',
+			'hasher_ip' => Str::random(10),
+		]);
+	}
+
+	public function tac_frontpage()
+	{
+		$data = DB::select(
+			'select value from codebumble_front_page where code_name=?',
+			['tac']
+		);
+
+		return $data[0]->value;
 	}
 }

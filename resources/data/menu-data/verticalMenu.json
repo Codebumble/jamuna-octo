@@ -221,18 +221,18 @@
 			"slug": "photo_gallery_view"
 		},
 		{
-			"url": "admin/site-settings/front-page",
+			"url": "admin/site-settings/tac",
 			"name": "Terms and Conditions",
 			"icon": "help-circle",
 			"permission": 1,
-			"slug": "terms_and_conditions"
+			"slug": "tac_view"
 		},
 		{
-			"url": "admin/site-settings/front-page",
+			"url": "admin/site-settings/privacy",
 			"name": "Privacy Policy",
 			"icon": "help-circle",
 			"permission": 1,
-			"slug": "privacy_policy"
+			"slug": "privacy_view"
 		},
 		{
 			"url": "admin/faq-edit",

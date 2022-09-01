@@ -42,7 +42,7 @@ use App\Http\Controllers\FrontendController;
 // Main Page Route
 Route::get('{any}', [FrontendController::class, 'home'])->where(
 	'any',
-	'/|founder|chairman|board-of-directors|company-profile|jamuna-tv|the-daily-jugantor|growth-story|quality-process|future-expansion|contact|photo-gallery|career|news-center|event-details|nurul-islam-foundation|about|'
+	'/|founder|chairman|board-of-directors|company-profile|jamuna-tv|the-daily-jugantor|growth-story|quality-process|future-expansion|contact|photo-gallery|career|news-center|event-details|nurul-islam-foundation|about|tou|'
 );
 
 Route::get('/career-details/{id}', [FrontendController::class, 'home'])->name(
@@ -285,6 +285,8 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 		siteGeneral::class,
 		'quality_process_frontpage',
 	]);
+
+	Route::get('tac-data', [siteGeneral::class, 'tac_frontpage']);
 
 	Route::get('faq-api', [Frontpage::class, 'faq']);
 
@@ -577,6 +579,10 @@ Route::group(['prefix' => 'admin'], function () {
 			'quality_process_view',
 		])->name('quality_process_view');
 
+		Route::get('site-settings/tac', [siteGeneral::class, 'tac_view'])->name(
+			'tac_view'
+		);
+
 		Route::get('site-settings/company-profile', [
 			siteGeneral::class,
 			'company_profile_view',
@@ -586,6 +592,10 @@ Route::group(['prefix' => 'admin'], function () {
 			siteGeneral::class,
 			'quality_process_update',
 		])->name('quality_process_update');
+
+		Route::post('tac-update', [siteGeneral::class, 'tac_update'])->name(
+			'tac_update'
+		);
 
 		Route::post('company-profile-update', [
 			siteGeneral::class,
