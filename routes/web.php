@@ -42,7 +42,7 @@ use App\Http\Controllers\FrontendController;
 // Main Page Route
 Route::get('{any}', [FrontendController::class, 'home'])->where(
 	'any',
-	'/|founder|chairman|board-of-directors|company-profile|jamuna-tv|the-daily-jugantor|growth-story|quality-process|future-expansion|contact|photo-gallery|career|news-center|event-details|nurul-islam-foundation|'
+	'/|founder|chairman|board-of-directors|company-profile|jamuna-tv|the-daily-jugantor|growth-story|quality-process|future-expansion|contact|photo-gallery|career|news-center|event-details|nurul-islam-foundation|about|'
 );
 
 Route::get('/career-details/{id}', [FrontendController::class, 'home'])->name(
@@ -80,14 +80,9 @@ Route::group(['prefix' => 'codebumble'], function () {
 	);
 
 	Route::group(['middleware' => 'auth:sanctum'], function () {
-
-		Route::post('faq-edit-api', [
-			siteGeneral::class,
-			'faq_edit_api',
-		])->name('faq-edit-api');
-
-
-
+		Route::post('faq-edit-api', [siteGeneral::class, 'faq_edit_api'])->name(
+			'faq-edit-api'
+		);
 
 		Route::post('growth-story-api', [
 			siteGeneral::class,
@@ -291,11 +286,7 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 		'quality_process_frontpage',
 	]);
 
-	Route::get('faq-api', [
-		Frontpage::class,
-		'faq',
-	]);
-
+	Route::get('faq-api', [Frontpage::class, 'faq']);
 
 	Route::get('company-profile-data', [
 		siteGeneral::class,
@@ -382,10 +373,9 @@ Route::group(['prefix' => 'admin'], function () {
 			'photo_gallery_view',
 		])->name('photo_gallery_view');
 
-		Route::get('faq-edit', [
-			siteGeneral::class,
-			'faq_edit',
-		])->name('faq-edit');
+		Route::get('faq-edit', [siteGeneral::class, 'faq_edit'])->name(
+			'faq-edit'
+		);
 
 		Route::get('company-user-list-api', [
 			AuthController::class,
