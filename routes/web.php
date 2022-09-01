@@ -81,6 +81,11 @@ Route::group(['prefix' => 'codebumble'], function () {
 
 	Route::group(['middleware' => 'auth:sanctum'], function () {
 
+		Route::post('faq-edit-api', [
+			siteGeneral::class,
+			'faq_edit_api',
+		])->name('faq-edit-api');
+
 
 
 
@@ -376,6 +381,11 @@ Route::group(['prefix' => 'admin'], function () {
 			siteGeneral::class,
 			'photo_gallery_view',
 		])->name('photo_gallery_view');
+
+		Route::get('faq-edit', [
+			siteGeneral::class,
+			'faq_edit',
+		])->name('faq-edit');
 
 		Route::get('company-user-list-api', [
 			AuthController::class,
