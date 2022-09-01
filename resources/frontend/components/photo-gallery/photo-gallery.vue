@@ -21,12 +21,21 @@
 					</div>
 				</div>
 			</div>
-			<button
-				class="loadMore"
-				@click="images += step"
-				v-if="images < imgs.length">
-				Load more...
-			</button>
+			<vue-awesome-paginate
+				:total-items="totalImages"
+				:items-per-page="8"
+				:max-pages-shown="3"
+				:current-page="currentPage"
+				:on-click="onClickHandler"
+				:key="currentPage"
+				v-if="totalImages > 4">
+				<template #prev-button>
+					<i class="fas fa-angle-left"></i>
+				</template>
+				<template #next-button>
+					<i class="fas fa-angle-right"></i>
+				</template>
+			</vue-awesome-paginate>
 			<vue-easy-lightbox
 				:visible="visibleRef"
 				:imgs="imgs"
@@ -38,6 +47,7 @@
 
 <style lang="scss">
 	@import '../../assets/scss/variables/image-gallery';
+	@import '../../assets/scss/variables/pagination';
 </style>
 
 <script>
@@ -57,29 +67,39 @@
 				visibleRef: false,
 				indexRef: 0,
 				imgs: [],
-				images: 8,
-				step: 4
+				page: 1,
+				totalImages: 0,
+				currentPage: 1,
 			};
 		},
 		mounted() {
-			axios
-				.get(window.location.origin + '/frontpage-api/gallery-api')
-				.then((res) => {
-					res.data.forEach((item) =>
-						this.imgs.push({
-							src: item.src,
-							// title: item.author,
-						})
-					);
-				});
+			this.photos(this.page)
 		},
 		methods: {
+			paginate(array, page_size, page_number) {
+				return array.slice(
+					(page_number - 1) * page_size,
+					page_number * page_size
+				);
+			},
+			photos(page){
+				axios
+					.get(window.location.origin + '/frontpage-api/gallery-api')
+					.then((res) => {
+						this.imgs = this.paginate(res.data, 8, page);
+						this.totalImages = res.data.length;
+					});
+			},
 			showImg(index) {
 				this.indexRef = index;
 				this.visibleRef = true;
 			},
 			onHide() {
 				this.visibleRef = false;
+			},
+			onClickHandler(page) {
+				this.currentPage = page;
+				this.photos(page)
 			},
 		},
 	};
