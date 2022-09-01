@@ -235,7 +235,7 @@
 			"slug": "privacy_policy"
 		},
 		{
-			"url": "admin/site-settings/faq-edit",
+			"url": "admin/faq-edit",
 			"name": "FAQ",
 			"icon": "help-circle",
 			"permission": 1,
