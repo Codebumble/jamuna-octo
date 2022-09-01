@@ -90,9 +90,11 @@ class career extends Controller
         check_auth();
         check_power('admin');
         foreach($request->new as $key=>$value){
+            if($key != "a_information"){
             if($request->new[$key] == "" || $request->new[$key] == null){
-                return redirect()->route('edit_a_job_view',[ 'id'=> $dev['id'],'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Field black Detected.', 'hasher_ip' => Str::random(10)]);
+                return redirect()->route('edit_a_job_view',[ 'id'=> $dev['id'],'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Field blank Detected.', 'hasher_ip' => Str::random(10)]);
             }
+        }
         }
 
 
@@ -174,9 +176,11 @@ class career extends Controller
         check_auth();
         check_power('admin');
         foreach($request->new as $key=>$value){
+            if($key != "a_information"){
             if($request->new[$key] == "" || $request->new[$key] == null){
                 return redirect()->route('post_a_job_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> $key.' got nulled.', 'hasher_ip' => Str::random(10)]);
             }
+        }
         }
 
         $dev = $request->new;
