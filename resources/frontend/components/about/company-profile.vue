@@ -60,7 +60,6 @@
 				)
 				.then((response) => {
 					this.cp = response.data;
-					console.log(response);
 				});
 		},
 	};
