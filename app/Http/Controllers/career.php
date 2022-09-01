@@ -214,9 +214,6 @@ class career extends Controller
             $file2->move($destinationPath2,$fileName2);
 
 
-        } else {
-
-            return redirect()->route('post_a_job_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'No Document Found. Please Try One.', 'hasher_ip' => Str::random(10)]);
         }
 
         unset($dev['b_image']);
