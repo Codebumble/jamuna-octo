@@ -212,14 +212,15 @@ class career extends Controller
             $fileName2 = time().'-'.$user2.'.'.$file2->getClientOriginalExtension();
             $destinationPath2 = public_path().'/documents/job-information' ;
             $file2->move($destinationPath2,$fileName2);
+            unset($dev['a_information']);
+            $dev['a_information'] = '/documents/job-information/'.$fileName2;
 
 
         }
 
         unset($dev['b_image']);
         $dev['b_image'] = '/images/job-background/'.$fileName1;
-        unset($dev['a_information']);
-        $dev['a_information'] = '/documents/job-information/'.$fileName2;
+
         $dev['added_by'] = Auth::user()->username;
         $dev['created_at'] = time();
         $dev['updated_at'] = time();
