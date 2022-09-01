@@ -202,14 +202,14 @@
 					"url": "admin/site-settings/company-profile",
 					"icon": "circle",
 					"permission": 1,
-					"slug": "company-profile"
+					"slug": "company_profile_view"
 				},
 				{
 					"name": "Quality Process",
 					"url": "admin/site-settings/quality-process",
 					"icon": "circle",
 					"permission": 1,
-					"slug": "quality-process"
+					"slug": "quality_process_view"
 				}
 			]
 		},
@@ -235,11 +235,11 @@
 			"slug": "privacy_policy"
 		},
 		{
-			"url": "admin/site-settings/front-page",
+			"url": "admin/site-settings/faq-edit",
 			"name": "FAQ",
 			"icon": "help-circle",
 			"permission": 1,
-			"slug": "faq"
+			"slug": "faq-edit"
 		},
 		{
 			"navheader": "Career",

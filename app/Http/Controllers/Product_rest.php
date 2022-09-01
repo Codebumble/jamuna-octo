@@ -101,7 +101,9 @@ class Product_rest extends Controller
 
 				$link = public_path() . '' . $data[0]->image;
 				$link = str_replace('/', '\\', $link);
-				unlink($link);
+				if (file_exists($link)) {
+					unlink($link);
+				}
 				unset($value['images']);
 
 				$value['image'] = '/images/product-image/' . $fileName2;
@@ -168,7 +170,9 @@ class Product_rest extends Controller
 
 		$link = public_path() . '' . $data[0]->image;
 		$link = str_replace('/', '\\', $link);
-		unlink($link);
+		if (file_exists($link)) {
+			unlink($link);
+		}
 
 		$delete = DB::table('codebumble_product_list')
 			->where('id', $data[0]->id)
@@ -283,28 +287,33 @@ class Product_rest extends Controller
 	public function front_all_product_page()
 	{
 		$data = DB::select('select * from codebumble_product_list');
-		$b=[];
+		$b = [];
 
 		foreach ($data as $key => $value) {
-			$a= [
+			$a = [
 				'imgSrc' => $value->image,
 				'alt' => $value->name,
-				'linkText' => 'View Details'
+				'linkText' => 'View Details',
 			];
 
-			if(json_decode($value->json_data)->type == "Default"){
+			if (json_decode($value->json_data)->type == 'Default') {
+				$data = DB::select(
+					'select * from codebumble_company_list where name=?',
+					[$value->company]
+				);
 
-				$data = DB::select('select * from codebumble_company_list where name=?', [$value->company]);
-
-				$a += ['webLink' => '/companies/'.$data[0]->id.'/'.str_replace(" ", "-", $data[0]->name)];
-
-
+				$a += [
+					'webLink' =>
+						'/companies/' .
+						$data[0]->id .
+						'/' .
+						str_replace(' ', '-', $data[0]->name),
+				];
 			} else {
 				$a += ['webLink' => json_decode($alue->json_data)->custom_url];
 			}
 
-			array_push($b,$a);
-
+			array_push($b, $a);
 		}
 
 		return json_encode($b);
