@@ -13,23 +13,10 @@ export default {
 		return {
 			contents: {
 				header: {
-					title: 'Frequently Asked Question',
-					desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quasi dicta itaque deleniti cum nemo porro quis molestiae unde ipsam modi quia reiciendis velit, animi quidem eos distinctio aut beatae.'
+					title: '',
+					desc: ''
 				},
-				items: [
-					{
-						content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, aliquam dolores, perferendis sint consectetur ipsam amet veniam voluptatibus similique, animi nesciunt fugit. Architecto sit consequatur, asperiores optio quod atque possimus!',
-						title: 'Item 1',
-					},
-					{
-						content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, aliquam dolores, perferendis sint consectetur ipsam amet veniam voluptatibus similique, animi nesciunt fugit. Architecto sit consequatur, asperiores optio quod atque possimus!',
-						title: 'Item 2',
-					},
-					{
-						content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, aliquam dolores, perferendis sint consectetur ipsam amet veniam voluptatibus similique, animi nesciunt fugit. Architecto sit consequatur, asperiores optio quod atque possimus!',
-						title: 'Item 3',
-					},
-				],
+				items: [],
 			},
 		};
 	},
@@ -55,7 +42,20 @@ export default {
 		};
 	},
 	methods: {},
-	created() {},
+	created() {
+		axios
+		.get(window.location.origin + '/frontpage-api/faq-api')
+		.then(response => {
+			const contents = response.data;
+			this.contents.header = {
+				title: contents.header.title,
+				desc: contents.header.desc,
+			}
+			contents.items.forEach(item => {
+				this.contents.items.push(item)
+			})
+		})
+	},
 	mounted() {},
 };
 </script>
