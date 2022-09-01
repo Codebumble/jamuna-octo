@@ -337,4 +337,15 @@ class FrontPage extends Controller
 
 
     }
+
+    public function faq(){
+        $data = DB::select('select value from codebumble_front_page where code_name=?',['faq']);
+        if(isset($data[0])){
+            return $data[0]->value;
+        } else {
+            return null;
+        }
+
+
+    }
 }

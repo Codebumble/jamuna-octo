@@ -100,7 +100,7 @@ class Company_rest extends Controller
 				'image' => $fileName,
 				'created_at' => time(),
 				'updated_at' => time(),
-				'short_details' => $field['short-details']
+				'short_details' => null
 				]
 		);
 
@@ -213,7 +213,6 @@ class Company_rest extends Controller
 				'manpower' => $field['manpower'],
 				'json_data' => $json_encode,
 				'image' => $fileName, 'updated_at' => time(),
-				'short_details' => $field['short-details']
 
 			]
 		);
@@ -556,7 +555,9 @@ class Company_rest extends Controller
             if( $key == $id){
             $unlink_path = public_path().''.$value->src;
             $unlink_path = str_replace("/", "\\", $unlink_path);
-            unlink($unlink_path);
+            if(file_exists($unlink_path)){
+                unlink($unlink_path);
+                }
 
             } else {
                 array_push($b, $value);

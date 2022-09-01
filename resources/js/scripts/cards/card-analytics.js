@@ -616,12 +616,12 @@ $(window).on('load', function () {
     dataLabels: {
       enabled: false
     },
-    series: [58.6, 34.9, 6.5],
+    series: [80, 15],
     legend: { show: false },
-    comparedResult: [2, -3, 8],
-    labels: ['Desktop', 'Mobile', 'Tablet'],
+    comparedResult: [1, 1],
+    labels: ['Desktop', 'Mobile'],
     stroke: { width: 0 },
-    colors: [window.colors.solid.primary, window.colors.solid.warning, window.colors.solid.danger]
+    colors: [window.colors.solid.warning, window.colors.solid.danger]
   };
   sessionChart = new ApexCharts($sessionChart, sessionChartOptions);
   sessionChart.render();
