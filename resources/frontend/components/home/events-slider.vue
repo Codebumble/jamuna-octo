@@ -5,7 +5,7 @@
 				<h2 class="text-2xl lg:text-4xl text-gray-800 font-bold">
 					{{ groupTitle.title }}
 				</h2>
-				<p v-if="groupTitle.descVisibility">
+				<p v-if="groupTitle.descVisibility == true">
 					{{ groupTitle.description }}
 				</p>
 			</div>
@@ -86,9 +86,9 @@
 				.get(window.location.origin + '/frontpage-api/event-header')
 				.then((response) => {
 					this.groupTitle.title = response.data.title;
-					this.groupTitle.descVisibility =
+					this.descVisibility.descVisibility =
 						response.data.descVisibility;
-					this.groupTitle.description = response.data.description;
+					this.description.description = response.data.description;
 				});
 		},
 		setup() {
