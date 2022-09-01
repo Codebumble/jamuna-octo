@@ -1,6 +1,9 @@
 <template>
 	<section class="quality-process pb-28 pt-32">
 		<div class="container">
+			<div class="text-center pb-14">
+				<h2 class="skeleton_bg h-10 mb-4 w-80 mx-auto"></h2>
+			</div>
 			<div class="vision content-box">
 				<h2 class="skeleton_bg h-8 mb-4 w-80"></h2>
 				<p>

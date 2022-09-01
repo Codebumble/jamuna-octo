@@ -1,6 +1,12 @@
 <template>
 	<section class="growthHistory pb-16 pt-32">
 		<div class="container relative">
+			<div class="text-center pb-12">
+				<h2
+					class="font-bold text-2xl lg:text-3xl text-gray-800 underline decoration-2 decoration-solid decoration-gray-800 underline-offset-[1rem]">
+					Growth Stroy
+				</h2>
+			</div>
 			<div class="timeline">
 				<ul>
 					<li

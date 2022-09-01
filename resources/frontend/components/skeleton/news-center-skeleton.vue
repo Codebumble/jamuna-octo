@@ -1,6 +1,9 @@
 <template>
 	<section class="pb-16 pt-32">
 		<div class="container">
+			<div class="text-center pb-14">
+				<h2 class="skeleton_bg h-10 mb-4 w-80 mx-auto"></h2>
+			</div>
 			<div class="grid lg:grid-cols-3 gap-4">
 				<div
 					class="shadow hover:shadow-md transition-all"

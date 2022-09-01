@@ -1,12 +1,11 @@
 <template>
 	<section class="contact pb-8 pt-32">
 		<div class="container pb-8">
-			<div class="flex flex-col items-center">
-				<div class="content w-full mb-6">
-					<h2 class="text-4xl font-bold text-center">
-						{{ contents.title }}
-					</h2>
-				</div>
+			<div class="text-center pb-12">
+				<h2
+					class="font-bold text-2xl lg:text-3xl text-gray-800 underline decoration-2 decoration-solid decoration-gray-800 underline-offset-[1rem]">
+					{{ contents.title }}
+				</h2>
 			</div>
 			<div class="main-content">
 				<span

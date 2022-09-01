@@ -1,11 +1,11 @@
 <template>
 	<section class="contact pb-8 pt-32">
 		<div class="container pb-8">
-			<div class="flex flex-col items-center">
-				<div class="content w-full mb-6">
-					<h2 class="text-4xl font-bold text-center">{{contents.header.title}}</h2>
-					<p class="description">{{contents.header.desc}}</p>
-				</div>
+			<div class="text-center pb-14">
+				<h2
+					class="font-bold text-2xl lg:text-3xl text-gray-800 underline decoration-2 decoration-solid decoration-gray-800 underline-offset-[1rem]">
+					{{contents.header.title}}
+				</h2>
 			</div>
 			<div class="w-full lg:w-[1024px] mx-auto">
 				<Accordion :items="contents.items" />

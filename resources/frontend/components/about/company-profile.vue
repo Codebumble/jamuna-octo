@@ -1,6 +1,12 @@
 <template>
 	<section class="company-profile pb-28 pt-32">
 		<div class="container">
+			<div class="text-center pb-12">
+				<h2
+					class="heading-title">
+					Company Profile
+				</h2>
+			</div>
 			<div class="description">
 				<div v-html="cp[0].descriptions"></div>
 			</div>
