@@ -1,11 +1,11 @@
 <template>
 	<section class="contact pb-8 pt-32">
 		<div class="container pb-8">
-			<div class="flex flex-col items-center">
-				<div class="content w-full mb-6">
-					<h2 class="text-4xl font-bold text-center">{{ contents.header.title }}</h2>
-					<p class="description" v-if="contents.header.desc">{{contents.header.desc}}</p>
-				</div>
+			<div class="text-center pb-12">
+				<h2
+					class="font-bold text-2xl lg:text-3xl text-gray-800 underline decoration-2 decoration-solid decoration-gray-800 underline-offset-[1rem]">
+					{{contents.header.title}}
+				</h2>
 			</div>
 			<div class="main-content">
 				<span class="date font-bold text-xs inline-block mb-4 text-center underline decoration-wavy decoration-gray-800 underline-offset-4">Last Update: {{contents.time}}</span>

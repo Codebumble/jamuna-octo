@@ -1,6 +1,9 @@
 <template>
 	<section class="directors pb-28 pt-32">
 		<div class="container">
+			<div class="text-center pb-12">
+				<h2 class="skeleton_bg h-10 mb-4 w-80 mx-auto"></h2>
+			</div>
 			<div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 pb-8">
 				<div
 					class="member"

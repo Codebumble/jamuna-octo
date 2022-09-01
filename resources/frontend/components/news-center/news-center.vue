@@ -1,6 +1,12 @@
 <template>
 	<section class="pb-16 pt-32">
 		<div class="container">
+			<div class="text-center pb-12">
+				<h2
+					class="font-bold text-2xl lg:text-3xl text-gray-800 underline decoration-2 decoration-solid decoration-gray-800 underline-offset-[1rem]">
+					News Center
+				</h2>
+			</div>
 			<div class="grid lg:grid-cols-3 gap-4">
 				<div
 					class="shadow hover:shadow-md transition-all"

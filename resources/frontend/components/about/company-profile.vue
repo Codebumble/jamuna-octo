@@ -1,6 +1,12 @@
 <template>
 	<section class="company-profile pb-28 pt-32">
 		<div class="container">
+			<div class="text-center pb-12">
+				<h2
+					class="font-bold text-2xl lg:text-3xl text-gray-800 underline decoration-2 decoration-solid decoration-gray-800 underline-offset-[1rem]">
+					Company Profile
+				</h2>
+			</div>
 			<div class="description">
 				<div v-html="cp[0].descriptions"></div>
 			</div>
@@ -54,6 +60,7 @@
 				)
 				.then((response) => {
 					this.cp = response.data;
+					console.log(response);
 				});
 		},
 	};

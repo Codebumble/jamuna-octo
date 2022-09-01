@@ -1,6 +1,9 @@
 <template>
 	<section class="growthHistory pb-16 pt-32">
 		<div class="container relative">
+			<div class="text-center pb-14">
+				<h2 class="skeleton_bg h-10 mb-4 w-80 mx-auto"></h2>
+			</div>
 			<div class="timeline">
 				<ul>
 					<li
