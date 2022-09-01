@@ -86,9 +86,9 @@
 				.get(window.location.origin + '/frontpage-api/event-header')
 				.then((response) => {
 					this.groupTitle.title = response.data.title;
-					this.descVisibility.descVisibility =
+					this.groupTitle.descVisibility =
 						response.data.descVisibility;
-					this.description.description = response.data.description;
+					this.groupTitle.description = response.data.description;
 				});
 		},
 		setup() {
