@@ -148,7 +148,9 @@ class event_rest extends Controller
 
             $unlink_path = public_path().''.$dbcheck[0]->image;
             $unlink_path = str_replace("/", "\\", $unlink_path);
-            unlink($unlink_path);
+            if(file_exists($unlink_path)){
+                unlink($unlink_path);
+                }
         }
 
         $new['updated_at'] = time();

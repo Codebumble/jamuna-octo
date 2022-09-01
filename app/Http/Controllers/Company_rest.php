@@ -168,7 +168,10 @@ class Company_rest extends Controller
             ]);
 
             $unlink_path= public_path().'/company-images/'.$a->image;
-            unlink($unlink_path);
+
+            if(file_exists($unlink_path)){
+                unlink($unlink_path);
+                }
 
             $user = Auth::user()->username;
             $file = $request->file('image') ;
