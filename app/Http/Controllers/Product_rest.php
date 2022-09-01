@@ -101,7 +101,9 @@ class Product_rest extends Controller
 
 				$link = public_path() . '' . $data[0]->image;
 				$link = str_replace('/', '\\', $link);
-				unlink($link);
+				if (file_exists($link)) {
+					unlink($link);
+				}
 				unset($value['images']);
 
 				$value['image'] = '/images/product-image/' . $fileName2;
