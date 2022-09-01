@@ -1,29 +1,48 @@
 <template>
-	<eventDetails :data="eventDetail" />
+	<Suspense>
+		<template #default>
+			<eventDetails :data="eventDetail" />
+		</template>
+		<template #fallback>
+			<eventDetailsSkeleton />
+		</template>
+	</Suspense>
 </template>
 
 <script>
-	import eventDetails from '../components/global/event-details';
-	export default {
-		components: {
-			eventDetails,
-		},
-		data() {
-			return {
-				eventDetail: {
-					eventTitle: '',
-					by: '',
-					location: '',
-					category: '',
-					time: '',
-					detail: '',
-					image: ''
-				},
-			};
-		},
-		created() {
-			axios
-			.get(window.location.origin + '/frontpage-api/event-details/'+this.$route.params.id)
+import { defineAsyncComponent } from 'vue';
+const eventDetails = defineAsyncComponent({
+	loader: () => import('../components/global/event-details'),
+	timeout: 2000,
+});
+// Skeleton
+import eventDetailsSkeleton from '../components/skeleton/event-details-skeleton.vue';
+
+export default {
+	components: {
+		eventDetails,
+		eventDetailsSkeleton
+	},
+	data() {
+		return {
+			eventDetail: {
+				eventTitle: '',
+				by: '',
+				location: '',
+				category: '',
+				time: '',
+				detail: '',
+				image: '',
+			},
+		};
+	},
+	created() {
+		axios
+			.get(
+				window.location.origin +
+					'/frontpage-api/event-details/' +
+					this.$route.params.id
+			)
 			.then((response) => {
 				this.eventDetail = {
 					eventTitle: response.data.name,
@@ -32,31 +51,31 @@
 					category: response.data.category,
 					time: response.data.time_data,
 					detail: response.data.detail,
-					image: response.data.image
-				}
+					image: response.data.image,
+				};
 			})
-			.catch(()=>{
-				this.$router.push({ name: "not-found" })
-			})
-		},
-		metaInfo() {
-			return {
-				title: this.eventDetail.eventTitle,
-				// title: this.FounderDetails.title,
+			.catch(() => {
+				this.$router.push({ name: 'not-found' });
+			});
+	},
+	metaInfo() {
+		return {
+			title: this.eventDetail.eventTitle,
+			// title: this.FounderDetails.title,
+			description: this.eventDetail.detail.substring(0, 150),
+			charset: 'utf-8',
+			htmlAttrs: {
+				lang: 'en',
+			},
+			og: {
 				description: this.eventDetail.detail.substring(0, 150),
-				charset: 'utf-8',
-				htmlAttrs: {
-					lang: 'en',
-				},
-				og: {
-					description: this.eventDetail.detail.substring(0, 150),
-					image: '',
-				},
-				twitter: {
-					description: this.eventDetail.detail.substring(0, 150),
-					image: '',
-				},
-			};
-		},
-	};
+				image: '',
+			},
+			twitter: {
+				description: this.eventDetail.detail.substring(0, 150),
+				image: '',
+			},
+		};
+	},
+};
 </script>

@@ -3,7 +3,7 @@
 		<div class="container pb-8">
 			<div class="flex flex-col items-center">
 				<div class="content w-full mb-6">
-					<h2 class="heading">{{contents.header.title}}</h2>
+					<h2 class="text-4xl font-bold text-center">{{contents.header.title}}</h2>
 					<p class="description">{{contents.header.desc}}</p>
 				</div>
 			</div>

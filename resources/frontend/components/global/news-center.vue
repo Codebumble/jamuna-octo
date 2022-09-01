@@ -78,7 +78,6 @@
 		data() {
 			return {
 				distMemberVisible: 4,
-				subDistMemberVisible: 4,
 				step: 4,
 			};
 		},
@@ -88,12 +87,6 @@
 		computed: {
 			visibleDistMember() {
 				return this.data.distCorres.slice(0, this.distMemberVisible);
-			},
-			visibleSubDistMember() {
-				return this.data.subDistCorres.slice(
-					0,
-					this.subDistMemberVisible
-				);
 			},
 		},
 	};
