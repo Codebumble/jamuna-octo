@@ -25,7 +25,7 @@
 								<td>{{ data.establishDate }}</td>
 							</tr>
 							<tr v-if="data.ceo">
-								<th>Name of The CEO</th>
+								<th>Director</th>
 								<td>{{ data.ceo }}</td>
 							</tr>
 							<tr v-if="data.address.officeName">
@@ -54,7 +54,7 @@
 								</td>
 							</tr>
 							<tr v-if="data.mail && data.emailName">
-								<th>Support Email</th>
+								<th>Email</th>
 								<td>
 									<a
 										:href="data.mail"
@@ -64,7 +64,7 @@
 								</td>
 							</tr>
 							<tr v-if="data.mobile">
-								<th>Support Phone</th>
+								<th>Phone</th>
 								<td>
 									<a
 										:href="'tel:' + data.mobile"
@@ -77,7 +77,7 @@
 								<th>Website</th>
 								<td>
 									<a
-										:href="data.website"
+										:href="'https://' + data.website"
 										class="underline decoration-dotted hover:decoration-solid decoration-slate-400 hover:decoration-red-600 underline-offset-4 hover:text-red-600 transition-all"
 										>{{ data.businessName }}</a
 									>
@@ -95,27 +95,48 @@
 								<th>Manpower</th>
 								<td>{{ data.manpower }}</td>
 							</tr>
-							<tr class="items-center">
+							<tr
+								class="items-center"
+								v-if="
+									data.social.facebook ||
+									data.social.instagram ||
+									data.social.linkedin
+								">
 								<th>Follow</th>
 								<td>
 									<ul class="flex">
-										<li class="">
+										<li
+											class=""
+											v-if="data.social.facebook">
 											<a
-												:href="data.social.facebook"
+												:href="
+													'https://' +
+													data.social.facebook
+												"
 												class="hover:text-blue-600 transition-all"
 												><i class="fab fa-facebook"></i
 											></a>
 										</li>
-										<li class="">
+										<li
+											class=""
+											v-if="data.social.instagram">
 											<a
-												:href="data.social.instagram"
+												:href="
+													'https://' +
+													data.social.instagram
+												"
 												class="hover:text-red-600 transition-all"
 												><i class="fab fa-instagram"></i
 											></a>
 										</li>
-										<li class="">
+										<li
+											class=""
+											v-if="data.social.linkedin">
 											<a
-												:href="data.social.linkedin"
+												:href="
+													'https://' +
+													data.social.linkedin
+												"
 												class="hover:text-[#0077b5] transition-all"
 												><i class="fab fa-linkedin"></i
 											></a>
@@ -241,7 +262,9 @@
 						</div>
 					</div> -->
 
-					<div class="attachment">
+					<div
+						class="attachment"
+						v-if="data.docs">
 						<h2
 							class="font-bold text-lg underline decoration-wavy decoration-gray-800 text-gray-800 underline-offset-4 my-4">
 							Attachment

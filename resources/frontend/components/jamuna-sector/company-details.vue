@@ -94,26 +94,26 @@
 		setup() {},
 		metaInfo() {
 			return {
-				description: this.company.textDetails.shortDetails.substring(
-					0,
-					150
-				),
-				charset: 'utf-8',
-				htmlAttrs: {
-					lang: 'en',
-				},
-				og: {
-					title: this.company.businessName,
-					description:
-						this.company.textDetails.shortDetails.substring(0, 150),
-					image: this.company.businessLogo,
-				},
-				twitter: {
-					title: this.company.businessName,
-					description:
-						this.company.textDetails.shortDetails.substring(0, 150),
-					image: this.company.businessLogo,
-				},
+				// description: this.company.textDetails.shortDetails.substring(
+				// 	0,
+				// 	150
+				// ),
+				// charset: 'utf-8',
+				// htmlAttrs: {
+				// 	lang: 'en',
+				// },
+				// og: {
+				// 	title: this.company.businessName,
+				// 	description:
+				// 		this.company.textDetails.shortDetails.substring(0, 150),
+				// 	image: this.company.businessLogo,
+				// },
+				// twitter: {
+				// 	title: this.company.businessName,
+				// 	description:
+				// 		this.company.textDetails.shortDetails.substring(0, 150),
+				// 	image: this.company.businessLogo,
+				// },
 			};
 		},
 		methods: {
@@ -126,7 +126,8 @@
 								this.$route.params.id
 						)
 						.then((response) => {
-							document.title = response.data.name
+							document.title =
+								response.data.name + '| jamuna Group';
 							var jsn = JSON.parse(response.data.json_data);
 							this.company.businessLogo = response.data.image;
 							this.company.businessName = response.data.name;
@@ -148,6 +149,8 @@
 							this.company.textDetails.shortDetails =
 								response.data.short_details;
 							this.company.social.facebook = jsn.facebook;
+							this.company.social.instagram = jsn.instagram;
+							this.company.social.linkedin = jsn.linkedin;
 						});
 				}
 				// Lightbox api

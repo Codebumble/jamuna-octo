@@ -13,23 +13,23 @@
 					<ul class="flex">
 						<li class="mr-2 text-gray-600 hover:text-blue-600">
 							<a
-								:href="footerSocial.facebook"
+								:href="'https://' + footerSocial.facebook"
 								class="">
 								<i class="fab fa-facebook text-3xl"></i>
 							</a>
 						</li>
 						<li class="mx-2 text-gray-600 hover:text-red-600">
-							<a :href="footerSocial.instagram">
+							<a :href="'https://' + footerSocial.instagram">
 								<i class="fab fa-instagram text-3xl"></i>
 							</a>
 						</li>
 						<li class="mx-2 text-gray-600 hover:text-red-600">
-							<a :href="footerSocial.youtube"
+							<a :href="'https://' + footerSocial.youtube"
 								><i class="fab fa-youtube text-3xl"></i
 							></a>
 						</li>
 						<li class="ml-2 text-gray-600 hover:text-[#0077b5]">
-							<a :href="footerSocial.linkedin">
+							<a :href="'https://' + footerSocial.linkedin">
 								<i class="fab fa-linkedin text-3xl"></i>
 							</a>
 						</li>

@@ -61,7 +61,7 @@
                             </div>
 
                             <div class="col-12 col-md-6 mb-1">
-                                <label class="form-label" for="support_email">Support Email</label>
+                                <label class="form-label" for="support_email">Email</label>
                                 <input id="support_email" type="email" name="support_email"
                                     value="{{ json_decode($company->json_data)->support_email }}" class="form-control"
                                     placeholder="support@codebumble.net" />
@@ -111,7 +111,7 @@
                             </div>
 
                             <div class="col-12 col-md-6 mb-1">
-                                <label class="form-label" for="support_phone_number">Support Phone Number</label>
+                                <label class="form-label" for="support_phone_number">Phone Number</label>
                                 <input id="support_phone_number" type="text" class="form-control"
                                     value="{{ json_decode($company->json_data)->support_phone_number }}"
                                     name="support_phone_number" />
@@ -127,15 +127,9 @@
                                 <input id="dfile" class="form-control" type="file" name="dfile" />
                             </div>
 
-                            {{-- <div class="mb-1 col-12 col-md-6" x-data="{ count: 0 }" x-init="count = $refs.countme.value.length">
-						<label class="form-label" for="short-details">Short Details (It will be placed top of the page after the page title.)</label>
-						<textarea rows="1" class="form-control" name="short-details" id="short-details" maxlength="200" x-ref="countme" x-on:keyup="count = $refs.countme.value.length" >{{ $company->short_details }}</textarea>
-						<span x-html="count"></span> / <span x-html="$refs.countme.maxLength"></span>
-						</div> --}}
-
 
                             <div class="mb-1">
-                                <label class="d-block form-label" for="validationBioBootstrap">Company Discription</label>
+                                <label class="d-block form-label" for="validationBioBootstrap">About this Business</label>
                                 <textarea id="validationBioBootstrap" class="form-control" name="description" rows="3">{{ $company->description }}</textarea>
                             </div>
 
@@ -158,30 +152,34 @@
                             <div class="col-12 col-md-6 mb-1">
                                 <label class="form-label" for="website">Website</label>
                                 <input id="website" type="text" class="form-control"
-                                    value="{{ json_decode($company->json_data)->website }}" name="website" />
+                                    value="{{ json_decode($company->json_data)->website }}" name="website"
+                                    placeholder="codebumble.net" />
                             </div>
 
                             <div class="col-12 col-md-6 mb-1">
                                 <label class="form-label" for="facebook">Facebook</label>
                                 <input id="facebook" type="text" class="form-control"
-                                    value="{{ json_decode($company->json_data)->facebook }}" name="facebook" />
+                                    value="{{ json_decode($company->json_data)->facebook }}" name="facebook"
+                                    placeholder="facebook.com/codebumble" />
                             </div>
 
                             <div class="col-12 col-md-6 mb-1">
                                 <label class="form-label" for="instagram">Instagram</label>
                                 <input id="instagram" type="text" class="form-control" name="instagram"
-                                    value="{{ json_decode($company->json_data)->instagram }}" />
+                                    value="{{ json_decode($company->json_data)->instagram }}"
+                                    placeholder="instagram.com/codebumble" />
                             </div>
 
                             <div class="col-12 col-md-6 mb-1">
                                 <label class="form-label" for="linkedin">Linkedin</label>
                                 <input id="linkedin" type="text" class="form-control" name="linkedin"
-                                    value="{{ json_decode($company->json_data)->linkedin }}" />
+                                    value="{{ json_decode($company->json_data)->linkedin }}"
+                                    placeholder="linkedin.com/company/codebumble" />
                             </div>
 
 
                             <div class="col-12 col-md-6 mb-1">
-                                <label class="form-label" for="ceo_username">CEO's Username</label>
+                                <label class="form-label" for="ceo_username">Director's Username</label>
                                 @php
                                     if (!isset(json_decode($company->json_data)->ceo_username)) {
                                         $json_data_ceo_username = 'N/A';

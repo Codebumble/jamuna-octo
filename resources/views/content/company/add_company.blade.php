@@ -52,7 +52,7 @@
                                 <input id="name" type="text" class="form-control" name="name" placeholder="Name"
                                     aria-label="Name" aria-describedby="name" required />
                                 <div class="valid-feedback">Looks good!</div>
-                                <div class="invalid-feedback">Please enter your name.</div>
+                                <div class="invalid-feedback">Please enter company name.</div>
                             </div>
                             <div class="col-12 col-md-6 mb-1">
                                 <label class="form-label" for="section">Section</label>
@@ -73,11 +73,11 @@
                             </div>
 
                             <div class="col-12 col-md-6 mb-1">
-                                <label class="form-label" for="ceo_of_the_company">Name of The CEO</label>
+                                <label class="form-label" for="ceo_of_the_company">Director Name</label>
                                 <input id="ceo_of_the_company" type="text" class="form-control"
                                     name="ceo_of_the_company" />
                                 <div class="valid-feedback">Looks good!</div>
-                                <div class="invalid-feedback">Please enter a valid CEO Name.</div>
+                                <div class="invalid-feedback">Please enter a valid Director Name.</div>
                             </div>
 
                             <div class="col-12 col-md-6 mb-1">
@@ -120,12 +120,12 @@
                             </div>
 
                             <div class="col-12 col-md-6 mb-1">
-                                <label for="dfile" class="form-label">Document</label>
+                                <label for="dfile" class="form-label">Document/Attachment</label>
                                 <input id="dfile" class="form-control" type="file" name="dfile" />
                             </div>
 
                             <div class="mb-1">
-                                <label class="d-block form-label" for="validationBioBootstrap">Company Description</label>
+                                <label class="d-block form-label" for="validationBioBootstrap">About this Business</label>
                                 <textarea id="validationBioBootstrap" class="form-control" name="description" rows="3" required></textarea>
                             </div>
 
@@ -145,26 +145,30 @@
 
                             <div class="col-12 col-md-6 mb-1">
                                 <label class="form-label" for="website">Website</label>
-                                <input id="website" type="text" class="form-control" name="website" />
+                                <input id="website" type="text" class="form-control" name="website"
+                                    placeholder="codebumble.net" />
                             </div>
 
                             <div class="col-12 col-md-6 mb-1">
                                 <label class="form-label" for="facebook">Facebook</label>
-                                <input id="facebook" type="text" class="form-control" name="facebook" />
+                                <input id="facebook" type="text" class="form-control" name="facebook"
+                                    placeholder="facebook.com/codebumble" />
                             </div>
 
                             <div class="col-12 col-md-6 mb-1">
                                 <label class="form-label" for="instagram">Instagram</label>
-                                <input id="instagram" type="text" class="form-control" name="instagram" />
+                                <input id="instagram" type="text" class="form-control" name="instagram"
+                                    placeholder="instagram.com/codebumble" />
                             </div>
 
                             <div class="col-12 col-md-6 mb-1">
                                 <label class="form-label" for="linkedin">Linkedin</label>
-                                <input id="linkedin" type="text" class="form-control" name="linkedin" />
+                                <input id="linkedin" type="text" class="form-control" name="linkedin"
+                                    placeholder="linkedin.com/company/codebumble" />
                             </div>
 
                             <div class="col-12 col-md-6 mb-1">
-                                <label class="form-label" for="ceo_username">CEO's Username</label>
+                                <label class="form-label" for="ceo_username">Director's Username</label>
                                 <input id="ceo_username" type="text" class="form-control" name="ceo_username" />
                             </div>
 
