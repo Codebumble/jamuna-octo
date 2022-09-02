@@ -48,7 +48,7 @@
 					:key="key">
 					<div class="thumb">
 						<img
-							:src="member.imgSrc"
+							:src="'/profile-images/' + member.imgSrc"
 							:alt="member.alt"
 							class="image max-h-[288px] min-h-[288px]" />
 					</div>
