@@ -85,8 +85,7 @@
 
 		metaInfo() {
 			return {
-				title: this.meta.title,
-				// title: this.FounderDetails.title,
+				title: 'Home | Jamuna Group',
 				description: this.meta.description,
 
 				og: {

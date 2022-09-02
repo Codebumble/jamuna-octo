@@ -18,12 +18,6 @@
 				},
 			};
 		},
-		setup() {},
-		metaInfo() {
-			return {
-				title: this.contents.title,
-			};
-		},
 		mounted() {
 			axios
 				.get(window.location.origin + '/frontpage-api/tac-data')

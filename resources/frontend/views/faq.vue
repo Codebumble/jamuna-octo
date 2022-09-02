@@ -20,28 +20,6 @@ export default {
 			},
 		};
 	},
-	setup() {},
-	metaInfo() {
-		return {
-			title: 'Frequently Asked Question | Jamuna Group',
-			description: '',
-			charset: 'utf-8',
-			htmlAttrs: {
-				lang: 'en',
-			},
-			og: {
-				title: '',
-				description: '',
-				image: '',
-			},
-			twitter: {
-				title: '',
-				description: '',
-				image: '',
-			},
-		};
-	},
-	methods: {},
 	created() {
 		axios
 		.get(window.location.origin + '/frontpage-api/faq-api')
@@ -56,6 +34,5 @@ export default {
 			})
 		})
 	},
-	mounted() {},
 };
 </script>

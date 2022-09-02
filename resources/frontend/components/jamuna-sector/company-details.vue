@@ -94,8 +94,6 @@
 		setup() {},
 		metaInfo() {
 			return {
-				title: this.company.businessName,
-				// title: this.FounderDetails.title,
 				description: this.company.textDetails.shortDetails.substring(
 					0,
 					150
@@ -128,6 +126,7 @@
 								this.$route.params.id
 						)
 						.then((response) => {
+							document.title = response.data.name
 							var jsn = JSON.parse(response.data.json_data);
 							this.company.businessLogo = response.data.image;
 							this.company.businessName = response.data.name;

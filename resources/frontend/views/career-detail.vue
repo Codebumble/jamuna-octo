@@ -1130,6 +1130,7 @@ export default {
 				jobInfo.value = response.data.jobInfo;
 				companyInfo.value = response.data.companyInfo;
 				companyInfo.value.social = response.data.companyInfo.social;
+				document.title = response.data.jobheading.jobtitle
 			})
 			.catch(() => {
 				this.$router.push({ name: 'not-found' });

@@ -20,11 +20,6 @@
 			};
 		},
 		setup() {},
-		metaInfo() {
-			return {
-				title: this.contents.title,
-			};
-		},
 		methods: {},
 		created() {},
 		mounted() {},

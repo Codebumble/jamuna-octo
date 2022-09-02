@@ -44,6 +44,7 @@ export default {
 					this.$route.params.id
 			)
 			.then((response) => {
+				document.title = response.data.name
 				this.eventDetail = {
 					eventTitle: response.data.name,
 					by: 'Jamuna Group',
@@ -60,8 +61,6 @@ export default {
 	},
 	metaInfo() {
 		return {
-			title: this.eventDetail.eventTitle,
-			// title: this.FounderDetails.title,
 			description: this.eventDetail.detail.substring(0, 150),
 			charset: 'utf-8',
 			htmlAttrs: {
