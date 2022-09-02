@@ -20,7 +20,13 @@
 		},
 		setup() {},
 		methods: {},
-		created() {},
+		created() {
+			axios
+				.get(window.location.origin + '/frontpage-api/privacy-data')
+				.then(response => {
+					this.contents = response.data
+				})
+		},
 		mounted() {
 			document.title = 'Privacy Policy | Jamuna Group'
 		},
