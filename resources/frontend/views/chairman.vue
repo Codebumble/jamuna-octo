@@ -22,5 +22,8 @@ export default {
 		chairman,
 		chairmanSkeleton,
 	},
+	mounted() {
+		document.title = 'Chairman | Jamuna Group'
+	},
 };
 </script>

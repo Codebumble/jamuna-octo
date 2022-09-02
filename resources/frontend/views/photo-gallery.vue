@@ -23,5 +23,8 @@ export default {
 		photoGallery,
 		photoGallerySkeleton,
 	},
+	mounted() {
+		document.title = 'Photo Gallery | Jamuna Group'
+	},
 };
 </script>

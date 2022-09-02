@@ -8,5 +8,9 @@
 		components: {
 			contact,
 		},
+		mounted() {
+			document.title = 'Contact | Jamuna Group'
+		},
+
 	};
 </script>

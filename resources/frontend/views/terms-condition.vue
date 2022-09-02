@@ -19,6 +19,7 @@
 			};
 		},
 		mounted() {
+			document.title = 'Terms & Conditions | Jamuna Group'
 			axios
 				.get(window.location.origin + '/frontpage-api/tac-data')
 				.then((response) => {

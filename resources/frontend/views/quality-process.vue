@@ -21,6 +21,9 @@ import qualityProcessSkeleton from '../components/skeleton/quality-process-skele
 		components: {
 			qualityProcess,
 			qualityProcessSkeleton
-		}
+		},
+		mounted() {
+			document.title = 'Quality Process | Jamuna Group'
+		},
 	};
 </script>

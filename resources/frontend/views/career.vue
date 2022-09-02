@@ -7,6 +7,9 @@
 	export default {
 		components: {
 			joblist,
-		}
+		},
+		mounted() {
+			document.title = 'Career | Jamuna Group'
+		},
 	};
 </script>

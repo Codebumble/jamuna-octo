@@ -484,6 +484,8 @@ export default {
 	data() {
 		return {};
 	},
-	mounted() {},
+	mounted() {
+		document.title = 'About | Jamuna Group'
+	},
 };
 </script>

@@ -9,5 +9,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+	mounted() {
+		document.title = '404 Not Found | Jamuna Group'
+	},
+};
 </script>

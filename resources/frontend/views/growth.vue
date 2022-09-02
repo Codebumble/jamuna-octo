@@ -23,5 +23,8 @@ export default {
 		growthHistory,
 		growthHistorySkeleton,
 	},
+	mounted() {
+		document.title = 'Growth Story | Jamuna Group'
+	},
 };
 </script>

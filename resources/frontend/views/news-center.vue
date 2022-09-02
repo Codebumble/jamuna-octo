@@ -23,5 +23,8 @@ import newsCenterSkeleton from '../components/skeleton/directors-skeleton.vue';
 			newsCenter,
 			newsCenterSkeleton
 		},
+		mounted() {
+			document.title = 'News Center | Jamuna Group'
+		},
 	};
 </script>

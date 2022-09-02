@@ -26,6 +26,9 @@
 		data() {
 			return {};
 		},
+		mounted() {
+			document.title = 'Founder | Jamuna Group'
+		},
 
 	};
 </script>

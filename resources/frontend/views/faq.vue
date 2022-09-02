@@ -34,5 +34,8 @@ export default {
 			})
 		})
 	},
+	mounted() {
+		document.title = 'FAQ | Jamuna Group'
+	},
 };
 </script>

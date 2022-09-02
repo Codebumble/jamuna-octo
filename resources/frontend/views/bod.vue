@@ -23,5 +23,8 @@ export default {
 		directors,
 		directorsSkeleton,
 	},
+	mounted() {
+		document.title = 'Board Of Directors | Jamuna Group'
+	},
 };
 </script>

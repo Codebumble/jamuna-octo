@@ -21,5 +21,8 @@ export default {
 		companyProfile,
 		companyProfileSkeleton,
 	},
+	mounted() {
+		document.title = 'Company Profile | Jamuna Group'
+	},
 };
 </script>
