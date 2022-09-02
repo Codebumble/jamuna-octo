@@ -17,6 +17,7 @@
 								h-350
 								w-full
 								lg:w-[295px]
+								2xl:w-[359px]
 								object-cover object-center
 							" />
 						<div class="social">
@@ -127,6 +128,7 @@
 								h-350
 								w-full
 								lg:w-[295px]
+								2xl:w-[359px]
 								object-cover object-center
 							" />
 						<div class="social">
@@ -237,6 +239,7 @@
 								h-350
 								w-full
 								lg:w-[295px]
+								2xl:w-[359px]
 								object-cover object-center
 							" />
 						<div class="social">
@@ -347,6 +350,7 @@
 								h-350
 								w-full
 								lg:w-[295px]
+								2xl:w-[359px]
 								object-cover object-center
 							" />
 						<div class="social">
