@@ -41,6 +41,7 @@
 					emailName: '',
 					mobile: '',
 					website: '',
+					dfile: '',
 					products: '',
 					capacity: '',
 					manpower: '',
@@ -128,8 +129,7 @@
 						)
 						.then((response) => {
 							var jsn = JSON.parse(response.data.json_data);
-							this.company.businessLogo =
-								'/company-images/' + response.data.image;
+							this.company.businessLogo = response.data.image;
 							this.company.businessName = response.data.name;
 							this.company.establishDate =
 								response.data.establish_date;
@@ -139,6 +139,7 @@
 							this.company.emailName = jsn.support_email;
 							this.company.mobile = jsn.support_phone_number;
 							this.company.website = jsn.website;
+							this.company.docs = jsn.dfile;
 							this.company.products = response.data.products;
 							this.company.capacity =
 								response.data.production_cap;

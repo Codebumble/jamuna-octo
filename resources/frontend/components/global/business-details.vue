@@ -6,7 +6,7 @@
 					<div
 						class="border border-slate-100 p-8 w-full shadow-lg rounded-md overflow-hidden">
 						<img
-							:src="data.businessLogo"
+							:src="'/company-images/' + data.businessLogo"
 							:alt="data.businessName"
 							class="w-full max-w-[338px] max-h-[156px] mx-auto"
 							:class="
@@ -150,7 +150,7 @@
 					<div
 						v-if="data.textDetails"
 						v-html="data.textDetails.details"></div>
-					<div v-if="$route.name == 'jdgu'">
+					<!-- <div v-if="$route.name == 'jdgu'">
 						<h3 class="text-lg text-gray-800 font-bold underline">
 							List of Products
 						</h3>
@@ -239,6 +239,19 @@
 								</div>
 							</div>
 						</div>
+					</div> -->
+
+					<div class="attachment">
+						<h2
+							class="font-bold text-lg underline decoration-wavy decoration-gray-800 text-gray-800 underline-offset-4 my-4">
+							Attachment
+						</h2>
+						<a
+							:href="'/documents/company-documents/' + data.docs"
+							class="underline decoration-dotted hover:decoration-solid decoration-slate-400 hover:decoration-red-600 underline-offset-4 hover:text-red-600 transition-all"
+							>Download this Attachment for more details about
+							this business</a
+						>
 					</div>
 					<div class="company-gallery pt-8">
 						<div
