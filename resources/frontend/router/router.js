@@ -186,7 +186,6 @@ router.beforeEach((to, from, next) => {
 		(el) => el.parentNode.removeChild(el)
 	);
 
-	if (!nearestWithMeta) return next();
 
 	nearestWithMeta.meta.metaTags
 		.map((tagDef) => {
@@ -205,7 +204,7 @@ router.beforeEach((to, from, next) => {
 	document.querySelector("nav").classList.remove("active");
 	document.querySelector("button.hamburger").classList.remove("is-active");
 	document.body.style.overflowY = "scroll";
-	next();
+	if (!nearestWithMeta) return next();
 });
 
 export default router;
