@@ -10,7 +10,7 @@
 						<img
 							:src="item.logoSrc"
 							:alt="item.alt"
-							class="w-32 lg:w-60" />
+							class="w-32 lg:w-32" />
 					</router-link>
 					<!-- logo -->
 					<div class="lg:hidden">

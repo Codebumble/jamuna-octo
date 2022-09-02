@@ -67,7 +67,7 @@
 					"name": "Meta Settings",
 					"icon": "circle",
 					"permission": 1,
-					"slug": "meta-settings"
+					"slug": "meta_settings_view"
 				}
 			]
 		},
@@ -221,21 +221,21 @@
 			"slug": "photo_gallery_view"
 		},
 		{
-			"url": "admin/site-settings/front-page",
+			"url": "admin/site-settings/tac",
 			"name": "Terms and Conditions",
 			"icon": "help-circle",
 			"permission": 1,
-			"slug": "terms_and_conditions"
+			"slug": "tac_view"
 		},
 		{
-			"url": "admin/site-settings/front-page",
+			"url": "admin/site-settings/privacy",
 			"name": "Privacy Policy",
 			"icon": "help-circle",
 			"permission": 1,
-			"slug": "privacy_policy"
+			"slug": "privacy_view"
 		},
 		{
-			"url": "admin/site-settings/faq-edit",
+			"url": "admin/faq-edit",
 			"name": "FAQ",
 			"icon": "help-circle",
 			"permission": 1,

@@ -7,7 +7,7 @@
 					<img
 						:src="footerTop.logo"
 						:alt="footerTop.alt"
-						class="w-80 hidden lg:block" />
+						class="w-32 hidden lg:block" />
 				</div>
 				<div class="flex">
 					<ul class="flex">
@@ -43,21 +43,27 @@
 						<li
 							v-for="(link, key) in linksCol1"
 							:key="key">
-							<router-link :to="link.link">{{ link.linkText }}</router-link>
+							<router-link :to="link.link">{{
+								link.linkText
+							}}</router-link>
 						</li>
 					</ul>
 					<ul class="flex flex-col basis-2/4 lg:basis-2/6">
 						<li
 							v-for="(link, key) in linksCol2"
 							:key="key">
-							<router-link :to="link.link">{{ link.linkText }}</router-link>
+							<router-link :to="link.link">{{
+								link.linkText
+							}}</router-link>
 						</li>
 					</ul>
 					<ul class="flex flex-col basis-2/4 lg:basis-2/6">
 						<li
 							v-for="(link, key) in linksCol3"
 							:key="key">
-							<router-link :to="link.link">{{ link.linkText }}</router-link>
+							<router-link :to="link.link">{{
+								link.linkText
+							}}</router-link>
 						</li>
 					</ul>
 				</div>

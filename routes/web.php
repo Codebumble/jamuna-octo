@@ -42,7 +42,7 @@ use App\Http\Controllers\FrontendController;
 // Main Page Route
 Route::get('{any}', [FrontendController::class, 'home'])->where(
 	'any',
-	'/|founder|chairman|board-of-directors|company-profile|jamuna-tv|the-daily-jugantor|growth-story|quality-process|future-expansion|contact|photo-gallery|career|news-center|event-details|nurul-islam-foundation|'
+	'/|founder|chairman|board-of-directors|company-profile|jamuna-tv|the-daily-jugantor|growth-story|quality-process|future-expansion|contact|photo-gallery|career|news-center|event-details|nurul-islam-foundation|about|tou|privacy-policy|'
 );
 
 Route::get('/career-details/{id}', [FrontendController::class, 'home'])->name(
@@ -56,6 +56,11 @@ Route::get('/companies/{id}/{name}', [FrontendController::class, 'home'])->name(
 Route::get('/event-details/{id}', [FrontendController::class, 'home'])->name(
 	'event-details'
 );
+
+Route::get('/media-center/{id}/{name}', [
+	FrontendController::class,
+	'home',
+])->name('media-center');
 
 /* Route Dashboards */
 Route::group(['prefix' => 'dashboard'], function () {
@@ -80,14 +85,9 @@ Route::group(['prefix' => 'codebumble'], function () {
 	);
 
 	Route::group(['middleware' => 'auth:sanctum'], function () {
-
-		Route::post('faq-edit-api', [
-			siteGeneral::class,
-			'faq_edit_api',
-		])->name('faq-edit-api');
-
-
-
+		Route::post('faq-edit-api', [siteGeneral::class, 'faq_edit_api'])->name(
+			'faq-edit-api'
+		);
 
 		Route::post('growth-story-api', [
 			siteGeneral::class,
@@ -291,11 +291,10 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 		'quality_process_frontpage',
 	]);
 
-	Route::get('faq-api', [
-		Frontpage::class,
-		'faq',
-	]);
+	Route::get('tac-data', [siteGeneral::class, 'tac_frontpage']);
+	Route::get('privacy-data', [siteGeneral::class, 'privacy_frontpage']);
 
+	Route::get('faq-api', [Frontpage::class, 'faq']);
 
 	Route::get('company-profile-data', [
 		siteGeneral::class,
@@ -382,10 +381,9 @@ Route::group(['prefix' => 'admin'], function () {
 			'photo_gallery_view',
 		])->name('photo_gallery_view');
 
-		Route::get('faq-edit', [
-			siteGeneral::class,
-			'faq_edit',
-		])->name('faq-edit');
+		Route::get('faq-edit', [siteGeneral::class, 'faq_edit'])->name(
+			'faq-edit'
+		);
 
 		Route::get('company-user-list-api', [
 			AuthController::class,
@@ -587,6 +585,15 @@ Route::group(['prefix' => 'admin'], function () {
 			'quality_process_view',
 		])->name('quality_process_view');
 
+		Route::get('site-settings/tac', [siteGeneral::class, 'tac_view'])->name(
+			'tac_view'
+		);
+
+		Route::get('site-settings/privacy', [
+			siteGeneral::class,
+			'privacy_view',
+		])->name('privacy_view');
+
 		Route::get('site-settings/company-profile', [
 			siteGeneral::class,
 			'company_profile_view',
@@ -596,6 +603,15 @@ Route::group(['prefix' => 'admin'], function () {
 			siteGeneral::class,
 			'quality_process_update',
 		])->name('quality_process_update');
+
+		Route::post('tac-update', [siteGeneral::class, 'tac_update'])->name(
+			'tac_update'
+		);
+
+		Route::post('privacy-update', [
+			siteGeneral::class,
+			'privacy_update',
+		])->name('privacy_update');
 
 		Route::post('company-profile-update', [
 			siteGeneral::class,

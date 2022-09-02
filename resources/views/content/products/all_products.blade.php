@@ -12,29 +12,23 @@
     <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-sliders.css')) }}">
     <link rel="stylesheet" href="{{ asset(mix('css/base/pages/app-ecommerce.css')) }}">
     <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">
+
+    <style>
+        .content-header-title {
+            border-right: none !important;
+        }
+
+        .breadcrumb-wrapper {
+            display: none !important;
+        }
+    </style>
 @endsection
 
 
 
 @section('content')
     <!-- E-commerce Content Section Starts -->
-    <section id="ecommerce-header">
-        <div class="row">
-            <div class="col-12">
-                <div class="ecommerce-header-items">
-                    <div class="result-toggler">
-                        <div class="search-results">16285 results found</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- E-commerce Content Section Starts -->
 
-    <!-- background Overlay when sidebar is shown  starts-->
-    <!-- background Overlay when sidebar is shown  ends-->
-
-    <!-- E-commerce Search Bar Ends -->
 
     <!-- E-commerce Products Starts -->
     <section id="ecommerce-products" class="grid-view">
