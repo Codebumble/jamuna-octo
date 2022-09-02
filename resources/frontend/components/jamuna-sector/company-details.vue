@@ -4,6 +4,7 @@
 			<businessDetails
 				:data="company"
 				:images="images"
+				:totalImages="totalImages"
 				@pageNumber="photos" />
 		</template>
 		<template #fallback> <skeleton /> </template>
@@ -89,34 +90,14 @@
 				},
 				images: [],
 				page: 1,
+				totalImages: 0,
 			};
 		},
 		setup() {},
-		metaInfo() {
-			return {
-				description: this.company.textDetails.shortDetails.substring(
-					0,
-					150
-				),
-				charset: 'utf-8',
-				htmlAttrs: {
-					lang: 'en',
-				},
-				og: {
-					title: this.company.businessName,
-					description:
-						this.company.textDetails.shortDetails.substring(0, 150),
-					image: this.company.businessLogo,
-				},
-				twitter: {
-					title: this.company.businessName,
-					description:
-						this.company.textDetails.shortDetails.substring(0, 150),
-					image: this.company.businessLogo,
-				},
-			};
-		},
 		methods: {
+			paginate(array, page_size, page_number) {
+				return array.slice((page_number - 1) * page_size, page_number * page_size);
+			},
 			switcher() {
 				if (this.$route.params.id) {
 					axios
@@ -163,12 +144,8 @@
 								this.$route.params.id
 						)
 						.then((res) => {
-							res.data.forEach((item) => {
-								this.images.push({
-									src: item.src,
-									title: item.name,
-								});
-							});
+						this.images =	this.paginate(res.data, 4, page)
+						this.totalImages = res.data.length
 						});
 				}
 			},

@@ -150,96 +150,6 @@
 					<div
 						v-if="data.textDetails"
 						v-html="data.textDetails.details"></div>
-					<!-- <div v-if="$route.name == 'jdgu'">
-						<h3 class="text-lg text-gray-800 font-bold underline">
-							List of Products
-						</h3>
-
-						<div class="flex flex-col">
-							<div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-								<div
-									class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-									<div class="overflow-hidden">
-										<table class="min-w-full border">
-											<thead class="bg-white border-b">
-												<tr>
-													<th
-														scope="col"
-														class="text-sm font-medium text-gray-900 px-3 py-3 text-left">
-														#
-													</th>
-													<th
-														scope="col"
-														class="text-sm font-medium text-gray-900 px-3 py-3 text-left">
-														Products List
-													</th>
-												</tr>
-											</thead>
-
-											<tbody>
-												<tr
-													class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
-													v-for="(
-														product, item
-													) in data.productList"
-													:key="item">
-													<td
-														class="px-3 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
-														{{ item + 1 }}
-													</td>
-													<td
-														class="text-sm text-gray-900 font-light px-3 py-3 whitespace-nowrap">
-														{{ product.name }}
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-							<div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-								<div
-									class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-									<div class="overflow-hidden">
-										<table class="min-w-full border">
-											<thead class="bg-white border-b">
-												<tr>
-													<th
-														scope="col"
-														class="text-sm font-medium text-gray-900 px-3 py-3 text-left">
-														#
-													</th>
-													<th
-														scope="col"
-														class="text-sm font-medium text-gray-900 px-3 py-3 text-left">
-														List of Buyerer
-													</th>
-												</tr>
-											</thead>
-
-											<tbody>
-												<tr
-													class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
-													v-for="(
-														buyer, item
-													) in data.buyerList"
-													:key="item">
-													<td
-														class="px-3 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
-														{{ item + 1 }}
-													</td>
-													<td
-														class="text-sm text-gray-900 font-light px-3 py-3 whitespace-nowrap">
-														{{ buyer.name }}
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div> -->
 
 					<div class="attachment">
 						<h2
@@ -269,12 +179,13 @@
 							</div>
 						</div>
 						<vue-awesome-paginate
-							:total-items="30"
+							:total-items="totalImages"
 							:items-per-page="4"
 							:max-pages-shown="3"
 							:current-page="currentPage"
 							:on-click="onClickHandler"
-							:key="currentPage">
+							:key="currentPage"
+							v-if="totalImages > 4">
 							<template #prev-button>
 								<i class="fas fa-angle-left"></i>
 							</template>
@@ -338,6 +249,7 @@
 		props: {
 			data: Object,
 			images: Array,
+			totalImages: Number
 		},
 	};
 </script>
