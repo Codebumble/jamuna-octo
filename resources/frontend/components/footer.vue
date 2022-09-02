@@ -108,8 +108,8 @@
 				footerSocial: {},
 				linksCol1: [
 					{
-						linkText: 'Compliance',
-						link: '/compliance',
+						linkText: 'Career',
+						link: '/career',
 					},
 					{
 						linkText: 'FAQ',
