@@ -85,32 +85,39 @@
 							<ul>
 								<li>
 									<a
-										href="https://instagram.com"
-										target="_blank"
-										><i class="fab fa-instagram-square"></i
-									></a>
-								</li>
-								<li>
-									<a
-										href="https://facebook.com"
+										:href="
+											'https://' + footerSocial.facebook
+										"
 										target="_blank"
 										><i class="fab fa-facebook"></i
 									></a>
 								</li>
 								<li>
 									<a
-										href="https://twitter.com"
+										:href="
+											'https://' + footerSocial.instagram
+										"
 										target="_blank"
-										><i class="fab fa-twitter"></i
+										><i class="fab fa-instagram"></i
 									></a>
 								</li>
 								<li>
-									<a href=""><i class="fab fa-google"></i></a>
+									<a
+										:href="
+											'https://' + footerSocial.youtube
+										"
+										target="_blank"
+										><i class="fab fa-youtube"></i
+									></a>
 								</li>
 								<li>
-									<a href=""
-										><i class="fab fa-google-play"></i
-									></a>
+									<a
+										:href="
+											'https://' + footerSocial.linkedin
+										"
+										target="_blank">
+										<i class="fab fa-linkedin"></i>
+									</a>
 								</li>
 							</ul>
 						</div>
@@ -135,6 +142,7 @@
 export default {
 	data() {
 		return {
+			footerSocial: {},
 			brandWrap: [
 				{
 					logoSrc: process.env.APP_LOGO,
@@ -370,6 +378,11 @@ export default {
 		};
 	},
 	created() {
+		axios
+			.get(window.location.origin + '/frontpage-api/footer-component')
+			.then((response) => {
+				this.footerSocial = response.data.social_media;
+			});
 		axios
 			.get(window.location.origin + '/frontpage-api/nav-company')
 			.then((response) => {
