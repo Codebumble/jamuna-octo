@@ -10,7 +10,7 @@
 				</div>
 				<div class="logo-slider w-full">
 					<div
-						class="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+						class="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 overflow-hidden p-4">
 						<div
 							class="flex justify-around items-center rounded transition-all concern"
 							v-for="logo in concernlogo"

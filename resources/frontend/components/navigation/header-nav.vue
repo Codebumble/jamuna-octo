@@ -178,164 +178,164 @@
 						route: '',
 						label: 'Jamuna Sector',
 						parentSubmenu: [
-							{
-								route: '',
-								label: 'Textile Division',
-								childSubmenu: [
-									{
-										route: '/hoorain-htf',
-										label: 'Hoorain HTF',
-									},
-									{
-										route: '/jamuna-denims-garments-ltd',
-										label: 'Jamuna Denims Garments LTD',
-									},
-									{
-										route: '/hoor',
-										label: 'Hoor',
-									},
-									{
-										route: '/jeansco',
-										label: 'Jeans & Co.',
-									},
-									{
-										route: '/hooram',
-										label: 'Hooram',
-									},
-									{
-										route: '',
-										label: 'Jamuna Denims Ltd (Weaving)',
-									},
-									{
-										route: '',
-										label: 'Jamuna Denims Ltd (Open End)',
-									},
-									{
-										route: '',
-										label: 'Jamuna Spinning Mills Ltd',
-									},
-									{
-										route: '',
-										label: 'Shameem Spinning Mills Ltd',
-									},
-									{
-										route: '',
-										label: 'Shameem Rotor Spinning Mills Ltd',
-									},
-									{
-										route: '',
-										label: 'Shameem Composite Mills Ltd',
-									},
-								],
-							},
-							{
-								route: '',
-								label: 'Media & Advertisement',
-								childSubmenu: [
-									{
-										route: '/the-daily-jugantor',
-										label: 'The Daily Jugantor',
-									},
-									{
-										route: '/jamuna-television',
-										label: 'Jamuna Television',
-									},
-								],
-							},
-							{
-								route: '',
-								label: 'Jamuna Builders Ltd',
-								childSubmenu: [
-									{
-										route: '',
-										label: 'JW Marriot',
-									},
-									{
-										route: '',
-										label: 'Jamuna Residence',
-									},
-									{
-										route: '',
-										label: 'Jamuna Future Park',
-									},
-									{
-										route: '',
-										label: 'Jamuna City',
-									},
-									{
-										route: '',
-										label: 'New Ultra Model Town',
-									},
-								],
-							},
-							{
-								route: '',
-								label: 'Marketplace',
-								childSubmenu: [
-									{
-										route: '',
-										label: 'Wholesale Club Ltd',
-									},
-								],
-							},
-							{
-								route: '',
-								label: 'Leathers',
-								childSubmenu: [
-									{
-										route: '',
-										label: 'Pegasus Leathers Ltd',
-									},
-									{
-										route: '',
-										label: 'Pegasus Leathers Ltd',
-									},
-								],
-							},
-							{
-								route: '',
-								label: 'Chemicals',
-								childSubmenu: [
-									{
-										route: '/jamuna-hand-sanitizer',
-										label: 'Jamuna Hand Sanitizer',
-									},
-									{
-										route: '/jamuna-distilery-ltd',
-										label: 'Jamuna Distilery Ltd',
-									},
-								],
-							},
-							{
-								route: '',
-								label: 'Electronics',
-								childSubmenu: [
-									{
-										route: '/jamuna-electornics',
-										label: 'Jamuna Electronics',
-									},
-								],
-							},
-							{
-								route: '',
-								label: 'Engineering',
-								childSubmenu: [
-									{
-										route: '',
-										label: 'Jamuna Welding Electrode',
-									},
-								],
-							},
-							{
-								route: '',
-								label: 'Beverage',
-								childSubmenu: [
-									{
-										route: '/crown-beverage',
-										label: 'Crown Beverage',
-									},
-								],
-							},
+							// {
+							// 	route: '',
+							// 	label: 'Textile Division',
+							// 	childSubmenu: [
+							// 		{
+							// 			route: '/hoorain-htf',
+							// 			label: 'Hoorain HTF',
+							// 		},
+							// 		{
+							// 			route: '/jamuna-denims-garments-ltd',
+							// 			label: 'Jamuna Denims Garments LTD',
+							// 		},
+							// 		{
+							// 			route: '/hoor',
+							// 			label: 'Hoor',
+							// 		},
+							// 		{
+							// 			route: '/jeansco',
+							// 			label: 'Jeans & Co.',
+							// 		},
+							// 		{
+							// 			route: '/hooram',
+							// 			label: 'Hooram',
+							// 		},
+							// 		{
+							// 			route: '',
+							// 			label: 'Jamuna Denims Ltd (Weaving)',
+							// 		},
+							// 		{
+							// 			route: '',
+							// 			label: 'Jamuna Denims Ltd (Open End)',
+							// 		},
+							// 		{
+							// 			route: '',
+							// 			label: 'Jamuna Spinning Mills Ltd',
+							// 		},
+							// 		{
+							// 			route: '',
+							// 			label: 'Shameem Spinning Mills Ltd',
+							// 		},
+							// 		{
+							// 			route: '',
+							// 			label: 'Shameem Rotor Spinning Mills Ltd',
+							// 		},
+							// 		{
+							// 			route: '',
+							// 			label: 'Shameem Composite Mills Ltd',
+							// 		},
+							// 	],
+							// },
+							// {
+							// 	route: '',
+							// 	label: 'Media & Advertisement',
+							// 	childSubmenu: [
+							// 		{
+							// 			route: '/the-daily-jugantor',
+							// 			label: 'The Daily Jugantor',
+							// 		},
+							// 		{
+							// 			route: '/jamuna-television',
+							// 			label: 'Jamuna Television',
+							// 		},
+							// 	],
+							// },
+							// {
+							// 	route: '',
+							// 	label: 'Jamuna Builders Ltd',
+							// 	childSubmenu: [
+							// 		{
+							// 			route: '',
+							// 			label: 'JW Marriot',
+							// 		},
+							// 		{
+							// 			route: '',
+							// 			label: 'Jamuna Residence',
+							// 		},
+							// 		{
+							// 			route: '',
+							// 			label: 'Jamuna Future Park',
+							// 		},
+							// 		{
+							// 			route: '',
+							// 			label: 'Jamuna City',
+							// 		},
+							// 		{
+							// 			route: '',
+							// 			label: 'New Ultra Model Town',
+							// 		},
+							// 	],
+							// },
+							// {
+							// 	route: '',
+							// 	label: 'Marketplace',
+							// 	childSubmenu: [
+							// 		{
+							// 			route: '',
+							// 			label: 'Wholesale Club Ltd',
+							// 		},
+							// 	],
+							// },
+							// {
+							// 	route: '',
+							// 	label: 'Leathers',
+							// 	childSubmenu: [
+							// 		{
+							// 			route: '',
+							// 			label: 'Pegasus Leathers Ltd',
+							// 		},
+							// 		{
+							// 			route: '',
+							// 			label: 'Pegasus Leathers Ltd',
+							// 		},
+							// 	],
+							// },
+							// {
+							// 	route: '',
+							// 	label: 'Chemicals',
+							// 	childSubmenu: [
+							// 		{
+							// 			route: '/jamuna-hand-sanitizer',
+							// 			label: 'Jamuna Hand Sanitizer',
+							// 		},
+							// 		{
+							// 			route: '/jamuna-distilery-ltd',
+							// 			label: 'Jamuna Distilery Ltd',
+							// 		},
+							// 	],
+							// },
+							// {
+							// 	route: '',
+							// 	label: 'Electronics',
+							// 	childSubmenu: [
+							// 		{
+							// 			route: '/jamuna-electornics',
+							// 			label: 'Jamuna Electronics',
+							// 		},
+							// 	],
+							// },
+							// {
+							// 	route: '',
+							// 	label: 'Engineering',
+							// 	childSubmenu: [
+							// 		{
+							// 			route: '',
+							// 			label: 'Jamuna Welding Electrode',
+							// 		},
+							// 	],
+							// },
+							// {
+							// 	route: '',
+							// 	label: 'Beverage',
+							// 	childSubmenu: [
+							// 		{
+							// 			route: '/crown-beverage',
+							// 			label: 'Crown Beverage',
+							// 		},
+							// 	],
+							// },
 						],
 					},
 					{

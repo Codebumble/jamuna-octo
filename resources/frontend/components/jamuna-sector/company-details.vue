@@ -93,7 +93,6 @@
 				totalImages: 0,
 			};
 		},
-		setup() {},
 		methods: {
 			paginate(array, page_size, page_number) {
 				return array.slice((page_number - 1) * page_size, page_number * page_size);
@@ -107,7 +106,8 @@
 								this.$route.params.id
 						)
 						.then((response) => {
-							document.title = response.data.name
+							document.title =
+								response.data.name + '| jamuna Group';
 							var jsn = JSON.parse(response.data.json_data);
 							this.company.businessLogo = response.data.image;
 							this.company.businessName = response.data.name;
@@ -129,6 +129,8 @@
 							this.company.textDetails.shortDetails =
 								response.data.short_details;
 							this.company.social.facebook = jsn.facebook;
+							this.company.social.instagram = jsn.instagram;
+							this.company.social.linkedin = jsn.linkedin;
 						});
 				}
 				// Lightbox api

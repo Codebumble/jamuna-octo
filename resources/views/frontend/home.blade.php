@@ -6,6 +6,8 @@
     <title>{{ $meta->title }}</title>
     <meta name="title" content="{{ $meta->title }}">
     <meta name="description" content="{{ $meta->description }}">
+    <meta name="keywords"
+        content="Jamuna, Group, Company, jamuna group, hoorain, hooram, hoor, denims, electronics, news, jugantor, television, codebumble, software">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
