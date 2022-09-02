@@ -27,7 +27,6 @@
 			return {
 				company: {
 					businessLogo: '',
-					alt: 'image alt',
 					objectfit: true, //For logo size responsiveness
 					businessName: '',
 					establishDate: '',

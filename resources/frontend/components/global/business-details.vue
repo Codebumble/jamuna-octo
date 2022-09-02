@@ -7,7 +7,7 @@
 						class="border border-slate-100 p-8 w-full shadow-lg rounded-md overflow-hidden">
 						<img
 							:src="data.businessLogo"
-							:alt="data.alt"
+							:alt="data.businessName"
 							class="w-full max-w-[338px] max-h-[156px] mx-auto"
 							:class="
 								data.objectfit ? 'object-cover' : 'object-none'
