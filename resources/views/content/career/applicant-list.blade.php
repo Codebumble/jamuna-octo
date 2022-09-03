@@ -57,7 +57,7 @@
                   type="text"
                   class="form-control dt-input"
                   data-column="4"
-                  placeholder="Male"
+                  placeholder="Codebumble Inc"
                   data-column-index="4"
                 />
               </div>

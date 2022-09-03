@@ -95,7 +95,9 @@ class career extends Controller
 				$job_list[$key]['l_date'] = 'Expired';
 			}
 
-			$job_list[$key] += ['counter' => '12'];
+			$jb = DB::select("select count(*) as cp from codebumble_applicant_list where job_id = ?",[$value['id']]);
+
+			$job_list[$key] += ['counter' => $jb[0]->cp];
 		}
 
 		return json_encode(['data' => $job_list]);

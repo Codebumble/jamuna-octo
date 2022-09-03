@@ -57,7 +57,7 @@
 				feather.icons['more-vertical'].toSvg({ class: 'font-small-4' }) +
 				'</a>' +
 				'<div class="dropdown-menu dropdown-menu-end">' +
-				'<a href="javascript:;" class="dropdown-item">' +
+				'<a href="'+assetPath+'career-details/'+full['id']+'" class="dropdown-item">' +
 				feather.icons['file-text'].toSvg({ class: 'font-small-4 me-50' }) +
 				'Details</a>' +
 				'<a href="'+assetPath+'admin/career/delete-new-job/'+full['id']+'" class="dropdown-item delete-record">' +
