@@ -149,6 +149,9 @@ export default {
 					.then((res) => {
 						this.images = this.paginate(res.data, 4, page);
 						this.totalImages = res.data.length;
+					})
+					.catch(() => {
+						this.$router.push({ name: 'not-found' });
 					});
 			}
 		},
