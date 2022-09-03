@@ -140,6 +140,32 @@ class AuthController extends Controller
         $json_data->nid_number = $request['nid_number'];
         $json_data->birth_certificate_number = $request['birth_certificate_number'];
         $json_data->passport_number = $request['passport_number'];
+        if(!isset($request['isBoardofDirectors']) || $request['isBoardofDirectors'] != "Yes"){
+            $request['isBoardofDirectors'] = "No";
+
+        }
+
+        $json_data->isBoardofDirectors = $request['isBoardofDirectors'];
+
+        if(!isset($request['isDistrict']) || $request['isDistrict'] != "Yes"){
+            $request['isDistrict'] = "No";
+            $json_data->cd_company = "";
+
+        }
+
+        $json_data->isDistrict = $request['isDistrict'];
+
+        if(isset($request['isDistrict']) && $request['isDistrict'] == "Yes"){
+            if($request['cd_company'] == ""){
+                return redirect()->route('profile-account', ['errors' => 'Correspondence by
+                District Can\'t be empty when You checked the "Show in
+                Correspondence by District" Checkbox']);
+                exit();
+            }
+
+            $json_data->cd_company = $request['cd_company'];
+
+        }
 
 
 

@@ -72,6 +72,9 @@ class AppsController extends Controller
         $users_super_admin = DB::select('select count(*) as sub_user_super_admin from users where role=?', ['super admin']);
         $user_active = DB::select('select count(*) as sub_active from users where json_data LIKE \'%\"status\":\"Active\"%\'');
 
+
+
+
         $pageConfigs = ['pageHeader' => false];
         return view('/content/apps/user/app-user-list', ['pageConfigs' => $pageConfigs, 'sub_users' => $users, 'active' => $user_active, 'sub_user_super_admin' => $users_super_admin, 'sub_user_admin' => $users_admin]);
     }
@@ -83,7 +86,8 @@ class AppsController extends Controller
         $auth = Auth::user();
         $users = DB::select('select count(*) as sub_user from users where under_ref=?', [$auth->username]);
         $user_active = DB::select('select count(*) as sub_active from users where json_data LIKE \'%\"status\":\"Active\"%\' and under_ref=?', [$auth->username]);
-        return view('/content/apps/user/app-user-view-account', ['pageConfigs' => $pageConfigs, 'sub_users' => $users, 'active' => $user_active]);
+        $companys = DB::select('select name,id from codebumble_company_list');
+        return view('/content/apps/user/app-user-view-account', ['pageConfigs' => $pageConfigs, 'sub_users' => $users, 'active' => $user_active, 'companys' => $companys]);
     }
 
     public function profile_visitor($username)
@@ -110,7 +114,8 @@ class AppsController extends Controller
         $pageConfigs = ['pageHeader' => false];
         $auth = Auth::user();
         $login_details= DB::table('codebumble_login_table')->limit(7)->orderBy('id', 'desc')->where('username', $auth->username)->get();
-        return view('/content/apps/user/app-user-view-security', ['pageConfigs' => $pageConfigs, 'login_details' => $login_details]);
+        $companys = DB::select('select name,id from codebumble_company_list');
+        return view('/content/apps/user/app-user-view-security', ['pageConfigs' => $pageConfigs, 'login_details' => $login_details, 'companys' => $companys]);
     }
 
     // User Billing and Plans Page

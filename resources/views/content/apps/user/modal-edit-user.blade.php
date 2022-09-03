@@ -445,6 +445,60 @@
             />
           </div>
 
+          @if (Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin' || (isset(json_decode($auther['json_data'])->isBoardofDirectors) && json_decode($auther['json_data'])->isBoardofDirectors == "Yes"))
+                                            <div class="col-12 mb-1 mt-1">
+                                                <div class="form-check form-check-secondary">
+                                                    <input id="isBoardofDirectors" name="isBoardofDirectors"  type="checkbox"
+                                                        class="form-check-input" value="Yes"
+                                                        @if(isset(json_decode($auther['json_data'])->isBoardofDirectors) && json_decode($auther['json_data'])->isBoardofDirectors == "Yes")
+
+                                                        checked
+                                                        @endif
+                                                        />
+                                                    <label class="form-check-label" for="isBoardofDirectors">Show in Board
+                                                        of Directors.</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 mb-1 mt-1">
+                                                <div class="form-check form-check-secondary">
+                                                    <input id="isDistrict" name="isDistrict" type="checkbox" class="form-check-input" value="Yes"
+                                                    @if(isset(json_decode($auther['json_data'])->isDistrict) && json_decode($auther['json_data'])->isDistrict == "Yes")
+
+                                                        checked
+                                                        @endif
+                                                    />
+                                                    <label class="form-check-label" for="isDistrict">Show in
+                                                        "Correspondence by District"</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 mb-1 mt-1">
+                                                <label class="form-label" for="company">If Yes, Correspondence by
+                                                    District Company Name :</label>
+                                                <select id="cd_company" class="select2 w-100" name="cd_company">
+
+                                                @if(!isset(json_decode($auther['json_data'])->cd_company) || json_decode($auther['json_data'])->cd_company == "")
+
+                                                <option value="" selected></option>
+
+
+                                                @endif
+
+                                                    @foreach ($companys as $company)
+                                                    @if(isset(json_decode($auther['json_data'])->cd_company) && json_decode($auther['json_data'])->cd_company == $company->id)
+                                                        <option value="{{ $company->id }}" selected>{{ $company->name }}</option>
+                                                    @else
+                                                    <option value="{{ $company->id }}">{{ $company->name }}</option>
+                                                    @endif
+                                                    @endforeach
+
+                                                </select>
+                                            </div>
+
+
+                                        @endif
+
           <div class="col-12 text-center mt-2 pt-50">
             <button type="submit" class="btn btn-primary me-1">Submit</button>
             <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal" aria-label="Close">
