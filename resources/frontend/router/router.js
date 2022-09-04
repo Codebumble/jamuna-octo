@@ -99,7 +99,7 @@ const routes = [
 		component: () => import("../views/privacy-policy.vue"),
 	},
 	{
-		path: "/about",
+		path: "/developers%20credit",
 		name: "about",
 		component: () => import("../views/about.vue"),
 		meta: {
