@@ -12,23 +12,11 @@
 						<img
 							src="https://codebumble.net/assets/images/contents/team-members/saifur.jpg"
 							alt="team-member"
-							class="
-								rounded-lg
-								h-350
-								w-full
-								lg:w-[295px]
-								2xl:w-[359px]
-								object-cover object-center
-							" />
+							class="rounded-lg h-350 w-full lg:w-[295px] 2xl:w-[359px] object-cover object-center" />
 						<div class="social">
 							<ul class="flex">
 								<li
-									class="
-										mr-4
-										hover:text-red-600
-										transition-all
-										duration-500
-									">
+									class="mr-4 hover:text-red-600 transition-all duration-500">
 									<a
 										href="https://www.facebook.com/mdsaifurrahmann"
 										class="text-2xl"
@@ -48,12 +36,7 @@
 									></a>
 								</li>
 								<li
-									class="
-										mr-4
-										hover:text-red-600
-										transition-all
-										duration-500
-									">
+									class="mr-4 hover:text-red-600 transition-all duration-500">
 									<a
 										href="https://www.github.com/mdsaifurrahmann"
 										class="text-2xl"
@@ -73,12 +56,7 @@
 									></a>
 								</li>
 								<li
-									class="
-										mr-4
-										hover:text-red-600
-										transition-all
-										duration-500
-									">
+									class="mr-4 hover:text-red-600 transition-all duration-500">
 									<a
 										href="mailto:md.saifurrahmann029@gmail.com"
 										class="text-2xl">
@@ -106,13 +84,7 @@
 					</div>
 					<div class="my-3 text-gray-800">
 						<h2
-							class="
-								text-2xl
-								font-bold
-								hover:text-red-600
-								transition-all
-								duration-500
-							">
+							class="text-2xl font-bold hover:text-red-600 transition-all duration-500">
 							Md. Saifur Rahman
 						</h2>
 						<p class="">Full-stack Developer</p>
@@ -123,23 +95,11 @@
 						<img
 							src="https://codebumble.net/assets/images/contents/team-members/shakil.png"
 							alt="team-member"
-							class="
-								rounded-lg
-								h-350
-								w-full
-								lg:w-[295px]
-								2xl:w-[359px]
-								object-cover object-center
-							" />
+							class="rounded-lg h-350 w-full lg:w-[295px] 2xl:w-[359px] object-cover object-center" />
 						<div class="social">
 							<ul class="flex">
 								<li
-									class="
-										mr-4
-										hover:text-red-600
-										transition-all
-										duration-500
-									">
+									class="mr-4 hover:text-red-600 transition-all duration-500">
 									<a
 										href="https://www.facebook.com/shakilofficialdll"
 										class="text-2xl"
@@ -159,12 +119,7 @@
 									></a>
 								</li>
 								<li
-									class="
-										mr-4
-										hover:text-red-600
-										transition-all
-										duration-500
-									">
+									class="mr-4 hover:text-red-600 transition-all duration-500">
 									<a
 										href="https://github.com/shakilofficial0"
 										class="text-2xl"
@@ -184,12 +139,7 @@
 									></a>
 								</li>
 								<li
-									class="
-										mr-4
-										hover:text-red-600
-										transition-all
-										duration-500
-									">
+									class="mr-4 hover:text-red-600 transition-all duration-500">
 									<a
 										href="mailto:shakilofficial0@gmail.com"
 										class="text-2xl">
@@ -217,13 +167,7 @@
 					</div>
 					<div class="my-3 text-gray-800">
 						<h2
-							class="
-								text-2xl
-								font-bold
-								hover:text-red-600
-								transition-all
-								duration-500
-							">
+							class="text-2xl font-bold hover:text-red-600 transition-all duration-500">
 							S. M. Shakil Ahmed
 						</h2>
 						<p class="">Backend Developer</p>
@@ -234,23 +178,11 @@
 						<img
 							src="https://codebumble.net/assets/images/contents/team-members/anik.jpg"
 							alt="team-member"
-							class="
-								rounded-lg
-								h-350
-								w-full
-								lg:w-[295px]
-								2xl:w-[359px]
-								object-cover object-center
-							" />
+							class="rounded-lg h-350 w-full lg:w-[295px] 2xl:w-[359px] object-cover object-center" />
 						<div class="social">
 							<ul class="flex">
 								<li
-									class="
-										mr-4
-										hover:text-red-600
-										transition-all
-										duration-500
-									">
+									class="mr-4 hover:text-red-600 transition-all duration-500">
 									<a
 										href="https://www.facebook.com/anik.aritro"
 										class="text-2xl"
@@ -270,12 +202,7 @@
 									></a>
 								</li>
 								<li
-									class="
-										mr-4
-										hover:text-red-600
-										transition-all
-										duration-500
-									">
+									class="mr-4 hover:text-red-600 transition-all duration-500">
 									<a
 										href="https://github.com/anik-hossain"
 										class="text-2xl"
@@ -295,12 +222,7 @@
 									></a>
 								</li>
 								<li
-									class="
-										mr-4
-										hover:text-red-600
-										transition-all
-										duration-500
-									">
+									class="mr-4 hover:text-red-600 transition-all duration-500">
 									<a
 										href="mailto:anik.wdev@gmail.com"
 										class="text-2xl">
@@ -328,13 +250,7 @@
 					</div>
 					<div class="my-3 text-gray-800">
 						<h2
-							class="
-								text-2xl
-								font-bold
-								hover:text-red-600
-								transition-all
-								duration-500
-							">
+							class="text-2xl font-bold hover:text-red-600 transition-all duration-500">
 							Anik Hossain
 						</h2>
 						<p class="">Frontend Developer</p>
@@ -345,23 +261,11 @@
 						<img
 							src="https://codebumble.net/assets/images/contents/team-members/sourov.jpg"
 							alt="team-member"
-							class="
-								rounded-lg
-								h-350
-								w-full
-								lg:w-[295px]
-								2xl:w-[359px]
-								object-cover object-center
-							" />
+							class="rounded-lg h-350 w-full lg:w-[295px] 2xl:w-[359px] object-cover object-center" />
 						<div class="social">
 							<ul class="flex">
 								<li
-									class="
-										mr-4
-										hover:text-red-600
-										transition-all
-										duration-500
-									">
+									class="mr-4 hover:text-red-600 transition-all duration-500">
 									<a
 										href="https://www.facebook.com/"
 										class="text-2xl"
@@ -381,12 +285,7 @@
 									></a>
 								</li>
 								<li
-									class="
-										mr-4
-										hover:text-red-600
-										transition-all
-										duration-500
-									">
+									class="mr-4 hover:text-red-600 transition-all duration-500">
 									<a
 										href="https://github.com/"
 										class="text-2xl"
@@ -406,13 +305,10 @@
 									></a>
 								</li>
 								<li
-									class="
-										mr-4
-										hover:text-red-600
-										transition-all
-										duration-500
-									">
-									<a href="mailto:" class="text-2xl">
+									class="mr-4 hover:text-red-600 transition-all duration-500">
+									<a
+										href="mailto:"
+										class="text-2xl">
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
 											width="24"
@@ -437,13 +333,7 @@
 					</div>
 					<div class="my-3 text-gray-800">
 						<h2
-							class="
-								text-2xl
-								font-bold
-								hover:text-red-600
-								transition-all
-								duration-500
-							">
+							class="text-2xl font-bold hover:text-red-600 transition-all duration-500">
 							Md. Sourov Islam
 						</h2>
 						<p class="">Project Manager</p>
@@ -455,37 +345,41 @@
 </template>
 
 <style lang="scss" scoped>
-.item {
-	.item-body {
-		@apply relative overflow-hidden;
+	.item {
+		.item-body {
+			@apply relative overflow-hidden;
 
-		&::after {
-			content: '';
-			@apply absolute left-0 top-0 h-full w-full rounded-t-lg bg-gray-900 bg-opacity-50 invisible opacity-0 transition-all duration-300 ease-in;
+			img {
+				@apply max-h-[295px];
+			}
+
+			&::after {
+				content: '';
+				@apply absolute left-0 top-0 h-full w-full rounded-lg bg-gray-900 bg-opacity-50 invisible opacity-0 transition-all duration-300 ease-in;
+			}
+
+			.social {
+				@apply absolute bottom-8 left-8 text-white transform -translate-x-full z-10 invisible opacity-0 transition-all duration-500 ease-in-out;
+			}
 		}
 
-		.social {
-			@apply absolute bottom-8 left-8 text-white transform -translate-x-full z-10 invisible opacity-0 transition-all duration-500 ease-in-out;
+		&:hover .item-body::after {
+			@apply visible opacity-100;
+		}
+		&:hover .item-body .social {
+			@apply translate-x-0 visible opacity-100;
 		}
 	}
-
-	&:hover .item-body::after {
-		@apply visible opacity-100;
-	}
-	&:hover .item-body .social {
-		@apply translate-x-0 visible opacity-100;
-	}
-}
 </style>
 
 <script>
-export default {
-	components: {},
-	data() {
-		return {};
-	},
-	mounted() {
-		document.title = 'About | Jamuna Group'
-	},
-};
+	export default {
+		components: {},
+		data() {
+			return {};
+		},
+		mounted() {
+			document.title = 'About | Jamuna Group';
+		},
+	};
 </script>
