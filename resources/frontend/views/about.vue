@@ -10,7 +10,7 @@
 				<div class="item">
 					<div class="item-body">
 						<img
-							src="../../images/avatars/12.png"
+							src="https://codebumble.net/assets/images/contents/team-members/saifur.jpg"
 							alt="team-member"
 							class="
 								rounded-lg
@@ -121,7 +121,7 @@
 				<div class="item">
 					<div class="item-body">
 						<img
-							src="../../images/avatars/12.png"
+							src="https://codebumble.net/assets/images/contents/team-members/shakil.png"
 							alt="team-member"
 							class="
 								rounded-lg
@@ -232,7 +232,7 @@
 				<div class="item">
 					<div class="item-body">
 						<img
-							src="../../images/avatars/12.png"
+							src="https://codebumble.net/assets/images/contents/team-members/anik.jpg"
 							alt="team-member"
 							class="
 								rounded-lg
@@ -343,7 +343,7 @@
 				<div class="item">
 					<div class="item-body">
 						<img
-							src="../../images/avatars/12.png"
+							src="https://codebumble.net/assets/images/contents/team-members/sourov.jpg"
 							alt="team-member"
 							class="
 								rounded-lg
