@@ -192,6 +192,8 @@ class FrontPage extends Controller
         $c= [];
 
         foreach($data_get_1 as $user){
+
+            if(isset(json_decode($user->json_data)->status) && json_decode($user->json_data)->status == "Active"){
             $b = [
                 "imgSrc" => "/profile-images/".$user->avatar,
                 "name" =>   $user->name,
@@ -199,6 +201,7 @@ class FrontPage extends Controller
             ];
 
             array_push($c, $b);
+        }
 
         }
 
@@ -281,6 +284,7 @@ class FrontPage extends Controller
             if(isset($data_2[0])){
 
             foreach ($data_2 as $key => $value) {
+                if(isset(json_decode($value->json_data)->status) && json_decode($value->json_data)->status == "Active"){
                 $a = [
                     'imgSrc' => $value->avatar,
                     'alt' => $value->name,
@@ -292,6 +296,7 @@ class FrontPage extends Controller
 
 
                 array_push($output['distCorres'],$a);
+            }
             }
         }
             return json_encode($output);
