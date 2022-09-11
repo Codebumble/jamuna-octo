@@ -1,16 +1,16 @@
 <?php
 //Default Configuration
-$CONFIG = '{"lang":"en","error_reporting":false,"show_hidden":true,"hide_Cols":false,"calc_folder":true,"theme":"light"}';
+$CONFIG = '{"lang":"en","error_reporting":false,"show_hidden":false,"hide_Cols":false,"calc_folder":false,"theme":"light"}';
 
 
 /**
- * H3K | Tiny File Manager V2.4.7
+ * H3K | Tiny File Manager V2.4.8
  * CCP Programmers | ccpprogrammers@gmail.com
  * https://tinyfilemanager.github.io
  */
 
 //TFM version
-define('VERSION', '2.4.7');
+define('VERSION', '2.4.8');
 
 //Application Title
 define('APP_TITLE', 'Codebumble File Manager');
@@ -19,7 +19,6 @@ define('APP_TITLE', 'Codebumble File Manager');
 
 // Auth with login/password
 // set true/false to enable/disable it
-//C0dEBumble
 // Is independent from IP white- and blacklisting
 $use_auth = true;
 
@@ -27,12 +26,13 @@ $use_auth = true;
 // Users: array('Username' => 'Password', 'Username2' => 'Password2', ...)
 // Generate secure password hash - https://tinyfilemanager.github.io/docs/pwd.html
 $auth_users = array(
-    'codebumble@gmail.com' => '$2y$10$8pTyuMWD3iLzJi.I8CPld.DKS2Kg2PWCGU/kHADcD/eR3kaHIuDpy'
+    'codebumble' => '$2y$10$Wy0Hohd17kHrbDY0aWFKN..C5myaVv4Pi3U8K0dxdtfdwnRMazdny', //admin@123
 );
 
 // Readonly users
 // e.g. array('users', 'guest', ...)
-$readonly_users = array();
+$readonly_users = array(
+);
 
 // Global readonly, including when auth is not being used
 $global_readonly = false;
@@ -440,7 +440,7 @@ if (isset($_POST['ajax']) && !FM_READONLY) {
         $file = str_replace('/', '', $file);
         if ($file == '' || !is_file($path . '/' . $file)) {
             fm_set_msg(lng('File not found'), 'error');
-            fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+            $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
         }
         header('X-XSS-Protection:0');
         $file_path = $path . '/' . $file;
@@ -653,7 +653,7 @@ if (isset($_GET['del']) && !FM_READONLY) {
     } else {
         fm_set_msg(lng('Invalid file or folder name'), 'error');
     }
-    fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+    $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
 }
 
 // Create folder
@@ -688,7 +688,7 @@ if (isset($_GET['new']) && isset($_GET['type']) && !FM_READONLY) {
     } else {
         fm_set_msg(lng('Invalid characters in file or folder name'), 'error');
     }
-    fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+    $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
 }
 
 // Copy folder / file
@@ -699,7 +699,7 @@ if (isset($_GET['copy'], $_GET['finish']) && !FM_READONLY) {
     // empty path
     if ($copy == '') {
         fm_set_msg(lng('Source path not defined'), 'error');
-        fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+        $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
     }
     // abs path from
     $from = FM_ROOT_PATH . '/' . $copy;
@@ -758,7 +758,7 @@ if (isset($_GET['copy'], $_GET['finish']) && !FM_READONLY) {
            fm_set_msg(lng('Paths must be not equal'), 'alert');
        }
     }
-    fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+    $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
 }
 
 // Mass copy files/ folders
@@ -776,12 +776,12 @@ if (isset($_POST['file'], $_POST['copy_to'], $_POST['finish']) && !FM_READONLY) 
     }
     if ($path == $copy_to_path) {
         fm_set_msg(lng('Paths must be not equal'), 'alert');
-        fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+        $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
     }
     if (!is_dir($copy_to_path)) {
         if (!fm_mkdir($copy_to_path, true)) {
             fm_set_msg('Unable to create destination folder', 'error');
-            fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+            $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
         }
     }
     // move?
@@ -819,7 +819,7 @@ if (isset($_POST['file'], $_POST['copy_to'], $_POST['finish']) && !FM_READONLY) 
     } else {
         fm_set_msg(lng('Nothing selected'), 'alert');
     }
-    fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+    $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
 }
 
 // Rename
@@ -847,7 +847,7 @@ if (isset($_GET['ren'], $_GET['to']) && !FM_READONLY) {
     } else {
         fm_set_msg(lng('Invalid characters in file name'), 'error');
     }
-    fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+    $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
 }
 
 // Download
@@ -864,7 +864,7 @@ if (isset($_GET['dl'])) {
         exit;
     } else {
         fm_set_msg(lng('File not found'), 'error');
-        fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+        $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
     }
 }
 
@@ -1013,7 +1013,7 @@ if (isset($_POST['group'], $_POST['delete']) && !FM_READONLY) {
         fm_set_msg(lng('Nothing selected'), 'alert');
     }
 
-    fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+    $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
 }
 
 // Pack files
@@ -1030,7 +1030,7 @@ if (isset($_POST['group']) && (isset($_POST['zip']) || isset($_POST['tar'])) && 
 
     if (($ext == "zip" && !class_exists('ZipArchive')) || ($ext == "tar" && !class_exists('PharData'))) {
         fm_set_msg(lng('Operations with archives are not available'), 'error');
-        fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+        $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
     }
 
     $files = $_POST['file'];
@@ -1062,7 +1062,7 @@ if (isset($_POST['group']) && (isset($_POST['zip']) || isset($_POST['tar'])) && 
         fm_set_msg(lng('Nothing selected'), 'alert');
     }
 
-    fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+    $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
 }
 
 // Unpack
@@ -1088,7 +1088,7 @@ if (isset($_GET['unzip']) && !FM_READONLY) {
 
     if (($ext == "zip" && !class_exists('ZipArchive')) || ($ext == "tar" && !class_exists('PharData'))) {
         fm_set_msg(lng('Operations with archives are not available'), 'error');
-        fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+        $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
     }
 
     if ($isValid) {
@@ -1127,7 +1127,7 @@ if (isset($_GET['unzip']) && !FM_READONLY) {
     } else {
         fm_set_msg(lng('File not found'), 'error');
     }
-    fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+    $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
 }
 
 // Change Perms (not for Windows)
@@ -1142,7 +1142,7 @@ if (isset($_POST['chmod']) && !FM_READONLY && !FM_IS_WIN) {
     $file = str_replace('/', '', $file);
     if ($file == '' || (!is_file($path . '/' . $file) && !is_dir($path . '/' . $file))) {
         fm_set_msg(lng('File not found'), 'error');
-        fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+        $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
     }
 
     $mode = 0;
@@ -1180,7 +1180,7 @@ if (isset($_POST['chmod']) && !FM_READONLY && !FM_IS_WIN) {
         fm_set_msg(lng('Permissions not changed'), 'error');
     }
 
-    fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+    $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
 }
 
 /*************************** /ACTIONS ***************************/
@@ -1323,7 +1323,7 @@ if (isset($_POST['copy']) && !FM_READONLY) {
     $copy_files = isset($_POST['file']) ? $_POST['file'] : null;
     if (!is_array($copy_files) || empty($copy_files)) {
         fm_set_msg(lng('Nothing selected'), 'alert');
-        fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+        $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
     }
 
     fm_show_header(); // HEADER
@@ -1368,7 +1368,7 @@ if (isset($_GET['copy']) && !isset($_GET['finish']) && !FM_READONLY) {
     $copy = fm_clean_path($copy);
     if ($copy == '' || !file_exists(FM_ROOT_PATH . '/' . $copy)) {
         fm_set_msg(lng('File not found'), 'error');
-        fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+        $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
     }
 
     fm_show_header(); // HEADER
@@ -1555,7 +1555,6 @@ if (isset($_GET['help'])) {
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item"><a href="https://github.com/prasathmani/tinyfilemanager/wiki" target="_blank"><i class="fa fa-question-circle"></i> <?php echo lng('Help Documents') ?> </a> </li>
                                 <li class="list-group-item"><a href="https://github.com/prasathmani/tinyfilemanager/issues" target="_blank"><i class="fa fa-bug"></i> <?php echo lng('Report Issue') ?></a></li>
-                                <li class="list-group-item"><a href="javascript:latest_release_info('<?php echo VERSION; ?>');"><i class="fa fa-link"> </i> <?php echo lng('Check Latest Version') ?></a></li>
                                 <?php if(!FM_READONLY) { ?>
                                 <li class="list-group-item"><a href="javascript:show_new_pwd();"><i class="fa fa-lock"></i> <?php echo lng('Generate new password hash') ?></a></li>
                                 <?php } ?>
@@ -1595,7 +1594,7 @@ if (isset($_GET['view'])) {
     $file = str_replace('/', '', $file);
     if ($file == '' || !is_file($path . '/' . $file) || in_array($file, $GLOBALS['exclude_items'])) {
         fm_set_msg(lng('File not found'), 'error');
-        fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+        $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
     }
 
     if(!$quickView) {
@@ -1789,7 +1788,7 @@ if (isset($_GET['edit'])) {
     $file = str_replace('/', '', $file);
     if ($file == '' || !is_file($path . '/' . $file)) {
         fm_set_msg(lng('File not found'), 'error');
-        fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+        $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
     }
     $editFile = ' : <i><b>'. $file. '</b></i>';
     header('X-XSS-Protection:0');
@@ -1885,7 +1884,7 @@ if (isset($_GET['chmod']) && !FM_READONLY && !FM_IS_WIN) {
     $file = str_replace('/', '', $file);
     if ($file == '' || (!is_file($path . '/' . $file) && !is_dir($path . '/' . $file))) {
         fm_set_msg(lng('File not found'), 'error');
-        fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+        $FM_PATH=FM_PATH; fm_redirect(FM_SELF_URL . '?p=' . urlencode($FM_PATH));
     }
 
     fm_show_header(); // HEADER
@@ -3889,12 +3888,6 @@ $isStickyNavBar = $sticky_navbar ? 'navbar-fixed' : 'navbar-normal';
                 o.appendChild(c), a.appendChild(o), document.body.appendChild(a), a.submit()
             }
         }
-    }
-    //Check latest version
-    function latest_release_info(v) {
-        if(!!window.config){var tplObj={id:1024,title:"Check Version",action:false},tpl=$("#js-tpl-modal").html();
-        if(window.config.version!=v){tplObj.content=window.config.newUpdate;}else{tplObj.content=window.config.noUpdate;}
-        $('#wrapper').append(template(tpl,tplObj));$("#js-ModalCenter-1024").modal('show');}else{fm_get_config();}
     }
     function show_new_pwd() { $(".js-new-pwd").toggleClass('hidden'); }
     //Save Settings
