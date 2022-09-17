@@ -393,21 +393,6 @@ export default {
 			});
 	},
 	mounted() {
-		const header = document.querySelector('header');
-		const navLink = document.querySelector('#vl-nav > ul');
-
-		window.onscroll = function () {
-			if (
-				document.body.scrollTop >= 100 ||
-				document.documentElement.scrollTop >= 100
-			) {
-				// header.classList.add('');
-				// navLink.classList.add('scroll');
-			} else {
-				// header.classList.remove('transparent-shadow');
-				// navLink.classList.remove('scroll');
-			}
-		};
 		// Mobile Menu
 
 		axios

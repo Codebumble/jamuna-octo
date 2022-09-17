@@ -2,7 +2,7 @@
 	<section
 		id="cb-bg-video"
 		class="overflow-hidden cb-hero relative">
-		<div class="">
+		<div class="zigzag_bg">
 			<swiper
 				:modules="modules"
 				:slides-per-view="1"
@@ -110,7 +110,7 @@
 		},
 		setup() {
 			return {
-				modules: [Pagination, Autoplay],
+				modules: [ Autoplay],
 			};
 		},
 	};
