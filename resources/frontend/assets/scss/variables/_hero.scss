@@ -15,3 +15,9 @@
 		}
 	}
 }
+
+.zigzag_bg::after{
+	@apply absolute bottom-0 left-0 h-[100px] lg:h-[180px] w-full z-[1] bg-no-repeat bg-custom lg:bg-auto;
+    content: "";
+    background-image: url(/frontend/images/logo/zigzag.png);
+}
