@@ -22,7 +22,7 @@
 	"editor.suggest.snippetsPreventQuickSuggestions": false,
 	"cssPeek.trace.server": "messages",
 	"git.confirmSync": false,
-	"editor.fontFamily": "Fira Code",
+	"editor.fontFamily": "Cascadia Code PL",
 	"editor.find.cursorMoveOnType": true,
 	"prettier.tabWidth": 4,
 	"prettier.useTabs": true,
@@ -35,7 +35,6 @@
 	"path-intellisense.absolutePathToWorkspace": true,
 	"editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'zero', 'onum'",
 	"terminal.integrated.fontSize": 13,
-	"workbench.iconTheme": "material-icon-theme",
 	"workbench.editor.enablePreview": false,
 	"files.associations": {
 		"*.json": "jsonc"
