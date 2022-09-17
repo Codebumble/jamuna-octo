@@ -11,7 +11,7 @@
 
 .logo-slider {
 	.concern {
-		@apply w-full h-16 border border-slate-100 bg-slate-50;
+		@apply border border-slate-100 bg-slate-50 h-[6rem] xs:h-36 md:h-36 sm:h-[6.5rem] w-36 flex justify-center items-center object-cover;
 
 		img {
 			@apply mix-blend-luminosity p-4 md:p-0;
