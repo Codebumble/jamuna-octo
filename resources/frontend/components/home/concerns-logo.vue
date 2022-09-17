@@ -6,18 +6,20 @@
 					<h2 class="heading">{{ aboutConcerns.heading }}</h2>
 				</div>
 				<div class="logo-slider w-full">
-					<div
-						class="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
-						<div
-							class="flex justify-around items-center rounded transition-all concern overflow-hidden p-4"
+					<Splide
+						:options="options"
+						aria-label="concerns logo slider">
+						<SplideSlide
 							v-for="logo in concernlogo"
-							:key="logo">
-							<img
-								:src="'/company-images/' + logo.image"
-								:alt="logo.name"
-								class="w-32" />
-						</div>
-					</div>
+							:key="logo"
+							class="flex justify-around items-center transition-all overflow-hidden p-4">
+							<div class="concern rounded-full">
+								<img
+									:src="'/company-images/' + logo.image"
+									:alt="logo.name" />
+							</div>
+						</SplideSlide>
+					</Splide>
 				</div>
 			</div>
 		</div>
@@ -26,10 +28,16 @@
 
 <style lang="scss">
 	@import '../../assets/scss/variables/_concerns-logo';
+	@import '@splidejs/vue-splide/css/core';
 </style>
 
 <script>
+	import { Splide, SplideSlide } from '@splidejs/vue-splide';
 	export default {
+		components: {
+			Splide,
+			SplideSlide,
+		},
 		data() {
 			return {
 				aboutConcerns: {},
@@ -50,6 +58,27 @@
 				.then((response) => {
 					this.concernlogo = response.data;
 				});
+		},
+
+		setup() {
+			const options = {
+				rewind: false,
+				autoPlay: true,
+				perPage: 5,
+				pagination: false,
+				arrows: true,
+				type: 'loop',
+				breakpoints: {
+					1024: {
+						perPage: 4,
+					},
+					480: {
+						perPage: 2,
+					},
+				},
+			};
+
+			return { options };
 		},
 	};
 </script>
