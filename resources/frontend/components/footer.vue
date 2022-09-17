@@ -108,22 +108,26 @@
 				footerSocial: {},
 				linksCol1: [
 					{
+						linkText: 'News Center',
+						link: '/news-center',
+					},
+					{
+						linkText: 'Photo Gallery',
+						link: '/photo-gallery',
+					},
+					{
+						linkText: 'Contact Us',
+						link: '/contact',
+					},
+				],
+				linksCol2: [
+					{
 						linkText: 'Career',
 						link: '/career',
 					},
 					{
 						linkText: 'FAQ',
 						link: '/faq',
-					},
-				],
-				linksCol2: [
-					{
-						linkText: 'News Center',
-						link: '/news-center',
-					},
-					{
-						linkText: 'Contact Us',
-						link: '/contact',
 					},
 				],
 				linksCol3: [
