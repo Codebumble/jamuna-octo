@@ -1,5 +1,5 @@
 <template>
-	<header class="py-4 fixed text-white w-full z-10 transition-all">
+	<header class="py-4 fixed text-white w-full z-10 transition-all transparent-shadow scroll">
 		<div class="container">
 			<div class="block lg:flex items-center justify-between max-h-12">
 				<div
@@ -38,8 +38,7 @@
 					id="vl-nav">
 					<ul
 						class="block lg:flex"
-						id="menu"
-						:class="$route.name == 'home' ? 'nav-home' : ''">
+						id="menu">
 						<li
 							class="cb-nav-item"
 							:class="menu.parentSubmenu ? 'has-child' : ''"
@@ -186,7 +185,7 @@ export default {
 				},
 				{
 					route: '',
-					label: 'Jamuna Sector',
+					label: 'business vertical',
 					parentSubmenu: [
 						{
 							route: '',
@@ -350,21 +349,21 @@ export default {
 				},
 				{
 					route: '/nurul-islam-foundation',
-					label: 'N. Foundation',
+					label: 'foundation',
+				},
+				{
+					route: '/news-center',
+					label: 'News Center',
 				},
 				{
 					route: '',
 					label: 'Media Hub',
 					parentSubmenu: [
 						{
-							route: '/news-center',
-							label: 'News Center',
+							route: '',
+							label: '',
 						},
 					],
-				},
-				{
-					route: '/photo-gallery',
-					label: 'Photo Gallery',
 				},
 				{
 					route: '/career',
@@ -372,7 +371,7 @@ export default {
 				},
 				{
 					route: '/contact',
-					label: 'Contact',
+					label: 'connect',
 				},
 			],
 		};
@@ -387,8 +386,8 @@ export default {
 			.get(window.location.origin + '/frontpage-api/nav-company')
 			.then((response) => {
 				this.navMenu[2].parentSubmenu = [...response.data.company];
-				this.navMenu[4].parentSubmenu = [
-					...this.navMenu[4].parentSubmenu,
+				this.navMenu[5].parentSubmenu = [
+					...this.navMenu[5].parentSubmenu,
 					...response.data.mediahub,
 				];
 			});
@@ -402,11 +401,11 @@ export default {
 				document.body.scrollTop >= 100 ||
 				document.documentElement.scrollTop >= 100
 			) {
-				header.classList.add('transparent-shadow');
-				navLink.classList.add('scroll');
+				// header.classList.add('');
+				// navLink.classList.add('scroll');
 			} else {
-				header.classList.remove('transparent-shadow');
-				navLink.classList.remove('scroll');
+				// header.classList.remove('transparent-shadow');
+				// navLink.classList.remove('scroll');
 			}
 		};
 		// Mobile Menu

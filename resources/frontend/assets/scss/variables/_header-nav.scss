@@ -42,7 +42,7 @@
 			}
 		}
 		.cb-nav-item {
-			@apply lg:mx-3 transition block lg:inline-block w-full lg:w-auto relative lg:static;
+			@apply lg:mx-3 transition block lg:inline-block w-full lg:w-auto relative lg:static uppercase;
 
 			.cb-nav-link {
 				@apply p-4 lg:p-0 lg:py-4 block lg:inline-block hover:bg-red-600 lg:hover:bg-transparent text-gray-600 lg:text-gray-800 hover:text-white hover:lg:text-red-600 cursor-pointer;

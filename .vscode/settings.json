@@ -22,7 +22,7 @@
 	"editor.suggest.snippetsPreventQuickSuggestions": false,
 	"cssPeek.trace.server": "messages",
 	"git.confirmSync": false,
-	"editor.fontFamily": "Cascadia Code PL, 'Courier New', monospace",
+	"editor.fontFamily": "Fira Code",
 	"editor.find.cursorMoveOnType": true,
 	"prettier.tabWidth": 4,
 	"prettier.useTabs": true,
@@ -48,7 +48,7 @@
 	"explorer.confirmDelete": false,
 	"workbench.list.smoothScrolling": true,
 	"editor.cursorSmoothCaretAnimation": true,
-	"workbench.colorTheme": "Codebumble Dark Pro",
+	"workbench.colorTheme": "Monokai GRS",
 	"editor.inlineSuggest.enabled": true,
 	"github.copilot.enable": {
 		"*": true,
