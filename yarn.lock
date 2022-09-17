@@ -1019,17 +1019,17 @@
   resolved "https://registry.npmjs.org/@splidejs/splide-extension-grid/-/splide-extension-grid-0.4.1.tgz"
   integrity sha512-XM3pl5VKvmoybwZRrv4xE8Hff2mT6Chl9GnGd8nQogo4ZtTgxzqAZqBxLvhrl5UuUswIdmNoRmMeeEgx9twrvw==
 
-"@splidejs/splide@^4.0.7":
-  version "4.0.7"
-  resolved "https://registry.npmjs.org/@splidejs/splide/-/splide-4.0.7.tgz"
-  integrity sha512-aJAOGJN2lwjwou3mxQofc3uhe+RXpw9in0WfysFX7AMT/mj7wSqoetfm41s7J8jU6FJ3ZWaLYgSJIpBAQ5wyqw==
+"@splidejs/splide@^4.0.15":
+  version "4.0.17"
+  resolved "https://registry.yarnpkg.com/@splidejs/splide/-/splide-4.0.17.tgz#7e6576d4643f496c0f00b589da1f47cab0ae8c77"
+  integrity sha512-k67vDY0+hl7Qi+I+juOF+DO1KuRw+4RfV5x5SlIVrK60DmMzQvp2j9CqDzixUw3jDDoEaPTGY4BKy5SZSiFf1Q==
 
-"@splidejs/vue-splide@^0.6.7":
-  version "0.6.7"
-  resolved "https://registry.npmjs.org/@splidejs/vue-splide/-/vue-splide-0.6.7.tgz"
-  integrity sha512-VWT03R6EOd58+klcAUCboR7FF0yNWon93ddBy8VqO4a/TbYgpx+LOBQLFovFFm7VBdXlRd+XzkxIi705XZVeFQ==
+"@splidejs/vue-splide@0.6.8":
+  version "0.6.8"
+  resolved "https://registry.yarnpkg.com/@splidejs/vue-splide/-/vue-splide-0.6.8.tgz#b5d98b299aa21723dc22d81ad096f6ed271545ee"
+  integrity sha512-vrA2l496QLp4fN7cc2bXxj9SSfg1RzBwfldV4uB5rqnKwRmRRFqiirP/gZBhTYX2d4/KkIgugURTamxsz3GGnA==
   dependencies:
-    "@splidejs/splide" "^4.0.7"
+    "@splidejs/splide" "^4.0.15"
 
 "@tailwindcss/forms@^0.5.2":
   version "0.5.2"
