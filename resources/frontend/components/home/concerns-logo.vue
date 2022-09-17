@@ -4,9 +4,6 @@
 			<div class="flex flex-col items-center">
 				<div class="content w-full mb-6">
 					<h2 class="heading">{{ aboutConcerns.heading }}</h2>
-					<p class="description">
-						{{ aboutConcerns.description }}
-					</p>
 				</div>
 				<div class="logo-slider w-full">
 					<div
