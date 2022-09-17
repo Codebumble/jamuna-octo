@@ -46,131 +46,230 @@
                         @if (isset($_GET['exist']))
                             <div class="demo-spacing-0 mb-2">
                                 <div class="alert alert-warning" role="alert">
-                                <div class="alert-body"><strong>{{ $_GET['exist'] }}</strong></div>
+                                    <div class="alert-body"><strong>{{ $_GET['exist'] }}</strong></div>
                                 </div>
                             </div>
                         @endif
 
-                        <form action="{{route('mission-vision-update')}}" class="invoice-repeater" method="POST">
-                        @csrf
+                        <form action="{{ route('mission-vision-update') }}" class="invoice-repeater" method="POST">
+                            @csrf
                             <div class="row">
 
-                                <div class="col-12 mb-1">
-                                    <div class="mb-1">
-                                        <label class="form-label" for="header">Header</label>
-                                        <input type="text" class="form-control" name="top[header]" value="{{$top->header}}"
-                                            aria-describedby="header" placeholder="header" />
-                                    </div>
-                                </div>
+                                <div data-repeater-list="data">
 
-                                <div class="mb-1">
-                                    <label class="d-block form-label" for="h_description">Header Description</label>
-                                    <textarea id="validationBioBootstrap" class="form-control" name="top[h_description]" rows="3" required>{{$top->h_description}}</textarea>
-                                </div>
+                                    <div data-repeater-item>
+                                        <div class="row d-flex align-items-end">
 
 
-                            <div data-repeater-list="data">
+                                            <div class="divider-primary divider">
+                                                <div class="divider-text">Item 1</div>
+                                            </div>
 
-                                <div data-repeater-item>
-                                    <div class="row d-flex align-items-end">
+                                            <div class="col-12 mb-1">
+                                                <div class="mb-1">
+                                                    <label class="form-label" for="image">Icon Image</label>
+                                                    <input id="image" type="file" class="form-control"
+                                                        name="[0][src]" aria-describedby="image" placeholder="image"
+                                                        accpet=".png, .jpg, .jpeg, .svg" />
+                                                </div>
+                                            </div>
 
-                                <div class="divider-primary divider">
-                                    <div class="divider-text">Heading</div>
-                                </div>
-                                <div class="col-12 mb-1">
-                                    <div class="mb-1">
-                                        <label class="form-label" for="title">Title</label>
-                                        <input type="text" class="form-control" name="title" value="{{$data[0]->title}}"
-                                            aria-describedby="title" placeholder="" />
-                                    </div>
-                                </div>
+                                            <div class="col-12 mb-1">
+                                                <div class="mb-1">
+                                                    <label class="form-label" for="title">Title</label>
+                                                    <input type="text" class="form-control" name="title"
+                                                        value="{{ $data[0]->title }}" aria-describedby="title"
+                                                        placeholder="" />
+                                                </div>
+                                            </div>
 
-                                <div class="mb-1">
-                                    <label class="d-block form-label" for="desc">Description</label>
-                                    <textarea id="desc" class="form-control" name="desc" rows="3" required>{{$data[0]->desc}}</textarea>
-                                </div>
-
-                                <div class="divider-primary divider">
-                                    <div class="divider-text">Mission</div>
-                                </div>
-                                <div class="col-12 mb-1">
-                                    <div class="mb-1">
-                                        <label class="form-label" for="title">Title</label>
-                                        <input type="text" class="form-control" name="title" value="{{$data[0]->title}}"
-                                            aria-describedby="title" placeholder="" />
-                                    </div>
-                                </div>
-
-                                <div class="mb-1">
-                                    <label class="d-block form-label" for="desc">Description</label>
-                                    <textarea id="desc" class="form-control" name="desc" rows="3" required>{{$data[0]->desc}}</textarea>
-                                </div>
-
-                                <div class="divider-primary divider">
-                                    <div class="divider-text">Vision</div>
-                                </div>
-                            </div>
-
-                                <div data-repeater-item>
-                                    <div class="row d-flex align-items-end">
-
-                                        <div class="col-12 mb-1">
                                             <div class="mb-1">
-                                                <label class="form-label" for="title">Title</label>
-                                                <input type="text" class="form-control" name="title"
-                                                    value="{{$data[1]->title}}" aria-describedby="title"
-                                                    placeholder="title" />
+                                                <label class="d-block form-label" for="desc">Description</label>
+                                                <textarea id="desc" class="form-control" name="desc" rows="3" required>{{ $data[0]->desc }}</textarea>
+                                            </div>
+
+                                            <div class="divider-primary divider">
+                                                <div class="divider-text">Item 2</div>
                                             </div>
                                         </div>
 
-                                        <div class="mb-1">
-                                            <label class="d-block form-label"
-                                                for="desc">Description</label>
-                                            <textarea id="desc" class="form-control" name="desc" rows="3" required>{{$data[1]->desc}}.</textarea>
+                                        <div data-repeater-item>
+                                            <div class="row d-flex align-items-end">
+
+                                                <div class="col-12 mb-1">
+                                                    <div class="mb-1">
+                                                        <label class="form-label" for="image">Icon Image</label>
+                                                        <input id="image" type="file" class="form-control"
+                                                            name="src" aria-describedby="image" placeholder="image"
+                                                            accpet=".png, .jpg, .jpeg, .svg" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 mb-1">
+                                                    <div class="mb-1">
+                                                        <label class="form-label" for="title">Title</label>
+                                                        <input type="text" class="form-control" name="title"
+                                                            value="{{ $data[1]->title }}" aria-describedby="title"
+                                                            placeholder="title" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-1">
+                                                    <label class="d-block form-label" for="desc">Description</label>
+                                                    <textarea id="desc" class="form-control" name="desc" rows="3" required>{{ $data[1]->desc }}.</textarea>
+                                                </div>
+
+
+
+
+                                                <div class="divider-primary divider">
+                                                    <div class="divider-text">Item 3</div>
+                                                </div>
+                                            </div>
+
+                                            <div data-repeater-item>
+                                                <div class="row d-flex align-items-end">
+
+                                                    <div class="col-12 mb-1">
+                                                        <div class="mb-1">
+                                                            <label class="form-label" for="image">Icon Image</label>
+                                                            <input id="image" type="file" class="form-control"
+                                                                name="src" aria-describedby="image"
+                                                                placeholder="image" accpet=".png, .jpg, .jpeg, .svg" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 mb-1">
+                                                        <div class="mb-1">
+                                                            <label class="form-label" for="title">Title</label>
+                                                            <input type="text" class="form-control" name="title"
+                                                                value="{{ $data[2]->title }}" aria-describedby="title"
+                                                                placeholder="title" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mb-1">
+                                                        <label class="d-block form-label"
+                                                            for="desc">Description</label>
+                                                        <textarea id="desc" class="form-control" name="desc" rows="3" required>{{ $data[2]->desc }}</textarea>
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="divider-primary divider">
+                                                    <div class="divider-text">Item 4</div>
+                                                </div>
+                                            </div>
+
+                                            <div data-repeater-item>
+                                                <div class="row d-flex align-items-end">
+
+                                                    <div class="col-12 mb-1">
+                                                        <div class="mb-1">
+                                                            <label class="form-label" for="image">Icon Image</label>
+                                                            <input id="image" type="file" class="form-control"
+                                                                name="src" aria-describedby="image"
+                                                                placeholder="image" accpet=".png, .jpg, .jpeg, .svg" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 mb-1">
+                                                        <div class="mb-1">
+                                                            <label class="form-label" for="title">Title</label>
+                                                            <input type="text" class="form-control" name="title"
+                                                                value="{{ $data[3]->title }}" aria-describedby="title"
+                                                                placeholder="title" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mb-1">
+                                                        <label class="d-block form-label"
+                                                            for="desc">Description</label>
+                                                        <textarea id="desc" class="form-control" name="desc" rows="3" required>{{ $data[3]->desc }}</textarea>
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="divider-primary divider">
+                                                    <div class="divider-text">Item 5</div>
+                                                </div>
+                                            </div>
+                                            <div data-repeater-item>
+                                                <div class="row d-flex align-items-end">
+
+                                                    <div class="col-12 mb-1">
+                                                        <div class="mb-1">
+                                                            <label class="form-label" for="image">Icon Image</label>
+                                                            <input id="image" type="file" class="form-control"
+                                                                name="src" aria-describedby="image"
+                                                                placeholder="image" accpet=".png, .jpg, .jpeg, .svg" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 mb-1">
+                                                        <div class="mb-1">
+                                                            <label class="form-label" for="title">Title</label>
+                                                            <input type="text" class="form-control" name="title"
+                                                                value="{{ $data[4]->title }}" aria-describedby="title"
+                                                                placeholder="title" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mb-1">
+                                                        <label class="d-block form-label"
+                                                            for="desc">Description</label>
+                                                        <textarea id="desc" class="form-control" name="desc" rows="3" required>{{ $data[4]->desc }}</textarea>
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="divider-primary divider">
+                                                    <div class="divider-text">Item 6</div>
+                                                </div>
+                                            </div>
+                                            <div data-repeater-item>
+                                                <div class="row d-flex align-items-end">
+
+                                                    <div class="col-12 mb-1">
+                                                        <div class="mb-1">
+                                                            <label class="form-label" for="image">Icon Image</label>
+                                                            <input id="image" type="file" class="form-control"
+                                                                name="src" aria-describedby="image"
+                                                                placeholder="image" accpet=".png, .jpg, .jpeg, .svg" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 mb-1">
+                                                        <div class="mb-1">
+                                                            <label class="form-label" for="title">Title</label>
+                                                            <input type="text" class="form-control" name="title"
+                                                                value="{{ $data[5]->title }}" aria-describedby="title"
+                                                                placeholder="title" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mb-1">
+                                                        <label class="d-block form-label"
+                                                            for="desc">Description</label>
+                                                        <textarea id="desc" class="form-control" name="desc" rows="3" required>{{ $data[5]->desc }}</textarea>
+                                                    </div>
+
+
+                                                </div>
+                                                <hr />
+                                            </div>
+
+
+
                                         </div>
-
-
-
-
-                                    <div class="divider-primary divider">
-                                        <div class="divider-text">Objective</div>
-                                    </div>
-                                </div>
-
-                                <div data-repeater-item>
-                                    <div class="row d-flex align-items-end">
-
-                                        <div class="col-12 mb-1">
-                                            <div class="mb-1">
-                                                <label class="form-label" for="title">Title</label>
-                                                <input type="text" class="form-control" name="title"
-                                                    value="{{$data[2]->title}}" aria-describedby="title"
-                                                    placeholder="title" />
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <button class="btn btn-icon btn-success m-1" type="submit">
+                                                    <i data-feather="check" class="me-25"></i>
+                                                    <span>Update</span>
+                                                </button>
                                             </div>
                                         </div>
-
-                                        <div class="mb-1">
-                                            <label class="d-block form-label"
-                                                for="desc">Description</label>
-                                            <textarea id="desc" class="form-control" name="desc" rows="3" required>{{$data[2]->desc}}</textarea>
-                                        </div>
-
-
-                                    </div>
-                                    <hr />
-                                </div>
-
-
-
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <button class="btn btn-icon btn-success m-1" type="submit">
-                                        <i data-feather="check" class="me-25"></i>
-                                        <span>Update</span>
-                                    </button>
-                                </div>
-                            </div>
                         </form>
                     </div>
                 </div>

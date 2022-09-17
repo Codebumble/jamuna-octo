@@ -1563,5 +1563,6 @@
     "/data/search.json": "/data/search.json",
     "/data/table-datatable.json": "/data/table-datatable.json",
     "/data/user-list.json": "/data/user-list.json",
-    "/frontend/images/contents/earth2.png": "/frontend/images/contents/earth2.png"
+    "/frontend/images/contents/earth2.png": "/frontend/images/contents/earth2.png",
+    "/frontend/images/contents/plant.svg": "/frontend/images/contents/plant.svg"
 }
