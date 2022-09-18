@@ -22,7 +22,7 @@
 	"editor.suggest.snippetsPreventQuickSuggestions": false,
 	"cssPeek.trace.server": "messages",
 	"git.confirmSync": false,
-	"editor.fontFamily": "Cascadia Code PL",
+	"editor.fontFamily": "Fira Code",
 	"editor.find.cursorMoveOnType": true,
 	"prettier.tabWidth": 4,
 	"prettier.useTabs": true,
