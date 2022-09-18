@@ -47,7 +47,6 @@
 	"explorer.confirmDelete": false,
 	"workbench.list.smoothScrolling": true,
 	"editor.cursorSmoothCaretAnimation": true,
-	"workbench.colorTheme": "Monokai GRS",
 	"editor.inlineSuggest.enabled": true,
 	"github.copilot.enable": {
 		"*": true,

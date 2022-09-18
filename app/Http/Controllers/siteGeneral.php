@@ -760,22 +760,13 @@ class siteGeneral extends Controller
 		]);
 	}
 
-	public function mission_vision_update(Request $r)
+	public function mission_vision_update(Request $request)
 	{
 		check_auth();
 		check_power('admin');
 
-		$b = $r->post();
+		$b = $request->post();
 		unset($b['_token']);
-
-		if ($file4 = $r->hasFile('src')) {
-			$file4 = $r->file('src');
-			$fileName4 = time() . '.' . $file4->getClientOriginalExtension();
-			$destinationPath4 = public_path() . '/frontend/images/contents/';
-			$file4->move($destinationPath4, $fileName4);
-			$f = '/frontend/images/contents/' . $fileName4;
-			$b['src'] = $f;
-		}
 
 		$d = DB::table('codebumble_front_page')
 			->where('code_name', 'mission-vision')

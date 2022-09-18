@@ -1542,6 +1542,7 @@
     "/frontend/images/contents/objective.svg": "/frontend/images/contents/objective.svg",
     "/frontend/images/contents/office-1.jpg": "/frontend/images/contents/office-1.jpg",
     "/frontend/images/contents/Pile-of-Jeans.jpg": "/frontend/images/contents/Pile-of-Jeans.jpg",
+    "/frontend/images/contents/plant.svg": "/frontend/images/contents/plant.svg",
     "/frontend/images/contents/Rocket Boy_Flatline.svg": "/frontend/images/contents/Rocket Boy_Flatline.svg",
     "/frontend/images/contents/slide2.jpg": "/frontend/images/contents/slide2.jpg",
     "/frontend/images/contents/Target_Flatline.svg": "/frontend/images/contents/Target_Flatline.svg",
@@ -1589,7 +1590,6 @@
     "/frontend/images/logo/hoorain.png": "/frontend/images/logo/hoorain.png",
     "/frontend/images/logo/jamuna.svg": "/frontend/images/logo/jamuna.svg",
     "/frontend/images/logo/microsoft.svg": "/frontend/images/logo/microsoft.svg",
-    "/frontend/images/logo/te.png": "/frontend/images/logo/te.png",
     "/frontend/images/logo/zigzag.png": "/frontend/images/logo/zigzag.png",
     "/frontend/images/slider/1.jpg": "/frontend/images/slider/1.jpg",
     "/frontend/images/slider/2.jpg": "/frontend/images/slider/2.jpg",
@@ -1611,5 +1611,9 @@
     "/data/search.json": "/data/search.json",
     "/data/table-datatable.json": "/data/table-datatable.json",
     "/data/user-list.json": "/data/user-list.json",
-    "/frontend/images/contents/plant.svg": "/frontend/images/contents/plant.svg"
+    "/frontend/images/contents/case.svg": "/frontend/images/contents/case.svg",
+    "/frontend/images/contents/info.svg": "/frontend/images/contents/info.svg",
+    "/frontend/images/contents/reach.svg": "/frontend/images/contents/reach.svg",
+    "/frontend/images/contents/ssty.svg": "/frontend/images/contents/ssty.svg",
+    "/frontend/images/contents/target.svg": "/frontend/images/contents/target.svg"
 }

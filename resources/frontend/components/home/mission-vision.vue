@@ -8,13 +8,13 @@
 					:key="data">
 					<img
 						class="h-12 mx-auto my-4"
-						:src="'/frontend/images/contents/' + data.src"
+						:src="data.image"
 						:alt="data.title" />
-					<h3 class="mb-2 font-bold font-heading text-xl">
+					<h3 class="mb-2 font-bold font-heading text-xl uppercase">
 						{{ data.title }}
 					</h3>
 					<p
-						class="text-sm text-gray-400 leading-relaxed pb-4 lg:pb-0">
+						class="text-sm text-gray-400 leading-relaxed pb-4 lg:pb-0 uppercase">
 						{{ data.desc }}
 					</p>
 				</div>
@@ -31,7 +31,7 @@
 				mvo: [],
 			};
 		},
-		created() {
+		mounted() {
 			axios
 				.get(
 					window.location.origin +
