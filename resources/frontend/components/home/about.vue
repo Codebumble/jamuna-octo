@@ -14,7 +14,7 @@
 				</p>
 			</div>
 			<div class="detail">
-				<div class="items w-full mx-auto">
+				<div class="items w-4/5 mx-auto">
 					<Splide
 						:options="options"
 						aria-label="concerns logo slider">
@@ -43,11 +43,7 @@
 					<div class="column"></div>
 					<div class="column"></div>
 				</div>
-				<div class="image">
-					<img
-						src="/frontend/images/contents/earth2.png"
-						alt="earth" />
-				</div>
+				<div class="image"></div>
 			</div>
 		</div>
 	</section>
@@ -55,100 +51,68 @@
 
 <style lang="scss">
 .detail {
-	position: relative;
+	@apply relative;
 	.items {
-		height: 200px;
-		position: absolute;
-		z-index: 2;
-		overflow: hidden;
-		margin: 0 auto;
-		// left: 117px;
+		@apply absolute h-[200px] z-[2] overflow-hidden mx-auto left-[117px];
 		#splide03-list li:nth-child(odd):not(.is-active) {
-			height: 160px;
-			transform: translate(10px, 56px);
-			display: flex;
-			flex-direction: column-reverse;
-			justify-content: flex-end;
+			@apply h-[160px] flex flex-col-reverse justify-end;
+			transform: translate(25px, 82px);
+		}
+		#splide03-list li:nth-child(even) {
+			transform: translate(13px, -20px);
 		}
 		#splide03-list li.is-active {
-			transform: translate(10px, -55px);
-		}
-		li:nth-child(1) {
-			color: red;
-		}
-		li:nth-child(2) {
-			color: green;
-		}
-		li:nth-child(3) {
-			color: blue;
-		}
-		li:nth-child(4) {
-			color: orange;
-		}
-		li:nth-child(5) {
-			color: orchid;
+			transform: translate(25px, -74px);
 		}
 		.item {
-			overflow: hidden;
-			padding-top: 50px;
-			padding-left: 8px;
-			padding-right: 8px;
-			padding-top: 20px;
+			@apply overflow-hidden pt-[20px];
 			h3 {
-				@apply font-bold text-center uppercase;
+				@apply font-bold text-center uppercase text-[13px];
 			}
 		}
 	}
 	.columns {
-		display: flex;
-		justify-content: center;
-		position: relative;
-		height: 200px;
+		@apply flex justify-center relative h-[200px];
 		.column {
+			@apply w-1 my-1 absolute z-0;
 			background: #e3e5e5;
-			width: 5px;
-			height: 200px;
-			margin: 0 5px;
-			position: absolute;
-			z-index: 2;
 		}
 		.column:nth-child(1) {
-			left: 18.1%;
-			height: 210px;
-			bottom: -147px;
+			@apply h-[180px] bottom-[-148px] left-[18.5%] 2xl:bottom-[-165px];
 		}
 		.column:nth-child(2) {
-			left: 33.2%;
-			height: 120px;
-			bottom: -48px;
+			@apply h-40 -bottom-[63px] left-[33.5%] 2xl:-bottom-[68px];
 		}
 		.column:nth-child(3) {
-			height: 160px;
-			bottom: -20px;
-			left: 50%;
+			@apply h-[180px] bottom-[-35px] left-[50.5%];
 		}
 		.column:nth-child(4) {
-			right: 33.6%;
-			height: 120px;
-			bottom: -45px;
+			@apply h-40 -bottom-[60px] right-[34.2%] 2xl:-bottom-[65px];
 		}
 		.column:nth-child(5) {
-			right: 17.2%;
-			height: 215px;
-			bottom: -148px;
+			@apply h-[180px] bottom-[-148px] right-[17.2%] 2xl:bottom-[-165px];
 		}
 	}
 	.image {
+		// @apply w-full relative -bottom-[31px] bg-cover bg-no-repeat h-80;
+		background: url(/frontend/images/contents/earth.png);
 		width: 100%;
 		position: relative;
 		height: 320px;
-		img {
-			width: 100%;
-			object-fit: cover;
-			position: absolute;
-		}
+		background-repeat: no-repeat;
+		background-size: cover;
+		bottom: -31px;
 	}
 }
+
+// @media only screen and (min-width: 1536px) {
+// 	#splide03-list li:nth-child(odd):not(.is-active) {
+// 		transform: translate(50px, 82px);
+// 	}
+// 	#splide03-list li:nth-child(even) {
+// 		transform: translate(35px, -20px);
+// 	}
+// }
 </style>
 
 <script>
