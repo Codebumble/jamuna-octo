@@ -27,6 +27,7 @@
 	<futureExpansion />
 	<products />
 	<events />
+	<about/>
 </template>
 
 <script>
@@ -49,6 +50,7 @@
 	import futureExpansion from '../components/home/future-expansion';
 	import products from '../components/home/products';
 	import events from '../components/home/events-slider';
+	import about from '../components/home/about';
 
 	// Skeleton
 	import concernsLogoSkeleton from '../components/skeleton/concerns-logo-skeleton.vue';
@@ -64,6 +66,7 @@
 			futureExpansion,
 			products,
 			events,
+			about,
 			// Skeleton
 			concernsLogoSkeleton,
 			homeSliderSkeleton,
