@@ -23,11 +23,12 @@
 			<missionVisionSkeleton />
 		</template>
 	</Suspense>
-
+	<indSlide />
 	<futureExpansion />
 	<products />
 	<events />
-	<about/>
+
+	<about />
 </template>
 
 <script>
@@ -51,6 +52,7 @@
 	import products from '../components/home/products';
 	import events from '../components/home/events-slider';
 	import about from '../components/home/about';
+	import indSlide from '../components/home/ind-slider';
 
 	// Skeleton
 	import concernsLogoSkeleton from '../components/skeleton/concerns-logo-skeleton.vue';
@@ -67,6 +69,7 @@
 			products,
 			events,
 			about,
+			indSlide,
 			// Skeleton
 			concernsLogoSkeleton,
 			homeSliderSkeleton,
