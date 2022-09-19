@@ -23,7 +23,7 @@
 			<missionVisionSkeleton />
 		</template>
 	</Suspense>
-	<!-- <indSlide /> -->
+	<indSlide />
 	<futureExpansion />
 	<products />
 	<events />

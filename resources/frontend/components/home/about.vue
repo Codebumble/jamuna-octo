@@ -54,14 +54,14 @@
 	@apply relative;
 	.items {
 		@apply absolute h-[200px] z-[2] overflow-hidden mx-auto left-[117px];
-		#splide03-list li:nth-child(odd):not(.is-active) {
+		#splide04-list li:nth-child(odd):not(.is-active) {
 			@apply h-[160px] flex flex-col-reverse justify-end;
 			transform: translate(25px, 82px);
 		}
-		#splide03-list li:nth-child(even) {
+		#splide04-list li:nth-child(even) {
 			transform: translate(13px, -20px);
 		}
-		#splide03-list li.is-active {
+		#splide04-list li.is-active {
 			transform: translate(25px, -74px);
 		}
 		.item {
@@ -106,10 +106,10 @@
 }
 
 // @media only screen and (min-width: 1536px) {
-// 	#splide03-list li:nth-child(odd):not(.is-active) {
+// 	#splide04-list li:nth-child(odd):not(.is-active) {
 // 		transform: translate(50px, 82px);
 // 	}
-// 	#splide03-list li:nth-child(even) {
+// 	#splide04-list li:nth-child(even) {
 // 		transform: translate(35px, -20px);
 // 	}
 // }

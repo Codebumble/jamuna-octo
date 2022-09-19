@@ -1,0 +1,25 @@
+#ind-slider {
+	.company-slider {
+		@apply w-full h-98;
+		li{
+			@apply h-98;
+		}
+		img {
+			@apply w-full h-full;
+			width: full;
+			object-fit: cover;
+		}
+	}
+	.company {
+		@apply w-1/5 h-98 overflow-y-scroll;
+		.item {
+			@apply w-full h-52 mb-2;
+			img {
+				@apply w-full h-44;
+			}
+			h3 {
+				@apply text-center uppercase font-bold mt-2;
+			}
+		}
+	}
+}
