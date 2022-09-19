@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Validator;
 use File;
 use DB;
+use Illuminate\Support\Facades\Storage;
 
 class siteGeneral extends Controller
 {
@@ -765,12 +766,32 @@ class siteGeneral extends Controller
 		check_auth();
 		check_power('admin');
 
-		$b = $request->post();
-		unset($b['_token']);
+		$b = $request->data;
+
+		foreach ($b as $key => $value) {
+			if ($file2 = $request->hasFile('data.'.$key.'.images')) {
+				$file2 = $request->file('data.'.$key.'.images');
+				$fileName2 = time() .'-'.Str::random(5).'-' .Auth::user()->username.'.' . $file2->getClientOriginalExtension();
+				$destinationPath2 = public_path() . '/frontend/images/contents/';
+				$file2->move($destinationPath2, $fileName2);
+				$f = '/frontend/images/contents/' . $fileName2;
+				unset($b[$key]['images']);
+				$b[$key]['image'] = $f;
+				$d = DB::select('select value from codebumble_front_page where code_name = ?',['mission-vision']);
+				$d = json_decode($d[0]->value, true);
+				Storage::disk('public_dir')->delete($d['data'][$key]['image']);
+			} else {
+				$d = DB::select('select value from codebumble_front_page where code_name = ?',['mission-vision']);
+				$d = json_decode($d[0]->value, true);
+				$b[$key]['image'] = $d['data'][$key]['image'];
+
+			}
+		}
+
 
 		$d = DB::table('codebumble_front_page')
 			->where('code_name', 'mission-vision')
-			->update(['value' => $b, 'updated_at' => time()]);
+			->update(['value' => json_encode(['data' => $b]), 'updated_at' => time()]);
 
 		return redirect()->route('mission_vision_view', [
 			'hasher' => Str::random(40),

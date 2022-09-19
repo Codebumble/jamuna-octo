@@ -69,7 +69,7 @@
                                             <div class="col-12 mb-1">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="image">Icon Image</label>
-                                                    <input id="image" type="file" class="form-control" name="image"
+                                                    <input id="image" type="file" class="form-control" name="images"
                                                         placeholder="image" accpet="image/*" />
                                                 </div>
                                             </div>
@@ -96,14 +96,13 @@
                                         <div data-repeater-item>
                                             <div class="row d-flex align-items-end">
 
-                                                {{-- <div class="col-12 mb-1">
+                                                <div class="col-12 mb-1">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="image">Icon Image</label>
-                                                        <input id="image" type="file" class="form-control"
-                                                            name="src" aria-describedby="image" placeholder="image"
-                                                            accpet=".png, .jpg, .jpeg, .svg" />
+                                                        <input id="image" type="file" class="form-control" name="images"
+                                                            placeholder="image" accpet="image/*" />
                                                     </div>
-                                                </div> --}}
+                                                </div>
 
                                                 <div class="col-12 mb-1">
                                                     <div class="mb-1">
@@ -130,14 +129,13 @@
                                             <div data-repeater-item>
                                                 <div class="row d-flex align-items-end">
 
-                                                    {{-- <div class="col-12 mb-1">
+                                                    <div class="col-12 mb-1">
                                                         <div class="mb-1">
                                                             <label class="form-label" for="image">Icon Image</label>
-                                                            <input id="image" type="file" class="form-control"
-                                                                name="src" aria-describedby="image"
-                                                                placeholder="image" accpet=".png, .jpg, .jpeg, .svg" />
+                                                            <input id="image" type="file" class="form-control" name="images"
+                                                                placeholder="image" accpet="image/*" />
                                                         </div>
-                                                    </div> --}}
+                                                    </div>
 
                                                     <div class="col-12 mb-1">
                                                         <div class="mb-1">
@@ -164,14 +162,13 @@
                                             <div data-repeater-item>
                                                 <div class="row d-flex align-items-end">
 
-                                                    {{-- <div class="col-12 mb-1">
-                                                        <div class="mb-1">
-                                                            <label class="form-label" for="image">Icon Image</label>
-                                                            <input id="image" type="file" class="form-control"
-                                                                name="src" aria-describedby="image"
-                                                                placeholder="image" accpet=".png, .jpg, .jpeg, .svg" />
-                                                        </div>
-                                                    </div> --}}
+                                                    <div class="col-12 mb-1">
+                                                <div class="mb-1">
+                                                    <label class="form-label" for="image">Icon Image</label>
+                                                    <input id="image" type="file" class="form-control" name="images"
+                                                        placeholder="image" accpet="image/*" />
+                                                </div>
+                                            </div>
 
                                                     <div class="col-12 mb-1">
                                                         <div class="mb-1">
@@ -197,14 +194,13 @@
                                             <div data-repeater-item>
                                                 <div class="row d-flex align-items-end">
 
-                                                    {{-- <div class="col-12 mb-1">
-                                                        <div class="mb-1">
-                                                            <label class="form-label" for="image">Icon Image</label>
-                                                            <input id="image" type="file" class="form-control"
-                                                                name="src" aria-describedby="image"
-                                                                placeholder="image" accpet=".png, .jpg, .jpeg, .svg" />
-                                                        </div>
-                                                    </div> --}}
+                                                    <div class="col-12 mb-1">
+                                                <div class="mb-1">
+                                                    <label class="form-label" for="image">Icon Image</label>
+                                                    <input id="image" type="file" class="form-control" name="images"
+                                                        placeholder="image" accpet="image/*" />
+                                                </div>
+                                            </div>
 
                                                     <div class="col-12 mb-1">
                                                         <div class="mb-1">
@@ -230,14 +226,14 @@
                                             <div data-repeater-item>
                                                 <div class="row d-flex align-items-end">
 
-                                                    {{-- <div class="col-12 mb-1">
+                                                    <div class="col-12 mb-1">
                                                         <div class="mb-1">
                                                             <label class="form-label" for="image">Icon Image</label>
                                                             <input id="image" type="file" class="form-control"
-                                                                name="src" aria-describedby="image"
+                                                                name="images" aria-describedby="image"
                                                                 placeholder="image" accpet=".png, .jpg, .jpeg, .svg" />
                                                         </div>
-                                                    </div> --}}
+                                                    </div>
 
                                                     <div class="col-12 mb-1">
                                                         <div class="mb-1">
