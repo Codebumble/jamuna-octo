@@ -29,6 +29,7 @@
 	<events />
 	<about />
 	<founder/>
+	<growing-up-slider/>
 	<contact/>
 </template>
 
@@ -56,6 +57,7 @@
 	import indSlide from '../components/home/ind-slider';
 	import contact from '../components/home/contact.vue';
 	import founder from '../components/home/founder.vue';
+	import growingUpSlider from '../components/home/growing-up-slider.vue';
 
 	// Skeleton
 	import concernsLogoSkeleton from '../components/skeleton/concerns-logo-skeleton.vue';
@@ -75,6 +77,7 @@
 			indSlide,
 			contact,
 			founder,
+			growingUpSlider,
 			// Skeleton
 			concernsLogoSkeleton,
 			homeSliderSkeleton,
