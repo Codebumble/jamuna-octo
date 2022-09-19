@@ -178,11 +178,10 @@
 <script>
 	export default {
 		data() {
-    return {
-        csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-    }
-},
-
+			return {
+				csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+			}
+		},
 		props: {
 			data: Object,
 

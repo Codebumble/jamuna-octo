@@ -29,6 +29,7 @@
 	<events />
 
 	<about />
+	<contact/>
 </template>
 
 <script>
@@ -53,6 +54,7 @@
 	import events from '../components/home/events-slider';
 	import about from '../components/home/about';
 	import indSlide from '../components/home/ind-slider';
+	import contact from '../components/home/contact.vue';
 
 	// Skeleton
 	import concernsLogoSkeleton from '../components/skeleton/concerns-logo-skeleton.vue';
@@ -70,6 +72,7 @@
 			events,
 			about,
 			indSlide,
+			contact,
 			// Skeleton
 			concernsLogoSkeleton,
 			homeSliderSkeleton,
