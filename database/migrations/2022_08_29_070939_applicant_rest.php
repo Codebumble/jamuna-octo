@@ -28,6 +28,8 @@ return new class extends Migration
             $table->string('experience')->nullable();
             $table->string('university')->nullable();
             $table->string('expo_salary')->nullable();
+            $table->string('sCountry')->nullable();
+            $table->string('pCompany')->nullable();
             $table->string('cv_link')->nullable();
             $table->string('json_data')->default('{}')->nullable();
             $table->string('created_at')->nullable();

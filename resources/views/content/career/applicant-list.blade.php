@@ -29,7 +29,9 @@
         <!--Search Form -->
         <div class="card-body mt-2">
           <form class="dt_adv_search" method="POST">
+
             <div class="row g-1 mb-md-1">
+
               <div class="col-md-4">
                 <label class="form-label">Name:</label>
                 <input
@@ -40,6 +42,18 @@
                   data-column-index="1"
                 />
               </div>
+
+              <div class="col-md-4">
+                <label class="form-label">Age:</label>
+                <input
+                  type="text"
+                  class="form-control dt-input dt-full-name"
+                  data-column="2"
+                  placeholder="25"
+                  data-column-index="2"
+                />
+              </div>
+
               <div class="col-md-4">
                 <label class="form-label">Gender</label>
                 <input
@@ -50,6 +64,10 @@
                   data-column-index="3"
                 />
               </div>
+            </div>
+
+            <div class="row g-1">
+
 
               <div class="col-md-4">
                 <label class="form-label">Company</label>
@@ -61,9 +79,7 @@
                   data-column-index="4"
                 />
               </div>
-              </div>
 
-              <div class="row g-1">
               <div class="col-md-4">
                 <label class="form-label">Job ID</label>
                 <input
@@ -87,6 +103,7 @@
                   data-column-index="6"
                 />
               </div>
+
               <div class="col-md-4">
                 <label class="form-label">District:</label>
                 <input
@@ -95,6 +112,17 @@
                   data-column="7"
                   placeholder="Dhaka"
                   data-column-index="7"
+                />
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label">Qualification:</label>
+                <input
+                  type="text"
+                  class="form-control dt-input"
+                  data-column="8"
+                  placeholder="2 Years"
+                  data-column-index="8"
                 />
               </div>
 
@@ -108,6 +136,73 @@
                   data-column-index="9"
                 />
               </div>
+
+              <div class="col-md-4">
+                <label class="form-label">Expected Salary:</label>
+                <input
+                  type="text"
+                  class="form-control dt-input"
+                  data-column="10"
+                  placeholder="2000"
+                  data-column-index="10"
+                />
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label">University:</label>
+                <input
+                  type="text"
+                  class="form-control dt-input"
+                  data-column="11"
+                  placeholder="Dhaka University"
+                  data-column-index="11"
+                />
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label">Email:</label>
+                <input
+                  type="text"
+                  class="form-control dt-input"
+                  data-column="12"
+                  placeholder="admin@yy.com"
+                  data-column-index="12"
+                />
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label">Phone:</label>
+                <input
+                  type="text"
+                  class="form-control dt-input"
+                  data-column="13"
+                  placeholder="+880128378273823"
+                  data-column-index="13"
+                />
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label">Studied From:</label>
+                <input
+                  type="text"
+                  class="form-control dt-input"
+                  data-column="14"
+                  placeholder="Canada"
+                  data-column-index="14"
+                />
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label">Previous Company:</label>
+                <input
+                  type="text"
+                  class="form-control dt-input"
+                  data-column="15"
+                  placeholder="Arong"
+                  data-column-index="15"
+                />
+              </div>
+
             </div>
           </form>
         </div>
@@ -126,6 +221,12 @@
                 <th>Devision</th>
                 <th>Qualification</th>
                 <th>Experience</th>
+                <th>Expected Salary</th>
+                <th>University</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Studied From</th>
+                <th>Previous Company</th>
                 <th>CV</th>
               </tr>
             </thead>
@@ -141,6 +242,12 @@
                 <th>Devision</th>
                 <th>Qualification</th>
                 <th>Experience</th>
+                <th>Expected Salary</th>
+                <th>University</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Studied From</th>
+                <th>Previous Company</th>
                 <th>CV</th>
               </tr>
             </tfoot>

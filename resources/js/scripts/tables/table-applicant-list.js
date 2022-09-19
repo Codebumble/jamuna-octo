@@ -141,6 +141,12 @@
 		 { data: 'district' },
 		 { data: 'qualifications' },
 		 { data: 'experience' },
+		 { data: 'expo_salary' },
+		 { data: 'university' },
+		 { data: 'email' },
+		 { data: 'phone' },
+		 { data: 'sCountry' },
+		 { data: 'pCompany' },
 		 { data: 'cv_link' }
 	   ],
 
@@ -152,7 +158,7 @@
 		 },
 		 {
 			// For Checkboxes
-			targets: 10,
+			targets: 16,
 			orderable: false,
 			responsivePriority: 3,
 			render: function (data, type, full, meta) {
@@ -277,38 +283,7 @@
 	   ],
 	   dom: '<"d-flex justify-content-between align-items-center mx-0 row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>t<"d-flex justify-content-between mx-0 row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
 	   orderCellsTop: true,
-	   responsive: {
-		 details: {
-		   display: $.fn.dataTable.Responsive.display.modal({
-			 header: function (row) {
-			   var data = row.data();
-			   return 'Details of ' + data['name'];
-			 }
-		   }),
-		   type: 'column',
-		   renderer: function (api, rowIdx, columns) {
-			 var data = $.map(columns, function (col, i) {
-			   return col.title !== '' // ? Do not show row in modal popup if title is blank (for check box)
-				 ? '<tr data-dt-row="' +
-					 col.rowIndex +
-					 '" data-dt-column="' +
-					 col.columnIndex +
-					 '">' +
-					 '<td>' +
-					 col.title +
-					 ':' +
-					 '</td> ' +
-					 '<td>' +
-					 col.data +
-					 '</td>' +
-					 '</tr>'
-				 : '';
-			 }).join('');
 
-			 return data ? $('<table class="table"/><tbody />').append(data) : false;
-		   }
-		 }
-	   },
 	   language: {
 		 paginate: {
 		   // remove previous & next text from pagination
