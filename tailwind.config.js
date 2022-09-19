@@ -199,7 +199,8 @@ module.exports = {
 			auto: "auto",
 			cover: "cover",
 			contain: "contain",
-			custom: "100% 100px"
+			custom: "100% 100px",
+			"custom-xs": "100% 70px",
 		},
 		blur: {
 			0: "0",

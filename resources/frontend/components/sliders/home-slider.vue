@@ -12,7 +12,7 @@
 					class="flex justify-start items-center">
 					<div class="image">
 						<video
-							class="w-full object-cover h-77vh"
+							class="w-full object-cover h-[90vh]"
 							autoplay
 							muted>
 							<source
@@ -29,7 +29,7 @@
 						<div class="container flex flex-col">
 							<div class="overflow-hidden">
 								<h1
-									class="text-3xl lg:text-[40px] text-white font-bold capitalize leading-snug w-[80%] lg:w-full animate__animated animate__fadeInUp animate__delay-2s animate__slow">
+									class="text-2xl lg:text-[36px] text-white font-bold capitalize leading-snug w-[80%] lg:w-[50%] text-shadow-extreme">
 									{{ slide.title }}
 								</h1>
 								<!-- <p

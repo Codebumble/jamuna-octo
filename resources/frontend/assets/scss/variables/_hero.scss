@@ -17,7 +17,11 @@
 }
 
 .zigzag_bg::after {
-	@apply absolute bottom-0 lg:-bottom-24 left-0 h-[100px] lg:h-[180px] w-full z-[1] bg-no-repeat bg-custom lg:bg-auto bg-right;
+	@apply absolute -bottom-4 lg:-bottom-16 left-0 h-[100px] lg:h-[180px] w-full z-[1] bg-no-repeat sm:bg-custom bg-custom-xs bg-right;
 	content: "";
-	background-image: url(/frontend/images/logo/zigzag.png);
+	background-image: url(/frontend/images/logo/wave.png);
+}
+
+.text-shadow-extreme {
+	text-shadow: rgb(0 0 0) 4px 4px 6px;
 }
