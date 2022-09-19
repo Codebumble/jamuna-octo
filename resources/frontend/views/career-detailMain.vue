@@ -990,6 +990,8 @@ export default {
 				qualification.value === 'Educational Qualification' ||
 				!mobile.value ||
 				!email.value ||
+				!salary.value ||
+				isNaN(salary.value) ||
 				!age.value ||
 				gender.value === 'Gender' ||
 				!pdf.value ||
@@ -1045,8 +1047,7 @@ export default {
 
 				if (
 					!salary.value ||
-					isNaN(salary.value) ||
-					salary.value.length < 3
+					isNaN(salary.value)
 				) {
 					addClass('salary');
 				} else {
@@ -1112,13 +1113,6 @@ export default {
 						toaster.success('Form submit successfully');
 						return;
 					} else {
-						if (
-					!salary.value ||
-					isNaN(salary.value) ||
-					salary.value.length < 3
-				){
-					toaster.error('Please add expected salary')
-				}
 						toaster.error(JSON.parse(this.response).error);
 					}
 				};
