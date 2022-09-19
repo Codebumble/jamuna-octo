@@ -36,6 +36,15 @@ class FrontPage extends Controller
 
     }
 
+    public function about_us(){
+        $data = DB::select(
+			'select value from codebumble_front_page where code_name=?',
+			['about_us']
+		);
+
+        return $data[0]->value;
+    }
+
     public function nav_company(){
 
         $a = [

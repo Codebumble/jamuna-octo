@@ -114,10 +114,20 @@ Route::group(['prefix' => 'codebumble'], function () {
 			'future_expension_view',
 		])->name('future_expension_view');
 
+		Route::get('site-settings/about-us', [
+			siteGeneral::class,
+			'about_us_view',
+		])->name('about_us_view');
+
 		Route::post('future_expansion-update', [
 			siteGeneral::class,
 			'future_expansion_update',
 		])->name('future_expansion_update');
+
+		Route::post('about-us-update', [
+			siteGeneral::class,
+			'about_us_update',
+		])->name('about_us_update');
 
 		Route::post('edit-product-api/{id}', [
 			Product_rest::class,
@@ -306,6 +316,7 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 		'chairpersson_speech',
 	]);
 	Route::get('contact-us-api', [FrontPage::class, 'contact_us_api']);
+	Route::get('about-us-api', [FrontPage::class, 'about_us']);
 	Route::get('/company-name-logo', [
 		Company_rest::class,
 		'view_all_company_frontend_api',

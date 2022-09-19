@@ -1,6 +1,6 @@
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Future Expension')
+@section('title', 'About Us')
 
 @section('content')
     <section class="form-control-repeater">
@@ -9,7 +9,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Future Expension Details</h4>
+                        <h4 class="card-title">About Us Details</h4>
                     </div>
                     <div class="card-body">
 
@@ -35,25 +35,27 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="{{ route('future_expension_view') }}">
+                                    <a class="nav-link" href="{{ route('future_expension_view') }}">
                                         <i data-feather="grid" class="font-medium-3 me-50"></i>
                                         <span class="fw-bold">Future Expension</span>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('about_us_view') }}">
+								<li class="nav-item">
+                                    <a class="nav-link active" href="{{ route('about_us_view') }}">
                                         <i data-feather="info" class="font-medium-3 me-50"></i>
                                         <span class="fw-bold">About Us</span>
                                     </a>
                                 </li>
                             </ul>
                         </div>
-                        <div id="faker" class="demo-spacing-0 d-none mb-2">
-                            <div class="alert alert-warning" role="alert">
-                                <div class="alert-body"><strong>Data Updated ! It may take a little bit time to
-                                        Update.</strong></div>
+						@if (isset($_GET['exist']))
+                            <div class="demo-spacing-0 mb-2">
+                                <div class="alert alert-warning" role="alert">
+                                    <div class="alert-body"><strong>{{ $_GET['exist'] }}</strong></div>
+                                </div>
                             </div>
-                        </div>
+                        @endif
+
 
                         <form action="{{ route('about_us_update') }}" class="invoice-repeater" method="POST">
                             @csrf
@@ -76,59 +78,83 @@
                                     <textarea id="validationBioBootstrap" class="form-control" name="top[desc]" rows="3" required>{{ $top->desc }}</textarea>
                                 </div>
                                 <div class="divider-primary divider">
-                                    <div class="divider-text">Items</div>
+                                    <div class="divider-text">Data</div>
                                 </div>
                                 <div class="col-12 col-lg-6 mb-1">
+									<div>
+                                        <label class="form-label" for="itemname">Text-1</label>
+                                        <input type="text" class="form-control" name="list[0][text]"
+                                            value="{{ $list[0]->text }}" aria-describedby="itemname"
+                                            placeholder="{{ $list[0]->text }}" />
+                                    </div>
                                     <div class="mb-1">
-                                        <label class="form-label" for="itemname">Item 1</label>
-                                        <input type="text" class="form-control" name="list[0][name]"
-                                            value="{{ $list[0]->name }}" aria-describedby="itemname"
-                                            placeholder="{{ $list[0]->name }}" />
+                                        <label class="form-label" for="itemname">Number-1</label>
+                                        <input type="text" class="form-control" name="list[0][number]"
+                                            value="{{ $list[0]->number }}" aria-describedby="itemname"
+                                            placeholder="{{ $list[0]->number }}" />
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-6 mb-1">
+									<div>
+                                        <label class="form-label" for="itemname">Text-2</label>
+                                        <input type="text" class="form-control" name="list[1][text]"
+                                            value="{{ $list[1]->text }}" aria-describedby="itemname"
+                                            placeholder="{{ $list[1]->text }}" />
+                                    </div>
                                     <div class="mb-1">
-                                        <label class="form-label" for="itemname">Item 2</label>
-                                        <input type="text" class="form-control" name="list[1][name]"
-                                            value="{{ $list[1]->name }}" aria-describedby="itemname"
-                                            placeholder="{{ $list[1]->name }}" />
+                                        <label class="form-label" for="itemname">Number-2</label>
+                                        <input type="text" class="form-control" name="list[1][number]"
+                                            value="{{ $list[1]->number }}" aria-describedby="itemname"
+                                            placeholder="{{ $list[1]->number }}" />
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-6 mb-1">
+									<div>
+                                        <label class="form-label" for="itemname">Text-3</label>
+                                        <input type="text" class="form-control" name="list[2][text]"
+                                            value="{{ $list[2]->text }}" aria-describedby="itemname"
+                                            placeholder="{{ $list[2]->text }}" />
+                                    </div>
                                     <div class="mb-1">
-                                        <label class="form-label" for="itemname">Item 3</label>
-                                        <input type="text" class="form-control" name="list[2][name]"
-                                            value="{{ $list[2]->name }}" aria-describedby="itemname"
-                                            placeholder="{{ $list[2]->name }}" />
+                                        <label class="form-label" for="itemname">Number-3</label>
+                                        <input type="text" class="form-control" name="list[2][number]"
+                                            value="{{ $list[2]->number }}" aria-describedby="itemname"
+                                            placeholder="{{ $list[2]->number }}" />
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-6 mb-1">
-                                    <div class="mb-1">
-                                        <label class="form-label" for="itemname">Item 4</label>
-                                        <input type="text" class="form-control" name="list[3][name]"
-                                            value="{{ $list[3]->name }}" aria-describedby="itemname"
-                                            placeholder="{{ $list[3]->name }}" />
+                                    <div>
+                                        <label class="form-label" for="itemname">Text-4</label>
+                                        <input type="text" class="form-control" name="list[3][text]"
+                                            value="{{ $list[3]->text }}" aria-describedby="itemname"
+                                            placeholder="{{ $list[3]->text }}" />
                                     </div>
-                                </div>
-                                <div class="col-12 col-lg-6 mb-1">
-                                    <div class="mb-1">
-                                        <label class="form-label" for="itemname">Item 5</label>
-                                        <input type="text" class="form-control" name="list[4][name]"
-                                            value="{{ $list[4]->name }}" aria-describedby="itemname"
-                                            placeholder="{{ $list[4]->name }}" />
+									<div class="mb-1">
+                                        <label class="form-label" for="itemname">Number-4</label>
+                                        <input type="text" class="form-control" name="list[3][number]"
+                                            value="{{ $list[3]->number }}" aria-describedby="itemname"
+                                            placeholder="{{ $list[3]->number }}" />
                                     </div>
                                 </div>
 
-                                <div class="col-12 col-lg-6 mb-1">
+                                <div class="col-12 col-lg-12 mb-1">
+									<div>
+                                        <label class="form-label" for="itemname">Text-5</label>
+                                        <input type="text" class="form-control" name="list[4][text]"
+                                            value="{{ $list[4]->text }}" aria-describedby="itemname"
+                                            placeholder="{{ $list[4]->text }}" />
+                                    </div>
                                     <div class="mb-1">
-                                        <label class="form-label" for="itemname">Item 6</label>
-                                        <input type="text" class="form-control" name="list[5][name]"
-                                            value="{{ $list[5]->name }}" aria-describedby="itemname"
-                                            placeholder="{{ $list[5]->name }}" />
+                                        <label class="form-label" for="itemname">Number-5</label>
+                                        <input type="text" class="form-control" name="list[4][number]"
+                                            value="{{ $list[4]->number }}" aria-describedby="itemname"
+                                            placeholder="{{ $list[4]->number }}" />
                                     </div>
                                 </div>
+
+
 
 
 

@@ -761,6 +761,22 @@ class siteGeneral extends Controller
 		]);
 	}
 
+	public function about_us_view()
+	{
+		$data = DB::select(
+			'select value from codebumble_front_page where code_name=?',
+			['about_us']
+		);
+		$pageConfigs = ['pageHeader' => false];
+		return view('/content/site-settings/about_us', [
+			'pageConfigs' => $pageConfigs,
+			'top' => json_decode($data[0]->value),
+			'list' => json_decode($data[0]->value)->items,
+		]);
+	}
+
+
+
 	public function mission_vision_update(Request $request)
 	{
 		check_auth();
@@ -815,6 +831,32 @@ class siteGeneral extends Controller
 			->update(['value' => $b, 'updated_at' => time()]);
 
 		return redirect()->route('future_expension_view', [
+			'hasher' => Str::random(40),
+			'time' => time(),
+			'exist' =>
+				'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You',
+			'hasher_ip' => Str::random(10),
+		]);
+	}
+
+	public function about_us_update(Request $r)
+	{
+		check_auth();
+		check_power('admin');
+
+		$b = $r->post();
+		unset($b['_token']);
+
+		$d = [];
+		$d['title'] = $b['top']['title'];
+		$d['desc'] = $b['top']['desc'];
+		$d['items'] = $b['list'];
+
+		$d = DB::table('codebumble_front_page')
+			->where('code_name', 'about_us')
+			->update(['value' => json_encode($d), 'updated_at' => time()]);
+
+		return redirect()->route('about_us_view', [
 			'hasher' => Str::random(40),
 			'time' => time(),
 			'exist' =>

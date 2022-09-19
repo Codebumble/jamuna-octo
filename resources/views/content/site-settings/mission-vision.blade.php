@@ -36,10 +36,16 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('future_expension_view') }}">
-                                        <i data-feather="trending-up" class="font-medium-3 me-50"></i>
+                                        <i data-feather="grid" class="font-medium-3 me-50"></i>
                                         <span class="fw-bold">Future Expension</span>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="{{ route('about_us_view') }}">
+                                    <i data-feather="info" class="font-medium-3 me-50"></i>
+                                    <span class="fw-bold">About Us</span>
+                                </a>
+                            </li>
 
                             </ul>
                         </div>
