@@ -87,6 +87,7 @@ mixAssetsDir("fonts/**/**/*.css", (src, dest) => mix.copy(src, dest));
 mix.copyDirectory("resources/images", "public/images");
 mix.copyDirectory("resources/frontend/images", "public/frontend/images");
 mix.copyDirectory("resources/data", "public/data");
+mix.copyDirectory("resources/frontend/faker", "public/faker");
 
 mix.js("resources/js/core/app-menu.js", "public/js/core")
 	.js("resources/js/core/app.js", "public/js/core")

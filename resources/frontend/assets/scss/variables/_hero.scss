@@ -2,17 +2,17 @@
 	.image {
 		@apply w-full;
 
-		&::after {
-			content: "";
-			background-image: linear-gradient(
-				90deg,
-				rgba(16, 7, 39, 1) 0%,
-				rgba(16, 7, 39, 0.7) 25%,
-				rgba(16, 7, 39, 0.5) 50%,
-				rgba(16, 7, 39, 0.3) 100%
-			);
-			@apply w-full h-full absolute z-0 top-0;
-		}
+		// &::after {
+		// 	content: "";
+		// 	background-image: linear-gradient(
+		// 		90deg,
+		// 		rgba(16, 7, 39, 1) 0%,
+		// 		rgba(16, 7, 39, 0.7) 25%,
+		// 		rgba(16, 7, 39, 0.5) 50%,
+		// 		rgba(16, 7, 39, 0.3) 100%
+		// 	);
+		// 	@apply w-full h-full absolute z-0 top-0;
+		// }
 	}
 }
 

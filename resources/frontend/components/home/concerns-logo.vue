@@ -62,12 +62,12 @@
 
 		setup() {
 			const options = {
-				rewind: false,
-				autoPlay: true,
+				autoplay: true,
 				perPage: 5,
-				pagination: false,
+				perMove: 1,
 				arrows: true,
 				type: 'loop',
+				interval: 3000,
 				breakpoints: {
 					1024: {
 						perPage: 4,

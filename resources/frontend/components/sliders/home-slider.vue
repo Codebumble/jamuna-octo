@@ -4,38 +4,47 @@
 		class="overflow-hidden cb-hero relative">
 		<div class="zigzag_bg">
 			<Splide
-			:options="options"
-			aria-label="header slider">
+				:options="optionx"
+				aria-label="header slider">
 				<SplideSlide
 					v-for="(slide, item) in sliderContents"
 					:key="item"
 					class="flex justify-start items-center">
 					<div class="image">
-						<img
+						<video
+							class="w-full object-cover h-77vh"
+							autoplay
+							muted>
+							<source
+								:src="slide.source"
+								type="video/mp4" />
+							Your browser does not support the video tag.
+						</video>
+						<!-- <img
 							:src="slide.src"
-							:alt="slide.alt"
-							class="w-full object-cover h-77vh" />
+							alt=""
+							class="w-full object-cover h-77vh" /> -->
 					</div>
 					<div class="absolute w-full z-20">
 						<div class="container flex flex-col">
 							<div class="overflow-hidden">
 								<h1
-									class="text-3xl lg:text-[40px] text-white font-bold capitalize leading-snug w-[80%] lg:w-full">
-									{{ slide.heading }}
+									class="text-3xl lg:text-[40px] text-white font-bold capitalize leading-snug w-[80%] lg:w-full animate__animated animate__fadeInUp animate__delay-2s animate__slow">
+									{{ slide.title }}
 								</h1>
-								<p
-									v-if="slide.showDescription"
+								<!-- <p
+									v-if="slide.description"
 									class="text-white capitalize text-lg mt-2">
 									{{ slide.description }}
-								</p>
+								</p> -->
 							</div>
-							<a
+							<!-- <a
 								v-if="slide.buttonText && slide.link"
 								:href="slide.link"
 								:class="slide.btnStyle"
 								class="mt-4 capitalize font-bold">
 								{{ slide.buttonText }}
-							</a>
+							</a> -->
 						</div>
 					</div>
 				</SplideSlide>
@@ -62,23 +71,29 @@
 			SplideSlide,
 		},
 		mounted() {
+			// .get('../../faker/video.json')
 			axios
-				.get(window.location.origin + '/frontpage-api/slider')
+				// .get(window.location.origin + '/frontpage-api/slider')
+				.get('../../faker/video.json')
 				.then((response) => {
-					this.sliderContents = response.data;
+					this.sliderContents = response.data.videos;
+					console.log(this.sliderContents);
 				});
 		},
 		setup() {
-			const options = {
-				autoPlay: true,
+			const optionx = {
+				autoplay: true,
+				rewind: true,
 				perPage: 1,
+				perMove: 1,
+				pagination: true,
+				arrows: true,
+				type: 'fade',
+				interval: 3000,
 				pagination: false,
-				arrows: false,
-				interval: 5000,
-				type: 'loop',
 			};
 			return {
-				options
+				optionx,
 			};
 		},
 	};

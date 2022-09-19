@@ -1,6 +1,7 @@
 require("./bootstrap");
 
 import "./assets/scss/app.scss";
+import "animate.css";
 import "./assets/js/script.js";
 import router from "./router/router";
 import VueSocialSharing from "vue-social-sharing";

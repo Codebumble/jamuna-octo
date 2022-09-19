@@ -1019,17 +1019,17 @@
   resolved "https://registry.npmjs.org/@splidejs/splide-extension-grid/-/splide-extension-grid-0.4.1.tgz"
   integrity sha512-XM3pl5VKvmoybwZRrv4xE8Hff2mT6Chl9GnGd8nQogo4ZtTgxzqAZqBxLvhrl5UuUswIdmNoRmMeeEgx9twrvw==
 
-"@splidejs/splide@^4.0.15":
+"@splidejs/splide@^4.0.17":
   version "4.0.17"
   resolved "https://registry.yarnpkg.com/@splidejs/splide/-/splide-4.0.17.tgz#7e6576d4643f496c0f00b589da1f47cab0ae8c77"
   integrity sha512-k67vDY0+hl7Qi+I+juOF+DO1KuRw+4RfV5x5SlIVrK60DmMzQvp2j9CqDzixUw3jDDoEaPTGY4BKy5SZSiFf1Q==
 
-"@splidejs/vue-splide@0.6.8":
-  version "0.6.8"
-  resolved "https://registry.yarnpkg.com/@splidejs/vue-splide/-/vue-splide-0.6.8.tgz#b5d98b299aa21723dc22d81ad096f6ed271545ee"
-  integrity sha512-vrA2l496QLp4fN7cc2bXxj9SSfg1RzBwfldV4uB5rqnKwRmRRFqiirP/gZBhTYX2d4/KkIgugURTamxsz3GGnA==
+"@splidejs/vue-splide@^0.6.10":
+  version "0.6.10"
+  resolved "https://registry.yarnpkg.com/@splidejs/vue-splide/-/vue-splide-0.6.10.tgz#5ac4eae27e99f27d0fe55671b4d5c4b3d99a1e85"
+  integrity sha512-xUUW6tJ3+Nyepzle0UJt7O1XgHDL7+3HIjNINbOYPwPymBOauzr+mjp5loCrEKA8CbeS2q116mOxaHi8WFrYyQ==
   dependencies:
-    "@splidejs/splide" "^4.0.15"
+    "@splidejs/splide" "^4.0.17"
 
 "@tailwindcss/forms@^0.5.2":
   version "0.5.2"
@@ -1638,6 +1638,16 @@ alpinejs@^3.0.6:
   integrity sha512-nt/w4hLq9pPaexCsHmO5zV5Alvq4yu9n0Iclti6aV0HmiqLWH/axUb0pn8z3XVuVNcj8EOXOQw+WpwPzMzLBWg==
   dependencies:
     "@vue/reactivity" "~3.1.1"
+
+animate.css@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/animate.css/-/animate.css-4.1.1.tgz#614ec5a81131d7e4dc362a58143f7406abd68075"
+  integrity sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ==
+
+animation-vue@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/animation-vue/-/animation-vue-0.0.9.tgz#211d3ffcd4fdae20713ac00d9bd9e6c24d283860"
+  integrity sha512-BZphQj39udHyYyM0RDD/GrGzR/jDUM4NVY/ufgvrCKuxT6vGkaLVCbc9f0w3nKWVE6B6wjgtFONmzHDhaC6X+Q==
 
 ansi-html-community@^0.0.8:
   version "0.0.8"

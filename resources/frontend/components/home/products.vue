@@ -77,24 +77,20 @@
 		},
 		setup() {
 			const groupsoptions = {
-				rewind: false,
-				rewindByDrag: false,
 				trimSpace: true,
 				arrows: true,
-				autoplay: false,
+				autoplay: true,
 				interval: 3000,
 				perPage: 4,
 				type: 'loop',
-				perMove: 4,
+				perMove: 2,
 				drag: true,
-				pauseOnHover: true,
-				cloneStatus: true,
-				// gap: '2rem',
-				// fixedWidth: '300px',
-				// focus: 'center',
 				breakpoints: {
 					1024: {
-						// fixedWidth: '270.5px',
+						perPage: 2,
+						perMove: 1,
+					},
+					640: {
 						perPage: 1,
 						perMove: 1,
 					},
