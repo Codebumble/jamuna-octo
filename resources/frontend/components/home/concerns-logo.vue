@@ -68,6 +68,7 @@
 				arrows: true,
 				type: 'loop',
 				interval: 3000,
+				pagination: false,
 				breakpoints: {
 					1024: {
 						perPage: 4,
