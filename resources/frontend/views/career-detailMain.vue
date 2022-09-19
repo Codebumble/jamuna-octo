@@ -958,7 +958,9 @@ export default {
 
 			formData.append('new[expo_salary]', salary.value);
 			formData.append('new[qualifications]', qualification.value);
-			formData.append('new[university]', university.value);
+			formData.append('new[university]', !university.value ? 'N/A': university.value);
+			formData.append('new[sCountry]', !sCountry.value ? 'N/A': sCountry.value);
+			formData.append('new[pCompany]', !pCompany.value ? 'N/A': pCompany.value);
 			formData.append('new[job_id]', jobInfo.value.id);
 			formData.append('new[company]', companyInfo.value.name);
 
@@ -1110,6 +1112,13 @@ export default {
 						toaster.success('Form submit successfully');
 						return;
 					} else {
+						if (
+					!salary.value ||
+					isNaN(salary.value) ||
+					salary.value.length < 3
+				){
+					toaster.error('Please add expected salary')
+				}
 						toaster.error(JSON.parse(this.response).error);
 					}
 				};
