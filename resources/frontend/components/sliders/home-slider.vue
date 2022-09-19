@@ -3,19 +3,10 @@
 		id="cb-bg-video"
 		class="overflow-hidden cb-hero relative">
 		<div class="zigzag_bg">
-			<swiper
-				:modules="modules"
-				:slides-per-view="1"
-				:grab-cursor="true"
-				:loop="true"
-				:autoplay="{
-					disableOnInteraction: false,
-					pauseOnMouseEnter: true,
-				}"
-				:hash-navigation="true"
-				:pagination="{ clickable: true }"
-				class="">
-				<swiper-slide
+			<Splide
+			:options="options"
+			aria-label="header slider">
+				<SplideSlide
 					v-for="(slide, item) in sliderContents"
 					:key="item"
 					class="flex justify-start items-center">
@@ -47,50 +38,19 @@
 							</a>
 						</div>
 					</div>
-				</swiper-slide>
-			</swiper>
+				</SplideSlide>
+			</Splide>
 		</div>
 	</section>
 </template>
 
 <style lang="scss">
-	@import 'swiper/scss';
-	@import 'swiper/scss/pagination';
-	@import 'swiper/scss/autoplay';
 	@import '../../assets/scss/variables/_hero.scss';
-
-	.swiper-pagination-bullet {
-		background: #fff;
-		border: 0;
-		border-radius: 50%;
-		display: inline-block;
-		height: 6px;
-		margin: 5px;
-		opacity: 1;
-		padding: 0;
-		position: relative;
-		// /transition: transform 0.2s linear;
-		width: 6px;
-	}
-
-	.swiper-pagination-bullet.swiper-pagination-bullet-active {
-		//transform: scale(1.4);
-		z-index: 20;
-		width: 12px;
-		height: 6px;
-		border-radius: 50px;
-		@apply bg-rose-600 #{!important};
-	}
-
-	// .splide__pagination li {
-	// 	@apply flex items-center #{!important};
-	// }
+	@import '@splidejs/vue-splide/css/core';
 </style>
 
 <script>
-	// import { Splide, SplideSlide } from '@splidejs/vue-splide';
-	import { Swiper, SwiperSlide } from 'swiper/vue';
-	import { Pagination, Autoplay } from 'swiper';
+	import { Splide, SplideSlide } from '@splidejs/vue-splide';
 	export default {
 		data() {
 			return {
@@ -98,8 +58,8 @@
 			};
 		},
 		components: {
-			Swiper,
-			SwiperSlide,
+			Splide,
+			SplideSlide,
 		},
 		mounted() {
 			axios
@@ -109,8 +69,16 @@
 				});
 		},
 		setup() {
+			const options = {
+				autoPlay: true,
+				perPage: 1,
+				pagination: false,
+				arrows: false,
+				interval: 5000,
+				type: 'loop',
+			};
 			return {
-				modules: [ Autoplay],
+				options
 			};
 		},
 	};
