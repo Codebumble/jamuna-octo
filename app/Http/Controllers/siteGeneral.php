@@ -674,14 +674,8 @@ class siteGeneral extends Controller
 				$file2->move($destinationPath2, $fileName2);
 
 				$f = [
-					'showDescription' => 'true',
-					'showButton' => 'true',
 					'src' => '/images/slider/' . $fileName2,
-					'heading' => $value['heading'],
-					'description' => $value['description'],
-					'buttonText' => $value['buttonText'],
-					'link' => $value['link'],
-					'btnStyle' => $value['btnStyle'],
+					'heading' => $value['heading']
 				];
 
 				array_push($data, $f);
