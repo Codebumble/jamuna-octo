@@ -25,11 +25,11 @@
 	</Suspense>
 	<indSlide />
 	<futureExpansion />
-	<products />
-	<events />
 	<about />
 	<founder />
 	<growing-up-slider />
+	<products />
+	<events />
 	<contact />
 </template>
 

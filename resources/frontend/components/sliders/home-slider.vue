@@ -75,7 +75,6 @@
 				.get(window.location.origin + '/frontpage-api/video-slider')
 				.then((response) => {
 					this.sliderContents = response.data;
-					console.log(this.sliderContents);
 				});
 		},
 		setup() {

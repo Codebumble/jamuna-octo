@@ -1,5 +1,5 @@
 <template>
-	<section class="py-16 overflow-hidden">
+	<section class="py-4 overflow-hidden">
 		<div class="contact relative">
 			<div class="bg-image h-[42rem] md:h-108 w-full">
 				<img :src="bgImg" alt="" class="w-full h-full object-cover" />

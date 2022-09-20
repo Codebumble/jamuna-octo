@@ -1,5 +1,5 @@
 <template>
-	<section class="founder py-16">
+	<section class="founder py-4">
 		<div class="quote">
 			<div class="container">
 				<div class="title mb-8">
