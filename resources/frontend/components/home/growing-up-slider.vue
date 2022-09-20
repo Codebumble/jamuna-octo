@@ -8,6 +8,7 @@
 				<Splide
 					:options="options"
 					@splide:pagination:mounted="onPaginationMounted"
+					@splide:moved="onMoved"
 					aria-label="growingSlider">
 					<SplideSlide
 						v-for="item in growingUpSlider"
@@ -44,12 +45,10 @@
 			}
 		}
 		.splide__arrow.splide__arrow--prev {
-			left: 16em;
-			top: 35.68rem;
+			@apply left-16 2xl:left-80 xl:left-16 lg:left-96 md:left-64  top-[15.52rem] md:top-[27.52rem];
 		}
 		.splide__arrow.splide__arrow--next {
-			right: 16em;
-			top: 35.68rem;
+			@apply right-16 2xl:right-80 xl:right-16 lg:right-96 md:right-64 top-[15.52rem] md:top-[27.52rem];
 		}
 		ul.splide__pagination {
 			@apply mb-12 w-fit mx-auto h-12 items-center;
@@ -61,13 +60,16 @@
 				span {
 					@apply mt-2 block text-white;
 				}
+				&:not(.is-active) {
+					@apply hidden xl:block;
+				}
 				&:last-child {
 					@apply mr-0 text-red-500;
 				}
 			}
 		}
 		.growing-up-slider {
-			@apply w-full h-screen md:h-112;
+			@apply w-full h-80 md:h-104;
 			img {
 				@apply w-full h-full object-cover;
 			}
@@ -99,9 +101,22 @@
 					const el = data.items[index];
 					el.button.classList.add('custom-button');
 					const span = document.createElement('span');
-					span.textContent = item.user;
+					el.button.classList.contains('is-active')
+						? el.li.classList.add('is-active')
+						: null;
+					// dynamic years
+					// span.textContent = item.user;
+					// static years
+					span.textContent = 2020 + index;
 					el.li.appendChild(span);
 				});
+			},
+			onMoved(_, prevIndex, __) {
+				const pagination = document.querySelectorAll(
+					'.splide__pagination li'
+				);
+				pagination[prevIndex - 1].classList.remove('is-active');
+				pagination[prevIndex].classList.add('is-active');
 			},
 		},
 
