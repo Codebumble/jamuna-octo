@@ -4,7 +4,7 @@
 			<div class="container">
 				<div class="title mb-8">
 					<h2 class="text-2xl lg:text-4xl text-gray-800 font-bold uppercase text-center">
-						A dreamer who chiseled his dreams
+						{{quote.header}}
 					</h2>
 				</div>
 				<div
@@ -13,7 +13,7 @@
 					">
 					<div class="yt basis-4/2">
 						<iframe
-						:src="ytSrc"
+						:src="quote.ylink"
 						frameborder="0"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						allowfullscreen
@@ -25,9 +25,9 @@
 							{{ quote.quote }}
 						</blockquote>
 						<cite class="block text-lg pt-2">
-							{{ quote.cite }}
+							{{ quote.name }}
 						</cite>
-						<span class="py-2">{{ quote.status }}</span>
+						<span class="py-2">{{ quote.designation }}</span>
 					</div>
 				</div>
 			</div>
@@ -45,16 +45,14 @@
 export default {
 	data() {
 		return {
-			quote: {},
-			ytSrc:'https://www.youtube.com/embed/Kaat7BzcEI0'
+			quote: {}
 		};
 	},
 	mounted() {
 		axios
 			.get(window.location.origin + '/founder-api/founder-speech')
 			.then((response) => {
-				this.FounderDetails = response.data.FounderDetails;
-				this.quote = response.data.quote;
+				this.quote = response.data.fquote;
 			});
 	},
 };

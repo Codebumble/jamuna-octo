@@ -16,7 +16,7 @@
 							autoplay
 							muted>
 							<source
-								:src="slide.source"
+								:src="slide.src"
 								type="video/mp4" />
 							Your browser does not support the video tag.
 						</video>
@@ -30,7 +30,7 @@
 							<div class="overflow-hidden">
 								<h1
 									class="ml-8 xl:ml-0 text-2xl lg:text-[36px] text-white font-bold capitalize leading-snug w-[80%] lg:w-[50%] text-shadow-extreme">
-									{{ slide.title }}
+									{{ slide.heading }}
 								</h1>
 								<!-- <p
 									v-if="slide.description"
@@ -71,12 +71,11 @@
 			SplideSlide,
 		},
 		mounted() {
-			// .get('../../faker/video.json')
 			axios
-				// .get(window.location.origin + '/frontpage-api/slider')
-				.get('../../faker/video.json')
+				.get(window.location.origin + '/frontpage-api/video-slider')
 				.then((response) => {
-					this.sliderContents = response.data.videos;
+					this.sliderContents = response.data;
+					console.log(this.sliderContents);
 				});
 		},
 		setup() {
