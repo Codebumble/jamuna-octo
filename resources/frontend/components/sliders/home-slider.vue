@@ -77,7 +77,6 @@
 				.get('../../faker/video.json')
 				.then((response) => {
 					this.sliderContents = response.data.videos;
-					console.log(this.sliderContents);
 				});
 		},
 		setup() {

@@ -5,7 +5,10 @@
 				<h2 class="heading uppercase">48 years of growing up</h2>
 			</div>
 			<div class="growing-slider w-full">
-				<Splide :options="options" aria-label="concerns logo slider">
+				<Splide
+					:options="options"
+					@splide:pagination:mounted="onPaginationMounted"
+					aria-label="growingSlider">
 					<SplideSlide
 						v-for="item in growingUpSlider"
 						:key="item.largeImageURL"
@@ -17,8 +20,21 @@
 							overflow-hidden
 							p-4
 						">
-						<div class="growing-up-slider">
+						<div class="growing-up-slider relative w-full">
 							<img :src="item.largeImageURL" :alt="item.user" />
+							<div class="company-name absolute bottom-28 w-full">
+								<h3
+									class="
+										text-white
+										border-b-2 border-white
+										w-fit
+										mx-auto
+										font-bold
+										uppercase
+									">
+									{{ item.user }}
+								</h3>
+							</div>
 						</div>
 					</SplideSlide>
 				</Splide>
@@ -29,10 +45,44 @@
 
 <style lang="scss">
 @import '@splidejs/vue-splide/css/core';
-.growing-up-slider {
-	@apply w-full h-112;
-	img {
-		@apply w-full h-full;
+.growing-slider {
+	li.splide__slide {
+		@apply p-0;
+	}
+	.splide__arrow {
+		@apply bg-transparent #{!important};
+		path {
+			fill: white;
+		}
+	}
+	.splide__arrow.splide__arrow--prev {
+		left: 16em;
+		top: 35.68rem;
+	}
+	.splide__arrow.splide__arrow--next {
+		right: 16em;
+		top: 35.68rem;
+	}
+	ul.splide__pagination {
+		@apply mb-12 w-fit mx-auto h-12 items-center;
+		li {
+			@apply mr-5;
+			.custom-button {
+				@apply flex justify-center mx-auto;
+			}
+			span {
+				@apply mt-2 block text-white;
+			}
+			&:last-child {
+				@apply mr-0 text-red-500;
+			}
+		}
+	}
+	.growing-up-slider {
+		@apply w-full h-screen md:h-112;
+		img {
+			@apply w-full h-full;
+		}
 	}
 }
 </style>
@@ -49,29 +99,37 @@ export default {
 			growingUpSlider: [],
 		};
 	},
-	mounted() {
-		axios.get('../../faker/images.json').then((response) => {
-			console.log(response.data.hits);
-			this.growingUpSlider = response.data.hits;
-		});
+	async mounted() {
+		try {
+			const response = await axios.get('../../faker/images.json');
+			this.growingUpSlider = await response.data.hits;
+		} catch {}
+	},
+	methods: {
+		onPaginationMounted(_, data) {
+			this.growingUpSlider.forEach((item, index) => {
+				const el = data.items[index];
+				el.button.classList.add('custom-button');
+				const span = document.createElement('span');
+				span.textContent = item.user;
+				el.li.appendChild(span);
+			});
+		},
 	},
 
 	setup() {
+		// const
+
 		const options = {
-			rewind: false,
-			autoPlay: true,
+			autoplay: false,
+			rewind: true,
 			perPage: 1,
-			pagination: false,
+			perMove: 1,
+			pagination: true,
 			arrows: true,
-			type: 'loop',
-			// breakpoints: {
-			// 	1024: {
-			// 		perPage: 4,
-			// 	},
-			// 	480: {
-			// 		perPage: 2,
-			// 	},
-			// },
+			type: 'fade',
+			interval: 3000,
+			pagination: true,
 		};
 
 		return { options };
