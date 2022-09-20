@@ -1,11 +1,7 @@
 <template>
-	<section
-		id="cb-bg-video"
-		class="overflow-hidden cb-hero relative">
+	<section id="cb-bg-video" class="overflow-hidden cb-hero relative">
 		<div class="zigzag_bg">
-			<Splide
-				:options="optionx"
-				aria-label="header slider">
+			<Splide :options="optionx" aria-label="header slider">
 				<SplideSlide
 					v-for="(slide, item) in sliderContents"
 					:key="item"
@@ -15,9 +11,7 @@
 							class="w-full object-cover h-[90vh]"
 							autoplay
 							muted>
-							<source
-								:src="slide.source"
-								type="video/mp4" />
+							<source :src="slide.source" type="video/mp4" />
 							Your browser does not support the video tag.
 						</video>
 						<!-- <img
@@ -29,7 +23,17 @@
 						<div class="container flex flex-col">
 							<div class="overflow-hidden">
 								<h1
-									class="text-2xl lg:text-[36px] text-white font-bold capitalize leading-snug w-[80%] lg:w-[50%] text-shadow-extreme">
+									class="
+										text-2xl
+										lg:text-[36px]
+										text-white
+										font-bold
+										capitalize
+										leading-snug
+										w-[80%]
+										lg:w-[50%]
+										text-shadow-extreme
+									">
 									{{ slide.title }}
 								</h1>
 								<!-- <p
@@ -54,46 +58,45 @@
 </template>
 
 <style lang="scss">
-	@import '../../assets/scss/variables/_hero.scss';
-	@import '@splidejs/vue-splide/css/core';
+@import '../../assets/scss/variables/_hero.scss';
+@import '@splidejs/vue-splide/css/core';
 </style>
 
 <script>
-	import { Splide, SplideSlide } from '@splidejs/vue-splide';
-	export default {
-		data() {
-			return {
-				sliderContents: [],
-			};
-		},
-		components: {
-			Splide,
-			SplideSlide,
-		},
-		mounted() {
-			// .get('../../faker/video.json')
-			axios
-				// .get(window.location.origin + '/frontpage-api/slider')
-				.get('../../faker/video.json')
-				.then((response) => {
-					this.sliderContents = response.data.videos;
-				});
-		},
-		setup() {
-			const optionx = {
-				autoplay: true,
-				rewind: true,
-				perPage: 1,
-				perMove: 1,
-				pagination: true,
-				arrows: true,
-				type: 'fade',
-				interval: 3000,
-				pagination: false,
-			};
-			return {
-				optionx,
-			};
-		},
-	};
+import { Splide, SplideSlide } from '@splidejs/vue-splide';
+export default {
+	data() {
+		return {
+			sliderContents: [],
+		};
+	},
+	components: {
+		Splide,
+		SplideSlide,
+	},
+	mounted() {
+		axios
+			.get(window.location.origin + '/frontpage-api/video-slider')
+			.then((response) => {
+				this.sliderContents = response.data;
+				console.log(this.sliderContents);
+			});
+	},
+	setup() {
+		const optionx = {
+			autoplay: true,
+			rewind: true,
+			perPage: 1,
+			perMove: 1,
+			pagination: true,
+			arrows: true,
+			type: 'fade',
+			interval: 3000,
+			pagination: false,
+		};
+		return {
+			optionx,
+		};
+	},
+};
 </script>
