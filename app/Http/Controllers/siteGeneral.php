@@ -384,11 +384,13 @@ class siteGeneral extends Controller
 		$breadcrumb = json_decode($data[0]->value);
 		$FounderDetails = json_decode($data[1]->value);
 		$quote = json_decode($data[2]->value);
+		$fquote = json_decode($data[3]->value);
 		return view('/content/site-settings/founder-page', [
 			'pageConfigs' => $pageConfigs,
 			'breadcrumb' => $breadcrumb,
 			'FounderDetails' => $FounderDetails,
 			'quote' => $quote,
+			'fquote' => $fquote
 		]);
 	}
 

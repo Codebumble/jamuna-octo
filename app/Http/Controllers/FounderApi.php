@@ -26,6 +26,8 @@ class FounderApi extends Controller
                 $all_data['FounderDetails'] = json_decode($data_getam->value);
             } else if($data_getam->code_name == "quote"){
                 $all_data['quote'] = json_decode($data_getam->value);
+            } else if($data_getam->code_name == "fqoute"){
+                $all_data['fquote'] = json_decode($data_getam->value);
             }
         }
 
@@ -65,6 +67,8 @@ class FounderApi extends Controller
         $db_update_2 = DB::table('codebumble_founder_page')->where('code_name', 'FounderDetails')->update(['value'=>json_encode(['title' => $field['title-FounderDetails'], 'description' => $field['description-FounderDetail']])]);
 
         $db_update_3 = DB::table('codebumble_founder_page')->where('code_name', 'breadcrumb')->update(['value'=>json_encode(['pageTitle' => $field['title-breadcrumb'], 'pageDesc' => $field['pageDesc-breadcrumb']])]);
+
+        $db_update_3 = DB::table('codebumble_founder_page')->where('code_name', 'fqoute')->update(['value'=>json_encode($request->fpq)]);
 
         return redirect()->route('founder-page-view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10)]);
 
