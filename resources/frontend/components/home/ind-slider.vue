@@ -1,37 +1,54 @@
 <template>
-	<section
-		class="py-16 overflow-hidden"
-		id="ind-slider">
-		<div class="flex">
-			<div class="slider w-4/5 mr-2">
-				<div class="company-slider">
+	<section class="overflow-hidden">
+		<div>
+			<div class="grid grid-cols-4 gap-4 lg:h-[600px]">
+				<div class="col-span-4 lg:col-span-3">
 					<Splide
-						:options="options"
-						aria-label="concerns logo slider">
+						:options="preview"
+						aria-label="preview"
+						ref="main">
 						<SplideSlide
-							v-for="img in slider"
-							:key="img.src"
-							class="flex justify-around items-center transition-all overflow-hidden p-4">
+							v-for="previews in slider"
+							:key="previews"
+							class="flex justify-start items-center"
+							ref="main">
 							<div class="w-full">
 								<img
-									class="w-full h-full"
-									:src="img.src"
-									:alt="img.author" />
+									:src="previews.src"
+									:alt="previews.name"
+									class="object-cover w-full h-[34.4rem]" />
+							</div>
+							<div
+								class="absolute w-full z-20 flex self-end mb-40">
+								<div class="container">
+									<p
+										class="ml-12 text-xl font-bold text-white text-shadow-extreme">
+										{{ previews.desc }}
+									</p>
+								</div>
 							</div>
 						</SplideSlide>
 					</Splide>
 				</div>
-			</div>
-			<div class="company">
-				<div
-					class="item"
-					v-for="(company, index) in sliderAPIList"
-					@click="getSliderImages(company.api)"
-					:key="index">
-					<img
-						:src="company.thumb"
-						:alt="company.name" />
-					<h3>{{ company.name }}</h3>
+				<div class="thumbnails col-span-4 lg:col-span-1">
+					<Splide
+						:options="thumbnails"
+						aria-label="thumbnails"
+						ref="thumbs">
+						<SplideSlide
+							v-for="thumbs in slider"
+							:key="thumbs">
+							<div class="bg-slate-200 overflow-hidden">
+								<img
+									:src="thumbs.src"
+									:alt="thumbs.name"
+									class="object-cover !h-[102px]" />
+								<p class="text-center capitalize">
+									{{ thumbs.name }}
+								</p>
+							</div>
+						</SplideSlide>
+					</Splide>
 				</div>
 			</div>
 		</div>
@@ -45,6 +62,7 @@
 
 <script>
 	import { Splide, SplideSlide } from '@splidejs/vue-splide';
+	import { ref, onMounted } from 'vue';
 	export default {
 		components: {
 			Splide,
@@ -52,67 +70,73 @@
 		},
 		data() {
 			return {
-				slider: [],
-				sliderAPIList: [
+				slider: [
 					{
-						api: '/frontend/images/contents/denims1.jpg',
-						name: 'company 1',
-						thumb: '/frontend/images/contents/denims1.jpg',
-					},
-					{
-						api: '/frontend/images/contents/denims2.jpg',
+						src: '/frontend/images/contents/denims2.jpg',
 						name: 'company 2',
-						thumb: '/frontend/images/contents/denims2.jpg',
+						desc: 'short description about the company...',
 					},
 					{
-						api: '/frontend/images/contents/crown.jpg',
+						src: '/frontend/images/contents/crown.jpg',
 						name: 'company 3',
-						thumb: '/frontend/images/contents/crown.jpg',
+						desc: 'short description about the company...',
 					},
 					{
-						api: '/frontend/images/contents/denims3.jpg',
+						src: '/frontend/images/contents/denims3.jpg',
 						name: 'company 4',
-						thumb: '/frontend/images/contents/denims3.jpg',
+						desc: 'short description about the company...',
+					},
+					{
+						src: '/frontend/images/contents/crown.jpg',
+						name: 'company 3',
+						desc: 'short description about the company...',
 					},
 				],
 			};
 		},
-		methods: {
-			getSliderImages(api) {
-				axios.get(api).then((response) => {
-					this.slider = [];
-					response.data.forEach((item) => {
-						this.slider.push({
-							src: item.download_url,
-							text: item.author,
-						});
-					});
-				});
-			},
-		},
-		mounted() {
-			this.getSliderImages(this.sliderAPIList[0].api);
-		},
-
 		setup() {
-			const options = {
-				rewind: false,
-				autoPlay: true,
-				perPage: 1,
+			const main = ref();
+			const thumbs = ref();
+			const thumbnails = {
+				autoplay: false,
+				isNavigation: true,
+				focus: 'center',
+				// fixedWidth: 246,
+				// fixedHeight: 102,
+				width: '100%',
+				height: '100%',
+				perPage: 4,
+				gap: 10,
+				rewind: true,
 				pagination: false,
 				arrows: true,
-				type: 'loop',
+				direction: 'ttb',
+				updateOnMove: true,
 				breakpoints: {
-					1024: {
-						perPage: 1,
+					1023: {
+						direction: 'ltr',
+						perPage: 3,
 					},
-					480: {
-						perPage: 1,
+					640: {
+						perPage: 2,
 					},
 				},
 			};
+			const preview = {
+				rewind: true,
+				pagination: false,
+				type: 'fade',
+				autoplay: false,
+				interval: 2000,
+			};
 
-			return { options };
+			onMounted(() => {
+				if (thumbs.value?.splide) {
+					main.value?.sync(thumbs.value?.splide);
+				}
+			});
+
+			return { thumbnails, preview, main, thumbs };
 		},
 	};
 </script>

@@ -1,5 +1,5 @@
 <template>
-	<section class="py-16 overflow-hidden">
+	<section class="overflow-hidden">
 		<div class="flex flex-col items-center">
 			<div class="content w-full mb-6">
 				<h2 class="heading uppercase">48 years of growing up</h2>

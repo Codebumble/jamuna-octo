@@ -1,25 +1,25 @@
-#ind-slider {
-	.company-slider {
-		@apply w-full h-98;
-		li{
-			@apply h-98;
-		}
-		img {
-			@apply w-full h-full;
-			width: full;
-			object-fit: cover;
-		}
-	}
-	.company {
-		@apply w-1/5 h-98 overflow-y-scroll;
-		.item {
-			@apply w-full h-52 mb-2;
-			img {
-				@apply w-full h-44;
-			}
-			h3 {
-				@apply text-center uppercase font-bold mt-2;
-			}
-		}
-	}
+.thumbnails .splide__slide img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.thumbnails.splide__slide {
+	opacity: 0.6;
+}
+
+.thumbnails.splide__slide.is-active {
+	opacity: 1;
+}
+
+.thumbnails .splide__track--nav > .splide__list > .splide__slide {
+	@apply border-2 border-transparent;
+}
+
+.thumbnails .splide__track--nav > .splide__list > .splide__slide.is-active {
+	@apply border-2 border-red-600;
+}
+
+.thumbnails .splide__arrow--prev,
+.thumbnails .splide__arrow--next {
+	@apply bg-transparent;
 }
