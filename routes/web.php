@@ -192,20 +192,36 @@ Route::group(['prefix' => 'codebumble'], function () {
 			siteGeneral::class,
 			'front_page_chairperson_api',
 		])->name('front_page_chairperson_api');
+
 		Route::get('delete-slider/{id}', [
 			siteGeneral::class,
 			'delete_slider',
 		])->name('delete_slider');
+
+		Route::get('delete-slider-video/{id}', [
+			siteGeneral::class,
+			'delete_slider_video',
+		])->name('delete_slider_video');
 
 		Route::post('add-slider-api', [
 			siteGeneral::class,
 			'add_slider_api',
 		])->name('add_slider_api');
 
+		Route::post('add-video-slider-api', [
+			siteGeneral::class,
+			'add_video_slider_api',
+		])->name('add_video_slider_api');
+
 		Route::post('slider-edit-api', [
 			siteGeneral::class,
 			'slider_edit_api',
 		])->name('slider_edit_api');
+
+		Route::post('slider-video_edit-api', [
+			siteGeneral::class,
+			'slider_video_edit_api',
+		])->name('slider_video_edit_api');
 
 		Route::post('front-page-api', [
 			siteGeneral::class,
@@ -287,6 +303,7 @@ Route::group(['prefix' => 'codebumble'], function () {
 /* Route Dashboards */
 Route::group(['prefix' => 'frontpage-api'], function () {
 	Route::get('slider', [FrontPage::class, 'slider_view']);
+	Route::get('video-slider', [FrontPage::class, 'video_slider_view']);
 
 	Route::get('nav-company', [FrontPage::class, 'nav_company']);
 	Route::get('future-expansion-data', [
