@@ -667,7 +667,7 @@ class siteGeneral extends Controller
 			if ($file1 = $request->hasFile('new.' . $key . '.src')) {
 				$file2 = $request->file('new.' . $key . '.src');
 				$fileName2 =
-					time() .
+					time() .'-'.Str::random(10).
 					'-company-slider.' .
 					$file2->getClientOriginalExtension();
 				$destinationPath2 = public_path() . '/images/slider';
