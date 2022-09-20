@@ -14,7 +14,8 @@
 						<video
 							class="w-full object-cover h-[90vh]"
 							autoplay
-							muted>
+							muted
+							loop>
 							<source
 								:src="slide.src"
 								type="video/mp4" />
