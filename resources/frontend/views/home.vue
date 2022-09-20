@@ -1,5 +1,5 @@
 <template>
-	<Suspense>
+	<!-- <Suspense>
 		<template #default>
 			<home-slider />
 		</template>
@@ -22,15 +22,15 @@
 		<template #fallback>
 			<missionVisionSkeleton />
 		</template>
-	</Suspense>
+	</Suspense> -->
 	<!-- <indSlide /> -->
-	<futureExpansion />
-	<products />
+	<!-- <futureExpansion />
+	<products /> -->
 	<events />
 	<about />
-	<founder/>
-	<growing-up-slider/>
-	<contact/>
+	<founder />
+	<!-- <growing-up-slider/>
+	<contact/> -->
 </template>
 
 <script>
