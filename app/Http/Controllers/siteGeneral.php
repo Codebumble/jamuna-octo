@@ -384,11 +384,13 @@ class siteGeneral extends Controller
 		$breadcrumb = json_decode($data[0]->value);
 		$FounderDetails = json_decode($data[1]->value);
 		$quote = json_decode($data[2]->value);
+		$fquote = json_decode($data[3]->value);
 		return view('/content/site-settings/founder-page', [
 			'pageConfigs' => $pageConfigs,
 			'breadcrumb' => $breadcrumb,
 			'FounderDetails' => $FounderDetails,
 			'quote' => $quote,
+			'fquote' => $fquote
 		]);
 	}
 
@@ -667,21 +669,15 @@ class siteGeneral extends Controller
 			if ($file1 = $request->hasFile('new.' . $key . '.src')) {
 				$file2 = $request->file('new.' . $key . '.src');
 				$fileName2 =
-					time() .
+					time() .'-'.Str::random(10).
 					'-company-slider.' .
 					$file2->getClientOriginalExtension();
 				$destinationPath2 = public_path() . '/images/slider';
 				$file2->move($destinationPath2, $fileName2);
 
 				$f = [
-					'showDescription' => 'true',
-					'showButton' => 'true',
 					'src' => '/images/slider/' . $fileName2,
-					'heading' => $value['heading'],
-					'description' => $value['description'],
-					'buttonText' => $value['buttonText'],
-					'link' => $value['link'],
-					'btnStyle' => $value['btnStyle'],
+					'heading' => $value['heading']
 				];
 
 				array_push($data, $f);

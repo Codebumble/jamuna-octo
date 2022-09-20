@@ -94,7 +94,7 @@
                             <div data-repeater-item>
                                 <div class="row d-flex align-items-end">
 
-                                    <div class="col-md-2 col-12 mb-50">
+                                    <div class="col-md-4 col-12 mb-50">
                                         <div class="mb-1">
                                             <label class="form-label" for="src">Image</label>
                                             <input id="src" type="file" name="src" class="form-control"
@@ -104,46 +104,11 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-2 col-12 mb-50">
+                                    <div class="col-md-8 col-12 mb-50">
                                         <div class="mb-1">
-                                            <label class="form-label" for="heading">Header</label>
+                                            <label class="form-label" for="heading">Name</label>
                                             <input id="heading" type="text" class="form-control" name="heading"
                                                 value="" aria-describedby="heading" placeholder="Header" />
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-2 col-12 mb-50">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="description">Short Description</label>
-                                            <input id="description" type="text" class="form-control" value=""
-                                                name="description" aria-describedby="description"
-                                                placeholder="Add Description" />
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-2 col-12 mb-50">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="buttonText">Button Text</label>
-                                            <input id="buttonText" type="text" value="" name="buttonText"
-                                                class="form-control" />
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-2 col-12 mb-50">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="btnStyle">Button Style</label>
-                                            <select name="btnStyle" class="form-select">
-                                                <option value="button">button</option>
-                                                <option value="button-alt">button-alt</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-2 col-12 mb-50">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="link">Button URL</label>
-                                            <input id="link" type="text" value="" class="form-control"
-                                                name="link" />
                                         </div>
                                     </div>
 
@@ -211,68 +176,19 @@
                                                         <input name="preview[{{ $counter }}][src]"
                                                             value="{{ $img->src }}" class="d-none">
 
-                                                        <input name="preview[{{ $counter }}][showDescription]"
-                                                            value="{{ $img->showDescription }}" class="d-none">
-
-                                                        <input name="preview[{{ $counter }}][showButton]"
-                                                            value="{{ $img->showButton }}" class="d-none">
-
-
                                                         <img id="imagePreview_1" style="border-radius:6px;"
                                                             src="{{ $img->src }}" width="120" height="70">
                                                     </label>
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-2 col-12 mb-50">
+                                            <div class="col-md-6 col-12 mb-50">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="itemcost">Header</label>
                                                     <input id="itemcost" type="text" class="form-control"
                                                         name="preview[{{ $counter }}][heading]"
                                                         value="{{ $img->heading }}" aria-describedby="itemcost"
                                                         placeholder="32" />
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-2 col-12 mb-50">
-                                                <div class="mb-1">
-                                                    <label class="form-label" for="itemquantity">Short Description</label>
-                                                    <input id="itemquantity" type="text" class="form-control"
-                                                        name="preview[{{ $counter }}][description]"
-                                                        value="{{ $img->description }}" aria-describedby="itemquantity"
-                                                        placeholder="1" />
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-2 col-12 mb-50">
-                                                <div class="mb-1">
-                                                    <label class="form-label" for="staticprice">Button Text</label>
-                                                    <input id="staticprice" type="text"
-                                                        name="preview[{{ $counter }}][buttonText]"
-                                                        value="{{ $img->buttonText }}" class="form-control" />
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-2 col-12 mb-50">
-                                                <div class="mb-1">
-                                                    <label class="form-label" for="btnStyle">Button Style</label>
-                                                    <select name="preview[{{ $counter }}][btnStyle]"
-                                                        class="form-select">
-                                                        @if (isset($img->btnStyle))
-                                                            <option value="{{ $img->btnStyle }}" selected>
-                                                                {{ $img->btnStyle }} </option>
-                                                        @endif
-                                                        <option value="button">button</option>
-                                                        <option value="button-alt">button-alt</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-2 col-12 mb-50">
-                                                <div class="mb-1">
-                                                    <label class="form-label" for="staticprice">Button URL</label>
-                                                    <input id="staticprice" type="text" value="{{ $img->link }}"
-                                                        name="preview[{{ $counter }}][link]" class="form-control" />
                                                 </div>
                                             </div>
 

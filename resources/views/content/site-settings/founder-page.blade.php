@@ -148,6 +148,40 @@
 						>{{ $quote->quote }}</textarea>
 						</div>
 
+						<div class="divider-primary divider">
+            				<div class="divider-text">Front Page Quotation</div>
+          				</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="fpq-header">Header</label>
+						<input type="text" class="form-control" value="{{$fquote->header}}" name="fpq[header]" id="fpq-header"/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="fpq-name">Name</label>
+						<input type="text" class="form-control" value="{{$fquote->name}}" name="fpq[name]" id="fpq-name"/>
+						</div>
+
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="fpq-designation">Designation</label>
+						<input type="text" class="form-control" value="{{$fquote->designation}}" name="fpq[designation]" id="fpq-designation"/>
+						</div>
+						<div class="mb-1 col-12 col-md-6">
+						<label class="form-label" for="fpq-ylink">Youtube</label>
+						<input type="text" class="form-control" value="{{$fquote->ylink}}" name="fpq[ylink]" id="fpq-ylink"/>
+						</div>
+
+						<div class="mb-1">
+						<label class="d-block form-label" for="fpq-quote">Quote</label>
+						<textarea
+							class="form-control"
+							id="fpq-quote"
+							name="fpq[quote]"
+							rows="3"
+							required
+						>{{ $fquote->quote }}</textarea>
+						</div>
+
 
 
 				</div>
