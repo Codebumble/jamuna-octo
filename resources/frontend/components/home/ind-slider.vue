@@ -78,7 +78,6 @@
 				.get(window.location.origin + '/frontpage-api/slider')
 				.then((response) => {
 					this.slider = response.data;
-					console.log(this.slider);
 				});
 		},
 		setup() {
