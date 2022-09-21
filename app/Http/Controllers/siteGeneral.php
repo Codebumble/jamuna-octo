@@ -118,6 +118,7 @@ class siteGeneral extends Controller
 			header('Location: ' . route('auth-login'), true, 302);
 			exit();
 		}
+		$datab =DB::select('select value from codebumble_front_page where code_name=?',['meta']);
 
 		$b = $request->post();
 		unset($b['_token']);
@@ -129,6 +130,9 @@ class siteGeneral extends Controller
 			$file2->move($destinationPath2, $fileName2);
 			$f = '/images/meta/' . $fileName2;
 			$b['image'] = $f;
+		} else {
+			$b['image'] = json_decode($datab[0]->value)->image;
+
 		}
 
 		if ($file2 = $request->hasFile('bimage')) {
@@ -138,6 +142,9 @@ class siteGeneral extends Controller
 			$file2->move($destinationPath2, $fileName2);
 			$f = '/images/meta/' . $fileName2;
 			$b['bimage'] = $f;
+		} else {
+			$b['bimage'] = json_decode($datab[0]->value)->bimage;
+
 		}
 
 		$ok = DB::table('codebumble_front_page')

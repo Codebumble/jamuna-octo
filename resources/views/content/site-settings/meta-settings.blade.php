@@ -68,9 +68,9 @@
 
                             <div class="col-12 col-md-6 mb-1">
                                 <div class="mb-1">
-                                    <label class="form-label" for="image">Front Page Contact Background</label>
-                                    <input id="image" type="file" class="form-control" name="bimage"
-                                        aria-describedby="image" placeholder="image" accpet="image/*" />
+                                    <label class="form-label" for="bimage">Front Page Contact Background</label>
+                                    <input id="bimage" type="file" class="form-control" name="bimage"
+                                        aria-describedby="bimage" placeholder="bimage" accpet="image/*"/>
                                 </div>
                             </div>
 
