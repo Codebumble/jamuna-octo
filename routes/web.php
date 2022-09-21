@@ -203,6 +203,11 @@ Route::group(['prefix' => 'codebumble'], function () {
 			'delete_slider_video',
 		])->name('delete_slider_video');
 
+		Route::get('delete-slider-bottom/{id}', [
+			siteGeneral::class,
+			'delete_slider_bottom',
+		])->name('delete_slider_bottom');
+
 		Route::post('add-slider-api', [
 			siteGeneral::class,
 			'add_slider_api',
