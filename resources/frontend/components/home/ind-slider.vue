@@ -16,7 +16,7 @@
 								<img
 									:src="previews.src"
 									:alt="previews.name"
-									class="object-cover w-full h-[34.4rem]" />
+									class="object-cover w-full h-[34.4rem] rounded" />
 							</div>
 							<div
 								class="absolute w-full z-20 flex self-end mb-40">
@@ -38,7 +38,7 @@
 						<SplideSlide
 							v-for="thumbs in slider"
 							:key="thumbs">
-							<div class="bg-slate-200 overflow-hidden">
+							<div class="bg-slate-200 overflow-hidden rounded">
 								<img
 									:src="thumbs.src"
 									:alt="thumbs.name"
