@@ -104,11 +104,29 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-8 col-12 mb-50">
+                                    <div class="col-md-4 col-12 mb-50">
                                         <div class="mb-1">
-                                            <label class="form-label" for="heading">Name</label>
+                                            <label class="form-label" for="heading">Name/Year</label>
                                             <input id="heading" type="text" class="form-control" name="heading"
                                                 value="" aria-describedby="heading" placeholder="Header" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-12 mb-50">
+                                        <div class="mb-1">
+                                            <label class="form-label" for="desc">Short Description</label>
+                                            <input id="heading" type="text" class="form-control" name="desc"
+                                                value="" aria-describedby="desc" placeholder="desc" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-12 mb-50">
+                                        <div class="mb-1">
+                                            <label class="form-label" for="heading">Choice Slider</label>
+                                            <select name="slider_option" class="form-select">
+                                                <option value="top">Top Image Slider</option>
+                                                <option value="bottom">48 YEARS OF GROWING UP</option>
+                                            </select>
                                         </div>
                                     </div>
 
@@ -154,7 +172,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Edit Slider Details</h4>
+                    <h4 class="card-title">Edit Top Slider Details</h4>
                 </div>
                 <div class="card-body">
 
@@ -182,12 +200,122 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-6 col-12 mb-50">
+                                            <div class="col-md-4 col-12 mb-50">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="itemcost">Header</label>
                                                     <input id="itemcost" type="text" class="form-control"
                                                         name="preview[{{ $counter }}][heading]"
                                                         value="{{ $img->heading }}" aria-describedby="itemcost"
+                                                        placeholder="32" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 col-12 mb-50">
+                                                <div class="mb-1">
+                                                    <label class="form-label" for="itemcost">Description</label>
+                                                    <input id="itemcost" type="text" class="form-control"
+                                                        name="preview[{{ $counter }}][desc]"
+                                                        @if(isset($img->desc))
+                                                        value="{{ $img->desc }}"
+                                                        @endif
+                                                         aria-describedby="itemcost"
+                                                        placeholder="32" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-2 col-12 mb-50">
+                                                <div class="mb-1">
+                                                    <button class="btn btn-outline-danger text-nowrap px-1" type="button"
+                                                        data-repeater-delete onclick="deleted('{{ $counter }}');">
+                                                        <i data-feather="x" class="me-25"></i>
+                                                        <span>Delete</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <hr />
+                                    </div>
+
+
+
+
+                                </div>
+                                <?php $counter += 1; ?>
+                            @endforeach
+
+                            <div class="row">
+                                <div class="col-12">
+
+                                    <button class="btn btn-icon btn-success m-1" type="button"
+                                        onclick="this.form.submit();">
+                                        <i data-feather="check" class="me-25"></i>
+                                        <span>Update</span>
+                                    </button>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Edit 48 YEARS OF GROWING UP Details</h4>
+                </div>
+                <div class="card-body">
+
+                    <form action="{{ route('slider_edit_api') }}" method="POST">
+                        @csrf
+                        <div class="invoice-repeater">
+                            <?php $counter = 0; ?>
+                            @foreach ($imgs2 as $img)
+                                <div>
+
+                                    <div>
+                                        <div class="row d-flex align-items-end">
+
+                                            <div class="col-md-2 col-12">
+                                                <div class="mb-1">
+
+                                                    <label for="slider" style="display:block;">
+
+                                                        <input name="preview1[{{ $counter }}][src]"
+                                                            value="{{ $img->src }}" class="d-none">
+
+                                                        <img id="imagePreview_1" style="border-radius:6px;"
+                                                            src="{{ $img->src }}" width="120" height="70">
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 col-12 mb-50">
+                                                <div class="mb-1">
+                                                    <label class="form-label" for="itemcost">Year</label>
+                                                    <input id="itemcost" type="text" class="form-control"
+                                                        name="preview1[{{ $counter }}][heading]"
+                                                        value="{{ $img->heading }}" aria-describedby="itemcost"
+                                                        placeholder="32" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 col-12 mb-50">
+                                                <div class="mb-1">
+                                                    <label class="form-label" for="itemcost">Description</label>
+                                                    <input id="itemcost" type="text" class="form-control"
+                                                        name="preview1[{{ $counter }}][desc]"
+                                                        @if(isset($img->desc))
+                                                        value="{{ $img->desc }}"
+                                                        @endif
+                                                         aria-describedby="itemcost"
                                                         placeholder="32" />
                                                 </div>
                                             </div>

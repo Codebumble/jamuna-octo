@@ -569,11 +569,15 @@ class siteGeneral extends Controller
 	public function front_page_slider_view()
 	{
 		$data_1 = DB::table('codebumble_front_page')
-			->where('code_name', 'sliders_data')
+			->where('code_name', 'sliders_data_top')
 			->get();
 
 		$data_2 = DB::table('codebumble_front_page')
 			->where('code_name', 'sliders_data_video')
+			->get();
+
+			$data_3 = DB::table('codebumble_front_page')
+			->where('code_name', 'sliders_data_bottom')
 			->get();
 
 		$pageConfigs = ['pageHeader' => false];
@@ -581,6 +585,7 @@ class siteGeneral extends Controller
 			'pageConfigs' => $pageConfigs,
 			'imgs' => json_decode($data_1[0]->value),
 			'videos' => json_decode($data_2[0]->value),
+			'imgs2' => json_decode($data_3[0]->value)
 		]);
 	}
 
@@ -604,9 +609,17 @@ class siteGeneral extends Controller
 			exit();
 		}
 
+		if(isset($request->preview)){
+
 		$db_check = DB::table('codebumble_front_page')
-			->where('code_name', 'sliders_data')
+			->where('code_name', 'sliders_data_top')
 			->update(['value' => json_encode($request->preview)]);
+		} else if(isset($request->preview1)){
+			$db_check = DB::table('codebumble_front_page')
+			->where('code_name', 'sliders_data_bottom')
+			->update(['value' => json_encode($request->preview1)]);
+
+		}
 
 		return redirect()->route('front_page_slider_view', [
 			'hasher' => Str::random(40),
@@ -656,14 +669,24 @@ class siteGeneral extends Controller
 	{
 		check_auth();
 		check_power('admin');
+		$new = $request->new;
+
+
 
 		$data_1 = DB::table('codebumble_front_page')
-			->where('code_name', 'sliders_data')
+			->where('code_name', 'sliders_data_top')
 			->get();
 
-		$data = json_decode($data_1[0]->value);
 
-		$new = $request->new;
+		$data_2 = DB::table('codebumble_front_page')
+			->where('code_name', 'sliders_data_bottom')
+			->get();
+
+
+
+	$data1 = json_decode($data_1[0]->value);
+	$data2 = json_decode($data_2[0]->value);
+
 
 		foreach ($new as $key => $value) {
 			if ($file1 = $request->hasFile('new.' . $key . '.src')) {
@@ -677,16 +700,32 @@ class siteGeneral extends Controller
 
 				$f = [
 					'src' => '/images/slider/' . $fileName2,
-					'heading' => $value['heading']
+					'heading' => $value['heading'],
+					'desc' => $value['desc']
 				];
 
-				array_push($data, $f);
+				if($value['slider_option'] == "top"){
+					array_push($data1, $f);
+
+				} else if($value['slider_option'] == "bottom"){
+					array_push($data2, $f);
+				}
+
+
 			}
 		}
 
-		$db_check = DB::table('codebumble_front_page')
-			->where('code_name', 'sliders_data')
-			->update(['value' => json_encode($data)]);
+
+
+			$db_check1 = DB::table('codebumble_front_page')
+			->where('code_name', 'sliders_data_top')
+			->update(['value' => json_encode($data1)]);
+
+			$db_check2 = DB::table('codebumble_front_page')
+			->where('code_name', 'sliders_data_bottom')
+			->update(['value' => json_encode($data2)]);
+
+
 
 		return redirect()->route('front_page_slider_view', [
 			'hasher' => Str::random(40),
