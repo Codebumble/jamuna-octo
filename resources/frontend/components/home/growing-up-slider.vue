@@ -66,6 +66,9 @@
 				&:last-child {
 					@apply mr-0;
 				}
+				&.is-active{
+					@apply xl:mr-5 mr-0;
+				}
 			}
 		}
 		.growing-up-slider {
