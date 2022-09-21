@@ -7,14 +7,11 @@
 				</div>
 				<div class="logo-slider w-full">
 					<div
-						class="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+						class="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 justify-center">
 						<div
-							class="flex justify-around items-center rounded transition-all concern"
+							class="flex justify-around items-center rounded-full transition-all concern skeleton_bg"
 							v-for="logo in 5"
 							:key="logo">
-							<div class="concern rounded-full">
-								<div class="skeleton_bg mix-blend-luminosity p-4 md:p-0"></div>
-							</div>
 						</div>
 					</div>
 				</div>

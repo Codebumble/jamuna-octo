@@ -20,7 +20,7 @@
 								:alt="item.heading" />
 							<div class="company-name absolute bottom-28 w-full">
 								<h3
-									class="text-white border-b-2 border-white w-fit mx-auto font-bold uppercase">
+									class="text-white border-b-2 border-white w-fit mx-auto uppercase bg-white bg-opacity-25 px-2">
 									{{ item.heading }}
 								</h3>
 							</div>
@@ -51,7 +51,7 @@
 			@apply right-16 2xl:right-80 xl:right-16 lg:right-96 md:right-64 top-[15.52rem] md:top-[27.52rem];
 		}
 		ul.splide__pagination {
-			@apply mb-12 w-fit mx-auto h-12 items-center;
+			@apply bg-white bg-opacity-25 mb-12 w-fit mx-auto h-12 items-center;
 			li {
 				@apply mr-5;
 				.custom-button {
@@ -64,7 +64,10 @@
 					@apply hidden xl:block;
 				}
 				&:last-child {
-					@apply mr-0 text-red-500;
+					@apply mr-0;
+				}
+				&.is-active{
+					@apply xl:mr-5 mr-0;
 				}
 			}
 		}
@@ -113,12 +116,17 @@
 					el.li.appendChild(span);
 				});
 			},
-			onMoved(_, prevIndex, __) {
+			onMoved(_, prevIndex, dest) {
 				const pagination = document.querySelectorAll(
 					'.splide__pagination li'
 				);
-				pagination[prevIndex - 1].classList.remove('is-active');
-				pagination[prevIndex].classList.add('is-active');
+				if(prevIndex > dest){
+					pagination[prevIndex - 1].classList.remove('is-active');
+					pagination[prevIndex].classList.add('is-active');
+				}else{
+					pagination[dest].classList.remove('is-active');
+					pagination[prevIndex ].classList.add('is-active');
+				}
 			},
 		},
 
