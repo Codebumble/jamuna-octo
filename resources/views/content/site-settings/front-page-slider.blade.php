@@ -323,7 +323,7 @@
                                             <div class="col-md-2 col-12 mb-50">
                                                 <div class="mb-1">
                                                     <button class="btn btn-outline-danger text-nowrap px-1" type="button"
-                                                        data-repeater-delete onclick="deleted('{{ $counter }}');">
+                                                        data-repeater-delete onclick="deleted1('{{ $counter }}');">
                                                         <i data-feather="x" class="me-25"></i>
                                                         <span>Delete</span>
                                                     </button>
@@ -574,6 +574,23 @@
             xhr.send(data);
         };
     </script>
+
+    <script>
+        var deleted1 = function(event) {
+
+            var data = new FormData();
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/codebumble/delete-slider-bottom/' + event, true);
+            xhr.onload = function() {
+                // do something to response
+                if (this.status == 200) {
+                    location.reload();
+                };
+            };
+            xhr.send(data);
+        };
+    </script>
+
     <script>
         var deleted_video = function(event) {
 

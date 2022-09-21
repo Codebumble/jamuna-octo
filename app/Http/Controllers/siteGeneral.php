@@ -118,6 +118,7 @@ class siteGeneral extends Controller
 			header('Location: ' . route('auth-login'), true, 302);
 			exit();
 		}
+		$datab =DB::select('select value from codebumble_front_page where code_name=?',['meta']);
 
 		$b = $request->post();
 		unset($b['_token']);
@@ -129,6 +130,21 @@ class siteGeneral extends Controller
 			$file2->move($destinationPath2, $fileName2);
 			$f = '/images/meta/' . $fileName2;
 			$b['image'] = $f;
+		} else {
+			$b['image'] = json_decode($datab[0]->value)->image;
+
+		}
+
+		if ($file2 = $request->hasFile('bimage')) {
+			$file2 = $request->file('bimage');
+			$fileName2 = time() . '-b.' . $file2->getClientOriginalExtension();
+			$destinationPath2 = public_path() . '/images/meta';
+			$file2->move($destinationPath2, $fileName2);
+			$f = '/images/meta/' . $fileName2;
+			$b['bimage'] = $f;
+		} else {
+			$b['bimage'] = json_decode($datab[0]->value)->bimage;
+
 		}
 
 		$ok = DB::table('codebumble_front_page')
@@ -636,7 +652,7 @@ class siteGeneral extends Controller
 		check_power('admin');
 
 		$data_1 = DB::table('codebumble_front_page')
-			->where('code_name', 'sliders_data')
+			->where('code_name', 'sliders_data_top')
 			->get();
 
 		$data = json_decode($data_1[0]->value);
@@ -653,7 +669,42 @@ class siteGeneral extends Controller
 		}
 
 		$db_check = DB::table('codebumble_front_page')
-			->where('code_name', 'sliders_data')
+			->where('code_name', 'sliders_data_top')
+			->update(['value' => json_encode($array)]);
+
+		return redirect()->route('front_page_slider_view', [
+			'hasher' => Str::random(40),
+			'time' => time(),
+			'exist' =>
+				'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You',
+			'hasher_ip' => Str::random(10),
+		]);
+	}
+
+	public function delete_slider_bottom($id)
+	{
+		check_auth();
+		check_power('admin');
+
+		$data_1 = DB::table('codebumble_front_page')
+			->where('code_name', 'sliders_data_bottom')
+			->get();
+
+		$data = json_decode($data_1[0]->value);
+
+		$counter = 0;
+		$array = [];
+
+		foreach ($data as $key => $value) {
+			if ($key != $id) {
+				array_push($array, $value);
+			} else {
+					Storage::disk('public_dir')->delete($value->src);
+			}
+		}
+
+		$db_check = DB::table('codebumble_front_page')
+			->where('code_name', 'sliders_data_bottom')
 			->update(['value' => json_encode($array)]);
 
 		return redirect()->route('front_page_slider_view', [
