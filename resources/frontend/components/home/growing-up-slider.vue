@@ -12,16 +12,16 @@
 					aria-label="growingSlider">
 					<SplideSlide
 						v-for="item in growingUpSlider"
-						:key="item.largeImageURL"
+						:key="item"
 						class="flex justify-around items-center transition-all overflow-hidden p-4">
 						<div class="growing-up-slider relative w-full">
 							<img
-								:src="item.largeImageURL"
-								:alt="item.user" />
+								:src="item.src"
+								:alt="item.heading" />
 							<div class="company-name absolute bottom-28 w-full">
 								<h3
 									class="text-white border-b-2 border-white w-fit mx-auto font-bold uppercase">
-									{{ item.user }}
+									{{ item.heading }}
 								</h3>
 							</div>
 						</div>
@@ -91,8 +91,10 @@
 		},
 		async mounted() {
 			try {
-				const response = await axios.get('../../faker/images.json');
-				this.growingUpSlider = await response.data.hits;
+				const response = await axios.get(
+					window.location.origin + '/frontpage-api/slider-bottom'
+				);
+				this.growingUpSlider = await response.data;
 			} catch {}
 		},
 		methods: {
@@ -105,9 +107,9 @@
 						? el.li.classList.add('is-active')
 						: null;
 					// dynamic years
-					// span.textContent = item.user;
+					span.textContent = item.desc;
 					// static years
-					span.textContent = 2020 + index;
+					// span.textContent = 2020 + index;
 					el.li.appendChild(span);
 				});
 			},

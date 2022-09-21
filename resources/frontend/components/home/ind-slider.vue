@@ -15,7 +15,7 @@
 							<div class="w-full">
 								<img
 									:src="previews.src"
-									:alt="previews.name"
+									:alt="previews.heading"
 									class="object-cover w-full h-[34.4rem] rounded" />
 							</div>
 							<div
@@ -23,7 +23,7 @@
 								<div class="container">
 									<p
 										class="ml-12 text-xl font-bold text-white text-shadow-extreme">
-										{{ previews.desc }}
+										{{ previews.heading }}
 									</p>
 								</div>
 							</div>
@@ -41,10 +41,10 @@
 							<div class="bg-slate-200 overflow-hidden rounded">
 								<img
 									:src="thumbs.src"
-									:alt="thumbs.name"
+									:alt="thumbs.heading"
 									class="object-cover !h-[102px]" />
 								<p class="text-center capitalize">
-									{{ thumbs.name }}
+									{{ thumbs.heading }}
 								</p>
 							</div>
 						</SplideSlide>
@@ -70,29 +70,16 @@
 		},
 		data() {
 			return {
-				slider: [
-					{
-						src: '/frontend/images/contents/denims2.jpg',
-						name: 'company 2',
-						desc: 'short description about the company...',
-					},
-					{
-						src: '/frontend/images/contents/crown.jpg',
-						name: 'company 3',
-						desc: 'short description about the company...',
-					},
-					{
-						src: '/frontend/images/contents/denims3.jpg',
-						name: 'company 4',
-						desc: 'short description about the company...',
-					},
-					{
-						src: '/frontend/images/contents/crown.jpg',
-						name: 'company 3',
-						desc: 'short description about the company...',
-					},
-				],
+				slider: [],
 			};
+		},
+		mounted() {
+			axios
+				.get(window.location.origin + '/frontpage-api/slider')
+				.then((response) => {
+					this.slider = response.data;
+					console.log(this.slider);
+				});
 		},
 		setup() {
 			const main = ref();

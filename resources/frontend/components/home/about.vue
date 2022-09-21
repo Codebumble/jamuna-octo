@@ -4,14 +4,10 @@
 		<div class="container">
 			<div class="title py-8">
 				<h2 class="text-2xl lg:text-4xl text-gray-800 font-bold">
-					About Us
+					{{ items.title }}
 				</h2>
 				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit.
-					Voluptate accusantium vero rerum, officia, consequuntur
-					laudantium maiores nulla vitae eos animi cumque recusandae
-					molestias provident autem repellat temporibus, magnam atque
-					beatae!
+					{{ items.desc }}
 				</p>
 			</div>
 		</div>
@@ -20,7 +16,7 @@
 			aria-label="earth slider"
 			class="w-full lg:w-4/6 mx-auto earth-slider">
 			<SplideSlide
-				v-for="slide in items"
+				v-for="slide in items.items"
 				:key="slide">
 				<div class="text-center capitalize piller">
 					<h4>{{ slide.text }}</h4>
@@ -72,8 +68,8 @@
 	.earth {
 		background-image: url('../../images/contents/earth.png');
 
-		@apply z-50 bg-top relative -top-8 lg:-top-28 lg:h-[300px] sm:h-[150px] xs:h-[125px] h-20;
-
+		@apply bg-top relative -top-8 lg:-top-28 lg:h-[300px] sm:h-[150px] xs:h-[125px] h-20;
+		z-index: 9;
 		background-size: 100% 100%;
 		-webkit-mask-image: linear-gradient(
 			rgba(255, 255, 255, 1) 0%,
@@ -88,35 +84,20 @@
 	export default {
 		data() {
 			return {
-				items: [
-					{
-						text: 'exporting countries',
-						number: '32',
-					},
-					{
-						text: 'landmark project',
-						number: '35',
-					},
-					{
-						text: 'established',
-						number: '1974',
-					},
-					{
-						text: 'industrial units',
-						number: '42',
-					},
-					{
-						text: 'employee strength',
-						number: '45,000',
-					},
-				],
+				items: {},
 			};
 		},
 		components: {
 			Splide,
 			SplideSlide,
 		},
-		mounted() {},
+		mounted() {
+			axios
+				.get(window.location.origin + '/frontpage-api/about-us-api')
+				.then((response) => {
+					this.items = response.data;
+				});
+		},
 		setup() {
 			const options = {
 				autoPlay: false,
