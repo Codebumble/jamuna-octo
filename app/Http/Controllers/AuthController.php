@@ -101,6 +101,7 @@ class AuthController extends Controller
             'designation' => $field['designation'],
             'password' => bcrypt($field['password']),
             'role' => $field['role'],
+            'company' => $field['comapnay'],
             'avatar' => $fileName1,
             'json_data' => json_encode($json_data),
             'under_ref' => Auth::user()->username,
