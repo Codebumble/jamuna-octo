@@ -15,7 +15,13 @@ use Illuminate\Support\Facades\Mail;
 class FrontPage extends Controller
 {
     public function slider_view(){
-        $data_get = DB::select('select value from codebumble_front_page where code_name=?',['sliders_data']);
+        $data_get = DB::select('select value from codebumble_front_page where code_name=?',['sliders_data_top']);
+
+        return $data_get[0]->value;
+
+    }
+    public function slider_view_bottom(){
+        $data_get = DB::select('select value from codebumble_front_page where code_name=?',['sliders_data_bottom']);
 
         return $data_get[0]->value;
 

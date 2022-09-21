@@ -303,6 +303,7 @@ Route::group(['prefix' => 'codebumble'], function () {
 /* Route Dashboards */
 Route::group(['prefix' => 'frontpage-api'], function () {
 	Route::get('slider', [FrontPage::class, 'slider_view']);
+	Route::get('slider-bottom', [FrontPage::class, 'slider_view_bottom']);
 	Route::get('video-slider', [FrontPage::class, 'video_slider_view']);
 
 	Route::get('nav-company', [FrontPage::class, 'nav_company']);
