@@ -35,7 +35,7 @@
 		// 	rgba(255, 243, 233, 0.7) 111.91%
 		// );
 
-		@apply bg-slate-100 bg-opacity-50 transition-all shadow hover:shadow-md;
+		@apply bg-white bg-opacity-50 transition-all shadow hover:shadow-md;
 
 		.itemName {
 			@apply relative inline-block bottom-12 py-1.5 px-4 text-center font-bold transition-all;

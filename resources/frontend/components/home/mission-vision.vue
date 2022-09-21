@@ -1,5 +1,5 @@
 <template>
-	<section class="py-10 bg-slate-50">
+	<section class="py-10 bg-slate-100">
 		<div class="container">
 			<div class="grid lg:grid-cols-3 gap-8">
 				<div

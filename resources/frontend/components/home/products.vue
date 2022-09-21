@@ -1,5 +1,5 @@
 <template>
-	<section class="group-company bg-slate-50">
+	<section class="group-company bg-slate-100">
 		<div class="container">
 			<div class="title">
 				<h2 class="text-2xl lg:text-4xl text-gray-800 font-bold">

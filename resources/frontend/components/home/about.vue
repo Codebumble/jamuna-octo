@@ -1,6 +1,6 @@
 <template>
 	<section
-		class="about-us bg-slate-50 overflow-hidden lg:max-h-[700px] xs:max-h-[655px] md:max-h-[635px] max-h-[683px]">
+		class="about-us bg-slate-100 overflow-hidden lg:max-h-[700px] xs:max-h-[655px] md:max-h-[635px] max-h-[683px]">
 		<div class="container">
 			<div class="title py-8">
 				<h2 class="text-2xl lg:text-4xl text-gray-800 font-bold">
