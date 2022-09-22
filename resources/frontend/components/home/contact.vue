@@ -120,10 +120,16 @@
 				csrf: document
 					.querySelector('meta[name="csrf-token"]')
 					.getAttribute('content'),
-				bgImg: 'https://images.unsplash.com/photo-1661961112951-f2bfd1f253ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80',
+				bgImg: '',
 			};
 		},
-		mounted() {},
+		mounted() {
+			axios
+				.get(window.location.origin + '/frontpage-api/meta-data')
+				.then((response) => {
+					this.bgImg = response.data.image;
+				});
+		},
 
 		setup() {},
 	};
