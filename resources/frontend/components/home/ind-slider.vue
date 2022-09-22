@@ -14,9 +14,9 @@
 							ref="main">
 							<div class="w-full">
 								<img
-									:src="previews.src"
+									:src="previews.largeImageURL"
 									:alt="previews.heading"
-									class="object-cover w-full h-[34.4rem] rounded" />
+									class="object-cover w-full h-[36.5rem] rounded" />
 							</div>
 							<div
 								class="absolute w-full z-20 flex self-end mb-40">
@@ -40,7 +40,7 @@
 							:key="thumbs">
 							<div class="bg-slate-200 overflow-hidden rounded">
 								<img
-									:src="thumbs.src"
+									:src="thumbs.largeImageURL"
 									:alt="thumbs.heading"
 									class="object-cover !h-[102px]" />
 								<p class="text-center capitalize">
@@ -77,7 +77,7 @@
 			axios
 				.get(window.location.origin + '/frontpage-api/slider')
 				.then((response) => {
-					this.slider = response.data;
+					this.slider = response.data.hits;
 				});
 		},
 		setup() {
@@ -90,7 +90,7 @@
 				// fixedWidth: 246,
 				// fixedHeight: 102,
 				width: '100%',
-				height: '100%',
+				height: 600,
 				perPage: 4,
 				gap: 10,
 				rewind: true,
