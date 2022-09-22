@@ -77,7 +77,7 @@
 			axios
 				.get(window.location.origin + '/frontpage-api/slider')
 				.then((response) => {
-					this.slider = response.data.hits;
+					this.slider = response.data;
 				});
 		},
 		setup() {
