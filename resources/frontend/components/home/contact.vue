@@ -127,7 +127,7 @@
 			axios
 				.get(window.location.origin + '/frontpage-api/meta-data')
 				.then((response) => {
-					this.bgImg = response.data.image;
+					this.bgImg = response.data.bimage;
 				});
 		},
 
