@@ -14,7 +14,7 @@
 							ref="main">
 							<div class="w-full">
 								<img
-									:src="previews.largeImageURL"
+									:src="previews.src"
 									:alt="previews.heading"
 									class="object-cover w-full h-[36.5rem] rounded" />
 							</div>
@@ -40,7 +40,7 @@
 							:key="thumbs">
 							<div class="bg-slate-200 overflow-hidden rounded">
 								<img
-									:src="thumbs.largeImageURL"
+									:src="thumbs.src"
 									:alt="thumbs.heading"
 									class="object-cover !h-[102px]" />
 								<p class="text-center capitalize">
