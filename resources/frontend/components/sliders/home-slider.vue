@@ -30,7 +30,7 @@
 						<div class="container flex flex-col">
 							<div class="overflow-hidden">
 								<h1
-									class="ml-8 xl:ml-0 text-2xl lg:text-[36px] text-white font-bold capitalize leading-snug w-[80%] lg:w-[50%] text-shadow-extreme">
+									class="ml-8 2xl:ml-8 xl:ml-0 text-2xl lg:text-[36px] text-white font-bold capitalize leading-snug w-[80%] lg:w-[50%] text-shadow-extreme">
 									{{ slide.heading }}
 								</h1>
 								<!-- <p

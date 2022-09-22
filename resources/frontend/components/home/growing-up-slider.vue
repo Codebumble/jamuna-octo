@@ -67,7 +67,7 @@
 					@apply mr-0;
 				}
 				&.is-active{
-					@apply xl:mr-5 mr-0;
+					@apply xl:mr-5 mr-0 ml-4 xl:ml-0;
 				}
 			}
 		}
