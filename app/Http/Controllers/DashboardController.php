@@ -16,6 +16,7 @@ class DashboardController extends Controller
     $datam_2 = DB::select("select count(*) as total from codebumble_login_table where username=?", [Auth::user()->username]);
     $applicant = DB::select("select count(*) as applicant from codebumble_applicant_list");
     $company = DB::select("select count(*) as company from codebumble_company_list");
+    $user = DB::select("select count(*) as user from users");
     $job = DB::select("select l_date from codebumble_job_list");
 
     $b =[];
@@ -33,6 +34,8 @@ class DashboardController extends Controller
     $b['desktop'] = round((($datam_2[0]->total - $datam_1[0]->mobile)/$datam_2[0]->total)*100);
     $b['applicant'] = $applicant[0]->applicant;
     $b['company'] = $company[0]->company;
+    $b['user'] = $user[0]->user;
+
     $pageConfigs = ['pageHeader' => false];
 
     return view('/content/dashboard/dashboard-analytics', ['pageConfigs' => $pageConfigs, 'b' => $b]);

@@ -126,8 +126,8 @@
                 <i data-feather="users" class="font-medium-5"></i>
               </div>
             </div>
-            <h2 class="fw-bolder mt-1">10k</h2>
-            <p class="card-text">Employee Gained</p>
+            <h2 class="fw-bolder mt-1">{{$b['user']}}</h2>
+            <p class="card-text">Employee Gained Total</p>
           </div>
         </div>
 
