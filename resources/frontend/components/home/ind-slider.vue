@@ -102,6 +102,7 @@
 					1023: {
 						direction: 'ltr',
 						perPage: 3,
+						height: 130,
 					},
 					640: {
 						perPage: 2,
