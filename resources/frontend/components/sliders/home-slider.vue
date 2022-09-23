@@ -56,20 +56,14 @@
 
 <style lang="scss">
 	@import '../../assets/scss/variables/_hero.scss';
-	@import '@splidejs/vue-splide/css/core';
 </style>
 
 <script>
-	import { Splide, SplideSlide } from '@splidejs/vue-splide';
 	export default {
 		data() {
 			return {
 				sliderContents: [],
 			};
-		},
-		components: {
-			Splide,
-			SplideSlide,
 		},
 		mounted() {
 			axios

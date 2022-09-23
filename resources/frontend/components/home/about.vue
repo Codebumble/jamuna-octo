@@ -80,16 +80,11 @@
 </style>
 
 <script>
-	import { Splide, SplideSlide } from '@splidejs/vue-splide';
 	export default {
 		data() {
 			return {
 				items: {},
 			};
-		},
-		components: {
-			Splide,
-			SplideSlide,
 		},
 		mounted() {
 			axios

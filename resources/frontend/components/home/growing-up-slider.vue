@@ -33,7 +33,6 @@
 </template>
 
 <style lang="scss">
-	@import '@splidejs/vue-splide/css/core';
 	.growing-slider {
 		li.splide__slide {
 			@apply p-0;
@@ -81,12 +80,7 @@
 </style>
 
 <script>
-	import { Splide, SplideSlide } from '@splidejs/vue-splide';
 	export default {
-		components: {
-			Splide,
-			SplideSlide,
-		},
 		data() {
 			return {
 				growingUpSlider: [],
@@ -131,8 +125,6 @@
 		},
 
 		setup() {
-			// const
-
 			const options = {
 				autoplay: false,
 				rewind: true,

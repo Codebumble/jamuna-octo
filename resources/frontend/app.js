@@ -9,6 +9,10 @@ import VueSocialSharing from "vue-social-sharing";
 import { createMetaManager, plugin as vueMetaPlugin } from "vue-meta";
 import VueAwesomePaginate from "vue-awesome-paginate";
 
+// Splide Js
+import VueSplide from '@splidejs/vue-splide';
+import '@splidejs/vue-splide/css';
+
 const metaManager = createMetaManager();
 
 import { createApp } from "vue";
@@ -17,6 +21,7 @@ import FrontEnd from "./App.vue";
 
 createApp(FrontEnd)
 	.use(router)
+	.use(VueSplide)
 	.use(metaManager)
 	.use(vueMetaPlugin)
 	.use(VueSocialSharing)

@@ -28,16 +28,11 @@
 
 <style lang="scss">
 	@import '../../assets/scss/variables/_concerns-logo';
-	@import '@splidejs/vue-splide/css/core';
 </style>
 
 <script>
-	import { Splide, SplideSlide } from '@splidejs/vue-splide';
 	export default {
-		components: {
-			Splide,
-			SplideSlide,
-		},
+		components: {},
 		data() {
 			return {
 				aboutConcerns: {},

@@ -47,12 +47,10 @@
 </template>
 
 <style lang="scss">
-	@import '@splidejs/vue-splide/css';
 	@import '../../assets/scss/variables/_group-company';
 </style>
 
 <script>
-	import { Splide, SplideSlide } from '@splidejs/vue-splide';
 	export default {
 		data() {
 			return {
@@ -63,10 +61,6 @@
 				},
 				slideContent: [],
 			};
-		},
-		components: {
-			Splide,
-			SplideSlide,
 		},
 		created() {
 			axios
@@ -102,12 +96,8 @@
 				perMove: 1,
 				drag: true,
 				pagination: false,
-				// gap: '2rem',
-				// fixedWidth: '300px',
-				// focus: 'center',
 				breakpoints: {
 					1024: {
-						// fixedWidth: '270.5px',
 						perPage: 1,
 						perMove: 1,
 					},

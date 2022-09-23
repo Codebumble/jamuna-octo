@@ -56,18 +56,12 @@
 </template>
 
 <style lang="scss">
-	@import '@splidejs/vue-splide/css/core';
 	@import '../../assets/scss/variables/ind-slider';
 </style>
 
 <script>
-	import { Splide, SplideSlide } from '@splidejs/vue-splide';
 	import { ref, onMounted } from 'vue';
 	export default {
-		components: {
-			Splide,
-			SplideSlide,
-		},
 		data() {
 			return {
 				slider: [],

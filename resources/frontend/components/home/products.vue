@@ -39,12 +39,10 @@
 </template>
 
 <style lang="scss">
-	@import '@splidejs/vue-splide/css';
 	@import '../../assets/scss/variables/_group-company';
 </style>
 
 <script>
-	import { Splide, SplideSlide } from '@splidejs/vue-splide';
 	export default {
 		data() {
 			return {
@@ -55,10 +53,6 @@
 				},
 				slideContent: [],
 			};
-		},
-		components: {
-			Splide,
-			SplideSlide,
 		},
 		mounted() {
 			axios
