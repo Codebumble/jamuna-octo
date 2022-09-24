@@ -129,6 +129,10 @@
 						linkText: 'FAQ',
 						link: '/faq',
 					},
+					{
+						linkText: 'E-Tender',
+						link: '/e-tender',
+					},
 				],
 				linksCol3: [
 					{
