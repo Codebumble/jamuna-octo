@@ -473,8 +473,8 @@
 </style>
 
 <script>
-	// import { useHead } from '@vueuse/head';
 	import Modal from '../components/global/modal';
+	import { ref } from 'vue';
 	import { createToaster } from '@meforma/vue-toaster';
 
 	export default {
@@ -556,6 +556,18 @@
 					},
 				],
 			};
+		},
+
+		setup() {
+			const isActiveModal = ref(false);
+			const toggleModal = () => {
+				isActiveModal.value = !isActiveModal.value;
+				if (isActiveModal.value)
+					document.body.style.overflowY = 'hidden';
+				else document.body.style.overflowY = 'scroll';
+			};
+
+			return { isActiveModal, toggleModal };
 		},
 	};
 </script>
