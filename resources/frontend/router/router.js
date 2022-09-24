@@ -109,12 +109,12 @@ const routes = [
 	{
 		path: "/e-tender",
 		name: "e-tender",
-		component: () => import("../views/etender-single.vue"),
+		component: () => import("../views/etender.vue"),
 	},
 	{
 		path: "/e-tender/:id",
-		name: "e-tender",
-		component: () => import("../views/etender.vue"),
+		name: "e-tender-details",
+		component: () => import("../views/etender-single.vue"),
 		meta: {
 			title: "E-Tender | Jamuna Group",
 		},
