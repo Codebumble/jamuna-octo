@@ -99,7 +99,7 @@
 						lastTime: '2018-02-04 04:00:00',
 						procMethod:
 							'Open Tendering Method (One stage, Two Envelopes)',
-						detailsLink: '/e-tender-details/2',
+						detailsLink: '/e-tender/2',
 					},
 					{
 						compLogo: '/frontend/images/logo/hoor.png',
@@ -111,7 +111,7 @@
 						lastTime: '2018-02-04 04:00:00',
 						procMethod:
 							'Open Tendering Method (One stage, Two Envelopes)',
-						detailsLink: '/e-tender-details/2',
+						detailsLink: '/e-tender/2',
 					},
 					{
 						compLogo: '/frontend/images/logo/hoor.png',
@@ -123,7 +123,7 @@
 						lastTime: '2018-02-04 04:00:00',
 						procMethod:
 							'Open Tendering Method (One stage, Two Envelopes)',
-						detailsLink: '/e-tender-details/2',
+						detailsLink: '/e-tender/2',
 					},
 					{
 						compLogo: '/frontend/images/logo/hoor.png',
@@ -135,7 +135,7 @@
 						lastTime: '2018-02-04 04:00:00',
 						procMethod:
 							'Open Tendering Method (One stage, Two Envelopes)',
-						detailsLink: '/e-tender-details/2',
+						detailsLink: '/e-tender/2',
 					},
 					{
 						compLogo: '/frontend/images/logo/hoor.png',
@@ -147,7 +147,7 @@
 						lastTime: '2018-02-04 04:00:00',
 						procMethod:
 							'Open Tendering Method (One stage, Two Envelopes)',
-						detailsLink: '/e-tender-details/2',
+						detailsLink: '/e-tender/2',
 					},
 				],
 				jobList: {

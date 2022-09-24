@@ -6,6 +6,52 @@
 	}
 }
 
+.time {
+	@apply text-gray-500 block lg:inline-block;
+}
+
+.overview {
+	table {
+		@apply border-collapse sm:table-fixed border border-slate-300 text-left w-full rounded-sm mb-4;
+		tr {
+			@apply border-b border-slate-300 flex flex-col sm:table-row text-gray-800;
+			th {
+				@apply p-3 bg-slate-50 uppercase;
+			}
+			td {
+				@apply p-3;
+			}
+		}
+	}
+}
+
+.close {
+	@apply absolute top-4 right-8 text-3xl font-bold cursor-pointer text-gray-500;
+}
+.upper-part .share {
+	@apply flex items-center text-[1.3rem] gap-3 justify-center content-center py-4;
+
+	a {
+		@apply text-gray-800 transition-all;
+	}
+
+	.share-network-facebook {
+		@apply hover:text-blue-600 transition-all;
+	}
+	.share-network-linkedin {
+		@apply hover:text-[#0077b5] transition-all;
+	}
+	.share-network-messenger {
+		@apply hover:text-[#2f80fe] transition-all;
+	}
+	.share-network-twitter {
+		@apply hover:text-[#1da1f2] transition-all;
+	}
+	.share-network-whatsapp {
+		@apply hover:text-green-600 transition-all;
+	}
+}
+
 .jobList {
 	@apply py-8;
 	.card {
