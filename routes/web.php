@@ -42,11 +42,15 @@ use App\Http\Controllers\FrontendController;
 // Main Page Route
 Route::get('{any}', [FrontendController::class, 'home'])->where(
 	'any',
-	'/|founder|chairman|board-of-directors|company-profile|jamuna-tv|the-daily-jugantor|growth-story|quality-process|future-expansion|contact|photo-gallery|career|news-center|event-details|nurul-islam-foundation|developers-credit|tou|privacy-policy|faq|'
+	'/|founder|chairman|board-of-directors|company-profile|jamuna-tv|the-daily-jugantor|growth-story|quality-process|future-expansion|contact|photo-gallery|career|news-center|event-details|nurul-islam-foundation|developers-credit|tou|privacy-policy|faq|e-tender|'
 );
 
 Route::get('/career-details/{id}', [FrontendController::class, 'home'])->name(
 	'career-details'
+);
+
+Route::get('/e-tender/{id}', [FrontendController::class, 'home'])->name(
+	'e-tender-details'
 );
 
 Route::get('/companies/{id}/{name}', [FrontendController::class, 'home'])->name(

@@ -8,7 +8,7 @@ class FrontendController extends Controller
 {
 	public function home()
 	{
-		$data = DB::select(
+		$data = \DB::select(
 			'select value from codebumble_front_page where code_name=?',
 			['meta']
 		);

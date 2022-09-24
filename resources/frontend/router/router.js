@@ -107,6 +107,19 @@ const routes = [
 		},
 	},
 	{
+		path: "/e-tender",
+		name: "e-tender",
+		component: () => import("../views/etender-single.vue"),
+	},
+	{
+		path: "/e-tender/:id",
+		name: "e-tender",
+		component: () => import("../views/etender.vue"),
+		meta: {
+			title: "E-Tender | Jamuna Group",
+		},
+	},
+	{
 		path: "/notfound",
 		name: "not-found",
 		component: () => import("../views/404.vue"),
@@ -126,7 +139,7 @@ router.beforeEach((to, from, next) => {
 	document.querySelector("nav").classList.remove("active");
 	document.querySelector("button.hamburger").classList.remove("is-active");
 	document.body.style.overflowY = "scroll";
-	next()
+	next();
 });
 
 export default router;
