@@ -13,11 +13,19 @@
 							v-for="logo in concernlogo"
 							:key="logo"
 							class="flex justify-around items-center transition-all overflow-hidden p-4">
-							<div class="concern rounded-full">
-								<img
-									:src="'/company-images/' + logo.image"
-									:alt="logo.name" />
-							</div>
+							<router-link
+								:to="
+									'/companies/' +
+									logo.id +
+									'/' +
+									logo.name.replaceAll(' ', '-')
+								">
+								<div class="concern rounded-full">
+									<img
+										:src="'/company-images/' + logo.image"
+										:alt="logo.name" />
+								</div>
+							</router-link>
 						</SplideSlide>
 					</Splide>
 				</div>
