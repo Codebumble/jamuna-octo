@@ -13,10 +13,10 @@
 						in {{ tender.location }}
 					</p>
 					<button
-						class="font-bold rounded-full px-4 py-2 bg-red-600 text-white hover:bg-white hover:text-red-600 border border-red-600 inline-block">
+						class="font-bold rounded-full px-4 py-2 bg-red-600 text-white hover:bg-white hover:text-red-600 border border-red-600 inline-block" @click="toggleModal">
 						Apply Now
 					</button>
-					<!-- <Modal
+					<Modal
 						:isActiveModal="isActiveModal"
 						@close="toggleModal">
 						<div class="apply relative pt-4">
@@ -27,13 +27,13 @@
 							>
 							<form
 								class="pt-6"
-								@submit.prevent="submitResume"
+								@submit.prevent="submit"
 								enctype="multipart/form-data">
 								<div
 									class="grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-4">
 									<div class="input-group">
 										<div class="input-item">
-											<input
+											<!-- <input
 												type="hidden"
 												name="new[job_id]"
 												:value="jobInfo.id"
@@ -49,200 +49,37 @@
 												type="hidden"
 												name="new[company]"
 												:value="companyInfo.name"
-												:v-model="company" />
+												:v-model="company" /> -->
 
 											<input
 												type="text"
-												name="new[name]"
-												id="name"
+												name="new[companyName]"
+												id="companyName"
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-												placeholder="Applicant Name"
-												v-model="name" />
+												placeholder="Name of Company"
+												v-model="companyName" />
 										</div>
 									</div>
 									<div class="input-group">
 										<div class="input-item">
 											<input
 												type="text"
-												name="new[age]"
-												id="age"
+												name="new[contactPerson]"
+												id="contactPerson"
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-												placeholder="Age"
-												v-model="age" />
-										</div>
-									</div>
-									<div class="input-group">
-										<div class="input-item">
-											<div
-												class="col-span-6 sm:col-span-3">
-												<select
-													id="gender"
-													name="new[gender]"
-													autocomplete="gender-name"
-													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
-													v-model="gender">
-													<option>
-														{{ gender }}
-													</option>
-													<option>Male</option>
-													<option>Female</option>
-													<option>Other</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="input-group">
-										<div class="input-item">
-											<div
-												class="col-span-6 sm:col-span-3">
-												<select
-													id="division"
-													name="new[division]"
-													autocomplete="division-name"
-													class="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
-													v-model="division"
-													@change="selectDivision">
-													<option
-														v-for="value in Object.keys(
-															address
-														)"
-														:value="value"
-														:key="value">
-														{{ value }}
-													</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="input-group">
-										<div class="input-item">
-											<div
-												class="col-span-6 sm:col-span-3">
-												<select
-													id="district"
-													name="new[district]"
-													autocomplete="district-name"
-													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
-													@change="selectDistrict"
-													v-model="district">
-													<option v-if="isDistrict">
-														{{ district }}
-													</option>
-													<option
-														v-for="district in districts"
-														:value="district"
-														:key="district">
-														{{ district }}
-													</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="input-group">
-										<div class="input-item">
-											<div
-												class="col-span-6 sm:col-span-3">
-												<select
-													id="subdistrict"
-													name="new[subdistrict]"
-													autocomplete="subdistrict-name"
-													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
-													v-model="subdistrict">
-													<option
-														v-if="isSubdistrict">
-														{{ subdistrict }}
-													</option>
-													<option
-														v-for="subdistrict in subdistricts"
-														:key="subdistrict">
-														{{ subdistrict }}
-													</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="input-group">
-										<div class="input-item">
-											<div
-												class="col-span-6 sm:col-span-3">
-												<select
-													id="qualification"
-													name="new[qualifications]"
-													autocomplete="qualification-name"
-													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
-													v-model="qualification">
-													<option>
-														Educational
-														Qualification
-													</option>
-													<option
-														v-for="qualification in qualifications"
-														:key="qualification">
-														{{ qualification }}
-													</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="input-group">
-										<div class="input-item">
-											<div
-												class="col-span-6 sm:col-span-3">
-												<select
-													id="experience"
-													name="new[experience]"
-													autocomplete="experience-name"
-													class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
-													v-model="experience">
-													<option>
-														Experience (Years)
-													</option>
-													<option
-														v-for="experience in 20"
-														:key="experience">
-														{{
-															experience.toString()
-																.length > 1
-																? experience
-																: '0' +
-																  experience
-														}}
-													</option>
-												</select>
-											</div>
+												placeholder="Contact Person"
+												v-model="contactPerson" />
 										</div>
 									</div>
 									<div class="input-group">
 										<div class="input-item">
 											<input
 												type="text"
-												name="university"
-												id="experience"
+												name="new[contactNo]"
+												id="contactNo"
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-												placeholder="University (Optional)"
-												v-model="university" />
-										</div>
-									</div>
-									<div class="input-group">
-										<div class="input-item">
-											<input
-												type="text"
-												name="new[expo_salary]"
-												id="salary"
-												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-												placeholder="Expected Salary"
-												v-model="salary" />
-										</div>
-									</div>
-									<div class="input-group">
-										<div class="input-item">
-											<input
-												type="text"
-												name="new[phone]"
-												id="phone"
-												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-												placeholder="Your Mobile Number"
-												v-model="mobile" />
+												placeholder="Contact No"
+												v-model="contactNo" />
 										</div>
 									</div>
 									<div class="input-group">
@@ -252,7 +89,7 @@
 												name="new[email]"
 												id="email"
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-												placeholder="Your Email"
+												placeholder="Email"
 												v-model="email" />
 										</div>
 									</div>
@@ -260,23 +97,56 @@
 										<div class="input-item">
 											<input
 												type="text"
-												name="new[sCountry]"
-												id="sCountry"
+												name="new[designation]"
+												id="designation"
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-												placeholder="Study Country (Optional)"
-												v-model="sCountry" />
+												placeholder="Designation"
+												v-model="designation" />
 										</div>
 									</div>
 									<div class="input-group">
 										<div class="input-item">
 											<input
 												type="text"
-												name="new[pCompany]"
-												id="pCompany"
+												name="new[department]"
+												id="department"
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-												placeholder="Previous Company (Optional)"
-												v-model="pCompany" />
+												placeholder="Department"
+												v-model="department" />
 										</div>
+									</div>
+									<div class="input-group">
+										<div class="input-item">
+											<input
+												type="text"
+												name="new[country]"
+												id="country"
+												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+												placeholder="Country"
+												v-model="country" />
+										</div>
+									</div>
+									<div class="input-group">
+										<div class="input-item">
+											<input
+												type="text"
+												name="new[currency]"
+												id="currency"
+												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+												placeholder="Currency"
+												v-model="currency" />
+										</div>
+									</div>
+								</div>
+								<div class="input-group">
+									<div class="input-item">
+										<textarea
+											type="text"
+											name="new[address]"
+											id="address"
+											class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+											placeholder="Address"
+											v-model="address" />
 									</div>
 								</div>
 								<div class="input-group">
@@ -305,10 +175,9 @@
 														<label
 															for="file-upload"
 															class="relative cursor-pointer bg-white rounded-md font-medium text-red-500 hover:text-red-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-red-500 border-[1px] border-gray-300"
-															id="pdf">
+															id="companyProfile">
 															<span
-																>Upload your
-																CV/Resume</span
+																>Upload File</span
 															>
 															<input
 																id="file-upload"
@@ -322,7 +191,7 @@
 														</label>
 														<p class="pl-1">
 															or drag and drop
-															your CV/Resume
+															your File
 														</p>
 													</div>
 												</div>
@@ -337,7 +206,7 @@
 								</button>
 							</form>
 						</div>
-					</Modal> -->
+					</Modal>
 					<div class="pt-4">
 						<span class="time">{{ tender.status }}</span>
 					</div>
@@ -560,6 +429,23 @@
 
 		setup() {
 			const isActiveModal = ref(false);
+
+
+			const companyName = ref('');
+			const contactPerson = ref('');
+			const contactNo = ref('');
+			const email = ref('');
+			const designation = ref('');
+			const department = ref('');
+			const country = ref('');
+			const currency = ref('');
+			const address = ref('');
+			const companyProfile = ref();
+
+			const previewFiles = (e) => {
+				companyProfile.value = e.target.files[0];
+			};
+
 			const toggleModal = () => {
 				isActiveModal.value = !isActiveModal.value;
 				if (isActiveModal.value)
@@ -567,7 +453,102 @@
 				else document.body.style.overflowY = 'scroll';
 			};
 
-			return { isActiveModal, toggleModal };
+			const submit = ()=>{
+				const addClass = (selector) => {
+					document
+						.getElementById(selector)
+						.classList.add('border-red-500');
+				};
+				const removeClass = (selector) => {
+					document
+						.getElementById(selector)
+						.classList.remove('border-red-500');
+				};
+
+				let formData = new FormData();
+				formData.append('new[name]', companyName.value);
+				formData.append('new[name]', contactPerson.value);
+				formData.append('new[name]', contactNo.value);
+				formData.append('new[name]', email.value);
+				formData.append('new[name]', designation.value);
+				formData.append('new[name]', department.value);
+				formData.append('new[name]', country.value);
+				formData.append('new[name]', currency.value);
+				formData.append('new[name]', address.value);
+				formData.append('new[name]', companyProfile.value);
+
+				formData.append(
+					'new[file_upload]',
+					document.querySelector('#file-upload').files[0]
+				);
+
+				if(
+					!companyName.value ||
+					!contactPerson.value ||
+					!contactNo.value ||
+					!email.value ||
+					!designation.value ||
+					!department.value ||
+					!country.value ||
+					!currency.value ||
+					!address.value ||
+					!companyProfile.value ||
+					companyProfile.value.type !== 'application/pdf'
+				){
+					if (!companyName.value) {
+						addClass('companyName');
+					} else {
+						removeClass('companyName');
+					}
+					if (!contactPerson.value) {
+						addClass('contactPerson');
+					} else {
+						removeClass('contactPerson');
+					}
+					if (!contactNo.value) {
+						addClass('contactNo');
+					} else {
+						removeClass('contactNo');
+					}
+					if (!email.value) {
+						addClass('email');
+					} else {
+						removeClass('email');
+					}
+					if (!designation.value) {
+						addClass('designation');
+					} else {
+						removeClass('designation');
+					}
+					if (!department.value) {
+						addClass('department');
+					} else {
+						removeClass('department');
+					}
+					if (!country.value) {
+						addClass('country');
+					} else {
+						removeClass('country');
+					}
+					if (!currency.value) {
+						addClass('currency');
+					} else {
+						removeClass('currency');
+					}
+					if (!address.value) {
+						addClass('address');
+					} else {
+						removeClass('address');
+					}
+					if (!companyProfile.value) {
+						addClass('companyProfile');
+					} else {
+						removeClass('companyProfile');
+					}
+				}
+			}
+
+			return { isActiveModal, previewFiles, toggleModal, companyName, contactPerson, contactNo, email, designation, department, country, currency, address, companyProfile, submit };
 		},
 	};
 </script>
