@@ -17,7 +17,7 @@ return new class extends Migration {
 			Blueprint $table
 		) {
 			$table->id();
-			$table->string('package');
+			$table->string('tender_name');
 			$table->string('company');
 			$table->string('tender_id');
 			$table->string('contact_person');

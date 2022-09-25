@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\applicant;
+use App\Http\Controllers\tenderApplicant;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AppsController;
 use App\Http\Controllers\UserInterfaceController;
@@ -87,6 +88,11 @@ Route::group(['prefix' => 'codebumble'], function () {
 	Route::post('/from-receive', [applicant::class, 'from_receive'])->name(
 		'from_receive'
 	);
+
+	Route::post('/tender_from-receive', [
+		tenderApplicant::class,
+		'from_receive',
+	])->name('from_receive');
 
 	Route::group(['middleware' => 'auth:sanctum'], function () {
 		Route::post('faq-edit-api', [siteGeneral::class, 'faq_edit_api'])->name(

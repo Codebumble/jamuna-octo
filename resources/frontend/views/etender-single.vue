@@ -13,7 +13,8 @@
 						in {{ tender.location }}
 					</p>
 					<button
-						class="font-bold rounded-full px-4 py-2 bg-red-600 text-white hover:bg-white hover:text-red-600 border border-red-600 inline-block" @click="toggleModal">
+						class="font-bold rounded-full px-4 py-2 bg-red-600 text-white hover:bg-white hover:text-red-600 border border-red-600 inline-block"
+						@click="toggleModal">
 						Apply Now
 					</button>
 					<Modal
@@ -177,7 +178,8 @@
 															class="relative cursor-pointer bg-white rounded-md font-medium text-red-500 hover:text-red-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-red-500 border-[1px] border-gray-300"
 															id="companyProfile">
 															<span
-																>Upload File</span
+																>Upload
+																File</span
 															>
 															<input
 																id="file-upload"
@@ -322,11 +324,13 @@
 						Attachments:
 					</h4>
 					<ul class="list-disc list-inside text-gray-600">
-						<li>
+						<li
+							v-for="packDetail in tender.attachment"
+							:key="packDetail">
 							<a
-								:href="tender.attachment.link"
+								:href="packDetail.link"
 								class="underline decoration-dotted hover:decoration-solid decoration-slate-400 hover:decoration-red-600 underline-offset-4 hover:text-red-600 transition-all"
-								>{{ tender.attachment.label }}</a
+								>{{ packDetail.label }}</a
 							>
 						</li>
 					</ul>
@@ -357,50 +361,55 @@
 			const toaster = createToaster({});
 
 			const tender = ref({
-					title: 'Interior Design & Decoration for Guest Areas',
-					compName: 'Hoor',
-					location: 'Dhaka, Bangladesh',
-					status: 'Expired',
+				title: 'Interior Design & Decoration for Guest Areas',
+				compName: 'Hoor',
+				location: 'Dhaka, Bangladesh',
+				status: 'Expired',
 
-					procMethod:
-						'Open Tendering Method (One stage, Two Envelopes)',
-					corrigendum: [
-						{
-							link: '/',
-							label: 'link 1',
-						},
-						{
-							link: '/',
-							label: 'link 1',
-						},
-					],
-					workName: 'Façade Fabrication (Unitized)',
-					address:
-						'Jamuna Group, Pragati Sarani, Kuril, Baridhara, Dhaka-1229, Bangladesh',
-					refNo: 'JBL/TENDER/2017/4609/1',
-					publishTime: '2017-12-18',
-					lastTime: '2018-02-04 04:00:00',
-					crdt: '2018-02-05 02:30:00',
-					preTenderM: '2018-01-14 10:00:00',
-					tenderOpenDate: '2018-02-05 03:00:00',
-					supplyLocation:
-						'JW Marriott Hotel Dhaka, Pragati Sarani, Kuril, Baridhara, Dhaka-1229, Bangladesh',
-					scheSubmit:
-						'Managing Director, Jamuna Group, Jamuna Future Park (9th floor), Ka-244, Kuril, Baridhara, Dhaka-1229',
-					sof: "Company's Own Source",
-					pos: '10,000.00 BDT',
-					tsa: '15,000,000.00 BDT / $187,500.00 USD',
-					trc: '6 Months',
-					attachment: {
+				procMethod: 'Open Tendering Method (One stage, Two Envelopes)',
+				corrigendum: [
+					{
+						link: '/',
+						label: 'link 1',
+					},
+					{
+						link: '/',
+						label: 'link 1',
+					},
+				],
+				workName: 'Façade Fabrication (Unitized)',
+				address:
+					'Jamuna Group, Pragati Sarani, Kuril, Baridhara, Dhaka-1229, Bangladesh',
+				refNo: 'JBL/TENDER/2017/4609/1',
+				publishTime: '2017-12-18',
+				lastTime: '2018-02-04 04:00:00',
+				crdt: '2018-02-05 02:30:00',
+				preTenderM: '2018-01-14 10:00:00',
+				tenderOpenDate: '2018-02-05 03:00:00',
+				supplyLocation:
+					'JW Marriott Hotel Dhaka, Pragati Sarani, Kuril, Baridhara, Dhaka-1229, Bangladesh',
+				scheSubmit:
+					'Managing Director, Jamuna Group, Jamuna Future Park (9th floor), Ka-244, Kuril, Baridhara, Dhaka-1229',
+				sof: "Company's Own Source",
+				pos: '10,000.00 BDT',
+				tsa: '15,000,000.00 BDT / $187,500.00 USD',
+				trc: '6 Months',
+				attachment: [
+					{
 						link: '/',
 						label: 'download the package details',
 					},
-				});
+					{
+						link: '/',
+						label: 'download the package details2',
+					},
+				],
+			});
 			const sharing = ref({
-					url: window.location.origin + route.path,
-					// title: this.data.tender.title,
-					hashtags: 'JamunaGroup, Bangladesh',
-				});
+				url: window.location.origin + route.path,
+				// title: this.data.tender.title,
+				hashtags: 'JamunaGroup, Bangladesh',
+			});
 			const networks = ref([
 				{
 					network: 'email',
@@ -451,7 +460,7 @@
 				else document.body.style.overflowY = 'scroll';
 			};
 
-			const submit = ()=>{
+			const submit = () => {
 				const addClass = (selector) => {
 					document
 						.getElementById(selector)
@@ -480,7 +489,7 @@
 					document.querySelector('#file-upload').files[0]
 				);
 
-				if(
+				if (
 					!companyName.value ||
 					!contactPerson.value ||
 					!contactNo.value ||
@@ -492,7 +501,7 @@
 					!address.value ||
 					!companyProfile.value ||
 					companyProfile.value.type !== 'application/pdf'
-				){
+				) {
 					if (!companyName.value) {
 						addClass('companyName');
 					} else {
@@ -543,7 +552,7 @@
 					} else {
 						removeClass('companyProfile');
 					}
-				}else{
+				} else {
 					let xhr = new XMLHttpRequest();
 					xhr.open(
 						'POST',
@@ -563,29 +572,47 @@
 							address.value = '';
 							companyProfile.value = undefined;
 
-							removeClass('companyName')
-							removeClass('contactPerson')
-							removeClass('contactNo')
-							removeClass('email')
-							removeClass('designation')
-							removeClass('department')
-							removeClass('country')
-							removeClass('currency')
-							removeClass('address')
-							removeClass('companyProfile')
+							removeClass('companyName');
+							removeClass('contactPerson');
+							removeClass('contactNo');
+							removeClass('email');
+							removeClass('designation');
+							removeClass('department');
+							removeClass('country');
+							removeClass('currency');
+							removeClass('address');
+							removeClass('companyProfile');
 
 							toggleModal();
 							toaster.success('Form submit successfully');
 							return;
-						}else{
+						} else {
 							toaster.error(JSON.parse(this.response).error);
 						}
-					}
+					};
 					xhr.send(formData);
 				}
-			}
+			};
 
-			return {tender, sharing, networks,  isActiveModal, previewFiles, toggleModal, companyName, contactPerson, contactNo, email, designation, department, country, currency, address, companyProfile, submit };
+			return {
+				tender,
+				sharing,
+				networks,
+				isActiveModal,
+				previewFiles,
+				toggleModal,
+				companyName,
+				contactPerson,
+				contactNo,
+				email,
+				designation,
+				department,
+				country,
+				currency,
+				address,
+				companyProfile,
+				submit,
+			};
 		},
 	};
 </script>
