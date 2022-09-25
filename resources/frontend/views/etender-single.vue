@@ -74,7 +74,7 @@
 									<div class="input-group">
 										<div class="input-item">
 											<input
-												type="text"
+												type="number"
 												name="new[contactNo]"
 												id="contactNo"
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
@@ -345,14 +345,18 @@
 	import Modal from '../components/global/modal';
 	import { ref } from 'vue';
 	import { createToaster } from '@meforma/vue-toaster';
+	import { useRoute } from 'vue-router';
 
 	export default {
 		components: {
 			Modal,
 		},
-		data() {
-			return {
-				tender: {
+		setup() {
+			const isActiveModal = ref(false);
+			const route = useRoute();
+			const toaster = createToaster({});
+
+			const tender = ref({
 					title: 'Interior Design & Decoration for Guest Areas',
 					compName: 'Hoor',
 					location: 'Dhaka, Bangladesh',
@@ -391,45 +395,39 @@
 						link: '/',
 						label: 'download the package details',
 					},
-				},
-				sharing: {
-					url: window.location.origin + this.$route.path,
+				});
+			const sharing = ref({
+					url: window.location.origin + route.path,
 					// title: this.data.tender.title,
 					hashtags: 'JamunaGroup, Bangladesh',
+				});
+			const networks = ref([
+				{
+					network: 'email',
+					name: 'Email',
+					icon: 'far fa-envelope',
 				},
-				networks: [
-					{
-						network: 'email',
-						name: 'Email',
-						icon: 'far fa-envelope',
-					},
-					{
-						network: 'facebook',
-						name: 'Facebook',
-						icon: 'fab fa-facebook',
-					},
-					{
-						network: 'linkedin',
-						name: 'LinkedIn',
-						icon: 'fab fa-linkedin',
-					},
-					{
-						network: 'messenger',
-						name: 'Messenger',
-						icon: 'fab fa-facebook-messenger',
-					},
-					{
-						network: 'whatsapp',
-						name: 'Whatsapp',
-						icon: 'fab fa-whatsapp',
-					},
-				],
-			};
-		},
-
-		setup() {
-			const isActiveModal = ref(false);
-
+				{
+					network: 'facebook',
+					name: 'Facebook',
+					icon: 'fab fa-facebook',
+				},
+				{
+					network: 'linkedin',
+					name: 'LinkedIn',
+					icon: 'fab fa-linkedin',
+				},
+				{
+					network: 'messenger',
+					name: 'Messenger',
+					icon: 'fab fa-facebook-messenger',
+				},
+				{
+					network: 'whatsapp',
+					name: 'Whatsapp',
+					icon: 'fab fa-whatsapp',
+				},
+			]);
 
 			const companyName = ref('');
 			const contactPerson = ref('');
@@ -545,10 +543,49 @@
 					} else {
 						removeClass('companyProfile');
 					}
+				}else{
+					let xhr = new XMLHttpRequest();
+					xhr.open(
+						'POST',
+						window.location.origin + '/api/' + route.params.id,
+						true
+					);
+					xhr.onload = function () {
+						if (JSON.parse(this.response).data > 0) {
+							companyName.value = '';
+							contactPerson.value = '';
+							contactNo.value = '';
+							email.value = '';
+							designation.value = '';
+							department.value = '';
+							country.value = '';
+							currency.value = '';
+							address.value = '';
+							companyProfile.value = undefined;
+
+							removeClass('companyName')
+							removeClass('contactPerson')
+							removeClass('contactNo')
+							removeClass('email')
+							removeClass('designation')
+							removeClass('department')
+							removeClass('country')
+							removeClass('currency')
+							removeClass('address')
+							removeClass('companyProfile')
+
+							toggleModal();
+							toaster.success('Form submit successfully');
+							return;
+						}else{
+							toaster.error(JSON.parse(this.response).error);
+						}
+					}
+					xhr.send(formData);
 				}
 			}
 
-			return { isActiveModal, previewFiles, toggleModal, companyName, contactPerson, contactNo, email, designation, department, country, currency, address, companyProfile, submit };
+			return {tender, sharing, networks,  isActiveModal, previewFiles, toggleModal, companyName, contactPerson, contactNo, email, designation, department, country, currency, address, companyProfile, submit };
 		},
 	};
 </script>
