@@ -101,6 +101,46 @@ class tenderApplicant extends Controller
 
 	}
 
+
+
+	public function tender_front_view_short(){
+
+
+
+		$data = DB::select('select * from codebumble_tender_list');
+
+
+		$companys = DB::table('codebumble_company_list')
+			->select('name','image')
+			->get();
+
+			$new = [];
+			if(isset($data[0])){
+			foreach ($data as $key => $value) {
+
+				foreach ($companys as $key1 => $value1) {
+					if($value1->name == $value->comp_name){
+						$new[$key]['comp_image'] = '/company-images/'.$value1->image;
+						$new[$key]['title'] = $value->title;
+						$new[$key]['location'] = $value->location;
+						$new[$key]['publish_date'] = $value->publish_date;
+						$new[$key]['last_date'] = $value->last_date;
+						$new[$key]['proc_method'] = $value->proc_method;
+						$new[$key]['id'] = $value->id;
+					}
+				}
+
+			}
+
+
+			return json_encode($new);
+
+		} else {
+			return json_encode(['data'=>'No tender Found']);
+		}
+
+	}
+
 	public function add_tender(Request $r){
 
 		check_auth();

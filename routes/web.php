@@ -338,6 +338,8 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 
 	Route::get('media-center/{id}', [FrontPage::class, 'media_center_front']);
 	Route::get('view-tender/{id}', [tenderApplicant::class, 'tender_front_view']);
+	Route::get('view-tenders', [tenderApplicant::class, 'tender_front_view_short']);
+
 
 	Route::get('quality-process-data', [
 		siteGeneral::class,
