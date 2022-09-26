@@ -18,9 +18,7 @@ class tenderApplicant extends Controller
 		// return $request->post();
 		$new = $request->new;
 		// return json_encode($new);
-		foreach ($new as $key => $value) {
-			return json_encode(['key' => $key]); //field required all
-		}
+
 
 		$db_check = DB::select(
 			'select * from codebumble_tender_applicant_list where email=? and tender_id =?',
@@ -35,8 +33,8 @@ class tenderApplicant extends Controller
 		}
 
 		$db_check = DB::select(
-			'select * from codebumble_tender_applicant_list where phone=? and tender_id =?',
-			[$new['phone'], $new['tender_id']]
+			'select * from codebumble_tender_applicant_list where contact_no=? and tender_id =?',
+			[$new['contactNo'], $new['tender_id']]
 		);
 		if (isset($db_check[0])) {
 			return json_encode([
@@ -155,7 +153,55 @@ class tenderApplicant extends Controller
 		]);
 	}
 
-	public function applicant_list_api()
+	public function edit_tender(Request $r){
+
+		check_auth();
+		check_power('admin');
+		$new= $r->new;
+
+
+
+		foreach ($new as $key => $value) {
+				if ($r->new[$key] == '' || $r->new[$key] == null) {
+					return json_encode(['key' => $key]); //field required all
+				}
+
+		}
+
+		$new['created_at'] = time();
+		$new['updated_at'] = time();
+
+		$data = DB::select('select * from codebumble_tender_list where id=?',[$new->id]);
+
+		if(isset($data[0])){
+		$data = DB::table('codebumble_tender_list')->where('id', $new->id)->update($new);
+
+		return redirect()->route('edit_this_tender_view',['id' => $new->id,'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'E-Tender Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10)]);
+
+		} else {
+
+			return redirect()->route('add_a_tender_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'No Data Found With this Id. You Can Add this From Here', 'hasher_ip' => Str::random(10)]);
+
+		}
+	}
+
+	public function edit_this_tender_view($id){
+
+		check_auth();
+		check_power('admin');
+
+		$data = $data = DB::select('select * from codebumble_tender_list where id=?',[$id]);
+		$pageConfigs = ['pageHeader' => false];
+		$companys = DB::select('select name,id from codebumble_company_list');
+		return view('/content/e-tender/edit_tender', [
+			'pageConfigs' => $pageConfigs,
+			'companies' => $companys,
+			'd' => $data
+		]);
+
+	}
+
+	public function tender_applicant_list_api()
 	{
 		check_auth();
 		check_power('manager');

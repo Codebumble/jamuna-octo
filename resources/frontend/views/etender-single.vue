@@ -360,51 +360,7 @@
 			const route = useRoute();
 			const toaster = createToaster({});
 
-			const tender = ref({
-				title: 'Interior Design & Decoration for Guest Areas',
-				compName: 'Hoor',
-				location: 'Dhaka, Bangladesh',
-				status: 'Expired',
-
-				procMethod: 'Open Tendering Method (One stage, Two Envelopes)',
-				corrigendum: [
-					{
-						link: '/',
-						label: 'link 1',
-					},
-					{
-						link: '/',
-						label: 'link 1',
-					},
-				],
-				workName: 'Façade Fabrication (Unitized)',
-				address:
-					'Jamuna Group, Pragati Sarani, Kuril, Baridhara, Dhaka-1229, Bangladesh',
-				refNo: 'JBL/TENDER/2017/4609/1',
-				publishTime: '2017-12-18',
-				lastTime: '2018-02-04 04:00:00',
-				crdt: '2018-02-05 02:30:00',
-				preTenderM: '2018-01-14 10:00:00',
-				tenderOpenDate: '2018-02-05 03:00:00',
-				supplyLocation:
-					'JW Marriott Hotel Dhaka, Pragati Sarani, Kuril, Baridhara, Dhaka-1229, Bangladesh',
-				scheSubmit:
-					'Managing Director, Jamuna Group, Jamuna Future Park (9th floor), Ka-244, Kuril, Baridhara, Dhaka-1229',
-				sof: "Company's Own Source",
-				pos: '10,000.00 BDT',
-				tsa: '15,000,000.00 BDT / $187,500.00 USD',
-				trc: '6 Months',
-				attachment: [
-					{
-						link: '/',
-						label: 'download the package details',
-					},
-					{
-						link: '/',
-						label: 'download the package details2',
-					},
-				],
-			});
+			const tender = ref({});
 			const sharing = ref({
 				url: window.location.origin + route.path,
 				// title: this.data.tender.title,
@@ -449,6 +405,13 @@
 			const address = ref('');
 			const companyProfile = ref();
 
+			// Get Data
+			axios
+			.get(window.location.origin + '/frontpage-api/view-tender/1')
+			.then((response) => {
+				tender.value = response.data
+			})
+
 			const previewFiles = (e) => {
 				companyProfile.value = e.target.files[0];
 			};
@@ -483,15 +446,13 @@
 				formData.append('new[currency]', currency.value);
 				formData.append('new[address]', address.value);
 				formData.append('new[companyProfile]', companyProfile.value);
-				//came from api
-				formData.append('new[tender_id]', 1);
-				//come from api
-				formData.append('_token', 'wA5crKACWsvj9MNXBvpQRrwRW1sdbfFuVjlov5O2');
+				formData.append('new[tender_id]', tender.value.id);
+				formData.append('_token', tender.value._token);
 
-				formData.append(
-					'new[file_upload]',
-					document.querySelector('#file-upload').files[0]
-				);
+				// formData.append(
+				// 	'new[file_upload]',
+				// 	document.querySelector('#file-upload').files[0]
+				// );
 
 				if (
 					!companyName.value ||
