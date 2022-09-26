@@ -97,8 +97,14 @@ class tenderApplicant extends Controller
 	{
 		$pageConfigs = ['pageHeader' => false];
 		$companys = DB::select('select name,id from codebumble_company_list');
-        return view('/content/e-tender/add_tender', ['pageConfigs' => $pageConfigs,'companies' => $companys]);
+		return view('/content/e-tender/add_tender', [
+			'pageConfigs' => $pageConfigs,
+			'companies' => $companys,
+		]);
 	}
 
-
+	public function tender_docs_view()
+	{
+		return view('/content/e-tender/tender-docs');
+	}
 }
