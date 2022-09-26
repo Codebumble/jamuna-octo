@@ -104,6 +104,14 @@ Route::group(['prefix' => 'codebumble'], function () {
 			'growth_story_api',
 		])->name('growth_story_api');
 
+		Route::post('add_tender', [
+			tenderApplicant::class,
+			'add_tender',
+		])->name('add_tender');
+
+
+
+
 		Route::get('applicant-list', [
 			applicant::class,
 			'applicant_list_api',
@@ -321,6 +329,7 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 	Route::get('slider-bottom', [FrontPage::class, 'slider_view_bottom']);
 	Route::get('video-slider', [FrontPage::class, 'video_slider_view']);
 
+
 	Route::get('nav-company', [FrontPage::class, 'nav_company']);
 	Route::get('future-expansion-data', [
 		siteGeneral::class,
@@ -328,6 +337,7 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 	]);
 
 	Route::get('media-center/{id}', [FrontPage::class, 'media_center_front']);
+	Route::get('view-tender/{id}', [tenderApplicant::class, 'tender_front_view']);
 
 	Route::get('quality-process-data', [
 		siteGeneral::class,

@@ -83,6 +83,46 @@ class tenderApplicant extends Controller
 		return json_encode(['data' => 1]);
 	}
 
+	public function tender_front_view($id){
+
+
+
+		$data = DB::select('select * from codebumble_tender_list where id=?', [$id]);
+
+
+		if(isset($data[0])){
+
+			$data[0]->_token = csrf_token();
+
+			return json_encode($data[0]);
+		} else {
+			return "{'data':'No data found'}";
+		}
+
+	}
+
+	public function add_tender(Request $r){
+
+		check_auth();
+		check_power('admin');
+		$new= $r->new;
+
+		foreach ($new as $key => $value) {
+				if ($r->new[$key] == '' || $r->new[$key] == null) {
+					return json_encode(['key' => $key]); //field required all
+				}
+
+		}
+
+		$new['created_at'] = time();
+		$new['updated_at'] = time();
+
+
+		$data = DB::table('codebumble_tender_list')->insert($new);
+
+		return redirect()->route('add_a_tender_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'E-Tender Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10)]);
+	}
+
 	public function applicant_list_api()
 	{
 		check_auth();
@@ -95,6 +135,9 @@ class tenderApplicant extends Controller
 
 	public function add_a_tender_view()
 	{
+
+		check_auth();
+		check_power('admin');
 		$pageConfigs = ['pageHeader' => false];
 		$companys = DB::select('select name,id from codebumble_company_list');
         return view('/content/e-tender/add_tender', ['pageConfigs' => $pageConfigs,'companies' => $companys]);
