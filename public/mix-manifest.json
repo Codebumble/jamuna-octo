@@ -1479,6 +1479,7 @@
     "/images/slider/09.jpg": "/images/slider/09.jpg",
     "/images/slider/10.jpg": "/images/slider/10.jpg",
     "/images/slider/1660816174-company-slider.jpg": "/images/slider/1660816174-company-slider.jpg",
+    "/images/svg/folder.svg": "/images/svg/folder.svg",
     "/images/svg/google.svg": "/images/svg/google.svg",
     "/frontend/images/breadcrumb/directors.jpg": "/frontend/images/breadcrumb/directors.jpg",
     "/frontend/images/concerns/1.png": "/frontend/images/concerns/1.png",
@@ -1583,6 +1584,5 @@
     "/data/table-datatable.json": "/data/table-datatable.json",
     "/data/user-list.json": "/data/user-list.json",
     "/faker/images.json": "/faker/images.json",
-    "/faker/video.json": "/faker/video.json",
-    "/images/svg/folder.svg": "/images/svg/folder.svg"
+    "/faker/video.json": "/faker/video.json"
 }

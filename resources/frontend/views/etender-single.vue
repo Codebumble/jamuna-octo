@@ -240,7 +240,7 @@
 					<table>
 						<tr>
 							<th>Name of Company</th>
-							<td>{{ tender.compName }}</td>
+							<td>{{ tender.comp_name }}</td>
 						</tr>
 						<tr>
 							<th>Corrigendum</th>
@@ -261,11 +261,11 @@
 						</tr>
 						<tr>
 							<th>Procurement Method</th>
-							<td>{{ tender.procMethod }}</td>
+							<td>{{ tender.proc_method }}</td>
 						</tr>
 						<tr>
 							<th>Name of work</th>
-							<td>{{ tender.workName }}</td>
+							<td>{{ tender.work_name }}</td>
 						</tr>
 						<tr>
 							<th>Address</th>
@@ -273,15 +273,15 @@
 						</tr>
 						<tr>
 							<th>Tender Ref. No.</th>
-							<td>{{ tender.refNo }}</td>
+							<td>{{ tender.ref_no }}</td>
 						</tr>
 						<tr>
 							<th>Tender Publication Date</th>
-							<td>{{ tender.publishTime }}</td>
+							<td>{{ tender.publish_date }}</td>
 						</tr>
 						<tr>
 							<th>Tender Last Selling Date</th>
-							<td>{{ tender.lastTime }}</td>
+							<td>{{ tender.last_date }}</td>
 						</tr>
 						<tr>
 							<th>Tender Closing & Receiving Date and Time</th>
@@ -289,35 +289,35 @@
 						</tr>
 						<tr>
 							<th>Pre-Tender Meeting</th>
-							<td>{{ tender.preTenderM }}</td>
+							<td>{{ tender.pre_t_meeting }}</td>
 						</tr>
 						<tr>
 							<th>Tender Opening Date and Time</th>
-							<td>{{ tender.tenderOpenDate }}</td>
+							<td>{{ tender.t_open_date }}</td>
 						</tr>
 						<tr>
 							<th>Location of Supply/Works</th>
-							<td>{{ tender.supplyLocation }}</td>
+							<td>{{ tender.supply_location }}</td>
 						</tr>
 						<tr>
 							<th>Schedule Submission At</th>
-							<td>{{ tender.scheSubmit }}</td>
+							<td>{{ tender.schedule_submission }}</td>
 						</tr>
 						<tr>
 							<th>Source of Fund</th>
-							<td>{{ tender.sof }}</td>
+							<td>{{ tender.fund_source }}</td>
 						</tr>
 						<tr>
 							<th>Price of Schedule</th>
-							<td>{{ tender.pos }}</td>
+							<td>{{ tender.price_schedule }}</td>
 						</tr>
 						<tr>
 							<th>Tender Security Amount</th>
-							<td>{{ tender.tsa }}</td>
+							<td>{{ tender.security_amount }}</td>
 						</tr>
 						<tr>
 							<th>Time Required for completion</th>
-							<td>{{ tender.trc }}</td>
+							<td>{{ tender.req_time }}</td>
 						</tr>
 					</table>
 					<h4 class="font-bold text-lg text-gray-800 mb-4">
@@ -407,10 +407,14 @@
 
 			// Get Data
 			axios
-			.get(window.location.origin + '/frontpage-api/view-tender/1')
+			.get(window.location.origin + '/frontpage-api/view-tender/'+ route.params.id)
 			.then((response) => {
+				console.log(response.data);
 				tender.value = response.data
 			})
+			.catch(() => {
+				this.$router.push({ name: 'not-found' });
+			});
 
 			const previewFiles = (e) => {
 				companyProfile.value = e.target.files[0];
@@ -446,7 +450,7 @@
 				formData.append('new[currency]', currency.value);
 				formData.append('new[address]', address.value);
 				formData.append('new[companyProfile]', companyProfile.value);
-				formData.append('new[tender_id]', tender.value.id);
+				formData.append('new[tender_id]', route.params.id);
 				formData.append('_token', tender.value._token);
 
 				// formData.append(
