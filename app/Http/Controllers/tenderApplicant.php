@@ -163,7 +163,7 @@ class tenderApplicant extends Controller
 		return redirect()->route('add_a_tender_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'E-Tender Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10)]);
 	}
 
-	public function applicant_list_api()
+	public function tender_applicant_list_api()
 	{
 		check_auth();
 		check_power('manager');

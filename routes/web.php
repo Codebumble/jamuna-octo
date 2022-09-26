@@ -108,6 +108,12 @@ Route::group(['prefix' => 'codebumble'], function () {
 			'add_tender'
 		);
 
+		Route::get('tender-applicant-list-api', [tenderApplicant::class, 'tender_applicant_list_api'])->name(
+			'tender_applicant_list_api'
+		);
+
+
+
 		Route::get('applicant-list', [
 			applicant::class,
 			'applicant_list_api',
