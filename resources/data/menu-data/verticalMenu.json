@@ -317,10 +317,10 @@
 		},
 		{
 			"name": "Tender Applicant List",
-			"url": "admin/career/applicant-list",
+			"url": "admin/e-tender/applicant-list",
 			"icon": "users",
 			"permission": 1,
-			"slug": "applicant_list_view"
+			"slug": "tender_applicant_list_view"
 		},
 		{
 			"navheader": "Apps & Pages",
