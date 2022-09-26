@@ -569,6 +569,11 @@ Route::group(['prefix' => 'admin'], function () {
 			'tender_docs_view',
 		])->name('tender_docs_view');
 
+		Route::get('e-tender/applicant-list', [
+			tenderApplicant::class,
+			'tender_list_view',
+		])->name('tender_applicant_list_view');
+
 		Route::get('career/edit-the-job/{id}', [
 			career::class,
 			'edit_a_job_view',
