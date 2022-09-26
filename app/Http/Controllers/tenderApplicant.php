@@ -179,12 +179,12 @@ class tenderApplicant extends Controller
 		$new['created_at'] = time();
 		$new['updated_at'] = time();
 
-		$data = DB::select('select * from codebumble_tender_list where id=?',[$new->id]);
+		$data = DB::select('select * from codebumble_tender_list where id=?',[$new['id']]);
 
 		if(isset($data[0])){
-		$data = DB::table('codebumble_tender_list')->where('id', $new->id)->update($new);
+		$data = DB::table('codebumble_tender_list')->where('id', $new['id'])->update($new);
 
-		return redirect()->route('edit_this_tender_view',['id' => $new->id,'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'E-Tender Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10)]);
+		return redirect()->route('edit_this_tender_view',['id' => $new['id'],'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'E-Tender Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10)]);
 
 		} else {
 
@@ -204,7 +204,7 @@ class tenderApplicant extends Controller
 		return view('/content/e-tender/edit_tender', [
 			'pageConfigs' => $pageConfigs,
 			'companies' => $companys,
-			'd' => $data
+			'd' => $data[0]
 		]);
 
 	}
