@@ -171,7 +171,7 @@ $(function () {
 				},
 				{
 					// For Checkboxes
-					targets: 16,
+					targets: 11,
 					orderable: false,
 					responsivePriority: 3,
 					render: function (data, type, full, meta) {
@@ -179,7 +179,7 @@ $(function () {
 							'<a href="' +
 							assetPath +
 							"admin/secure-documents/" +
-							full["cv_link"] +
+							full["cp_link"] +
 							'" target="_blank">Click Here</a>'
 						);
 					},
@@ -188,66 +188,66 @@ $(function () {
 							'<div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="checkboxSelectAll" /><label class="form-check-label" for="checkboxSelectAll"></label></div>',
 					},
 				},
-				{
-					targets: 2,
-					orderable: true,
-					responsivePriority: 3,
-					render: function (data, type, full, meta) {
-						if (
-							typeof JSON.parse(full["json_data"]).age ==
-								"undefined" ||
-							JSON.parse(full["json_data"]).age === null
-						) {
-							var $age = "";
-						} else {
-							var $age = JSON.parse(full["json_data"]).age;
-						}
-						return $age;
-					},
-					checkboxes: {
-						selectAllRender:
-							'<div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="checkboxSelectAll" /><label class="form-check-label" for="checkboxSelectAll"></label></div>',
-					},
-				},
-				{
-					targets: 3,
-					orderable: false,
-					responsivePriority: 3,
-					render: function (data, type, full, meta) {
-						if (
-							typeof JSON.parse(full["json_data"]).gender ==
-								"undefined" ||
-							JSON.parse(full["json_data"]).gender === null
-						) {
-							var $gender = "";
-						} else {
-							var $gender = JSON.parse(full["json_data"]).gender;
-						}
-						return $gender;
-					},
-					checkboxes: {
-						selectAllRender:
-							'<div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="checkboxSelectAll" /><label class="form-check-label" for="checkboxSelectAll"></label></div>',
-					},
-				},
-				{
-					// For Checkboxes
-					targets: 9,
-					orderable: true,
-					responsivePriority: 3,
-					render: function (data, type, full, meta) {
-						return "" + full["experience"] + " Years";
-					},
-					checkboxes: {
-						selectAllRender:
-							'<div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="checkboxSelectAll" /><label class="form-check-label" for="checkboxSelectAll"></label></div>',
-					},
-				},
+				// {
+				// 	targets: 2,
+				// 	orderable: true,
+				// 	responsivePriority: 3,
+				// 	render: function (data, type, full, meta) {
+				// 		if (
+				// 			typeof JSON.parse(full["json_data"]).age ==
+				// 				"undefined" ||
+				// 			JSON.parse(full["json_data"]).age === null
+				// 		) {
+				// 			var $age = "";
+				// 		} else {
+				// 			var $age = JSON.parse(full["json_data"]).age;
+				// 		}
+				// 		return $age;
+				// 	},
+				// 	checkboxes: {
+				// 		selectAllRender:
+				// 			'<div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="checkboxSelectAll" /><label class="form-check-label" for="checkboxSelectAll"></label></div>',
+				// 	},
+				// },
+				// {
+				// 	targets: 3,
+				// 	orderable: false,
+				// 	responsivePriority: 3,
+				// 	render: function (data, type, full, meta) {
+				// 		if (
+				// 			typeof JSON.parse(full["json_data"]).gender ==
+				// 				"undefined" ||
+				// 			JSON.parse(full["json_data"]).gender === null
+				// 		) {
+				// 			var $gender = "";
+				// 		} else {
+				// 			var $gender = JSON.parse(full["json_data"]).gender;
+				// 		}
+				// 		return $gender;
+				// 	},
+				// 	checkboxes: {
+				// 		selectAllRender:
+				// 			'<div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="checkboxSelectAll" /><label class="form-check-label" for="checkboxSelectAll"></label></div>',
+				// 	},
+				// },
+				// {
+				// 	// For Checkboxes
+				// 	targets: 9,
+				// 	orderable: true,
+				// 	responsivePriority: 3,
+				// 	render: function (data, type, full, meta) {
+				// 		return "" + full["experience"] + " Years";
+				// 	},
+				// 	checkboxes: {
+				// 		selectAllRender:
+				// 			'<div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="checkboxSelectAll" /><label class="form-check-label" for="checkboxSelectAll"></label></div>',
+				// 	},
+				// },
 			],
 			order: [[0, "asc"]],
 			dom: '<"card-header border-bottom p-1"<"head-label"><"dt-action-buttons text-end"B>><"d-flex justify-content-between align-items-center mx-0 row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>t<"d-flex justify-content-between mx-0 row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
-			displayLength: 7,
-			lengthMenu: [7, 10, 25, 50, 75, 100],
+			displayLength: 15,
+			lengthMenu: [15, 25, 50, 75, 100],
 			buttons: [
 				{
 					extend: "collection",

@@ -23,30 +23,30 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header border-bottom">
-                        <h4 class="card-title">Tender Applicant Data Table</h4>
+                        <h4 class="card-title">TenderApplicant Data Table</h4>
                     </div>
                     <!--Search Form -->
-                    {{-- <div class="card-body mt-2">
+                    <div class="card-body mt-2">
                         <form class="dt_adv_search" method="POST">
 
                             <div class="row g-1 mb-md-1">
 
                                 <div class="col-md-4">
-                                    <label class="form-label">Name:</label>
+                                    <label class="form-label">Tender Name:</label>
                                     <input type="text" class="form-control dt-input dt-full-name" data-column="1"
-                                        placeholder="Alaric Beslier" data-column-index="1" />
+                                        placeholder="Interior Design &" data-column-index="1" />
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="form-label">Age:</label>
+                                    <label class="form-label">Company:</label>
                                     <input type="text" class="form-control dt-input dt-full-name" data-column="2"
-                                        placeholder="25" data-column-index="2" />
+                                        placeholder="Hoor" data-column-index="2" />
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="form-label">Gender</label>
-                                    <input type="text" class="form-control dt-input" data-column="3" placeholder="Male"
-                                        data-column-index="3" />
+                                    <label class="form-label">Contact Person:</label>
+                                    <input type="text" class="form-control dt-input" data-column="3"
+                                        placeholder="Ali Baba" data-column-index="3" />
                                 </div>
                             </div>
 
@@ -54,82 +54,52 @@
 
 
                                 <div class="col-md-4">
-                                    <label class="form-label">Company</label>
+                                    <label class="form-label">Contact No:</label>
                                     <input type="text" class="form-control dt-input" data-column="4"
-                                        placeholder="Codebumble Inc" data-column-index="4" />
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label class="form-label">Job ID</label>
-                                    <input type="text" class="form-control dt-input" data-column="5" placeholder="2"
-                                        data-column-index="5" />
-                                </div>
-
-
-
-                                <div class="col-md-4">
-                                    <label class="form-label">Division:</label>
-                                    <input type="text" class="form-control dt-input" data-column="6" placeholder="Dhaka"
-                                        data-column-index="6" />
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label class="form-label">District:</label>
-                                    <input type="text" class="form-control dt-input" data-column="7" placeholder="Dhaka"
-                                        data-column-index="7" />
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label class="form-label">Qualification:</label>
-                                    <input type="text" class="form-control dt-input" data-column="8"
-                                        placeholder="2 Years" data-column-index="8" />
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label class="form-label">Experience:</label>
-                                    <input type="text" class="form-control dt-input" data-column="9"
-                                        placeholder="2 Years" data-column-index="9" />
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label class="form-label">Expected Salary:</label>
-                                    <input type="text" class="form-control dt-input" data-column="10" placeholder="2000"
-                                        data-column-index="10" />
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label class="form-label">University:</label>
-                                    <input type="text" class="form-control dt-input" data-column="11"
-                                        placeholder="Dhaka University" data-column-index="11" />
+                                        placeholder="017xxxxxxxxx" data-column-index="4" />
                                 </div>
 
                                 <div class="col-md-4">
                                     <label class="form-label">Email:</label>
-                                    <input type="text" class="form-control dt-input" data-column="12"
-                                        placeholder="admin@yy.com" data-column-index="12" />
+                                    <input type="text" class="form-control dt-input" data-column="5"
+                                        placeholder="email@example.com" data-column-index="5" />
+                                </div>
+
+
+
+                                <div class="col-md-4">
+                                    <label class="form-label">Designation:</label>
+                                    <input type="text" class="form-control dt-input" data-column="6"
+                                        placeholder="Managing Director" data-column-index="6" />
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="form-label">Phone:</label>
-                                    <input type="text" class="form-control dt-input" data-column="13"
-                                        placeholder="+880128378273823" data-column-index="13" />
+                                    <label class="form-label">Department:</label>
+                                    <input type="text" class="form-control dt-input" data-column="7"
+                                        placeholder="Architech" data-column-index="7" />
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="form-label">Studied From:</label>
-                                    <input type="text" class="form-control dt-input" data-column="14"
-                                        placeholder="Canada" data-column-index="14" />
+                                    <label class="form-label">Country:</label>
+                                    <input type="text" class="form-control dt-input" data-column="8"
+                                        placeholder="Bangladesh" data-column-index="8" />
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="form-label">Previous Company:</label>
-                                    <input type="text" class="form-control dt-input" data-column="15"
-                                        placeholder="Arong" data-column-index="15" />
+                                    <label class="form-label">Currency:</label>
+                                    <input type="text" class="form-control dt-input" data-column="9" placeholder="BDT"
+                                        data-column-index="9" />
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="form-label">Address:</label>
+                                    <input type="text" class="form-control dt-input" data-column="10"
+                                        placeholder="Address" data-column-index="10" />
                                 </div>
 
                             </div>
                         </form>
-                    </div> --}}
+                    </div>
                     <hr class="my-0" />
                     <div class="card-datatable">
                         <table class="dt-advanced-search table-responsive table">
