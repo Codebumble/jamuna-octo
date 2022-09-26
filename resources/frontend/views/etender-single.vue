@@ -483,8 +483,10 @@
 				formData.append('new[currency]', currency.value);
 				formData.append('new[address]', address.value);
 				formData.append('new[companyProfile]', companyProfile.value);
+				//came from api
 				formData.append('new[tender_id]', 1);
-				formData.append('new[_token]', 'wA5crKACWsvj9MNXBvpQRrwRW1sdbfFuVjlov5O2');
+				//come from api
+				formData.append('_token', 'wA5crKACWsvj9MNXBvpQRrwRW1sdbfFuVjlov5O2');
 
 				formData.append(
 					'new[file_upload]',

@@ -32,7 +32,6 @@ return new class extends Migration {
 			$table->string('price_schedule');
 			$table->string('security_amount');
 			$table->string('req_time');
-			$table->longText('desc');
 			$table->string('package_details');
 			$table->string('updated_at')->nullable();
 			$table->string('created_at')->nullable();
