@@ -290,6 +290,32 @@
 			"slug": "applicant_list_view"
 		},
 		{
+			"navheader": "E-Tender",
+			"permission": 1,
+			"slug": ""
+		},
+		{
+			"name": "Add A Tender",
+			"url": "admin/e-tender/post-a-tender",
+			"icon": "type",
+			"permission": 1,
+			"slug": "all_job_list_view"
+		},
+		{
+			"name": "All Tender List",
+			"url": "admin/career/all-job-list",
+			"icon": "layers",
+			"permission": 1,
+			"slug": "all_job_list_view"
+		},
+		{
+			"name": "Tender Applicant List",
+			"url": "admin/career/applicant-list",
+			"icon": "users",
+			"permission": 1,
+			"slug": "applicant_list_view"
+		},
+		{
 			"navheader": "Apps & Pages",
 			"permission": 0,
 			"slug": ""

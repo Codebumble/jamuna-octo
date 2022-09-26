@@ -530,6 +530,11 @@ Route::group(['prefix' => 'admin'], function () {
 			'post_a_job_view',
 		])->name('post_a_job_view');
 
+		Route::get('e-tender/post-a-tender', [
+			tenderApplicant::class,
+			'add_a_tender_view',
+		])->name('add_a_tender_view');
+
 		Route::get('career/edit-the-job/{id}', [
 			career::class,
 			'edit_a_job_view',
