@@ -1582,5 +1582,6 @@
     "/data/table-datatable.json": "/data/table-datatable.json",
     "/data/user-list.json": "/data/user-list.json",
     "/faker/images.json": "/faker/images.json",
-    "/faker/video.json": "/faker/video.json"
+    "/faker/video.json": "/faker/video.json",
+    "/images/svg/folder.svg": "/images/svg/folder.svg"
 }

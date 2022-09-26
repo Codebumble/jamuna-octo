@@ -299,7 +299,14 @@
 			"url": "admin/e-tender/post-a-tender",
 			"icon": "type",
 			"permission": 1,
-			"slug": "all_job_list_view"
+			"slug": "add_a_tender_view"
+		},
+		{
+			"name": "Tender Documents",
+			"url": "admin/e-tender/tender-docs",
+			"icon": "folder",
+			"permission": 1,
+			"slug": "tender_docs_view"
 		},
 		{
 			"name": "All Tender List",

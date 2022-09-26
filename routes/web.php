@@ -104,11 +104,13 @@ Route::group(['prefix' => 'codebumble'], function () {
 			'growth_story_api',
 		])->name('growth_story_api');
 
-		Route::post('add_tender', [
-			tenderApplicant::class,
-			'add_tender',
-		])->name('add_tender');
+		Route::post('add_tender', [tenderApplicant::class, 'add_tender'])->name(
+			'add_tender'
+		);
 
+		Route::get('tender-applicant-list-api', [tenderApplicant::class, 'tender_applicant_list_api'])->name(
+			'tender_applicant_list_api'
+		);
 
 
 
@@ -329,7 +331,6 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 	Route::get('slider-bottom', [FrontPage::class, 'slider_view_bottom']);
 	Route::get('video-slider', [FrontPage::class, 'video_slider_view']);
 
-
 	Route::get('nav-company', [FrontPage::class, 'nav_company']);
 	Route::get('future-expansion-data', [
 		siteGeneral::class,
@@ -337,7 +338,14 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 	]);
 
 	Route::get('media-center/{id}', [FrontPage::class, 'media_center_front']);
-	Route::get('view-tender/{id}', [tenderApplicant::class, 'tender_front_view']);
+	Route::get('view-tender/{id}', [
+		tenderApplicant::class,
+		'tender_front_view',
+	]);
+	Route::get('view-tenders', [
+		tenderApplicant::class,
+		'tender_front_view_short',
+	]);
 
 	Route::get('quality-process-data', [
 		siteGeneral::class,
@@ -544,6 +552,11 @@ Route::group(['prefix' => 'admin'], function () {
 			tenderApplicant::class,
 			'add_a_tender_view',
 		])->name('add_a_tender_view');
+
+		Route::get('e-tender/tender-docs', [
+			tenderApplicant::class,
+			'tender_docs_view',
+		])->name('tender_docs_view');
 
 		Route::get('career/edit-the-job/{id}', [
 			career::class,
