@@ -108,11 +108,6 @@ Route::group(['prefix' => 'codebumble'], function () {
 			'add_tender'
 		);
 
-		Route::get('e-tender/tender-docs', [
-			tenderApplicant::class,
-			'tender_docs_view',
-		])->name('tender_docs_view');
-
 		Route::get('applicant-list', [
 			applicant::class,
 			'applicant_list_api',
@@ -551,6 +546,11 @@ Route::group(['prefix' => 'admin'], function () {
 			tenderApplicant::class,
 			'add_a_tender_view',
 		])->name('add_a_tender_view');
+
+		Route::get('e-tender/tender-docs', [
+			tenderApplicant::class,
+			'tender_docs_view',
+		])->name('tender_docs_view');
 
 		Route::get('career/edit-the-job/{id}', [
 			career::class,
