@@ -303,44 +303,6 @@
 						/>
 						</div>
 
-						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="req_time">Attachment </label>
-
-						<input
-							type="text"
-							id="price_schedule"
-							name = "new[req_time]"
-							class="form-control"
-							aria-label="req_time"
-							aria-describedby="req_time"
-							required
-						/>
-						</div>
-
-
-						<div class="mb-1 col-12 col-md-6">
-						<label class="form-label" for="req_time">Package Details</label>
-
-						<input
-							type="hidden"
-							name = "new[package_details]"
-							value=""
-							id="package_details"
-							required
-						/>
-
-						<input
-							type="file"
-							id="package_uploader"
-							class="form-control"
-							required
-						/>
-						</div>
-
-
-
-
-
 
 				</div>
 				<div class="col-12 text-center mt-2 pt-50">
@@ -373,7 +335,7 @@
   <script src="{{ asset(mix('js/scripts/forms/form-validation-job-page.js')) }}"></script>
   <script src="{{ asset(mix('js/scripts/forms/job-post-quill.js')) }}"></script>
   <script>
-  
+
   </script>
 
 @endsection
