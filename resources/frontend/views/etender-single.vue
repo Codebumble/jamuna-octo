@@ -473,16 +473,18 @@
 				};
 
 				let formData = new FormData();
-				formData.append('new[name]', companyName.value);
-				formData.append('new[name]', contactPerson.value);
-				formData.append('new[name]', contactNo.value);
-				formData.append('new[name]', email.value);
-				formData.append('new[name]', designation.value);
-				formData.append('new[name]', department.value);
-				formData.append('new[name]', country.value);
-				formData.append('new[name]', currency.value);
-				formData.append('new[name]', address.value);
-				formData.append('new[name]', companyProfile.value);
+				formData.append('new[companyName]', companyName.value);
+				formData.append('new[contactPerson]', contactPerson.value);
+				formData.append('new[contactNo]', contactNo.value);
+				formData.append('new[email]', email.value);
+				formData.append('new[designation]', designation.value);
+				formData.append('new[department]', department.value);
+				formData.append('new[country]', country.value);
+				formData.append('new[currency]', currency.value);
+				formData.append('new[address]', address.value);
+				formData.append('new[companyProfile]', companyProfile.value);
+				formData.append('new[tender_id]', 1);
+				formData.append('new[_token]', 'wA5crKACWsvj9MNXBvpQRrwRW1sdbfFuVjlov5O2');
 
 				formData.append(
 					'new[file_upload]',
@@ -556,7 +558,7 @@
 					let xhr = new XMLHttpRequest();
 					xhr.open(
 						'POST',
-						window.location.origin + '/api/' + route.params.id,
+						window.location.origin + '/codebumble/tender_from-receive',
 						true
 					);
 					xhr.onload = function () {
