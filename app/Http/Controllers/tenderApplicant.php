@@ -60,7 +60,7 @@ class tenderApplicant extends Controller
 			$destinationPath2 = storage_path() . '/app/securefolder';
 			$file2->move($destinationPath2, $fileName2);
 
-			$new['cv_link'] = $fileName2;
+			$new['cp_link'] = $fileName2;
 		} else {
 			return json_encode([
 				'error' => 'No File Found.',
@@ -292,11 +292,69 @@ class tenderApplicant extends Controller
 
 	public function tender_docs_view()
 	{
-		return view('/content/e-tender/tender-docs');
+		$pageConfigs = ['pageHeader' => false];
+		$companys = DB::select('select title,id from codebumble_tender_list');
+		return view('/content/e-tender/tender-docs', [
+			'pageConfigs' => $pageConfigs,
+			'companies' => $companys,
+		]);
 	}
 
 	public function tender_list_view()
 	{
 		return view('/content/e-tender/tender-applicants');
+	}
+
+	public function add_document(Request $request){
+
+		$new= $request->new;
+
+		$counter = 1;
+        foreach ($new as $key => $value) {
+
+			$data=DB::select('select * from codebumble_tender_list where id=?',[$value['tender_list']]);
+
+
+			if(isset($data[0])){
+            $file2 = $request->file('new.'.$key.'.src') ;
+            $fileName2 = time().'-0'.$counter.'0-tender-document-'.$file2->getClientOriginalName().'-'.Auth::user()->username.'.'.$file2->getClientOriginalExtension() ;
+            $destinationPath2 = storage_path() . '/app/securefolder';
+            $file2->move($destinationPath2,$fileName2);
+
+			$a=json_decode($data[0]->corrigendum);
+			$b=json_decode($data[0]->package_details);
+
+            $f = [
+                "src" => $fileName2,
+				"label" => $value['label']
+            ];
+
+
+			if($value['att-loc'] == "attachment")
+				array_push($b,$f);
+			else if($value['att-loc'] == "corrigendum"){
+				array_push($a,$f);
+			} else {
+				return $value['att-loc'];
+			}
+
+			$a_push = DB::table('codebumble_tender_list')->where('id',$value['tender_list'])->update(['corrigendum' => json_encode($a),'updated_at' => time()]);
+			$b_push = DB::table('codebumble_tender_list')->where('id',$value['tender_list'])->update(['package_details' => json_encode($a),'updated_at' => time()]);
+
+		}
+
+		$counter +=1;
+
+        }
+
+
+
+        return redirect()->route('tender_docs_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Image added to the Gallery. People Can view this image now. Thank You', 'hasher_ip' => Str::random(10)]);
+
+	}
+
+
+	public function delete_document(){
+
 	}
 }

@@ -44,7 +44,7 @@
 
 
 
-                    <form action="" class="invoice-repeater" enctype="multipart/form-data" method="POST">
+                    <form action="{{route('tender_add_document')}}" class="invoice-repeater" enctype="multipart/form-data" method="POST">
                         @csrf
                         <div data-repeater-list="new">
 
@@ -74,8 +74,12 @@
                                         <div class="mb-1">
                                             <label class="form-label" for="tender_list">For Tender</label>
                                             <select name="tender_list" class="form-select">
-                                                <option value="tender-1">Tender 1</option>
-                                                <option value="tender-2">Tender 2</option>
+                                            @foreach ($companies as $company)
+
+                                                <option value="{{$company->id}}">{{$company->title}}</option>
+
+                                            @endforeach
+
                                             </select>
                                         </div>
                                     </div>
@@ -133,97 +137,7 @@
             </div>
         </div>
 
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Edit Tender Documents</h4>
-                </div>
-                <div class="card-body">
 
-                    <form action="{{ route('slider_edit_api') }}" method="POST">
-                        @csrf
-                        <div class="invoice-repeater">
-                            <?php $counter = 0; ?>
-                            {{-- @foreach ($imgs as $img) --}}
-                            <div>
-
-                                <div>
-                                    <div class="row d-flex align-items-end">
-
-                                        <div class="col-md-2 col-12">
-                                            <div style="margin-bottom: 0.5rem; margin-left:2rem">
-
-                                                <div>
-                                                    <img src="{{ asset(mix('images/svg/folder.svg')) }}" alt="documents"
-                                                        style="width: 60px">
-                                                </div>
-
-                                                <label for="slider" style="display:block;">
-                                                    <input name="" value="" class="d-none">
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4 col-12 mb-50">
-                                            <div class="mb-1">
-                                                <label class="form-label" for="itemcost">Label</label>
-                                                <input id="itemcost" type="text" class="form-control" name=""
-                                                    value="" aria-describedby="itemcost"
-                                                    placeholder="Download The Package Details" />
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4 col-12 mb-50">
-                                            <div class="mb-1">
-                                                <label class="form-label" for="itemcost">For Tender</label>
-                                                <select name="tender_list" class="form-select">
-                                                    <option value="tender-1">Tender 1</option>
-                                                    <option value="tender-2">Tender 2</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-2 col-12 mb-50">
-                                            <div class="mb-1">
-                                                <button class="btn btn-outline-danger text-nowrap px-1" type="button"
-                                                    data-repeater-delete onclick="deleted('{{ $counter }}');">
-                                                    <i data-feather="x" class="me-25"></i>
-                                                    <span>Delete</span>
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <hr />
-                                </div>
-
-
-
-
-                            </div>
-                            <?php $counter += 1; ?>
-                            {{-- @endforeach --}}
-
-                            <div class="row">
-                                <div class="col-12">
-
-                                    <button class="btn btn-icon btn-success m-1" type="button"
-                                        onclick="this.form.submit();">
-                                        <i data-feather="check" class="me-25"></i>
-                                        <span>Update</span>
-                                    </button>
-                                </div>
-                            </div>
-
-
-
-
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
 
         <!-- /jQuery Validation -->
 
@@ -261,20 +175,6 @@
         };
     </script>
 
-    <script>
-        var deleted1 = function(event) {
-
-            var data = new FormData();
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', '/codebumble/delete-slider-bottom/' + event, true);
-            xhr.onload = function() {
-                // do something to response
-                if (this.status == 200) {
-                    location.reload();
-                };
-            };
-            xhr.send(data);
-        };
-    </script>
+    
 
 @endsection

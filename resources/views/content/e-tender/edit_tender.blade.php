@@ -1,6 +1,6 @@
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Post A Tender')
+@section('title', 'Edit This Tender')
 
 @section('vendor-style')
     {{-- Vendor Css files --}}
@@ -218,6 +218,32 @@
             </div>
         </div>
         <!-- /Bootstrap Validation -->
+
+        <div class="col-12">
+
+        <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Attachments</h4>
+                </div>
+
+
+
+        </div>
+
+        </div>
+
+        <div class="col-12">
+
+        <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Corrigendum</h4>
+                </div>
+
+
+
+        </div>
+
+        </div>
 
         <!-- jQuery Validation -->
 
