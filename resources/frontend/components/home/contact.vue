@@ -48,7 +48,6 @@
 												class="mt-1 flex rounded-md shadow-sm">
 												<input
 													type="tel"
-													pattern="[0-9]{4}[0-9]{3}[0-9]{4}"
 													name="c[phone]"
 													id="phone"
 													class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
