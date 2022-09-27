@@ -9,7 +9,7 @@
 					</h2>
 					<p class="mb-4">
 						by
-						<span class="font-bold">{{ tender.compName }}</span>
+						<span class="font-bold">{{ tender.comp_name }}</span>
 						in {{ tender.location }}
 					</p>
 					<button
@@ -34,24 +34,6 @@
 									class="grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-4">
 									<div class="input-group">
 										<div class="input-item">
-											<!-- <input
-												type="hidden"
-												name="new[job_id]"
-												:value="jobInfo.id"
-												:v-model="job_id" />
-
-											<input
-												type="hidden"
-												name="_token"
-												:value="jobInfo.token"
-												:v-model="_token" />
-
-											<input
-												type="hidden"
-												name="new[company]"
-												:value="companyInfo.name"
-												:v-model="company" /> -->
-
 											<input
 												type="text"
 												name="new[companyName]"
@@ -325,7 +307,7 @@
 					</h4>
 					<ul class="list-disc list-inside text-gray-600">
 						<li
-							v-for="packDetail in tender.attachment"
+							v-for="packDetail in tender.package_details"
 							:key="packDetail">
 							<a
 								:href="packDetail.link"
