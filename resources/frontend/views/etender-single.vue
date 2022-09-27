@@ -386,7 +386,7 @@
 										:key="corr"
 										class="my-1">
 										<a
-											:href="corr.link"
+											:href="corr.src"
 											class="
 												underline
 												decoration-dotted
