@@ -95,6 +95,8 @@
 		},
 		setup() {
 			const options = {
+				clones: 2,
+				cloneStatus: false,
 				autoPlay: false,
 				perPage: 5,
 				perMove: 1,
