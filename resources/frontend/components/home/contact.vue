@@ -39,7 +39,8 @@
 													name="c[name]"
 													id="name"
 													class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-													placeholder="Name" />
+													placeholder="Name"
+													required/>
 											</div>
 										</div>
 										<div class="col-span-4 sm:col-span-2">
@@ -51,7 +52,8 @@
 													name="c[phone]"
 													id="phone"
 													class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-													placeholder="Mobile Number (Ex: 0123-456-7890)" />
+													placeholder="Mobile Number (Ex: 0123-456-7890)"
+													required />
 											</div>
 										</div>
 									</div>
@@ -64,7 +66,8 @@
 													name="c[email]"
 													id="email"
 													class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-													placeholder="Email (Ex: alex@example.com)" />
+													placeholder="Email (Ex: alex@example.com)"
+													required />
 											</div>
 										</div>
 									</div>
@@ -77,7 +80,8 @@
 													name="c[subject]"
 													id="email"
 													class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-													placeholder="Subject (Ex: Contacting for some query)" />
+													placeholder="Subject (Ex: Contacting for some query)"
+													required />
 											</div>
 										</div>
 									</div>
@@ -89,7 +93,8 @@
 												name="c[about]"
 												rows="3"
 												class="shadow-sm focus:ring-red-500 focus:border-red-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
-												placeholder="Enter your message here..." />
+												placeholder="Enter your message here..."
+												required/>
 										</div>
 									</div>
 									<div class="px-4 py-3 text-center">
