@@ -116,6 +116,10 @@ Route::group(['prefix' => 'codebumble'], function () {
 			'tender_applicant_list_api'
 		);
 
+		Route::get('tender-list-api', [tenderApplicant::class, 'tender_list_api'])->name(
+			'tender_list_api'
+		);
+
 
 
 		Route::get('applicant-list', [
@@ -561,6 +565,16 @@ Route::group(['prefix' => 'admin'], function () {
 			tenderApplicant::class,
 			'edit_this_tender_view',
 		])->name('edit_this_tender_view');
+
+		Route::get('e-tender/all-tender-list', [
+			tenderApplicant::class,
+			'tender_all_list_view',
+		])->name('tender_all_list_view');
+
+		Route::get('e-tender/delete-this-tender/{id}', [
+			tenderApplicant::class,
+			'delete_a_tender_api',
+		])->name('delete_a_tender_api');
 
 
 

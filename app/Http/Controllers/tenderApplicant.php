@@ -201,6 +201,18 @@ class tenderApplicant extends Controller
 
 	}
 
+	public function tender_all_list_view(){
+
+		check_auth();
+		check_power('admin');
+
+		$pageConfigs = ['pageHeader' => false];
+		$companys = DB::select('select name,id from codebumble_company_list');
+		return view('/content/e-tender/all-tender-list', [
+			'pageConfigs' => $pageConfigs
+		]);
+	}
+
 	public function tender_applicant_list_api()
 	{
 		check_auth();
@@ -209,6 +221,37 @@ class tenderApplicant extends Controller
 		$data = DB::table('codebumble_tender_applicant_list')->get();
 
 		return json_encode(['data' => $data]);
+	}
+
+	public function tender_list_api()
+	{
+		check_auth();
+		check_power('admin');
+		$job_list = DB::table('codebumble_tender_list')
+			->select('id', 'title', 'last_date', 'publish_date')
+			->get();
+		$job_list = json_decode(json_encode($job_list), true);
+
+		foreach ($job_list as $key => $value) {
+			$job_list[$key]['created_at'] = date('d-m-Y', strtotime($value['publish_date']));
+
+			if (strtotime($job_list[$key]['last_date']) - time() >= 0) {
+				$job_list[$key]['last_date'] =
+					'' .
+					round(
+						(strtotime($job_list[$key]['last_date']) - time()) / 86400
+					) .
+					' Days';
+			} else {
+				$job_list[$key]['last_date'] = 'Expired';
+			}
+
+			$jb = DB::select("select count(*) as cp from codebumble_tender_applicant_list where tender_id = ?",[$value['id']]);
+
+			$job_list[$key] += ['counter' => $jb[0]->cp];
+		}
+
+		return json_encode(['data' => $job_list]);
 	}
 
 	public function add_a_tender_view()
@@ -221,6 +264,30 @@ class tenderApplicant extends Controller
 			'pageConfigs' => $pageConfigs,
 			'companies' => $companys,
 		]);
+	}
+
+
+	public function delete_a_tender_api($id)
+	{
+		check_auth();
+		check_power('admin');
+
+		$data=DB::select('select * from codebumble_tender_list where id=?',[$id]);
+		if(isset($data[0])){
+
+		$jb = DB::select("select count(*) as cp from codebumble_tender_applicant_list where tender_id = ?",[$id]);
+
+		if(isset($jb[0]) && $jb[0]->cp != 0){
+			return redirect()->route('tender_all_list_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Tender Applicant Exist. Can\'t Delete this Tender ', 'hasher_ip' => Str::random(10)]);
+		} else {
+			$ddd= DB::table('codebumble_tender_list')->where('id', $id)->delete();
+			return redirect()->route('tender_all_list_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Data deleted From The Server. Changes will be visible shortly. Thank You', 'hasher_ip' => Str::random(10)]);
+		}
+
+		}
+
+
+
 	}
 
 	public function tender_docs_view()
