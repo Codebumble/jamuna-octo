@@ -392,7 +392,8 @@
 			.then((response) => {
 				console.log(response.data);
 				tender.value = response.data;
-				companyName.value= tender.value._token.comp_name
+				// tender.value = {...response.data.package_details}
+				console.log(response.data.package_details);
 			})
 			.catch(() => {
 				this.$router.push({ name: 'not-found' });
@@ -422,8 +423,8 @@
 				};
 
 				let formData = new FormData();
-				formData.append('new[company]', tender.value._token.comp_name);
-				formData.append('new[tender_name]', tender.value._token.title);
+				formData.append('new[company]', tender.value.comp_name);
+				formData.append('new[tender_name]', tender.value.title);
 				formData.append('new[contact_person]', contactPerson.value);
 				formData.append('new[contact_no]', contactNo.value);
 				formData.append('new[email]', email.value);
