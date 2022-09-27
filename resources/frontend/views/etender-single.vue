@@ -345,7 +345,7 @@
 						</div>
 					</Modal>
 					<div class="pt-4">
-						<span class="time">{{ tender.status }}</span>
+						<span class="time">{{new Date().getTime() > new Date(tender.last_date).getTime()  ? 'Expired': "Active"}}</span>
 					</div>
 					<div class="share">
 						<ShareNetwork
