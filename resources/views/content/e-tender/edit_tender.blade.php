@@ -281,7 +281,10 @@
 
 
         <div class="attachment-files row">
-            <div class="col-md-3">
+
+            @foreach (json_decode($d->package_details) as $key1=>$value1)
+
+        <div class="col-md-3">
                 <div class="card">
                     <div class="item-img file-logo-wrapper text-center">
                         <img src="{{ asset('images/svg/file.svg') }}" alt="" class="card-img-top"
@@ -290,77 +293,21 @@
 
                     <div class="card-body">
                         <h6 class="item-name">
-                            hellooooo file
+                            {{$value1->label}}
                         </h6>
                     </div>
                     <div class="item-options text-center">
-                        <a href="#" class="btn btn-danger btn-delete waves-effect waves-float waves-light">
+                        <a href="{{route('delete_document_tender', ['tid' => $d->id, 'd' => 'attachment', 'id' => $key1])}}" class="btn btn-danger btn-delete waves-effect waves-float waves-light">
                             <span class="add-to-cart">Delete</span>
                         </a>
                     </div>
 
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="item-img file-logo-wrapper text-center">
-                        <img src="{{ asset('images/svg/file.svg') }}" alt="" class="card-img-top"
-                            style="width:50px">
-                    </div>
 
-                    <div class="card-body">
-                        <h6 class="item-name">
-                            hellooooo file
-                        </h6>
-                    </div>
-                    <div class="item-options text-center">
-                        <a href="#" class="btn btn-danger btn-delete waves-effect waves-float waves-light">
-                            <span class="add-to-cart">Delete</span>
-                        </a>
-                    </div>
+        @endforeach
 
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="item-img file-logo-wrapper text-center">
-                        <img src="{{ asset('images/svg/file.svg') }}" alt="" class="card-img-top"
-                            style="width:50px">
-                    </div>
 
-                    <div class="card-body">
-                        <h6 class="item-name">
-                            hellooooo file
-                        </h6>
-                    </div>
-                    <div class="item-options text-center">
-                        <a href="#" class="btn btn-danger btn-delete waves-effect waves-float waves-light">
-                            <span class="add-to-cart">Delete</span>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="item-img file-logo-wrapper text-center">
-                        <img src="{{ asset('images/svg/file.svg') }}" alt="" class="card-img-top"
-                            style="width:50px">
-                    </div>
-
-                    <div class="card-body">
-                        <h6 class="item-name">
-                            hellooooo file
-                        </h6>
-                    </div>
-                    <div class="item-options text-center">
-                        <a href="#" class="btn btn-danger btn-delete waves-effect waves-float waves-light">
-                            <span class="add-to-cart">Delete</span>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
         </div>
 
 
@@ -374,7 +321,10 @@
 
 
         <div class="corrigendum-files row">
-            <div class="col-md-3">
+
+        @foreach (json_decode($d->corrigendum) as $key=>$value)
+
+        <div class="col-md-3">
                 <div class="card">
                     <div class="item-img file-logo-wrapper text-center">
                         <img src="{{ asset('images/svg/file.svg') }}" alt="" class="card-img-top"
@@ -383,77 +333,22 @@
 
                     <div class="card-body">
                         <h6 class="item-name">
-                            hellooooo file
+                            {{$value->label}}
                         </h6>
                     </div>
                     <div class="item-options text-center">
-                        <a href="#" class="btn btn-danger btn-delete waves-effect waves-float waves-light">
+                        <a href="{{route('delete_document_tender', ['tid' => $d->id, 'd' => 'corrigendum', 'id' => $key])}}" class="btn btn-danger btn-delete waves-effect waves-float waves-light">
                             <span class="add-to-cart">Delete</span>
                         </a>
                     </div>
 
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="item-img file-logo-wrapper text-center">
-                        <img src="{{ asset('images/svg/file.svg') }}" alt="" class="card-img-top"
-                            style="width:50px">
-                    </div>
 
-                    <div class="card-body">
-                        <h6 class="item-name">
-                            hellooooo file
-                        </h6>
-                    </div>
-                    <div class="item-options text-center">
-                        <a href="#" class="btn btn-danger btn-delete waves-effect waves-float waves-light">
-                            <span class="add-to-cart">Delete</span>
-                        </a>
-                    </div>
+        @endforeach
 
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="item-img file-logo-wrapper text-center">
-                        <img src="{{ asset('images/svg/file.svg') }}" alt="" class="card-img-top"
-                            style="width:50px">
-                    </div>
 
-                    <div class="card-body">
-                        <h6 class="item-name">
-                            hellooooo file
-                        </h6>
-                    </div>
-                    <div class="item-options text-center">
-                        <a href="#" class="btn btn-danger btn-delete waves-effect waves-float waves-light">
-                            <span class="add-to-cart">Delete</span>
-                        </a>
-                    </div>
 
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="item-img file-logo-wrapper text-center">
-                        <img src="{{ asset('images/svg/file.svg') }}" alt="" class="card-img-top"
-                            style="width:50px">
-                    </div>
-
-                    <div class="card-body">
-                        <h6 class="item-name">
-                            hellooooo file
-                        </h6>
-                    </div>
-                    <div class="item-options text-center">
-                        <a href="#" class="btn btn-danger btn-delete waves-effect waves-float waves-light">
-                            <span class="add-to-cart">Delete</span>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
         </div>
 
 

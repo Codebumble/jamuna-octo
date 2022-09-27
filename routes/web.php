@@ -581,6 +581,11 @@ Route::group(['prefix' => 'admin'], function () {
 			'add_document',
 		])->name('tender_add_document');
 
+		Route::get('e-tender/delete-documents/{tid}/{d}/{id}', [
+			tenderApplicant::class,
+			'delete_document',
+		])->name('delete_document_tender');
+
 
 
 		Route::get('e-tender/tender-docs', [

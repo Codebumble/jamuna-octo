@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Validator;
 use File;
 use DB;
+use Illuminate\Support\Facades\Storage;
 
 class tenderApplicant extends Controller
 {
@@ -286,8 +287,6 @@ class tenderApplicant extends Controller
 
 		}
 
-
-
 	}
 
 	public function tender_docs_view()
@@ -346,7 +345,7 @@ class tenderApplicant extends Controller
 			}
 
 			$a_push = DB::table('codebumble_tender_list')->where('id',$value['tender_list'])->update(['corrigendum' => json_encode($a),'updated_at' => time()]);
-			$b_push = DB::table('codebumble_tender_list')->where('id',$value['tender_list'])->update(['package_details' => json_encode($a),'updated_at' => time()]);
+			$b_push = DB::table('codebumble_tender_list')->where('id',$value['tender_list'])->update(['package_details' => json_encode($b),'updated_at' => time()]);
 
 		}
 
@@ -361,22 +360,28 @@ class tenderApplicant extends Controller
 	}
 
 
-	public function delete_document($tid,$id,$d){
+	public function delete_document($tid,$d,$id){
 		check_auth();
 		check_power('admin');
 		$data=DB::select('select * from codebumble_tender_list where id=?',[$tid]);
 
 		if(isset($data[0])){
 			if($d == "attachment"){
-			$c= json_decode($data[0]->package_details);
-			unset($c[$id]);
-		} else if($d == "corrigendum"){
-			$e= json_decode($data[0]->corrigendum);
-			unset($e[$id]);
-		}
+				$c= json_decode($data[0]->package_details);
+				Storage::disk('local')->delete('securefolder/'.$c[$id]->src);
+				unset($c[$id]);
+				$b_push = DB::table('codebumble_tender_list')->where('id',$tid)->update(['package_details' => json_encode($c),'updated_at' => time()]);
 
-		$a_push = DB::table('codebumble_tender_list')->where('id',$tid)->update(['corrigendum' => json_encode($e),'updated_at' => time()]);
-			$b_push = DB::table('codebumble_tender_list')->where('id',$tid)->update(['package_details' => json_encode($c),'updated_at' => time()]);
+			} else if($d == "corrigendum"){
+				$e= json_decode($data[0]->corrigendum);
+				Storage::disk('local')->delete('securefolder/'.$e[$id]->src);
+				unset($e[$id]);
+				$a_push = DB::table('codebumble_tender_list')->where('id',$tid)->update(['corrigendum' => json_encode($e),'updated_at' => time()]);
+
+			}
+
+
+
 
 
 		}
