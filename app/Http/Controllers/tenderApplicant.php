@@ -34,7 +34,7 @@ class tenderApplicant extends Controller
 
 		$db_check = DB::select(
 			'select * from codebumble_tender_applicant_list where contact_no=? and tender_id =?',
-			[$new['contactNo'], $new['tender_id']]
+			[$new['contact_no'], $new['tender_id']]
 		);
 		if (isset($db_check[0])) {
 			return json_encode([
@@ -292,6 +292,9 @@ class tenderApplicant extends Controller
 
 	public function tender_docs_view()
 	{
+		check_auth();
+		check_power('admin');
+
 		$pageConfigs = ['pageHeader' => false];
 		$companys = DB::select('select title,id from codebumble_tender_list');
 		return view('/content/e-tender/tender-docs', [
@@ -302,10 +305,14 @@ class tenderApplicant extends Controller
 
 	public function tender_list_view()
 	{
+		check_auth();
+		check_power('admin');
 		return view('/content/e-tender/tender-applicants');
 	}
 
 	public function add_document(Request $request){
+		check_auth();
+		check_power('admin');
 
 		$new= $request->new;
 
@@ -354,7 +361,27 @@ class tenderApplicant extends Controller
 	}
 
 
-	public function delete_document(){
+	public function delete_document($tid,$id,$d){
+		check_auth();
+		check_power('admin');
+		$data=DB::select('select * from codebumble_tender_list where id=?',[$tid]);
+
+		if(isset($data[0])){
+			if($d == "attachment"){
+			$c= json_decode($data[0]->package_details);
+			unset($c[$id]);
+		} else if($d == "corrigendum"){
+			$e= json_decode($data[0]->corrigendum);
+			unset($e[$id]);
+		}
+
+		$a_push = DB::table('codebumble_tender_list')->where('id',$tid)->update(['corrigendum' => json_encode($e),'updated_at' => time()]);
+			$b_push = DB::table('codebumble_tender_list')->where('id',$tid)->update(['package_details' => json_encode($c),'updated_at' => time()]);
+
+
+		}
+
+		return redirect()->route('edit_this_tender_view',['id' => $tid,'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'E-Tender Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10)]);
 
 	}
 }
