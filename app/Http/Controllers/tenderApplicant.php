@@ -112,6 +112,7 @@ class tenderApplicant extends Controller
 					if ($value1->name == $value->comp_name) {
 						$new[$key]['comp_image'] =
 							'/company-images/' . $value1->image;
+							$new[$key]['comp_name'] = $value1->name;
 						$new[$key]['title'] = $value->title;
 						$new[$key]['location'] = $value->location;
 						$new[$key]['publish_date'] = $value->publish_date;
