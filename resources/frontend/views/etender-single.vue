@@ -36,7 +36,7 @@
 										<div class="input-item">
 											<input
 												type="text"
-												name="new[companyName]"
+												name="new[company_name]"
 												id="companyName"
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
 												placeholder="Name of Company"
@@ -47,7 +47,7 @@
 										<div class="input-item">
 											<input
 												type="text"
-												name="new[contactPerson]"
+												name="new[contact_person]"
 												id="contactPerson"
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
 												placeholder="Contact Person"
@@ -58,7 +58,7 @@
 										<div class="input-item">
 											<input
 												type="number"
-												name="new[contactNo]"
+												name="new[contact_no]"
 												id="contactNo"
 												class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
 												placeholder="Contact No"
@@ -165,7 +165,7 @@
 															>
 															<input
 																id="file-upload"
-																name="new[file-upload]"
+																name="new[file_upload]"
 																type="file"
 																class="sr-only"
 																accept="application/pdf"
@@ -306,13 +306,12 @@
 						Attachments:
 					</h4>
 					<ul class="list-disc list-inside text-gray-600">
-						<li
-							v-for="packDetail in tender.package_details"
-							:key="packDetail">
+						<li v-for="item in tender.package_details" :key="item">
+						{{item}}
 							<a
-								:href="packDetail.link"
+								:href="item.src"
 								class="underline decoration-dotted hover:decoration-solid decoration-slate-400 hover:decoration-red-600 underline-offset-4 hover:text-red-600 transition-all"
-								>{{ packDetail.label }}</a
+								>{{ item.label }}</a
 							>
 						</li>
 					</ul>
@@ -422,23 +421,23 @@
 				};
 
 				let formData = new FormData();
-				formData.append('new[companyName]', companyName.value);
-				formData.append('new[contactPerson]', contactPerson.value);
-				formData.append('new[contactNo]', contactNo.value);
+				formData.append('new[company]', companyName.value);
+				formData.append('new[contact_person]', contactPerson.value);
+				formData.append('new[contact_no]', contactNo.value);
 				formData.append('new[email]', email.value);
 				formData.append('new[designation]', designation.value);
 				formData.append('new[department]', department.value);
 				formData.append('new[country]', country.value);
 				formData.append('new[currency]', currency.value);
 				formData.append('new[address]', address.value);
-				formData.append('new[companyProfile]', companyProfile.value);
+				// formData.append('new[companyProfile]', companyProfile.value);
 				formData.append('new[tender_id]', route.params.id);
 				formData.append('_token', tender.value._token);
 
-				// formData.append(
-				// 	'new[file_upload]',
-				// 	document.querySelector('#file-upload').files[0]
-				// );
+				formData.append(
+					'new[file_upload]',
+					document.querySelector('#file-upload').files[0]
+				);
 
 				if (
 					!companyName.value ||
