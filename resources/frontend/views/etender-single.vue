@@ -555,7 +555,7 @@ export default {
 		// Get BD Date
 		const bdTime = ref('')
 		axios
-			.get('https://timezoneapi.io/api/timezone/?Asia/Dhaka&token=yOSxWlqieHRD')
+			.get('https://timezoneapi.io/api/timezone/?Asia/Dhaka&token=aUkFXecKNzRhIrDjxmxa')
 			.then((response) => {
 				bdTime.value = new Date(response.data.data.datetime.date).getTime()
 			});
