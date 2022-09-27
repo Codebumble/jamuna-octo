@@ -560,16 +560,12 @@ export default {
 					route.params.id
 			)
 			.then((response) => {
-				console.log(response.data);
 				tender.value = {
 					...response.data,
 					package_details: JSON.parse(response.data.package_details),
 					corrigendum: JSON.parse(response.data.corrigendum),
 				};
 			})
-			.catch(() => {
-				this.$router.push({ name: 'not-found' });
-			});
 
 		const previewFiles = (e) => {
 			companyProfile.value = e.target.files[0];
