@@ -324,7 +324,7 @@ class tenderApplicant extends Controller
 
 			if(isset($data[0])){
             $file2 = $request->file('new.'.$key.'.src') ;
-            $fileName2 = time().'-0'.$counter.'0-tender-document-'.$file2->getClientOriginalName().'-'.Auth::user()->username.'.'.$file2->getClientOriginalExtension() ;
+            $fileName2 = time().'-0'.$counter.'0-tender-document-'.Str::random(10).'-'.Auth::user()->username.'.'.$file2->getClientOriginalExtension() ;
             $destinationPath2 = storage_path() . '/app/securefolder';
             $file2->move($destinationPath2,$fileName2);
 
@@ -369,15 +369,32 @@ class tenderApplicant extends Controller
 		if(isset($data[0])){
 			if($d == "attachment"){
 				$c= json_decode($data[0]->package_details);
-				Storage::disk('local')->delete('securefolder/'.$c[$id]->src);
-				unset($c[$id]);
-				$b_push = DB::table('codebumble_tender_list')->where('id',$tid)->update(['package_details' => json_encode($c),'updated_at' => time()]);
+
+
+				$array = [];
+
+				foreach ($c as $key => $value) {
+					if ($key != $id) {
+						array_push($array, $value);
+					} else {
+						Storage::disk('local')->delete('securefolder/'.$c[$id]->src);
+					}
+				}
+
+				$b_push = DB::table('codebumble_tender_list')->where('id',$tid)->update(['package_details' => json_encode($array),'updated_at' => time()]);
 
 			} else if($d == "corrigendum"){
 				$e= json_decode($data[0]->corrigendum);
-				Storage::disk('local')->delete('securefolder/'.$e[$id]->src);
-				unset($e[$id]);
-				$a_push = DB::table('codebumble_tender_list')->where('id',$tid)->update(['corrigendum' => json_encode($e),'updated_at' => time()]);
+				$array1 = [];
+
+				foreach ($e as $key => $value) {
+					if ($key != $id) {
+						array_push($array1, $value);
+					} else {
+						Storage::disk('local')->delete('securefolder/'.$e[$id]->src);
+					}
+				}
+				$a_push = DB::table('codebumble_tender_list')->where('id',$tid)->update(['corrigendum' => json_encode($array1),'updated_at' => time()]);
 
 			}
 
