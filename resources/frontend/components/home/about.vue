@@ -135,7 +135,7 @@
 		},
 		setup() {
 			const options = {
-				autoplay: false,
+				autoplay: true,
 				perPage: 5,
 				perMove: 1,
 				pagination: false,
@@ -143,6 +143,7 @@
 				focus: 'center',
 				type: 'loop',
 				drag: true,
+				interval: 1500,
 				breakpoints: {
 					1023: {
 						autoplay: true,
