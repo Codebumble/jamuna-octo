@@ -45,10 +45,50 @@
 		@apply transition-all;
 		ul li {
 			@apply transition-all;
+
+			&.is-active {
+				@apply mt-0 #{ !important};
+			}
 			&:nth-child(even):not(.is-active) {
 				@apply lg:mt-8;
 			}
 			&:nth-child(odd):not(.is-active) {
+				@apply lg:mt-16;
+			}
+
+			&.is-visible:nth-child(even):not(.is-active) {
+				@apply lg:mt-8;
+			}
+
+			&.is-visible:nth-child(odd):not(.is-active) {
+				@apply lg:mt-16;
+			}
+
+			&.is-visible.is-prev:nth-child(even):not(.is-active) {
+				@apply lg:mt-8;
+			}
+			&.is-visible.is-next:nth-child(even):not(.is-active) {
+				@apply lg:mt-8;
+			}
+
+			&.is-visible.is-prev:nth-child(odd):not(.is-active) {
+				@apply lg:mt-8;
+			}
+			&.is-visible.is-next:nth-child(odd):not(.is-active) {
+				@apply lg:mt-8;
+			}
+
+			&.is-visible:nth-child(even):not(.is-prev) {
+				@apply lg:mt-16;
+			}
+			&.is-visible:nth-child(even):not(.is-next) {
+				@apply lg:mt-16;
+			}
+
+			&.is-visible:nth-child(odd):not(.is-prev) {
+				@apply lg:mt-16;
+			}
+			&.is-visible:nth-child(odd):not(.is-next) {
 				@apply lg:mt-16;
 			}
 		}
@@ -95,15 +135,14 @@
 		},
 		setup() {
 			const options = {
-				clones: 14,
 				autoplay: false,
 				perPage: 5,
 				perMove: 1,
 				pagination: false,
 				arrows: false,
-				type: 'loop',
 				focus: 'center',
-				drag: false,
+				type: 'loop',
+				drag: true,
 				breakpoints: {
 					1024: {
 						perPage: 1,
