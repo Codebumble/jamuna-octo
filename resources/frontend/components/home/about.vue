@@ -142,9 +142,9 @@
 				arrows: false,
 				focus: 'center',
 				type: 'loop',
-				drag: true,
+				drag: false,
 				breakpoints: {
-					1024: {
+					1023: {
 						autoplay: true,
 						perPage: 1,
 						arrows: true,
