@@ -86,10 +86,10 @@
 			}
 
 			&.is-visible:nth-child(odd):not(.is-prev) {
-				@apply lg:mt-16;
+				@apply lg:mt-16 #{!important};
 			}
 			&.is-visible:nth-child(odd):not(.is-next) {
-				@apply lg:mt-16;
+				@apply lg:mt-16 #{!important};
 			}
 		}
 	}
