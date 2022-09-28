@@ -95,16 +95,18 @@
 		},
 		setup() {
 			const options = {
-				autoplay: true,
+				// clones: 4,
+				// cloneStatus: false,
+				autoplay: false,
 				perPage: 5,
 				perMove: 1,
 				pagination: false,
 				arrows: false,
 				type: 'loop',
 				focus: 'center',
-				drag: true,
+				drag: false,
 				breakpoints: {
-					1023: {
+					1024: {
 						perPage: 1,
 						drag: true,
 						arrows: true,
