@@ -345,7 +345,7 @@
 						</div>
 					</Modal>
 					<div class="pt-4">
-						<span class="time">{{new Date().getTime() > new Date(tender.last_date).getTime()  ? 'Expired': "Active"}}</span>
+						<span class="time">{{bdTime > new Date(tender.last_date).getTime()  ? 'Expired': "Active"}}</span>
 					</div>
 					<div class="share">
 						<ShareNetwork
@@ -552,6 +552,14 @@ export default {
 		const address = ref('');
 		const companyProfile = ref();
 
+		// Get BD Date
+		const bdTime = ref('')
+		axios
+			.get('https://timezoneapi.io/api/timezone/?Asia/Dhaka&token=aUkFXecKNzRhIrDjxmxa')
+			.then((response) => {
+				bdTime.value = new Date(response.data.data.datetime.date).getTime()
+			});
+
 		// Get Data
 		axios
 			.get(
@@ -715,6 +723,7 @@ export default {
 		};
 
 		return {
+			bdTime,
 			tender,
 			sharing,
 			networks,
