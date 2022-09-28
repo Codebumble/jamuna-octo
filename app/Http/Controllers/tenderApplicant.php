@@ -356,7 +356,7 @@ class tenderApplicant extends Controller
 
 
 
-        return redirect()->route('tender_docs_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'Image added to the Gallery. People Can view this image now. Thank You', 'hasher_ip' => Str::random(10)]);
+        return redirect()->route('tender_docs_view',[ 'hasher' => Str::random(40), 'time' => time(), 'exist'=> 'E-Tender Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10)]);
 
 	}
 
