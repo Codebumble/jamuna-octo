@@ -108,7 +108,7 @@
 				rewind: true,
 				pagination: false,
 				type: 'fade',
-				autoplay: false,
+				autoplay: true,
 				interval: 2000,
 			};
 

@@ -95,16 +95,16 @@
 		},
 		setup() {
 			const options = {
-				autoPlay: false,
+				autoplay: true,
 				perPage: 5,
 				perMove: 1,
 				pagination: false,
 				arrows: false,
 				type: 'loop',
 				focus: 'center',
-				drag: false,
+				drag: true,
 				breakpoints: {
-					1024: {
+					1023: {
 						perPage: 1,
 						drag: true,
 						arrows: true,
