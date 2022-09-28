@@ -145,8 +145,8 @@
 				drag: true,
 				breakpoints: {
 					1024: {
+						autoplay: true,
 						perPage: 1,
-						drag: true,
 						arrows: true,
 					},
 				},
