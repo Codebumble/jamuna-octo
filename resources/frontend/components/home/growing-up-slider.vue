@@ -65,7 +65,7 @@
 				&:last-child {
 					@apply mr-0;
 				}
-				&.is-active{
+				&.is-active {
 					@apply xl:mr-5 mr-0 ml-4 xl:ml-0;
 				}
 			}
@@ -114,12 +114,12 @@
 				const pagination = document.querySelectorAll(
 					'.splide__pagination li'
 				);
-				if(prevIndex > dest){
+				if (prevIndex > dest) {
 					pagination[prevIndex - 1].classList.remove('is-active');
 					pagination[prevIndex].classList.add('is-active');
-				}else{
+				} else {
 					pagination[dest].classList.remove('is-active');
-					pagination[prevIndex ].classList.add('is-active');
+					pagination[prevIndex].classList.add('is-active');
 				}
 			},
 		},
@@ -127,13 +127,14 @@
 		setup() {
 			const options = {
 				autoplay: true,
+				perMove: 1,
 				rewind: true,
 				perPage: 1,
 				perMove: 1,
 				pagination: true,
 				arrows: true,
 				type: 'fade',
-				interval: 3000,
+				interval: 2000,
 				pagination: true,
 			};
 

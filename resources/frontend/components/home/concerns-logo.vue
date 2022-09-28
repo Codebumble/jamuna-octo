@@ -70,7 +70,7 @@
 				perMove: 1,
 				arrows: true,
 				type: 'loop',
-				interval: 3000,
+				interval: 2000,
 				pagination: false,
 				breakpoints: {
 					1024: {

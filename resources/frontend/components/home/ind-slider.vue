@@ -78,7 +78,8 @@
 			const main = ref();
 			const thumbs = ref();
 			const thumbnails = {
-				autoplay: false,
+				autoplay: true,
+				interval: 2000,
 				isNavigation: true,
 				focus: 'center',
 				// fixedWidth: 246,

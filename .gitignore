@@ -21,5 +21,4 @@ supervisord.log
 supervisord.pid
 *.lock
 yarn.lock
-/public/mix-manifest.json
 /.vscode/*.json

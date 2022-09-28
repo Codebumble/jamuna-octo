@@ -90,7 +90,7 @@
 				trimSpace: true,
 				arrows: true,
 				autoplay: true,
-				interval: 3000,
+				interval: 2000,
 				perPage: 3,
 				type: 'loop',
 				perMove: 1,
