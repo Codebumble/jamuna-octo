@@ -86,10 +86,10 @@
 			}
 
 			&.is-visible:nth-child(odd):not(.is-prev) {
-				@apply lg:mt-16 #{!important};
+				@apply lg:mt-16;
 			}
 			&.is-visible:nth-child(odd):not(.is-next) {
-				@apply lg:mt-16 #{!important};
+				@apply lg:mt-16;
 			}
 		}
 	}
@@ -142,7 +142,7 @@
 				arrows: false,
 				focus: 'center',
 				type: 'loop',
-				drag: false,
+				drag: true,
 				breakpoints: {
 					1023: {
 						autoplay: true,
