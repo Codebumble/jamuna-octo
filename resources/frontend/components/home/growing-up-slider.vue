@@ -126,7 +126,7 @@
 
 		setup() {
 			const options = {
-				autoplay: false,
+				autoplay: true,
 				rewind: true,
 				perPage: 1,
 				perMove: 1,
