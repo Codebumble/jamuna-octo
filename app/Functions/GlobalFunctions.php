@@ -29,7 +29,7 @@
 
     }
 
-    function server_time_set(){
+    function server_time_set($request){
 
         $url = 'api-server.codebumble.net/?license_key=23457129b871d690a3b4d86a51ded0c27ba29a9c&domain='.$request->server->get('SERVER_NAME');
 
