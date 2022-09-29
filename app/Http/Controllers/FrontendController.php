@@ -13,6 +13,8 @@ class FrontendController extends Controller
 			['meta']
 		);
 
+		server_time_set();
+
 		return view('/frontend/home', [
 			'meta' => json_decode($data[0]->value),
 		]);
