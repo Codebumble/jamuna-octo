@@ -1014,22 +1014,17 @@
     mem "^8.0.0"
     php-parser "3.1.0-beta.11"
 
-"@splidejs/splide-extension-grid@^0.4.1":
-  version "0.4.1"
-  resolved "https://registry.npmjs.org/@splidejs/splide-extension-grid/-/splide-extension-grid-0.4.1.tgz"
-  integrity sha512-XM3pl5VKvmoybwZRrv4xE8Hff2mT6Chl9GnGd8nQogo4ZtTgxzqAZqBxLvhrl5UuUswIdmNoRmMeeEgx9twrvw==
+"@splidejs/splide@^4.1.1":
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@splidejs/splide/-/splide-4.1.2.tgz#ca7d9602ed7fb1c24b896245c663f70ff1dc487e"
+  integrity sha512-7sv4Azb4hHJ8PGT2H/ilsElrxQ3+xrKwajBX/jkntjktrsqb3u3FXzo71dNPhwVr0hXVQUFgwvn0BjhwYzUJKw==
 
-"@splidejs/splide@^4.0.17":
-  version "4.0.17"
-  resolved "https://registry.yarnpkg.com/@splidejs/splide/-/splide-4.0.17.tgz#7e6576d4643f496c0f00b589da1f47cab0ae8c77"
-  integrity sha512-k67vDY0+hl7Qi+I+juOF+DO1KuRw+4RfV5x5SlIVrK60DmMzQvp2j9CqDzixUw3jDDoEaPTGY4BKy5SZSiFf1Q==
-
-"@splidejs/vue-splide@^0.6.10":
-  version "0.6.10"
-  resolved "https://registry.yarnpkg.com/@splidejs/vue-splide/-/vue-splide-0.6.10.tgz#5ac4eae27e99f27d0fe55671b4d5c4b3d99a1e85"
-  integrity sha512-xUUW6tJ3+Nyepzle0UJt7O1XgHDL7+3HIjNINbOYPwPymBOauzr+mjp5loCrEKA8CbeS2q116mOxaHi8WFrYyQ==
+"@splidejs/vue-splide@^0.6.11":
+  version "0.6.11"
+  resolved "https://registry.yarnpkg.com/@splidejs/vue-splide/-/vue-splide-0.6.11.tgz#c195a29634a435f0934870a058245fc53fa8e297"
+  integrity sha512-Soehe0sWMVQrwd11YcRQC2zwdOcL90vSNbxhSYwZYys7HKzG8KnPkdLfCxfQG4RfvXT0HY2YRmr51fV8bXWeNg==
   dependencies:
-    "@splidejs/splide" "^4.0.17"
+    "@splidejs/splide" "^4.1.1"
 
 "@tailwindcss/forms@^0.5.2":
   version "0.5.2"
@@ -1643,11 +1638,6 @@ animate.css@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/animate.css/-/animate.css-4.1.1.tgz#614ec5a81131d7e4dc362a58143f7406abd68075"
   integrity sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ==
-
-animation-vue@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/animation-vue/-/animation-vue-0.0.9.tgz#211d3ffcd4fdae20713ac00d9bd9e6c24d283860"
-  integrity sha512-BZphQj39udHyYyM0RDD/GrGzR/jDUM4NVY/ufgvrCKuxT6vGkaLVCbc9f0w3nKWVE6B6wjgtFONmzHDhaC6X+Q==
 
 ansi-html-community@^0.0.8:
   version "0.0.8"
@@ -2627,13 +2617,6 @@ dom-serializer@^1.0.1:
     domelementtype "^2.0.1"
     domhandler "^4.2.0"
     entities "^2.0.0"
-
-dom7@^4.0.4:
-  version "4.0.4"
-  resolved "https://registry.npmjs.org/dom7/-/dom7-4.0.4.tgz"
-  integrity sha512-DSSgBzQ4rJWQp1u6o+3FVwMNnT5bzQbMb+o31TjYYeRi05uAcpF8koxdfzeoe5ElzPmua7W7N28YJhF7iEKqIw==
-  dependencies:
-    ssr-window "^4.0.0"
 
 domain-browser@^1.1.1:
   version "1.2.0"
@@ -5218,11 +5201,6 @@ spdy@^4.0.2:
     select-hose "^2.0.0"
     spdy-transport "^3.0.0"
 
-ssr-window@^4.0.0, ssr-window@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.npmjs.org/ssr-window/-/ssr-window-4.0.2.tgz"
-  integrity sha512-ISv/Ch+ig7SOtw7G2+qkwfVASzazUnvlDTwypdLoPoySv+6MqlOV10VwPSE6EWkGjhW50lUmghPmpYZXMu/+AQ==
-
 stable@^0.1.8:
   version "0.1.8"
   resolved "https://registry.npmjs.org/stable/-/stable-0.1.8.tgz"
@@ -5379,14 +5357,6 @@ svgo@^2.7.0:
     csso "^4.2.0"
     picocolors "^1.0.0"
     stable "^0.1.8"
-
-swiper@^8.3.2:
-  version "8.3.2"
-  resolved "https://registry.npmjs.org/swiper/-/swiper-8.3.2.tgz"
-  integrity sha512-8wsC7ORYvVSnLUoxs2+xmfLrDPNjBVQXMCFbOlqtHeON6wtu/blOyySDr8TCBCdse1bdcIbn7m8xJNxVFL8o4Q==
-  dependencies:
-    dom7 "^4.0.4"
-    ssr-window "^4.0.2"
 
 tailwindcss@^3.1.0:
   version "3.1.6"
@@ -5623,11 +5593,6 @@ vue-loader@^17.0.0:
     chalk "^4.1.0"
     hash-sum "^2.0.0"
     loader-utils "^2.0.0"
-
-vue-meta@3.0.0-alpha.10:
-  version "3.0.0-alpha.10"
-  resolved "https://registry.yarnpkg.com/vue-meta/-/vue-meta-3.0.0-alpha.10.tgz#8aa7dee8ef43edda2633d52d2d4ca0ae03352222"
-  integrity sha512-rYeIGkhm1gKBcReEkPHiV6LV2Y6BZTMGTkGw1mQIZTxfFcVJL0srLZsL1zAmLeTGxMrlDYylMQEVSYRkDnwz3A==
 
 vue-router@4:
   version "4.1.3"

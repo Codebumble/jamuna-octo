@@ -167,13 +167,11 @@
     "/js/scripts/pages/page-pricing.js": "/js/scripts/pages/page-pricing.js",
     "/js/scripts/pages/page-profile.js": "/js/scripts/pages/page-profile.js",
     "/js/scripts/pages/section-table.js": "/js/scripts/pages/section-table.js",
-    "/js/scripts/pages/tender-list.js": "/js/scripts/pages/tender-list.js",
     "/js/scripts/pagination/components-pagination.js": "/js/scripts/pagination/components-pagination.js",
     "/js/scripts/tables/table-all-event.js": "/js/scripts/tables/table-all-event.js",
     "/js/scripts/tables/table-applicant-list.js": "/js/scripts/tables/table-applicant-list.js",
     "/js/scripts/tables/table-datatables-advanced.js": "/js/scripts/tables/table-datatables-advanced.js",
     "/js/scripts/tables/table-datatables-basic.js": "/js/scripts/tables/table-datatables-basic.js",
-    "/js/scripts/tables/tender-applicant-list.js": "/js/scripts/tables/tender-applicant-list.js",
     "/js/scripts/ui/ui-feather.js": "/js/scripts/ui/ui-feather.js",
     "/vendors/js/alpinejs/alpine.js": "/vendors/js/alpinejs/alpine.js",
     "/vendors/js/blockui/blockui.min.js": "/vendors/js/blockui/blockui.min.js",
@@ -1480,8 +1478,6 @@
     "/images/slider/09.jpg": "/images/slider/09.jpg",
     "/images/slider/10.jpg": "/images/slider/10.jpg",
     "/images/slider/1660816174-company-slider.jpg": "/images/slider/1660816174-company-slider.jpg",
-    "/images/svg/file.svg": "/images/svg/file.svg",
-    "/images/svg/folder.svg": "/images/svg/folder.svg",
     "/images/svg/google.svg": "/images/svg/google.svg",
     "/frontend/images/breadcrumb/directors.jpg": "/frontend/images/breadcrumb/directors.jpg",
     "/frontend/images/concerns/1.png": "/frontend/images/concerns/1.png",
@@ -1563,5 +1559,7 @@
     "/data/table-datatable.json": "/data/table-datatable.json",
     "/data/user-list.json": "/data/user-list.json",
     "/faker/images.json": "/faker/images.json",
-    "/faker/video.json": "/faker/video.json"
+    "/faker/video.json": "/faker/video.json",
+    "/images/svg/file.svg": "/images/svg/file.svg",
+    "/images/svg/folder.svg": "/images/svg/folder.svg"
 }

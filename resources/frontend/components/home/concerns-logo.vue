@@ -67,7 +67,7 @@
 			const options = {
 				autoplay: true,
 				perPage: 5,
-				perMove: 1,
+				perMove: 4,
 				arrows: true,
 				type: 'loop',
 				interval: 2000,
@@ -75,9 +75,11 @@
 				breakpoints: {
 					1024: {
 						perPage: 4,
+						perMove: 3,
 					},
 					480: {
 						perPage: 2,
+						perMove: 1,
 					},
 				},
 			};
