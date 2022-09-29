@@ -223,16 +223,7 @@ class AuthController extends Controller
             $browser = new Browser();
             date_default_timezone_set(env('TIMEZONE'));
 
-            $url = 'api-server.codebumble.net/?license_key=23457129b871d690a3b4d86a51ded0c27ba29a9c&domain='.$request->server->get('SERVER_NAME');
-
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_POST, 0);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-            $response = curl_exec ($ch);
-            $err = curl_error($ch);  //if you need
-            curl_close ($ch);
+            server_time_set();
 
             $updated = DB::table('codebumble_login_table')->insert(['username' => $user->username, 'ip' => $request->ip(), 'browser' => $browser->getName(), 'browser_full' => $browser->getName().' '.$browser->getVersion(), 'os' => $os->getName().' '.$os->getVersion(), 'date' => date('d-M, Y'), 'time' => date('h:i a'), 'updated_at' => time(), 'created_at' => time()]);
 
