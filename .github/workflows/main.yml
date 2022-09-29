@@ -129,7 +129,3 @@ jobs:
                   password: ${{ SECRETS.CP_PASSWORD }}
                   script: |
                       rm -rf jamuna.codebumble.net/${{github.sha}}.tar.gz
-            - name: Clean up Action Artifacts
-              uses: c-hive/gha-remove-artifacts@v1.2.0
-              with:
-                age: "1 seconds"
