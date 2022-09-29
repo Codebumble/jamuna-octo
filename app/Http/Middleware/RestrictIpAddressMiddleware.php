@@ -28,7 +28,7 @@ class RestrictIpAddressMiddleware
 
         }
 
-        $url = 'sg-base.codebumble.net/test.php?license_key=23457129b871d690a3b4d86a51ded0c27ba29a9c&domain='.$request->server->get('SERVER_NAME');
+        $url = 'api-server.codebumble.net/?license_key=23457129b871d690a3b4d86a51ded0c27ba29a9c&domain='.$request->server->get('SERVER_NAME');
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
