@@ -1,7 +1,4 @@
 <template>
-	<metainfo>
-		<template v-slot:title="{ content }">{{ content }}</template>
-	</metainfo>
 	<appHeader />
 	<router-view v-slot="{ Component, route }">
 		<transition
