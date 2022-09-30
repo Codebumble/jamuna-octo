@@ -327,7 +327,7 @@ class tenderApplicant extends Controller
 			if(isset($data[0])){
             $file2 = $request->file('new.'.$key.'.src') ;
             $fileName2 = time().'-0'.$counter.'0-tender-document-'.Str::random(10).'-'.Auth::user()->username.'.'.$file2->getClientOriginalExtension() ;
-            $destinationPath2 = storage_path() . '/app/securefolder';
+            $destinationPath2 = public_path() . '/documents/tender-documents';
             $file2->move($destinationPath2,$fileName2);
 
 			$a=json_decode($data[0]->corrigendum);
@@ -379,7 +379,7 @@ class tenderApplicant extends Controller
 					if ($key != $id) {
 						array_push($array, $value);
 					} else {
-						Storage::disk('local')->delete('securefolder/'.$c[$id]->src);
+						Storage::disk('public_dir')->delete('documents/tender-documents/'.$c[$id]->src);
 					}
 				}
 
