@@ -466,7 +466,7 @@
 					<ul class="list-disc list-inside text-gray-600">
 						<li v-for="item in tender.package_details" :key="item">
 							<a
-								:href="item.src"
+								:href="`/documents/tender-documents/${item.src}`"
 								class="
 									underline
 									decoration-dotted
