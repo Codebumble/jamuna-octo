@@ -396,7 +396,7 @@
 										:key="corr"
 										class="my-1">
 										<a
-											:href="corr.src"
+											:href="`/documents/tender-documents/${corr.src}`"
 											class="
 												underline
 												decoration-dotted
