@@ -29,7 +29,9 @@
 							border border-red-600
 							inline-block
 						"
-						@click="toggleModal">
+						:class="bdTime > lastDate ? 'opacity-50' : ''"
+						@click="toggleModal"
+						:disabled="bdTime > lastDate ? true : false">
 						Apply Now
 					</button>
 					<Modal :isActiveModal="isActiveModal" @close="toggleModal">
@@ -338,6 +340,12 @@
 										h-12
 										items-center
 										font-bold
+									"
+									:class="
+										bdTime > lastDate ? 'opacity-50' : ''
+									"
+									:disabled="
+										bdTime > lastDate ? true : false
 									">
 									Send
 								</button>
@@ -345,7 +353,9 @@
 						</div>
 					</Modal>
 					<div class="pt-4">
-						<span class="time">{{bdTime > new Date(tender.last_date).getTime()  ? 'Expired': "Active"}}</span>
+						<span class="time">{{
+							bdTime > lastDate ? 'Expired' : 'Active'
+						}}</span>
 					</div>
 					<div class="share">
 						<ShareNetwork
@@ -553,11 +563,16 @@ export default {
 		const companyProfile = ref();
 
 		// Get BD Date
-		const bdTime = ref('')
+		const bdTime = ref('');
+		const lastDate = ref('');
 		axios
-			.get('https://timezoneapi.io/api/timezone/?Asia/Dhaka&token=aUkFXecKNzRhIrDjxmxa')
+			.get(
+				'https://timezoneapi.io/api/timezone/?Asia/Dhaka&token=aUkFXecKNzRhIrDjxmxa'
+			)
 			.then((response) => {
-				bdTime.value = new Date(response.data.data.datetime.date).getTime()
+				bdTime.value = new Date(
+					response.data.data.datetime.date
+				).getTime();
 			});
 
 		// Get Data
@@ -573,7 +588,8 @@ export default {
 					package_details: JSON.parse(response.data.package_details),
 					corrigendum: JSON.parse(response.data.corrigendum),
 				};
-			})
+				lastDate.value = new Date(response.data.last_date).getTime();
+			});
 
 		const previewFiles = (e) => {
 			companyProfile.value = e.target.files[0];
@@ -681,6 +697,12 @@ export default {
 					removeClass('companyProfile');
 				}
 			} else {
+				if (bdTime.value > lastDate.value) {
+					toaster.error(
+						'The tender is expired please try another one.'
+					);
+					return;
+				}
 				let xhr = new XMLHttpRequest();
 				xhr.open(
 					'POST',
@@ -724,6 +746,7 @@ export default {
 
 		return {
 			bdTime,
+			lastDate,
 			tender,
 			sharing,
 			networks,
