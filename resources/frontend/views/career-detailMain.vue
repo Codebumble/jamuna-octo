@@ -66,7 +66,9 @@
 							border border-red-600
 							inline-block
 						"
-						@click="toggleModal">
+						@click="toggleModal"
+						:class="jobheading.time === 'Expired' ? 'opacity-50': ''"
+						:disabled="jobheading.time === 'Expired' ? true: false">
 						Apply Now
 					</button>
 					<Modal :isActiveModal="isActiveModal" @close="toggleModal">
@@ -614,8 +616,10 @@
 										w-full
 										h-12
 										items-center
-										font-bold
-									">
+										font-bold"
+										:class="jobheading.time === 'Expired' ? 'opacity-50': ''"
+										:disabled="jobheading.time === 'Expired' ? true: false"
+										>
 									Send
 								</button>
 							</form>
@@ -838,9 +842,7 @@ export default {
 		Modal,
 	},
 	setup() {
-		const toaster = createToaster({
-			/* options */
-		});
+		const toaster = createToaster({});
 		const route = useRoute();
 
 		const sharing = ref({
@@ -890,6 +892,25 @@ export default {
 				linkedin: '',
 			},
 		});
+
+		// Get Data
+		axios
+			.get(
+				window.location.origin +
+					'/frontpage-api/circular-details/' +
+					route.params.id
+			)
+			.then((response) => {
+				jobheading.value = response.data.jobheading;
+				jobdescription.value = response.data.jobdescription;
+				jobInfo.value = response.data.jobInfo;
+				companyInfo.value = response.data.companyInfo;
+				companyInfo.value.social = response.data.companyInfo.social;
+				document.title = response.data.jobheading.jobtitle
+			})
+			.catch(() => {
+				this.$router.push({ name: 'not-found' });
+			});
 
 		const isDistrict = ref(true);
 		const isSubdistrict = ref(true);
@@ -945,6 +966,10 @@ export default {
 		};
 
 		const submitResume = () => {
+			if(jobheading.value.time === 'Expired'){
+				toaster.error('Apply period is over.');
+				return;
+			}
 			let formData = new FormData();
 			formData.append('new[name]', name.value);
 			formData.append('new[age]', age.value);
@@ -1119,25 +1144,6 @@ export default {
 				xhr.send(formData);
 			}
 		};
-
-		// Get Data
-		axios
-			.get(
-				window.location.origin +
-					'/frontpage-api/circular-details/' +
-					route.params.id
-			)
-			.then((response) => {
-				jobheading.value = response.data.jobheading;
-				jobdescription.value = response.data.jobdescription;
-				jobInfo.value = response.data.jobInfo;
-				companyInfo.value = response.data.companyInfo;
-				companyInfo.value.social = response.data.companyInfo.social;
-				document.title = response.data.jobheading.jobtitle
-			})
-			.catch(() => {
-				this.$router.push({ name: 'not-found' });
-			});
 
 		return {
 			isActiveModal,

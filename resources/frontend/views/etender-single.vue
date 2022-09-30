@@ -602,6 +602,12 @@ export default {
 		};
 
 		const submit = () => {
+			if (bdTime.value > lastDate.value) {
+				toaster.error(
+					'Apply period is over.'
+				);
+				return;
+			}
 			const addClass = (selector) => {
 				document
 					.getElementById(selector)
@@ -624,7 +630,6 @@ export default {
 			formData.append('new[country]', country.value);
 			formData.append('new[currency]', currency.value);
 			formData.append('new[address]', address.value);
-			// formData.append('new[companyProfile]', companyProfile.value);
 			formData.append('new[tender_id]', route.params.id);
 			formData.append('_token', tender.value._token);
 
@@ -697,12 +702,6 @@ export default {
 					removeClass('companyProfile');
 				}
 			} else {
-				if (bdTime.value > lastDate.value) {
-					toaster.error(
-						'The tender is expired please try another one.'
-					);
-					return;
-				}
 				let xhr = new XMLHttpRequest();
 				xhr.open(
 					'POST',
