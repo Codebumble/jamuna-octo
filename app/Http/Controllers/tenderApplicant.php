@@ -143,6 +143,8 @@ class tenderApplicant extends Controller
 
 		$new['created_at'] = time();
 		$new['updated_at'] = time();
+		$new['corrigendum'] = "[]";
+		$new['package_details'] = "[]";
 
 		$data = DB::table('codebumble_tender_list')->insert($new);
 
