@@ -67,6 +67,10 @@ Route::get('/media-center/{id}/{name}', [
 	'home',
 ])->name('media-center');
 
+Route::get('/login', function () {
+    return redirect()->route('auth-login');
+});
+
 /* Route Dashboards */
 Route::group(['prefix' => 'dashboard'], function () {
 	Route::get('analytics', [
