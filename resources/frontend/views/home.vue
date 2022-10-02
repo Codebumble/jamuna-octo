@@ -1,131 +1,164 @@
 <template>
 	<Suspense>
-		<template #default>
-			<home-slider />
-		</template>
+		<home />
 		<template #fallback>
-			<homeSliderSkeleton />
+			<div class="loader-wrapper">
+				<div class="loader"></div>
+				<div class="loader-section section-left"></div>
+				<div class="loader-section section-right"></div>
+			</div>
 		</template>
 	</Suspense>
-	<Suspense>
-		<template #default>
-			<concerns-logo />
-		</template>
-		<template #fallback>
-			<concernsLogoSkeleton />
-		</template>
-	</Suspense>
-	<Suspense>
-		<template #default>
-			<missionVision />
-		</template>
-		<template #fallback>
-			<missionVisionSkeleton />
-		</template>
-	</Suspense>
-	<indSlide />
-	<futureExpansion />
-	<about />
-	<founder />
-	<growing-up-slider />
-	<products />
-	<events />
-	<contact />
 </template>
 
 <script>
 	import { defineAsyncComponent } from 'vue';
 
-	const homeSlider = defineAsyncComponent({
-		loader: () => import('../components/sliders/home-slider'),
+	const home = defineAsyncComponent({
+		loader: () => import('./homecomps'),
 		timeout: 2000,
 	});
-	const concernsLogo = defineAsyncComponent({
-		loader: () => import('../components/home/concerns-logo'),
-		timeout: 2000,
-	});
-	const missionVision = defineAsyncComponent({
-		loader: () => import('../components/home/mission-vision'),
-		timeout: 2000,
-	});
-
-	import aboutFounder from '../components/home/about-founder';
-	import futureExpansion from '../components/home/future-expansion';
-	import products from '../components/home/products';
-	import events from '../components/home/events-slider';
-	import about from '../components/home/about';
-	import indSlide from '../components/home/ind-slider';
-	import contact from '../components/home/contact.vue';
-	import founder from '../components/home/founder.vue';
-	import growingUpSlider from '../components/home/growing-up-slider.vue';
-
-	// Skeleton
-	import concernsLogoSkeleton from '../components/skeleton/concerns-logo-skeleton.vue';
-	import homeSliderSkeleton from '../components/skeleton/home-slider-skeleton.vue';
-	import missionVisionSkeleton from '../components/skeleton/mission-vision-skeleton.vue';
 
 	export default {
 		components: {
-			homeSlider,
-			concernsLogo,
-			aboutFounder,
-			missionVision,
-			futureExpansion,
-			products,
-			events,
-			about,
-			indSlide,
-			contact,
-			founder,
-			growingUpSlider,
-			// Skeleton
-			concernsLogoSkeleton,
-			homeSliderSkeleton,
-			missionVisionSkeleton,
-		},
-
-		data() {
-			return {
-				FounderDetails: {
-					title: '',
-				},
-				meta: {
-					title: '',
-					description: '',
-					image: '',
-				},
-			};
-		},
-
-		metaInfo() {
-			return {
-				title: 'Home | Jamuna Group',
-				description: this.meta.description,
-
-				og: {
-					title: this.meta.title,
-					description: this.meta.description,
-					image: this.meta.image,
-				},
-				twitter: {
-					title: this.meta.title,
-					description: this.meta.description,
-					image: this.meta.image,
-				},
-			};
-		},
-
-		mounted() {
-			axios
-				.get(window.location.origin + '/founder-api/founder-speech')
-				.then((response) => {
-					this.FounderDetails = response.data.FounderDetails;
-				});
-			axios
-				.get(window.location.origin + '/frontpage-api/meta-data')
-				.then((response) => {
-					this.meta = response.data;
-				});
+			home,
 		},
 	};
 </script>
+
+<style lang="css">
+	/* General Styling */
+	@media (max-width: 567px) {
+		h1 {
+			font-size: 7vw;
+			text-align: center;
+		}
+	}
+
+	/* Loader Styles start here */
+	.loader-wrapper {
+		--line-width: 5px;
+		--curtain-color: #f1faee;
+		--outer-line-color: rgb(248 113 113);
+		--middle-line-color: rgb(225 29 72);
+		--inner-line-color: rgb(220 38 38);
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1000;
+	}
+
+	.loader {
+		display: block;
+		position: relative;
+		top: 50%;
+		left: 50%;
+		/*   transform: translate(-50%, -50%); */
+		width: 150px;
+		height: 150px;
+		margin: -75px 0 0 -75px;
+		border: var(--line-width) solid transparent;
+		border-top-color: var(--outer-line-color);
+		border-radius: 100%;
+		-webkit-animation: spin 2s linear infinite;
+		animation: spin 2s linear infinite;
+		z-index: 1001;
+	}
+
+	.loader:before {
+		content: '';
+		position: absolute;
+		top: 4px;
+		left: 4px;
+		right: 4px;
+		bottom: 4px;
+		border: var(--line-width) solid transparent;
+		border-top-color: var(--inner-line-color);
+		border-radius: 100%;
+		-webkit-animation: spin 3s linear infinite;
+		animation: spin 3s linear infinite;
+	}
+
+	.loader:after {
+		content: '';
+		position: absolute;
+		top: 14px;
+		left: 14px;
+		right: 14px;
+		bottom: 14px;
+		border: var(--line-width) solid transparent;
+		border-top-color: var(--middle-line-color);
+		border-radius: 100%;
+		-webkit-animation: spin 1.5s linear infinite;
+		animation: spin 1.5s linear infinite;
+	}
+
+	@-webkit-keyframes spin {
+		0% {
+			-webkit-transform: rotate(0deg);
+			-ms-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+
+		100% {
+			-webkit-transform: rotate(360deg);
+			-ms-transform: rotate(360deg);
+			transform: rotate(360deg);
+		}
+	}
+
+	@keyframes spin {
+		0% {
+			-webkit-transform: rotate(0deg);
+			-ms-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+
+		100% {
+			-webkit-transform: rotate(360deg);
+			-ms-transform: rotate(360deg);
+			transform: rotate(360deg);
+		}
+	}
+
+	.loader-wrapper .loader-section {
+		position: fixed;
+		top: 0;
+		background: var(--curtain-color);
+		width: 51%;
+		height: 100%;
+		z-index: 1000;
+	}
+
+	.loader-wrapper .loader-section.section-left {
+		left: 0;
+	}
+
+	.loader-wrapper .loader-section.section-right {
+		right: 0;
+	}
+
+	/* Loaded Styles */
+	.loaded .loader-wrapper .loader-section.section-left {
+		transform: translateX(-100%);
+		transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+
+	.loaded .loader-wrapper .loader-section.section-right {
+		transform: translateX(100%);
+		transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+
+	.loaded .loader {
+		opacity: 0;
+		transition: all 0.3s ease-out;
+	}
+
+	.loaded .loader-wrapper {
+		visibility: hidden;
+		transform: translateY(-100%);
+		transition: all 0.3s 1s ease-out;
+	}
+</style>

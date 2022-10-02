@@ -29,7 +29,9 @@
 							border border-red-600
 							inline-block
 						"
-						@click="toggleModal">
+						:class="bdTime > lastDate ? 'opacity-50' : ''"
+						@click="toggleModal"
+						:disabled="bdTime > lastDate ? true : false">
 						Apply Now
 					</button>
 					<Modal :isActiveModal="isActiveModal" @close="toggleModal">
@@ -338,6 +340,12 @@
 										h-12
 										items-center
 										font-bold
+									"
+									:class="
+										bdTime > lastDate ? 'opacity-50' : ''
+									"
+									:disabled="
+										bdTime > lastDate ? true : false
 									">
 									Send
 								</button>
@@ -345,7 +353,9 @@
 						</div>
 					</Modal>
 					<div class="pt-4">
-						<span class="time">{{bdTime > new Date(tender.last_date).getTime()  ? 'Expired': "Active"}}</span>
+						<span class="time">{{
+							bdTime > lastDate ? 'Expired' : 'Active'
+						}}</span>
 					</div>
 					<div class="share">
 						<ShareNetwork
@@ -386,7 +396,7 @@
 										:key="corr"
 										class="my-1">
 										<a
-											:href="corr.src"
+											:href="`/documents/tender-documents/${corr.src}`"
 											class="
 												underline
 												decoration-dotted
@@ -466,7 +476,7 @@
 					<ul class="list-disc list-inside text-gray-600">
 						<li v-for="item in tender.package_details" :key="item">
 							<a
-								:href="item.src"
+								:href="`/documents/tender-documents/${item.src}`"
 								class="
 									underline
 									decoration-dotted
@@ -553,11 +563,16 @@ export default {
 		const companyProfile = ref();
 
 		// Get BD Date
-		const bdTime = ref('')
+		const bdTime = ref('');
+		const lastDate = ref('');
 		axios
-			.get('https://timezoneapi.io/api/timezone/?Asia/Dhaka&token=aUkFXecKNzRhIrDjxmxa')
+			.get(
+				'https://timezoneapi.io/api/timezone/?Asia/Dhaka&token=aUkFXecKNzRhIrDjxmxa'
+			)
 			.then((response) => {
-				bdTime.value = new Date(response.data.data.datetime.date).getTime()
+				bdTime.value = new Date(
+					response.data.data.datetime.date
+				).getTime();
 			});
 
 		// Get Data
@@ -573,7 +588,8 @@ export default {
 					package_details: JSON.parse(response.data.package_details),
 					corrigendum: JSON.parse(response.data.corrigendum),
 				};
-			})
+				lastDate.value = new Date(response.data.last_date).getTime();
+			});
 
 		const previewFiles = (e) => {
 			companyProfile.value = e.target.files[0];
@@ -586,6 +602,12 @@ export default {
 		};
 
 		const submit = () => {
+			if (bdTime.value > lastDate.value) {
+				toaster.error(
+					'Apply period is over.'
+				);
+				return;
+			}
 			const addClass = (selector) => {
 				document
 					.getElementById(selector)
@@ -608,7 +630,6 @@ export default {
 			formData.append('new[country]', country.value);
 			formData.append('new[currency]', currency.value);
 			formData.append('new[address]', address.value);
-			// formData.append('new[companyProfile]', companyProfile.value);
 			formData.append('new[tender_id]', route.params.id);
 			formData.append('_token', tender.value._token);
 
@@ -724,6 +745,7 @@ export default {
 
 		return {
 			bdTime,
+			lastDate,
 			tender,
 			sharing,
 			networks,

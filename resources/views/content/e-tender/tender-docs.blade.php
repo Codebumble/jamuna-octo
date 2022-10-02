@@ -44,7 +44,8 @@
 
 
 
-                    <form action="{{route('tender_add_document')}}" class="invoice-repeater" enctype="multipart/form-data" method="POST">
+                    <form action="{{ route('tender_add_document') }}" class="invoice-repeater"
+                        enctype="multipart/form-data" method="POST">
                         @csrf
                         <div data-repeater-list="new">
 
@@ -74,11 +75,9 @@
                                         <div class="mb-1">
                                             <label class="form-label" for="tender_list">For Tender</label>
                                             <select name="tender_list" class="form-select">
-                                            @foreach ($companies as $company)
-
-                                                <option value="{{$company->id}}">{{$company->title}}</option>
-
-                                            @endforeach
+                                                @foreach ($companies as $company)
+                                                    <option value="{{ $company->id }}">{{ $company->title }}</option>
+                                                @endforeach
 
                                             </select>
                                         </div>
@@ -88,18 +87,19 @@
                                         <div class="mb-1">
                                             <label class="form-label" for="heading">Documents Type</label>
                                             <div class="demo-inline-spacing">
-                                                <div class="form-check form-check-inline">
-                                                    <input id="attachment" class="form-check-input" type="radio"
+                                                <div class="form-check form-check-inline" x-data="{ attachment: $id('attachment') }">
+                                                    <input :id="attachment" class="form-check-input" type="radio"
                                                         name="att-loc" value="attachment" checked />
-                                                    <label class="form-check-label" for="attachment">Attachment</label>
+                                                    <label class="form-check-label"
+                                                        :for="attachment">Attachment</label>
                                                 </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input id="corrigendum" class="form-check-input" type="radio"
+                                                <div class="form-check form-check-inline" x-data="{ corrigendum: $id('corrigendum') }">
+                                                    <input :id="corrigendum" class="form-check-input" type="radio"
                                                         name="att-loc" value="corrigendum" />
-                                                    <label class="form-check-label" for="corrigendum">Corrigendum</label>
+                                                    <label class="form-check-label"
+                                                        :for="corrigendum">Corrigendum</label>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
 
@@ -159,6 +159,7 @@
     <!-- Page js files -->
     <script src="{{ asset(mix('js/scripts/forms/form-validation-company-page.js')) }}"></script>
     <script src="{{ asset(mix('js/scripts/forms/form-repeater-front-page.js')) }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script>
         var deleted = function(event) {
 
@@ -175,6 +176,6 @@
         };
     </script>
 
-    
+
 
 @endsection
