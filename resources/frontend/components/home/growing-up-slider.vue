@@ -38,9 +38,8 @@
 									class="
 										text-3xl text-white
 										w-fit
-										mx-auto
 										uppercase
-										p-20
+										text
 										font-bold
 									">
 									{{ item.heading }}
@@ -55,6 +54,12 @@
 </template>
 
 <style lang="scss">
+.text {
+	@apply mt-40 ml-auto mr-28;
+	margin-top: 10rem;
+	margin-left: auto;
+	margin-right: 7rem;
+}
 .company-name::before {
 	content: '';
 	@apply w-full h-full absolute -z-[1];
@@ -62,10 +67,10 @@
 	background: linear-gradient(
 		90deg,
 		rgba(110, 107, 107, 0.13489145658263302) 9%,
-		rgba(87, 85, 85, 0.32816876750700286) 28%,
-		rgba(66, 65, 65, 0.5494572829131652) 45%,
-		rgba(31, 31, 31, 0.639093137254902) 74%,
-		rgba(0, 0, 0, 0.742734593837535) 100%
+		rgba(87, 85, 85, 0.3) 28%,
+		rgba(66, 65, 65, 0.38) 45%,
+		rgba(31, 31, 31, 0.45) 74%,
+		rgba(0, 0, 0, 0.5) 100%
 	);
 }
 .growing-slider {
@@ -161,7 +166,7 @@ export default {
 
 	setup() {
 		const options = {
-			autoplay: false,
+			autoplay: true,
 			perMove: 1,
 			rewind: true,
 			perPage: 1,
