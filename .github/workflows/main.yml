@@ -60,7 +60,7 @@ jobs:
                   username: ${{ SECRETS.CP_USERNAME }}
                   password: ${{ SECRETS.CP_PASSWORD }}
                   source: ${{github.sha}}.tar.gz
-                  target: u920477801/domains/codebumble.net/public_html/jamuna
+                  target: domains/codebumble.net/public_html/jamuna
 
             - name: Extract archive and create directory
               uses: appleboy/ssh-action@master
@@ -73,7 +73,7 @@ jobs:
                   password: ${{ SECRETS.CP_PASSWORD }}
                   envs: GITHUB_SHA
                   script: |
-                      tar xzf u920477801/domains/codebumble.net/public_html/jamuna/${GITHUB_SHA}.tar.gz -C "u920477801/domains/codebumble.net/public_html/jamuna"
+                      tar xzf domains/codebumble.net/public_html/jamuna/${GITHUB_SHA}.tar.gz -C "domains/codebumble.net/public_html/jamuna"
 
     active-release:
         name: Codebumble Server 1 - Active Release
@@ -84,7 +84,7 @@ jobs:
               uses: appleboy/ssh-action@master
               env:
                   GITHUB_SHA: ${{github.sha}}
-                  BASE_PATH: jamuna.codebumble.net
+                  BASE_PATH: domains/codebumble.net/public_html/jamuna
                   ENV: ${{ SECRETS.ENV_BACK }}
                   ARTISAN_KEYS: ${{SECRETS.ARTISAN_KEYS}}
               with:
@@ -108,7 +108,7 @@ jobs:
             - name: Migration Init
               uses: appleboy/ssh-action@master
               env:
-                  BASE_PATH: u920477801/domains/codebumble.net/public_html/jamuna
+                  BASE_PATH: domains/codebumble.net/public_html/jamuna
                   ARTISAN_MIGRATE: ${{ SECRETS.ARTISAN_MIGRATE }}
               with:
                   envs: BASE_PATH,ARTISAN_MIGRATE
@@ -133,4 +133,4 @@ jobs:
                   port: ${{ SECRETS.CP_PORT }}
                   password: ${{ SECRETS.CP_PASSWORD }}
                   script: |
-                      rm -rf u920477801/domains/codebumble.net/public_html/jamuna/${{github.sha}}.tar.gz
+                      rm -rf domains/codebumble.net/public_html/jamuna/${{github.sha}}.tar.gz
