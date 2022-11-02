@@ -470,11 +470,25 @@
                                         <div class="col-md-2 col-12 mb-50">
                                         <input type="hidden" name="videopreview[{{ $counter }}][src]" value="{{$video->src}}"/>
 
+                                        @php
+                                            $src = $video->src;
+                                            $extension = pathinfo($src, PATHINFO_EXTENSION);
+                                            if($extension == 'mp4' || $extension == 'webm' || $extension == 'ogg' || $extension == 'mov' || $extension == 'flv' || $extension == 'avi' || $extension == 'wmv' || $extension == '3gp' || $extension == 'mkv' || $extension == 'mpeg' || $extension == 'mpg' || $extension == 'm4v' || $extension == 'f4v' || $extension == 'f4p' || $extension == 'f4a' || $extension == 'f4b'){
+                                                $image = false;
+                                            } else {
+                                                $image = true;
+                                            }
+                                        @endphp
+                                        @if($image)
+                                        <img id="imagePreview_1" style="border-radius:6px;"
+                                        src="{{ $video->src }}" width="120" height="70">
+                                        @else
                                             <button class="btn btn-icon btn-success m-1" type="button"
                                             onclick="play('{{$video->src}}')">
                                                 <i data-feather="check" class="me-25"></i>
                                                 <span>Play Now</span>
                                             </button>
+                                        @endif
                                         </div>
 
                                             <div class="col-md-2 col-12 mb-50">
