@@ -722,7 +722,7 @@ class siteGeneral extends Controller
 		check_power('admin');
 		$new = $request->new;
 
-			// $new = json_decode($new);
+			
 
 		$data_1 = DB::table('codebumble_front_page')
 			->where('code_name', 'sliders_data_top')
