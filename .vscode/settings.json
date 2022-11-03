@@ -99,7 +99,8 @@
 	},
 	"intelephense.diagnostics.undefinedTypes": false,
 	"intelephense.diagnostics.undefinedVariables": false,
-	"intelephense.diagnostics.typeErrors": false
+	"intelephense.diagnostics.typeErrors": false,
+	"cSpell.words": ["Splide"]
 
 	// "[vue]": {
 	// 	"editor.defaultFormatter": "esbenp.prettier-vscode"
