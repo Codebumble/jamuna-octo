@@ -36,7 +36,9 @@
 								">
 								<h3
 									class="
-										text-3xl text-white
+										text-lg
+										md:text-3xl
+										text-white
 										w-fit
 										uppercase
 										text
@@ -55,10 +57,7 @@
 
 <style lang="scss">
 .text {
-	@apply mt-40 ml-auto mr-28;
-	margin-top: 10rem;
-	margin-left: auto;
-	margin-right: 7rem;
+	@apply mt-20 md:mt-40 ml-3 md:ml-auto mr-4 lg:mr-20 md:mr-12;
 }
 .company-name::before {
 	content: '';
@@ -166,7 +165,7 @@ export default {
 
 	setup() {
 		const options = {
-			autoplay: true,
+			autoplay: false,
 			perMove: 1,
 			rewind: true,
 			perPage: 1,
