@@ -165,7 +165,7 @@ export default {
 
 	setup() {
 		const options = {
-			autoplay: false,
+			autoplay: true,
 			perMove: 1,
 			rewind: true,
 			perPage: 1,
