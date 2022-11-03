@@ -50,23 +50,23 @@ jobs:
             - name: Upload
               uses: appleboy/scp-action@master
               with:
-                  host: ${{ SECRETS.CP_HOST }}
-                  username: ${{ SECRETS.CP_USERNAME }}
-                  password: ${{ SECRETS.CP_PASSWORD }}
+                  host: ${{ SECRETS.CPJ_HOST }}
+                  username: ${{ SECRETS.CPJ_USERNAME }}
+                  password: ${{ SECRETS.CPJ_PASSWORD }}
                   source: ${{github.sha}}.tar.gz
-                  target: jamuna.codebumble.net
+                  target: beta.jamunagroup.com.bd
 
             - name: Extract archive and create directory
               uses: appleboy/ssh-action@master
               env:
                   GITHUB_SHA: ${{ github.sha }}
               with:
-                  host: ${{ SECRETS.CP_HOST }}
-                  username: ${{ SECRETS.CP_USERNAME }}
-                  password: ${{ SECRETS.CP_PASSWORD }}
+                  host: ${{ SECRETS.CPJ_HOST }}
+                  username: ${{ SECRETS.CPJ_USERNAME }}
+                  password: ${{ SECRETS.CPJ_PASSWORD }}
                   envs: GITHUB_SHA
                   script: |
-                      tar xzf jamuna.codebumble.net/${GITHUB_SHA}.tar.gz -C "jamuna.codebumble.net"
+                      tar xzf beta.jamunagroup.com.bd/${GITHUB_SHA}.tar.gz -C "beta.jamunagroup.com.bd"
 
     active-release:
         name: Codebumble Server 1 - Active Release
@@ -77,13 +77,13 @@ jobs:
               uses: appleboy/ssh-action@master
               env:
                   GITHUB_SHA: ${{github.sha}}
-                  BASE_PATH: jamuna.codebumble.net
+                  BASE_PATH: beta.jamunagroup.com.bd
                   ENV: ${{ SECRETS.ENV_BACK }}
                   ARTISAN_KEYS: ${{SECRETS.ARTISAN_KEYS}}
               with:
-                  host: ${{ SECRETS.CP_HOST }}
-                  username: ${{ SECRETS.CP_USERNAME }}
-                  password: ${{ SECRETS.CP_PASSWORD }}
+                  host: ${{ SECRETS.CPJ_HOST }}
+                  username: ${{ SECRETS.CPJ_USERNAME }}
+                  password: ${{ SECRETS.CPJ_PASSWORD }}
                   envs: GITHUB_SHA,BASE_PATH,ENV,ARTISAN_KEYS
                   script: |
                       echo ${GITHUB_SHA}
@@ -104,13 +104,13 @@ jobs:
             - name: Migration Init
               uses: appleboy/ssh-action@master
               env:
-                  BASE_PATH: jamuna.codebumble.net
+                  BASE_PATH: beta.jamunagroup.com.bd
                   ARTISAN_MIGRATE: ${{ SECRETS.ARTISAN_MIGRATE }}
               with:
                   envs: BASE_PATH,ARTISAN_MIGRATE
-                  host: ${{ SECRETS.CP_HOST }}
-                  username: ${{ SECRETS.CP_USERNAME }}
-                  password: ${{ SECRETS.CP_PASSWORD }}
+                  host: ${{ SECRETS.CPJ_HOST }}
+                  username: ${{ SECRETS.CPJ_USERNAME }}
+                  password: ${{ SECRETS.CPJ_PASSWORD }}
                   script: |
                       cd ${BASE_PATH} && ${ARTISAN_MIGRATE}
 
@@ -128,8 +128,8 @@ jobs:
             - name: Clean up server junk
               uses: appleboy/ssh-action@master
               with:
-                  host: ${{ SECRETS.CP_HOST }}
-                  username: ${{ SECRETS.CP_USERNAME }}
-                  password: ${{ SECRETS.CP_PASSWORD }}
+                  host: ${{ SECRETS.CPJ_HOST }}
+                  username: ${{ SECRETS.CPJ_USERNAME }}
+                  password: ${{ SECRETS.CPJ_PASSWORD }}
                   script: |
-                      rm -rf jamuna.codebumble.net/${{github.sha}}.tar.gz
+                      rm -rf beta.jamunagroup.com.bd/${{github.sha}}.tar.gz
