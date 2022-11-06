@@ -6,6 +6,13 @@
     {{-- Vendor Css files --}}
     <link rel="stylesheet" href="{{ asset(mix('vendors/css/forms/select/select2.min.css')) }}">
     <link rel="stylesheet" href="{{ asset(mix('vendors/css/pickers/flatpickr/flatpickr.min.css')) }}">
+
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/editors/quill/katex.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/editors/quill/monokai-sublime.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/editors/quill/quill.snow.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/editors/quill/quill.bubble.css')) }}">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Roboto+Slab&family=Slabo+27px&family=Sofia&family=Ubuntu+Mono&display=swap" rel="stylesheet">
 @endsection
 
 @section('page-style')
@@ -37,7 +44,7 @@
 
                     <form class="needs-validation" novalidate
                         action="{{ route('edit-company-api', ['id' => $company->id]) }}" enctype="multipart/form-data"
-                        method="POST">
+                        method="POST" id="edit-company">
                         @csrf
                         <div class="row">
                             <div class="col-12 col-md-6 mb-1">
@@ -127,11 +134,22 @@
                                 <input id="dfile" class="form-control" type="file" name="dfile" />
                             </div>
 
-
                             <div class="mb-1">
-                                <label class="d-block form-label" for="validationBioBootstrap">About this Business</label>
-                                <textarea id="validationBioBootstrap" class="form-control" name="description" rows="3">{{ $company->description }}</textarea>
-                            </div>
+                                <div class="col-sm-12">
+                                <label class="form-label" for="description">About this Business</label>
+
+
+                                            <div class="editor" id="ql-editor" spellcheck="false">
+
+                                                {!! $company->description !!}
+
+                                            </div>
+
+
+
+                                    </div>
+                                </div>
+
 
                             <div class="divider-primary divider">
                                 <div class="divider-text">Additional Information</div>
@@ -176,6 +194,8 @@
                                     value="{{ json_decode($company->json_data)->linkedin }}"
                                     placeholder="linkedin.com/company/codebumble" />
                             </div>
+
+
 
 
                             <div class="col-12 col-md-6 mb-1">
@@ -299,6 +319,9 @@
     <script src="{{ asset(mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
     <script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
     <script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
+    <script src="{{ asset(mix('vendors/js/editors/quill/katex.min.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/editors/quill/highlight.min.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/editors/quill/quill.min.js')) }}"></script>
     <script src="{{ asset(mix('js/app.js')) }}"></script>
 @endsection
 @section('page-script')
@@ -325,5 +348,96 @@
                 ct_desc.classList.add("d-none");
             }
         })
+    </script>
+    <script>
+        var Font = Quill.import('formats/font');
+        Font.whitelist = ['sofia', 'slabo', 'roboto', 'inconsolata', 'ubuntu'];
+        Quill.register(Font, true);
+
+
+
+
+
+	var fullEditor = new Quill('#ql-editor', {
+	  bounds: '#ql-editor',
+	  modules: {
+		formula: true,
+		syntax: true,
+		toolbar: [
+		  [
+			{
+			  font: []
+			},
+			{
+			  size: []
+			}
+		  ],
+		  ['bold', 'italic', 'underline', 'strike'],
+		  [
+			{
+			  color: []
+			},
+			{
+			  background: []
+			}
+		  ],
+		  [
+			{
+			  script: 'super'
+			},
+			{
+			  script: 'sub'
+			}
+		  ],
+		  [
+			{
+			  header: '1'
+			},
+			{
+			  header: '2'
+			},
+			'blockquote',
+			'code-block'
+		  ],
+		  [
+			{
+			  list: 'ordered'
+			},
+			{
+			  list: 'bullet'
+			},
+			{
+			  indent: '-1'
+			},
+			{
+			  indent: '+1'
+			}
+		  ],
+		  [
+			'direction',
+			{
+			  align: []
+			}
+		  ],
+		  ['link', 'image', 'video', 'formula'],
+		  ['clean']
+		]
+	  },
+	  theme: 'snow'
+	});
+
+	$("#edit-company").on("submit", function (e) {
+        e.preventDefault();
+		var hvalue = $('#ql-editor').html();
+		$(this).append("<textarea name='description' style='display:none' spellcheck='false'>"+fullEditor.root.innerHTML.trim()+"</textarea>");
+        document.getElementById("edit-company").submit();
+	   });
+
+
+
+
+
+
+
     </script>
 @endsection

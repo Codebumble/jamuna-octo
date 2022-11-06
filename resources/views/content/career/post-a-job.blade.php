@@ -179,7 +179,6 @@
 
 
 
-
 						<div class="divider-primary divider">
             				<div class="divider-text">Additional Information</div>
           				</div>

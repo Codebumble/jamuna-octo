@@ -38,6 +38,10 @@
 	@import '../../assets/scss/variables/company-profile';
 </style>
 
+<style>
+
+</style>
+
 <script>
 	export default {
 		data() {
