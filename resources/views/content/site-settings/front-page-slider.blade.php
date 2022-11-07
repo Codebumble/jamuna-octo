@@ -94,7 +94,7 @@
                             <div data-repeater-item>
                                 <div class="row d-flex align-items-end">
 
-                                    <div class="col-md-4 col-12 mb-50">
+                                    <div class="col-md-3 col-12 mb-5">
                                         <div class="mb-1">
                                             <label class="form-label" for="src">Image</label>
                                             <input id="src" type="file" name="src" class="form-control"
@@ -104,7 +104,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4 col-12 mb-50">
+                                    <div class="col-md-3 col-12 mb-5">
                                         <div class="mb-1">
                                             <label class="form-label" for="heading">Name/Year</label>
                                             <input id="heading" type="text" class="form-control" name="heading"
@@ -112,7 +112,28 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4 col-12 mb-50">
+                                    <div class="col-md-3 col-12 mb-5">
+                                        <div class="mb-1">
+                                            <label class="form-label" for="heading">Text Size</label>
+                                            <select name="text_size" class="form-select">
+                                                <option value="text-xs">12px</option>
+                                                <option value="text-sm">14px</option>
+                                                <option value="text-base">16px</option>
+                                                <option value="text-lg">18px</option>
+                                                <option value="text-xl">20px</option>
+                                                <option value="text-2xl">24px</option>
+                                                <option value="text-3xl">30px</option>
+                                                <option value="text-4xl">36px</option>
+                                                <option value="text-5xl">48px</option>
+                                                <option value="text-6xl">60px</option>
+                                                <option value="text-7xl">72px</option>
+                                                <option value="text-8xl">96px</option>
+                                                <option value="text-9xl">120px</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 col-12 mb-5">
                                         <div class="mb-1">
                                             <label class="form-label" for="desc">Short Description</label>
                                             <input id="heading" type="text" class="form-control" name="desc"
@@ -120,7 +141,33 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4 col-12 mb-50">
+                                    <div class="col-md-4 col-12 mb-5">
+                                        <label class="form-label" for="textStyle">Text Style:    </label>
+
+                                            <div class="form-check form-check-primary mb-2 mt-2 form-check-inline">
+                                              <input type="checkbox" class="form-check-input" id="colorCheck1" name="textStyle[]" value="bold">
+                                              <label class="form-check-label" for="colorCheck1"><b>Bold</b></label>
+                                            </div>
+                                            <div class="form-check form-check-secondary mb-2 mt-2 form-check-inline">
+                                              <input type="checkbox" class="form-check-input" id="colorCheck2" name="textStyle[]" value="italic">
+                                              <label class="form-check-label" for="colorCheck2"><i>Italic</i></label>
+                                            </div>
+                                            <div class="form-check form-check-success mb-2 mt-2 form-check-inline">
+                                              <input type="checkbox" class="form-check-input" id="colorCheck3" name="textStyle[]" value="underline">
+                                              <label class="form-check-label" for="colorCheck3"><u>Underline</u></label>
+                                            </div>
+
+                                    </div>
+
+                                    <div class="col-md-3 col-12 mb-5">
+                                        <div class="mb-1">
+                                            <label class="form-label" for="textColour">Text Colour</label>
+                                            <input id="heading" type="text" class="form-control" name="textColor"
+                                                value="" aria-describedby="desc" placeholder="#0ash763" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 col-12 mb-5">
                                         <div class="mb-1">
                                             <label class="form-label" for="heading">Choice Slider</label>
                                             <select name="slider_option" class="form-select">
@@ -130,9 +177,9 @@
                                         </div>
                                     </div>
 
-                                    
 
-                                    <div class="col-md-2 col-12 mb-50">
+
+                                    <div class="col-md-2 col-12 mb-5">
                                         <div class="mb-1">
                                             <button class="btn btn-outline-danger text-nowrap px-1" data-repeater-delete
                                                 type="button">
@@ -202,7 +249,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-4 col-12 mb-50">
+                                            <div class="col-md-2 col-12 mb-2">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="itemcost">Header</label>
                                                     <input id="itemcost" type="text" class="form-control"
@@ -212,7 +259,28 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-4 col-12 mb-50">
+                                            <div class="col-md-3 col-12 mb-2">
+                                                <div class="mb-1">
+                                                    <label class="form-label" for="heading">Text Size</label>
+                                                    <select name="preview[{{ $counter }}][text_size]" class="form-select">
+                                                        <option value="text-xs" @php if(isset($img->text_size) &&$img->text_size == "text-xs") {echo "selected";}@endphp >12px</option>
+                                                        <option value="text-sm" @php if(isset($img->text_size) &&$img->text_size == "text-sm") {echo "selected";}@endphp>14px</option>
+                                                        <option value="text-base" @php if(isset($img->text_size) &&$img->text_size == "text-base") {echo "selected";}@endphp>16px</option>
+                                                        <option value="text-lg" @php if(isset($img->text_size) &&$img->text_size == "text-lg") {echo "selected";}@endphp>18px</option>
+                                                        <option value="text-xl" @php if(isset($img->text_size) &&$img->text_size == "text-xl") {echo "selected";}@endphp>20px</option>
+                                                        <option value="text-2xl" @php if(isset($img->text_size) &&$img->text_size == "text-2xl") {echo "selected";}@endphp>24px</option>
+                                                        <option value="text-3xl" @php if(isset($img->text_size) &&$img->text_size == "text-3xl") {echo "selected";}@endphp>30px</option>
+                                                        <option value="text-4xl" @php if(isset($img->text_size) &&$img->text_size == "text-4xl") {echo "selected";}@endphp>36px</option>
+                                                        <option value="text-5xl" @php if(isset($img->text_size) &&$img->text_size == "text-5xl") {echo "selected";}@endphp>48px</option>
+                                                        <option value="text-6xl" @php if(isset($img->text_size) &&$img->text_size == "text-6xl") {echo "selected";}@endphp>60px</option>
+                                                        <option value="text-7xl" @php if(isset($img->text_size) &&$img->text_size == "text-7xl") {echo "selected";}@endphp>72px</option>
+                                                        <option value="text-8xl" @php if(isset($img->text_size) &&$img->text_size == "text-8xl") {echo "selected";}@endphp>96px</option>
+                                                        <option value="text-9xl" @php if(isset($img->text_size) &&$img->text_size == "text-9xl") {echo "selected";}@endphp>120px</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 col-12 mb-2">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="itemcost">Description</label>
                                                     <input id="itemcost" type="text" class="form-control"
@@ -225,13 +293,40 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-2 col-12 mb-50">
+                                            <div class="col-md-2 col-12 mb-5">
                                                 <div class="mb-1">
                                                     <button class="btn btn-outline-danger text-nowrap px-1" type="button"
                                                         data-repeater-delete onclick="deleted('{{ $counter }}');">
                                                         <i data-feather="x" class="me-25"></i>
                                                         <span>Delete</span>
                                                     </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 col-12 mb-5">
+                                                <label class="form-label" for="textStyle">Text Style:    </label>
+
+                                                    <div class="form-check form-check-primary mb-2 mt-2 form-check-inline">
+                                                      <input type="checkbox" class="form-check-input" id="colorCheck1" name="preview[{{ $counter }}][textStyle][]" value="bold" @php if(isset($img->textStyle) && in_array("bold", $img->textStyle)) {echo "checked";} @endphp>
+                                                      <label class="form-check-label" for="colorCheck1"><b>Bold</b></label>
+                                                    </div>
+                                                    <div class="form-check form-check-secondary mb-2 mt-2 form-check-inline">
+                                                      <input type="checkbox" class="form-check-input" id="colorCheck2" name="preview[{{ $counter }}][textStyle][]" value="italic" @php if(isset($img->textStyle) && in_array("italic", $img->textStyle)) {echo "checked";} @endphp>
+                                                      <label class="form-check-label" for="colorCheck2"><i>Italic</i></label>
+                                                    </div>
+                                                    <div class="form-check form-check-success mb-2 mt-2 form-check-inline">
+                                                      <input type="checkbox" class="form-check-input" id="colorCheck3" name="preview[{{ $counter }}][textStyle][]" value="underline" @php if(isset($img->textStyle) && in_array("underline", $img->textStyle)) {echo "checked";} @endphp>
+                                                      <label class="form-check-label" for="colorCheck3"><u>Underline</u></label>
+                                                    </div>
+
+                                            </div>
+
+                                            <div class="col-md-5 col-12 mb-5">
+                                                <div class="mb-1">
+                                                    <label class="form-label" for="textColour">Text Colour</label>
+                                                    <input id="heading" type="text" class="form-control" name="preview[{{ $counter }}][textColor]"
+                                                    @php if(isset($img->textColor)) {echo "value=\"".$img->textColor."\"";} @endphp
+                                                        aria-describedby="desc" placeholder="#0ash763" />
                                                 </div>
                                             </div>
 
@@ -299,7 +394,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-4 col-12 mb-50">
+                                            <div class="col-md-3 col-12 mb-2">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="itemcost">Year</label>
                                                     <input id="itemcost" type="text" class="form-control"
@@ -309,7 +404,28 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-4 col-12 mb-50">
+                                            <div class="col-md-3 col-12 mb-2">
+                                                <div class="mb-1">
+                                                    <label class="form-label" for="heading">Text Size</label>
+                                                    <select name="preview1[{{ $counter }}][text_size]" class="form-select">
+                                                        <option value="text-xs" @php if(isset($img->text_size) &&$img->text_size == "text-xs") {echo "selected";}@endphp >12px</option>
+                                                        <option value="text-sm" @php if(isset($img->text_size) &&$img->text_size == "text-sm") {echo "selected";}@endphp>14px</option>
+                                                        <option value="text-base" @php if(isset($img->text_size) &&$img->text_size == "text-base") {echo "selected";}@endphp>16px</option>
+                                                        <option value="text-lg" @php if(isset($img->text_size) &&$img->text_size == "text-lg") {echo "selected";}@endphp>18px</option>
+                                                        <option value="text-xl" @php if(isset($img->text_size) &&$img->text_size == "text-xl") {echo "selected";}@endphp>20px</option>
+                                                        <option value="text-2xl" @php if(isset($img->text_size) &&$img->text_size == "text-2xl") {echo "selected";}@endphp>24px</option>
+                                                        <option value="text-3xl" @php if(isset($img->text_size) &&$img->text_size == "text-3xl") {echo "selected";}@endphp>30px</option>
+                                                        <option value="text-4xl" @php if(isset($img->text_size) &&$img->text_size == "text-4xl") {echo "selected";}@endphp>36px</option>
+                                                        <option value="text-5xl" @php if(isset($img->text_size) &&$img->text_size == "text-5xl") {echo "selected";}@endphp>48px</option>
+                                                        <option value="text-6xl" @php if(isset($img->text_size) &&$img->text_size == "text-6xl") {echo "selected";}@endphp>60px</option>
+                                                        <option value="text-7xl" @php if(isset($img->text_size) &&$img->text_size == "text-7xl") {echo "selected";}@endphp>72px</option>
+                                                        <option value="text-8xl" @php if(isset($img->text_size) &&$img->text_size == "text-8xl") {echo "selected";}@endphp>96px</option>
+                                                        <option value="text-9xl" @php if(isset($img->text_size) &&$img->text_size == "text-9xl") {echo "selected";}@endphp>120px</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-12 mb-2">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="itemcost">Description</label>
                                                     <input id="itemcost" type="text" class="form-control"
@@ -329,6 +445,33 @@
                                                         <i data-feather="x" class="me-25"></i>
                                                         <span>Delete</span>
                                                     </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-12 mb-5">
+                                                <label class="form-label" for="textStyle">Text Style:    </label>
+
+                                                    <div class="form-check form-check-primary mb-2 mt-2 form-check-inline">
+                                                      <input type="checkbox" class="form-check-input" id="colorCheck1" name="preview1[{{ $counter }}][textStyle][]" value="bold" @php if(isset($img->textStyle) && in_array("bold", $img->textStyle)) {echo "checked";} @endphp>
+                                                      <label class="form-check-label" for="colorCheck1"><b>Bold</b></label>
+                                                    </div>
+                                                    <div class="form-check form-check-secondary mb-2 mt-2 form-check-inline">
+                                                      <input type="checkbox" class="form-check-input" id="colorCheck2" name="preview1[{{ $counter }}][textStyle][]" value="italic" @php if(isset($img->textStyle) && in_array("italic", $img->textStyle)) {echo "checked";} @endphp>
+                                                      <label class="form-check-label" for="colorCheck2"><i>Italic</i></label>
+                                                    </div>
+                                                    <div class="form-check form-check-success mb-2 mt-2 form-check-inline">
+                                                      <input type="checkbox" class="form-check-input" id="colorCheck3" name="preview1[{{ $counter }}][textStyle][]" value="underline" @php if(isset($img->textStyle) && in_array("underline", $img->textStyle)) {echo "checked";} @endphp>
+                                                      <label class="form-check-label" for="colorCheck3"><u>Underline</u></label>
+                                                    </div>
+
+                                            </div>
+
+                                            <div class="col-md-4 col-12 mb-5">
+                                                <div class="mb-1">
+                                                    <label class="form-label" for="textColour">Text Colour</label>
+                                                    <input id="heading" type="text" class="form-control" name="preview1[{{ $counter }}][textColor]"
+                                                    @php if(isset($img->textColor)) {echo "value=\"".$img->textColor."\"";} @endphp
+                                                        aria-describedby="desc" placeholder="#0ash763" />
                                                 </div>
                                             </div>
 

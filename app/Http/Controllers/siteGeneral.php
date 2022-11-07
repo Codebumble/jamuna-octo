@@ -752,7 +752,10 @@ class siteGeneral extends Controller
 				$f = [
 					'src' => '/images/slider/' . $fileName2,
 					'heading' => $value['heading'],
-					'desc' => $value['desc']
+					'desc' => $value['desc'],
+					'text_size' => $value['text_size'],
+					'textStyle' => $value['textStyle'],
+					'textColor' => $value['textColor'],
 				];
 
 				if($value['slider_option'] == "top"){
