@@ -48,7 +48,7 @@
                             <div id="full-wrapper">
                                 <div id="full-container1">
                                     <div id="ql-editor1" class="editor" spellcheck="false">
-                                        {{ $data[0]->descriptions }}
+                                        {!! $data[0]->descriptions !!}
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                             <div id="full-wrapper">
                                 <div id="full-container2">
                                     <div id="ql-editor2" class="editor" spellcheck="false">
-                                        {{ $data[1]->awards }}
+                                        {!! $data[1]->awards !!}
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@
                             <div id="full-wrapper">
                                 <div id="full-container3">
                                     <div id="ql-editor3" class="editor" spellcheck="false">
-                                        {{ $data[2]->hdrCorporate }}
+                                        {!! $data[2]->hdrCorporate !!}
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
                             <div id="full-wrapper">
                                 <div id="full-container4">
                                     <div id="ql-editor4" class="editor" spellcheck="false">
-                                        {{ $data[3]->environment }}
+                                        {!! $data[3]->environment !!}
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +92,7 @@
                             <div id="full-wrapper">
                                 <div id="full-container5">
                                     <div id="ql-editor5" class="editor" spellcheck="false">
-                                        {{ $data[4]->goals }}
+                                        {!! $data[4]->goals !!}
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@
                             <div id="full-wrapper">
                                 <div id="full-container6">
                                     <div id="ql-editor6" class="editor" spellcheck="false">
-                                        {{ $data[5]->activities }}
+                                        {!! $data[5]->activities !!}
                                     </div>
                                 </div>
                             </div>

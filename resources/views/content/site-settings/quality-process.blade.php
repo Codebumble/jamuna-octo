@@ -47,7 +47,7 @@
                             <div id="full-wrapper">
                                 <div id="full-container">
                                     <div id="ql-editor" class="editor" spellcheck="false">
-                                        {{ $qp }}
+                                        {!! $qp !!}
                                     </div>
                                 </div>
                             </div>

@@ -178,7 +178,7 @@
 						<label class="form-label" for="description">Description</label>
 							<div id="full-wrapper">
 								<div id="full-container">
-									<div class="editor" id="ql-editor" spellcheck="false">{{$d->description}}
+									<div class="editor" id="ql-editor" spellcheck="false">{!!$d->description!!}
 									</div>
 
 								</div>
