@@ -1,0 +1,76 @@
+.piller {
+	&::after {
+		content: "";
+		@apply mx-auto mt-4 rounded bg-gray-800 block w-1 h-26 lg:h-51;
+	}
+
+	&::before {
+		content: "";
+		@apply h-5 w-5 rounded-full block bg-red-600 mx-auto relative top-[70px];
+	}
+}
+
+div.earth-slider {
+	@apply transition-all;
+	ul li {
+		@apply transition-all;
+
+		&.is-active {
+			@apply mt-0 #{ !important};
+		}
+		&:nth-child(even):not(.is-active) {
+			@apply lg:mt-8;
+		}
+		&:nth-child(odd):not(.is-active) {
+			@apply lg:mt-16;
+		}
+
+		&.is-visible:nth-child(even):not(.is-active) {
+			@apply lg:mt-8;
+		}
+
+		&.is-visible:nth-child(odd):not(.is-active) {
+			@apply lg:mt-16;
+		}
+
+		&.is-visible.is-prev:nth-child(even):not(.is-active) {
+			@apply lg:mt-8;
+		}
+		&.is-visible.is-next:nth-child(even):not(.is-active) {
+			@apply lg:mt-8;
+		}
+
+		&.is-visible.is-prev:nth-child(odd):not(.is-active) {
+			@apply lg:mt-8;
+		}
+		&.is-visible.is-next:nth-child(odd):not(.is-active) {
+			@apply lg:mt-8;
+		}
+
+		&.is-visible:nth-child(even):not(.is-prev) {
+			@apply lg:mt-16;
+		}
+		&.is-visible:nth-child(even):not(.is-next) {
+			@apply lg:mt-16;
+		}
+
+		&.is-visible:nth-child(odd):not(.is-prev) {
+			@apply lg:mt-16;
+		}
+		&.is-visible:nth-child(odd):not(.is-next) {
+			@apply lg:mt-16;
+		}
+	}
+}
+
+.title {
+	@apply text-center;
+
+	h2 {
+		@apply pb-4;
+	}
+
+	p {
+		@apply pb-8 xl:w-10/12 mx-auto text-gray-400;
+	}
+}
