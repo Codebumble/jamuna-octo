@@ -1,0 +1,17 @@
+.image-gallery {
+	.image {
+		.thumbnail {
+			@apply h-40 lg:h-48 xl:h-64 2xl:h-72 w-full md:mx-auto relative;
+			img {
+				@apply h-full w-full object-cover object-center rounded transition-all duration-500;
+				border: 1px solid #ddd;
+			}
+			.title {
+				@apply absolute left-0 top-0 flex justify-center items-center w-full h-full;
+				h3 {
+					@apply text-white text-2xl uppercase text-shadow-extreme font-bold italic p-4;
+				}
+			}
+		}
+	}
+}

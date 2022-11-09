@@ -67,8 +67,11 @@
 										v-if="psm.route">
 										{{ psm.label }}
 									</router-link>
-									<span v-else>{{ psm.label }}</span>
-
+									<router-link
+										to="/comp-divisions/420"
+										v-else
+										>{{ psm.label }}</router-link
+									>
 									<ul
 										class="items-inner"
 										v-if="psm.childSubmenu">

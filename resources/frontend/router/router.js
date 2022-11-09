@@ -41,6 +41,11 @@ const routes = [
 		component: () => import("../views/company-view.vue"),
 	},
 	{
+		path: "/comp-divisions/:id",
+		name: "Divisions",
+		component: () => import("../views/companies.vue"),
+	},
+	{
 		path: "/growth-story",
 		name: "growth",
 		component: () => import("../views/growth.vue"),
