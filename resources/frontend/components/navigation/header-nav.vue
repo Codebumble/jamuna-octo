@@ -68,7 +68,7 @@
 										{{ psm.label }}
 									</router-link>
 									<router-link
-										to="/comp-divisions/420"
+										to="/business-vertical/420"
 										v-else
 										>{{ psm.label }}</router-link
 									>

@@ -448,20 +448,22 @@
 							"
 							v-for="(item, key) in fe.list"
 							:key="key">
-							<span
-								class="
-									inline-block
-									py-2
-									px-4
-									mr-4
-									text-xs
-									font-semibold
-									bg-red-500
-									text-white
-									rounded
-								">
-								{{ key }}
-							</span>
+							<router-link to="/future-expansion/1">
+								<span
+									class="
+										inline-block
+										py-2
+										px-4
+										mr-4
+										text-xs
+										font-semibold
+										bg-red-500
+										text-white
+										rounded
+									">
+									{{ key + 1 }}
+								</span>
+							</router-link>
 							<span>{{ item.name }}</span>
 						</div>
 					</div>
