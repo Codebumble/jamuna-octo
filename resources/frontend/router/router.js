@@ -37,7 +37,7 @@ const routes = [
 	},
 	{
 		path: "/companies/:id/:name",
-		name: "Company",
+		name: "Companies",
 		component: () => import("../views/company-view.vue"),
 	},
 	{
@@ -49,6 +49,11 @@ const routes = [
 		path: "/future-expansion/:id",
 		name: "Future Expansion",
 		component: () => import("../views/future-expnsn.vue"),
+	},
+	{
+		path: "/company/:id",
+		name: "Company",
+		component: () => import("../views/product-details.vue"),
 	},
 	{
 		path: "/growth-story",
