@@ -95,7 +95,8 @@
 						}
 					}
 					&.has-inner {
-						@apply relative px-6 py-4 cursor-pointer;
+						// @apply relative px-6 py-4 cursor-pointer;
+						@apply relative cursor-pointer;
 						.items-inner {
 							@apply bg-gray-50 absolute top-13 lg:top-0 -left-1 lg:left-[12.6rem] w-full lg:w-max hidden z-50 border-l-4 lg:border-l-0 border-red-600  rounded lg:rounded-none lg:max-h-102 lg:overflow-y-scroll;
 							li {
