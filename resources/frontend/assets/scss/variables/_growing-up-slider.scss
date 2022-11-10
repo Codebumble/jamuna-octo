@@ -1,6 +1,10 @@
-.text {
-	@apply mt-20 md:mt-40 ml-3 md:ml-auto mr-4 lg:mr-20 md:mr-12;
+.text-title {
+	@apply mt-56 absolute top-16 right-[22rem] text-right w-1/2;
 }
+.text-year {
+	@apply absolute top-56 right-[22rem];
+}
+
 .company-name::before {
 	content: "";
 	@apply w-full h-full absolute -z-[1];

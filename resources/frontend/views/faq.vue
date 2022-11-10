@@ -5,7 +5,12 @@
 		reprehenderit aliquam asperiores iure, minus, enim eum velit numquam
 		corporis! Nobis natus dolore optio accusantium nisi deleniti? Sed
 		delectus, aliquid molestias excepturi saepe expedita et. Dolorum tempora
-		sequi quae adipisci!
+		sequi quae adipisci! Lorem ipsum dolor, sit amet consectetur adipisicing
+		elit. Voluptatum possimus ea ratione minus eaque nemo non rerum modi
+		nobis, atque earum, quae culpa quia impedit quis? Exercitationem quae
+		commodi illo aliquam. Placeat assumenda eum deleniti quo unde! Eum fugit
+		commodi sit libero, delectus voluptas reprehenderit impedit mollitia,
+		esse, itaque numquam!
 	</p>
 	<section class="overflow-hidden">
 		<div class="zigzag_bg">
@@ -48,7 +53,20 @@
 										text-white
 										w-fit
 										uppercase
-										text
+										text-year
+										italic
+										font-bold
+									">
+									{{ item.desc }}
+								</h3>
+								<h3
+									class="
+										text-lg
+										md:text-3xl
+										text-white
+										w-fit
+										uppercase
+										text-title
 										font-bold
 									">
 									{{ item.heading }}
@@ -60,6 +78,19 @@
 			</div>
 		</div>
 	</section>
+	<p class="container">
+		Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non soluta sed
+		repellat fuga, alias mollitia commodi recusandae blanditiis nam quas
+		reprehenderit aliquam asperiores iure, minus, enim eum velit numquam
+		corporis! Nobis natus dolore optio accusantium nisi deleniti? Sed
+		delectus, aliquid molestias excepturi saepe expedita et. Dolorum tempora
+		sequi quae adipisci! Lorem ipsum dolor, sit amet consectetur adipisicing
+		elit. Voluptatum possimus ea ratione minus eaque nemo non rerum modi
+		nobis, atque earum, quae culpa quia impedit quis? Exercitationem quae
+		commodi illo aliquam. Placeat assumenda eum deleniti quo unde! Eum fugit
+		commodi sit libero, delectus voluptas reprehenderit impedit mollitia,
+		esse, itaque numquam!
+	</p>
 	<!-- <section class="overflow-hidden">
 		<div class="flex flex-col items-center">
 			<div class="content w-full mb-6">
@@ -168,9 +199,9 @@ export default {
 	// },
 	setup() {
 		const options4 = {
-			// autoplay: false,
+			autoplay: true,
 			// perMove: 1,
-			// rewind: true,
+			rewind: true,
 			// perPage: 1,
 			// perMove: 1,
 			// pagination: true,
@@ -194,10 +225,12 @@ export default {
 	content: '';
 	background-image: url(/frontend/images/logo/wave.png);
 }
-
+.splide__slide {
+	@apply p-0 #{!important};
+}
 .splide__pagination::before {
 	content: '';
-	@apply bg-white h-[100%] absolute top-0 right-[3.333rem];
+	@apply bg-white h-[100%] absolute top-0 right-[2.333rem] opacity-50;
 	width: 1px;
 }
 .splide__pagination__page.is-active,
@@ -210,7 +243,7 @@ export default {
 
 .splide__pagination__page::before {
 	content: '';
-	@apply bg-white absolute right-12 bottom-0 rounded-full;
+	@apply bg-white absolute right-8 -bottom-[6px] rounded-full;
 }
 .splide__pagination__page.is-active::before {
 	width: 5px;
@@ -221,7 +254,20 @@ export default {
 }
 
 .splide__arrow {
-	@apply bg-transparent #{!important};
+	@apply bg-transparent opacity-100 #{!important};
+	svg {
+		fill: white;
+	}
+}
+.splide__arrows {
+	@apply relative;
+	.splide__arrow--prev {
+		@apply left-[64rem] top-24;
+	}
+	.splide__arrow--next {
+		bottom: -28em;
+		left: 64rem;
+	}
 }
 .company-name::before {
 	content: '';
