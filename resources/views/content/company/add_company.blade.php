@@ -124,6 +124,11 @@
                                 <input id="dfile" class="form-control" type="file" name="dfile" />
                             </div>
 
+                            <div class="col-12 col-md-6 mb-1">
+                                <label for="featured_image" class="form-label">Image That Featured The Company</label>
+                                <input id="featured_image" class="form-control" type="file" name="featured_image" />
+                            </div>
+
                             <div class="mb-1">
                                 <label class="d-block form-label" for="validationBioBootstrap">About this Business</label>
                                 <textarea id="validationBioBootstrap" class="form-control" name="description" rows="3" required></textarea>

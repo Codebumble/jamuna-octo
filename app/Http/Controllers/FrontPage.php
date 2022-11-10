@@ -71,7 +71,10 @@ class FrontPage extends Controller
         $c = json_decode($data_get[0]->value);
 
         foreach ($c as $key => $value) {
-            $temp = ['id' => $key,'route' => '/business-vertical/'.$key, 'label' => $value->name, 'childSubmenu' => []];
+            $temp = ['id' => $key,'route' => '/business-vertical/'.$key,'featured_image' => NULL, 'label' => $value->name, 'childSubmenu' => []];
+            if(isset($value->featured_image)){
+                $temp['featured_image'] = $value->featured_image;
+            }
 
             $data_get_1 = DB::select('select * from codebumble_company_list where section=?',[$value->name]);
 
@@ -85,9 +88,14 @@ class FrontPage extends Controller
                 $submenu = [
                     'id' => $value->id,
                     'route' => '/companies/'.$value->id.'/'.$replace,
-                    'label' => $value->name
+                    'label' => $value->name,
+                    'image' => '/company-images/'.$value->image
 
                 ];
+
+                if(isset(json_decode($value->json_data)->featured_image)){
+                    $submenu['image'] = '/company-images/'.json_decode($value->json_data)->featured_image;
+                }
 
                 array_push($temp['childSubmenu'], $submenu);
             }
@@ -108,9 +116,14 @@ class FrontPage extends Controller
                 $submenu = [
                     'id' => $value->id,
                     'route' => '/media-center/'.$value->id.'/'.$replace,
-                    'label' => $value->name
+                    'label' => $value->name,
+                    'image' => '/company-images/'.$value->image
 
                 ];
+
+                if(isset(json_decode($value->json_data)->featured_image)){
+                    $submenu['image'] = '/company-images/'.json_decode($value->json_data)->featured_image;
+                }
 
                 array_push($a['mediahub'], $submenu);
             }

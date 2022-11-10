@@ -81,8 +81,20 @@ class Company_rest extends Controller
             $fileName9 = null;
         }
 
+        if($file10 = $request->hasFile('featured_image')) {
+            $user = Auth::user()->username;
+            $file10 = $request->file('featured_image') ;
+            $fileName10 = time().'-'.$user.'.'.$file10->getClientOriginalExtension() ;
+            $destinationPath10 = public_path().'/company-images' ;
+            $file9->move($destinationPath10,$fileName10);
+        } else {
+            $fileName10 = null;
+        }
+
         $json_encode += [
-            'dfile' => $fileName9
+            'dfile' => $fileName9,
+            'featured_image' => $fileName10,
+
         ];
 
         $json_encode = json_encode($json_encode);
@@ -168,11 +180,6 @@ class Company_rest extends Controller
             ]);
 
             $unlink_path= public_path().'/company-images/'.$a->image;
-
-            if(file_exists($unlink_path)){
-                unlink($unlink_path);
-                }
-
             $user = Auth::user()->username;
             $file = $request->file('image') ;
             $fileName = time().'-'.$user.'.'.$file->getClientOriginalExtension() ;
@@ -197,8 +204,24 @@ class Company_rest extends Controller
 
         }
 
+        if($file10 = $request->hasFile('featured_image')) {
+            $user = Auth::user()->username;
+            $file10 = $request->file('featured_image') ;
+            $fileName10 = time().'-'.$user.'.'.$file10->getClientOriginalExtension() ;
+            $destinationPath10 = public_path().'/company-images' ;
+            $file10->move($destinationPath10,$fileName10);
+        } else {
+            if(!isset(json_decode($a->json_data)->featured_image)){
+                $fileName10 = "";
+            } else{
+                $fileName10 = json_decode($a->json_data)->featured_image;
+            }
+
+        }
+
         $json_encode += [
-            'dfile' => $fileName9
+            'dfile' => $fileName9,
+            'featured_image' => $fileName10,
         ];
 
         $json_encode = json_encode($json_encode);
@@ -390,6 +413,16 @@ class Company_rest extends Controller
 
         $last_data = DB::table('codebumble_general')->where('code_name', 'sections')->first();
 
+        if($file10 = $request->hasFile('featured_image')) {
+            $user = Auth::user()->username;
+            $file10 = $request->file('featured_image') ;
+            $fileName10 = time().'-'.$user.'.'.$file10->getClientOriginalExtension() ;
+            $destinationPath10 = public_path().'/company-images' ;
+            $file9->move($destinationPath10,$fileName10);
+        } else {
+            $fileName10 = null;
+        }
+
         if(isset($last_data->value)){
 
                 $data = json_decode($last_data->value);
@@ -404,12 +437,12 @@ class Company_rest extends Controller
                 if($checker){
                     return redirect()->route('add-section',['exist' => 1]);
                 }
-                array_push($data, ['name' => $field['name'], 'description' => $field['description']]);
+                array_push($data, ['name' => $field['name'], 'description' => $field['description'], 'featured_image' => $fileName10]);
                 $data = json_encode($data);
                 $database = DB::table('codebumble_general')->where('code_name', 'sections')->update(['value' => $data]);
         } else {
                 $data = [];
-                array_push($data, ['name' => $field['name'], 'description' => $field['description']]);
+                array_push($data, ['name' => $field['name'], 'description' => $field['description'], 'featured_image' => $fileName10]);
                 $data = json_encode($data);
                 $database = DB::table('codebumble_general')->insert(['code_name'=> 'sections', 'value' => $data]);
         }
