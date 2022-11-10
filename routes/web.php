@@ -146,6 +146,16 @@ Route::group(['prefix' => 'codebumble'], function () {
 			'future_expension_view',
 		])->name('future_expension_view');
 
+		Route::get('add-future-expension-content', [
+			siteGeneral::class,
+			'future_expension_component_add_view',
+		])->name('future_expension_component_add_view');
+
+		Route::post('add-future-expension-content', [
+			siteGeneral::class,
+			'future_expension_component_add',
+		])->name('future_expension_component_add');
+
 		Route::get('site-settings/about-us', [
 			siteGeneral::class,
 			'about_us_view',

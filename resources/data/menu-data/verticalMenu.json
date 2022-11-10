@@ -234,11 +234,11 @@
 					"slug": "future_expension_view"
 				},
 				{
-					"name": "Add New One",
-					"url": "",
+					"name": "Add New",
+					"url": "/codebumble/add-future-expension-content",
 					"icon": "circle",
 					"permission": 1,
-					"slug": ""
+					"slug": "future_expension_component_add_view"
 				},
 				{
 					"name": "List of ALL",
