@@ -80,7 +80,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-12 mb-1">
+                                            <div class="col-md-4 col-12 mb-1">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="title">Title</label>
                                                     <input type="text" class="form-control" name="title"
@@ -88,6 +88,52 @@
                                                         placeholder="" />
                                                 </div>
                                             </div>
+
+
+
+                                            <div class="col-md-4 col-12 mb-1">
+                                                <div class="mb-1">
+                                                    <label class="form-label" for="heading">Heading Text Size </label>
+                                                    <select name="text_size_heading" class="form-select">
+                                                        <option value="text-xs" @php if(isset($data[0]->text_size_heading) && $data[0]->text_size_heading == "text-xs") {echo "selected";}@endphp >12px</option>
+                                                        <option value="text-sm" @php if(isset($data[0]->text_size_heading) && $data[0]->text_size_heading == "text-sm") {echo "selected";}@endphp>14px</option>
+                                                        <option value="text-base" @php if(isset($data[0]->text_size_heading) && $data[0]->text_size_heading == "text-base") {echo "selected";}@endphp>16px</option>
+                                                        <option value="text-lg" @php if(isset($data[0]->text_size_heading) && $data[0]->text_size_heading == "text-lg") {echo "selected";}@endphp>18px</option>
+                                                        <option value="text-xl" @php if(isset($data[0]->text_size_heading) && $data[0]->text_size_heading == "text-xl") {echo "selected";}@endphp>20px</option>
+                                                        <option value="text-2xl" @php if(isset($data[0]->text_size_heading) && $data[0]->text_size_heading == "text-2xl") {echo "selected";}@endphp>24px</option>
+                                                        <option value="text-3xl" @php if(isset($data[0]->text_size_heading) && $data[0]->text_size_heading == "text-3xl") {echo "selected";}@endphp>30px</option>
+                                                        <option value="text-4xl" @php if(isset($data[0]->text_size_heading) && $data[0]->text_size_heading == "text-4xl") {echo "selected";}@endphp>36px</option>
+                                                        <option value="text-5xl" @php if(isset($data[0]->text_size_heading) && $data[0]->text_size_heading == "text-5xl") {echo "selected";}@endphp>48px</option>
+                                                        <option value="text-6xl" @php if(isset($data[0]->text_size_heading) && $data[0]->text_size_heading == "text-6xl") {echo "selected";}@endphp>60px</option>
+                                                        <option value="text-7xl" @php if(isset($data[0]->text_size_heading) && $data[0]->text_size_heading == "text-7xl") {echo "selected";}@endphp>72px</option>
+                                                        <option value="text-8xl" @php if(isset($data[0]->text_size_heading) && $data[0]->text_size_heading == "text-8xl") {echo "selected";}@endphp>96px</option>
+                                                        <option value="text-9xl" @php if(isset($data[0]->text_size_heading) && $data[0]->text_size_heading == "text-9xl") {echo "selected";}@endphp>120px</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 col-12 mb-1">
+                                                <div class="mb-1">
+                                                    <label class="form-label" for="heading">Text Size</label>
+                                                    <select name="text_size_desc" class="form-select">
+                                                        <option value="text-xs" @php if(isset($data[0]->text_size_desc) && $data[0]->text_size_desc == "text-xs") {echo "selected";}@endphp >12px</option>
+                                                        <option value="text-sm" @php if(isset($data[0]->text_size_desc) && $data[0]->text_size_desc == "text-sm") {echo "selected";}@endphp>14px</option>
+                                                        <option value="text-base" @php if(isset($data[0]->text_size_desc) && $data[0]->text_size_desc == "text-base") {echo "selected";}@endphp>16px</option>
+                                                        <option value="text-lg" @php if(isset($data[0]->text_size_desc) && $data[0]->text_size_desc == "text-lg") {echo "selected";}@endphp>18px</option>
+                                                        <option value="text-xl" @php if(isset($data[0]->text_size_desc) && $data[0]->text_size_desc == "text-xl") {echo "selected";}@endphp>20px</option>
+                                                        <option value="text-2xl" @php if(isset($data[0]->text_size_desc) && $data[0]->text_size_desc == "text-2xl") {echo "selected";}@endphp>24px</option>
+                                                        <option value="text-3xl" @php if(isset($data[0]->text_size_desc) && $data[0]->text_size_desc == "text-3xl") {echo "selected";}@endphp>30px</option>
+                                                        <option value="text-4xl" @php if(isset($data[0]->text_size_desc) && $data[0]->text_size_desc == "text-4xl") {echo "selected";}@endphp>36px</option>
+                                                        <option value="text-5xl" @php if(isset($data[0]->text_size_desc) && $data[0]->text_size_desc == "text-5xl") {echo "selected";}@endphp>48px</option>
+                                                        <option value="text-6xl" @php if(isset($data[0]->text_size_desc) && $data[0]->text_size_desc == "text-6xl") {echo "selected";}@endphp>60px</option>
+                                                        <option value="text-7xl" @php if(isset($data[0]->text_size_desc) && $data[0]->text_size_desc == "text-7xl") {echo "selected";}@endphp>72px</option>
+                                                        <option value="text-8xl" @php if(isset($data[0]->text_size_desc) && $data[0]->text_size_desc == "text-8xl") {echo "selected";}@endphp>96px</option>
+                                                        <option value="text-9xl" @php if(isset($data[0]->text_size_desc) && $data[0]->text_size_desc == "text-9xl") {echo "selected";}@endphp>120px</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
 
                                             <div class="mb-1">
                                                 <label class="d-block form-label" for="desc">Description</label>

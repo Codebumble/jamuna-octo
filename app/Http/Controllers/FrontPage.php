@@ -71,7 +71,7 @@ class FrontPage extends Controller
         $c = json_decode($data_get[0]->value);
 
         foreach ($c as $key => $value) {
-            $temp = ['route' => '', 'label' => $value->name, 'childSubmenu' => []];
+            $temp = ['id' => $key,'route' => '/business-vertical/'.$key, 'label' => $value->name, 'childSubmenu' => []];
 
             $data_get_1 = DB::select('select * from codebumble_company_list where section=?',[$value->name]);
 
@@ -83,6 +83,7 @@ class FrontPage extends Controller
 				$replace = $name = str_replace(" ", "-", $value->name);
 
                 $submenu = [
+                    'id' => $value->id,
                     'route' => '/companies/'.$value->id.'/'.$replace,
                     'label' => $value->name
 
@@ -105,6 +106,7 @@ class FrontPage extends Controller
 				$replace = $name = str_replace(" ", "-", $value->name);
 
                 $submenu = [
+                    'id' => $value->id,
                     'route' => '/media-center/'.$value->id.'/'.$replace,
                     'label' => $value->name
 
