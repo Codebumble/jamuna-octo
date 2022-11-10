@@ -1,50 +1,50 @@
-#splide01::after {
+#splide06::after {
 	@apply w-full h-[100px] bg-no-repeat sm:bg-custom bg-custom-xs bg-right absolute -bottom-4 md:bottom-0;
 	content: "";
 	background-image: url(/frontend/images/logo/wave.png);
 }
-.splide__slide {
+#splide06 .splide__slide {
 	@apply p-0 #{!important};
 }
-.splide__pagination.splide__pagination--ltr {
+#splide06 .splide__pagination.splide__pagination--ltr {
 	@apply hidden;
 }
-ul.splide__pagination.splide__pagination--ttb {
+#splide06 ul.splide__pagination.splide__pagination--ttb {
 	@apply lg:right-60 md:right-28 #{!important};
 }
-.splide__pagination::before {
+#splide06 .splide__pagination::before {
 	content: "";
 	@apply bg-white h-[100%] absolute top-0 right-[2.333rem] opacity-50;
 	width: 1px;
 }
-.splide__pagination__page.is-active,
-.splide__pagination__page {
+#splide06 .splide__pagination__page.is-active,
+#splide06 .splide__pagination__page {
 	@apply bg-transparent text-white opacity-100 italic relative scale-100 #{!important};
 	&.is-active {
 		@apply text-red-600 opacity-100 #{!important};
 	}
 }
 
-.splide__pagination__page::before {
+#splide06 .splide__pagination__page::before {
 	content: "";
-	@apply bg-white absolute right-8 -bottom-[6px] rounded-full;
+	@apply bg-white absolute right-[1.9rem] -bottom-[6px] rounded-full;
 }
-.splide__pagination__page.is-active::before {
+#splide06 .splide__pagination__page.is-active::before {
 	width: 5px;
 	height: 5px;
 }
 
-.splide__arrow {
+#splide06 .splide__arrow {
 	@apply bg-transparent opacity-100 #{!important};
 	svg {
 		fill: white;
 	}
 }
-.splide__arrows.splide__arrows--ttb {
+#splide06 .splide__arrows.splide__arrows--ttb {
 	@apply h-4/5 absolute top-8 left-[44rem]  md:left-[36rem] lg:left-[44rem] xl:left-[60rem] xxl:left-[68rem] 2xl:left-[74rem] 3xl:left-[98rem];
 }
 
-.company-name::before {
+#splide06 .company-name::before {
 	content: "";
 	@apply w-full h-full absolute -z-[1];
 	background: rgb(110, 107, 107);
@@ -57,14 +57,14 @@ ul.splide__pagination.splide__pagination--ttb {
 		rgba(0, 0, 0, 0.5) 100%
 	);
 }
-.description {
+#splide06 .description {
 	@apply flex flex-col w-full md:w-1/2 text-center md:text-right absolute bottom-40 xl:bottom-48 2xl:bottom-64 3xl:bottom-[22rem] md:bottom-40 items-center md:items-end -left-4 2xl:left-0 lg:-left-20 3xl:left-20 p-16 md:p-0;
 	.text-year {
 		@apply mb-4 md:mb-8;
 	}
 }
 
-.company-name::before {
+#splide06 .company-name::before {
 	content: "";
 	@apply w-full h-full absolute -z-[1];
 	background: rgb(110, 107, 107);

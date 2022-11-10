@@ -574,11 +574,10 @@
 				<Splide
 					:options="options4"
 					@splide:pagination:mounted="onPaginationMounted"
-					@splide:moved="onMoved"
-					aria-label="growingSlider">
+					aria-label="g">
 					<SplideSlide
-						v-for="item in growingUpSlider"
-						:key="item"
+						v-for="(item, index) in growingUpSlider"
+						:key="index"
 						class="
 							flex
 							justify-around
@@ -588,30 +587,49 @@
 							p-4
 						">
 						<div class="growing-up-slider relative w-full">
-							<img :src="item.src" :alt="item.heading" />
+							<img
+								src="https://beta.jamunagroup.com.bd/images/videos/1667305046-sfV5OwTjSu-company-slider-video.jpg"
+								alt=""
+								class="w-full object-cover h-[90vh]" />
 							<div
 								class="
 									company-name
 									absolute
 									bottom-28
-									w-1/2
+									w-full
+									md:w-1/2
 									z-0
 									right-0
 									top-0
 									h-full
 								">
-								<h3
-									class="
-										text-lg
-										md:text-3xl
-										text-white
-										w-fit
-										uppercase
-										text
-										font-bold
-									">
-									{{ item.heading }}
-								</h3>
+								<div class="description">
+									<h3
+										class="
+											text-lg
+											md:text-3xl
+											text-white
+											w-fit
+											uppercase
+											text-year
+											italic
+											font-bold
+										">
+										{{ item.desc }}
+									</h3>
+									<h3
+										class="
+											text-lg
+											md:text-3xl
+											text-white
+											w-fit
+											uppercase
+											text-title
+											font-bold
+										">
+										{{ item.heading }}
+									</h3>
+								</div>
 							</div>
 						</div>
 					</SplideSlide>
@@ -1034,28 +1052,11 @@ export default {
 			this.growingUpSlider.forEach((item, index) => {
 				const el = data.items[index];
 				el.button.classList.add('custom-button');
-				const span = document.createElement('span');
 				el.button.classList.contains('is-active')
 					? el.li.classList.add('is-active')
 					: null;
-				// dynamic years
-				span.textContent = item.desc;
-				// static years
-				// span.textContent = 2020 + index;
-				el.li.appendChild(span);
+				el.button.textContent = item.desc;
 			});
-		},
-		onMoved(_, prevIndex, dest) {
-			const pagination = document.querySelectorAll(
-				'.splide__pagination li'
-			);
-			if (prevIndex > dest) {
-				pagination[prevIndex - 1].classList.remove('is-active');
-				pagination[prevIndex].classList.add('is-active');
-			} else {
-				pagination[dest].classList.remove('is-active');
-				pagination[prevIndex].classList.add('is-active');
-			}
 		},
 	},
 	mounted() {
@@ -1251,16 +1252,16 @@ export default {
 			},
 		};
 		const options4 = {
-			autoplay: true,
-			perMove: 1,
+			autoplay: false,
 			rewind: true,
-			perPage: 1,
-			perMove: 1,
-			pagination: true,
-			arrows: true,
-			type: 'fade',
-			interval: 2000,
-			pagination: true,
+			direction: 'ttb',
+			height: '32rem',
+			breakpoints: {
+				480: {
+					direction: 'ltr',
+					height: '200px',
+				},
+			},
 		};
 		const options5 = {
 			trimSpace: true,
