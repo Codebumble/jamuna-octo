@@ -1,8 +1,8 @@
-.text-title {
-	@apply mt-56 absolute top-16 right-[22rem] text-right w-1/2;
-}
-.text-year {
-	@apply absolute top-56 right-[22rem];
+.description {
+	@apply flex flex-col w-full md:w-1/2 text-center md:text-right absolute bottom-32 xl:bottom-48 2xl:bottom-64 3xl:bottom-[22rem] md:bottom-40 items-center md:items-end -left-4 2xl:left-0 lg:-left-20 3xl:left-20 p-16 md:p-0;
+	.text-year {
+		@apply mb-4 md:mb-8;
+	}
 }
 
 .company-name::before {
@@ -18,47 +18,47 @@
 		rgba(0, 0, 0, 0.5) 100%
 	);
 }
-.growing-slider {
-	li.splide__slide {
-		@apply p-0;
-	}
-	.splide__arrow {
-		@apply bg-transparent #{!important};
-		path {
-			fill: white;
-		}
-	}
-	.splide__arrow.splide__arrow--prev {
-		@apply left-16 2xl:left-80 xl:left-16 lg:left-96 md:left-64  top-[15.52rem] md:top-[27.52rem];
-	}
-	.splide__arrow.splide__arrow--next {
-		@apply right-16 2xl:right-80 xl:right-16 lg:right-96 md:right-64 top-[15.52rem] md:top-[27.52rem];
-	}
-	ul.splide__pagination {
-		@apply bg-white bg-opacity-25 mb-12 w-fit mx-auto h-12 items-center;
-		li {
-			@apply mr-5;
-			.custom-button {
-				@apply flex justify-center mx-auto;
-			}
-			span {
-				@apply mt-2 block text-white;
-			}
-			&:not(.is-active) {
-				@apply hidden xl:block;
-			}
-			&:last-child {
-				@apply mr-0;
-			}
-			&.is-active {
-				@apply xl:mr-5 mr-0 ml-4 xl:ml-0;
-			}
-		}
-	}
-	.growing-up-slider {
-		@apply w-full h-80 md:h-104;
-		img {
-			@apply w-full h-full object-cover;
-		}
-	}
-}
+// .growing-slider {
+// 	li.splide__slide {
+// 		@apply p-0;
+// 	}
+// 	.splide__arrow {
+// 		@apply bg-transparent #{!important};
+// 		path {
+// 			fill: white;
+// 		}
+// 	}
+// 	.splide__arrow.splide__arrow--prev {
+// 		@apply left-16 2xl:left-80 xl:left-16 lg:left-96 md:left-64  top-[15.52rem] md:top-[27.52rem];
+// 	}
+// 	.splide__arrow.splide__arrow--next {
+// 		@apply right-16 2xl:right-80 xl:right-16 lg:right-96 md:right-64 top-[15.52rem] md:top-[27.52rem];
+// 	}
+// 	ul.splide__pagination {
+// 		@apply bg-white bg-opacity-25 mb-12 w-fit mx-auto h-12 items-center;
+// 		li {
+// 			@apply mr-5;
+// 			.custom-button {
+// 				@apply flex justify-center mx-auto;
+// 			}
+// 			span {
+// 				@apply mt-2 block text-white;
+// 			}
+// 			&:not(.is-active) {
+// 				@apply hidden xl:block;
+// 			}
+// 			&:last-child {
+// 				@apply mr-0;
+// 			}
+// 			&.is-active {
+// 				@apply xl:mr-5 mr-0 ml-4 xl:ml-0;
+// 			}
+// 		}
+// 	}
+// 	.growing-up-slider {
+// 		@apply w-full h-80 md:h-104;
+// 		img {
+// 			@apply w-full h-full object-cover;
+// 		}
+// 	}
+// }

@@ -12,7 +12,7 @@
 		commodi sit libero, delectus voluptas reprehenderit impedit mollitia,
 		esse, itaque numquam!
 	</p>
-	<section class="overflow-hidden">
+	<section class="overflow-hidden py-8">
 		<div class="zigzag_bg">
 			<div>
 				<Splide
@@ -40,37 +40,40 @@
 									company-name
 									absolute
 									bottom-28
-									w-1/2
+									w-full
+									md:w-1/2
 									z-0
 									right-0
 									top-0
 									h-full
 								">
-								<h3
-									class="
-										text-lg
-										md:text-3xl
-										text-white
-										w-fit
-										uppercase
-										text-year
-										italic
-										font-bold
-									">
-									{{ item.desc }}
-								</h3>
-								<h3
-									class="
-										text-lg
-										md:text-3xl
-										text-white
-										w-fit
-										uppercase
-										text-title
-										font-bold
-									">
-									{{ item.heading }}
-								</h3>
+								<div class="description">
+									<h3
+										class="
+											text-lg
+											md:text-3xl
+											text-white
+											w-fit
+											uppercase
+											text-year
+											italic
+											font-bold
+										">
+										{{ item.desc }}
+									</h3>
+									<h3
+										class="
+											text-lg
+											md:text-3xl
+											text-white
+											w-fit
+											uppercase
+											text-title
+											font-bold
+										">
+										{{ item.heading }}
+									</h3>
+								</div>
 							</div>
 						</div>
 					</SplideSlide>
@@ -189,28 +192,21 @@ export default {
 				this.growingUpSlider = response.data;
 			});
 	},
-	// updated() {
-	// 	document
-	// 		.querySelectorAll('.splide__pagination__page')
-	// 		.forEach((item) => {
-	// 			// item.textContent = 'anik';
-	// 			console.log(item);
-	// 		});
-	// },
 	setup() {
 		const options4 = {
-			autoplay: true,
-			// perMove: 1,
+			autoplay: false,
 			rewind: true,
-			// perPage: 1,
-			// perMove: 1,
-			// pagination: true,
-			// arrows: true,
-			// type: 'fade',
-			// interval: 2000,
-			// pagination: true,
 			direction: 'ttb',
 			height: '32rem',
+			breakpoints: {
+				// 768: {
+				// 	height: '320px',
+				// },
+				480: {
+					direction: 'ltr',
+					height: '200px',
+				},
+			},
 		};
 		return {
 			options4,
@@ -221,12 +217,19 @@ export default {
 
 <style lang="scss">
 .zigzag_bg::after {
-	@apply absolute -bottom-4 lg:-bottom-16 left-0 h-[100px] lg:h-[180px] w-full z-0 bg-no-repeat sm:bg-custom bg-custom-xs bg-right;
-	content: '';
+	@apply absolute -bottom-32 md:-bottom-52 lg:-bottom-52 xl:-bottom-24 xxl:-bottom-28 2xl:bottom-0 3xl:bottom-32 left-0 h-[100px] lg:h-[180px] w-full z-0 bg-no-repeat sm:bg-custom bg-custom-xs bg-right;
+	// content: '';
 	background-image: url(/frontend/images/logo/wave.png);
 }
+
 .splide__slide {
 	@apply p-0 #{!important};
+}
+.splide__pagination.splide__pagination--ltr {
+	@apply hidden;
+}
+ul.splide__pagination.splide__pagination--ttb {
+	@apply lg:right-60 md:right-28 #{!important};
 }
 .splide__pagination::before {
 	content: '';
@@ -249,9 +252,9 @@ export default {
 	width: 5px;
 	height: 5px;
 }
-.splide__pagination {
-	@apply right-60 #{!important};
-}
+// .splide__pagination {
+// 	@apply right-60 #{!important};
+// }
 
 .splide__arrow {
 	@apply bg-transparent opacity-100 #{!important};
@@ -259,16 +262,18 @@ export default {
 		fill: white;
 	}
 }
-.splide__arrows {
-	@apply relative;
-	.splide__arrow--prev {
-		@apply left-[64rem] top-24;
-	}
-	.splide__arrow--next {
-		bottom: -28em;
-		left: 64rem;
-	}
+.splide__arrows.splide__arrows--ttb {
+	@apply h-4/5 absolute top-8 left-[44rem]  md:left-[36rem] lg:left-[44rem] xl:left-[60rem] xxl:left-[68rem] 2xl:left-[74rem] 3xl:left-[98rem];
 }
+// .splide__arrows {
+// 	@apply relative;
+// 	.splide__arrow--prev {
+// 		@apply left-0 lg:left-[44rem] xxl:left-[68rem] 2xl:left-[75rem] 3xl:left-[100rem] top-24;
+// 	}
+// 	.splide__arrow--next {
+// 		@apply xl:-bottom-100 lg:-bottom-[25rem] left-[23rem] lg:left-[44rem] xxl:left-[68rem] 2xl:left-[75rem] 3xl:left-[100rem];
+// 	}
+// }
 .company-name::before {
 	content: '';
 	@apply w-full h-full absolute -z-[1];
