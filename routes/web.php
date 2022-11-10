@@ -359,6 +359,11 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 		'future_expansion_frontpage',
 	]);
 
+	Route::get('future-expansion-single-data/{id}', [
+		siteGeneral::class,
+		'future_expansion_frontpage_single',
+	]);
+
 	Route::get('media-center/{id}', [FrontPage::class, 'media_center_front']);
 	Route::get('view-tender/{id}', [
 		tenderApplicant::class,

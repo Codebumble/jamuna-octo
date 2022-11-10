@@ -1053,7 +1053,7 @@ class siteGeneral extends Controller
 		if ($file2 = $r->hasFile('new.b_image')) {
 			$file2 = $r->file('new.b_image');
 			$fileName2 = time() . '.' . $file2->getClientOriginalExtension();
-			$destinationPath2 = public_path() . '/images/meta';
+			$destinationPath2 = public_path() . '/images';
 			$file2->move($destinationPath2, $fileName2);
 			$f = '/images/' . $fileName2;
 			$b['image'] = $f;
@@ -1063,9 +1063,9 @@ class siteGeneral extends Controller
 			'name' => $b['name'],
 			'desc_data' => $b['description'],
 			'image' => $b['image'],
-			'json_data' =>[
+			'json_data' => json_encode([
 				'images' => [],
-			],
+			]),
 			'created_at' => time(),
 			'updated_at' => time(),
 		];
@@ -1126,7 +1126,26 @@ class siteGeneral extends Controller
 			['future_expansion']
 		);
 
-		return $data[0]->value;
+		$data1 = DB::table('codebumble_future_expension')->select('id', 'name', 'image')->get();
+		$b = json_decode($data[0]->value, true);
+		unset($b['list']);
+		
+		$b['data'] = $data1;
+
+
+		return json_encode($b);
+	}
+
+
+	public function future_expansion_frontpage_single($id)
+	{
+		$data = DB::select(
+			'select * from codebumble_future_expension where id=?',
+			[$id]
+		);
+
+		return json_encode($data[0]);
+
 	}
 
 	public function quality_process_view()
