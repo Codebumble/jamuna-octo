@@ -221,6 +221,35 @@
 			"slug": "photo_gallery_view"
 		},
 		{
+			"name": "Future Expansion",
+			"icon": "grid",
+			"permission": 1,
+			"slug": "",
+			"submenu": [
+				{
+					"name": "Edit Main Content",
+					"url": "/codebumble/future-expension",
+					"icon": "circle",
+					"permission": 1,
+					"slug": "future_expension_view"
+				},
+				{
+					"name": "Add New One",
+					"url": "",
+					"icon": "circle",
+					"permission": 1,
+					"slug": ""
+				},
+				{
+					"name": "List of ALL",
+					"url": "",
+					"icon": "circle",
+					"permission": 1,
+					"slug": ""
+				}
+			]
+		},
+		{
 			"url": "admin/site-settings/tac",
 			"name": "Terms and Conditions",
 			"icon": "help-circle",

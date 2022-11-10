@@ -141,7 +141,7 @@ Route::group(['prefix' => 'codebumble'], function () {
 			'mission_vision_update',
 		])->name('mission-vision-update');
 
-		Route::get('site-settings/future-expension', [
+		Route::get('future-expension', [
 			siteGeneral::class,
 			'future_expension_view',
 		])->name('future_expension_view');

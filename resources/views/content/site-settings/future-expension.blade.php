@@ -13,47 +13,7 @@
                     </div>
                     <div class="card-body">
 
-                        <div class="col-xl-12 col-lg-12 col-md-12 order-0 order-md-1">
-                            <!-- User Pills -->
-                            <ul class="nav nav-pills mb-2">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('front_page_view') }}">
-                                        <i data-feather="user" class="font-medium-3 me-50"></i>
-                                        <span class="fw-bold">General Details</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('front_page_slider_view') }}">
-                                        <i data-feather="lock" class="font-medium-3 me-50"></i>
-                                        <span class="fw-bold">Sliders</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('mission_vision_view') }}">
-                                        <i data-feather="trending-up" class="font-medium-3 me-50"></i>
-                                        <span class="fw-bold">Mission & Vision</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="{{ route('future_expension_view') }}">
-                                        <i data-feather="grid" class="font-medium-3 me-50"></i>
-                                        <span class="fw-bold">Future Expension</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('about_us_view') }}">
-                                        <i data-feather="info" class="font-medium-3 me-50"></i>
-                                        <span class="fw-bold">About Us</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="faker" class="demo-spacing-0 d-none mb-2">
-                            <div class="alert alert-warning" role="alert">
-                                <div class="alert-body"><strong>Data Updated ! It may take a little bit time to
-                                        Update.</strong></div>
-                            </div>
-                        </div>
+                        
 
                         <form action="{{ route('about_us_update') }}" class="invoice-repeater" method="POST">
                             @csrf
