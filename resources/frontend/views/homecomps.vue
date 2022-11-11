@@ -870,7 +870,7 @@
 				},
 			};
 			const options4 = {
-				autoplay: false,
+				autoplay: true,
 				rewind: true,
 				direction: 'ttb',
 				height: '32rem',
