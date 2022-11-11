@@ -51,8 +51,8 @@ const routes = [
 		component: () => import("../views/future-expnsn.vue"),
 	},
 	{
-		path: "/company/:id",
-		name: "Company",
+		path: "/product/:id",
+		name: "Product",
 		component: () => import("../views/product-details.vue"),
 	},
 	{
