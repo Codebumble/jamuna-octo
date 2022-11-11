@@ -143,6 +143,7 @@
 							this.company.social.linkedin = jsn.linkedin;
 						})
 						.catch(() => {
+							console.log('not found from comp details');
 							this.$router.push({ name: 'not-found' });
 						});
 				}
