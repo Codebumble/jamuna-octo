@@ -156,6 +156,26 @@ Route::group(['prefix' => 'codebumble'], function () {
 			'future_expension_component_add',
 		])->name('future_expension_component_add');
 
+		Route::get('edit-future-expension-content/{id}', [
+			siteGeneral::class,
+			'future_expension_component_edit_view',
+		])->name('future_expension_component_edit_view');
+
+		Route::post('edit-future-expension-content/{id}', [
+			siteGeneral::class,
+			'future_expension_component_edit',
+		])->name('future_expension_component_edit');
+
+		Route::get('future-expension-content-photos', [
+			siteGeneral::class,
+			'future_expension_photos_view',
+		])->name('future_expension_photos_view');
+
+		Route::post('future-expension-content-photos-add', [
+			siteGeneral::class,
+			'future_expension_photos_add',
+		])->name('future_expension_photos_add');
+
 		Route::get('site-settings/about-us', [
 			siteGeneral::class,
 			'about_us_view',
