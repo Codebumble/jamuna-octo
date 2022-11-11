@@ -133,14 +133,9 @@ export default {
 					this.contents.text = res.data.desc_data;
 					this.breadcumb.src = res.data.image;
 					this.breadcumb.title = res.data.name;
+					this.contents.images = this.paginate(JSON.parse(res.data.json_data).images, 12, page);
+					this.totalImages = JSON.parse(res.data.json_data).length;
 					document.title = `${res.data.name} | Jamuna Group`;
-				});
-			// Should Be remove
-			axios
-				.get(window.location.origin + '/frontpage-api/gallery-api')
-				.then((res) => {
-					this.contents.images = this.paginate(res.data, 12, page);
-					this.totalImages = res.data.length;
 				});
 		},
 		showImg(index) {
