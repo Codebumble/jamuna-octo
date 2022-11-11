@@ -490,6 +490,11 @@ Route::group(['prefix' => 'frontpage-api'], function () {
 		'front_all_product_page',
 	]);
 
+	Route::get('product-details/{id}', [
+		Product_rest::class,
+		'front_product_page_single',
+	]);
+
 	Route::get('meta-data', [siteGeneral::class, 'meta_api']);
 	Route::get('footer-component', [FrontPage::class, 'footer_component']);
 	Route::get('event-header', [FrontPage::class, 'event_header']);

@@ -22,8 +22,17 @@ class FrontPage extends Controller
     }
     public function slider_view_bottom(){
         $data_get = DB::select('select value from codebumble_front_page where code_name=?',['sliders_data_bottom']);
+        $b = json_decode($data_get[0]->value, true);
 
-        return $data_get[0]->value;
+        for($i=0;$i<count($b);$i++){
+            if(isset($b[$i]['textStyle'])){
+            array_push($b[$i]['textStyle'],$b[$i]['text_size']);
+            } else {
+                $b[$i]['textStyle'] = array($b[$i]['text_size']);
+            }
+        }
+        return json_encode($b);
+
 
     }
 
