@@ -1153,13 +1153,13 @@ class siteGeneral extends Controller
 		check_power('admin');
 
 		foreach ($r->new as $key => $value) {
-			$b_get = DB::select('select * from codebumble_future_expension where id = ?', [$value->future_expension_id]);
+			$b_get = DB::select('select * from codebumble_future_expension where id = ?', [$value['future_expension_id']]);
 			$b = json_decode($b_get[0]->json_data, true);
 			$images = $b['images'];
 
 			if ($file2 = $r->hasFile('new.' . $key . '.image')) {
 				$file2 = $r->file('new.' . $key . '.image');
-				$fileName2 = time() . '.' . $file2->getClientOriginalExtension();
+				$fileName2 = time() .'-'.Str::random(10). '.' . $file2->getClientOriginalExtension();
 				$destinationPath2 = public_path() . '/images';
 				$file2->move($destinationPath2, $fileName2);
 				$f = '/images/' . $fileName2;
@@ -1174,11 +1174,70 @@ class siteGeneral extends Controller
 			];
 
 			$data_push = DB::table('codebumble_future_expension')
-				->where('id', $value->future_expension_id)
+				->where('id', $value['future_expension_id'])
 				->update($data);
-			return redirect()->route('future_expension_photos_view', [ 'hasher' => Str::random(40), 'time' => time(), 'exist' => 'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10),]);
 
 		}
+
+		return redirect()->route('future_expension_photos_view', [ 'hasher' => Str::random(40), 'time' => time(), 'exist' => 'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10),]);
+
+	}
+
+	public function future_expension_all_api()
+	{
+		$data = DB::select('select id,name,json_data,created_at from codebumble_future_expension');
+		return response()->json(['data' => $data]);
+	}
+
+	public function future_expension_all_view()
+	{
+		check_auth();
+		check_power('admin');
+
+		$pageConfigs = ['pageHeader' => false];
+
+		return view('/content/site-settings/all-future-expension-list', [
+			'pageConfigs' => $pageConfigs
+		]);
+	}
+
+	public function future_expension_component_delete($id){
+		check_auth();
+		check_power('admin');
+
+
+
+		$data_push = DB::table('codebumble_future_expension')
+			->where('id', $id)
+			->delete();
+
+		return redirect()->route('future_expension_all_view', ['hasher' => Str::random(40), 'time' => time(), 'exist' => 'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10),]);
+
+
+	}
+
+	public function future_expension_photos_delete($id,$f_id){
+		check_auth();
+		check_power('admin');
+
+		$b_get = DB::select('select * from codebumble_future_expension where id = ?', [$f_id]);
+		$b = json_decode($b_get[0]->json_data, true);
+		$images = $b['images'];
+
+		$images = array_diff($images, [$images[$id]]);
+
+		$data = [
+			'json_data' => json_encode([
+				'images' => $images,
+			]),
+			'updated_at' => time(),
+		];
+
+		$data_push = DB::table('codebumble_future_expension')
+			->where('id', $f_id)
+			->update($data);
+		return redirect()->route('future_expension_photos_view', [ 'hasher' => Str::random(40), 'time' => time(), 'exist' => 'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10),]);
+
 	}
 
 	public function about_us_update(Request $r)

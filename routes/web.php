@@ -156,6 +156,11 @@ Route::group(['prefix' => 'codebumble'], function () {
 			'future_expension_component_add',
 		])->name('future_expension_component_add');
 
+		Route::get('delete-future-expension-content/{id}', [
+			siteGeneral::class,
+			'future_expension_component_delete',
+		])->name('future_expension_component_delete');
+
 		Route::get('edit-future-expension-content/{id}', [
 			siteGeneral::class,
 			'future_expension_component_edit_view',
@@ -170,6 +175,21 @@ Route::group(['prefix' => 'codebumble'], function () {
 			siteGeneral::class,
 			'future_expension_photos_view',
 		])->name('future_expension_photos_view');
+
+		Route::get('future-expension-content-photos-delete/{id}/{f_id}', [
+			siteGeneral::class,
+			'future_expension_photos_delete',
+		])->name('future_expension_photos_delete');
+
+		Route::get('future-expension-content-all', [
+			siteGeneral::class,
+			'future_expension_all_api',
+		])->name('future_expension_all_api');
+
+		Route::get('all-future-expension-content', [
+			siteGeneral::class,
+			'future_expension_all_view',
+		])->name('future_expension_all_view');
 
 		Route::post('future-expension-content-photos-add', [
 			siteGeneral::class,

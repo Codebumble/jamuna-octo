@@ -57,7 +57,6 @@
                                         <div class="mb-1">
                                             <label class="form-label" for="itemcost">Future Expension Name</label>
 											<select class="form-select" name="future_expension_id" required>
-												<option value="">Select Future Expension</option>
 												@foreach($future_expensions as $future_expension)
 													<option value="{{ $future_expension->id }}">{{ $future_expension->name }}</option>
 												@endforeach
@@ -125,8 +124,10 @@
                                 src="{{ asset($value) }}" alt="Card image cap" />
 
                             <div class="card-body">
-
-                                <a href="{{ route('delete_gallery_image', ['id' => $key,'f_id' => $future_expension->id]) }}"
+                                <div>
+                                    <p> <strong>Under:</strong> {{$future_expension->name}}</p>
+                                </div>
+                                <a href="{{ route('future_expension_photos_delete', ['id' => $key,'f_id' => $future_expension->id]) }}"
                                     class="btn btn-outline-danger col-md-6">Delete</a>
                             </div>
                         </div>
