@@ -140,7 +140,7 @@
                                         <label class="form-label" for="textStyle">Text Style:    </label>
 
                                             <div class="form-check form-check-primary mb-2 mt-2 form-check-inline">
-                                              <input type="checkbox" class="form-check-input" id="colorCheck1" name="textStyle[]" value="bold">
+                                              <input type="checkbox" class="form-check-input" id="colorCheck1" name="textStyle[]" value="font-bold">
                                               <label class="form-check-label" for="colorCheck1"><b>Bold</b></label>
                                             </div>
                                             <div class="form-check form-check-secondary mb-2 mt-2 form-check-inline">
@@ -148,7 +148,7 @@
                                               <label class="form-check-label" for="colorCheck2"><i>Italic</i></label>
                                             </div>
                                             <div class="form-check form-check-success mb-2 mt-2 form-check-inline">
-                                              <input type="checkbox" class="form-check-input" id="colorCheck3" name="textStyle[]" value="underline">
+                                              <input type="checkbox" class="form-check-input" id="colorCheck3" name="textStyle[]" value="underline-offset-8">
                                               <label class="form-check-label" for="colorCheck3"><u>Underline</u></label>
                                             </div>
 
@@ -302,7 +302,7 @@
                                                 <label class="form-label" for="textStyle">Text Style:    </label>
 
                                                     <div class="form-check form-check-primary mb-2 mt-2 form-check-inline">
-                                                      <input type="checkbox" class="form-check-input" id="colorCheck1" name="preview[{{ $counter }}][textStyle][]" value="bold" @php if(isset($img->textStyle) && in_array("bold", $img->textStyle)) {echo "checked";} @endphp>
+                                                      <input type="checkbox" class="form-check-input" id="colorCheck1" name="preview[{{ $counter }}][textStyle][]" value="font-bold" @php if(isset($img->textStyle) && in_array("font-bold", $img->textStyle)) {echo "checked";} @endphp>
                                                       <label class="form-check-label" for="colorCheck1"><b>Bold</b></label>
                                                     </div>
                                                     <div class="form-check form-check-secondary mb-2 mt-2 form-check-inline">
@@ -310,7 +310,7 @@
                                                       <label class="form-check-label" for="colorCheck2"><i>Italic</i></label>
                                                     </div>
                                                     <div class="form-check form-check-success mb-2 mt-2 form-check-inline">
-                                                      <input type="checkbox" class="form-check-input" id="colorCheck3" name="preview[{{ $counter }}][textStyle][]" value="underline" @php if(isset($img->textStyle) && in_array("underline", $img->textStyle)) {echo "checked";} @endphp>
+                                                      <input type="checkbox" class="form-check-input" id="colorCheck3" name="preview[{{ $counter }}][textStyle][]" value="underline-offset-8" @php if(isset($img->textStyle) && in_array("underline-offset-8", $img->textStyle)) {echo "checked";} @endphp>
                                                       <label class="form-check-label" for="colorCheck3"><u>Underline</u></label>
                                                     </div>
 
@@ -447,7 +447,7 @@
                                                 <label class="form-label" for="textStyle">Text Style:    </label>
 
                                                     <div class="form-check form-check-primary mb-2 mt-2 form-check-inline">
-                                                      <input type="checkbox" class="form-check-input" id="colorCheck1" name="preview1[{{ $counter }}][textStyle][]" value="bold" @php if(isset($img->textStyle) && in_array("bold", $img->textStyle)) {echo "checked";} @endphp>
+                                                      <input type="checkbox" class="form-check-input" id="colorCheck1" name="preview1[{{ $counter }}][textStyle][]" value="font-bold" @php if(isset($img->textStyle) && in_array("font-bold", $img->textStyle)) {echo "checked";} @endphp>
                                                       <label class="form-check-label" for="colorCheck1"><b>Bold</b></label>
                                                     </div>
                                                     <div class="form-check form-check-secondary mb-2 mt-2 form-check-inline">
@@ -455,7 +455,7 @@
                                                       <label class="form-check-label" for="colorCheck2"><i>Italic</i></label>
                                                     </div>
                                                     <div class="form-check form-check-success mb-2 mt-2 form-check-inline">
-                                                      <input type="checkbox" class="form-check-input" id="colorCheck3" name="preview1[{{ $counter }}][textStyle][]" value="underline" @php if(isset($img->textStyle) && in_array("underline", $img->textStyle)) {echo "checked";} @endphp>
+                                                      <input type="checkbox" class="form-check-input" id="colorCheck3" name="preview1[{{ $counter }}][textStyle][]" value="underline-offset-8" @php if(isset($img->textStyle) && in_array("underline-offset-8", $img->textStyle)) {echo "checked";} @endphp>
                                                       <label class="form-check-label" for="colorCheck3"><u>Underline</u></label>
                                                     </div>
 
