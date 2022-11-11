@@ -461,7 +461,7 @@
 
                                             </div>
 
-                                            <div class="col-md-4 col-12 mb-5">
+                                            <div class="col-md-3 col-12 mb-5">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="textColour">Text Colour</label>
                                                     <input id="heading" type="text" class="form-control" name="preview1[{{ $counter }}][textColor]"

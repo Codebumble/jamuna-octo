@@ -304,10 +304,8 @@ class Product_rest extends Controller
 
 				$a += [
 					'webLink' =>
-						'/companies/' .
-						$data[0]->id .
-						'/' .
-						str_replace(' ', '-', $data[0]->name),
+						'/product/' .
+						$value->id,
 				];
 			} else {
 				$a += ['webLink' => json_decode($alue->json_data)->custom_url];
@@ -317,5 +315,19 @@ class Product_rest extends Controller
 		}
 
 		return json_encode($b);
+	}
+
+	public function front_product_page_single($id)
+	{
+		$data = DB::select(
+			'select * from codebumble_product_list where id=?',
+			[$id]
+		);
+
+		if (!isset($data[0])) {
+			return redirect()->route('misc-not-authorized');
+		}
+
+		return json_encode($data[0]);
 	}
 }
