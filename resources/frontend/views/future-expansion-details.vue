@@ -8,7 +8,7 @@
 						:alt="breadcumb.title"
 						class="w-full object-cover h-[90vh]" />
 				</div>
-				<div class="absolute w-full z-20">
+				<div class="absolute w-full">
 					<div class="container flex flex-col">
 						<div class="overflow-hidden">
 							<h1
