@@ -242,10 +242,17 @@
 				},
 				{
 					"name": "List of ALL",
-					"url": "",
+					"url": "/codebumble/all-future-expension-content",
 					"icon": "circle",
 					"permission": 1,
-					"slug": ""
+					"slug": "future_expension_all_view"
+				},
+				{
+					"name": "Photo Gallary",
+					"url": "/codebumble/future-expension-content-photos",
+					"icon": "circle",
+					"permission": 1,
+					"slug": "future_expension_photos_view"
 				}
 			]
 		},
