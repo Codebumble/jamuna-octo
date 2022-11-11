@@ -100,7 +100,7 @@
 	"intelephense.diagnostics.undefinedTypes": false,
 	"intelephense.diagnostics.undefinedVariables": false,
 	"intelephense.diagnostics.typeErrors": false,
-	"cSpell.words": ["breadcumb", "Splide"]
+	"cSpell.words": ["axios", "breadcumb", "Jamuna", "Splide"]
 
 	// "[vue]": {
 	// 	"editor.defaultFormatter": "esbenp.prettier-vscode"

@@ -21,8 +21,5 @@ export default {
 		companyProfile,
 		companyProfileSkeleton,
 	},
-	mounted() {
-		document.title = 'Double Hores Tyre | Jamuna Group';
-	},
 };
 </script>
