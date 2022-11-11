@@ -1036,6 +1036,8 @@ class siteGeneral extends Controller
 	}
 	public function future_expension_component_add_view()
 	{
+		check_auth();
+		check_power('admin');
 		$pageConfigs = ['pageHeader' => false];
 		return view('/content/site-settings/create-a-future-expension', [
 			'pageConfigs' => $pageConfigs,
@@ -1086,6 +1088,8 @@ class siteGeneral extends Controller
 
 	public function future_expension_component_edit_view($id)
 	{
+		check_auth();
+		check_power('admin');
 		$data = DB::select('select * from codebumble_future_expension where id = ?',[$id]);
 
 		$pageConfigs = ['pageHeader' => false];
@@ -1132,6 +1136,8 @@ class siteGeneral extends Controller
 
 	public function future_expension_photos_view()
 	{
+		check_auth();
+		check_power('admin');
 		$data = DB::select('select * from codebumble_future_expension');
 
 		$pageConfigs = ['pageHeader' => false];
@@ -1139,6 +1145,40 @@ class siteGeneral extends Controller
 			'pageConfigs' => $pageConfigs,
 			'future_expensions' => $data,
 		]);
+	}
+
+	public function future_expension_photos_add(Request $r)
+	{
+		check_auth();
+		check_power('admin');
+
+		foreach ($r->new as $key => $value) {
+			$b_get = DB::select('select * from codebumble_future_expension where id = ?', [$value->future_expension_id]);
+			$b = json_decode($b_get[0]->json_data, true);
+			$images = $b['images'];
+
+			if ($file2 = $r->hasFile('new.' . $key . '.image')) {
+				$file2 = $r->file('new.' . $key . '.image');
+				$fileName2 = time() . '.' . $file2->getClientOriginalExtension();
+				$destinationPath2 = public_path() . '/images';
+				$file2->move($destinationPath2, $fileName2);
+				$f = '/images/' . $fileName2;
+				$images[] = $f;
+			}
+
+			$data = [
+				'json_data' => json_encode([
+					'images' => $images,
+				]),
+				'updated_at' => time(),
+			];
+
+			$data_push = DB::table('codebumble_future_expension')
+				->where('id', $value->future_expension_id)
+				->update($data);
+			return redirect()->route('future_expension_photos_view', [ 'hasher' => Str::random(40), 'time' => time(), 'exist' => 'Site Information Updated !! Your Server may take a soft restart for visible the changes. Take A time if It is Down for a short. Thank You', 'hasher_ip' => Str::random(10),]);
+
+		}
 	}
 
 	public function about_us_update(Request $r)

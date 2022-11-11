@@ -37,7 +37,7 @@
 
 
 
-                    <form action="{{ route('add_gallery_photo') }}" class="invoice-repeater" enctype="multipart/form-data"
+                    <form action="{{ route('future_expension_photos_add') }}" class="invoice-repeater" enctype="multipart/form-data"
                         method="POST">
                         @csrf
                         <div data-repeater-list="new">

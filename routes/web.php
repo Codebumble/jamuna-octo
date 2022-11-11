@@ -171,6 +171,11 @@ Route::group(['prefix' => 'codebumble'], function () {
 			'future_expension_photos_view',
 		])->name('future_expension_photos_view');
 
+		Route::post('future-expension-content-photos-add', [
+			siteGeneral::class,
+			'future_expension_photos_add',
+		])->name('future_expension_photos_add');
+
 		Route::get('site-settings/about-us', [
 			siteGeneral::class,
 			'about_us_view',
