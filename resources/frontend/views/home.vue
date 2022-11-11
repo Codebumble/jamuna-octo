@@ -16,7 +16,6 @@
 
 	const home = defineAsyncComponent({
 		loader: () => import('./homecomps'),
-		timeout: 2000,
 	});
 
 	export default {
