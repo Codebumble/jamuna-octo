@@ -67,11 +67,7 @@
 										v-if="psm.route">
 										{{ psm.label }}
 									</router-link>
-									<router-link
-										to="/business-vertical/420"
-										v-else
-										>{{ psm.label }}</router-link
-									>
+									<span v-else>{{ psm.label }}</span>
 									<ul
 										class="items-inner"
 										v-if="psm.childSubmenu">
@@ -587,7 +583,6 @@ export default {
 
 		document.querySelectorAll('.has-inner').forEach((child) => {
 			child.childNodes[0].addEventListener('click', () => {
-				console.log('clicked');
 				if (detectScreen(x) === 'desktop') return;
 				child.classList.toggle('active');
 			});

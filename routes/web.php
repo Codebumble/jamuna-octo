@@ -46,6 +46,20 @@ Route::get('{any}', [FrontendController::class, 'home'])->where(
 	'/|founder|chairman|board-of-directors|company-profile|jamuna-tv|the-daily-jugantor|growth-story|quality-process|future-expansion|contact|photo-gallery|career|news-center|event-details|nurul-islam-foundation|developers-credit|tou|privacy-policy|faq|e-tender|'
 );
 
+Route::get('/business-vertical/{id}', [FrontendController::class, 'home'])->name(
+	'business-vertical'
+);
+Route::get('/future-expansion/{id}', [FrontendController::class, 'home'])->name(
+	'future-expansion'
+);
+Route::get('/product/{id}', [FrontendController::class, 'home'])->name(
+	'product'
+);
+
+// business-vertical/:id
+// future-expansion/:id
+// product/:id
+
 Route::get('/career-details/{id}', [FrontendController::class, 'home'])->name(
 	'career-details'
 );
@@ -68,7 +82,7 @@ Route::get('/media-center/{id}/{name}', [
 ])->name('media-center');
 
 Route::get('/login', function () {
-    return redirect()->route('auth-login');
+	return redirect()->route('auth-login');
 });
 
 /* Route Dashboards */

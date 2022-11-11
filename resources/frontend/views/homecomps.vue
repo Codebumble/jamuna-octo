@@ -280,13 +280,14 @@
 							class="py-4 transition-all transform translate-x-0 hover:translate-x-1"
 							v-for="(item, key) in fe.list"
 							:key="key">
-							<router-link to="/future-expansion/1">
+							<router-link :to="'/future-expansion/'+item.id">
 								<span
 									class="inline-block py-2 px-4 mr-4 text-xs font-semibold bg-red-500 text-white rounded">
 									{{ key + 1 }}
 								</span>
+								<span>{{ item.name }}</span>
 							</router-link>
-							<span>{{ item.name }}</span>
+
 						</div>
 					</div>
 				</div>
@@ -419,7 +420,7 @@
 
 							<!-- <span class="itemName">{{ slide.title }}</span> -->
 							<router-link
-								to="/company/15"
+								to="/product/15"
 								class="button block mx-auto mt-3"
 								>{{ slide.linkText }}</router-link
 							>
@@ -710,7 +711,7 @@
 				.then((response) => {
 					(this.fe.top.title = response.data.top.title),
 						(this.fe.top.desc = response.data.top.desc),
-						(this.fe.list = response.data.list);
+						(this.fe.list = response.data.data);
 				});
 			axios
 				.get(window.location.origin + '/frontpage-api/about-us-api')

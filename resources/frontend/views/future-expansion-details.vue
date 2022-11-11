@@ -5,7 +5,7 @@
 				<div class="image">
 					<img
 						:src="breadcumb.src"
-						alt=""
+						:alt="breadcumb.title"
 						class="w-full object-cover h-[90vh]" />
 				</div>
 				<div class="absolute w-full z-20">
@@ -48,13 +48,38 @@
 							pb-8
 						">
 						<div
-							v-for="(item, index) in contents.images"
+							v-for="(item, index) in visibleImages"
 							:key="index"
+							@click="() => showImg(index)"
 							class="image">
 							<div class="thumbnail">
-								<img :src="item.src" :alt="breadcumb.title" />
+								<img
+									:src="item.src"
+									:alt="`${breadcumb.title} ${index + 1}`" />
 							</div>
 						</div>
+					</div>
+					<div>
+						<vue-awesome-paginate
+							:total-items="totalImages"
+							:items-per-page="12"
+							:max-pages-shown="1000"
+							:current-page="currentPage"
+							:on-click="onClickHandler"
+							:key="currentPage"
+							v-if="totalImages > 4">
+							<template #prev-button>
+								<i class="fas fa-angle-left"></i>
+							</template>
+							<template #next-button>
+								<i class="fas fa-angle-right"></i>
+							</template>
+						</vue-awesome-paginate>
+						<vue-easy-lightbox
+							:visible="visibleRef"
+							:imgs="contents.images"
+							:index="indexRef"
+							@hide="onHide"></vue-easy-lightbox>
 					</div>
 				</div>
 			</div>
@@ -63,55 +88,75 @@
 </template>
 
 <script>
+import VueEasyLightbox from 'vue-easy-lightbox';
 export default {
+	components: {
+		VueEasyLightbox,
+	},
+	computed: {
+		visibleImages() {
+			return this.contents.images.slice(0, this.images);
+		},
+	},
 	data() {
 		return {
 			breadcumb: {
-				src: 'https://beta.jamunagroup.com.bd/images/company-gallery/1662995804-010-company-images.jpg',
-				title: 'Double Horse Tyre',
+				src: '',
+				title: '',
 			},
 			contents: {
-				text: '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt quam magni nisi reprehenderit provident ducimus officia nostrum aspernatur, aliquid odit quis dignissimos neque commodi tempora perferendis. Nemo reprehenderit ullam ex unde saepe neque pariatur distinctio iste quos.</p><p>Veniam labore, eius eos magnam amet hic. Tempore, cum harum itaque rerum ipsum minima, magni qui laudantium sunt quasi earum. Illo, enim! Esse, minima voluptatum, labore quaerat, magni ad unde ab quae quidem nisi magnam</p><p>Voluptatem quibusdam quos? Nam ipsa fuga reiciendis cum voluptas ex consequatur asperiores recusandae debitis ab, officia sed voluptatum adipisci vero ad sapiente repudiandae exercitationem illo aliquam delectus?</p>',
-				images: [
-					{
-						src: 'https://beta.jamunagroup.com.bd/images/company-gallery/1662995804-010-company-images.jpg',
-					},
-					{
-						src: 'https://beta.jamunagroup.com.bd/images/company-gallery/1662995804-010-company-images.jpg',
-					},
-					{
-						src: 'https://beta.jamunagroup.com.bd/images/company-gallery/1662995804-010-company-images.jpg',
-					},
-					{
-						src: 'https://beta.jamunagroup.com.bd/images/company-gallery/1662995804-010-company-images.jpg',
-					},
-					{
-						src: 'https://beta.jamunagroup.com.bd/images/company-gallery/1662995804-010-company-images.jpg',
-					},
-					{
-						src: 'https://beta.jamunagroup.com.bd/images/company-gallery/1662995804-010-company-images.jpg',
-					},
-					{
-						src: 'https://beta.jamunagroup.com.bd/images/company-gallery/1662995804-010-company-images.jpg',
-					},
-					{
-						src: 'https://beta.jamunagroup.com.bd/images/company-gallery/1662995804-010-company-images.jpg',
-					},
-					{
-						src: 'https://beta.jamunagroup.com.bd/images/company-gallery/1662995804-010-company-images.jpg',
-					},
-					{
-						src: 'https://beta.jamunagroup.com.bd/images/company-gallery/1662995804-010-company-images.jpg',
-					},
-					{
-						src: 'https://beta.jamunagroup.com.bd/images/company-gallery/1662995804-010-company-images.jpg',
-					},
-					{
-						src: 'https://beta.jamunagroup.com.bd/images/company-gallery/1662995804-010-company-images.jpg',
-					},
-				],
+				text: '',
+				images: [],
 			},
+			visibleRef: false,
+			indexRef: 0,
+			page: 1,
+			currentPage: 1,
+			totalImages: 0,
 		};
+	},
+	methods: {
+		paginate(array, page_size, page_number) {
+			return array.slice(
+				(page_number - 1) * page_size,
+				page_number * page_size
+			);
+		},
+		photos(page) {
+			axios
+				.get(
+					window.location.origin +
+						'/frontpage-api/future-expansion-single-data/' +
+						this.$route.params.id
+				)
+				.then((res) => {
+					this.contents.text = res.data.desc_data;
+					this.breadcumb.src = res.data.image;
+					this.breadcumb.title = res.data.name;
+					document.title = `${res.data.name} | Jamuna Group`;
+				});
+			// Should Be remove
+			axios
+				.get(window.location.origin + '/frontpage-api/gallery-api')
+				.then((res) => {
+					this.contents.images = this.paginate(res.data, 12, page);
+					this.totalImages = res.data.length;
+				});
+		},
+		showImg(index) {
+			this.indexRef = index;
+			this.visibleRef = true;
+		},
+		onHide() {
+			this.visibleRef = false;
+		},
+		onClickHandler(page) {
+			this.currentPage = page;
+			this.photos(page);
+		},
+	},
+	mounted() {
+		this.photos(this.page);
 	},
 };
 </script>
@@ -119,4 +164,5 @@ export default {
 <style lang="scss">
 @import '../assets/scss/variables/_hero.scss';
 @import '../assets/scss/variables/image-gallery';
+@import '../assets/scss/variables/pagination';
 </style>

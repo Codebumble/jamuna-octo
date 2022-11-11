@@ -597,6 +597,7 @@ export default {
 					package_details: JSON.parse(response.data.package_details),
 					corrigendum: JSON.parse(response.data.corrigendum),
 				};
+				document.title=`${tender.value.title}`
 				lastDate.value = new Date(response.data.last_date).getTime();
 			});
 
