@@ -354,7 +354,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="overflow-hidden">
+	<section class="overflow-hidden" id="growing-up-slider">
 		<div class="flex flex-col items-center">
 			<div class="content w-full mb-6">
 				<h2 class="heading uppercase">48 years of growing up</h2>
@@ -370,7 +370,7 @@
 						class="flex justify-around items-center transition-all overflow-hidden p-4">
 						<div class="growing-up-slider relative w-full">
 							<img
-								src="https://beta.jamunagroup.com.bd/images/videos/1667305046-sfV5OwTjSu-company-slider-video.jpg"
+								:src="item.src"
 								alt=""
 								class="w-full object-cover h-[90vh]" />
 							<div
