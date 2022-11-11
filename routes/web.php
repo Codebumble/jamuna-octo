@@ -46,13 +46,13 @@ Route::get('{any}', [FrontendController::class, 'home'])->where(
 	'/|founder|chairman|board-of-directors|company-profile|jamuna-tv|the-daily-jugantor|growth-story|quality-process|future-expansion|contact|photo-gallery|career|news-center|event-details|nurul-islam-foundation|developers-credit|tou|privacy-policy|faq|e-tender|'
 );
 
-Route::get('/business-vertical/{id}')->name(
+Route::get('/business-vertical/{id}', [FrontendController::class, 'home'])->name(
 	'business-vertical'
 );
-Route::get('/future-expansion/{id}')->name(
+Route::get('/future-expansion/{id}', [FrontendController::class, 'home'])->name(
 	'future-expansion'
 );
-Route::get('/product/{id}')->name(
+Route::get('/product/{id}', [FrontendController::class, 'home'])->name(
 	'product'
 );
 
