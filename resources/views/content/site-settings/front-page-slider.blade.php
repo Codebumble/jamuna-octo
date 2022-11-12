@@ -456,7 +456,7 @@
                                             <div class="col-md-2 col-12 mb-5">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="textColour">Link (Keep it Blank if not needed)</label>
-                                                    <input id="heading" type="text" class="form-control" name="preview1 [{{ $counter }}][c_link]"
+                                                    <input id="heading" type="text" class="form-control" name="preview1[{{ $counter }}][c_link]"
                                                     @php if(isset($img->c_link)) {echo "value=\"".$img->c_link."\"";} @endphp placeholder="#0ash763" />
                                                 </div>
                                             </div>
