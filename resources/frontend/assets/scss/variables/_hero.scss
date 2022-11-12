@@ -25,3 +25,11 @@
 .text-shadow-extreme {
 	text-shadow: rgb(0 0 0) 4px 4px 6px;
 }
+@media (max-width: 767px) {
+	.top-vdo-img-slider {
+		a,
+		h1 {
+			@apply text-2xl;
+		}
+	}
+}
