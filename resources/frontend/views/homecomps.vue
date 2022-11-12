@@ -36,16 +36,17 @@
 							</div>
 							<div class="absolute w-full z-20">
 								<div class="container flex flex-col">
-									<div class="overflow-hidden top-vdo-img-slider">
+									<div
+										class="overflow-hidden top-vdo-img-slider">
 										<div v-if="slide.c_link">
-											<router-link
-												:to="slide.c_link"
+											<a
+												:href="slide.c_link"
 												class="ml-8 2xl:ml-8 xl:ml-0 text-white capitalize leading-snug w-[80%] lg:w-[50%] text-shadow-extreme"
 												:class="slide.textStyle"
 												:style="{
 													color: slide.textColor,
 												}"
-												>{{ slide.heading }}</router-link
+												>{{ slide.heading }}</a
 											>
 										</div>
 										<h1
@@ -94,8 +95,7 @@
 											'/' +
 											logo.name.replaceAll(' ', '-')
 										">
-										<div
-											class="concern rounded-full">
+										<div class="concern rounded-full">
 											<img
 												:src="
 													'/company-images/' +
@@ -412,23 +412,23 @@
 										{{ item.desc }}
 									</h3>
 									<div v-if="item.c_link">
-											<router-link
-												:to="item.c_link"
-												class="text-white w-fit uppercase text-title"
-												:class="item.textStyle"
-												:style="{
-													color: item.textColor,
-												}"
-												>{{ item.heading }}</router-link
-											>
-										</div>
-										<h3
-											v-else
+										<router-link
+											:to="item.c_link"
 											class="text-white w-fit uppercase text-title"
-											:style="{ color: item.textColor }"
-											:class="item.textStyle">
-											{{ item.heading }}
-										</h3>
+											:class="item.textStyle"
+											:style="{
+												color: item.textColor,
+											}"
+											>{{ item.heading }}</router-link
+										>
+									</div>
+									<h3
+										v-else
+										class="text-white w-fit uppercase text-title"
+										:style="{ color: item.textColor }"
+										:class="item.textStyle">
+										{{ item.heading }}
+									</h3>
 								</div>
 							</div>
 						</div>
