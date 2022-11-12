@@ -756,6 +756,7 @@ class siteGeneral extends Controller
 					'text_size' => $value['text_size'],
 					'textStyle' => $value['textStyle'],
 					'textColor' => $value['textColor'],
+					'c_link' => $value['c_link'],
 				];
 
 				if($value['slider_option'] == "top"){
@@ -818,6 +819,10 @@ class siteGeneral extends Controller
 					'src' => '/images/videos/' . $fileName2,
 					'heading' => $value['heading'],
 					'description' => $value['description'],
+					'text_size' => $value['text_size'],
+					'textStyle' => $value['textStyle'],
+					'textColor' => $value['textColor'],
+					'c_link' => $value['c_link'],
 				];
 
 				array_push($data, $f);
