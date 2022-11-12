@@ -329,13 +329,17 @@ class Product_rest extends Controller
 
 
 		$data_get_by_company = DB::select(
-			'select name,image from codebumble_product_list where company=?',
+			'select id,name,image from codebumble_product_list where company=?',
+			[$data[0]->company]
+		);
+
+		$company_data = DB::select(
+			'select * from codebumble_company_list where name=?',
 			[$data[0]->company]
 		);
 
 
-
-		return json_encode(['data' => $data[0], 'images' => $data_get_by_company]);
+		return json_encode(['company' =>$company_data[0], 'data' => $data[0], 'images' => $data_get_by_company]);
 	}
 
 	public function add_product_photo(Request $r, $id){
