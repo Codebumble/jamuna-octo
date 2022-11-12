@@ -364,7 +364,7 @@
                                                         value="underline underline-offset-4"
                                                         @php if(isset($img->textStyle) && in_array("underline underline-offset-4", $img->textStyle)) {echo "checked";} @endphp>
                                                     <label class="form-check-label"
-                                                        :for="colorCheck3"><u>Underline</u></label>
+                                                        :for="colorCheck30"><u>Underline</u></label>
                                                 </div>
 
                                             </div>
@@ -909,7 +909,7 @@
                                                         :for="colorCheck110"><b>Bold</b></label>
                                                 </div>
                                                 <div class="form-check form-check-primary form-check-inline"
-                                                    x-data="{ colorCheck10: $id('colorCheck210') }">
+                                                    x-data="{ colorCheck210: $id('colorCheck210') }">
                                                     <input type="checkbox" class="form-check-input"
                                                         :id="colorCheck210"
                                                         name="videopreview[{{ $counter }}][textStyle][]"
