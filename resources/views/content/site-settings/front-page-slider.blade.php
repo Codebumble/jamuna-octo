@@ -140,15 +140,15 @@
                                         <label class="form-label" for="textStyle">Text Style:    </label>
 
                                             <div class="form-check form-check-primary mb-2 mt-2 form-check-inline">
-                                              <input type="checkbox" class="form-check-input" id="colorCheck1" name="textStyle[]" value="font-bold">
+                                              <input type="checkbox" class="form-check-input" id="colorCheck1" name="textStyle" value="font-bold">
                                               <label class="form-check-label" for="colorCheck1"><b>Bold</b></label>
                                             </div>
                                             <div class="form-check form-check-secondary mb-2 mt-2 form-check-inline">
-                                              <input type="checkbox" class="form-check-input" id="colorCheck2" name="textStyle[]" value="italic">
+                                              <input type="checkbox" class="form-check-input" id="colorCheck2" name="textStyle" value="italic">
                                               <label class="form-check-label" for="colorCheck2"><i>Italic</i></label>
                                             </div>
                                             <div class="form-check form-check-success mb-2 mt-2 form-check-inline">
-                                              <input type="checkbox" class="form-check-input" id="colorCheck3" name="textStyle[]" value="underline underline-offset-4">
+                                              <input type="checkbox" class="form-check-input" id="colorCheck3" name="textStyle" value="underline underline-offset-4">
                                               <label class="form-check-label" for="colorCheck3"><u>Underline</u></label>
                                             </div>
 
@@ -607,15 +607,15 @@
                                         <label class="form-label" for="textStyle">Text Style:    </label>
 
                                             <div class="form-check form-check-primary mb-2 mt-2 form-check-inline">
-                                              <input type="checkbox" class="form-check-input" id="colorCheck1" name="textStyle[]" value="font-bold">
+                                              <input type="checkbox" class="form-check-input" id="colorCheck1" name="textStyle" value="font-bold">
                                               <label class="form-check-label" for="colorCheck1"><b>Bold</b></label>
                                             </div>
                                             <div class="form-check form-check-secondary mb-2 mt-2 form-check-inline">
-                                              <input type="checkbox" class="form-check-input" id="colorCheck2" name="textStyle[]" value="italic">
+                                              <input type="checkbox" class="form-check-input" id="colorCheck2" name="textStyle" value="italic">
                                               <label class="form-check-label" for="colorCheck2"><i>Italic</i></label>
                                             </div>
                                             <div class="form-check form-check-success mb-2 mt-2 form-check-inline">
-                                              <input type="checkbox" class="form-check-input" id="colorCheck3" name="textStyle[]" value="underline underline-offset-4">
+                                              <input type="checkbox" class="form-check-input" id="colorCheck3" name="textStyle" value="underline underline-offset-4">
                                               <label class="form-check-label" for="colorCheck3"><u>Underline</u></label>
                                             </div>
 
