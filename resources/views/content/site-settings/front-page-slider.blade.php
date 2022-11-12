@@ -148,7 +148,7 @@
                                               <label class="form-check-label" for="colorCheck2"><i>Italic</i></label>
                                             </div>
                                             <div class="form-check form-check-success mb-2 mt-2 form-check-inline">
-                                              <input type="checkbox" class="form-check-input" id="colorCheck3" name="textStyle[]" value="underline-offset-8">
+                                              <input type="checkbox" class="form-check-input" id="colorCheck3" name="textStyle[]" value="underline underline-offset-4">
                                               <label class="form-check-label" for="colorCheck3"><u>Underline</u></label>
                                             </div>
 
@@ -318,7 +318,7 @@
                                                       <label class="form-check-label" for="colorCheck2"><i>Italic</i></label>
                                                     </div>
                                                     <div class="form-check form-check-success mb-2 mt-2 form-check-inline">
-                                                      <input type="checkbox" class="form-check-input" id="colorCheck3" name="preview[{{ $counter }}][textStyle][]" value="underline-offset-8" @php if(isset($img->textStyle) && in_array("underline-offset-8", $img->textStyle)) {echo "checked";} @endphp>
+                                                      <input type="checkbox" class="form-check-input" id="colorCheck3" name="preview[{{ $counter }}][textStyle][]" value="underline underline-offset-4" @php if(isset($img->textStyle) && in_array("underline underline-offset-4", $img->textStyle)) {echo "checked";} @endphp>
                                                       <label class="form-check-label" for="colorCheck3"><u>Underline</u></label>
                                                     </div>
 
@@ -475,7 +475,7 @@
                                                       <label class="form-check-label" for="colorCheck2"><i>Italic</i></label>
                                                     </div>
                                                     <div class="form-check form-check-success mb-2 mt-2 form-check-inline">
-                                                      <input type="checkbox" class="form-check-input" id="colorCheck3" name="preview1[{{ $counter }}][textStyle][]" value="underline-offset-8" @php if(isset($img->textStyle) && in_array("underline-offset-8", $img->textStyle)) {echo "checked";} @endphp>
+                                                      <input type="checkbox" class="form-check-input" id="colorCheck3" name="preview1[{{ $counter }}][textStyle][]" value="underline underline-offset-4" @php if(isset($img->textStyle) && in_array("underline underline-offset-4", $img->textStyle)) {echo "checked";} @endphp>
                                                       <label class="form-check-label" for="colorCheck3"><u>Underline</u></label>
                                                     </div>
 
@@ -615,7 +615,7 @@
                                               <label class="form-check-label" for="colorCheck2"><i>Italic</i></label>
                                             </div>
                                             <div class="form-check form-check-success mb-2 mt-2 form-check-inline">
-                                              <input type="checkbox" class="form-check-input" id="colorCheck3" name="textStyle[]" value="underline-offset-8">
+                                              <input type="checkbox" class="form-check-input" id="colorCheck3" name="textStyle[]" value="underline underline-offset-4">
                                               <label class="form-check-label" for="colorCheck3"><u>Underline</u></label>
                                             </div>
 
@@ -779,7 +779,7 @@
                                                       <label class="form-check-label" for="colorCheck2"><i>Italic</i></label>
                                                     </div>
                                                     <div class="form-check form-check-success mb-2 mt-2 form-check-inline">
-                                                      <input type="checkbox" class="form-check-input" id="colorCheck3" name="videopreview[{{ $counter }}][textStyle][]" value="underline-offset-8" @php if(isset($video->textStyle) && in_array("underline-offset-8", $video->textStyle)) {echo "checked";} @endphp>
+                                                      <input type="checkbox" class="form-check-input" id="colorCheck3" name="videopreview[{{ $counter }}][textStyle][]" value="underline underline-offset-4" @php if(isset($video->textStyle) && in_array("underline underline-offset-4", $video->textStyle)) {echo "checked";} @endphp>
                                                       <label class="form-check-label" for="colorCheck3"><u>Underline</u></label>
                                                     </div>
 

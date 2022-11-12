@@ -17,7 +17,16 @@ class FrontPage extends Controller
     public function slider_view(){
         $data_get = DB::select('select value from codebumble_front_page where code_name=?',['sliders_data_top']);
 
-        return $data_get[0]->value;
+        $b = json_decode($data_get[0]->value, true);
+
+        for($i=0;$i<count($b);$i++){
+            if(isset($b[$i]['textStyle'])){
+            array_push($b[$i]['textStyle'],$b[$i]['text_size']);
+            } else {
+                $b[$i]['textStyle'] = array($b[$i]['text_size']);
+            }
+        }
+        return json_encode($b);
 
     }
     public function slider_view_bottom(){
@@ -39,7 +48,16 @@ class FrontPage extends Controller
     public function video_slider_view(){
         $data_get = DB::select('select value from codebumble_front_page where code_name=?',['sliders_data_video']);
 
-        return $data_get[0]->value;
+        $b = json_decode($data_get[0]->value, true);
+
+        for($i=0;$i<count($b);$i++){
+            if(isset($b[$i]['textStyle'])){
+            array_push($b[$i]['textStyle'],$b[$i]['text_size']);
+            } else {
+                $b[$i]['textStyle'] = array($b[$i]['text_size']);
+            }
+        }
+        return json_encode($b);
 
     }
 
