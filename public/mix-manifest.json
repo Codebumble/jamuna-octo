@@ -1497,6 +1497,8 @@
     "/images/svg/file.svg": "/images/svg/file.svg",
     "/images/svg/folder.svg": "/images/svg/folder.svg",
     "/images/svg/google.svg": "/images/svg/google.svg",
+    "/images/videos/1668274364-muIHzIVGrC-company-slider-video.png": "/images/videos/1668274364-muIHzIVGrC-company-slider-video.png",
+    "/images/videos/1668274642-vSX65BW1Et-company-slider-video.png": "/images/videos/1668274642-vSX65BW1Et-company-slider-video.png",
     "/frontend/images/breadcrumb/directors.jpg": "/frontend/images/breadcrumb/directors.jpg",
     "/frontend/images/concerns/1.png": "/frontend/images/concerns/1.png",
     "/frontend/images/concerns/10.png": "/frontend/images/concerns/10.png",
@@ -1577,7 +1579,5 @@
     "/data/table-datatable.json": "/data/table-datatable.json",
     "/data/user-list.json": "/data/user-list.json",
     "/faker/images.json": "/faker/images.json",
-    "/faker/video.json": "/faker/video.json",
-    "/images/videos/1668274364-muIHzIVGrC-company-slider-video.png": "/images/videos/1668274364-muIHzIVGrC-company-slider-video.png",
-    "/images/videos/1668274642-vSX65BW1Et-company-slider-video.png": "/images/videos/1668274642-vSX65BW1Et-company-slider-video.png"
+    "/faker/video.json": "/faker/video.json"
 }

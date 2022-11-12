@@ -406,17 +406,29 @@
 								class="w-full object-cover h-[90vh]" />
 							<div
 								class="company-name absolute bottom-28 w-full md:w-1/2 z-0 right-0 top-0 h-full">
-								<div class="description">
+								<div class="description growing-up-desc">
 									<h3
 										class="text-lg md:text-3xl text-white w-fit uppercase text-year italic font-bold">
 										{{ item.desc }}
 									</h3>
-									<h3
-										class="text-white w-fit uppercase text-title"
-										:class="item.textStyle"
-										:style="{ color: item.textColor }">
-										{{ item.heading }}
-									</h3>
+									<div v-if="item.c_link">
+											<router-link
+												:to="item.c_link"
+												class="text-white w-fit uppercase text-title"
+												:class="item.textStyle"
+												:style="{
+													color: item.textColor,
+												}"
+												>{{ item.heading }}</router-link
+											>
+										</div>
+										<h3
+											v-else
+											class="text-white w-fit uppercase text-title"
+											:style="{ color: item.textColor }"
+											:class="item.textStyle">
+											{{ item.heading }}
+										</h3>
 								</div>
 							</div>
 						</div>
