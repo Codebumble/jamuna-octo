@@ -80,7 +80,8 @@
 											'/' +
 											logo.name.replaceAll(' ', '-')
 										">
-										<div class="concern rounded-full">
+										<div
+											class="concern rounded-full">
 											<img
 												:src="
 													'/company-images/' +
@@ -233,11 +234,21 @@
 								class="absolute w-full z-20 flex self-end mb-40">
 								<div class="container previews_slider">
 									<div v-if="previews.c_link">
-									<router-link :to="previews.c_link" class="ml-12 text-white text-shadow-extreme" :class="previews.textStyle" :style="{ color: previews.textColor}">{{previews.heading}}</router-link>
+										<router-link
+											:to="previews.c_link"
+											class="ml-12 text-white text-shadow-extreme"
+											:class="previews.textStyle"
+											:style="{
+												color: previews.textColor,
+											}"
+											>{{ previews.heading }}</router-link
+										>
 									</div>
 									<p
-									v-else
-										class="ml-12 text-white text-shadow-extreme" :style="{ color: previews.textColor}" :class="previews.textStyle">
+										v-else
+										class="ml-12 text-white text-shadow-extreme"
+										:style="{ color: previews.textColor }"
+										:class="previews.textStyle">
 										{{ previews.heading }}
 									</p>
 								</div>
@@ -284,14 +295,13 @@
 							class="py-4 transition-all transform translate-x-0 hover:translate-x-1"
 							v-for="(item, key) in fe.list"
 							:key="key">
-							<router-link :to="'/future-expansion/'+item.id">
+							<router-link :to="'/future-expansion/' + item.id">
 								<span
 									class="inline-block py-2 px-4 mr-4 text-xs font-semibold bg-red-500 text-white rounded">
 									{{ key + 1 }}
 								</span>
 								<span>{{ item.name }}</span>
 							</router-link>
-
 						</div>
 					</div>
 				</div>
@@ -359,7 +369,9 @@
 			</div>
 		</div>
 	</section>
-	<section class="overflow-hidden" id="growing-up-slider">
+	<section
+		class="overflow-hidden"
+		id="growing-up-slider">
 		<div class="flex flex-col items-center">
 			<div class="content w-full mb-6">
 				<h2 class="heading uppercase">48 years of growing up</h2>
@@ -386,7 +398,9 @@
 										{{ item.desc }}
 									</h3>
 									<h3
-										class="text-white w-fit uppercase text-title" :class="item.textStyle" :style="{ color: item.textColor}">
+										class="text-white w-fit uppercase text-title"
+										:class="item.textStyle"
+										:style="{ color: item.textColor }">
 										{{ item.heading }}
 									</h3>
 								</div>
