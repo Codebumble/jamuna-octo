@@ -79,7 +79,10 @@
 }
 
 @media (max-width: 767px) {
-	.text-title {
-		@apply text-lg;
+	.tgrowing-up-desc {
+		a,
+		h3 {
+			@apply text-lg;
+		}
 	}
 }

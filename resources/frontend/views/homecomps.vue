@@ -36,9 +36,23 @@
 							</div>
 							<div class="absolute w-full z-20">
 								<div class="container flex flex-col">
-									<div class="overflow-hidden">
+									<div class="overflow-hidden top-vdo-img-slider">
+										<div v-if="slide.c_link">
+											<router-link
+												:to="slide.c_link"
+												class="ml-8 2xl:ml-8 xl:ml-0 text-white capitalize leading-snug w-[80%] lg:w-[50%] text-shadow-extreme"
+												:class="slide.textStyle"
+												:style="{
+													color: slide.textColor,
+												}"
+												>{{ slide.heading }}</router-link
+											>
+										</div>
 										<h1
-											class="ml-8 2xl:ml-8 xl:ml-0 text-2xl lg:text-[36px] text-white font-bold capitalize leading-snug w-[80%] lg:w-[50%] text-shadow-extreme">
+											v-else
+											class="ml-8 2xl:ml-8 xl:ml-0 text-white capitalize leading-snug w-[80%] lg:w-[50%] text-shadow-extreme"
+											:style="{ color: slide.textColor }"
+											:class="slide.textStyle">
 											{{ slide.heading }}
 										</h1>
 									</div>
@@ -392,17 +406,29 @@
 								class="w-full object-cover h-[90vh]" />
 							<div
 								class="company-name absolute bottom-28 w-full md:w-1/2 z-0 right-0 top-0 h-full">
-								<div class="description">
+								<div class="description growing-up-desc">
 									<h3
 										class="text-lg md:text-3xl text-white w-fit uppercase text-year italic font-bold">
 										{{ item.desc }}
 									</h3>
-									<h3
-										class="text-white w-fit uppercase text-title"
-										:class="item.textStyle"
-										:style="{ color: item.textColor }">
-										{{ item.heading }}
-									</h3>
+									<div v-if="item.c_link">
+											<router-link
+												:to="item.c_link"
+												class="text-white w-fit uppercase text-title"
+												:class="item.textStyle"
+												:style="{
+													color: item.textColor,
+												}"
+												>{{ item.heading }}</router-link
+											>
+										</div>
+										<h3
+											v-else
+											class="text-white w-fit uppercase text-title"
+											:style="{ color: item.textColor }"
+											:class="item.textStyle">
+											{{ item.heading }}
+										</h3>
 								</div>
 							</div>
 						</div>
@@ -871,14 +897,14 @@
 				}
 			});
 			const options3 = {
-				autoplay: true,
+				autoplay: false,
 				perPage: 5,
 				perMove: 1,
 				pagination: false,
 				arrows: false,
 				focus: 'center',
 				type: 'loop',
-				drag: true,
+				drag: false,
 				interval: 1500,
 				breakpoints: {
 					1023: {
