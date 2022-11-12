@@ -192,7 +192,7 @@
 					"slug": "mission_vision_view"
 				},
 				{
-					"url": "admin/site-settings/about-us",
+					"url": "codebumble/site-settings/about-us",
 					"name": "About Us",
 					"icon": "circle",
 					"permission": 1,
