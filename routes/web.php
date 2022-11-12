@@ -349,6 +349,9 @@ Route::group(['prefix' => 'codebumble'], function () {
 		Route::post('add-section', [Company_rest::class, 'add_section'])->name(
 			'add-section-api'
 		);
+		Route::post('edit-section/{name}', [Company_rest::class, 'edit_section'])->name(
+			'edit-section-api'
+		);
 		Route::post('add-company', [Company_rest::class, 'add_company'])->name(
 			'add-company-api'
 		);
@@ -733,6 +736,12 @@ Route::group(['prefix' => 'admin'], function () {
 			Company_rest::class,
 			'delete_section',
 		])->name('delete-section');
+
+		Route::get('edit-section/{name}', [
+			Company_rest::class,
+			'auth_view_edit_section',
+		])->name('edit_section');
+
 		Route::get('profile-account', [
 			AppsController::class,
 			'user_view_account',
