@@ -95,7 +95,8 @@
 											'/' +
 											logo.name.replaceAll(' ', '-')
 										">
-										<div class="concern rounded-full">
+										<div
+											class="concern rounded-full p-[0.7rem]">
 											<img
 												:src="
 													'/company-images/' +
