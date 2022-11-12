@@ -153,7 +153,7 @@
 							pb-8
 						">
 						<div
-							v-for="(item, index) in visibleImages"
+							v-for="(item, index) in images"
 							:key="index"
 							class="image"
 							@click="() => showImg(index)">
@@ -164,12 +164,12 @@
 					</div>
 					<vue-awesome-paginate
 						:total-items="totalImages"
-						:items-per-page="8"
+						:items-per-page="1"
 						:max-pages-shown="1000"
 						:current-page="currentPage"
 						:on-click="onClickHandler"
 						:key="currentPage"
-						v-if="totalImages > 8">
+						v-if="totalImages > 1">
 						<template #prev-button>
 							<i class="fas fa-angle-left"></i>
 						</template>
@@ -179,7 +179,7 @@
 					</vue-awesome-paginate>
 					<vue-easy-lightbox
 						:visible="visibleRef"
-						:imgs="imgs"
+						:imgs="images"
 						:index="indexRef"
 						@hide="onHide"></vue-easy-lightbox>
 				</div>
@@ -203,12 +203,9 @@ export default {
 	},
 	data() {
 		return {
-			currentPage: 1,
-			imgs: [],
-			indexRef: 0,
-			page: 1,
-			totalImages: 0,
 			visibleRef: false,
+			indexRef: 0,
+			currentPage: 1,
 		};
 	},
 	created() {
@@ -219,24 +216,14 @@ export default {
 			}
 		);
 	},
-	computed: {
-		visibleImages() {
-			console.log('cpm');
-			console.log(this.imgs);
-			return this.imgs;
-		},
-	},
+	// computed: {
+	// 	visibleImages() {
+	// 		console.log('cpm');
+	// 		console.log(this.imgs);
+	// 		return this.imgs;
+	// 	},
+	// },
 	methods: {
-		paginate(array, page_size, page_number) {
-			return array.slice(
-				(page_number - 1) * page_size,
-				page_number * page_size
-			);
-		},
-		photos(page) {
-			this.imgs = this.paginate(this.images, 8, page);
-			this.totalImages = this.images.length;
-		},
 		showImg(index) {
 			this.indexRef = index;
 			this.visibleRef = true;
@@ -246,18 +233,17 @@ export default {
 		},
 		onClickHandler(page) {
 			this.currentPage = page;
-			this.photos(page);
+			this.$emit('pageNumber', page);
 		},
 	},
-	mounted() {
-		this.photos(this.page);
-	},
-	updated() {
-		this.photos(this.page);
-	},
+	mounted() {},
+	// updated() {
+	// 	this.photos(this.page);
+	// },
 	props: {
 		data: Object,
 		images: Array,
+		totalImages: Number,
 	},
 };
 </script>

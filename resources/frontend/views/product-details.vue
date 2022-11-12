@@ -1,5 +1,9 @@
 <template>
-	<ProductDetails :data="company" :images="images" />
+	<ProductDetails
+		:data="company"
+		:images="images"
+		:totalImages="totalImages"
+		@pageNumber="photos" />
 </template>
 <style>
 </style>
@@ -37,11 +41,27 @@ export default {
 				},
 			},
 			images: [],
+			imgs: [],
+			page: 1,
+			totalImages: 0,
 		};
 	},
 	methods: {
+		paginate(array, page_size, page_number) {
+			return array.slice(
+				(page_number - 1) * page_size,
+				page_number * page_size
+			);
+		},
+		photos(page) {
+			this.images = this.paginate(this.imgs, 1, page);
+			this.totalImages = this.imgs.length;
+			// this.images = this.paginate(res.data, 4, page);
+			// this.totalImages = res.data.length;
+		},
 		switcher() {
 			if (this.$route.path.includes('product/')) {
+				this.photos(this.page);
 				axios
 					.get(
 						window.location.origin +
@@ -65,9 +85,12 @@ export default {
 						this.company.capacity =
 							response.data.company.production_cap;
 						this.images = response.data.images;
+						this.imgs = response.data.images;
+						this.totalImages = response.data.images;
 					})
-					.catch(() => {
-						this.$router.push({ name: 'not-found' });
+					.catch((e) => {
+						console.log(e);
+						// this.$router.push({ name: 'not-found' });
 					});
 			}
 		},
