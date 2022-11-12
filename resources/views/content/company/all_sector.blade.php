@@ -28,7 +28,7 @@
       @if (isset($_GET['status']))
             <div class="demo-spacing-0 mb-2">
                 <div class="alert alert-success" role="alert">
-                <div class="alert-body"><strong>Congratulation ! Section deleted from the Server.</strong></div>
+                <div class="alert-body"><strong>Congratulation ! Section list Updated on the Server.</strong></div>
                 </div>
             </div>
         @endif
@@ -61,9 +61,10 @@
 			<td>{{$counter}}</td>
             <td>{{$section->name}}</td>
             <td>
-			<div class="btn-group">
+			<div class="btn-group mb-1">
+        <a href="{{ route('edit_section', ['name' => base64_encode($section->name)])}}" style="text-decoration: none;" class="m-1"> <i data-feather='edit-2'></i> Edit</a>
+			<a href="{{ route('delete-section', ['name' => base64_encode($section->name)])}}" style="text-decoration: none;" class="m-1"> <i data-feather='trash-2'></i> Delete  </a>
 
-			<a href="{{ route('delete-section', ['name' => base64_encode($section->name)])}}" style="text-decoration: none;"> <i data-feather='trash-2'></i> Delete</a>
 			<div>
 
 			</td>

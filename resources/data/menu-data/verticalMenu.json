@@ -168,7 +168,37 @@
 			"name": "Front Page",
 			"icon": "home",
 			"permission": 1,
-			"slug": "front_page_view"
+			"slug": "",
+			"submenu": [
+				{
+					"url": "admin/site-settings/front-page",
+					"name": "General Details",
+					"icon": "circle",
+					"permission": 1,
+					"slug": "front_page_view"
+				},
+				{
+					"url": "admin/site-settings/slider-edit",
+					"name": "Sliders",
+					"icon": "circle",
+					"permission": 1,
+					"slug": "front_page_slider_view"
+				},
+				{
+					"url": "admin/site-settings/mission-vision",
+					"name": "Mission & Vision",
+					"icon": "circle",
+					"permission": 1,
+					"slug": "mission_vision_view"
+				},
+				{
+					"url": "admin/site-settings/about-us",
+					"name": "About Us",
+					"icon": "circle",
+					"permission": 1,
+					"slug": "about_us_view"
+				}
+			]
 		},
 		{
 			"name": "About Section",
