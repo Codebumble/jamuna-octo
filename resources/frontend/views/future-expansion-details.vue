@@ -54,7 +54,7 @@
 							class="image">
 							<div class="thumbnail">
 								<img
-									:src="item.src"
+									:src="item"
 									:alt="`${breadcumb.title} ${index + 1}`" />
 							</div>
 						</div>

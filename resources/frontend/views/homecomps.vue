@@ -382,7 +382,7 @@
 										{{ item.desc }}
 									</h3>
 									<h3
-										class="text-lg md:text-3xl text-white w-fit uppercase text-title font-bold">
+										class="text-white w-fit uppercase text-title" :class="item.textStyle" :style="{ color: item.textColor}">
 										{{ item.heading }}
 									</h3>
 								</div>
