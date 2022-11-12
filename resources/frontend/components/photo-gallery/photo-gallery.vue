@@ -24,7 +24,7 @@
 			<vue-awesome-paginate
 				:total-items="totalImages"
 				:items-per-page="8"
-				:max-pages-shown="3"
+				:max-pages-shown="1000"
 				:current-page="currentPage"
 				:on-click="onClickHandler"
 				:key="currentPage"

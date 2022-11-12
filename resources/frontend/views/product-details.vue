@@ -1,37 +1,47 @@
 <template>
-	<businessDetails :data="company" />
+	<ProductDetails :data="company" :images="images" />
 </template>
-
+<style>
+</style>
 <script>
-import { defineAsyncComponent } from 'vue';
-const businessDetails = defineAsyncComponent({
-	loader: () => import('../components/global/product-details'),
-	timeout: 2000,
-});
+import ProductDetails from '../components/global/product-details.vue';
+
 export default {
 	components: {
-		businessDetails,
+		ProductDetails,
 	},
 	data() {
 		return {
 			company: {
-				id: 7,
-				name: '',
-				company: '',
-				image: '',
-				minimum_order: '',
-				estimated_delivery: '',
-				short_description: '',
-				description: '',
-				price: '',
-				stock: '',
-				json_data: '',
+				businessLogo: '',
+				objectfit: true,
+				businessName: '',
+				establishDate: '',
+				address: {
+					officeName: '',
+					officeRoad: '',
+					location: '',
+					country: '',
+				},
+				mail: '',
+				emailName: '',
+				mobile: '',
+				website: '',
+				products: '',
+				capacity: '',
+				textSummary: true,
+
+				textDetails: {
+					details: '',
+					shortDetails: '',
+				},
 			},
+			images: [],
 		};
 	},
 	methods: {
 		switcher() {
-			if (this.$route.path.includes('/product')) {
+			if (this.$route.path.includes('product/')) {
 				axios
 					.get(
 						window.location.origin +
@@ -39,19 +49,22 @@ export default {
 							this.$route.params.id
 					)
 					.then((response) => {
-						this.company.name = response.data.name;
-						this.company.company = response.data.company;
-						this.company.image = response.data.image;
-						this.company.minimum_order =
-							response.data.minimum_order;
-						this.company.estimated_delivery =
-							response.data.estimated_delivery;
-						this.company.short_description =
-							response.data.short_description;
-						this.company.description = response.data.description;
-						this.company.price = response.data.price;
-						this.company.stock = response.data.stock;
-						this.company.json_data = response.data.json_data;
+						console.log(response.data);
+						document.title = response.data.name + ' | jamuna Group';
+						var jsn = JSON.parse(response.data.company.json_data);
+						this.company.businessLogo = response.data.company.image;
+						this.company.businessName = response.data.company.name;
+						this.company.establishDate =
+							response.data.company.establish_date;
+						this.company.address.officeName = jsn.address;
+						this.company.mail = 'mailto:' + jsn.support_email;
+						this.company.emailName = jsn.support_email;
+						this.company.mobile = jsn.support_phone_number;
+						this.company.website = jsn.website;
+						this.company.products = response.data.company.products;
+						this.company.capacity =
+							response.data.company.production_cap;
+						this.images = response.data.images;
 					})
 					.catch(() => {
 						this.$router.push({ name: 'not-found' });
@@ -68,6 +81,5 @@ export default {
 			}
 		);
 	},
-	mounted() {},
 };
 </script>
