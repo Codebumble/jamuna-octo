@@ -871,14 +871,14 @@
 				}
 			});
 			const options3 = {
-				autoplay: true,
+				autoplay: false,
 				perPage: 5,
 				perMove: 1,
 				pagination: false,
 				arrows: false,
 				focus: 'center',
 				type: 'loop',
-				drag: true,
+				drag: false,
 				interval: 1500,
 				breakpoints: {
 					1023: {
