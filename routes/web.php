@@ -284,6 +284,11 @@ Route::group(['prefix' => 'codebumble'], function () {
 			photo_gallery::class,
 			'delete_image',
 		])->name('delete_gallery_image');
+
+		Route::post('add-product-photo/{id}', [
+			Product_rest::class,
+			'add_product_photo',
+		])->name('add_product_photo');
 		Route::post('front-page-chairperson-api', [
 			siteGeneral::class,
 			'front_page_chairperson_api',
@@ -572,6 +577,11 @@ Route::group(['prefix' => 'admin'], function () {
 			Product_rest::class,
 			'auth_edit_product_page',
 		])->name('auth_edit_product_page');
+
+		Route::get('delete-product-image/{id}/{product_id}',[
+			Product_rest::class,
+			'delete_product_image'
+		])->name('delete_product_image');
 
 		Route::get('add-company', [
 			Company_rest::class,

@@ -266,6 +266,108 @@
 
     <!-- /jQuery Validation -->
 
+	<div class="col-12">
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title">Product Images</h4>
+			</div>
+			<div class="card-body">
+
+				<form action="{{ route('add_product_photo', ['id' => $data->id]) }}" class="invoice-repeater" enctype="multipart/form-data"
+					method="POST">
+					@csrf
+					<div data-repeater-list="new">
+						<div data-repeater-item>
+
+							<div class="row d-flex align-items-end">
+
+								<div class="col-md-6 col-6 mb-50">
+									<div class="mb-1">
+										<label class="form-label" for="itemcost">Image</label>
+										<input id="image" type="file" class="form-control" name="image"
+											aria-describedby="image" required accpet="image/*" />
+									</div>
+								</div>
+
+								<div class="col-md-6 col-12 mb-50">
+									<div class="mb-1">
+										<button class="btn btn-outline-danger text-nowrap px-1" type="button"
+											data-repeater-delete>
+											<i data-feather="x" class="me-25"></i>
+											<span>Delete</span>
+										</button>
+									</div>
+								</div>
+
+							</div>
+							<hr />
+
+
+						</div>
+
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<button class="btn btn-icon btn-warning" type="button" data-repeater-create>
+								<i data-feather="plus" class="me-25"></i>
+								<span>Add New</span>
+							</button>
+							<button class="btn btn-icon btn-success m-1" type="submit">
+								<i data-feather="check" class="me-25"></i>
+								<span>Update</span>
+							</button>
+						</div>
+					</div>
+				</form>
+
+
+			</div>
+		</div>
+
+
+	</div>
+
+	<div class="divider-primary divider">
+		<div class="divider-text">Uploaded Image</div>
+	</div>
+
+	<div class="col-12">
+
+		<div class="row match-height">
+			@if(isset(json_decode($data->json_data)->images))
+			@php
+				$counter = 0;
+				$image = json_decode($data->json_data)->images;
+			@endphp
+
+			@foreach ($image as $value)
+				<div class="col-md-6 col-lg-4">
+					<div class="card">
+						<img class="card-img-top" style="height: 15rem; object-fit: cover; max-width: 100%"
+							src="{{ asset($value) }}" alt="{{ $value }}" />
+
+						<div class="card-body">
+
+							<a href="{{ route('delete_product_image', ['id' => $counter, 'product_id' => $data->id]) }}"
+								class="btn btn-outline-danger col-md-6">Delete</a>
+						</div>
+					</div>
+				</div>
+
+				@php
+					$counter += 1;
+				@endphp
+			@endforeach
+			@else
+			<p>No Image Uploaded</p>
+			@endif
+
+
+
+		</div>
+
+	</div>
+
 </section>
 <!-- /Validation -->
 @endsection

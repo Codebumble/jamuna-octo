@@ -37,6 +37,7 @@ class Product_rest extends Controller
 				'type' => $value['type'],
 				'custom_url' => $value['link'],
 				'added_by' => Auth::user()->username,
+				'images' => [],
 			]);
 
 			$value['created_at'] = time();
@@ -116,6 +117,7 @@ class Product_rest extends Controller
 				'custom_url' => $value['link'],
 				'added_by' => json_decode($data[0]->json_data)->added_by,
 				'edited_by' => Auth::user()->username,
+				'image' => json_decode($data[0]->json_data)->image,
 			]);
 
 			$value['updated_at'] = time();
@@ -329,5 +331,86 @@ class Product_rest extends Controller
 		}
 
 		return json_encode($data[0]);
+	}
+
+	public function add_product_photo(Request $r, $id){
+		check_auth();
+		check_power('employee');
+
+		$data = DB::select(
+			'select * from codebumble_product_list where id=?',
+			[$id]
+		);
+
+		if (!isset($data[0])) {
+			return redirect()->route('misc-not-authorized');
+		}
+		$photo_data = json_decode($data[0]->json_data);
+
+		if(!isset($photo_data->images)){
+			$photo_data->images = [];
+		}
+
+		foreach ($r->new as $key => $value) {
+			$photo = $r->file('new.'.$key.'.image');
+			$photo_name = $photo->getClientOriginalName();
+			$photo->move(public_path('images/products'), $photo_name);
+
+			$photo_name = 'images/products/'.$photo_name;
+
+
+			$photo_data->images[] = $photo_name;
+		}
+
+
+
+		$photo_data = json_encode($photo_data);
+
+		DB::update(
+			'update codebumble_product_list set json_data=? where id=?',
+			[$photo_data, $id]
+		);
+
+		return redirect()->route('auth_edit_product_page', ['id' => $id, 'hasher' => Str::random(40),
+		'time' => time(),
+		'exist' =>
+			'Image Added!! This Image is now Visible in The website.',
+		'hasher_ip' => Str::random(10),]);
+
+	}
+
+	public function delete_product_image($id,$product_id){
+		check_auth();
+		check_power('employee');
+
+		$data = DB::select(
+			'select * from codebumble_product_list where id=?',
+			[$product_id]
+		);
+
+		if (!isset($data[0])) {
+			return redirect()->route('misc-not-authorized');
+		}
+		$photo_data = json_decode($data[0]->json_data);
+
+		if(!isset($photo_data->images)){
+			$photo_data->images = [];
+		}
+
+		$photo_data->images = array_diff($photo_data->images, [$photo_data->images[$id]]);
+
+		$photo_data = json_encode($photo_data);
+
+		DB::update(
+			'update codebumble_product_list set json_data=? where id=?',
+			[$photo_data, $product_id]
+		);
+
+		return redirect()->route('auth_edit_product_page', ['id' => $product_id, 'hasher' => Str::random(40),
+		'time' => time(),
+		'exist' =>
+			'Image Deleted!! This Image is no longer Visible in The website.',
+		'hasher_ip' => Str::random(10),]);
+
 	}
 }
