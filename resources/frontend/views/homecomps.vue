@@ -420,7 +420,7 @@
 
 							<!-- <span class="itemName">{{ slide.title }}</span> -->
 							<router-link
-								to="/product/15"
+								:to="slide.webLink"
 								class="button block mx-auto mt-3"
 								>{{ slide.linkText }}</router-link
 							>

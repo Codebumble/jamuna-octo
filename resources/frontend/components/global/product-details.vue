@@ -224,8 +224,6 @@ export default {
 	},
 	props: {
 		data: Object,
-		images: Array,
-		totalImages: Number,
 	},
 };
 </script>
