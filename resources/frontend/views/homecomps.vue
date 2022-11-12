@@ -231,9 +231,13 @@
 							</div>
 							<div
 								class="absolute w-full z-20 flex self-end mb-40">
-								<div class="container">
+								<div class="container previews_slider">
+									<div v-if="previews.c_link">
+									<router-link :to="previews.c_link" class="ml-12 text-white text-shadow-extreme" :class="previews.textStyle" :style="{ color: previews.textColor}">{{previews.heading}}</router-link>
+									</div>
 									<p
-										class="ml-12 text-xl font-bold text-white text-shadow-extreme">
+									v-else
+										class="ml-12 text-white text-shadow-extreme" :style="{ color: previews.textColor}" :class="previews.textStyle">
 										{{ previews.heading }}
 									</p>
 								</div>

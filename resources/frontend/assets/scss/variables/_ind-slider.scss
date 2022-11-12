@@ -23,3 +23,11 @@
 .thumbnails .splide__arrow--next {
 	@apply bg-transparent;
 }
+@media (max-width: 767px) {
+	.previews_slider {
+		a,
+		p {
+			@apply text-xl;
+		}
+	}
+}
