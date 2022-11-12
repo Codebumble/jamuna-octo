@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="{{ asset(mix('vendors/css/forms/select/select2.min.css')) }}">
     <link rel="stylesheet" href="{{ asset(mix('vendors/css/pickers/flatpickr/flatpickr.min.css')) }}">
     <link rel="stylesheet" href="{{ asset(mix('vendors/css/animate/animate.min.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/sweetalert2.min.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/plyr.min.css')) }}">
+    <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/sweetalert2.min.css')) }}">
+    <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/plyr.min.css')) }}">
 @endsection
 
 @section('page-style')
     {{-- Page Css files --}}
     <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/form-validation.css')) }}">
     <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-flat-pickr.css')) }}">
-    <link rel="stylesheet" href="{{asset(mix('css/base/plugins/extensions/ext-component-sweet-alerts.css'))}}">
+    <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-sweet-alerts.css')) }}">
     <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-media-player.css')) }}">
 @endsection
 
@@ -89,7 +89,7 @@
                             <div data-repeater-item>
                                 <div class="row d-flex align-items-end">
 
-                                    <div class="col-md-3 col-12 mb-5">
+                                    <div class="col-md-3 col-12 mb-2">
                                         <div class="mb-1">
                                             <label class="form-label" for="src">Image</label>
                                             <input id="src" type="file" name="src" class="form-control"
@@ -99,7 +99,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3 col-12 mb-5">
+                                    <div class="col-md-3 col-12 mb-2">
                                         <div class="mb-1">
                                             <label class="form-label" for="heading">Name/Year</label>
                                             <input id="heading" type="text" class="form-control" name="heading"
@@ -107,12 +107,10 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3 col-12 mb-5">
+                                    <div class="col-md-3 col-12 mb-2">
                                         <div class="mb-1">
                                             <label class="form-label" for="heading">Text Size</label>
                                             <select name="text_size" class="form-select">
-                                                <option value="text-xs">12px</option>
-                                                <option value="text-sm">14px</option>
                                                 <option value="text-base">16px</option>
                                                 <option value="text-lg">18px</option>
                                                 <option value="text-xl">20px</option>
@@ -128,7 +126,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3 col-12 mb-5">
+                                    <div class="col-md-3 col-12 mb-2">
                                         <div class="mb-1">
                                             <label class="form-label" for="desc">Short Description</label>
                                             <input id="heading" type="text" class="form-control" name="desc"
@@ -136,25 +134,28 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4 col-12 mb-5">
-                                        <label class="form-label" for="textStyle">Text Style:    </label>
+                                    <div class="col-md-3 col-12 mb-2">
+                                        <label class="form-label d-block" for="textStyle">Text Style: </label>
 
-                                            <div class="form-check form-check-primary mb-2 mt-2 form-check-inline">
-                                              <input type="checkbox" class="form-check-input" id="colorCheck1" name="textStyle" value="font-bold">
-                                              <label class="form-check-label" for="colorCheck1"><b>Bold</b></label>
-                                            </div>
-                                            <div class="form-check form-check-secondary mb-2 mt-2 form-check-inline">
-                                              <input type="checkbox" class="form-check-input" id="colorCheck2" name="textStyle" value="italic">
-                                              <label class="form-check-label" for="colorCheck2"><i>Italic</i></label>
-                                            </div>
-                                            <div class="form-check form-check-success mb-2 mt-2 form-check-inline">
-                                              <input type="checkbox" class="form-check-input" id="colorCheck3" name="textStyle" value="underline underline-offset-4">
-                                              <label class="form-check-label" for="colorCheck3"><u>Underline</u></label>
-                                            </div>
+                                        <div class="form-check form-check-primary form-check-inline">
+                                            <input id="colorCheck1" type="checkbox" class="form-check-input"
+                                                name="textStyle" value="font-bold">
+                                            <label class="form-check-label" for="colorCheck1"><b>Bold</b></label>
+                                        </div>
+                                        <div class="form-check form-check-primary form-check-inline">
+                                            <input id="colorCheck2" type="checkbox" class="form-check-input"
+                                                name="textStyle" value="italic">
+                                            <label class="form-check-label" for="colorCheck2"><i>Italic</i></label>
+                                        </div>
+                                        <div class="form-check form-check-primary form-check-inline">
+                                            <input id="colorCheck3" type="checkbox" class="form-check-input"
+                                                name="textStyle" value="underline underline-offset-4">
+                                            <label class="form-check-label" for="colorCheck3"><u>Underline</u></label>
+                                        </div>
 
                                     </div>
 
-                                    <div class="col-md-3 col-12 mb-5">
+                                    <div class="col-md-3 col-12 mb-2">
                                         <div class="mb-1">
                                             <label class="form-label" for="textColour">Text Colour</label>
                                             <input id="heading" type="text" class="form-control" name="textColor"
@@ -162,15 +163,17 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3 col-12 mb-5">
+                                    <div class="col-md-3 col-12 mb-2">
                                         <div class="mb-1">
-                                            <label class="form-label" for="textColour">Link (Keep it Blank if not to assign any link)</label>
+                                            <label class="form-label" for="textColour">Link (Keep it Blank if not to
+                                                assign any link)</label>
                                             <input id="heading" type="text" class="form-control" name="c_link"
-                                                value="" aria-describedby="desc" placeholder="#0ash763" />
+                                                value="" aria-describedby="desc"
+                                                placeholder="https://jamunagroup.com.bd/contact" />
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3 col-12 mb-5">
+                                    <div class="col-md-3 col-12 mb-2">
                                         <div class="mb-1">
                                             <label class="form-label" for="heading">Choice Slider</label>
                                             <select name="slider_option" class="form-select">
@@ -182,7 +185,7 @@
 
 
 
-                                    <div class="col-md-2 col-12 mb-5">
+                                    <div class="col-md-2 col-12 mb-0">
                                         <div class="mb-1">
                                             <button class="btn btn-outline-danger text-nowrap px-1" data-repeater-delete
                                                 type="button">
@@ -238,7 +241,7 @@
                                     <div>
                                         <div class="row d-flex align-items-end">
 
-                                            <div class="col-md-2 col-12">
+                                            <div class="col-md-3 col-12">
                                                 <div class="mb-1">
 
                                                     <label for="slider" style="display:block;">
@@ -252,7 +255,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-2 col-12 mb-2">
+                                            <div class="col-md-3 col-12 mb-2">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="itemcost">Header</label>
                                                     <input id="itemcost" type="text" class="form-control"
@@ -265,75 +268,118 @@
                                             <div class="col-md-3 col-12 mb-2">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="heading">Text Size</label>
-                                                    <select name="preview[{{ $counter }}][text_size]" class="form-select">
-                                                        <option value="text-xs" @php if(isset($img->text_size) &&$img->text_size == "text-xs") {echo "selected";}@endphp >12px</option>
-                                                        <option value="text-sm" @php if(isset($img->text_size) &&$img->text_size == "text-sm") {echo "selected";}@endphp>14px</option>
-                                                        <option value="text-base" @php if(isset($img->text_size) &&$img->text_size == "text-base") {echo "selected";}@endphp>16px</option>
-                                                        <option value="text-lg" @php if(isset($img->text_size) &&$img->text_size == "text-lg") {echo "selected";}@endphp>18px</option>
-                                                        <option value="text-xl" @php if(isset($img->text_size) &&$img->text_size == "text-xl") {echo "selected";}@endphp>20px</option>
-                                                        <option value="text-2xl" @php if(isset($img->text_size) &&$img->text_size == "text-2xl") {echo "selected";}@endphp>24px</option>
-                                                        <option value="text-3xl" @php if(isset($img->text_size) &&$img->text_size == "text-3xl") {echo "selected";}@endphp>30px</option>
-                                                        <option value="text-4xl" @php if(isset($img->text_size) &&$img->text_size == "text-4xl") {echo "selected";}@endphp>36px</option>
-                                                        <option value="text-5xl" @php if(isset($img->text_size) &&$img->text_size == "text-5xl") {echo "selected";}@endphp>48px</option>
-                                                        <option value="text-6xl" @php if(isset($img->text_size) &&$img->text_size == "text-6xl") {echo "selected";}@endphp>60px</option>
-                                                        <option value="text-7xl" @php if(isset($img->text_size) &&$img->text_size == "text-7xl") {echo "selected";}@endphp>72px</option>
-                                                        <option value="text-8xl" @php if(isset($img->text_size) &&$img->text_size == "text-8xl") {echo "selected";}@endphp>96px</option>
-                                                        <option value="text-9xl" @php if(isset($img->text_size) &&$img->text_size == "text-9xl") {echo "selected";}@endphp>120px</option>
+                                                    <select name="preview[{{ $counter }}][text_size]"
+                                                        class="form-select">
+                                                        <option value="text-xs"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-xs") {echo "selected";} @endphp>
+                                                            12px</option>
+                                                        <option value="text-sm"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-sm") {echo "selected";} @endphp>
+                                                            14px</option>
+                                                        <option value="text-base"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-base") {echo "selected";} @endphp>
+                                                            16px</option>
+                                                        <option value="text-lg"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-lg") {echo "selected";} @endphp>
+                                                            18px</option>
+                                                        <option value="text-xl"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-xl") {echo "selected";} @endphp>
+                                                            20px</option>
+                                                        <option value="text-2xl"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-2xl") {echo "selected";} @endphp>
+                                                            24px</option>
+                                                        <option value="text-3xl"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-3xl") {echo "selected";} @endphp>
+                                                            30px</option>
+                                                        <option value="text-4xl"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-4xl") {echo "selected";} @endphp>
+                                                            36px</option>
+                                                        <option value="text-5xl"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-5xl") {echo "selected";} @endphp>
+                                                            48px</option>
+                                                        <option value="text-6xl"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-6xl") {echo "selected";} @endphp>
+                                                            60px</option>
+                                                        <option value="text-7xl"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-7xl") {echo "selected";} @endphp>
+                                                            72px</option>
+                                                        <option value="text-8xl"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-8xl") {echo "selected";} @endphp>
+                                                            96px</option>
+                                                        <option value="text-9xl"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-9xl") {echo "selected";} @endphp>
+                                                            120px</option>
                                                     </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-12 mb-2">
+                                                <div class="mb-1">
+                                                    <label class="form-label" for="itemcost">Description</label>
+                                                    <input id="itemcost" type="text" class="form-control"
+                                                        name="preview[{{ $counter }}][desc]"
+                                                        @if (isset($img->desc)) value="{{ $img->desc }}" @endif
+                                                        aria-describedby="itemcost" placeholder="32" />
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4 col-12 mb-2">
                                                 <div class="mb-1">
-                                                    <label class="form-label" for="itemcost">Description</label>
-                                                    <input id="itemcost" type="text" class="form-control"
-                                                        name="preview[{{ $counter }}][desc]"
-                                                        @if(isset($img->desc))
-                                                        value="{{ $img->desc }}"
-                                                        @endif
-                                                         aria-describedby="itemcost"
-                                                        placeholder="32" />
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-2 col-12 mb-5">
-                                                <div class="mb-1">
-                                                    <label class="form-label" for="textColour">Link (Keep it Blank if not needed)</label>
-                                                    <input id="heading" type="text" class="form-control" name="preview[{{ $counter }}][c_link]"
-                                                    @php if(isset($img->c_link)) {echo "value=\"".$img->c_link."\"";} @endphp placeholder="#0ash763" />
+                                                    <label class="form-label" for="textColour">Link (Keep it Blank if not
+                                                        needed)</label>
+                                                    <input id="heading" type="text" class="form-control"
+                                                        name="preview[{{ $counter }}][c_link]"
+                                                        @php if(isset($img->c_link)) {echo "value=\"".$img->c_link."\"";} @endphp
+                                                        placeholder="https://jamunagroup.com.bd/contact" />
                                                 </div>
                                             </div>
 
 
 
-                                            <div class="col-md-4 col-12 mb-5">
-                                                <label class="form-label" for="textStyle">Text Style:    </label>
+                                            <div class="col-md-4 col-12 mb-2">
+                                                <label class="form-label d-block mb-1" style="margin-top: -5rem"
+                                                    for="textStyle">Text Style: </label>
 
-                                                    <div class="form-check form-check-primary mb-2 mt-2 form-check-inline" x-data="{ colorCheck10: $id('colorCheck10') }">
-                                                      <input type="checkbox" class="form-check-input" :id="colorCheck10" name="preview[{{ $counter }}][textStyle][]" value="font-bold" @php if(isset($img->textStyle) && in_array("font-bold", $img->textStyle)) {echo "checked";} @endphp>
-                                                      <label class="form-check-label" :for="colorCheck10"><b>Bold</b></label>
-                                                    </div>
-                                                    <div class="form-check form-check-secondary mb-2 mt-2 form-check-inline" x-data="{ colorCheck20: $id('colorCheck20') }">
-                                                      <input type="checkbox" class="form-check-input" :id="colorCheck20" name="preview[{{ $counter }}][textStyle][]" value="italic" @php if(isset($img->textStyle) && in_array("italic", $img->textStyle)) {echo "checked";} @endphp>
-                                                      <label class="form-check-label" :for="colorCheck20"><i>Italic</i></label>
-                                                    </div>
-                                                    <div class="form-check form-check-success mb-2 mt-2 form-check-inline" x-data="{ colorCheck30: $id('colorCheck30') }">
-                                                      <input type="checkbox" class="form-check-input" :id="colorCheck30" name="preview[{{ $counter }}][textStyle][]" value="underline underline-offset-4" @php if(isset($img->textStyle) && in_array("underline underline-offset-4", $img->textStyle)) {echo "checked";} @endphp>
-                                                      <label class="form-check-label" :for="colorCheck3"><u>Underline</u></label>
-                                                    </div>
+                                                <div class="form-check form-check-primary form-check-inline"
+                                                    x-data="{ colorCheck10: $id('colorCheck10') }">
+                                                    <input type="checkbox" class="form-check-input" :id="colorCheck10"
+                                                        name="preview[{{ $counter }}][textStyle][]"
+                                                        value="font-bold"
+                                                        @php if(isset($img->textStyle) && in_array("font-bold", $img->textStyle)) {echo "checked";} @endphp>
+                                                    <label class="form-check-label"
+                                                        :for="colorCheck10"><b>Bold</b></label>
+                                                </div>
+                                                <div class="form-check form-check-primary form-check-inline"
+                                                    x-data="{ colorCheck20: $id('colorCheck20') }">
+                                                    <input type="checkbox" class="form-check-input" :id="colorCheck20"
+                                                        name="preview[{{ $counter }}][textStyle][]" value="italic"
+                                                        @php if(isset($img->textStyle) && in_array("italic", $img->textStyle)) {echo "checked";} @endphp>
+                                                    <label class="form-check-label"
+                                                        :for="colorCheck20"><i>Italic</i></label>
+                                                </div>
+                                                <div class="form-check form-check-primary form-check-inline"
+                                                    x-data="{ colorCheck30: $id('colorCheck30') }">
+                                                    <input type="checkbox" class="form-check-input" :id="colorCheck30"
+                                                        name="preview[{{ $counter }}][textStyle][]"
+                                                        value="underline underline-offset-4"
+                                                        @php if(isset($img->textStyle) && in_array("underline underline-offset-4", $img->textStyle)) {echo "checked";} @endphp>
+                                                    <label class="form-check-label"
+                                                        :for="colorCheck3"><u>Underline</u></label>
+                                                </div>
 
                                             </div>
 
-                                            <div class="col-md-3 col-12 mb-5">
+                                            <div class="col-md-4 col-12 mb-2">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="textColour">Text Colour</label>
-                                                    <input id="heading" type="text" class="form-control" name="preview[{{ $counter }}][textColor]"
-                                                    @php if(isset($img->textColor)) {echo "value=\"".$img->textColor."\"";} @endphp
+                                                    <input id="heading" type="text" class="form-control"
+                                                        name="preview[{{ $counter }}][textColor]"
+                                                        @php if(isset($img->textColor)) {echo "value=\"".$img->textColor."\"";} @endphp
                                                         aria-describedby="desc" placeholder="#0ash763" />
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-2 col-12 mb-5">
+                                            <div class="col-12 mb-0">
                                                 <div class="mb-1">
                                                     <button class="btn btn-outline-danger text-nowrap px-1" type="button"
                                                         data-repeater-delete onclick="deleted('{{ $counter }}');">
@@ -395,7 +441,7 @@
                                     <div>
                                         <div class="row d-flex align-items-end">
 
-                                            <div class="col-md-2 col-12 mb-2">
+                                            <div class="col-md-3 col-12 mb-2">
                                                 <div class="mb-1">
 
                                                     <label for="slider" style="display:block;">
@@ -422,20 +468,47 @@
                                             <div class="col-md-3 col-12 mb-2">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="heading">Text Size</label>
-                                                    <select name="preview1[{{ $counter }}][text_size]" class="form-select">
-                                                        <option value="text-xs" @php if(isset($img->text_size) &&$img->text_size == "text-xs") {echo "selected";}@endphp >12px</option>
-                                                        <option value="text-sm" @php if(isset($img->text_size) &&$img->text_size == "text-sm") {echo "selected";}@endphp>14px</option>
-                                                        <option value="text-base" @php if(isset($img->text_size) &&$img->text_size == "text-base") {echo "selected";}@endphp>16px</option>
-                                                        <option value="text-lg" @php if(isset($img->text_size) &&$img->text_size == "text-lg") {echo "selected";}@endphp>18px</option>
-                                                        <option value="text-xl" @php if(isset($img->text_size) &&$img->text_size == "text-xl") {echo "selected";}@endphp>20px</option>
-                                                        <option value="text-2xl" @php if(isset($img->text_size) &&$img->text_size == "text-2xl") {echo "selected";}@endphp>24px</option>
-                                                        <option value="text-3xl" @php if(isset($img->text_size) &&$img->text_size == "text-3xl") {echo "selected";}@endphp>30px</option>
-                                                        <option value="text-4xl" @php if(isset($img->text_size) &&$img->text_size == "text-4xl") {echo "selected";}@endphp>36px</option>
-                                                        <option value="text-5xl" @php if(isset($img->text_size) &&$img->text_size == "text-5xl") {echo "selected";}@endphp>48px</option>
-                                                        <option value="text-6xl" @php if(isset($img->text_size) &&$img->text_size == "text-6xl") {echo "selected";}@endphp>60px</option>
-                                                        <option value="text-7xl" @php if(isset($img->text_size) &&$img->text_size == "text-7xl") {echo "selected";}@endphp>72px</option>
-                                                        <option value="text-8xl" @php if(isset($img->text_size) &&$img->text_size == "text-8xl") {echo "selected";}@endphp>96px</option>
-                                                        <option value="text-9xl" @php if(isset($img->text_size) &&$img->text_size == "text-9xl") {echo "selected";}@endphp>120px</option>
+                                                    <select name="preview1[{{ $counter }}][text_size]"
+                                                        class="form-select">
+                                                        <option value="text-xs"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-xs") {echo "selected";} @endphp>
+                                                            12px</option>
+                                                        <option value="text-sm"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-sm") {echo "selected";} @endphp>
+                                                            14px</option>
+                                                        <option value="text-base"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-base") {echo "selected";} @endphp>
+                                                            16px</option>
+                                                        <option value="text-lg"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-lg") {echo "selected";} @endphp>
+                                                            18px</option>
+                                                        <option value="text-xl"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-xl") {echo "selected";} @endphp>
+                                                            20px</option>
+                                                        <option value="text-2xl"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-2xl") {echo "selected";} @endphp>
+                                                            24px</option>
+                                                        <option value="text-3xl"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-3xl") {echo "selected";} @endphp>
+                                                            30px</option>
+                                                        <option value="text-4xl"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-4xl") {echo "selected";} @endphp>
+                                                            36px</option>
+                                                        <option value="text-5xl"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-5xl") {echo "selected";} @endphp>
+                                                            48px</option>
+                                                        <option value="text-6xl"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-6xl") {echo "selected";} @endphp>
+                                                            60px</option>
+                                                        <option value="text-7xl"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-7xl") {echo "selected";} @endphp>
+                                                            72px</option>
+                                                        <option value="text-8xl"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-8xl") {echo "selected";} @endphp>
+                                                            96px</option>
+                                                        <option value="text-9xl"
+                                                            @php if(isset($img->text_size) &&$img->text_size == "text-9xl") {echo "selected";} @endphp>
+                                                            120px</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -445,52 +518,69 @@
                                                     <label class="form-label" for="itemcost">Description</label>
                                                     <input id="itemcost" type="text" class="form-control"
                                                         name="preview1[{{ $counter }}][desc]"
-                                                        @if(isset($img->desc))
-                                                        value="{{ $img->desc }}"
-                                                        @endif
-                                                         aria-describedby="itemcost"
-                                                        placeholder="32" />
+                                                        @if (isset($img->desc)) value="{{ $img->desc }}" @endif
+                                                        aria-describedby="itemcost" placeholder="32" />
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-2 col-12 mb-5">
+                                            <div class="col-md-4 col-12 mb-2">
                                                 <div class="mb-1">
-                                                    <label class="form-label" for="textColour">Link (Keep it Blank if not needed)</label>
-                                                    <input id="heading" type="text" class="form-control" name="preview1[{{ $counter }}][c_link]"
-                                                    @php if(isset($img->c_link)) {echo "value=\"".$img->c_link."\"";} @endphp placeholder="#0ash763" />
+                                                    <label class="form-label" for="textColour">Link (Keep it Blank if not
+                                                        needed)</label>
+                                                    <input id="heading" type="text" class="form-control"
+                                                        name="preview1[{{ $counter }}][c_link]"
+                                                        @php if(isset($img->c_link)) {echo "value=\"".$img->c_link."\"";} @endphp
+                                                        placeholder="https://jamunagroup.com.bd/contact" />
                                                 </div>
                                             </div>
 
 
 
-                                            <div class="col-md-3 col-12 mb-5">
-                                                <label class="form-label" for="textStyle">Text Style:    </label>
+                                            <div class="col-md-4 col-12 mb-2">
+                                                <label class="form-label d-block mb-1" style="margin-top: -5rem"
+                                                    for="textStyle">Text Style: </label>
 
-                                                    <div class="form-check form-check-primary mb-2 mt-2 form-check-inline" x-data="{ colorCheck40: $id('colorCheck40') }">
-                                                      <input type="checkbox" class="form-check-input" :id="colorCheck40" name="preview1[{{ $counter }}][textStyle][]" value="font-bold" @php if(isset($img->textStyle) && in_array("font-bold", $img->textStyle)) {echo "checked";} @endphp>
-                                                      <label class="form-check-label" :for="colorCheck40"><b>Bold</b></label>
-                                                    </div>
-                                                    <div class="form-check form-check-secondary mb-2 mt-2 form-check-inline" x-data="{ colorCheck50: $id('colorCheck50') }">
-                                                      <input type="checkbox" class="form-check-input" :id="colorCheck50" name="preview1[{{ $counter }}][textStyle][]" value="italic" @php if(isset($img->textStyle) && in_array("italic", $img->textStyle)) {echo "checked";} @endphp>
-                                                      <label class="form-check-label" :for="colorCheck50"><i>Italic</i></label>
-                                                    </div>
-                                                    <div class="form-check form-check-success mb-2 mt-2 form-check-inline" x-data="{ colorCheck60: $id('colorCheck60') }">
-                                                      <input type="checkbox" class="form-check-input" :id="colorCheck60" name="preview1[{{ $counter }}][textStyle][]" value="underline underline-offset-4" @php if(isset($img->textStyle) && in_array("underline underline-offset-4", $img->textStyle)) {echo "checked";} @endphp>
-                                                      <label class="form-check-label" :for="colorCheck60"><u>Underline</u></label>
-                                                    </div>
+                                                <div class="form-check form-check-primary form-check-inline"
+                                                    x-data="{ colorCheck40: $id('colorCheck40') }">
+                                                    <input type="checkbox" class="form-check-input" :id="colorCheck40"
+                                                        name="preview1[{{ $counter }}][textStyle][]"
+                                                        value="font-bold"
+                                                        @php if(isset($img->textStyle) && in_array("font-bold", $img->textStyle)) {echo "checked";} @endphp>
+                                                    <label class="form-check-label"
+                                                        :for="colorCheck40"><b>Bold</b></label>
+                                                </div>
+                                                <div class="form-check form-check-primary form-check-inline"
+                                                    x-data="{ colorCheck50: $id('colorCheck50') }">
+                                                    <input type="checkbox" class="form-check-input" :id="colorCheck50"
+                                                        name="preview1[{{ $counter }}][textStyle][]" value="italic"
+                                                        @php if(isset($img->textStyle) && in_array("italic", $img->textStyle)) {echo "checked";} @endphp>
+                                                    <label class="form-check-label"
+                                                        :for="colorCheck50"><i>Italic</i></label>
+                                                </div>
+                                                <div class="form-check form-check-primary form-check-inline"
+                                                    x-data="{ colorCheck60: $id('colorCheck60') }">
+                                                    <input type="checkbox" class="form-check-input"
+                                                        :id="colorCheck60"
+                                                        name="preview1[{{ $counter }}][textStyle][]"
+                                                        value="underline underline-offset-4"
+                                                        @php if(isset($img->textStyle) && in_array("underline underline-offset-4", $img->textStyle)) {echo "checked";} @endphp>
+                                                    <label class="form-check-label"
+                                                        :for="colorCheck60"><u>Underline</u></label>
+                                                </div>
 
                                             </div>
 
-                                            <div class="col-md-3 col-12 mb-5">
+                                            <div class="col-md-4 col-12 mb-2">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="textColour">Text Colour</label>
-                                                    <input id="heading" type="text" class="form-control" name="preview1[{{ $counter }}][textColor]"
-                                                    @php if(isset($img->textColor)) {echo "value=\"".$img->textColor."\"";} @endphp
+                                                    <input id="heading" type="text" class="form-control"
+                                                        name="preview1[{{ $counter }}][textColor]"
+                                                        @php if(isset($img->textColor)) {echo "value=\"".$img->textColor."\"";} @endphp
                                                         aria-describedby="desc" placeholder="#0ash763" />
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-2 col-12 mb-5">
+                                            <div class="col-12 mb-0">
                                                 <div class="mb-1">
                                                     <button class="btn btn-outline-danger text-nowrap px-1" type="button"
                                                         data-repeater-delete onclick="deleted1('{{ $counter }}');">
@@ -541,15 +631,15 @@
                 </div>
                 <div class="card-body">
 
-                <div class="divider-primary divider">
+                    <div class="divider-primary divider">
                         <div class="divider-text">Sliders Videos</div>
                     </div>
 
 
 
 
-                    <form action="{{ route('add_video_slider_api') }}" class="invoice-repeater" enctype="multipart/form-data"
-                        method="POST">
+                    <form action="{{ route('add_video_slider_api') }}" class="invoice-repeater"
+                        enctype="multipart/form-data" method="POST">
                         @csrf
                         <div data-repeater-list="new_video">
 
@@ -604,20 +694,24 @@
                                     </div>
 
                                     <div class="col-md-4 col-12 mb-5">
-                                        <label class="form-label" for="textStyle">Text Style:    </label>
+                                        <label class="form-label d-block mb-1" style="margin-top: -5rem"
+                                            for="textStyle">Text Style: </label>
 
-                                            <div class="form-check form-check-primary mb-2 mt-2 form-check-inline">
-                                              <input type="checkbox" class="form-check-input" id="colorCheck11" name="textStyle" value="font-bold">
-                                              <label class="form-check-label" for="colorCheck11"><b>Bold</b></label>
-                                            </div>
-                                            <div class="form-check form-check-secondary mb-2 mt-2 form-check-inline">
-                                              <input type="checkbox" class="form-check-input" id="colorCheck12" name="textStyle" value="italic">
-                                              <label class="form-check-label" for="colorCheck12"><i>Italic</i></label>
-                                            </div>
-                                            <div class="form-check form-check-success mb-2 mt-2 form-check-inline">
-                                              <input type="checkbox" class="form-check-input" id="colorCheck13" name="textStyle" value="underline underline-offset-4">
-                                              <label class="form-check-label" for="colorCheck13"><u>Underline</u></label>
-                                            </div>
+                                        <div class="form-check form-check-primary form-check-inline">
+                                            <input id="colorCheck11" type="checkbox" class="form-check-input"
+                                                name="textStyle" value="font-bold">
+                                            <label class="form-check-label" for="colorCheck11"><b>Bold</b></label>
+                                        </div>
+                                        <div class="form-check form-check-primary form-check-inline">
+                                            <input id="colorCheck12" type="checkbox" class="form-check-input"
+                                                name="textStyle" value="italic">
+                                            <label class="form-check-label" for="colorCheck12"><i>Italic</i></label>
+                                        </div>
+                                        <div class="form-check form-check-primary form-check-inline">
+                                            <input id="colorCheck13" type="checkbox" class="form-check-input"
+                                                name="textStyle" value="underline underline-offset-4">
+                                            <label class="form-check-label" for="colorCheck13"><u>Underline</u></label>
+                                        </div>
 
                                     </div>
 
@@ -631,9 +725,11 @@
 
                                     <div class="col-md-3 col-12 mb-5">
                                         <div class="mb-1">
-                                            <label class="form-label" for="textColour">Link (Keep it Blank if not to assign any link)</label>
+                                            <label class="form-label" for="textColour">Link (Keep it Blank if not to
+                                                assign any link)</label>
                                             <input id="heading" type="text" class="form-control" name="c_link"
-                                                value="" aria-describedby="desc" placeholder="#0ash763" />
+                                                value="" aria-describedby="desc"
+                                                placeholder="https://jamunagroup.com.bd/contact" />
                                         </div>
                                     </div>
 
@@ -692,31 +788,32 @@
 
                                     <div>
                                         <div class="row d-flex align-items-end">
-                                        <div class="col-md-2 col-12 mb-5">
-                                        <input type="hidden" name="videopreview[{{ $counter }}][src]" value="{{$video->src}}"/>
+                                            <div class="col-md-3 col-12 mb-2">
+                                                <input type="hidden" name="videopreview[{{ $counter }}][src]"
+                                                    value="{{ $video->src }}" />
 
-                                        @php
-                                            $src = $video->src;
-                                            $extension = pathinfo($src, PATHINFO_EXTENSION);
-                                            if($extension == 'mp4' || $extension == 'webm' || $extension == 'ogg' || $extension == 'mov' || $extension == 'flv' || $extension == 'avi' || $extension == 'wmv' || $extension == '3gp' || $extension == 'mkv' || $extension == 'mpeg' || $extension == 'mpg' || $extension == 'm4v' || $extension == 'f4v' || $extension == 'f4p' || $extension == 'f4a' || $extension == 'f4b'){
-                                                $image = false;
-                                            } else {
-                                                $image = true;
-                                            }
-                                        @endphp
-                                        @if($image)
-                                        <img id="imagePreview_1" style="border-radius:6px;"
-                                        src="{{ $video->src }}" width="120" height="70">
-                                        @else
-                                            <button class="btn btn-icon btn-success m-1" type="button"
-                                            onclick="play('{{$video->src}}')">
-                                                <i data-feather="check" class="me-25"></i>
-                                                <span>Play Now</span>
-                                            </button>
-                                        @endif
-                                        </div>
+                                                @php
+                                                    $src = $video->src;
+                                                    $extension = pathinfo($src, PATHINFO_EXTENSION);
+                                                    if ($extension == 'mp4' || $extension == 'webm' || $extension == 'ogg' || $extension == 'mov' || $extension == 'flv' || $extension == 'avi' || $extension == 'wmv' || $extension == '3gp' || $extension == 'mkv' || $extension == 'mpeg' || $extension == 'mpg' || $extension == 'm4v' || $extension == 'f4v' || $extension == 'f4p' || $extension == 'f4a' || $extension == 'f4b') {
+                                                        $image = false;
+                                                    } else {
+                                                        $image = true;
+                                                    }
+                                                @endphp
+                                                @if ($image)
+                                                    <img id="imagePreview_1" style="border-radius:6px;"
+                                                        src="{{ $video->src }}" width="120" height="70">
+                                                @else
+                                                    <button class="btn btn-icon btn-success m-1" type="button"
+                                                        onclick="play('{{ $video->src }}')">
+                                                        <i data-feather="check" class="me-25"></i>
+                                                        <span>Play Now</span>
+                                                    </button>
+                                                @endif
+                                            </div>
 
-                                            <div class="col-md-2 col-12 mb-5">
+                                            <div class="col-md-3 col-12 mb-2">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="itemcost">Name</label>
                                                     <input id="itemcost" type="text" class="form-control"
@@ -726,7 +823,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-2 col-12 mb-5">
+                                            <div class="col-md-3 col-12 mb-2">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="itemquantity">Short Description</label>
                                                     <input id="itemquantity" type="text" class="form-control"
@@ -736,68 +833,119 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-2 col-12 mb-5">
+                                            <div class="col-md-3 col-12 mb-2">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="heading">Text Size</label>
-                                                    <select name="videopreview[{{ $counter }}][text_size]" class="form-select">
-                                                        <option value="text-xs" @php if(isset($video->text_size) && $video->text_size == "text-xs") {echo "selected";}@endphp >12px</option>
-                                                        <option value="text-sm" @php if(isset($video->text_size) &&$video->text_size == "text-sm") {echo "selected";}@endphp>14px</option>
-                                                        <option value="text-base" @php if(isset($video->text_size) && $video->text_size == "text-base") {echo "selected";}@endphp>16px</option>
-                                                        <option value="text-lg" @php if(isset( $video->text_size) && $video->text_size == "text-lg") {echo "selected";}@endphp>18px</option>
-                                                        <option value="text-xl" @php if(isset( $video->text_size) && $video->text_size == "text-xl") {echo "selected";}@endphp>20px</option>
-                                                        <option value="text-2xl" @php if(isset( $video->text_size) && $video->text_size == "text-2xl") {echo "selected";}@endphp>24px</option>
-                                                        <option value="text-3xl" @php if(isset( $video->text_size) && $video->text_size == "text-3xl") {echo "selected";}@endphp>30px</option>
-                                                        <option value="text-4xl" @php if(isset( $video->text_size) && $video->text_size == "text-4xl") {echo "selected";}@endphp>36px</option>
-                                                        <option value="text-5xl" @php if(isset( $video->text_size) && $video->text_size == "text-5xl") {echo "selected";}@endphp>48px</option>
-                                                        <option value="text-6xl" @php if(isset( $video->text_size) && $video->text_size == "text-6xl") {echo "selected";}@endphp>60px</option>
-                                                        <option value="text-7xl" @php if(isset( $video->text_size) && $video->text_size == "text-7xl") {echo "selected";}@endphp>72px</option>
-                                                        <option value="text-8xl" @php if(isset( $video->text_size) && $video->text_size == "text-8xl") {echo "selected";}@endphp>96px</option>
-                                                        <option value="text-9xl" @php if(isset( $video->text_size) &&$video->text_size == "text-9xl") {echo "selected";}@endphp>120px</option>
+                                                    <select name="videopreview[{{ $counter }}][text_size]"
+                                                        class="form-select">
+                                                        <option value="text-xs"
+                                                            @php if(isset($video->text_size) && $video->text_size == "text-xs") {echo "selected";} @endphp>
+                                                            12px</option>
+                                                        <option value="text-sm"
+                                                            @php if(isset($video->text_size) &&$video->text_size == "text-sm") {echo "selected";} @endphp>
+                                                            14px</option>
+                                                        <option value="text-base"
+                                                            @php if(isset($video->text_size) && $video->text_size == "text-base") {echo "selected";} @endphp>
+                                                            16px</option>
+                                                        <option value="text-lg"
+                                                            @php if(isset( $video->text_size) && $video->text_size == "text-lg") {echo "selected";} @endphp>
+                                                            18px</option>
+                                                        <option value="text-xl"
+                                                            @php if(isset( $video->text_size) && $video->text_size == "text-xl") {echo "selected";} @endphp>
+                                                            20px</option>
+                                                        <option value="text-2xl"
+                                                            @php if(isset( $video->text_size) && $video->text_size == "text-2xl") {echo "selected";} @endphp>
+                                                            24px</option>
+                                                        <option value="text-3xl"
+                                                            @php if(isset( $video->text_size) && $video->text_size == "text-3xl") {echo "selected";} @endphp>
+                                                            30px</option>
+                                                        <option value="text-4xl"
+                                                            @php if(isset( $video->text_size) && $video->text_size == "text-4xl") {echo "selected";} @endphp>
+                                                            36px</option>
+                                                        <option value="text-5xl"
+                                                            @php if(isset( $video->text_size) && $video->text_size == "text-5xl") {echo "selected";} @endphp>
+                                                            48px</option>
+                                                        <option value="text-6xl"
+                                                            @php if(isset( $video->text_size) && $video->text_size == "text-6xl") {echo "selected";} @endphp>
+                                                            60px</option>
+                                                        <option value="text-7xl"
+                                                            @php if(isset( $video->text_size) && $video->text_size == "text-7xl") {echo "selected";} @endphp>
+                                                            72px</option>
+                                                        <option value="text-8xl"
+                                                            @php if(isset( $video->text_size) && $video->text_size == "text-8xl") {echo "selected";} @endphp>
+                                                            96px</option>
+                                                        <option value="text-9xl"
+                                                            @php if(isset( $video->text_size) &&$video->text_size == "text-9xl") {echo "selected";} @endphp>
+                                                            120px</option>
                                                     </select>
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-2 col-12 mb-5">
+                                            <div class="col-md-4 col-12 mb-2">
                                                 <div class="mb-1">
-                                                    <label class="form-label" for="textColour">Link (Keep it Blank if not needed)</label>
-                                                    <input id="heading" type="text" class="form-control" name="videopreview[{{ $counter }}][c_link]"
-                                                    @php if(isset($video->c_link)) {echo "value=\"".$video->c_link."\"";} @endphp placeholder="#0ash763" />
+                                                    <label class="form-label" for="textColour">Link (Keep it Blank if not
+                                                        needed)</label>
+                                                    <input id="heading" type="text" class="form-control"
+                                                        name="videopreview[{{ $counter }}][c_link]"
+                                                        @php if(isset($video->c_link)) {echo "value=\"".$video->c_link."\"";} @endphp
+                                                        placeholder="https://jamunagroup.com.bd/contact" />
                                                 </div>
                                             </div>
 
 
 
-                                            <div class="col-md-3 col-12 mb-5">
-                                                <label class="form-label" for="textStyle">Text Style:    </label>
+                                            <div class="col-md-4 col-12 mb-2">
+                                                <label class="form-label d-block mb-1" style="margin-top: -5rem"
+                                                    for="textStyle">Text Style: </label>
 
-                                                    <div class="form-check form-check-primary mb-2 mt-2 form-check-inline" x-data="{ colorCheck110: $id('colorCheck110') }">
-                                                      <input type="checkbox" class="form-check-input" :id="colorCheck110" name="videopreview[{{ $counter }}][textStyle][]" value="font-bold" @php if(isset($video->textStyle) && in_array("font-bold", $video->textStyle)) {echo "checked";} @endphp>
-                                                      <label class="form-check-label" :for="colorCheck110"><b>Bold</b></label>
-                                                    </div>
-                                                    <div class="form-check form-check-secondary mb-2 mt-2 form-check-inline" x-data="{ colorCheck10: $id('colorCheck210') }">
-                                                      <input type="checkbox" class="form-check-input" :id="colorCheck210" name="videopreview[{{ $counter }}][textStyle][]" value="italic" @php if(isset($video->textStyle) && in_array("italic", $video->textStyle)) {echo "checked";} @endphp>
-                                                      <label class="form-check-label" :for="colorCheck210"><i>Italic</i></label>
-                                                    </div>
-                                                    <div class="form-check form-check-success mb-2 mt-2 form-check-inline" x-data="{ colorCheck310: $id('colorCheck310') }">
-                                                      <input type="checkbox" class="form-check-input" :id="colorCheck310" name="videopreview[{{ $counter }}][textStyle][]" value="underline underline-offset-4" @php if(isset($video->textStyle) && in_array("underline underline-offset-4", $video->textStyle)) {echo "checked";} @endphp>
-                                                      <label class="form-check-label" :for="colorCheck310"><u>Underline</u></label>
-                                                    </div>
+                                                <div class="form-check form-check-primary form-check-inline"
+                                                    x-data="{ colorCheck110: $id('colorCheck110') }">
+                                                    <input type="checkbox" class="form-check-input"
+                                                        :id="colorCheck110"
+                                                        name="videopreview[{{ $counter }}][textStyle][]"
+                                                        value="font-bold"
+                                                        @php if(isset($video->textStyle) && in_array("font-bold", $video->textStyle)) {echo "checked";} @endphp>
+                                                    <label class="form-check-label"
+                                                        :for="colorCheck110"><b>Bold</b></label>
+                                                </div>
+                                                <div class="form-check form-check-primary form-check-inline"
+                                                    x-data="{ colorCheck10: $id('colorCheck210') }">
+                                                    <input type="checkbox" class="form-check-input"
+                                                        :id="colorCheck210"
+                                                        name="videopreview[{{ $counter }}][textStyle][]"
+                                                        value="italic"
+                                                        @php if(isset($video->textStyle) && in_array("italic", $video->textStyle)) {echo "checked";} @endphp>
+                                                    <label class="form-check-label"
+                                                        :for="colorCheck210"><i>Italic</i></label>
+                                                </div>
+                                                <div class="form-check form-check-primary form-check-inline"
+                                                    x-data="{ colorCheck310: $id('colorCheck310') }">
+                                                    <input type="checkbox" class="form-check-input"
+                                                        :id="colorCheck310"
+                                                        name="videopreview[{{ $counter }}][textStyle][]"
+                                                        value="underline underline-offset-4"
+                                                        @php if(isset($video->textStyle) && in_array("underline underline-offset-4", $video->textStyle)) {echo "checked";} @endphp>
+                                                    <label class="form-check-label"
+                                                        :for="colorCheck310"><u>Underline</u></label>
+                                                </div>
 
                                             </div>
 
-                                            <div class="col-md-3 col-12 mb-5">
+                                            <div class="col-md-4 col-12 mb-2">
                                                 <div class="mb-1">
                                                     <label class="form-label" for="textColour">Text Colour</label>
-                                                    <input id="heading" type="text" class="form-control" name="videopreview[{{ $counter }}][textColor]"
-                                                    @php if(isset($video->textColor)) {echo "value=\"".$video->textColor."\"";} @endphp
+                                                    <input id="heading" type="text" class="form-control"
+                                                        name="videopreview[{{ $counter }}][textColor]"
+                                                        @php if(isset($video->textColor)) {echo "value=\"".$video->textColor."\"";} @endphp
                                                         aria-describedby="desc" placeholder="#0ash763" />
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-2 col-12 mb-5">
+                                            <div class="col-12 mb-0">
                                                 <div class="mb-1">
                                                     <button class="btn btn-outline-danger text-nowrap px-1" type="button"
-                                                        data-repeater-delete onclick="deleted_video('{{ $counter }}');">
+                                                        data-repeater-delete
+                                                        onclick="deleted_video('{{ $counter }}');">
                                                         <i data-feather="x" class="me-25"></i>
                                                         <span>Delete</span>
                                                     </button>
@@ -906,30 +1054,30 @@
     </script>
 
     <script>
-
         var play = function(event) {
 
-      Swal.fire({
-        html:
-            '<div class="row mt-2">'+
-          '<video class="video-player plyr__controls" crossorigin controls allowfullscreen allow="autoplay"  id="plyr-video-player">' +
-          '<source src="'+event+'" type="video/mp4" />' +
-          '</video>'+
-          '</div>',
-        showCloseButton: true,
-        showCancelButton: true,
-        showConfirmButton: false,
-        focusConfirm: false,
-        confirmButtonText: feather.icons['thumbs-up'].toSvg({ class: 'font-medium-1 me-50' }) + 'Great!',
-        confirmButtonAriaLabel: 'Thumbs up, great!',
-        cancelButtonText: 'Close',
-        cancelButtonAriaLabel: 'Thumbs down',
-        customClass: {
-          confirmButton: 'btn btn-primary',
-          cancelButton: 'btn btn-outline-danger ms-1'
-        },
-        buttonsStyling: false
-      });
+            Swal.fire({
+                html: '<div class="row mt-2">' +
+                    '<video class="video-player plyr__controls" crossorigin controls allowfullscreen allow="autoplay"  id="plyr-video-player">' +
+                    '<source src="' + event + '" type="video/mp4" />' +
+                    '</video>' +
+                    '</div>',
+                showCloseButton: true,
+                showCancelButton: true,
+                showConfirmButton: false,
+                focusConfirm: false,
+                confirmButtonText: feather.icons['thumbs-up'].toSvg({
+                    class: 'font-medium-1 me-50'
+                }) + 'Great!',
+                confirmButtonAriaLabel: 'Thumbs up, great!',
+                cancelButtonText: 'Close',
+                cancelButtonAriaLabel: 'Thumbs down',
+                customClass: {
+                    confirmButton: 'btn btn-primary',
+                    cancelButton: 'btn btn-outline-danger ms-1'
+                },
+                buttonsStyling: false
+            });
 
         };
 
