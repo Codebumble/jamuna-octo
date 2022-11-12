@@ -309,17 +309,17 @@
                                             <div class="col-md-4 col-12 mb-5">
                                                 <label class="form-label" for="textStyle">Text Style:    </label>
 
-                                                    <div class="form-check form-check-primary mb-2 mt-2 form-check-inline">
-                                                      <input type="checkbox" class="form-check-input" id="colorCheck1" name="preview[{{ $counter }}][textStyle][]" value="font-bold" @php if(isset($img->textStyle) && in_array("font-bold", $img->textStyle)) {echo "checked";} @endphp>
-                                                      <label class="form-check-label" for="colorCheck1"><b>Bold</b></label>
+                                                    <div class="form-check form-check-primary mb-2 mt-2 form-check-inline" x-data="{ colorCheck10: $id('colorCheck10') }">
+                                                      <input type="checkbox" class="form-check-input" :id="colorCheck10" name="preview[{{ $counter }}][textStyle][]" value="font-bold" @php if(isset($img->textStyle) && in_array("font-bold", $img->textStyle)) {echo "checked";} @endphp>
+                                                      <label class="form-check-label" :for="colorCheck10"><b>Bold</b></label>
                                                     </div>
-                                                    <div class="form-check form-check-secondary mb-2 mt-2 form-check-inline">
-                                                      <input type="checkbox" class="form-check-input" id="colorCheck2" name="preview[{{ $counter }}][textStyle][]" value="italic" @php if(isset($img->textStyle) && in_array("italic", $img->textStyle)) {echo "checked";} @endphp>
-                                                      <label class="form-check-label" for="colorCheck2"><i>Italic</i></label>
+                                                    <div class="form-check form-check-secondary mb-2 mt-2 form-check-inline" x-data="{ colorCheck20: $id('colorCheck20') }">
+                                                      <input type="checkbox" class="form-check-input" :id="colorCheck20" name="preview[{{ $counter }}][textStyle][]" value="italic" @php if(isset($img->textStyle) && in_array("italic", $img->textStyle)) {echo "checked";} @endphp>
+                                                      <label class="form-check-label" :for="colorCheck20"><i>Italic</i></label>
                                                     </div>
-                                                    <div class="form-check form-check-success mb-2 mt-2 form-check-inline">
-                                                      <input type="checkbox" class="form-check-input" id="colorCheck3" name="preview[{{ $counter }}][textStyle][]" value="underline underline-offset-4" @php if(isset($img->textStyle) && in_array("underline underline-offset-4", $img->textStyle)) {echo "checked";} @endphp>
-                                                      <label class="form-check-label" for="colorCheck3"><u>Underline</u></label>
+                                                    <div class="form-check form-check-success mb-2 mt-2 form-check-inline" x-data="{ colorCheck30: $id('colorCheck30') }">
+                                                      <input type="checkbox" class="form-check-input" :id="colorCheck30" name="preview[{{ $counter }}][textStyle][]" value="underline underline-offset-4" @php if(isset($img->textStyle) && in_array("underline underline-offset-4", $img->textStyle)) {echo "checked";} @endphp>
+                                                      <label class="form-check-label" :for="colorCheck3"><u>Underline</u></label>
                                                     </div>
 
                                             </div>
@@ -466,17 +466,17 @@
                                             <div class="col-md-3 col-12 mb-5">
                                                 <label class="form-label" for="textStyle">Text Style:    </label>
 
-                                                    <div class="form-check form-check-primary mb-2 mt-2 form-check-inline">
-                                                      <input type="checkbox" class="form-check-input" id="colorCheck1" name="preview1[{{ $counter }}][textStyle][]" value="font-bold" @php if(isset($img->textStyle) && in_array("font-bold", $img->textStyle)) {echo "checked";} @endphp>
-                                                      <label class="form-check-label" for="colorCheck1"><b>Bold</b></label>
+                                                    <div class="form-check form-check-primary mb-2 mt-2 form-check-inline" x-data="{ colorCheck40: $id('colorCheck40') }">
+                                                      <input type="checkbox" class="form-check-input" :id="colorCheck40" name="preview1[{{ $counter }}][textStyle][]" value="font-bold" @php if(isset($img->textStyle) && in_array("font-bold", $img->textStyle)) {echo "checked";} @endphp>
+                                                      <label class="form-check-label" :for="colorCheck40"><b>Bold</b></label>
                                                     </div>
-                                                    <div class="form-check form-check-secondary mb-2 mt-2 form-check-inline">
-                                                      <input type="checkbox" class="form-check-input" id="colorCheck2" name="preview1[{{ $counter }}][textStyle][]" value="italic" @php if(isset($img->textStyle) && in_array("italic", $img->textStyle)) {echo "checked";} @endphp>
-                                                      <label class="form-check-label" for="colorCheck2"><i>Italic</i></label>
+                                                    <div class="form-check form-check-secondary mb-2 mt-2 form-check-inline" x-data="{ colorCheck50: $id('colorCheck50') }">
+                                                      <input type="checkbox" class="form-check-input" :id="colorCheck50" name="preview1[{{ $counter }}][textStyle][]" value="italic" @php if(isset($img->textStyle) && in_array("italic", $img->textStyle)) {echo "checked";} @endphp>
+                                                      <label class="form-check-label" :for="colorCheck50"><i>Italic</i></label>
                                                     </div>
-                                                    <div class="form-check form-check-success mb-2 mt-2 form-check-inline">
-                                                      <input type="checkbox" class="form-check-input" id="colorCheck3" name="preview1[{{ $counter }}][textStyle][]" value="underline underline-offset-4" @php if(isset($img->textStyle) && in_array("underline underline-offset-4", $img->textStyle)) {echo "checked";} @endphp>
-                                                      <label class="form-check-label" for="colorCheck3"><u>Underline</u></label>
+                                                    <div class="form-check form-check-success mb-2 mt-2 form-check-inline" x-data="{ colorCheck60: $id('colorCheck60') }">
+                                                      <input type="checkbox" class="form-check-input" :id="colorCheck60" name="preview1[{{ $counter }}][textStyle][]" value="underline underline-offset-4" @php if(isset($img->textStyle) && in_array("underline underline-offset-4", $img->textStyle)) {echo "checked";} @endphp>
+                                                      <label class="form-check-label" :for="colorCheck60"><u>Underline</u></label>
                                                     </div>
 
                                             </div>
@@ -607,16 +607,16 @@
                                         <label class="form-label" for="textStyle">Text Style:    </label>
 
                                             <div class="form-check form-check-primary mb-2 mt-2 form-check-inline">
-                                              <input type="checkbox" class="form-check-input" id="colorCheck1" name="textStyle" value="font-bold">
-                                              <label class="form-check-label" for="colorCheck1"><b>Bold</b></label>
+                                              <input type="checkbox" class="form-check-input" id="colorCheck11" name="textStyle" value="font-bold">
+                                              <label class="form-check-label" for="colorCheck11"><b>Bold</b></label>
                                             </div>
                                             <div class="form-check form-check-secondary mb-2 mt-2 form-check-inline">
-                                              <input type="checkbox" class="form-check-input" id="colorCheck2" name="textStyle" value="italic">
-                                              <label class="form-check-label" for="colorCheck2"><i>Italic</i></label>
+                                              <input type="checkbox" class="form-check-input" id="colorCheck12" name="textStyle" value="italic">
+                                              <label class="form-check-label" for="colorCheck12"><i>Italic</i></label>
                                             </div>
                                             <div class="form-check form-check-success mb-2 mt-2 form-check-inline">
-                                              <input type="checkbox" class="form-check-input" id="colorCheck3" name="textStyle" value="underline underline-offset-4">
-                                              <label class="form-check-label" for="colorCheck3"><u>Underline</u></label>
+                                              <input type="checkbox" class="form-check-input" id="colorCheck13" name="textStyle" value="underline underline-offset-4">
+                                              <label class="form-check-label" for="colorCheck13"><u>Underline</u></label>
                                             </div>
 
                                     </div>
@@ -770,17 +770,17 @@
                                             <div class="col-md-3 col-12 mb-5">
                                                 <label class="form-label" for="textStyle">Text Style:    </label>
 
-                                                    <div class="form-check form-check-primary mb-2 mt-2 form-check-inline">
-                                                      <input type="checkbox" class="form-check-input" id="colorCheck1" name="videopreview[{{ $counter }}][textStyle][]" value="font-bold" @php if(isset($video->textStyle) && in_array("font-bold", $video->textStyle)) {echo "checked";} @endphp>
-                                                      <label class="form-check-label" for="colorCheck1"><b>Bold</b></label>
+                                                    <div class="form-check form-check-primary mb-2 mt-2 form-check-inline" x-data="{ colorCheck110: $id('colorCheck110') }">
+                                                      <input type="checkbox" class="form-check-input" :id="colorCheck110" name="videopreview[{{ $counter }}][textStyle][]" value="font-bold" @php if(isset($video->textStyle) && in_array("font-bold", $video->textStyle)) {echo "checked";} @endphp>
+                                                      <label class="form-check-label" :for="colorCheck110"><b>Bold</b></label>
                                                     </div>
-                                                    <div class="form-check form-check-secondary mb-2 mt-2 form-check-inline">
-                                                      <input type="checkbox" class="form-check-input" id="colorCheck2" name="videopreview[{{ $counter }}][textStyle][]" value="italic" @php if(isset($video->textStyle) && in_array("italic", $video->textStyle)) {echo "checked";} @endphp>
-                                                      <label class="form-check-label" for="colorCheck2"><i>Italic</i></label>
+                                                    <div class="form-check form-check-secondary mb-2 mt-2 form-check-inline" x-data="{ colorCheck10: $id('colorCheck210') }">
+                                                      <input type="checkbox" class="form-check-input" :id="colorCheck210" name="videopreview[{{ $counter }}][textStyle][]" value="italic" @php if(isset($video->textStyle) && in_array("italic", $video->textStyle)) {echo "checked";} @endphp>
+                                                      <label class="form-check-label" :for="colorCheck210"><i>Italic</i></label>
                                                     </div>
-                                                    <div class="form-check form-check-success mb-2 mt-2 form-check-inline">
-                                                      <input type="checkbox" class="form-check-input" id="colorCheck3" name="videopreview[{{ $counter }}][textStyle][]" value="underline underline-offset-4" @php if(isset($video->textStyle) && in_array("underline underline-offset-4", $video->textStyle)) {echo "checked";} @endphp>
-                                                      <label class="form-check-label" for="colorCheck3"><u>Underline</u></label>
+                                                    <div class="form-check form-check-success mb-2 mt-2 form-check-inline" x-data="{ colorCheck310: $id('colorCheck310') }">
+                                                      <input type="checkbox" class="form-check-input" :id="colorCheck310" name="videopreview[{{ $counter }}][textStyle][]" value="underline underline-offset-4" @php if(isset($video->textStyle) && in_array("underline underline-offset-4", $video->textStyle)) {echo "checked";} @endphp>
+                                                      <label class="form-check-label" :for="colorCheck310"><u>Underline</u></label>
                                                     </div>
 
                                             </div>
@@ -850,7 +850,8 @@
     <script src="{{ asset(mix('vendors/js/extensions/sweetalert2.all.min.js')) }}"></script>
     <script src="{{ asset(mix('vendors/js/extensions/polyfill.min.js')) }}"></script>
     <script src="{{ asset(mix('vendors/js/extensions/plyr.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/extensions/plyr.polyfilled.min.js')) }}"></script>
+    <script src="{{ asset(mix('vendors/js/extensions/plyr.polyfilled.min.js')) }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 @endsection
 @section('page-script')
     <!-- Page js files -->
