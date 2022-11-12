@@ -36,9 +36,23 @@
 							</div>
 							<div class="absolute w-full z-20">
 								<div class="container flex flex-col">
-									<div class="overflow-hidden">
+									<div class="overflow-hidden top-vdo-img-slider">
+										<div v-if="slide.c_link">
+											<router-link
+												:to="slide.c_link"
+												class="ml-8 2xl:ml-8 xl:ml-0 text-white capitalize leading-snug w-[80%] lg:w-[50%] text-shadow-extreme"
+												:class="slide.textStyle"
+												:style="{
+													color: slide.textColor,
+												}"
+												>{{ slide.heading }}</router-link
+											>
+										</div>
 										<h1
-											class="ml-8 2xl:ml-8 xl:ml-0 text-2xl lg:text-[36px] text-white font-bold capitalize leading-snug w-[80%] lg:w-[50%] text-shadow-extreme">
+											v-else
+											class="ml-8 2xl:ml-8 xl:ml-0 text-white capitalize leading-snug w-[80%] lg:w-[50%] text-shadow-extreme"
+											:style="{ color: slide.textColor }"
+											:class="slide.textStyle">
 											{{ slide.heading }}
 										</h1>
 									</div>
