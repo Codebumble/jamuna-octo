@@ -326,11 +326,16 @@ class Product_rest extends Controller
 			[$id]
 		);
 
-		if (!isset($data[0])) {
-			return redirect()->route('misc-not-authorized');
-		}
 
-		return json_encode($data[0]);
+
+		$data_get_by_company = DB::select(
+			'select name,image from codebumble_product_list where company=?',
+			[$data[0]->company]
+		);
+
+
+
+		return json_encode(['data' => $data[0], 'images' => $data_get_by_company]);
 	}
 
 	public function add_product_photo(Request $r, $id){
