@@ -40,7 +40,7 @@
                 </div>
             </div>
         @endif
-          <form class="needs-validation" novalidate action="{{ route('edit-section-api',['name' => base64_encode($data->name)]) }}" method="POST">
+          <form class="needs-validation" novalidate action="{{ route('edit-section-api',['name' => base64_encode($data->name)]) }}" method="POST" enctype="multipart/form-data">
 		  @csrf
 				<div class="row">
 						<div class="mb-1 col-12 col-md-6">
