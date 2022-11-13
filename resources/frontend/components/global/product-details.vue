@@ -143,7 +143,7 @@
 						p-8
 						overflow-hidden
 						businessDetails
-						image-gallery
+						product-image-gallery
 					">
 					<div
 						class="
