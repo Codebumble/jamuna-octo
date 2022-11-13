@@ -143,6 +143,7 @@
 						p-8
 						overflow-hidden
 						businessDetails
+						image-gallery
 					">
 					<div
 						class="
@@ -153,23 +154,26 @@
 							pb-8
 						">
 						<div
-							v-for="(item, index) in images"
+							v-for="(item, index) in visibleImages"
 							:key="index"
 							class="image"
 							@click="() => showImg(index)">
 							<div class="thumbnail">
-								<img :src="item.image" :alt="item.name" />
+								<img
+									:src="item.image"
+									:alt="item.name" />
+								<h3>{{ item.name }}</h3>
 							</div>
 						</div>
 					</div>
 					<vue-awesome-paginate
 						:total-items="totalImages"
-						:items-per-page="1"
+						:items-per-page="8"
 						:max-pages-shown="1000"
 						:current-page="currentPage"
 						:on-click="onClickHandler"
 						:key="currentPage"
-						v-if="totalImages > 1">
+						v-if="totalImages > 8">
 						<template #prev-button>
 							<i class="fas fa-angle-left"></i>
 						</template>
@@ -190,7 +194,7 @@
 
 <style lang="scss">
 @import '../../assets/scss/variables/_business-details';
-@import '../../assets/scss/variables/image-gallery';
+@import '../../assets/scss/variables/_product-gallery.scss';
 @import '../../assets/scss/variables/pagination';
 </style>
 
@@ -205,25 +209,83 @@ export default {
 		return {
 			visibleRef: false,
 			indexRef: 0,
+			page: 1,
 			currentPage: 1,
+			totalImages: 0,
+			data: {
+				businessLogo: '',
+				objectfit: true,
+				businessName: '',
+				establishDate: '',
+				address: {
+					officeName: '',
+					officeRoad: '',
+					location: '',
+					country: '',
+				},
+				mail: '',
+				emailName: '',
+				mobile: '',
+				website: '',
+				products: '',
+				capacity: '',
+				textSummary: true,
+				textDetails: {
+					details: '',
+					shortDetails: '',
+				},
+			},
+			images: [],
 		};
 	},
-	created() {
-		this.$watch(
-			() => this.$route.params,
-			(toParams, PreviousParams) => {
-				this.currentPage = 1;
-			}
-		);
+	computed: {
+		visibleImages() {
+			return this.images;
+		},
 	},
-	// computed: {
-	// 	visibleImages() {
-	// 		console.log('cpm');
-	// 		console.log(this.imgs);
-	// 		return this.imgs;
-	// 	},
-	// },
 	methods: {
+		paginate(array, page_size, page_number) {
+			return array.slice(
+				(page_number - 1) * page_size,
+				page_number * page_size
+			);
+		},
+		photos(page) {
+			if (this.$route.path.includes('product/')) {
+				axios
+					.get(
+						window.location.origin +
+							'/frontpage-api/product-details/' +
+							this.$route.params.id
+					)
+					.then((response) => {
+						document.title =
+							response.data.company.name + ' | jamuna Group';
+						var jsn = JSON.parse(response.data.company.json_data);
+						this.data.businessLogo = response.data.company.image;
+						this.data.businessName = response.data.company.name;
+						this.data.establishDate =
+							response.data.company.establish_date;
+						this.data.address.officeName = jsn.address;
+						this.data.mail = 'mailto:' + jsn.support_email;
+						this.data.emailName = jsn.support_email;
+						this.data.mobile = jsn.support_phone_number;
+						this.data.website = jsn.website;
+						this.data.products = response.data.company.products;
+						this.data.capacity =
+							response.data.company.production_cap;
+						this.images = this.paginate(
+							response.data.images,
+							8,
+							page
+						);
+						this.totalImages = response.data.images.length;
+					})
+					.catch(() => {
+						this.$router.push({ name: 'not-found' });
+					});
+			}
+		},
 		showImg(index) {
 			this.indexRef = index;
 			this.visibleRef = true;
@@ -233,17 +295,11 @@ export default {
 		},
 		onClickHandler(page) {
 			this.currentPage = page;
-			this.$emit('pageNumber', page);
+			this.photos(page);
 		},
 	},
-	mounted() {},
-	// updated() {
-	// 	this.photos(this.page);
-	// },
-	props: {
-		data: Object,
-		images: Array,
-		totalImages: Number,
+	mounted() {
+		this.photos(this.page);
 	},
 };
 </script>
