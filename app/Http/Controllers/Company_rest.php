@@ -418,7 +418,7 @@ class Company_rest extends Controller
             $file10 = $request->file('featured_image') ;
             $fileName10 = time().'-'.$user.'.'.$file10->getClientOriginalExtension() ;
             $destinationPath10 = public_path().'/company-images' ;
-            $file9->move($destinationPath10,$fileName10);
+            $file10->move($destinationPath10,$fileName10);
         } else {
             $fileName10 = null;
         }
@@ -530,7 +530,7 @@ class Company_rest extends Controller
                     $file10 = $r->file('featured_image') ;
                     $fileName10 = time().'-'.$user.'.'.$file10->getClientOriginalExtension() ;
                     $destinationPath10 = public_path().'/company-images' ;
-                    $file9->move($destinationPath10,$fileName10);
+                    $file10->move($destinationPath10,$fileName10);
                 } else if(isset($bc->featured_image)){
                     $fileName10 = $bc->featured_image;
                 } else {
