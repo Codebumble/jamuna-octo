@@ -160,7 +160,7 @@
 							@click="() => showImg(index)">
 							<div class="thumbnail">
 								<img
-									:src="item.image"
+									:src="item.src"
 									:alt="item.name" />
 								<h3>{{ item.name }}</h3>
 							</div>
