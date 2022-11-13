@@ -329,7 +329,7 @@ class Product_rest extends Controller
 
 
 		$data_get_by_company = DB::select(
-			'select id,name,image from codebumble_product_list where company=?',
+			'select id,name,image as src from codebumble_product_list where company=?',
 			[$data[0]->company]
 		);
 
