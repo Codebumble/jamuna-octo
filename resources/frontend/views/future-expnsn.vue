@@ -1,25 +1,13 @@
 <template>
-	<Suspense>
-		<template #default>
-			<companyProfile />
-		</template>
-		<template #fallback>
-			<companyProfileSkeleton />
-		</template>
-	</Suspense>
+	<FutureExpansionDetails />
 </template>
 
 <script>
-import { defineAsyncComponent } from 'vue';
-const companyProfile = defineAsyncComponent({
-	loader: () => import('./future-expansion-details.vue'),
-	timeout: 2000,
-});
-import companyProfileSkeleton from '../components/skeleton/company-profile-skeleton.vue';
+import FutureExpansionDetails from './future-expansion-details.vue';
+
 export default {
 	components: {
-		companyProfile,
-		companyProfileSkeleton,
+		FutureExpansionDetails,
 	},
 };
 </script>

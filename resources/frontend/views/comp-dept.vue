@@ -90,6 +90,7 @@ export default {
 								response.data.company[id].featured_image,
 							label: response.data.company[id].label,
 						};
+						document.title = `${response.data.company[id].label} | Jamuna Group`;
 					});
 			}
 		},
