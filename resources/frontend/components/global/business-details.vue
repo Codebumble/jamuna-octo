@@ -163,15 +163,15 @@
 					</div>
 				</div>
 				<div
-					class="w-full lg:w-8/12 rounded-md shadow-lg border border-slate-100 p-8 overflow-hidden businessDetails">
+					class="w-full lg:w-8/12 rounded-md shadow-lg border border-slate-100 p-8 overflow-hidden businessDetails h-full">
 					<h2
 						class="font-bold text-lg underline decoration-wavy decoration-gray-800 text-gray-800 underline-offset-4 mb-4">
 						About this Business
 					</h2>
 					<div class="ql-editor">
-					<div
-						v-if="data.textDetails"
-						v-html="data.textDetails.details"></div>
+						<div
+							v-if="data.textDetails"
+							v-html="data.textDetails.details"></div>
 					</div>
 					<div
 						class="attachment"
@@ -273,7 +273,7 @@
 		props: {
 			data: Object,
 			images: Array,
-			totalImages: Number
+			totalImages: Number,
 		},
 	};
 </script>
