@@ -4,7 +4,7 @@
 		.thumbnail {
 			@apply h-48 lg:h-40 xl:h-40 xl:w-36 lg:w-32 2xl:w-48 3xl:w-64 md:w-72 md:mx-auto;
 			img {
-				@apply h-full w-full object-cover object-center rounded transition-all duration-500;
+				@apply h-full w-full object-cover object-center rounded transition-all duration-500 p-4;
 				border: 1px solid #ddd;
 			}
 			h3 {
