@@ -29,17 +29,17 @@
 			};
 		},
 		created() {
-			this.xswitcher();
+			this.switcher();
 			this.$watch(
 				() => this.$route.params,
 				(toParams, PreviousParams) => {
-					this.xswitcher();
+					this.switcher();
 				}
 			);
 		},
 		methods: {
-			xswitcher() {
-				if (this.$route.params.id) {
+			switcher() {
+				if (this.$route.path.includes('media-center/')) {
 					axios
 						.get(
 							window.location.origin +
@@ -62,26 +62,6 @@
 							this.mediaCenter.distHeading.desc =
 								data.distHeading.desc;
 							this.mediaCenter.distCorres = data.distCorres;
-
-							// this.mediaCenter = {
-							// 	...this.mediaCenter,
-							// 	ytSrc: data.ytSrc,
-							// 	title: data.title,
-							// 	phone: data.phone,
-							// 	email: data.email,
-							// 	address: {
-							// 		officeName: data.address.officeName,
-							// 		road: data.address.road,
-							// 	},
-							// 	distHeading: {
-							// 		title: data.distHeading.title,
-							// 		desc: data.distHeading.desc,
-							// 	},
-							// };
-
-							// data.distCorres.forEach((item) => {
-							// 	this.mediaCenter.distCorres.push(item);
-							// });
 						});
 				}
 			},
