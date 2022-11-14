@@ -16,6 +16,31 @@
 	display: block;
 }
 
+@font-face {
+	font-family: unisans-regular;
+	src: url(../../../fonts/unisans/UniSansRegular.ttf);
+}
+@font-face {
+	font-family: unisans-regular-italic;
+	src: url(../../../fonts/unisans/UniSansRegularItalic.ttf);
+}
+@font-face {
+	font-family: unisans-bold;
+	src: url(../../../fonts/unisans/UniSansBook.ttf);
+}
+@font-face {
+	font-family: unisans-bold-italic;
+	src: url(../../../fonts/unisans/UniSansBoldItalic.ttf);
+}
+@font-face {
+	font-family: unisans-semibold;
+	src: url(../../../fonts/unisans/UniSansSemiBold.ttf);
+}
+@font-face {
+	font-family: unisans-semibold-italic;
+	src: url(../../../fonts/unisans/UniSansSemiBoldItalic.ttf);
+}
+
 @media (max-width: 1280px) {
 	.container {
 		max-width: 1140px;

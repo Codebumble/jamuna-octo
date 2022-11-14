@@ -408,14 +408,14 @@ module.exports = {
 			DEFAULT: "1",
 		},
 		fontFamily: {
-			nunito: [
-				"Nunito",
-				"Arial",
-				'"Times New Roman"',
-				"sans-serif",
-				'"Apple Color Emoji"',
-			],
-			sans: ["Nunito", ...defaultTheme.fontFamily.sans],
+			// unisans: [
+			// 	"unisans-regular",
+			// 	"Arial",
+			// 	'"Times New Roman"',
+			// 	"sans-serif",
+			// 	'"Apple Color Emoji"',
+			// ],
+			sans: ["unisans-regular", ...defaultTheme.fontFamily.sans],
 			serif: [
 				"ui-serif",
 				"Georgia",

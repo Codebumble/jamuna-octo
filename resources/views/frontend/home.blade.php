@@ -32,7 +32,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/images/ico/favicon.ico') }}">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"> --}}
     <link rel="stylesheet" href="{{ asset(mix('fonts/font-awesome/css/font-awesome.min.css')) }}">
     <style>
         /* General Styling */
