@@ -111,13 +111,18 @@ class Product_rest extends Controller
 			} else {
 				unset($value['images']);
 			}
-
+			$value['json_data'] =[];
+			if(isset(json_decode($data[0]->json_data)->image)){
+				$value['json_data']['image'] = json_decode($data[0]->json_data)->image;
+			}
 			$value['json_data'] = json_encode([
 				'type' => $value['type'],
 				'custom_url' => $value['link'],
 				'added_by' => json_decode($data[0]->json_data)->added_by,
-				'edited_by' => Auth::user()->username
+				'edited_by' => Auth::user()->username,
+				'image' => json_decode($data[0]->json_data)->image,
 			]);
+
 
 			$value['updated_at'] = time();
 
