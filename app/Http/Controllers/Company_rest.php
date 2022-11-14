@@ -138,7 +138,7 @@ class Company_rest extends Controller
         }
 
 
-
+        $data_get = DB::table('codebumble_company_list')->where('id', $id)->first();
 
         $json_encode = [
             'address' => $field['address'],
@@ -152,8 +152,14 @@ class Company_rest extends Controller
             'facebook' => $request['website'],
             'instagram' => $request['instagram'],
 			'linkedin' => $request['linkedin'],
-            'ceo_username' => $request['ceo_username']
+            'ceo_username' => $request['ceo_username'],
         ];
+
+        if(isset(json_decode($data_get->json_data)->other_images)){
+            $json_encode += [
+                'other_images' => json_decode($data_get->json_data)->other_images
+            ];
+        }
 
         if(isset($request['new_center'])){
             $json_encode += [

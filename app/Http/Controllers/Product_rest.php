@@ -116,8 +116,7 @@ class Product_rest extends Controller
 				'type' => $value['type'],
 				'custom_url' => $value['link'],
 				'added_by' => json_decode($data[0]->json_data)->added_by,
-				'edited_by' => Auth::user()->username,
-				'image' => json_decode($data[0]->json_data)->image,
+				'edited_by' => Auth::user()->username
 			]);
 
 			$value['updated_at'] = time();
