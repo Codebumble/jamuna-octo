@@ -408,6 +408,12 @@ class Product_rest extends Controller
 
 		$photo_data->images = array_diff($photo_data->images, [$photo_data->images[$id]]);
 
+		$c = [];
+		foreach ($photo_data->images as $key => $value) {
+			$c[] = $value;
+		}
+
+		$photo_data->images = $c;
 		$photo_data = json_encode($photo_data);
 
 		DB::update(
