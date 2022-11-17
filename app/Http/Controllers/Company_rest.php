@@ -264,7 +264,13 @@ class Company_rest extends Controller
         $a = DB::table('codebumble_company_list')->where('id', $id)->first();
         if(isset($a)){
             $c = DB::table('codebumble_event_list')->where('company', $id)->first();
+            $d = DB::table('codebumble_job_list')->where('company', $a->name)->first();
+            $e = DB::table('users')->where('company', $a->name)->first();
             if(isset($c)){
+                return redirect()->route('all-company',['error' => 1]);
+            } else if(isset($d)){
+                return redirect()->route('all-company',['error' => 1]);
+            } else if(isset($e)){
                 return redirect()->route('all-company',['error' => 1]);
             }
 
