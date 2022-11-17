@@ -77,7 +77,7 @@
 								<th>Website</th>
 								<td>
 									<a
-										:href="'https://' + data.website"
+										:href="data.website"
 										class="underline decoration-dotted hover:decoration-solid decoration-slate-400 hover:decoration-red-600 underline-offset-4 hover:text-red-600 transition-all"
 										>{{ data.businessName }}</a
 									>
