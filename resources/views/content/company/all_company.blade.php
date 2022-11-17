@@ -44,7 +44,7 @@
 		@if (isset($_GET['error']))
             <div class="demo-spacing-0 mb-2">
                 <div class="alert alert-danger" role="alert">
-                <div class="alert-body"><strong>Wrong @{id} . Try Again</strong></div>
+                <div class="alert-body"><strong>Wrong @{id} . Try Again. Reason: Invalid ID or Product, Job Post, Event Existed which is linked with this Company. If Users are associated with this company, You cant perform this action too.</strong></div>
                 </div>
             </div>
         @endif
