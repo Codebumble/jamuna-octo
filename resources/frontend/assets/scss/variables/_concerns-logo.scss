@@ -14,7 +14,7 @@
 		@apply border border-slate-100 bg-slate-200 h-[6rem] xs:h-36 md:h-36 sm:h-[6.5rem] w-36 flex justify-center items-center object-cover;
 
 		img {
-			@apply mix-blend-luminosity p-4 md:p-0;
+			@apply p-4 md:p-0;
 		}
 
 		&:hover {
@@ -22,9 +22,9 @@
 				rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 		}
 
-		&:hover img {
-			@apply mix-blend-normal;
-		}
+		// &:hover img {
+		// 	@apply mix-blend-normal;
+		// }
 	}
 
 	.splide__track {
