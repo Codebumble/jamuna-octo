@@ -186,7 +186,7 @@
 		  }
 		}
 	  });
-	  $('div.head-label').html('<h6 class="mb-0">All Company list</h6>');
+	  $('div.head-label').html('<h6 class="mb-0">All Event list</h6>');
 	}
 
 	// Flat Date picker

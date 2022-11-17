@@ -263,6 +263,11 @@ class Company_rest extends Controller
 
         $a = DB::table('codebumble_company_list')->where('id', $id)->first();
         if(isset($a)){
+            $c = DB::table('codebumble_event_list')->where('company', $id)->first();
+            if(isset($c)){
+                return redirect()->route('all-company',['error' => 1]);
+            }
+
             $b = DB::table('codebumble_company_list')->where('id', $id)->delete();
             return redirect()->route('all-company',['status' => 'success']);
         } else {

@@ -73,7 +73,7 @@ class event_rest extends Controller
         $data[$key]->author = json_decode($data[$key]->json_data)->added_by;
 
         $data[$key]->company = $data2[0]->name;
-            # code...
+            
         }
 
 
