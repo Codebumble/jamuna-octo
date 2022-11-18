@@ -749,15 +749,24 @@ class siteGeneral extends Controller
 				$destinationPath2 = public_path() . '/images/slider';
 				$file2->move($destinationPath2, $fileName2);
 
+
+
 				$f = [
 					'src' => '/images/slider/' . $fileName2,
 					'heading' => $value['heading'],
 					'desc' => $value['desc'],
 					'text_size' => $value['text_size'],
-					'textStyle' => $value['textStyle'],
+
 					'textColor' => $value['textColor'],
 					'c_link' => $value['c_link'],
 				];
+
+				if(isset($value['textStyle'])){
+					$f['textStyle'] = $value['textStyle'];
+
+				} else {
+					$f['textStyle'] = ['normal'];
+				}
 
 				if($value['slider_option'] == "top"){
 					array_push($data1, $f);
@@ -820,10 +829,16 @@ class siteGeneral extends Controller
 					'heading' => $value['heading'],
 					'description' => $value['description'],
 					'text_size' => $value['text_size'],
-					'textStyle' => $value['textStyle'],
 					'textColor' => $value['textColor'],
 					'c_link' => $value['c_link'],
 				];
+
+				if(isset($value['textStyle'])){
+					$f['textStyle'] = $value['textStyle'];
+
+				} else {
+					$f['textStyle'] = ['normal'];
+				}
 
 				array_push($data, $f);
 			}

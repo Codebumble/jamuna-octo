@@ -103,7 +103,7 @@
                                         <div class="mb-1">
                                             <label class="form-label" for="heading">Name/Year</label>
                                             <input id="heading" type="text" class="form-control" name="heading"
-                                                value="" aria-describedby="heading" placeholder="Header" />
+                                                value="" aria-describedby="heading" placeholder="Header" required/>
                                         </div>
                                     </div>
 
@@ -176,7 +176,7 @@
                                     <div class="col-md-3 col-12 mb-2">
                                         <div class="mb-1">
                                             <label class="form-label" for="heading">Choice Slider</label>
-                                            <select name="slider_option" class="form-select">
+                                            <select name="slider_option" class="form-select" required>
                                                 <option value="top">Top Image Slider</option>
                                                 <option value="bottom">48 YEARS OF GROWING UP</option>
                                             </select>
@@ -819,7 +819,7 @@
                                                     <input id="itemcost" type="text" class="form-control"
                                                         name="videopreview[{{ $counter }}][heading]"
                                                         value="{{ $video->heading }}" aria-describedby="itemcost"
-                                                        placeholder="32" />
+                                                        placeholder="32" required/>
                                                 </div>
                                             </div>
 

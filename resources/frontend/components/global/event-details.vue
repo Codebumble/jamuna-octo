@@ -48,7 +48,7 @@
 				</div>
 			</div>
 			<!-- upper part closed -->
-			<div class="description">
+			<div class="description ql-editor">
 				<p>
 					{{data.detail}}
 				</p>
@@ -60,6 +60,15 @@
 <style lang="scss">
 	@import '../../assets/scss/variables/career';
 	@import '../../assets/scss/variables/apply';
+</style>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Roboto+Slab&family=Slabo+27px&family=Sofia&family=Ubuntu+Mono&display=swap');
+@import url('https://fonts.gstatic.com');
+@import '../../../vendors/css/editors/quill/quill.bubble.css';
+@import '../../../vendors/css/editors/quill/quill.snow.css';
+@import '../../../vendors/css/editors/quill/monokai-sublime.min.css';
+@import url('https://cdn.quilljs.com/1.3.6/quill.core.css');
 </style>
 
 <script>
