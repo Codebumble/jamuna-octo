@@ -7,6 +7,13 @@
   {{-- Vendor Css files --}}
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/forms/select/select2.min.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/pickers/flatpickr/flatpickr.min.css')) }}">
+
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/editors/quill/katex.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/editors/quill/monokai-sublime.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/editors/quill/quill.snow.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/editors/quill/quill.bubble.css')) }}">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Roboto+Slab&family=Slabo+27px&family=Sofia&family=Ubuntu+Mono&display=swap" rel="stylesheet">
 @endsection
 
 @section('page-style')
@@ -45,7 +52,7 @@
 
 
 
-          <form action="{{route('add_event')}}" class="invoice-repeater" enctype="multipart/form-data" method="POST">
+          <form action="{{route('add_event')}}" class="invoice-repeater" enctype="multipart/form-data" method="POST" id="add-event">
 		  @csrf
             <div data-repeater-list="new">
 				<div data-repeater-item>
@@ -136,15 +143,17 @@
 						</div>
 
 
-						<div class="mb-50">
-							<div class="mb-1">
-								<label class="form-label" for="detail">Description</label>
-								<textarea
-									type="text"
-									class="form-control"
-									id="detail"
-									name="detail" required
-								></textarea>
+						<div class="mb-1">
+							<div class="col-sm-12">
+								<label class="form-label" for="description">Description</label>
+									<div id="full-wrapper">
+										<div id="full-container">
+											<div class="editor" id="ql-editor" spellcheck="false">
+												<p>Write something here...</p>
+											</div>
+
+										</div>
+									</div>
 							</div>
 						</div>
 
@@ -189,11 +198,119 @@
   <script src="{{ asset(mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
   <script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
   <script src="{{ asset(mix('vendors/js/forms/repeater/jquery.repeater.min.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/editors/quill/katex.min.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/editors/quill/highlight.min.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/editors/quill/quill.min.js')) }}"></script>
 @endsection
 @section('page-script')
   <!-- Page js files -->
   <script src="{{ asset(mix('js/scripts/forms/form-validation-company-page.js')) }}"></script>
   <script src="{{ asset(mix('js/scripts/forms/form-repeater-front-page.js')) }}"></script>
+
+  <script>
+	(function (window, document, $) {
+		'use strict';
+
+		var Font = Quill.import('formats/font');
+		Font.whitelist = ['sofia', 'slabo', 'roboto', 'inconsolata', 'ubuntu'];
+		Quill.register(Font, true);
+
+		// Bubble Editor
+
+
+
+		// Snow Editor
+
+
+
+		// Full Editor
+
+
+
+		var fullEditor = new Quill('#full-container .editor', {
+		  bounds: '#full-container .editor',
+		  modules: {
+			formula: true,
+			syntax: true,
+			toolbar: [
+			  [
+				{
+				  font: []
+				},
+				{
+				  size: []
+				}
+			  ],
+			  ['bold', 'italic', 'underline', 'strike'],
+			  [
+				{
+				  color: []
+				},
+				{
+				  background: []
+				}
+			  ],
+			  [
+				{
+				  script: 'super'
+				},
+				{
+				  script: 'sub'
+				}
+			  ],
+			  [
+				{
+				  header: '1'
+				},
+				{
+				  header: '2'
+				},
+				'blockquote',
+				'code-block'
+			  ],
+			  [
+				{
+				  list: 'ordered'
+				},
+				{
+				  list: 'bullet'
+				},
+				{
+				  indent: '-1'
+				},
+				{
+				  indent: '+1'
+				}
+			  ],
+			  [
+				'direction',
+				{
+				  align: []
+				}
+			  ],
+			  ['link', 'image', 'video', 'formula'],
+			  ['clean']
+			]
+		  },
+		  theme: 'snow'
+		});
+
+		$("#add-event").on("submit", function () {
+			var hvalue = $('#ql-editor').html();
+			$(this).append("<textarea name='new[0][detail]' style='display:none' spellcheck='false'>"+fullEditor.root.innerHTML.trim()+"</textarea>");
+
+		   });
+
+
+
+		var editors = [fullEditor];
+	  })(window, document, jQuery);
+
+
+
+
+
+	   </script>
 
 
 @endsection
