@@ -91,7 +91,8 @@
 
                                     <div class="col-md-3 col-12 mb-2">
                                         <div class="mb-1">
-                                            <label class="form-label" for="src">Image</label>
+                                            <label class="form-label" for="src">Image (3000 x 1200 Resolution
+                                                recommanded)</label>
                                             <input id="src" type="file" name="src" class="form-control"
                                                 accept="image/png, image/jpeg, .jpg" />
 
@@ -103,7 +104,7 @@
                                         <div class="mb-1">
                                             <label class="form-label" for="heading">Name/Year</label>
                                             <input id="heading" type="text" class="form-control" name="heading"
-                                                value="" aria-describedby="heading" placeholder="Header" required/>
+                                                value="" aria-describedby="heading" placeholder="Header" required />
                                         </div>
                                     </div>
 
@@ -819,7 +820,7 @@
                                                     <input id="itemcost" type="text" class="form-control"
                                                         name="videopreview[{{ $counter }}][heading]"
                                                         value="{{ $video->heading }}" aria-describedby="itemcost"
-                                                        placeholder="32" required/>
+                                                        placeholder="32" required />
                                                 </div>
                                             </div>
 

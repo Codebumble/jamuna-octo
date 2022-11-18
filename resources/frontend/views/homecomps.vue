@@ -243,7 +243,7 @@
 								<img
 									:src="previews.src"
 									:alt="previews.heading"
-									class="object-cover w-full h-[36.5rem] rounded" />
+									class="object-fill w-full h-[36.5rem] rounded" />
 							</div>
 							<div
 								class="absolute w-full z-20 flex self-end mb-40">
