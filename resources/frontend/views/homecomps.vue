@@ -79,7 +79,7 @@
 				<div class="container">
 					<div class="grid lg:grid-cols-3 gap-8">
 						<div
-							class="rounded bg-white hover:shadow-md shadow-sm transition-all transform translate-y-0 hover:-translate-y-1 text-center lg:p-12 p-4 mx-auto border-b-4 border-red-600"
+							class="rounded bg-white bg-slate-100 hover:shadow-lg shadow-sm transition-all transform translate-y-0 hover:-translate-y-1 text-center lg:p-12 p-4 mx-auto border-b-4 border-red-600"
 							v-for="data in mvo"
 							:key="data">
 							<img
