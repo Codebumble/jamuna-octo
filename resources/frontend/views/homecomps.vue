@@ -75,7 +75,7 @@
 
 	<Suspense>
 		<template #default>
-			<section class="pb-10 pt-4">
+			<section class="py-10">
 				<div class="container">
 					<div class="grid lg:grid-cols-3 gap-8">
 						<div
