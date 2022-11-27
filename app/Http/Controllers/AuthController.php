@@ -203,7 +203,7 @@ class AuthController extends Controller
     $request->merge([
         $login_type => $request->input('login')
     ]);
-
+    server_time_set($request);
         if(Auth::attempt($request->only($login_type, 'password'))){
             $user = Auth::user();
 
@@ -223,7 +223,7 @@ class AuthController extends Controller
             $browser = new Browser();
             date_default_timezone_set(env('TIMEZONE'));
 
-            server_time_set($request);
+
 
             $updated = DB::table('codebumble_login_table')->insert(['username' => $user->username, 'ip' => $request->ip(), 'browser' => $browser->getName(), 'browser_full' => $browser->getName().' '.$browser->getVersion(), 'os' => $os->getName().' '.$os->getVersion(), 'date' => date('d-M, Y'), 'time' => date('h:i a'), 'updated_at' => time(), 'created_at' => time()]);
 
