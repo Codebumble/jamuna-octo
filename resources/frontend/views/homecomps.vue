@@ -21,10 +21,10 @@
 									"
 									:src="slide.src"
 									alt=""
-									class="w-full object-cover h-[90vh]" />
+									class="w-full object-cover h-[65vh] 2xl:h-[75vh]" />
 								<video
 									v-else
-									class="w-full object-cover h-[90vh]"
+									class="w-full object-cover h-[65vh] 2xl:h-[75vh]"
 									autoplay
 									muted
 									loop>
@@ -72,75 +72,14 @@
 			</section>
 		</template>
 	</Suspense>
+
 	<Suspense>
 		<template #default>
-			<section class="py-16 overflow-hidden">
-				<div class="container">
-					<div class="flex flex-col items-center">
-						<div class="content w-full mb-6">
-							<h2 class="heading">{{ aboutConcerns.heading }}</h2>
-						</div>
-						<div class="logo-slider w-full">
-							<Splide
-								:options="options2"
-								aria-label="concerns logo slider">
-								<SplideSlide
-									v-for="logo in concernlogo"
-									:key="logo"
-									class="flex justify-around items-center transition-all overflow-hidden p-4">
-									<router-link
-										:to="
-											'/companies/' +
-											logo.id +
-											'/' +
-											logo.name.replaceAll(' ', '-')
-										">
-										<div
-											class="concern rounded-full p-[0.7rem]">
-											<img
-												:src="
-													'/company-images/' +
-													logo.image
-												"
-												:alt="logo.name" />
-										</div>
-									</router-link>
-								</SplideSlide>
-							</Splide>
-						</div>
-					</div>
-				</div>
-			</section>
-		</template>
-		<template #fallback>
-			<section class="py-16 overflow-hidden">
-				<div class="container">
-					<div class="flex flex-col items-center">
-						<div class="content w-full mb-6">
-							<h2
-								class="heading skeleton_bg h-10 mb-4 w-40 mx-auto"></h2>
-						</div>
-						<div class="logo-slider w-full">
-							<div
-								class="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 justify-center">
-								<div
-									class="flex justify-around items-center rounded-full transition-all concern skeleton_bg"
-									v-for="logo in 5"
-									:key="logo"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-		</template>
-	</Suspense>
-	<Suspense>
-		<template #default>
-			<section class="py-10 bg-slate-100">
+			<section class="py-10">
 				<div class="container">
 					<div class="grid lg:grid-cols-3 gap-8">
 						<div
-							class="rounded bg-white hover:shadow-md shadow-sm transition-all transform translate-y-0 hover:-translate-y-1 text-center lg:p-12 p-4 mx-auto border-b-4 border-red-600"
+							class="rounded bg-white bg-slate-100 hover:shadow-lg shadow-sm transition-all transform translate-y-0 hover:-translate-y-1 text-center lg:p-12 p-4 mx-auto border-b-4 border-red-600"
 							v-for="data in mvo"
 							:key="data">
 							<img
@@ -226,6 +165,69 @@
 			</section>
 		</template>
 	</Suspense>
+
+	<Suspense>
+		<template #default>
+			<section class="py-16 overflow-hidden bg-slate-100">
+				<div class="container">
+					<div class="flex flex-col items-center">
+						<div class="content w-full mb-6">
+							<h2 class="heading">{{ aboutConcerns.heading }}</h2>
+						</div>
+						<div class="logo-slider w-full">
+							<Splide
+								:options="options2"
+								aria-label="concerns logo slider">
+								<SplideSlide
+									v-for="logo in concernlogo"
+									:key="logo"
+									class="flex justify-around items-center transition-all overflow-hidden p-4">
+									<router-link
+										:to="
+											'/companies/' +
+											logo.id +
+											'/' +
+											logo.name.replaceAll(' ', '-')
+										">
+										<div
+											class="concern rounded-full p-[0.7rem]">
+											<img
+												:src="
+													'/company-images/' +
+													logo.image
+												"
+												:alt="logo.name" />
+										</div>
+									</router-link>
+								</SplideSlide>
+							</Splide>
+						</div>
+					</div>
+				</div>
+			</section>
+		</template>
+		<template #fallback>
+			<section class="py-16 overflow-hidden">
+				<div class="container">
+					<div class="flex flex-col items-center">
+						<div class="content w-full mb-6">
+							<h2
+								class="heading skeleton_bg h-10 mb-4 w-40 mx-auto"></h2>
+						</div>
+						<div class="logo-slider w-full">
+							<div
+								class="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 justify-center">
+								<div
+									class="flex justify-around items-center rounded-full transition-all concern skeleton_bg"
+									v-for="logo in 5"
+									:key="logo"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</template>
+	</Suspense>
 	<section class="overflow-hidden">
 		<div>
 			<div class="grid grid-cols-4 gap-4 lg:h-[600px]">
@@ -243,7 +245,7 @@
 								<img
 									:src="previews.src"
 									:alt="previews.heading"
-									class="object-cover w-full h-[36.5rem] rounded" />
+									class="object-fill w-full h-[36.5rem] rounded" />
 							</div>
 							<div
 								class="absolute w-full z-20 flex self-end mb-40">

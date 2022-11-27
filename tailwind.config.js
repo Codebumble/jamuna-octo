@@ -415,7 +415,7 @@ module.exports = {
 			// 	"sans-serif",
 			// 	'"Apple Color Emoji"',
 			// ],
-			sans: ["unisans-regular", ...defaultTheme.fontFamily.sans],
+			sans: ["Ubuntu", ...defaultTheme.fontFamily.sans],
 			serif: [
 				"ui-serif",
 				"Georgia",
