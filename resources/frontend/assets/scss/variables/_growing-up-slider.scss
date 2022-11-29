@@ -68,20 +68,6 @@
 	}
 }
 
-#growing-up-slider .company-name::before {
-	content: "";
-	@apply w-full h-full absolute -z-[1];
-	background: rgb(110, 107, 107);
-	background: linear-gradient(
-		90deg,
-		rgba(110, 107, 107, 0.13489145658263302) 9%,
-		rgba(87, 85, 85, 0.3) 28%,
-		rgba(66, 65, 65, 0.38) 45%,
-		rgba(31, 31, 31, 0.45) 74%,
-		rgba(0, 0, 0, 0.5) 100%
-	);
-}
-
 @media (max-width: 767px) {
 	.growing-up-desc {
 		a,
