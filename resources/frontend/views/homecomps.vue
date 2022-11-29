@@ -245,7 +245,7 @@
 								<img
 									:src="previews.src"
 									:alt="previews.heading"
-									class="object-cover w-full min-h-[36.5rem] rounded" />
+									class="object-cover w-full min-h-[38rem] rounded" />
 							</div>
 							<div
 								class="absolute w-full z-20 flex self-end mb-40">
@@ -864,7 +864,7 @@
 			const main = ref();
 			const thumbs = ref();
 			const thumbnails = {
-				autoplay: false,
+				autoplay: true,
 				interval: 2000,
 				isNavigation: true,
 				focus: 'center',
@@ -894,7 +894,7 @@
 				rewind: true,
 				pagination: false,
 				type: 'fade',
-				autoplay: false,
+				autoplay: true,
 				interval: 2000,
 			};
 
@@ -912,7 +912,7 @@
 				focus: 'center',
 				type: 'loop',
 				drag: false,
-				interval: 1500,
+				interval: 2000,
 				breakpoints: {
 					1023: {
 						type: 'slide',
@@ -928,6 +928,7 @@
 				rewind: true,
 				direction: 'ttb',
 				height: '39rem',
+				interval: 2000,
 				breakpoints: {
 					480: {
 						direction: 'ltr',
