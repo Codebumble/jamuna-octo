@@ -245,7 +245,7 @@
 								<img
 									:src="previews.src"
 									:alt="previews.heading"
-									class="object-cover w-full h-[36.5rem] rounded" />
+									class="object-cover w-full min-h-[36.5rem] rounded" />
 							</div>
 							<div
 								class="absolute w-full z-20 flex self-end mb-40">
@@ -398,7 +398,7 @@
 					:options="options4"
 					@splide:pagination:mounted="onPaginationMounted"
 					aria-label="g"
-					class="h-[550px] md:h-auto">
+					class="h-[38rem]">
 					<SplideSlide
 						v-for="(item, index) in growingUpSlider"
 						:key="index"
@@ -426,13 +426,16 @@
 											>{{ item.heading }}</router-link
 										>
 									</div>
-									<h3
+									<p
 										v-else
 										class="text-white w-fit uppercase text-title"
 										:style="{ color: item.textColor }"
 										:class="item.textStyle">
-										{{ item.heading }}
-									</h3>
+										{{
+											item.heading.substring(0, 260) +
+											'...'
+										}}
+									</p>
 								</div>
 							</div>
 						</div>
@@ -866,7 +869,7 @@
 				isNavigation: true,
 				focus: 'center',
 				// fixedWidth: 246,
-				// fixedHeight: 102,
+				fixedHeight: 'auto',
 				width: '100%',
 				height: 600,
 				perPage: 4,
@@ -922,7 +925,7 @@
 				autoplay: true,
 				rewind: true,
 				direction: 'ttb',
-				height: '45rem',
+				height: '39rem',
 				breakpoints: {
 					480: {
 						direction: 'ltr',

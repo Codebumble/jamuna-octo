@@ -19,7 +19,7 @@
 }
 #growing-up-slider .splide__pagination__page.is-active,
 #growing-up-slider .splide__pagination__page {
-	@apply bg-transparent text-white opacity-100 italic relative scale-100 #{!important};
+	@apply text-xs bg-transparent text-white opacity-100 italic relative scale-100 #{!important};
 	&.is-active {
 		@apply text-red-600 opacity-100 #{!important};
 	}
@@ -58,9 +58,9 @@
 	);
 }
 #growing-up-slider .description {
-	@apply flex flex-col w-full md:w-1/2 text-left md:text-right absolute bottom-36 xl:bottom-48 2xl:bottom-64 3xl:bottom-[22rem] md:bottom-40 items-center md:items-end left-0 2xl:left-0 lg:-left-20 3xl:left-20 p-16 md:p-0;
+	@apply flex flex-col w-full md:w-1/2 text-left md:text-right absolute bottom-32 xl:bottom-48 2xl:bottom-64 3xl:bottom-[22rem] md:bottom-40 items-center md:items-end left-0 2xl:left-0 lg:-left-20 3xl:left-20 p-16 md:p-0;
 	.text-year {
-		@apply mb-4 md:mb-80;
+		@apply mb-4;
 	}
 }
 
