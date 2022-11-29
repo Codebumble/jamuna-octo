@@ -230,8 +230,8 @@
 	</Suspense> -->
 	<section class="overflow-hidden">
 		<div>
-			<div class="grid grid-cols-4 gap-4 lg:h-[600px]">
-				<div class="col-span-4 lg:col-span-3">
+			<div class="grid grid-cols-6 gap-4 lg:h-[600px]">
+				<div class="col-span-6 lg:col-span-5">
 					<Splide
 						:options="preview"
 						aria-label="preview"
@@ -273,7 +273,7 @@
 						</SplideSlide>
 					</Splide>
 				</div>
-				<div class="thumbnails col-span-4 lg:col-span-1">
+				<div class="thumbnails col-span-6 lg:col-span-1">
 					<Splide
 						:options="thumbnails"
 						aria-label="thumbnails"
@@ -397,7 +397,8 @@
 				<Splide
 					:options="options4"
 					@splide:pagination:mounted="onPaginationMounted"
-					aria-label="g">
+					aria-label="g"
+					class="h-[550px] md:h-auto">
 					<SplideSlide
 						v-for="(item, index) in growingUpSlider"
 						:key="index"
@@ -642,7 +643,6 @@
 	@import '../assets/scss/variables/ind-slider';
 	@import '../assets/scss/variables/_home_about.scss';
 	@import '../assets/scss/variables/growing-up-slider';
-	@import '../assets/scss/variables/_group-company';
 	@import '../assets/scss/variables/_group-company';
 	.quote {
 		@apply pb-8 pt-12;
@@ -922,11 +922,11 @@
 				autoplay: true,
 				rewind: true,
 				direction: 'ttb',
-				height: '32rem',
+				height: '45rem',
 				breakpoints: {
 					480: {
 						direction: 'ltr',
-						height: '200px',
+						height: '550px',
 					},
 				},
 			};
