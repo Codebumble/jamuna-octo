@@ -915,6 +915,8 @@
 				interval: 1500,
 				breakpoints: {
 					1023: {
+						type: 'slide',
+						rewind: true,
 						autoplay: true,
 						perPage: 1,
 						arrows: true,

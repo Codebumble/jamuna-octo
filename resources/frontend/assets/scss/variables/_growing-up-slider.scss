@@ -1,5 +1,5 @@
 #growing-up-slider .splide::after {
-	@apply w-full h-[100px] bg-no-repeat sm:bg-custom bg-custom-xs bg-right absolute -bottom-4 md:bottom-0;
+	@apply w-full h-[100px] bg-no-repeat sm:bg-custom bg-custom-xs bg-right absolute bottom-[4.5rem] md:bottom-0;
 	content: "";
 	background-image: url(/frontend/images/logo/wave.png);
 }
