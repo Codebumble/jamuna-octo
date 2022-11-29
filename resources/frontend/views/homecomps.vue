@@ -166,7 +166,7 @@
 		</template>
 	</Suspense>
 
-	<Suspense>
+	<!-- <Suspense>
 		<template #default>
 			<section class="py-16 overflow-hidden bg-slate-100">
 				<div class="container">
@@ -227,7 +227,7 @@
 				</div>
 			</section>
 		</template>
-	</Suspense>
+	</Suspense> -->
 	<section class="overflow-hidden">
 		<div>
 			<div class="grid grid-cols-4 gap-4 lg:h-[600px]">
@@ -726,18 +726,18 @@
 				.then((response) => {
 					this.sliderContents = response.data;
 				});
-			axios
-				.get(window.location.origin + '/frontpage-api/concern-details')
-				.then((response) => {
-					this.aboutConcerns = response.data;
-				});
-			axios
-				.get(
-					window.location.origin + '/frontpage-api/company-name-logo'
-				)
-				.then((response) => {
-					this.concernlogo = response.data;
-				});
+			// axios
+			// 	.get(window.location.origin + '/frontpage-api/concern-details')
+			// 	.then((response) => {
+			// 		this.aboutConcerns = response.data;
+			// 	});
+			// axios
+			// 	.get(
+			// 		window.location.origin + '/frontpage-api/company-name-logo'
+			// 	)
+			// 	.then((response) => {
+			// 		this.concernlogo = response.data;
+			// 	});
 			axios
 				.get(
 					window.location.origin +
@@ -838,26 +838,26 @@
 				interval: 3000,
 				pagination: false,
 			};
-			const options2 = {
-				rewind: true,
-				autoplay: true,
-				perPage: 5,
-				perMove: 4,
-				arrows: true,
-				type: 'slide',
-				interval: 2000,
-				pagination: false,
-				breakpoints: {
-					1024: {
-						perPage: 4,
-						perMove: 3,
-					},
-					480: {
-						perPage: 2,
-						perMove: 1,
-					},
-				},
-			};
+			// const options2 = {
+			// 	rewind: true,
+			// 	autoplay: true,
+			// 	perPage: 5,
+			// 	perMove: 4,
+			// 	arrows: true,
+			// 	type: 'slide',
+			// 	interval: 2000,
+			// 	pagination: false,
+			// 	breakpoints: {
+			// 		1024: {
+			// 			perPage: 4,
+			// 			perMove: 3,
+			// 		},
+			// 		480: {
+			// 			perPage: 2,
+			// 			perMove: 1,
+			// 		},
+			// 	},
+			// };
 			const main = ref();
 			const thumbs = ref();
 			const thumbnails = {
@@ -970,7 +970,7 @@
 			return {
 				main,
 				options,
-				options2,
+				// options2,
 				options3,
 				options4,
 				options5,
