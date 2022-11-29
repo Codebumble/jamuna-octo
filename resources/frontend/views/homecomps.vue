@@ -245,7 +245,7 @@
 								<img
 									:src="previews.src"
 									:alt="previews.heading"
-									class="object-fill w-full h-[36.5rem] rounded" />
+									class="object-cover w-full h-[36.5rem] rounded" />
 							</div>
 							<div
 								class="absolute w-full z-20 flex self-end mb-40">
@@ -285,7 +285,7 @@
 								<img
 									:src="thumbs.src"
 									:alt="thumbs.heading"
-									class="object-cover !h-[102px]" />
+									class="object-cover !h-114px]" />
 								<p class="text-center capitalize">
 									{{ thumbs.heading }}
 								</p>
@@ -861,7 +861,7 @@
 			const main = ref();
 			const thumbs = ref();
 			const thumbnails = {
-				autoplay: true,
+				autoplay: false,
 				interval: 2000,
 				isNavigation: true,
 				focus: 'center',
@@ -891,7 +891,7 @@
 				rewind: true,
 				pagination: false,
 				type: 'fade',
-				autoplay: true,
+				autoplay: false,
 				interval: 2000,
 			};
 
