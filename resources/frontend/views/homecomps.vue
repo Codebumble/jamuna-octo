@@ -285,7 +285,7 @@
 								<img
 									:src="thumbs.src"
 									:alt="thumbs.heading"
-									class="object-cover !h-114px]" />
+									class="object-cover" />
 								<p class="text-center capitalize">
 									{{ thumbs.heading }}
 								</p>
@@ -431,10 +431,10 @@
 										class="text-white w-fit uppercase text-title"
 										:style="{ color: item.textColor }"
 										:class="item.textStyle">
-										{{
-											item.heading.substring(0, 260) +
-											'...'
-										}}
+										{{ item.heading.substring(0, 260) }}
+										<span v-if="item.heading.length >= 260"
+											>...</span
+										>
 									</p>
 								</div>
 							</div>
@@ -869,7 +869,7 @@
 				isNavigation: true,
 				focus: 'center',
 				// fixedWidth: 246,
-				fixedHeight: 'auto',
+				fixedHeight: '100px',
 				width: '100%',
 				height: 600,
 				perPage: 4,
