@@ -245,7 +245,7 @@
 								<img
 									:src="previews.src"
 									:alt="previews.heading"
-									class="object-cover w-full min-h-[38rem] rounded" />
+									class="object-cover w-full h-[38rem] rounded" />
 							</div>
 							<div
 								class="absolute w-full z-20 flex self-end mb-40">
