@@ -287,7 +287,10 @@
 									:alt="thumbs.heading"
 									class="object-cover" />
 								<p class="text-center capitalize">
-									{{ thumbs.heading }}
+									{{ thumbs.heading.substring(0, 22) }}
+									<span v-if="thumbs.heading.length >= 22"
+										>...</span
+									>
 								</p>
 							</div>
 						</SplideSlide>
