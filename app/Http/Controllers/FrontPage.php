@@ -12,8 +12,35 @@ use File;
 use DB;
 use Illuminate\Support\Facades\Mail;
 
+
 class FrontPage extends Controller
 {
+
+    public function data_home(){
+        $data = [];
+        $data['footer-componenet'] = json_decode($this->footer_component(), true);
+        $data['nav-company'] = json_decode($this->nav_company(), true);
+        $data['header-data'] = json_decode($this->header_data(), true);
+        $data['video-slider'] = json_decode($this->video_slider_view(), true);
+        $data['concern-details'] = json_decode($this->concern_details(), true);
+        $data['company-name-logo'] = json_decode(app(Company_rest::class)->view_all_company_frontend_api(), true);
+
+        $data['mission-vision-frontpage'] = json_decode(app(siteGeneral::class)->mission_vision_frontpage(), true);
+        $data['slider'] = json_decode($this->slider_view(), true);
+        $data['future-expansion-data'] = json_decode(app(siteGeneral::class)->future_expansion_frontpage(), true);
+        $data['about-us-api'] = json_decode($this->about_us(), true);
+        $data['slider-bottom'] = json_decode($this->slider_view_bottom(), true);
+        $data['all-product-view'] = json_decode(app(Product_rest::class)->front_all_product_page(), true);
+        $data['product-header'] = json_decode($this->product_header(), true);
+        $data['event-list'] = json_decode(app(Event_rest::class)->frontpage_event_list(), true);
+        $data['event-header'] = json_decode($this->event_header(), true);
+        $data['meta-data'] = json_decode(app(siteGeneral::class)->meta_api(), true);
+        $data['founder-speech'] = json_decode(app(FounderApi::class)->founder_speech_breadcrumb(), true);
+
+        return json_encode($data);
+
+
+    }
     public function slider_view(){
         $data_get = DB::select('select value from codebumble_front_page where code_name=?',['sliders_data_top']);
 
@@ -390,7 +417,7 @@ class FrontPage extends Controller
         if(isset($data)){
             return $data[0]->value;
         } else {
-            return null;
+            return json_encode(['data' => null]);
         }
 
 
@@ -401,7 +428,7 @@ class FrontPage extends Controller
         if(isset($data)){
             return $data[0]->value;
         } else {
-            return null;
+            return json_encode(['data' => null]);
         }
 
 

@@ -95,6 +95,8 @@ Route::group(['prefix' => 'dashboard'], function () {
 });
 
 Route::group(['prefix' => 'codebumble'], function () {
+
+	Route::get('/data-home-api', [FrontPage::class, 'data_home'])->name('data_home_api');
 	Route::post('/login', [AuthController::class, 'login'])->name(
 		'auth-login-api'
 	);
