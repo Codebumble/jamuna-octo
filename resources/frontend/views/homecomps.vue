@@ -398,7 +398,7 @@
 					:options="options4"
 					@splide:pagination:mounted="onPaginationMounted"
 					aria-label="g"
-					class="h-[38rem]">
+					class="h-[38rem] xl:h-[37rem]">
 					<SplideSlide
 						v-for="(item, index) in growingUpSlider"
 						:key="index"
