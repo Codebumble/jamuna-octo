@@ -407,7 +407,7 @@
 							<img
 								:src="item.src"
 								alt=""
-								class="w-full object-cover h-[90vh] xl:h-[100hv]" />
+								class="w-full object-cover h-[90vh] xl:h-[100vh]" />
 							<div
 								class="company-name absolute bottom-28 w-full md:w-1/2 z-0 right-0 top-0 h-full">
 								<div class="description growing-up-desc">
