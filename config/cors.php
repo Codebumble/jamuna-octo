@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie', 'frontpage-api/*', 'founder-api/*'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie', 'frontpage-api/*', 'founder-api/*','codebumble/tender_from-receive', 'codebumble/from-receive'],
 
     'allowed_methods' => ['*'],
 
