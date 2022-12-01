@@ -287,7 +287,10 @@
 									:alt="thumbs.heading"
 									class="object-cover" />
 								<p class="text-center capitalize">
-									{{ thumbs.heading }}
+									{{ thumbs.heading.substring(0, 22) }}
+									<span v-if="thumbs.heading.length >= 22"
+										>...</span
+									>
 								</p>
 							</div>
 						</SplideSlide>
@@ -398,7 +401,7 @@
 					:options="options4"
 					@splide:pagination:mounted="onPaginationMounted"
 					aria-label="g"
-					class="h-[38rem]">
+					class="h-[38rem] xl:h-[37rem]">
 					<SplideSlide
 						v-for="(item, index) in growingUpSlider"
 						:key="index"
@@ -407,7 +410,7 @@
 							<img
 								:src="item.src"
 								alt=""
-								class="w-full object-cover h-[90vh]" />
+								class="w-full object-cover h-[90vh] xl:h-[100vh]" />
 							<div
 								class="company-name absolute bottom-28 w-full md:w-1/2 z-0 right-0 top-0 h-full">
 								<div class="description growing-up-desc">
