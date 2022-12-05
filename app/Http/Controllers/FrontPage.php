@@ -11,7 +11,7 @@ use Validator;
 use File;
 use DB;
 use Illuminate\Support\Facades\Mail;
-use App\Http\Controllers\Event_rest;
+use App\Http\Controllers\event_rest;
 
 
 class FrontPage extends Controller
