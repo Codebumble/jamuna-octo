@@ -752,6 +752,9 @@
 							eventExerp: item.detail,
 						});
 					});
+					this.groupTitle2.title = response.data['event-header'].title;
+					this.groupTitle2.descVisibility = response.data['event-header'].descVisibility;
+					this.groupTitle2.description = response.data['event-header'].description;
 				});
 			// axios
 			// 	.get(window.location.origin + '/frontpage-api/concern-details')
@@ -765,15 +768,6 @@
 			// 	.then((response) => {
 			// 		this.concernlogo = response.data;
 			// 	});
-			axios
-				.get(window.location.origin + '/frontpage-api/event-header')
-				.then((response) => {
-					this.groupTitle2.title = response.data.title;
-					this.groupTitle2.descVisibility =
-						response.data.descVisibility;
-					this.groupTitle2.description = response.data.description;
-					console.log('header-',response.data);
-				});
 			axios
 				.get(window.location.origin + '/frontpage-api/meta-data')
 				.then((response) => {
