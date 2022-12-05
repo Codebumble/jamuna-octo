@@ -757,6 +757,7 @@
 					this.groupTitle2.description = response.data['event-header'].description;
 					this.bgImg = response.data['meta-data'].bimage;
 					this.quote =response.data['founder-speech'].fquote;
+					this.FounderDetails = response.data['founder-speech'].FounderDetails;
 				});
 			// axios
 			// 	.get(window.location.origin + '/frontpage-api/concern-details')
