@@ -743,6 +743,15 @@
 					this.groupTitle.title = response.data['product-header'].title;
 					this.groupTitle.descVisibility = response.data['product-header'].descVisibility;
 					this.groupTitle.description = response.data['product-header'].description;
+					response.data['event-list'].forEach((item) => {
+						this.slideContent2.push({
+							imgSrc: item.image,
+							alt: '',
+							webLink: item.id,
+							eventTitle: item.name,
+							eventExerp: item.detail,
+						});
+					});
 				});
 			// axios
 			// 	.get(window.location.origin + '/frontpage-api/concern-details')
@@ -757,26 +766,13 @@
 			// 		this.concernlogo = response.data;
 			// 	});
 			axios
-				.get(window.location.origin + '/frontpage-api/event-list')
-				.then((response) => {
-					response.data.forEach((item) => {
-						this.slideContent2.push({
-							imgSrc: item.image,
-							alt: '',
-							webLink: item.id,
-							eventTitle: item.name,
-							eventExerp: item.detail,
-						});
-					});
-					console.log('slider content2', response.data);
-				});
-			axios
 				.get(window.location.origin + '/frontpage-api/event-header')
 				.then((response) => {
 					this.groupTitle2.title = response.data.title;
 					this.groupTitle2.descVisibility =
 						response.data.descVisibility;
 					this.groupTitle2.description = response.data.description;
+					console.log('header-',response.data);
 				});
 			axios
 				.get(window.location.origin + '/frontpage-api/meta-data')
