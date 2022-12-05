@@ -740,6 +740,9 @@
 					this.items = response.data['about-us-api'];
 					this.growingUpSlider = response.data['slider-bottom'];
 					this.slideContent = response.data['all-product-view'];
+					this.groupTitle.title = response.data['product-header'].title;
+					this.groupTitle.descVisibility = response.data['product-header'].descVisibility;
+					this.groupTitle.description = response.data['product-header'].description;
 				});
 			// axios
 			// 	.get(window.location.origin + '/frontpage-api/concern-details')
@@ -754,15 +757,6 @@
 			// 		this.concernlogo = response.data;
 			// 	});
 			axios
-				.get(window.location.origin + '/frontpage-api/product-header')
-				.then((response) => {
-					this.groupTitle.title = response.data.title;
-					this.groupTitle.descVisibility =
-						response.data.descVisibility;
-					this.groupTitle.description = response.data.description;
-					console.log('product header', response.data);
-				});
-			axios
 				.get(window.location.origin + '/frontpage-api/event-list')
 				.then((response) => {
 					response.data.forEach((item) => {
@@ -774,6 +768,7 @@
 							eventExerp: item.detail,
 						});
 					});
+					console.log('slider content2', response.data);
 				});
 			axios
 				.get(window.location.origin + '/frontpage-api/event-header')
