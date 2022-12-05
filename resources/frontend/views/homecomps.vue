@@ -730,7 +730,6 @@
 			axios
 				.get(window.location.origin + '/codebumble/data-home-api')
 				.then((response) => {
-					console.log('home page api->>',response.data['meta-data']);
 					this.mvo = response.data['mission-vision-frontpage'].data;
 					this.slider = response.data.slider;
 					(this.fe.top.title = response.data['future-expansion-data'].top.title),
@@ -758,6 +757,7 @@
 					this.bgImg = response.data['meta-data'].bimage;
 					this.quote =response.data['founder-speech'].fquote;
 					this.FounderDetails = response.data['founder-speech'].FounderDetails;
+					this.meta = response.data['meta-data'];
 				});
 			// axios
 			// 	.get(window.location.origin + '/frontpage-api/concern-details')
@@ -771,12 +771,6 @@
 			// 	.then((response) => {
 			// 		this.concernlogo = response.data;
 			// 	});
-			axios
-				.get(window.location.origin + '/frontpage-api/meta-data')
-				.then((response) => {
-					this.meta = response.data;
-					console.log('meta', response.data);
-				});
 		},
 		setup() {
 			const options = {
