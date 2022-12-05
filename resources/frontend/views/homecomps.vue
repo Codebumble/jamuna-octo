@@ -736,11 +736,7 @@
 					(this.fe.top.title = response.data['future-expansion-data'].top.title),
 						(this.fe.top.desc = response.data['future-expansion-data'].top.desc),
 						(this.fe.list = response.data['future-expansion-data'].data);
-				});
-			axios
-				.get(window.location.origin + '/frontpage-api/video-slider')
-				.then((response) => {
-					this.sliderContents = response.data;
+					this.sliderContents = response.data['video-slider'];
 				});
 			// axios
 			// 	.get(window.location.origin + '/frontpage-api/concern-details')
