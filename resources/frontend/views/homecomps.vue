@@ -755,6 +755,7 @@
 					this.groupTitle2.title = response.data['event-header'].title;
 					this.groupTitle2.descVisibility = response.data['event-header'].descVisibility;
 					this.groupTitle2.description = response.data['event-header'].description;
+					this.bgImg = response.data['meta-data'].bimage;
 				});
 			// axios
 			// 	.get(window.location.origin + '/frontpage-api/concern-details')
@@ -769,14 +770,10 @@
 			// 		this.concernlogo = response.data;
 			// 	});
 			axios
-				.get(window.location.origin + '/frontpage-api/meta-data')
-				.then((response) => {
-					this.bgImg = response.data.bimage;
-				});
-			axios
 				.get(window.location.origin + '/founder-api/founder-speech')
 				.then((response) => {
 					this.quote = response.data.fquote;
+					console.log('speech',response.data);
 				});
 			axios
 				.get(window.location.origin + '/founder-api/founder-speech')
