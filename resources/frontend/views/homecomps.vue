@@ -728,9 +728,36 @@
 		mounted() {
 			document.title = 'Home | Jamuna Group';
 			axios
-				.get(window.location.origin + '/frontpage-api/video-slider')
+				.get(window.location.origin + '/codebumble/data-home-api')
 				.then((response) => {
-					this.sliderContents = response.data;
+					this.mvo = response.data['mission-vision-frontpage'].data;
+					this.slider = response.data.slider;
+					(this.fe.top.title = response.data['future-expansion-data'].top.title),
+						(this.fe.top.desc = response.data['future-expansion-data'].top.desc),
+						(this.fe.list = response.data['future-expansion-data'].data);
+					this.sliderContents = response.data['video-slider'];
+					this.items = response.data['about-us-api'];
+					this.growingUpSlider = response.data['slider-bottom'];
+					this.slideContent = response.data['all-product-view'];
+					this.groupTitle.title = response.data['product-header'].title;
+					this.groupTitle.descVisibility = response.data['product-header'].descVisibility;
+					this.groupTitle.description = response.data['product-header'].description;
+					response.data['event-list'].forEach((item) => {
+						this.slideContent2.push({
+							imgSrc: item.image,
+							alt: '',
+							webLink: item.id,
+							eventTitle: item.name,
+							eventExerp: item.detail,
+						});
+					});
+					this.groupTitle2.title = response.data['event-header'].title;
+					this.groupTitle2.descVisibility = response.data['event-header'].descVisibility;
+					this.groupTitle2.description = response.data['event-header'].description;
+					this.bgImg = response.data['meta-data'].bimage;
+					this.quote =response.data['founder-speech'].fquote;
+					this.FounderDetails = response.data['founder-speech'].FounderDetails;
+					this.meta = response.data['meta-data'];
 				});
 			// axios
 			// 	.get(window.location.origin + '/frontpage-api/concern-details')
@@ -744,93 +771,6 @@
 			// 	.then((response) => {
 			// 		this.concernlogo = response.data;
 			// 	});
-			axios
-				.get(
-					window.location.origin +
-						'/frontpage-api/mission-vision-frontpage'
-				)
-				.then((response) => {
-					this.mvo = response.data.data;
-				});
-			axios
-				.get(window.location.origin + '/frontpage-api/slider')
-				.then((response) => {
-					this.slider = response.data;
-				});
-			axios
-				.get(
-					window.location.origin +
-						'/frontpage-api/future-expansion-data'
-				)
-				.then((response) => {
-					(this.fe.top.title = response.data.top.title),
-						(this.fe.top.desc = response.data.top.desc),
-						(this.fe.list = response.data.data);
-				});
-			axios
-				.get(window.location.origin + '/frontpage-api/about-us-api')
-				.then((response) => {
-					this.items = response.data;
-				});
-			axios
-				.get(window.location.origin + '/frontpage-api/slider-bottom')
-				.then((response) => {
-					this.growingUpSlider = response.data;
-				});
-			axios
-				.get(window.location.origin + '/frontpage-api/all-product-view')
-				.then((response) => {
-					this.slideContent = response.data;
-				});
-			axios
-				.get(window.location.origin + '/frontpage-api/product-header')
-				.then((response) => {
-					this.groupTitle.title = response.data.title;
-					this.groupTitle.descVisibility =
-						response.data.descVisibility;
-					this.groupTitle.description = response.data.description;
-				});
-			axios
-				.get(window.location.origin + '/frontpage-api/event-list')
-				.then((response) => {
-					response.data.forEach((item) => {
-						this.slideContent2.push({
-							imgSrc: item.image,
-							alt: '',
-							webLink: item.id,
-							eventTitle: item.name,
-							eventExerp: item.detail,
-						});
-					});
-				});
-			axios
-				.get(window.location.origin + '/frontpage-api/event-header')
-				.then((response) => {
-					this.groupTitle2.title = response.data.title;
-					this.groupTitle2.descVisibility =
-						response.data.descVisibility;
-					this.groupTitle2.description = response.data.description;
-				});
-			axios
-				.get(window.location.origin + '/frontpage-api/meta-data')
-				.then((response) => {
-					this.bgImg = response.data.bimage;
-				});
-			axios
-				.get(window.location.origin + '/founder-api/founder-speech')
-				.then((response) => {
-					this.quote = response.data.fquote;
-				});
-			axios
-				.get(window.location.origin + '/founder-api/founder-speech')
-				.then((response) => {
-					this.FounderDetails = response.data.FounderDetails;
-				});
-			axios
-				.get(window.location.origin + '/frontpage-api/meta-data')
-				.then((response) => {
-					this.meta = response.data;
-				});
 		},
 		setup() {
 			const options = {
