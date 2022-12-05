@@ -738,6 +738,7 @@
 						(this.fe.list = response.data['future-expansion-data'].data);
 					this.sliderContents = response.data['video-slider'];
 					this.items = response.data['about-us-api'];
+					this.growingUpSlider = response.data['slider-bottom'];
 				});
 			// axios
 			// 	.get(window.location.origin + '/frontpage-api/concern-details')
@@ -751,12 +752,6 @@
 			// 	.then((response) => {
 			// 		this.concernlogo = response.data;
 			// 	});
-			axios
-				.get(window.location.origin + '/frontpage-api/slider-bottom')
-				.then((response) => {
-					this.growingUpSlider = response.data;
-					console.log('gro up', response.data);
-				});
 			axios
 				.get(window.location.origin + '/frontpage-api/all-product-view')
 				.then((response) => {
