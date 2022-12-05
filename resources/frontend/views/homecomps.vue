@@ -730,7 +730,7 @@
 			axios
 				.get(window.location.origin + '/codebumble/data-home-api')
 				.then((response) => {
-					console.log('home page api->>',response.data);
+					console.log('home page api->>',response.data['meta-data']);
 					this.mvo = response.data['mission-vision-frontpage'].data;
 					this.slider = response.data.slider;
 					(this.fe.top.title = response.data['future-expansion-data'].top.title),
@@ -756,6 +756,7 @@
 					this.groupTitle2.descVisibility = response.data['event-header'].descVisibility;
 					this.groupTitle2.description = response.data['event-header'].description;
 					this.bgImg = response.data['meta-data'].bimage;
+					this.quote =response.data['founder-speech'].fquote;
 				});
 			// axios
 			// 	.get(window.location.origin + '/frontpage-api/concern-details')
@@ -770,20 +771,10 @@
 			// 		this.concernlogo = response.data;
 			// 	});
 			axios
-				.get(window.location.origin + '/founder-api/founder-speech')
-				.then((response) => {
-					this.quote = response.data.fquote;
-					console.log('speech',response.data);
-				});
-			axios
-				.get(window.location.origin + '/founder-api/founder-speech')
-				.then((response) => {
-					this.FounderDetails = response.data.FounderDetails;
-				});
-			axios
 				.get(window.location.origin + '/frontpage-api/meta-data')
 				.then((response) => {
 					this.meta = response.data;
+					console.log('meta', response.data);
 				});
 		},
 		setup() {
