@@ -728,6 +728,16 @@
 		mounted() {
 			document.title = 'Home | Jamuna Group';
 			axios
+				.get(window.location.origin + '/codebumble/data-home-api')
+				.then((response) => {
+					console.log('home page api->>',response.data);
+					this.mvo = response.data['mission-vision-frontpage'].data;
+					this.slider = response.data.slider;
+					(this.fe.top.title = response.data['future-expansion-data'].top.title),
+						(this.fe.top.desc = response.data['future-expansion-data'].top.desc),
+						(this.fe.list = response.data['future-expansion-data'].data);
+				});
+			axios
 				.get(window.location.origin + '/frontpage-api/video-slider')
 				.then((response) => {
 					this.sliderContents = response.data;
@@ -744,29 +754,6 @@
 			// 	.then((response) => {
 			// 		this.concernlogo = response.data;
 			// 	});
-			axios
-				.get(
-					window.location.origin +
-						'/frontpage-api/mission-vision-frontpage'
-				)
-				.then((response) => {
-					this.mvo = response.data.data;
-				});
-			axios
-				.get(window.location.origin + '/frontpage-api/slider')
-				.then((response) => {
-					this.slider = response.data;
-				});
-			axios
-				.get(
-					window.location.origin +
-						'/frontpage-api/future-expansion-data'
-				)
-				.then((response) => {
-					(this.fe.top.title = response.data.top.title),
-						(this.fe.top.desc = response.data.top.desc),
-						(this.fe.list = response.data.data);
-				});
 			axios
 				.get(window.location.origin + '/frontpage-api/about-us-api')
 				.then((response) => {
