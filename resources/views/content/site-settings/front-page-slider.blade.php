@@ -246,7 +246,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="card-content collapse show">
+                <div class="card-content collapse hide">
                     <div class="card-body">
 
                         <form action="{{ route('slider_edit_api') }}" method="POST">
@@ -455,7 +455,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="card-content collapse show">
+                <div class="card-content collapse hide">
                     <div class="card-body">
 
                         <form action="{{ route('slider_edit_api') }}" method="POST">
@@ -655,7 +655,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Video Slider Details</h4>
+                    <h4 class="card-title">Add A Video Slider</h4>
                     <div class="heading-elements">
                         <ul class="list-inline mb-0">
                           <li>
@@ -821,7 +821,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="card-content collapse show">
+                <div class="card-content collapse hide">
                     <div class="card-body">
 
                         <form action="{{ route('slider_video_edit_api') }}" method="POST">
