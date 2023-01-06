@@ -63,7 +63,7 @@ class AuthController extends Controller
         $json_data= [];
         $json_data['gender'] = $field['gender'];
         $json_data['date_of_birth'] = $field['date_of_birth'];
-        $json_data['phone_number'] = $field['mobile_number'];
+        $json_data['phone_number'] = $field['mobile_number'] ?? '';
         $json_data['address'] = $field['address'];
         $json_data['city']= $field['city'];
         $json_data['country'] = $field['country'];

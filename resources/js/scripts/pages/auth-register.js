@@ -128,7 +128,7 @@ $(function () {
         var isValid = $(this).parent().siblings('form').valid();
         if (isValid) {
           var username = $("#username").val(),
-          email = $("#username").val(),
+          email = $("#email").val(),
           password = $("#password").val(),
           image = $("#image")[0].files[0],
           company = $('#comapany option:selected').val(),
