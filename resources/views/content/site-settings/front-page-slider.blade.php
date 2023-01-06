@@ -241,7 +241,7 @@
                     <div class="heading-elements">
                         <ul class="list-inline mb-0">
                           <li>
-                            <a data-action="collapse"><i data-feather="chevron-down"></i></a>
+                            <a data-action="collapse"><i data-feather="chevron-up"></i></a>
                           </li>
                         </ul>
                     </div>
@@ -450,7 +450,7 @@
                     <div class="heading-elements">
                         <ul class="list-inline mb-0">
                           <li>
-                            <a data-action="collapse"><i data-feather="chevron-down"></i></a>
+                            <a data-action="collapse"><i data-feather="chevron-up"></i></a>
                           </li>
                         </ul>
                     </div>
@@ -816,7 +816,7 @@
                     <div class="heading-elements">
                         <ul class="list-inline mb-0">
                           <li>
-                            <a data-action="collapse"><i data-feather="chevron-down"></i></a>
+                            <a data-action="collapse"><i data-feather="chevron-up"></i></a>
                           </li>
                         </ul>
                     </div>
