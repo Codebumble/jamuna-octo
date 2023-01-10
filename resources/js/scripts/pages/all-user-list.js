@@ -211,11 +211,7 @@ $(function () {
 								class: "font-small-4 me-50",
 							}) +
 							"Details</a>" +
-							'<a href="javascript:;" class="dropdown-item delete-record">' +
-							feather.icons["trash-2"].toSvg({
-								class: "font-small-4 me-50",
-							}) +
-							"Delete</a></div>" +
+							"</div>" +
 							"</div>" +
 							"</div>"
 						);
