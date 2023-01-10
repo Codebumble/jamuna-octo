@@ -68,8 +68,7 @@ class Company_rest extends Controller
             $file = $request->file('image') ;
             $fileName = time().'-'.$user.'.'.$file->getClientOriginalExtension() ;
             $destinationPath = public_path().'/company-images' ;
-            // $file->move($destinationPath,$fileName);
-            $file->store($destinationPath, $fileName);
+            $file->move($destinationPath,$fileName);
         }
 
         if($file9 = $request->hasFile('dfile')) {
@@ -77,8 +76,7 @@ class Company_rest extends Controller
             $file9 = $request->file('dfile') ;
             $fileName9 = time().'-'.$user.'.'.$file9->getClientOriginalExtension() ;
             $destinationPath9 = public_path().'/documents/company-documents' ;
-            // $file9->move($destinationPath9,$fileName9);
-            $file9->store($destinationPath9, $fileName9);
+            $file9->move($destinationPath9,$fileName9);
         } else {
             $fileName9 = null;
         }
@@ -88,7 +86,7 @@ class Company_rest extends Controller
             $file10 = $request->file('featured_image') ;
             $fileName10 = time().'-'.$user.'.'.$file10->getClientOriginalExtension() ;
             $destinationPath10 = public_path().'/company-images' ;
-            $file->store($destinationPath10, $fileName10);
+            $file10->move($destinationPath10, $fileName10);
 
         } else {
             $fileName10 = null;
