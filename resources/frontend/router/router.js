@@ -91,11 +91,11 @@ const routes = [
 		component: () => import("../views/event-details.vue"),
 	},
 	{
-		path: "/nurul-islam-foundation",
-		name: "n foundation",
+		path: "/team-positive",
+		name: "team positive",
 		component: () => import("../views/nfoundation.vue"),
 		beforeEnter: (to, from, next) => {
-			window.location.href = "https://nurulislamfoundation.org/";
+			window.location.href = "https://teampositivebd.org/";
 		},
 	},
 	{

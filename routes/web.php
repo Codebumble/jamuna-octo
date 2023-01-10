@@ -43,7 +43,7 @@ use App\Http\Controllers\FrontendController;
 // Main Page Route
 Route::get('{any}', [FrontendController::class, 'home'])->where(
 	'any',
-	'/|founder|chairman|board-of-directors|company-profile|jamuna-tv|the-daily-jugantor|growth-story|quality-process|future-expansion|contact|photo-gallery|career|news-center|event-details|nurul-islam-foundation|developers-credit|tou|privacy-policy|faq|e-tender|'
+	'/|founder|chairman|board-of-directors|company-profile|growth-story|quality-process|future-expansion|contact|photo-gallery|career|news-center|event-details|team-positive|developers-credit|tou|privacy-policy|faq|e-tender|'
 );
 
 Route::get('/business-vertical/{id}', [FrontendController::class, 'home'])->name(
@@ -583,7 +583,7 @@ Route::group(['prefix' => 'admin'], function () {
 			'auth_edit_product_page',
 		])->name('auth_edit_product_page');
 
-		Route::get('delete-product-image/{id}/{product_id}',[
+		Route::get('delete-product-image/{id}/{product_id}', [
 			Product_rest::class,
 			'delete_product_image'
 		])->name('delete_product_image');

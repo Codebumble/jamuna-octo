@@ -726,7 +726,7 @@
 			},
 		},
 		mounted() {
-			document.title = 'Home | Jamuna Group';
+			document.title = 'Home | TPB LTD.';
 			axios
 				.get(window.location.origin + '/codebumble/data-home-api')
 				.then((response) => {
