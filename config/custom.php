@@ -7,7 +7,7 @@ return [
 		'navbarColor' => '', // options[String]: bg-primary, bg-info, bg-warning, bg-success, bg-danger, bg-dark (default: '' for #fff)
 		'horizontalMenuType' => 'hidden', // options[String]: floating(default) / static /sticky (Warning:this option only applies to the Horizontal theme.)
 		'verticalMenuNavbarType' => 'hidden', // options[String]: floating(default) / static / sticky / hidden (Warning:this option only applies to the vertical theme)
-		'footerType' => 'static', // options[String]: static(default) / sticky / hidden
+		'footerType' => 'hidden', // options[String]: static(default) / sticky / hidden
 		'layoutWidth' => 'boxed', // options[String]: full / boxed(default),
 		'showMenu' => true, // options[Boolean]: true(default), false //show / hide main menu (Warning: if set to false it will hide the main menu)
 		'bodyClass' => '', // add custom class
