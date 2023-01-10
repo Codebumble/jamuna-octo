@@ -182,7 +182,7 @@
                                         <div class="col-md-6 mb-1">
                                             <label class="form-label" for="mobile-number">Mobile number</label>
                                             <input id="mobile-number" type="text" name="mobile-number"
-                                                class="form-control" placeholder="+8801700000000" />
+                                                class="form-control mobile-number-mask" placeholder="+8801700000000" required/>
                                         </div>
                                         <div class="col-md-6 mb-1">
                                             <label class="form-label" for="gender">Gender</label>
